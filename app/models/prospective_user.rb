@@ -1,0 +1,2 @@
+class ProspectiveUser < ApplicationRecord
+end

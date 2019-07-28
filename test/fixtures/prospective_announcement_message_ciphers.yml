@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  verification_code_iv: MyString
+  verification_code_hashing_salt: MyString
+  target_announcement_message_cipher_object: 
+
+two:
+  verification_code_iv: MyString
+  verification_code_hashing_salt: MyString
+  target_announcement_message_cipher_object: 

@@ -1,0 +1,50 @@
+2019-01-31 18:15:09.463 CET [4530] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-31 18:15:09.463 CET [4530] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-31 18:15:09.465 CET [4530] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-31 18:15:09.483 CET [4531] LOG:  database system was shut down at 2019-01-31 18:14:46 CET
+2019-01-31 18:15:09.489 CET [4530] LOG:  database system is ready to accept connections
+2019-01-31 18:15:29.432 CET [4620] FATAL:  database "warsawlease_dev" does not exist
+2019-01-31 18:15:48.116 CET [4711] FATAL:  database "warsawlease_dev" does not exist
+2019-02-01 15:42:51.613 CET [4530] LOG:  received smart shutdown request
+2019-02-01 15:42:51.615 CET [4530] LOG:  background worker "logical replication launcher" (PID 4537) exited with exit code 1
+2019-02-01 15:42:51.615 CET [4532] LOG:  shutting down
+2019-02-01 15:42:51.628 CET [4530] LOG:  database system is shut down
+2019-02-06 18:15:02.892 CET [59202] LOG:  listening on IPv6 address "::1", port 5432
+2019-02-06 18:15:02.893 CET [59202] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-02-06 18:15:02.894 CET [59202] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-02-06 18:15:02.913 CET [59203] LOG:  database system was shut down at 2019-02-06 18:14:54 CET
+2019-02-06 18:15:02.920 CET [59202] LOG:  database system is ready to accept connections
+2019-02-06 18:15:51.488 CET [59373] FATAL:  database "warsawlease_dev" does not exist
+2019-02-06 18:16:14.006 CET [59440] FATAL:  database "warsawlease_dev" does not exist
+2019-02-06 18:16:33.353 CET [59521] FATAL:  database "warsawlease_dev" does not exist
+2019-02-27 19:05:18.815 CET [98786] LOG:  listening on IPv6 address "::1", port 5432
+2019-02-27 19:05:18.816 CET [98786] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-02-27 19:05:18.819 CET [98786] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-02-27 19:05:18.841 CET [98789] LOG:  database system was shut down at 2019-02-27 19:05:02 CET
+2019-02-27 19:05:18.847 CET [98786] LOG:  database system is ready to accept connections
+2019-02-27 19:05:32.996 CET [98858] FATAL:  database "warsawlease_dev" does not exist
+2019-03-11 16:01:20.597 CET [20345] LOG:  listening on IPv6 address "::1", port 5432
+2019-03-11 16:01:20.598 CET [20345] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-03-11 16:01:20.599 CET [20345] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-03-11 16:01:20.616 CET [20346] LOG:  database system was shut down at 2019-03-11 16:01:05 CET
+2019-03-11 16:01:20.621 CET [20345] LOG:  database system is ready to accept connections
+2019-03-11 16:08:43.341 CET [33347] LOG:  could not open directory "/usr/local/share/postgresql/timezone": No such file or directory
+2019-03-11 16:08:43.341 CET [33347] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:08:43.341 CET [33347] ERROR:  invalid value for parameter "TimeZone": "UTC"
+2019-03-11 16:08:43.341 CET [33347] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:09:06.923 CET [33424] LOG:  could not open directory "/usr/local/share/postgresql/timezone": No such file or directory
+2019-03-11 16:09:06.923 CET [33424] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:09:06.931 CET [33424] ERROR:  invalid value for parameter "TimeZone": "UTC"
+2019-03-11 16:09:06.931 CET [33424] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:09:16.578 CET [33463] LOG:  could not open directory "/usr/local/share/postgresql/timezone": No such file or directory
+2019-03-11 16:09:16.578 CET [33463] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:09:16.579 CET [33463] ERROR:  invalid value for parameter "TimeZone": "UTC"
+2019-03-11 16:09:16.579 CET [33463] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:09:24.487 CET [33507] LOG:  could not open directory "/usr/local/share/postgresql/timezone": No such file or directory
+2019-03-11 16:09:24.487 CET [33507] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:09:24.488 CET [33507] ERROR:  invalid value for parameter "TimeZone": "UTC"
+2019-03-11 16:09:24.488 CET [33507] STATEMENT:  SET SESSION timezone TO 'UTC'
+2019-03-11 16:10:16.411 CET [20345] LOG:  received smart shutdown request
+2019-03-11 16:10:16.412 CET [20345] LOG:  background worker "logical replication launcher" (PID 20352) exited with exit code 1
+2019-03-11 16:10:16.412 CET [20347] LOG:  shutting down
+2019-03-11 16:10:16.422 CET [20345] LOG:  database system is shut down

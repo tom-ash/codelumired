@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encrypted_user_id: MyString
+  sender_email: MyString
+  sender_internet_protocol_address: MyString
+  body: MyText
+
+two:
+  encrypted_user_id: MyString
+  sender_email: MyString
+  sender_internet_protocol_address: MyString
+  body: MyText

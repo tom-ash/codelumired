@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encrypted_search_token: MyString
+  verification: 
+  user: 
+
+two:
+  encrypted_search_token: MyString
+  verification: 
+  user: 

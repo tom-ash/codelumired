@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  active: false
+  points: 1
+  views: 1
+  reports: 
+  refreshed_at: 2019-05-04
+  category: 1
+  district: 1
+  rent_currency: 1
+  rent_amount: 1
+  additional_fees: false
+  area: 1
+  availability_date: 2019-05-04
+  rooms: 1
+  floor: 1
+  total_floors: 1
+  pictures: 
+  features: 
+  furnishings: 
+  polish_description: MyText
+  english_description: MyText
+  longitude: 1
+  latitude: 1
+  history: 
+
+two:
+  user: two
+  active: false
+  points: 1
+  views: 1
+  reports: 
+  refreshed_at: 2019-05-04
+  category: 1
+  district: 1
+  rent_currency: 1
+  rent_amount: 1
+  additional_fees: false
+  area: 1
+  availability_date: 2019-05-04
+  rooms: 1
+  floor: 1
+  total_floors: 1
+  pictures: 
+  features: 
+  furnishings: 
+  polish_description: MyText
+  english_description: MyText
+  longitude: 1
+  latitude: 1
+  history: 

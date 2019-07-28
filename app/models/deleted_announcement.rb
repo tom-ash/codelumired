@@ -1,0 +1,2 @@
+class DeletedAnnouncement < ApplicationRecord
+end

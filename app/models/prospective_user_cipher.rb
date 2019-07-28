@@ -1,0 +1,2 @@
+class ProspectiveUserCipher < ApplicationRecord
+end
