@@ -16,7 +16,7 @@ module AnnouncementsShow
     @announcement = @announcement.as_json.with_indifferent_access
     @announcement[:availability_date] = parse_availability_date
     @announcement[:name] = only_tile? ? '' : user.showcase['businessName']
-    @announcement[:phone] = user.showcase['phone']
+    @announcement[:phone] = user.showcase['phone'] if !only_tile?
     render json: @announcement
   end
 end

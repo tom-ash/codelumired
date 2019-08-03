@@ -1,5 +1,5 @@
 module AnnouncementsUpdate
-  EDIT_ATTRIBUTES = %i[id category district pictures area rooms rent_amount rent_currency additional_fees
+  EDIT_ATTRIBUTES = %i[id user_id category district pictures area rooms rent_amount rent_currency additional_fees
                        created_at updated_at availability_date
                        floor total_floors features furnishings polish_description english_description
                        map_latitude map_longitude]
@@ -12,6 +12,8 @@ module AnnouncementsUpdate
     render_400 and return unless user_validated?
     @announcement = Announcement.where(id: params[:id]).select(EDIT_ATTRIBUTES).take.serializable_hash
                                                                                .with_indifferent_access
+    render_400 and return unless owner?
+    @announcement.delete(:user_id)
     parse_availability_date_for_update
     render json: { announcement: @announcement }
   end
@@ -19,6 +21,7 @@ module AnnouncementsUpdate
   def update
     render_400 and return unless user_validated?
     find_announcement
+    render_400 and return unless owner?
     prepare_update_object
     handle_availability_date
     update_attributes
@@ -26,6 +29,10 @@ module AnnouncementsUpdate
   end
 
   private
+
+  def owner?
+    @user.id == User.find(@announcement[:user_id]).id
+  end
 
   def parse_availability_date_for_update
     @announcement[:availability_date] = 'now' if Date.current > @announcement[:availability_date]
