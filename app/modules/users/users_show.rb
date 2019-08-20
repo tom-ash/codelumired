@@ -14,7 +14,8 @@ module UsersShow
     decrypt_tax_identification
     decrypt_phone_body
     decrypt_email
-    @response = { businessName: @business_name, taxIdentification: @tax_identification,
+    @response = { businessName: @business_name,
+                  taxIdentification: @tax_identification,
                   phoneCountryCode: @user.phone['phone_code'], phoneBody: @phone_body,
                   email: @email }
     render_200

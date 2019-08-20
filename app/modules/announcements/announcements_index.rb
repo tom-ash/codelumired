@@ -15,6 +15,7 @@ module AnnouncementsIndex
   def index
     return list if params[:type] == 'list'
     search_announcements
+    handle_availability_date_for_index
     if request.headers['Only-Amount'] == 'true'
       response = { amount: panel_announcements }
     elsif request.headers['Only-Locations'] == 'true'
@@ -32,10 +33,20 @@ module AnnouncementsIndex
     limit_announcements
     sort_announcements
     select_attributes
-    render json: { amount: @amount, announcements: @announcements }
+    render json: {
+      amount: @amount,
+      announcements: @announcements
+    }
   end
 
   private
+
+  def handle_availability_date_for_index
+    availability_date = params[:availability_date]
+    return unless availability_date
+
+    @announcements = @announcements.where("availability_date <= ?", availability_date)
+  end
 
   def search_announcements
     @announcements = Announcement.all
@@ -64,7 +75,6 @@ module AnnouncementsIndex
   end
 
   def full_announcements
-    @amount = @announcements.count
     @announcements.limit(PER_PAGE).offset(offset).select(FULL_ATTRIBUTES)
   end
 
@@ -83,6 +93,7 @@ module AnnouncementsIndex
       next if request.headers[filter[:name]] == "true"
       @announcements = @announcements.where.not( filter[:attribute] => filter[:value])
     end
+    @amount = @announcements.count
   end
 
   def limit_announcements

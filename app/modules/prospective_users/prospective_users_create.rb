@@ -20,7 +20,7 @@ module ProspectiveUsersCreate
   def parse_params
     @language = request.headers[:language]
     @business_name = params[:businessName]
-    @tax_identification = params[:taxIdentification]
+    # @tax_identification = params[:taxIdentification]
     @phone_code = params[:countryCode]
     @phone_body = params[:phone]
     @email = params[:email]
@@ -29,7 +29,9 @@ module ProspectiveUsersCreate
   end
   
   def invalid_params
-    params_to_validate = [ @business_name, @tax_identification, @phone_code, @phone_body, @email, @password ]
+    params_to_validate = [ @business_name,
+    # @tax_identification,
+    @phone_code, @phone_body, @email, @password ]
     for param in params_to_validate
       return true if param == '' || param == nil
     end
@@ -60,18 +62,19 @@ module ProspectiveUsersCreate
 
   def prepare_user
     encrypt_business_name
-    encrypt_tax_identification
+    # encrypt_tax_identification
     encrypt_phone_body
     hash_user_password
     @user_object = { consents: @consents, encrypted_business_name: @encrypted_business_name,
-                     encrypted_tax_identification: @encrypted_tax_identification,
+                    #  encrypted_tax_identification: @encrypted_tax_identification,
                      phone: { phone_code: @phone_code, encrypted_body: @encrypted_phone_body,
                               verified: false }, encrypted_email: @encrypted_email, hashed_password: @hashed_password }
     @prospective_user.user = @user_object
   end
 
   def prepare_user_cipher
-    @user_cipher_object = { business_name_iv: @business_name_iv, tax_identification_iv: @tax_identification_iv,
+    @user_cipher_object = { business_name_iv: @business_name_iv,
+                            # tax_identification_iv: @tax_identification_iv,
                             phone_body_iv: @phone_body_iv, email_derived_cipher_id: @email_derived_cipher_id,
                             password_salt: @password_salt }
     @prospective_user_cipher.user_cipher = @user_cipher_object

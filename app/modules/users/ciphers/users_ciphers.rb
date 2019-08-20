@@ -31,7 +31,10 @@ module UsersCiphers
   end
 
   def decrypt_tax_identification
-    @encrypted_record = @user.encrypted_tax_identification
+    encrypted_record = @user.encrypted_tax_identification
+    return unless encrypted_record
+
+    @encrypted_record = encrypted_record
     @key = Rails.application.secrets.tax_identification_key
     @iv = UserCipher.find(@user.id).tax_identification_iv
     @tax_identification = decrypt        
