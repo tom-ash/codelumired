@@ -1,19 +1,20 @@
 module AnnouncementsIndex
   EQUAL_PARAMS = %i[ category district rent_currency ]
-  MIN_PARAMS = %i[ min_area min_rooms min_rent_amount min_floor min_total_floors ]
-  MAX_PARAMS = %i[ max_area max_rooms max_rent_amount max_floor max_total_floors ]
+  MIN_PARAMS = %i[ min_area min_rooms min_net_rent_amount min_floor min_total_floors ]
+  MAX_PARAMS = %i[ max_area max_rooms max_net_rent_amount max_floor max_total_floors ]
   PER_PAGE = 24
-  FULL_ATTRIBUTES = %i[id category district rent_amount rent_currency area pictures rooms floor total_floors availability_date]
+  FULL_ATTRIBUTES = %i[id category district net_rent_amount rent_currency area pictures rooms floor total_floors availability_date]
   MAP_ATTRIBUTES = %i[id category map_latitude map_longitude]
   FILTERS = [ { name: 'offices', attribute: 'category', value: 0 },
               { name: 'usablePremises', attribute: 'category', value: 1 },
-              { name: 'active', attribute: 'active', value: true },
-              { name: 'inactive', attribute: 'active', value: false } ]
+              { name: 'active', attribute: 'status', value: 1 },
+              { name: 'inactive', attribute: 'status', value: 2 } ]
   SORTERS = { updateasc: 'updated_at', updatedesc: 'updated_at DESC', createasc: 'created_at',
               createdesc: 'created_at DESC', viewsasc: 'views', viewsdesc: 'views DESC' }.with_indifferent_access
-  
+
   def index
     return list if params[:type] == 'list'
+
     search_announcements
     handle_availability_date_for_index
     if request.headers['Only-Amount'] == 'true'
@@ -89,9 +90,10 @@ module AnnouncementsIndex
   end
 
   def filter_announcements
-    for filter in FILTERS
-      next if request.headers[filter[:name]] == "true"
-      @announcements = @announcements.where.not( filter[:attribute] => filter[:value])
+    FILTERS.each do |filter|
+      next if request.headers[filter[:name]] == 'true'
+
+      @announcements = @announcements.where.not(filter[:attribute] => filter[:value])
     end
     @amount = @announcements.count
   end
@@ -105,6 +107,13 @@ module AnnouncementsIndex
   end
 
   def select_attributes
-    @announcements = @announcements.select(FULL_ATTRIBUTES.push(:views, :active, :created_at, :updated_at))
+    @announcements = @announcements.select(
+      FULL_ATTRIBUTES.push(
+        :views,
+        :status,
+        :created_at,
+        :updated_at
+      )
+    )
   end
 end

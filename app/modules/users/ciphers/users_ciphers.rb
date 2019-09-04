@@ -27,23 +27,23 @@ module UsersCiphers
     @encrypted_record = @user.encrypted_business_name
     @key = Rails.application.secrets.business_name_key
     @iv = UserCipher.find(@user.id).business_name_iv
-    @business_name = decrypt        
+    @business_name = decrypt
   end
 
   def decrypt_tax_identification
     encrypted_record = @user.encrypted_tax_identification
-    return unless encrypted_record
+    return if encrypted_record.blank?
 
     @encrypted_record = encrypted_record
     @key = Rails.application.secrets.tax_identification_key
     @iv = UserCipher.find(@user.id).tax_identification_iv
-    @tax_identification = decrypt        
+    @tax_identification = decrypt
   end
-  
+
   def decrypt_phone_body
     @encrypted_record = @user.phone['encrypted_body']
     @key = Rails.application.secrets.phone_body_key
     @iv = @user_cipher.phone_body_iv
-    @phone_body = decrypt        
+    @phone_body = decrypt
   end
 end

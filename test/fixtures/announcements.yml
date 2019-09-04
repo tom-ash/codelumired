@@ -10,7 +10,7 @@ one:
   category: 1
   district: 1
   rent_currency: 1
-  rent_amount: 1
+  net_rent_amount: 1
   additional_fees: false
   area: 1
   availability_date: 2019-05-04
@@ -36,7 +36,7 @@ two:
   category: 1
   district: 1
   rent_currency: 1
-  rent_amount: 1
+  net_rent_amount: 1
   additional_fees: false
   area: 1
   availability_date: 2019-05-04

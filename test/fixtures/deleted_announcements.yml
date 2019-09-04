@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  original_announcement_object: 
+  original_announcement: 
 
 two:
-  original_announcement_object: 
+  original_announcement: 

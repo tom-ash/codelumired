@@ -1,10 +1,10 @@
 module AnnouncementsUpdate
-  EDIT_ATTRIBUTES = %i[id user_id category district pictures area rooms rent_amount rent_currency additional_fees
+  EDIT_ATTRIBUTES = %i[id user_id category district pictures area rooms net_rent_amount rent_currency additional_fees
                        created_at updated_at availability_date
                        floor total_floors features furnishings polish_description english_description
                        map_latitude map_longitude]
 
-  EDIT_SYMBOLS = %I[active category district rent_amount rent_currency additional_fees area rooms floor total_floors
+  EDIT_SYMBOLS = %I[active category district net_rent_amount rent_currency additional_fees area rooms floor total_floors
                     pictures availability_date features furnishings polish_description english_description map_latitude
                     map_longitude ]
 

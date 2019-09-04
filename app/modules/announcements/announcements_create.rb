@@ -1,4 +1,4 @@
-PARAM_SYMBOLS = %I[ category district rent_amount rent_currency additional_fees area rooms floor total_floors
+PARAM_SYMBOLS = %I[ category district net_rent_amount rent_currency additional_fees area rooms floor total_floors
                     availability_date pictures features furnishings polish_description english_description
                     map_latitude map_longitude ]
 
