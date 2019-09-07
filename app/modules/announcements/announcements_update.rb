@@ -2,11 +2,11 @@ module AnnouncementsUpdate
   EDIT_ATTRIBUTES = %i[id user_id category district pictures area rooms net_rent_amount rent_currency additional_fees
                        created_at updated_at availability_date
                        floor total_floors features furnishings polish_description english_description
-                       map_latitude map_longitude]
+                       latitude longitude]
 
   EDIT_SYMBOLS = %I[active category district net_rent_amount rent_currency additional_fees area rooms floor total_floors
-                    pictures availability_date features furnishings polish_description english_description map_latitude
-                    map_longitude ]
+                    pictures availability_date features furnishings polish_description english_description latitude
+                    longitude ]
 
   def edit
     render_400 and return unless user_validated?

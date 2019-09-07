@@ -1,12 +1,17 @@
 class Announcement < ApplicationRecord
   belongs_to :user
-  validates :active, presence: true
+  validates :status, presence: true
   validates :points, presence: true
   validates :views, presence: true
   validates :category, presence: true, numericality: { only_integer: true }
   validates :district, presence: true, numericality: { only_integer: true }
   validates :rent_currency, presence: true, numericality: { only_integer: true }
+
   validates :net_rent_amount, presence: true, numericality: { only_integer: true }
+  validates :net_rent_amount_per_sqm, presence: true, numericality: { only_integer: true }
+  validates :gross_rent_amount, presence: true, numericality: { only_integer: true }
+  validates :gross_rent_amount_per_sqm, presence: true, numericality: { only_integer: true }
+
   validates :additional_fees, inclusion: { in: [true, false] }
   validates :area, presence: true, numericality: { only_integer: true }
   validates :rooms, presence: true, numericality: { only_integer: true }
@@ -14,11 +19,11 @@ class Announcement < ApplicationRecord
   validates :total_floors, presence: true, numericality: { only_integer: true }
   validates :availability_date, presence: true
   validates :pictures, presence: true, length: { minimum: 1 }
-  validates :map_latitude, presence: true, numericality: { only_integer: true }
-  validates :map_longitude, presence: true, numericality: { only_integer: true }
+  validates :latitude, presence: true, numericality: { only_integer: true }
+  validates :longitude, presence: true, numericality: { only_integer: true }
 
   def self.create_test_announcements
-    50.times do
+    1.times do
       floor = [5, 10, 15, 20, 25, 30].shuffle[0]
       @announcement = Announcement.all.shuffle[0]
       @pictures = @announcement.pictures.shuffle
@@ -37,9 +42,11 @@ class Announcement < ApplicationRecord
         floor: floor,
         total_floors: floor + [5, 10, 15, 20, 25, 30].shuffle[0],
         rooms: [5, 10, 15, 20, 25, 30].shuffle[0],
-        map_latitude: [*52198112..52249857].shuffle[0],
-        map_longitude: [*20941090..21048526].shuffle[0]
+        latitude: [*52198112..52249857].shuffle[0],
+        longitude: [*20941090..21048526].shuffle[0]
       })
+
+      byebug
 
       @new_announcement.errors
 

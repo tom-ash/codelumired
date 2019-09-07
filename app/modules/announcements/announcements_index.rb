@@ -4,7 +4,7 @@ module AnnouncementsIndex
   MAX_PARAMS = %i[ max_area max_rooms max_net_rent_amount max_floor max_total_floors ]
   PER_PAGE = 24
   FULL_ATTRIBUTES = %i[id category district net_rent_amount rent_currency area pictures rooms floor total_floors availability_date]
-  MAP_ATTRIBUTES = %i[id category map_latitude map_longitude]
+  MAP_ATTRIBUTES = %i[id category latitude longitude]
   FILTERS = [ { name: 'offices', attribute: 'category', value: 0 },
               { name: 'usablePremises', attribute: 'category', value: 1 },
               { name: 'active', attribute: 'status', value: 1 },
@@ -71,7 +71,7 @@ module AnnouncementsIndex
 
   def map_announcements
     @amount = @announcements.count
-    @announcements = @announcements.where.not(map_latitude: nil, map_longitude: nil).limit(50)
+    @announcements = @announcements.where.not(latitude: nil, longitude: nil).limit(50)
     @announcements.select(MAP_ATTRIBUTES)
   end
 

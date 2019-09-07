@@ -2,7 +2,6 @@
 
 one:
   user: one
-  active: false
   points: 1
   views: 1
   reports: 
@@ -28,7 +27,6 @@ one:
 
 two:
   user: two
-  active: false
   points: 1
   views: 1
   reports: 

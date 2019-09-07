@@ -1,7 +1,7 @@
 module AnnouncementsShow
   FULL_ATTRIBUTES = %i[id user_id category district pictures area rooms net_rent_amount rent_currency additional_fees
                        floor total_floors availability_date features furnishings polish_description english_description
-                       map_latitude map_longitude]
+                       latitude longitude]
 
   TILE_ATTRIBUTES = %i[id category district pictures area rooms net_rent_amount rent_currency additional_fees floor
                        total_floors availability_date ]
