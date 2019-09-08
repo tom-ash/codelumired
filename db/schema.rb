@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_07_082228) do
+ActiveRecord::Schema.define(version: 2019_09_08_093257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,17 +24,17 @@ ActiveRecord::Schema.define(version: 2019_09_07_082228) do
     t.date "refreshed_at", null: false
     t.integer "category", limit: 2, null: false
     t.integer "district", limit: 2, null: false
+    t.integer "area", null: false
     t.integer "rent_currency", limit: 2, null: false
     t.integer "net_rent_amount", null: false
     t.integer "net_rent_amount_per_sqm", null: false
     t.integer "gross_rent_amount", null: false
     t.integer "gross_rent_amount_per_sqm", null: false
     t.boolean "additional_fees", null: false
-    t.integer "area", null: false
-    t.date "availability_date", null: false
     t.integer "rooms", limit: 2, null: false
     t.integer "floor", limit: 2, null: false
     t.integer "total_floors", limit: 2, null: false
+    t.date "availability_date", null: false
     t.jsonb "pictures", null: false
     t.jsonb "features", null: false
     t.jsonb "furnishings", null: false

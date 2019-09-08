@@ -6,11 +6,11 @@ one:
   email_derived_cipher_id: 1
   password_salt: MyString
   phone_body_iv: MyString
-  first_name_iv: MyString
-  last_name_iv: MyString
   business_name_iv: MyString
   tax_identification_iv: MyString
-  invoice_data_iv: MyString
+  legal_name_iv: MyString
+  address_iv: MyString
+  history: 
 
 two:
   access_token_salt: MyString
@@ -18,8 +18,8 @@ two:
   email_derived_cipher_id: 1
   password_salt: MyString
   phone_body_iv: MyString
-  first_name_iv: MyString
-  last_name_iv: MyString
   business_name_iv: MyString
   tax_identification_iv: MyString
-  invoice_data_iv: MyString
+  legal_name_iv: MyString
+  address_iv: MyString
+  history: 

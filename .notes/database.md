@@ -71,10 +71,10 @@ net_rent_amount_per_sqm:integer:index \
 gross_rent_amount:integer:index \
 gross_rent_amount_per_sqm:integer:index \
 additional_fees:boolean:index \
-availability_date:date:index \
 rooms:integer:index \
 floor:integer:index \
 total_floors:integer:index \
+availability_date:date:index \
 pictures:jsonb \
 features:jsonb \
 furnishings:jsonb \

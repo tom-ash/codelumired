@@ -2,20 +2,24 @@
 
 one:
   user: one
+  status: 1
   points: 1
   views: 1
   reports: 
-  refreshed_at: 2019-05-04
+  refreshed_at: 2019-09-08
   category: 1
   district: 1
+  area: 1
   rent_currency: 1
   net_rent_amount: 1
+  net_rent_amount_per_sqm: 1
+  gross_rent_amount: 1
+  gross_rent_amount_per_sqm: 1
   additional_fees: false
-  area: 1
-  availability_date: 2019-05-04
   rooms: 1
   floor: 1
   total_floors: 1
+  availability_date: 2019-09-08
   pictures: 
   features: 
   furnishings: 
@@ -27,20 +31,24 @@ one:
 
 two:
   user: two
+  status: 1
   points: 1
   views: 1
   reports: 
-  refreshed_at: 2019-05-04
+  refreshed_at: 2019-09-08
   category: 1
   district: 1
+  area: 1
   rent_currency: 1
   net_rent_amount: 1
+  net_rent_amount_per_sqm: 1
+  gross_rent_amount: 1
+  gross_rent_amount_per_sqm: 1
   additional_fees: false
-  area: 1
-  availability_date: 2019-05-04
   rooms: 1
   floor: 1
   total_floors: 1
+  availability_date: 2019-09-08
   pictures: 
   features: 
   furnishings: 

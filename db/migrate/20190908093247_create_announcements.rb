@@ -9,17 +9,17 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
       t.date :refreshed_at, null: false
       t.integer :category, null: false, limit: 2
       t.integer :district, null: false, limit: 2
+      t.integer :area, null: false
       t.integer :rent_currency, null: false, limit: 2
       t.integer :net_rent_amount, null: false
       t.integer :net_rent_amount_per_sqm, null: false
       t.integer :gross_rent_amount, null: false
       t.integer :gross_rent_amount_per_sqm, null: false
       t.boolean :additional_fees, null: false
-      t.integer :area, null: false
-      t.date :availability_date, null: false
       t.integer :rooms, null: false, limit: 2
       t.integer :floor, null: false, limit: 2
       t.integer :total_floors, null: false, limit: 2
+      t.date :availability_date, null: false
       t.jsonb :pictures, null: false
       t.jsonb :features, null: false
       t.jsonb :furnishings, null: false
@@ -36,17 +36,17 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
     add_index :announcements, :refreshed_at
     add_index :announcements, :category
     add_index :announcements, :district
+    add_index :announcements, :area
     add_index :announcements, :rent_currency
     add_index :announcements, :net_rent_amount
     add_index :announcements, :net_rent_amount_per_sqm
     add_index :announcements, :gross_rent_amount
     add_index :announcements, :gross_rent_amount_per_sqm
     add_index :announcements, :additional_fees
-    add_index :announcements, :area
-    add_index :announcements, :availability_date
     add_index :announcements, :rooms
     add_index :announcements, :floor
     add_index :announcements, :total_floors
+    add_index :announcements, :availability_date
     add_index :announcements, :longitude
     add_index :announcements, :latitude
   end

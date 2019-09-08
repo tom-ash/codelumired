@@ -1,39 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  status: MyString
-  account_type: MyString
+  status: 1
   encrypted_search_token: MyString
   hashed_access_token: MyString
+  tokens_date: 2019-09-08
   verification: 
+  points: 1
   encrypted_email: MyString
   hashed_password: MyString
   consents: 
-  points: 1
   phone: 
-  encrypted_first_name: MyString
-  encrypted_last_name: MyString
   encrypted_business_name: MyString
+  showcase: 
   encrypted_tax_identification: MyString
-  showcase: MyText
-  encrypted_invoice_data: MyText
+  encrypted_legal_name: MyString
+  encrypted_address: MyText
   history: 
 
 two:
-  status: MyString
-  account_type: MyString
+  status: 1
   encrypted_search_token: MyString
   hashed_access_token: MyString
+  tokens_date: 2019-09-08
   verification: 
+  points: 1
   encrypted_email: MyString
   hashed_password: MyString
   consents: 
-  points: 1
   phone: 
-  encrypted_first_name: MyString
-  encrypted_last_name: MyString
   encrypted_business_name: MyString
+  showcase: 
   encrypted_tax_identification: MyString
-  showcase: MyText
-  encrypted_invoice_data: MyText
+  encrypted_legal_name: MyString
+  encrypted_address: MyText
   history: 
