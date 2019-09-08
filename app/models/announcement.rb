@@ -46,8 +46,6 @@ class Announcement < ApplicationRecord
         longitude: [*20941090..21048526].shuffle[0]
       })
 
-      byebug
-
       @new_announcement.errors
 
       for picture in @pictures

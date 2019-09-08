@@ -1,34 +1,14 @@
 module AnnouncementsIndex
-  EQUAL_PARAMS = %i[ category district rent_currency ]
-  MIN_PARAMS = %i[ min_area min_rooms min_net_rent_amount min_floor min_total_floors ]
-  MAX_PARAMS = %i[ max_area max_rooms max_net_rent_amount max_floor max_total_floors ]
-  PER_PAGE = 24
-  FULL_ATTRIBUTES = %i[id category district net_rent_amount rent_currency area pictures rooms floor total_floors availability_date]
-  MAP_ATTRIBUTES = %i[id category latitude longitude]
-  FILTERS = [ { name: 'offices', attribute: 'category', value: 0 },
-              { name: 'usablePremises', attribute: 'category', value: 1 },
-              { name: 'active', attribute: 'status', value: 1 },
-              { name: 'inactive', attribute: 'status', value: 2 } ]
-  SORTERS = { updateasc: 'updated_at', updatedesc: 'updated_at DESC', createasc: 'created_at',
-              createdesc: 'created_at DESC', viewsasc: 'views', viewsdesc: 'views DESC' }.with_indifferent_access
-
   def index
     return list if params[:type] == 'list'
 
     search_announcements
-    handle_availability_date_for_index
-    if request.headers['Only-Amount'] == 'true'
-      response = { amount: panel_announcements }
-    elsif request.headers['Only-Locations'] == 'true'
-      response = { announcements: map_announcements, amount: @amount  }
-    else
-      response = { announcements: full_announcements, amount: @amount }
-    end
-    render json: response
+    render json: handle_response
   end
 
   def list
-    render_400 and return unless user_validated?
+    return render_400 unless user_validated?
+
     prepare_announcements
     filter_announcements
     limit_announcements
@@ -42,27 +22,48 @@ module AnnouncementsIndex
 
   private
 
-  def handle_availability_date_for_index
-    availability_date = params[:availability_date]
-    return unless availability_date
-
-    @announcements = @announcements.where("availability_date <= ?", availability_date)
-  end
-
   def search_announcements
     @announcements = Announcement.all
-    for param in EQUAL_PARAMS
-      value = params[param]
-      @announcements = @announcements.where(param => value) if value
+    handle_equal_attributes
+    handle_minimal_attributes
+    handle_maximal_attributes
+  end
+
+  def handle_equal_attributes
+    equal_attributes.each do |attribute|
+      value = params[attribute]
+      next unless value
+
+      @announcements = @announcements.where(attribute => value)
     end
-    for param in MIN_PARAMS
-      value = params[param]
-      @announcements = @announcements.where("#{param[4..-1]} >= ?", value) if value
+  end
+
+  def handle_minimal_attributes
+    minimal_attributes.each do |attribute|
+      value = params[attribute]
+      next unless value
+
+      @announcements = @announcements.where("#{attribute[4..-1]} >= ?", value)
     end
-    for param in MAX_PARAMS
-      value = params[param]
-      @announcements = @announcements.where("#{param[4..-1]} <= ?", value) if value
+  end
+
+  def handle_maximal_attributes
+    maximal_attributes.each do |attribute|
+      value = params[attribute]
+      next unless value
+
+      attribute = attribute == :availability_date ? attribute : attribute[4..-1]
+      @announcements = @announcements.where("#{attribute} <= ?", value)
     end
+  end
+
+  def handle_response
+    request_header = request.headers
+    return { amount: panel_announcements } if request_header['Only-Amount'] == 'true'
+
+    return { announcements: map_announcements, amount: @amount  } if request_header['Only-Locations'] == 'true'
+
+    { announcements: full_announcements, amount: @amount }
   end
 
   def panel_announcements
@@ -72,16 +73,11 @@ module AnnouncementsIndex
   def map_announcements
     @amount = @announcements.count
     @announcements = @announcements.where.not(latitude: nil, longitude: nil).limit(50)
-    @announcements.select(MAP_ATTRIBUTES)
+    @announcements.select(map_attributes)
   end
 
   def full_announcements
-    @announcements.limit(PER_PAGE).offset(offset).select(FULL_ATTRIBUTES)
-  end
-
-  def offset
-    page = params[:page]
-    offset = ['', '1'].include?(page) ? 0 : page.to_i * PER_PAGE - PER_PAGE
+    @announcements.limit(per_page).offset(offset).select(full_attributes)
   end
 
   def prepare_announcements
@@ -89,8 +85,13 @@ module AnnouncementsIndex
     @announcements = @user.announcements
   end
 
+  def offset
+    page = params[:page]
+    ['', '1'].include?(page) ? 0 : page.to_i * per_page - per_page
+  end
+
   def filter_announcements
-    FILTERS.each do |filter|
+    filters.each do |filter|
       next if request.headers[filter[:name]] == 'true'
 
       @announcements = @announcements.where.not(filter[:attribute] => filter[:value])
@@ -99,21 +100,53 @@ module AnnouncementsIndex
   end
 
   def limit_announcements
-    @announcements = @announcements.limit(PER_PAGE).offset!(offset)
+    @announcements = @announcements.limit(per_page).offset!(offset)
   end
 
   def sort_announcements
-    @announcements = @announcements.order(SORTERS[request.headers[:sort]])
+    @announcements = @announcements.order(sorters[request.headers[:sort]])
   end
 
   def select_attributes
     @announcements = @announcements.select(
-      FULL_ATTRIBUTES.push(
-        :views,
-        :status,
-        :created_at,
-        :updated_at
-      )
+      [*full_attributes, %i[
+        views
+        status
+        created_at
+        updated_at
+      ]]
     )
+  end
+
+  def full_attributes
+    AnnouncementsAttributes::INDEX_FULL
+  end
+
+  def map_attributes
+    AnnouncementsAttributes::INDEX_MAP
+  end
+
+  def equal_attributes
+    AnnouncementsAttributes::INDEX_EQUAL
+  end
+
+  def minimal_attributes
+    AnnouncementsAttributes::INDEX_MINIMAL
+  end
+
+  def maximal_attributes
+    AnnouncementsAttributes::INDEX_MAXIMAL
+  end
+
+  def per_page
+    AnnouncementsAttributes::INDEX_PER_PAGE
+  end
+
+  def filters
+    AnnouncementsAttributes::INDEX_FILTERS
+  end
+
+  def sorters
+    AnnouncementsAttributes::INDEX_SORTERS
   end
 end

@@ -118,13 +118,13 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
       t.date :refreshed_at, null: false
       t.integer :category, null: false, limit: 2
       t.integer :district, null: false, limit: 2
+      t.integer :area, null: false
       t.integer :rent_currency, null: false, limit: 2
       t.integer :net_rent_amount, null: false
       t.integer :net_rent_amount_per_sqm, null: false
       t.integer :gross_rent_amount, null: false
       t.integer :gross_rent_amount_per_sqm, null: false
       t.boolean :additional_fees, null: false
-      t.integer :area, null: false
       t.date :availability_date, null: false
       t.integer :rooms, null: false, limit: 2
       t.integer :floor, null: false, limit: 2

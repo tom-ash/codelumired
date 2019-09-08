@@ -64,13 +64,13 @@ reports:jsonb \
 refreshed_at:date:index \
 category:integer:index \
 district:integer:index \
+area:integer:index \
 rent_currency:integer:index \
 net_rent_amount:integer:index \
 net_rent_amount_per_sqm:integer:index \
 gross_rent_amount:integer:index \
 gross_rent_amount_per_sqm:integer:index \
 additional_fees:boolean:index \
-area:integer:index \
 availability_date:date:index \
 rooms:integer:index \
 floor:integer:index \
