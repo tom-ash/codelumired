@@ -21,6 +21,8 @@ class Announcement < ApplicationRecord
   validates :latitude, presence: true, numericality: { only_integer: true }
   validates :longitude, presence: true, numericality: { only_integer: true }
 
+  before_update :log_changes
+
   def pictures_structure
     errors.add(:pictures, 'invalid pictures structure') if pictures.class != Array
     pictures.each do |picture|
