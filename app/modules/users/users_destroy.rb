@@ -1,7 +1,7 @@
 module UsersDestroy
   def destroy_send_email
     render_400 and return unless user_validated?
-    @email_sender = 'warsawlease.com <noreply@warsawlease.com>'
+    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:emailAddress]
     @email_subject = @context = 'Account Deletion Verification Code'
     send_verification_code

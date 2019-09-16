@@ -2,7 +2,7 @@ module UsersEditEmail
   def edit_email_send_current
     @required_params = [:email]
     render_400 and return unless user_validated? && required_params_present?
-    @email_sender = 'warsawlease.com <noreply@warsawlease.com>'
+    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:email]
     @email_subject = @context = 'Email Address Change Verification Code'
     send_verification_code
@@ -18,7 +18,7 @@ module UsersEditEmail
   def edit_email_send_new
     @required_params = [:new_email]
     render_400 and return unless user_validated? && required_params_present?
-    @email_sender = 'warsawlease.com <noreply@warsawlease.com>'
+    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = @email = params[:new_email]
     @email_subject = @context = 'Email Address Change Verification Code'
     @new_email_verification_code = SecureRandom.hex(4).upcase

@@ -92,7 +92,7 @@ module ProspectiveUsersCreate
   end
 
   def send_verification_code
-    @email_sender = 'warsawlease.com <noreply@warsawlease.com>'
+    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = @email
     @email_subject = @context
     @email_text = @verification_code
