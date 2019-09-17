@@ -29,10 +29,12 @@ module UsersGeneral
 
   def send_verification_code
     find_user_and_cipher_with_email
-    render_200 and return unless @user && @user_cipher
+    return render_200 unless @user && @user_cipher
+
     generate_verification
     @email_text = @verification_code
-    @email_html = @verification_code
+    @email_html = verification_email
+    
     send_email
     render_200 and return if @user.update_attributes(verification: @verification) &&
                              @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)

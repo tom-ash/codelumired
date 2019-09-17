@@ -1,7 +1,8 @@
 module Mailers
+  include Mailers::EmailContents
+
   def send_email
     send_email_with_emaillabs
-    # send_email_with_mailgun
   end
 
   private
