@@ -1,11 +1,12 @@
 module UsersEditEmail
   def edit_email_send_current
+    @language = request.headers[:language]
     @required_params = [:email]
     render_400 and return unless user_validated? && required_params_present?
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:email]
-    @email_subject = @context = 'Email Address Change Verification Code'
-    send_verification_code
+    @email_subject = @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
+    send_verification
   end
 
   def edit_email_verify_current
@@ -16,14 +17,15 @@ module UsersEditEmail
   end
 
   def edit_email_send_new
+    @language = request.headers[:language]
     @required_params = [:new_email]
     render_400 and return unless user_validated? && required_params_present?
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = @email = params[:new_email]
-    @email_subject = @context = 'Email Address Change Verification Code'
+    @email_subject = @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
     @new_email_verification_code = SecureRandom.hex(4).upcase
     @email_text = @new_email_verification_code
-    @email_html = @new_email_verification_code
+    @email_html = verification_email
     send_email
     @verification_code = decrypt_verification_code + @new_email_verification_code
     generate_verification
@@ -32,7 +34,7 @@ module UsersEditEmail
     @verification['newEmailDerivedCipherId'] = @email_derived_cipher_id
     render_200 and return if @user.update_attributes(verification: @verification) &&
                              @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
-    render_400    
+    render_400
   end
 
   def edit_email_verify_new

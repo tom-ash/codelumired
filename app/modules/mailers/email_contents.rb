@@ -2,35 +2,45 @@ module Mailers::EmailContents
   private
 
   def verification_email
+    @verification_code ||= @new_email_verification_code
+    @style = "
+    .verification-code {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #E74C3C;
+    }"
+    @body = "
+    <div class='verification-code'>
+      #{@verification_code}
+    </div>"
+    email
+  end
+
+  def email
     "<html>
       <head>
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
         <style>
-          .verification-code {
-            color: red;
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 20px;
-          }
           .logo {
             border: 1px solid;
             padding: 0px 3px 1px 3px;
-            border-radius: 4px;
-            margin-left: 2px;
+            border-radius: 3px;
+            margin-left: 1px;
           }
           .company {
             margin-top: 18px;
-            font-size: 10px;
-            text-align: justify;
-            border-top: 1px solid gray;
             padding-top: 9px;
+            border-top: 1px solid lightgray;
+            text-align: justify;
+            font-size: 10px;
+            color: lightgray;
           }
+          #{@style}
         </style>
       </head>
       <body>
-        <div class='verification-code'>
-          #{@verification_code}
-        </div>
+        #{@body}
         <div>
           Warsaw
           <span class='logo'>

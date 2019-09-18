@@ -4,7 +4,7 @@ module UsersDestroy
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:emailAddress]
     @email_subject = @context = 'Account Deletion Verification Code'
-    send_verification_code
+    send_verification
   end
 
   def destroy

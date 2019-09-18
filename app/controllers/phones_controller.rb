@@ -13,7 +13,7 @@ class PhonesController < ApplicationController
     generate_verification
     @message = @verification_code
     send_sms
-    # send_verification_code
+    # send_verification
     render_200 and return if @user.update_attributes(verification: @verification) &&
                              @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
     render_400

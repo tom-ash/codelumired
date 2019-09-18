@@ -13,7 +13,7 @@ module ProspectiveUsersCreate
     prepare_verification
     prepare_user
     prepare_user_cipher
-    send_verification_code if account_prepared
+    send_verification if account_prepared
     render_201
   end
 
@@ -61,7 +61,7 @@ module ProspectiveUsersCreate
   end
 
   def prepare_verification
-    @context = 'Account Registration Verification Code'
+    @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
     generate_verification
     @prospective_user.verification = @verification
     @prospective_user_cipher.verification_code_iv = @verification_code_iv
@@ -91,12 +91,12 @@ module ProspectiveUsersCreate
     @prospective_user_cipher.user_cipher = @user_cipher_object
   end
 
-  def send_verification_code
+  def send_verification
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = @email
     @email_subject = @context
     @email_text = @verification_code
-    @email_html = @verification_code
+    @email_html = verification_email
     send_email
   end
 

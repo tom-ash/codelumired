@@ -21,24 +21,37 @@ module UsersGeneral
     @email = request.headers[:emailAddress] || params[:emailAddress] ||
              request.headers[:email] || params[:email]
     return unless @email
+
     encrypt_email
     @user = User.find_by(encrypted_email: @encrypted_email)
     return unless @user
+
     @user_cipher = UserCipher.find_by(id: @user.id)
   end
 
-  def send_verification_code
+  def send_verification
     find_user_and_cipher_with_email
     return render_200 unless @user && @user_cipher
 
     generate_verification
+    prepare_email_content
+    send_email
+    return render_200 if update_user && update_user_cipher
+
+    render_400
+  end
+
+  def prepare_email_content
     @email_text = @verification_code
     @email_html = verification_email
-    
-    send_email
-    render_200 and return if @user.update_attributes(verification: @verification) &&
-                             @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
-    render_400
+  end
+
+  def update_user
+    @user.update_attributes(verification: @verification)
+  end
+
+  def update_user_cipher
+    @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
   end
 
   def verification_code_valid
