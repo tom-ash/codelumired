@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   get '/phones/verification', to: 'phones#verification'
   put '/users/verify_phone', to: 'users#verify_phone'
-  
 
+  put '/announcements/view/:id', to: 'announcements#view'
 
   post '/testsmslabs', to: 'users#testsmslabs'
 

@@ -24,6 +24,12 @@ module AnnouncementsUpdate
     render_201
   end
 
+  def view
+    announcement = Announcement.find(params[:id])
+    views = announcement.views
+    announcement.update_attribute(:views, views + 1)
+  end
+
   private
 
   def owner?
