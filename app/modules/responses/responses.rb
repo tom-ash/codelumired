@@ -21,6 +21,10 @@ module Responses
     render json: @response, status: 401
   end
 
+  def render_409
+    render json: @response, status: 409
+  end
+
   def render_something_went_wrong
     render json: something_went_wrong, status: 400
   end

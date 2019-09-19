@@ -98,6 +98,7 @@ module AnnouncementsAttributes
 
   SHOW_FULL = %i[
     id
+    status
     user_id
     category
     district
@@ -123,6 +124,7 @@ module AnnouncementsAttributes
 
   SHOW_TILE = %i[
     id
+    status
     category
     district
     pictures

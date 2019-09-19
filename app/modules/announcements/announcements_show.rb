@@ -2,6 +2,8 @@ module AnnouncementsShow
   def show
     attributes = only_tile? ? tile_attributes : full_attributes
     @announcement = Announcement.where(id: params[:id]).select(attributes).take
+    return render_409 unless @announcement.status == 1
+
     unless only_tile?
       user = @announcement.user
       @announcement.user_id = nil

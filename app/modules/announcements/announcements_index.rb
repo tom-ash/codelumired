@@ -23,7 +23,7 @@ module AnnouncementsIndex
   private
 
   def search_announcements
-    @announcements = Announcement.all
+    @announcements = Announcement.where(status: 1)
     handle_equal_attributes
     handle_minimal_attributes
     handle_maximal_attributes
