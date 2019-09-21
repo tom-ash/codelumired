@@ -23,7 +23,7 @@ module AnnouncementsIndex
   private
 
   def search_announcements
-    @announcements = Announcement.where(status: 1)
+    @announcements = Announcement.where(status: 1, visible: true)
     handle_equal_attributes
     handle_minimal_attributes
     handle_maximal_attributes
@@ -113,6 +113,9 @@ module AnnouncementsIndex
       [*full_attributes, %i[
         views
         status
+        distinct
+        visible
+        active_until
         created_at
         updated_at
       ]]

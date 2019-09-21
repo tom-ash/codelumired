@@ -45,7 +45,7 @@ module UsersCreate
       encrypted_tax_identification: '',
       encrypted_legal_name: '',
       encrypted_address: '',
-      history: []
+      changelog: []
     ).with_indifferent_access
   end
 
@@ -55,7 +55,7 @@ module UsersCreate
       tax_identification_iv: '',
       legal_name_iv: '',
       address_iv: '',
-      history: []
+      changelog: []
     ).with_indifferent_access
   end
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   put '/users/verify_phone', to: 'users#verify_phone'
 
   put '/announcements/view/:id', to: 'announcements#view'
+  put '/announcements/extend/:id', to: 'announcements#extend_active'
 
   post '/testsmslabs', to: 'users#testsmslabs'
 

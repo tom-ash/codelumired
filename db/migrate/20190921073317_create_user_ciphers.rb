@@ -10,7 +10,7 @@ class CreateUserCiphers < ActiveRecord::Migration[5.2]
       t.string :tax_identification_iv, null: false
       t.string :legal_name_iv, null: false
       t.string :address_iv, null: false
-      t.jsonb :history, null: false
+      t.jsonb :changelog, null: false
 
       t.timestamps
     end

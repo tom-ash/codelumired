@@ -54,7 +54,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :encrypted_tax_identification, null: false
       t.string :encrypted_legal_name, null: false
       t.text :encrypted_address, null: false
-      t.jsonb :history, null: false
+      t.jsonb :changelog, null: false
 
       t.timestamps
     end
@@ -77,7 +77,7 @@ class CreateUserCiphers < ActiveRecord::Migration[5.2]
       t.string :tax_identification_iv, null: false
       t.string :legal_name_iv, null: false
       t.string :address_iv, null: false
-      t.jsonb :history, null: false
+      t.jsonb :changelog, null: false
 
       t.timestamps
     end
@@ -112,10 +112,12 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
     create_table :announcements do |t|
       t.references :user, foreign_key: true, null: false
       t.integer :status, null: false, limit: 2
+      t.integer :distinct, null: false, limit: 2
       t.integer :points, null: false
       t.integer :views, null: false
       t.jsonb :reports, null: false
-      t.date :refreshed_at, null: false
+      t.boolean :visible, null: false
+      t.date :active_until, null: false
       t.integer :category, null: false, limit: 2
       t.integer :district, null: false, limit: 2
       t.integer :area, null: false
@@ -136,13 +138,15 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
       t.text :english_description, null: false
       t.integer :longitude, null: false
       t.integer :latitude, null: false
-      t.jsonb :history, null: false
+      t.jsonb :changelog, null: false
 
       t.timestamps
     end
     add_index :announcements, :status
+    add_index :announcements, :distinct
     add_index :announcements, :points
-    add_index :announcements, :refreshed_at
+    add_index :announcements, :visible
+    add_index :announcements, :active_until
     add_index :announcements, :category
     add_index :announcements, :district
     add_index :announcements, :area

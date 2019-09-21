@@ -4,12 +4,12 @@ class ApplicationRecord < ActiveRecord::Base
   private
 
   def log_changes
-    self.history = history + changes.map do |name, values|
+    self.changelog = changelog + changes.map do |name, values|
       next if name == 'updated_at'
 
       {
         name: name,
-        prev_value: values[0],
+        value: values[0],
         time: Time.now
       }
     end.compact

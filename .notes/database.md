@@ -31,7 +31,7 @@ showcase:jsonb \
 encrypted_tax_identification:string \
 encrypted_legal_name:string \
 encrypted_address:text \
-history:jsonb
+changelog:jsonb
 
 # USER CIPHERS
 rails generate model UserCipher \
@@ -44,7 +44,7 @@ business_name_iv:string \
 tax_identification_iv:string \
 legal_name_iv:string \
 address_iv:string \
-history:jsonb
+changelog:jsonb
 
 # DELETED USERS
 rails generate model DeletedUser \
@@ -58,10 +58,12 @@ original_user_cipher:jsonb
 rails generate model Announcement \
 user:references \
 status:integer:index \
+distinct:integer:index \
 points:integer:index \
 views:integer \
 reports:jsonb \
-refreshed_at:date:index \
+visible:boolean:index \
+active_until:date:index \
 category:integer:index \
 district:integer:index \
 area:integer:index \
@@ -82,7 +84,7 @@ polish_description:text \
 english_description:text \
 longitude:integer:index \
 latitude:integer:index \
-history:jsonb
+changelog:jsonb
 
 # DELETED ANNOUNCEMENTS
 rails generate model DeletedAnnouncement \

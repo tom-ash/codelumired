@@ -10,7 +10,7 @@ one:
   tax_identification_iv: MyString
   legal_name_iv: MyString
   address_iv: MyString
-  history: 
+  changelog: 
 
 two:
   access_token_salt: MyString
@@ -22,4 +22,4 @@ two:
   tax_identification_iv: MyString
   legal_name_iv: MyString
   address_iv: MyString
-  history: 
+  changelog: 

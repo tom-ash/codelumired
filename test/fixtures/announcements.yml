@@ -3,10 +3,12 @@
 one:
   user: one
   status: 1
+  distinct: 1
   points: 1
   views: 1
   reports: 
-  refreshed_at: 2019-09-08
+  visible: false
+  active_until: 2019-09-21
   category: 1
   district: 1
   area: 1
@@ -19,7 +21,7 @@ one:
   rooms: 1
   floor: 1
   total_floors: 1
-  availability_date: 2019-09-08
+  availability_date: 2019-09-21
   pictures: 
   features: 
   furnishings: 
@@ -27,15 +29,17 @@ one:
   english_description: MyText
   longitude: 1
   latitude: 1
-  history: 
+  changelog: 
 
 two:
   user: two
   status: 1
+  distinct: 1
   points: 1
   views: 1
   reports: 
-  refreshed_at: 2019-09-08
+  visible: false
+  active_until: 2019-09-21
   category: 1
   district: 1
   area: 1
@@ -48,7 +52,7 @@ two:
   rooms: 1
   floor: 1
   total_floors: 1
-  availability_date: 2019-09-08
+  availability_date: 2019-09-21
   pictures: 
   features: 
   furnishings: 
@@ -56,4 +60,4 @@ two:
   english_description: MyText
   longitude: 1
   latitude: 1
-  history: 
+  changelog: 

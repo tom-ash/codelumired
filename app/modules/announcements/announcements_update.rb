@@ -21,13 +21,22 @@ module AnnouncementsUpdate
     handle_rent_amount
     handle_availability_date
     update_announcement
-    render_201
+    render_200
   end
 
   def view
     announcement = Announcement.find(params[:id])
     views = announcement.views
     announcement.update_attribute(:views, views + 1)
+  end
+
+  def extend_active
+    return render_400 unless user_validated?
+
+    announcement = Announcement.find(params[:id])
+    active_until = Date.today + 30.days
+    @response = { active_until: active_until }
+    render_200 if announcement.update_attribute(:active_until, active_until)
   end
 
   private

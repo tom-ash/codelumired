@@ -76,14 +76,14 @@ module AnnouncementsAttributes
       value: 1
     },
     {
-      name: 'active',
-      attribute: 'status',
-      value: 1
+      name: 'visible',
+      attribute: 'visible',
+      value: true
     },
     {
-      name: 'inactive',
-      attribute: 'status',
-      value: 2
+      name: 'hidden',
+      attribute: 'visible',
+      value: false
     }
   ].freeze
 
@@ -98,8 +98,9 @@ module AnnouncementsAttributes
 
   SHOW_FULL = %i[
     id
-    status
     user_id
+    status
+    visible
     category
     district
     pictures
@@ -124,7 +125,7 @@ module AnnouncementsAttributes
 
   SHOW_TILE = %i[
     id
-    status
+    visible
     category
     district
     pictures
@@ -164,7 +165,7 @@ module AnnouncementsAttributes
   ].freeze
 
   UPDATE = %i[
-    status
+    visible
     category
     district
     area

@@ -4,7 +4,7 @@ one:
   status: 1
   encrypted_search_token: MyString
   hashed_access_token: MyString
-  tokens_date: 2019-09-08
+  tokens_date: 2019-09-21
   verification: 
   points: 1
   encrypted_email: MyString
@@ -16,13 +16,13 @@ one:
   encrypted_tax_identification: MyString
   encrypted_legal_name: MyString
   encrypted_address: MyText
-  history: 
+  changelog: 
 
 two:
   status: 1
   encrypted_search_token: MyString
   hashed_access_token: MyString
-  tokens_date: 2019-09-08
+  tokens_date: 2019-09-21
   verification: 
   points: 1
   encrypted_email: MyString
@@ -34,4 +34,4 @@ two:
   encrypted_tax_identification: MyString
   encrypted_legal_name: MyString
   encrypted_address: MyText
-  history: 
+  changelog: 
