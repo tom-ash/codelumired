@@ -55,7 +55,7 @@ module UsersGeneral
   end
 
   def verification_code_valid
-    @verification_code == request.headers[:verificationCode]
+    @verification_code_from_client == @verification_code_from_database
   end
 
   def verification_code_invalid?

@@ -23,7 +23,7 @@ module ProspectiveUsersCiphers
     @encrypted_record = @prospective_user.verification['encrypted_code']
     @key = Rails.application.secrets.verification_code_key
     @iv = ProspectiveUserCipher.find(@prospective_user.id).verification_code_iv
-    decrypt        
+    decrypt
   end
 
   def decrypt_business_name_from_prospective_user
