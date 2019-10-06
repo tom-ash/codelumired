@@ -5,7 +5,7 @@ class ApplicationRecord < ActiveRecord::Base
 
   def log_changes
     self.changelog = changelog + changes.map do |name, values|
-      next if name == 'updated_at'
+      next if %w[updated_at verification verification_code_iv].include?(name)
 
       {
         name: name,
