@@ -7,6 +7,7 @@ class AnnouncementsController < ApplicationController
   include AnnouncementsDestroy
   include AnnouncementsShared
   include Responses
-  include UsersEdit
+  include UsersAuthorize
+  include UsersVerify
   include UsersCiphers
 end

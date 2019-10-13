@@ -1,5 +1,4 @@
 module ProspectiveUsersCiphers
-
   private
 
   def generate_prospective_user_search_token
@@ -30,7 +29,7 @@ module ProspectiveUsersCiphers
     @encrypted_record = @user_object[:encrypted_business_name]
     @key = Rails.application.secrets.business_name_key
     @iv = @user_cipher_object[:business_name_iv]
-    decrypt        
+    decrypt
   end
 
   def decrypt_phone_body_from_prospective_user

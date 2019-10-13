@@ -4,6 +4,8 @@ module AnnouncementsCreate
   def create
     return render_400 unless user_validated?
 
+    return render_400 unless phone_verified?
+
     prepare_announcement_object
     handle_rent_amount
     handle_availability_date

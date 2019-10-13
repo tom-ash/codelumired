@@ -1,3 +1,0 @@
-module UsersEditDeAuthorize
-  # TODO
-end

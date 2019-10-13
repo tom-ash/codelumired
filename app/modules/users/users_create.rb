@@ -18,7 +18,11 @@ module UsersCreate
     update_user_status
     decrypt_business_name
     name = @business_name
-    @response = { UST: @search_token, UAT: @access_token, name: name }
+    @response = {
+      UST: @search_token,
+      UAT: @access_token,
+      name: name
+    }
     return render_201 if @user.status == 1
 
     render_something_went_wrong

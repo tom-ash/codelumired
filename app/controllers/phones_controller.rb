@@ -1,21 +1,21 @@
 class PhonesController < ApplicationController
-  include UsersGeneral
+  include UsersAuthorize
   include UsersCiphers
-  include UsersEdit
   include Responses
   include Mailers
   include Messages
 
   def verification
-    render_400 and return unless user_validated?
+    return render_400 unless user_validated?
+
     decrypt_phone_body
     @phone = @user.phone['phone_code'] + @phone_body
     generate_verification
     @message = @verification_code
     send_sms
-    # send_verification
-    render_200 and return if @user.update_attributes(verification: @verification) &&
-                             @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
+    return render_200 if @user.update_attributes(verification: @verification) &&
+                         @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
+
     render_400
   end
 end

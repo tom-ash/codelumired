@@ -28,40 +28,4 @@ module UsersGeneral
 
     @user_cipher = UserCipher.find_by(id: @user.id)
   end
-
-  def send_verification
-    find_user_and_cipher_with_email
-    return render_200 unless @user && @user_cipher
-
-    generate_verification
-    prepare_email_content
-    send_email
-    return render_200 if update_user && update_user_cipher
-
-    render_400
-  end
-
-  def prepare_email_content
-    @email_text = @verification_code
-    @email_html = verification_email
-  end
-
-  def update_user
-    @user.update_attributes(verification: @verification)
-  end
-
-  def update_user_cipher
-    @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
-  end
-
-  def verification_code_valid
-    @verification_code_from_client == @verification_code_from_database
-  end
-
-  def verification_code_invalid?
-    decrypt_verification_code
-    @verification_code != request.headers[:verificationCode] &&
-    @verification_code != params[:verificationCode] &&
-    @verification_code != params[:verification_code]
-  end
 end

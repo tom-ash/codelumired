@@ -1,6 +1,4 @@
 module UsersEdit
-  include UsersEditAuthorize
-  include UsersEditDeAuthorize
   include UsersEditBusinessName
   include UsersEditTaxIdentification
   include UsersEditPhone

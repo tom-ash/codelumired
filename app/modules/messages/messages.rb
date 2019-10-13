@@ -21,7 +21,11 @@ module Messages
       "Content-Length" => data.to_s.length.to_s,
       "Authorization" => auth
     }
-    response = RestClient.put("https://api.smslabs.net.pl/apiSms/sendSms", data, headers)
+    begin
+      RestClient.put("https://api.smslabs.net.pl/apiSms/sendSms", data, headers)
+    rescue RestClient::InternalServerError
+      nil
+    end
   end
 
   def flash

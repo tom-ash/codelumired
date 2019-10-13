@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   include UsersCreate
   include UsersShow
   include UsersEdit
+  include UsersAuthorize
+  include UsersVerify
   include UsersDestroy
   include UsersCiphers
   include ProspectiveUsersCiphers
@@ -15,4 +17,4 @@ class UsersController < ApplicationController
   def initialize
     @response = {}
   end
-end 
+end
