@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
 module AnnouncementsShared
+  def calculate_rent_amounts
+    @announcement_object = {}
+    handle_rent_amount
+    render json: @announcement_object
+  end
+
   private
 
   def handle_rent_amount
-    @area = params[:area]&.to_i
-    @net_rent_amount = params[:net_rent_amount]&.to_i
-    return unless @net_rent_amount || @area
-
-    @area ||= @announcement.area.to_i
-    @net_rent_amount ||= @announcement.net_rent_amount.to_i
+    @area = params[:area].to_i
+    @net_rent_amount = params[:net_rent_amount].to_i
+    return unless @net_rent_amount != 0 && @area != 0
 
     @gross_rent_amount = @net_rent_amount * 1.23
     @announcement_object.merge!(

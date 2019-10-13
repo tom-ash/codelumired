@@ -43,6 +43,6 @@ module UsersVerify
   end
 
   def phone_verified?
-    @user.phone['verified']
+    @phone_verified = @user.phone['verified']
   end
 end

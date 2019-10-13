@@ -26,12 +26,13 @@ module UsersAuthorize
     @search_token = request.headers[:UST]
     @access_token = request.headers[:UAT]
     return false unless @search_token && @access_token
+
     find_user_with_search_token && validate_access_token
   end
 
   def tokens_updated
-    @user.update_attributes({ encrypted_search_token: @encrypted_search_token,
-                              hashed_access_token: @hashed_access_token }) &&
-    @user_cipher.update_attributes(access_token_salt: @access_token_salt)
+    @user.update_attributes(encrypted_search_token: @encrypted_search_token,
+                            hashed_access_token: @hashed_access_token) &&
+      @user_cipher.update_attributes(access_token_salt: @access_token_salt)
   end
 end
