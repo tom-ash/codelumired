@@ -35,7 +35,7 @@ module UsersVerify
 
   def verification_code_invalid?
     decrypt_verification_code
-    raise ArgumentError unless @verification_code.length == 8
+    raise ArgumentError unless @verification_code.length >= 8
 
     @verification_code != request.headers[:verificationCode] &&
       @verification_code != params[:verificationCode] &&
