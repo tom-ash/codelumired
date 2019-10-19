@@ -1,4 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   user: one
@@ -8,7 +8,7 @@ one:
   views: 1
   reports: 
   visible: false
-  active_until: 2019-09-21
+  active_until: 2019-10-19
   category: 1
   district: 1
   area: 1
@@ -21,7 +21,7 @@ one:
   rooms: 1
   floor: 1
   total_floors: 1
-  availability_date: 2019-09-21
+  availability_date: 2019-10-19
   pictures: 
   features: 
   furnishings: 
@@ -29,7 +29,7 @@ one:
   english_description: MyText
   longitude: 1
   latitude: 1
-  changelog: 
+  past_log: 
 
 two:
   user: two
@@ -39,7 +39,7 @@ two:
   views: 1
   reports: 
   visible: false
-  active_until: 2019-09-21
+  active_until: 2019-10-19
   category: 1
   district: 1
   area: 1
@@ -52,7 +52,7 @@ two:
   rooms: 1
   floor: 1
   total_floors: 1
-  availability_date: 2019-09-21
+  availability_date: 2019-10-19
   pictures: 
   features: 
   furnishings: 
@@ -60,4 +60,4 @@ two:
   english_description: MyText
   longitude: 1
   latitude: 1
-  changelog: 
+  past_log: 

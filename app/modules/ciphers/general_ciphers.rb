@@ -6,7 +6,7 @@ module GeneralCiphers
     cipher.key = Base64.decode64(@key)
     [Base64.encode64(cipher.update([@record, SecureRandom.hex(16).upcase].to_s) + cipher.final), iv]
   end
-  
+
   def encrypt_with_fixed_iv_and_salt
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.encrypt

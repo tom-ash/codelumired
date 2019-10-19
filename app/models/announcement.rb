@@ -51,7 +51,7 @@ class Announcement < ApplicationRecord
         points: 0,
         views: 0,
         reports: [],
-        changelog: [],
+        past_log: [],
         visible: true,
         active_until: Date.today + [-30, -12, -6, -1, 0, 1, 2, 4, 8, 12, 16, 18, 22, 26, 30].shuffle[0].days,
         features: [],

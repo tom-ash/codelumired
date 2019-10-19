@@ -5,7 +5,7 @@ salt:string
 
 # PROSPECTIVE USERS
 rails generate model ProspectiveUser \
-encrypted_search_token:string \
+encrypted_token:string \
 verification:jsonb \
 user:jsonb
 
@@ -17,9 +17,8 @@ user_cipher:jsonb
 # USERS
 rails generate model User \
 status:integer:index \
-encrypted_search_token:string:index \
-hashed_access_token:string \
-tokens_date:date \
+encrypted_token:string:index \
+token_date:date \
 verification:jsonb \
 points:integer \
 encrypted_email:string:index \
@@ -31,11 +30,10 @@ showcase:jsonb \
 encrypted_tax_identification:string \
 encrypted_legal_name:string \
 encrypted_address:text \
-changelog:jsonb
+past_log:jsonb
 
 # USER CIPHERS
 rails generate model UserCipher \
-access_token_salt:string \
 verification_code_iv:string \
 email_derived_cipher_id:integer \
 password_salt:string \
@@ -44,7 +42,7 @@ business_name_iv:string \
 tax_identification_iv:string \
 legal_name_iv:string \
 address_iv:string \
-changelog:jsonb
+past_log:jsonb
 
 # DELETED USERS
 rails generate model DeletedUser \
@@ -84,7 +82,7 @@ polish_description:text \
 english_description:text \
 longitude:integer:index \
 latitude:integer:index \
-changelog:jsonb
+past_log:jsonb
 
 # DELETED ANNOUNCEMENTS
 rails generate model DeletedAnnouncement \

@@ -9,18 +9,15 @@ module UsersCreate
 
     prepare_user_object
     prepare_user_cipher
-    generate_search_token
-    generate_access_token
+    generate_token
     extend_user_object
-    extend_user_cipher
     prepare_showcase
     create_user_and_user_cipher
     update_user_status
     decrypt_business_name
     name = @business_name
     @response = {
-      UST: @search_token,
-      UAT: @access_token,
+      UT: @token,
       name: name
     }
     return render_201 if @user.status == 1
@@ -31,8 +28,8 @@ module UsersCreate
   private
 
   def parse_params
-    @search_token = request.headers[:searchToken]
-    find_prospective_user_with_search_token if @search_token
+    @token = request.headers[:searchToken]
+    find_prospective_user_with_token if @token
     return unless @prospective_user
 
     @prospective_user_cipher = ProspectiveUserCipher.find_by id: @prospective_user.id
@@ -43,13 +40,13 @@ module UsersCreate
   def prepare_user_object
     @user_object = @prospective_user.user.merge!(
       status: 0,
-      tokens_date: Date.today,
+      token_date: Date.today,
       verification: {},
       points: 0,
       encrypted_tax_identification: '',
       encrypted_legal_name: '',
       encrypted_address: '',
-      changelog: []
+      past_log: []
     ).with_indifferent_access
   end
 
@@ -59,19 +56,14 @@ module UsersCreate
       tax_identification_iv: '',
       legal_name_iv: '',
       address_iv: '',
-      changelog: []
+      past_log: []
     ).with_indifferent_access
   end
 
   def extend_user_object
     @user_object.merge!(
-      encrypted_search_token: @encrypted_search_token,
-      hashed_access_token: @hashed_access_token
+      encrypted_token: @encrypted_token
     )
-  end
-
-  def extend_user_cipher
-    @user_cipher_object.merge!(access_token_salt: @access_token_salt)
   end
 
   def prepare_showcase

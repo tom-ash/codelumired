@@ -1,5 +1,5 @@
 # DERIVED CIPHERS
-class CreateDerivedCiphers < ActiveRecord::Migration[5.2]
+class CreateDerivedCiphers < ActiveRecord::Migration[6.0]
   def change
     create_table :derived_ciphers do |t|
       t.string :iv, null: false
@@ -11,20 +11,21 @@ class CreateDerivedCiphers < ActiveRecord::Migration[5.2]
 end
 
 # PROSPECTIVE USERS
-class CreateProspectiveUsers < ActiveRecord::Migration[5.2]
+class CreateProspectiveUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :prospective_users do |t|
-      t.string :encrypted_search_token, null: false
+      t.string :encrypted_token, null: false
       t.jsonb :verification, null: false
       t.jsonb :user, null: false
 
       t.timestamps
     end
+    add_index :users, :encrypted_token, unique: true
   end
 end
 
 # PROSPECTIVE USER CIPHERS
-class CreateProspectiveUserCiphers < ActiveRecord::Migration[5.2]
+class CreateProspectiveUserCiphers < ActiveRecord::Migration[6.0]
   def change
     create_table :prospective_user_ciphers do |t|
       t.string :verification_code_iv, null: false
@@ -36,16 +37,15 @@ class CreateProspectiveUserCiphers < ActiveRecord::Migration[5.2]
 end
 
 # USERS
-class CreateUsers < ActiveRecord::Migration[5.2]
+class CreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       t.integer :status, null: false, limit: 2
-      t.string :encrypted_search_token, null: false, unique: true
-      t.string :hashed_access_token, null: false
-      t.date :tokens_date, null: false
+      t.string :encrypted_token, null: false
+      t.date :token_date, null: false
       t.jsonb :verification, null: false
       t.integer :points, null: false
-      t.string :encrypted_email, null: false, unique: true
+      t.string :encrypted_email, null: false
       t.string :hashed_password, null: false
       t.jsonb :consents, null: false
       t.jsonb :phone, null: false
@@ -54,21 +54,20 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :encrypted_tax_identification, null: false
       t.string :encrypted_legal_name, null: false
       t.text :encrypted_address, null: false
-      t.jsonb :changelog, null: false
+      t.jsonb :past_log, null: false
 
       t.timestamps
     end
     add_index :users, :status
-    add_index :users, :encrypted_search_token
-    add_index :users, :encrypted_email
+    add_index :users, :encrypted_token, unique: true
+    add_index :users, :encrypted_email, unique: true
   end
 end
 
 # USER CIPHERS
-class CreateUserCiphers < ActiveRecord::Migration[5.2]
+class CreateUserCiphers < ActiveRecord::Migration[6.0]
   def change
     create_table :user_ciphers do |t|
-      t.string :access_token_salt, null: false
       t.string :verification_code_iv, null: false
       t.integer :email_derived_cipher_id, null: false
       t.string :password_salt, null: false
@@ -77,7 +76,7 @@ class CreateUserCiphers < ActiveRecord::Migration[5.2]
       t.string :tax_identification_iv, null: false
       t.string :legal_name_iv, null: false
       t.string :address_iv, null: false
-      t.jsonb :changelog, null: false
+      t.jsonb :past_log, null: false
 
       t.timestamps
     end
@@ -85,7 +84,7 @@ class CreateUserCiphers < ActiveRecord::Migration[5.2]
 end
 
 # DELETED USERS
-class CreateDeletedUsers < ActiveRecord::Migration[5.2]
+class CreateDeletedUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :deleted_users do |t|
       t.jsonb :original_user, null: false
@@ -96,7 +95,7 @@ class CreateDeletedUsers < ActiveRecord::Migration[5.2]
 end
 
 # DELETED USER CIPHERS
-class CreateDeletedUserCiphers < ActiveRecord::Migration[5.2]
+class CreateDeletedUserCiphers < ActiveRecord::Migration[6.0]
   def change
     create_table :deleted_user_ciphers do |t|
       t.jsonb :original_user_cipher, null: false
@@ -107,7 +106,7 @@ class CreateDeletedUserCiphers < ActiveRecord::Migration[5.2]
 end
 
 # ANNOUNCEMENTS
-class CreateAnnouncements < ActiveRecord::Migration[5.2]
+class CreateAnnouncements < ActiveRecord::Migration[6.0]
   def change
     create_table :announcements do |t|
       t.references :user, foreign_key: true, null: false
@@ -138,7 +137,7 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
       t.text :english_description, null: false
       t.integer :longitude, null: false
       t.integer :latitude, null: false
-      t.jsonb :changelog, null: false
+      t.jsonb :past_log, null: false
 
       t.timestamps
     end
@@ -166,7 +165,7 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
 end
 
 # DELETED ANNOUNCEMENTS
-class CreateDeletedAnnouncements < ActiveRecord::Migration[5.2]
+class CreateDeletedAnnouncements < ActiveRecord::Migration[6.0]
   def change
     create_table :deleted_announcements do |t|
       t.jsonb :original_announcement, null: false

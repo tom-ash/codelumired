@@ -4,8 +4,8 @@ module ProspectiveUsersCreate
     return render_something_went_wrong if invalid_params?
 
     encrypt_email
-    generate_prospective_user_search_token
-    @response = { token: @search_token }
+    generate_token
+    @response = { token: @token }
     return render_201 if user_exists
 
     create_prospective_user
@@ -43,7 +43,7 @@ module ProspectiveUsersCreate
 
   def create_prospective_user
     @prospective_user = ProspectiveUser.create(
-      encrypted_search_token: @encrypted_search_token,
+      encrypted_token: @encrypted_token,
       verification: {},
       user: {}
     )

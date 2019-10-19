@@ -1,7 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  access_token_salt: MyString
   verification_code_iv: MyString
   email_derived_cipher_id: 1
   password_salt: MyString
@@ -10,10 +9,9 @@ one:
   tax_identification_iv: MyString
   legal_name_iv: MyString
   address_iv: MyString
-  changelog: 
+  past_log: 
 
 two:
-  access_token_salt: MyString
   verification_code_iv: MyString
   email_derived_cipher_id: 1
   password_salt: MyString
@@ -22,4 +20,4 @@ two:
   tax_identification_iv: MyString
   legal_name_iv: MyString
   address_iv: MyString
-  changelog: 
+  past_log: 

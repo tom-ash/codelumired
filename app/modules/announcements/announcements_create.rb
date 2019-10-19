@@ -31,7 +31,7 @@ module AnnouncementsCreate
       reports: [],
       visible: true,
       active_until: Date.today + 30.days,
-      changelog: []
+      past_log: []
     }
   end
 

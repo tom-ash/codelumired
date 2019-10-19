@@ -1,21 +1,12 @@
 module ProspectiveUsersCiphers
   private
 
-  def generate_prospective_user_search_token
-    @search_token = SecureRandom.hex(32)
-    @encrypted_search_token = encrypt_prospective_user_search_token
-  end
+  def find_prospective_user_with_token
+    encrypt_token
+    @prospective_user = ProspectiveUser.find_by(encrypted_token: @encrypted_token)
+    return false unless @prospective_user
 
-  def encrypt_prospective_user_search_token
-    @record = @search_token
-    @key = Rails.application.secrets.search_token_key
-    @iv = Rails.application.secrets.search_token_iv
-    @salt = Rails.application.secrets.search_token_salt
-    encrypt_with_fixed_iv_and_salt
-  end
-
-  def find_prospective_user_with_search_token
-    @prospective_user = ProspectiveUser.find_by(encrypted_search_token: encrypt_prospective_user_search_token)
+    @prospective_user_cipher = ProspectiveUserCipher.find(@prospective_user.id)
   end
 
   def decrypt_verification_code_for_prospective_user

@@ -1,4 +1,4 @@
-class CreateAnnouncements < ActiveRecord::Migration[5.2]
+class CreateAnnouncements < ActiveRecord::Migration[6.0]
   def change
     create_table :announcements do |t|
       t.references :user, foreign_key: true, null: false
@@ -29,7 +29,7 @@ class CreateAnnouncements < ActiveRecord::Migration[5.2]
       t.text :english_description, null: false
       t.integer :longitude, null: false
       t.integer :latitude, null: false
-      t.jsonb :changelog, null: false
+      t.jsonb :past_log, null: false
 
       t.timestamps
     end

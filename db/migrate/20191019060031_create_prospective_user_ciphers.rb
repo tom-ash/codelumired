@@ -1,4 +1,4 @@
-class CreateProspectiveUserCiphers < ActiveRecord::Migration[5.2]
+class CreateProspectiveUserCiphers < ActiveRecord::Migration[6.0]
   def change
     create_table :prospective_user_ciphers do |t|
       t.string :verification_code_iv, null: false

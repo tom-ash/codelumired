@@ -4,7 +4,7 @@ class ApplicationRecord < ActiveRecord::Base
   private
 
   def log_changes
-    self.changelog = changelog + changes.map do |name, values|
+    self.past_log = past_log + changes.map do |name, values|
       next if %w[updated_at verification verification_code_iv].include?(name)
 
       {

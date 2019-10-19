@@ -3,11 +3,11 @@
 one:
   status: MyString
   account_type: MyString
-  search_token: MyString
-  hashed_access_token: MyString
+  token: MyString
+  hashed_token: MyString
 
 two:
   status: MyString
   account_type: MyString
-  search_token: MyString
-  hashed_access_token: MyString
+  token: MyString
+  hashed_token: MyString

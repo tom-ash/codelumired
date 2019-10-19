@@ -1,4 +1,4 @@
-class CreateDeletedUsers < ActiveRecord::Migration[5.2]
+class CreateDeletedUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :deleted_users do |t|
       t.jsonb :original_user, null: false

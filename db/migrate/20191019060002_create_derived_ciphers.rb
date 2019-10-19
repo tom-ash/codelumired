@@ -1,4 +1,4 @@
-class CreateDerivedCiphers < ActiveRecord::Migration[5.2]
+class CreateDerivedCiphers < ActiveRecord::Migration[6.0]
   def change
     create_table :derived_ciphers do |t|
       t.string :iv, null: false
