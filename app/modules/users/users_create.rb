@@ -17,10 +17,10 @@ module UsersCreate
     decrypt_business_name
     name = @business_name
     @response = {
-      UT: @token,
+      uT: @token,
       name: name
     }
-    return render_201 if @user.status == 1
+    return render_created if @user.status == 1
 
     render_something_went_wrong
   end
@@ -28,12 +28,12 @@ module UsersCreate
   private
 
   def parse_params
-    @token = request.headers[:searchToken]
+    @token = request.headers[:uT]
     find_prospective_user_with_token if @token
     return unless @prospective_user
 
     @prospective_user_cipher = ProspectiveUserCipher.find_by id: @prospective_user.id
-    @verification_code_from_client = params[:verificationCode]
+    @verification_code_from_client = params[:verification_code]
     @verification_code_from_database = decrypt_verification_code_for_prospective_user
   end
 
@@ -68,7 +68,7 @@ module UsersCreate
 
   def prepare_showcase
     @showcase = {
-      businessName: decrypt_business_name_from_prospective_user,
+      business_name: decrypt_business_name_from_prospective_user,
       phone: decrypt_phone_body_from_prospective_user[0..2]
     }
     @user_object.merge!(showcase: @showcase)

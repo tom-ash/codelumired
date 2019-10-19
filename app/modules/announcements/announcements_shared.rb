@@ -4,7 +4,8 @@ module AnnouncementsShared
   def calculate_rent_amounts
     @announcement_object = {}
     handle_rent_amount
-    render json: @announcement_object
+    @response = @announcement_object
+    render_ok
   end
 
   private

@@ -3,21 +3,23 @@ module AnnouncementsIndex
     return list if params[:type] == 'list'
 
     search_announcements
-    render json: handle_response
+    @response = handle_response
+    render_ok
   end
 
   def list
-    return render_400 unless user_validated?
+    return render_bad_request unless user_validated?
 
     prepare_announcements
     filter_announcements
     limit_announcements
     sort_announcements
     select_attributes
-    render json: {
+    @response = {
       amount: @amount,
-      announcements: @announcements
+      announcements: @announcements.map(&:attributes).to_a
     }
+    render_ok
   end
 
   private
@@ -61,9 +63,17 @@ module AnnouncementsIndex
     request_header = request.headers
     return { amount: panel_announcements } if request_header['Only-Amount'] == 'true'
 
-    return { announcements: map_announcements, amount: @amount  } if request_header['Only-Locations'] == 'true'
+    if request_header['Only-Locations'] == 'true'
+      return {
+        announcements: map_announcements,
+        amount: @amount
+      }
+    end
 
-    { announcements: full_announcements, amount: @amount }
+    {
+      announcements: full_announcements.to_a,
+      amount: @amount
+    }
   end
 
   def panel_announcements
@@ -73,12 +83,13 @@ module AnnouncementsIndex
   def map_announcements
     @amount = @announcements.count
     @announcements = @announcements.where.not(latitude: nil, longitude: nil).limit(50)
-    @announcements.select(map_attributes)
+    @announcements.select(map_attributes).map(&:attributes)
   end
 
   def full_announcements
     @amount = @announcements.count
     @announcements.limit(per_page).offset(offset).select(full_attributes)
+    @announcements.map(&:attributes)
   end
 
   def prepare_announcements

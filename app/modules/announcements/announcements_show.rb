@@ -10,9 +10,11 @@ module AnnouncementsShow
     end
     @announcement = @announcement.as_json.with_indifferent_access
     parse_availability_date
-    @announcement[:name] = only_tile? ? '' : user.showcase['businessName']
+    @announcement[:name] = only_tile? ? '' : user.showcase['business_name']
     @announcement[:phone] = user.showcase['phone'] unless only_tile?
-    render json: @announcement
+
+    @response = @announcement
+    render_ok
   end
 
   private

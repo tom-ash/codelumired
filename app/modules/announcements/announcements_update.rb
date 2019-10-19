@@ -1,27 +1,29 @@
 module AnnouncementsUpdate
   def edit
-    return render_400 unless user_validated?
+    return render_bad_request unless user_validated?
 
     @announcement = Announcement.where(id: params[:id]).select(edit_attributes)
                                 .take.serializable_hash.with_indifferent_access
-    return render_400 unless owner?
+    return render_bad_request unless owner?
 
     @announcement.delete(:user_id)
     parse_availability_date
-    render json: { announcement: @announcement }
+    @response = @announcement
+    # render json: { announcement: @announcement }
+    render_ok
   end
 
   def update
-    return render_400 unless user_validated?
+    return render_bad_request unless user_validated?
 
     find_announcement
-    return render_400 unless owner?
+    return render_bad_request unless owner?
 
     prepare_update_object
     handle_rent_amount
     handle_availability_date
     update_announcement
-    render_200
+    render_ok
   end
 
   def view
@@ -31,12 +33,12 @@ module AnnouncementsUpdate
   end
 
   def extend_active
-    return render_400 unless user_validated?
+    return render_bad_request unless user_validated?
 
     announcement = Announcement.find(params[:id])
     active_until = Date.today + 30.days
     @response = { active_until: active_until }
-    render_200 if announcement.update_attribute(:active_until, active_until)
+    render_ok if announcement.update_attribute(:active_until, active_until)
   end
 
   private

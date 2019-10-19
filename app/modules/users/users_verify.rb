@@ -3,14 +3,14 @@ module UsersVerify
 
   def send_verification
     find_user_and_cipher_with_email
-    return render_200 unless @user && @user_cipher
+    return render_ok unless @user && @user_cipher
 
     generate_verification
     prepare_email_verification
     send_email
-    return render_200 if update_user_verification && update_user_cipher_verification_iv
+    return render_ok if update_user_verification && update_user_cipher_verification_iv
 
-    render_400
+    render_bad_request
   end
 
   def prepare_email_verification
@@ -37,8 +37,8 @@ module UsersVerify
     decrypt_verification_code
     raise ArgumentError unless @verification_code.length >= 8
 
-    @verification_code != request.headers[:verificationCode] &&
-      @verification_code != params[:verificationCode] &&
+    @verification_code != request.headers[:verification_code] &&
+      @verification_code != params[:verification_code] &&
       @verification_code != params[:verification_code]
   end
 

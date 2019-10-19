@@ -9,14 +9,14 @@ module UsersAuthorize
     decrypt_business_name
     phone_verified?
     @response = {
-      UT: @token,
+      uT: @token,
       name: @business_name,
       phone_verified: @phone_verified
     }
-    return render_200 if token_current? || token_updated?
+    return render_ok if token_current? || token_updated?
 
     @response = {}
-    render_400
+    render_bad_request
   end
 
   def authorize_with_token
@@ -24,8 +24,11 @@ module UsersAuthorize
 
     phone_verified?
     decrypt_business_name
-    @response = { name: @business_name, phone_verified: @phone_verified }
-    render_200
+    @response = {
+      name: @business_name,
+      phone_verified: @phone_verified
+    }
+    render_ok
   end
 
   protected
@@ -39,7 +42,7 @@ module UsersAuthorize
   end
 
   def user_validated?
-    @token = request.headers[:UT]
+    @token = request.headers[:uT]
     return false unless @token
 
     find_user_with_token

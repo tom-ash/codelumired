@@ -5,7 +5,7 @@ module UsersGeneral
     email_encryption_object = encrypt_email
     derived_cipher = DerivedCipher.find_by(id: email_encryption_object[1])
     @response = { recordSalt: derived_cipher.salt }
-    render_200 and return if derived_cipher
+    render_ok and return if derived_cipher
     render_something_went_wrong
   end
 

@@ -9,15 +9,19 @@ module UsersShow
   end
 
   def get_account_data
-    render_400 and return unless user_validated?
+    return render_bad_request unless user_validated?
+
     decrypt_business_name
     decrypt_tax_identification
     decrypt_phone_body
     decrypt_email
-    @response = { businessName: @business_name,
-                  taxIdentification: @tax_identification,
-                  phoneCountryCode: @user.phone['phone_code'], phoneBody: @phone_body,
-                  email: @email }
-    render_200
+    @response = {
+      business_name: @business_name,
+      tax_identification: @tax_identification,
+      phone_country_code: @user.phone['phone_code'],
+      phone_body: @phone_body,
+      email: @email
+    }
+    render_ok
   end
 end

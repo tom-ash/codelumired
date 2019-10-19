@@ -2,7 +2,7 @@ module UsersEditPassword
   def edit_password_send_email
     @language = params[:language]
     @required_params = [:email]
-    return render_400 unless required_params_present?
+    return render_bad_request unless required_params_present?
 
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:email]
@@ -12,26 +12,26 @@ module UsersEditPassword
 
   def edit_password_send_verification
     @required_params = %i[email verification_code]
-    return render_400 unless required_params_present?
+    return render_bad_request unless required_params_present?
 
     find_user_and_cipher_with_email
-    return render_400 if verification_code_invalid?
+    return render_bad_request if verification_code_invalid?
 
-    render_200
+    render_ok
   end
 
   def edit_password
     @required_params = %i[email verification_code password]
-    return render_400 unless required_params_present?
+    return render_bad_request unless required_params_present?
 
     find_user_and_cipher_with_email
-    return render_400 if verification_code_invalid?
+    return render_bad_request if verification_code_invalid?
 
     @password = params[:password]
     hash_user_password
-    return render_200 if user_and_cipher_saved
+    return render_ok if user_and_cipher_saved
 
-    render_400
+    render_bad_request
   end
 
   private

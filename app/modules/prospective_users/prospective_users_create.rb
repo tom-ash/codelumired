@@ -6,7 +6,7 @@ module ProspectiveUsersCreate
     encrypt_email
     generate_token
     @response = { token: @token }
-    return render_201 if user_exists
+    return render_created if user_exists
 
     create_prospective_user
     create_prospective_user_cipher
@@ -14,15 +14,15 @@ module ProspectiveUsersCreate
     prepare_user
     prepare_user_cipher
     send_verification if account_prepared
-    render_201
+    render_created
   end
 
   private
 
   def parse_params
     @language = request.headers[:language]
-    @business_name = params[:businessName]
-    @phone_code = params[:countryCode]
+    @business_name = params[:business_name]
+    @phone_code = params[:country_code]
     @phone_body = params[:phone]
     @email = params[:email]
     @password = params[:password]
