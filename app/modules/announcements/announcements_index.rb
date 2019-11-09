@@ -88,7 +88,7 @@ module AnnouncementsIndex
 
   def full_announcements
     @amount = @announcements.count
-    @announcements.limit(per_page).offset(offset).select(full_attributes)
+    @announcements = @announcements.limit(per_page).offset(offset).select(full_attributes)
     @announcements.map(&:attributes)
   end
 
