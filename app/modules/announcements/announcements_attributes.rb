@@ -29,11 +29,6 @@ module AnnouncementsAttributes
     floor
     total_floors
     availability_date
-  ].freeze
-
-  INDEX_MAP = %i[
-    id
-    category
     latitude
     longitude
   ].freeze
@@ -62,7 +57,7 @@ module AnnouncementsAttributes
     availability_date
   ].freeze
 
-  INDEX_PER_PAGE = 24
+  INDEX_PER_PAGE = 50
 
   INDEX_FILTERS = [
     {

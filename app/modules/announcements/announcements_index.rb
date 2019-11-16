@@ -3,7 +3,7 @@ module AnnouncementsIndex
     return list if params[:type] == 'list'
 
     search_announcements
-    @response = handle_response
+    prepare_response
     render_ok
   end
 
@@ -59,47 +59,21 @@ module AnnouncementsIndex
     end
   end
 
-  def handle_response
-    request_header = request.headers
-    return { amount: panel_announcements } if request_header['Only-Amount'] == 'true'
-
-    if request_header['Only-Locations'] == 'true'
-      return {
-        announcements: map_announcements,
-        amount: @amount
-      }
-    end
-
-    {
-      announcements: full_announcements.to_a,
-      amount: @amount
-    }
+  def prepare_response
+    @response = { announcements: announcements, amount: amount }
   end
 
-  def panel_announcements
-    @amount = @announcements.count
+  def announcements
+    @announcements.limit(per_page).offset(params[:offset]).select(full_attributes)
   end
 
-  def map_announcements
-    @amount = @announcements.count
-    @announcements = @announcements.where.not(latitude: nil, longitude: nil).limit(50)
-    @announcements.select(map_attributes).map(&:attributes)
-  end
-
-  def full_announcements
-    @amount = @announcements.count
-    @announcements = @announcements.limit(per_page).offset(offset).select(full_attributes)
-    @announcements.map(&:attributes)
+  def amount
+    @announcements.count
   end
 
   def prepare_announcements
     @amount = @user.announcements.count
     @announcements = @user.announcements
-  end
-
-  def offset
-    page = params[:page]
-    ['', '1'].include?(page) ? 0 : page.to_i * per_page - per_page
   end
 
   def filter_announcements
@@ -135,10 +109,6 @@ module AnnouncementsIndex
 
   def full_attributes
     AnnouncementsAttributes::INDEX_FULL
-  end
-
-  def map_attributes
-    AnnouncementsAttributes::INDEX_MAP
   end
 
   def equal_attributes
