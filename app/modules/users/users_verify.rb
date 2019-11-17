@@ -2,15 +2,15 @@ module UsersVerify
   private
 
   def send_verification
-    find_user_and_cipher_with_email
-    return render_ok unless @user && @user_cipher
+    find_user_with_email
+    return ok unless @user
 
     generate_verification
     prepare_email_verification
     send_email
-    return render_ok if update_user_verification && update_user_cipher_verification_iv
+    return ok if update_user_verification
 
-    render_bad_request
+    bad_request
   end
 
   def prepare_email_verification
@@ -19,11 +19,7 @@ module UsersVerify
   end
 
   def update_user_verification
-    @user.update_attributes(verification: @verification)
-  end
-
-  def update_user_cipher_verification_iv
-    @user_cipher.update_attributes(verification_code_iv: @verification_code_iv)
+    @user.update(verification: @verification, verification_code_iv: @verification_code_iv)
   end
 
   def verification_code_valid

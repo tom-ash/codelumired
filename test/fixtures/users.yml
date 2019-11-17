@@ -3,33 +3,37 @@
 one:
   status: 1
   encrypted_token: MyString
-  token_date: 2019-10-19
+  token_date: 2019-11-17
   verification: 
+  verification_code_iv: MyString
   points: 1
-  encrypted_email: MyString
+  email: MyString
   hashed_password: MyString
+  password_salt: MyString
   consents: 
   phone: 
-  encrypted_business_name: MyString
+  business_name: MyString
   showcase: 
-  encrypted_tax_identification: MyString
-  encrypted_legal_name: MyString
-  encrypted_address: MyText
-  past_log: 
+  legal_name: MyString
+  tax_number: MyString
+  address: MyText
+  changes_log: 
 
 two:
   status: 1
   encrypted_token: MyString
-  token_date: 2019-10-19
+  token_date: 2019-11-17
   verification: 
+  verification_code_iv: MyString
   points: 1
-  encrypted_email: MyString
+  email: MyString
   hashed_password: MyString
+  password_salt: MyString
   consents: 
   phone: 
-  encrypted_business_name: MyString
+  business_name: MyString
   showcase: 
-  encrypted_tax_identification: MyString
-  encrypted_legal_name: MyString
-  encrypted_address: MyText
-  past_log: 
+  legal_name: MyString
+  tax_number: MyString
+  address: MyText
+  changes_log: 

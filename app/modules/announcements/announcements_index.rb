@@ -4,11 +4,11 @@ module AnnouncementsIndex
 
     search_announcements
     prepare_response
-    render_ok
+    ok
   end
 
   def list
-    return render_bad_request unless user_validated?
+    return bad_request unless user_validated?
 
     prepare_announcements
     filter_announcements
@@ -19,7 +19,7 @@ module AnnouncementsIndex
       amount: @amount,
       announcements: @announcements.map(&:attributes).to_a
     }
-    render_ok
+    ok
   end
 
   private

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  validates :encrypted_email, uniqueness: true
-  validates :encrypted_token, presence: true, uniqueness: true
-  has_many :announcements
+  validates :email, presence: true, uniqueness: true
+  validates :encrypted_access_token, presence: true, uniqueness: true
+  has_many :announcements, dependent: :destroy
   before_update :log_changes
 end

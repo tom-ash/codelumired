@@ -1,19 +1,15 @@
 module Responses
   protected
 
-  def something_went_wrong
-    { error: 'Something Went Wrong' }
-  end
-
-  def render_ok
+  def ok
     render json: camelize_keys, status: 200
   end
 
-  def render_created
+  def created
     render json: camelize_keys, status: 201
   end
 
-  def render_bad_request
+  def bad_request
     render json: camelize_keys, status: 400
   end
 
@@ -25,8 +21,8 @@ module Responses
     render json: camelize_keys, status: 409
   end
 
-  def render_something_went_wrong
-    render json: something_went_wrong, status: 400
+  def unprocessable_entity
+    render json: camelize_keys, status: 422
   end
 
   def camelize_keys

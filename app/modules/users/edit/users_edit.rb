@@ -1,8 +1,7 @@
 module UsersEdit
   include UsersEditBusinessName
-  include UsersEditTaxIdentification
+  include UsersEditTaxNumber
   include UsersEditPhone
   include UsersEditEmail
   include UsersEditPassword
-  include UsersEditShowcase
 end

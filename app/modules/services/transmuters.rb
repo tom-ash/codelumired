@@ -16,19 +16,4 @@ module Transmuters
         end
         return user_phone_number
       end
-
-      def create_cipher_key
-        cipher = OpenSSL::Cipher.new('AES-256-CBC')
-        cipher.encrypt
-        key = Base64.encode64(cipher.random_key)
-        iv = Base64.encode64(cipher.random_iv)
-        salt = SecureRandom.hex(16)
-        cipher.update('foo')
-        cipher.final
-        render json: {
-          key: key,
-          iv: iv,
-          salt: salt
-        }
-      end   
 end

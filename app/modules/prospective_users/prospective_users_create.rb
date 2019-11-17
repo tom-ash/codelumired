@@ -1,94 +1,68 @@
 module ProspectiveUsersCreate
   def create
     parse_params
-    return render_something_went_wrong if invalid_params?
+    return bad_request if invalid_params?
 
-    encrypt_email
-    generate_token
-    @response = { token: @token }
-    return render_created if user_exists
+    generate_access_token
+    @response = { token: @access_token }
+    return created if user_exists
 
     create_prospective_user
-    create_prospective_user_cipher
     prepare_verification
     prepare_user
-    prepare_user_cipher
     send_verification if account_prepared
-    render_created
+    created
   end
 
   private
 
   def parse_params
     @language = request.headers[:language]
-    @business_name = params[:business_name]
-    @phone_code = params[:country_code]
-    @phone_body = params[:phone]
     @email = params[:email]
     @password = params[:password]
+    @business_name = params[:business_name]
+    @phone_code = params[:phone_code]
+    @phone_body = params[:phone]
     @consents = [params[:terms], params[:privacy]]
   end
 
   def invalid_params?
     params_to_validate = [@business_name, @phone_code, @phone_body, @email, @password, @consents]
-    params_to_validate.each do |param|
-      return true if param.blank?
-    end
+    params_to_validate.each { |param| return true if param.blank? }
+
     false
   end
 
   def user_exists
-    @user = User.find_by encrypted_email: @encrypted_email
+    @user = User.find_by(email: @email)
   end
 
   def create_prospective_user
-    @prospective_user = ProspectiveUser.create(
-      encrypted_token: @encrypted_token,
+    @prospective_user = ProspectiveUser.new(
+      encrypted_access_token: @encrypted_access_token,
       verification: {},
       user: {}
     )
-  end
-
-  def create_prospective_user_cipher
-    @data = {
-      verification_code_iv: '',
-      user_cipher: {}
-    }
-    @prospective_user_cipher = ProspectiveUserCipher.find_by_id(@prospective_user.id)
-    return @prospective_user_cipher.update(@data) if @prospective_user_cipher
-
-    @prospective_user_cipher = ProspectiveUserCipher.create(@data.merge!(id: @prospective_user.id))
   end
 
   def prepare_verification
     @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
     generate_verification
     @prospective_user.verification = @verification
-    @prospective_user_cipher.verification_code_iv = @verification_code_iv
+    @prospective_user.verification_code_iv = @verification_code_iv
   end
 
   def prepare_user
-    encrypt_business_name
-    encrypt_phone_body
     hash_user_password
     @user_object = {
-      encrypted_business_name: @encrypted_business_name,
-      phone: { phone_code: @phone_code, encrypted_body: @encrypted_phone_body, verified: false },
-      encrypted_email: @encrypted_email,
+      email: @email,
       hashed_password: @hashed_password,
+      password_salt: @password_salt,
+      business_name: @business_name,
+      phone: { code: @phone_code, body: @phone_body, verified: false },
       consents: @consents
     }
     @prospective_user.user = @user_object
-  end
-
-  def prepare_user_cipher
-    @user_cipher_object = {
-      business_name_iv: @business_name_iv,
-      phone_body_iv: @phone_body_iv,
-      email_derived_cipher_id: @email_derived_cipher_id,
-      password_salt: @password_salt
-    }
-    @prospective_user_cipher.user_cipher = @user_cipher_object
   end
 
   def send_verification
@@ -101,6 +75,6 @@ module ProspectiveUsersCreate
   end
 
   def account_prepared
-    @prospective_user.save && @prospective_user_cipher.save
+    @prospective_user.save
   end
 end

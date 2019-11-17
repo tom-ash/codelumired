@@ -10,10 +10,10 @@ module Mailers
   def send_email_with_emaillabs
     @email_sender = "noreply@warsawlease.pl"
     app_key = Rails.application.secrets.smslabs_app_key
-    secret_key = Rails.application.secrets.emailabs_secret_key
+    secret_key = Rails.application.secrets.emaillabs_secret_key
     auth = 'Basic ' + Base64.strict_encode64("#{app_key}:#{secret_key}")
     data = {
-      smtp_account: Rails.application.secrets.emailabs_smtp_account,
+      smtp_account: Rails.application.secrets.emaillabs_smtp_account,
       from: @email_sender,
       from_name: "warsawlease.pl",
       to: { "#{@email_recipient}": nil },

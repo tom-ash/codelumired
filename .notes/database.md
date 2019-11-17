@@ -1,18 +1,9 @@
-# DERIVED CIPHERS
-rails generate model DerivedCipher \
-iv:string \
-salt:string
-
 # PROSPECTIVE USERS
 rails generate model ProspectiveUser \
-encrypted_token:string \
+encrypted_token:string:index \
 verification:jsonb \
-user:jsonb
-
-# PROSPECTIVE USER CIPHERS
-rails generate model ProspectiveUserCipher \
 verification_code_iv:string \
-user_cipher:jsonb
+user:jsonb
 
 # USERS
 rails generate model User \
@@ -20,37 +11,23 @@ status:integer:index \
 encrypted_token:string:index \
 token_date:date \
 verification:jsonb \
+verification_code_iv:string \
 points:integer \
-encrypted_email:string:index \
+email:string:index \
 hashed_password:string \
+password_salt:string \
 consents:jsonb \
 phone:jsonb \
-encrypted_business_name:string \
+business_name:string \
 showcase:jsonb \
-encrypted_tax_identification:string \
-encrypted_legal_name:string \
-encrypted_address:text \
-past_log:jsonb
-
-# USER CIPHERS
-rails generate model UserCipher \
-verification_code_iv:string \
-email_derived_cipher_id:integer \
-password_salt:string \
-phone_body_iv:string \
-business_name_iv:string \
-tax_identification_iv:string \
-legal_name_iv:string \
-address_iv:string \
-past_log:jsonb
+legal_name:string \
+tax_number:string \
+address:text \
+changes_log:jsonb
 
 # DELETED USERS
 rails generate model DeletedUser \
 original_user:jsonb
-
-# DELETED USER CIPHERS
-rails generate model DeletedUserCipher \
-original_user_cipher:jsonb
 
 # ANNOUNCEMENTS
 rails generate model Announcement \
@@ -82,7 +59,7 @@ polish_description:text \
 english_description:text \
 longitude:integer:index \
 latitude:integer:index \
-past_log:jsonb
+changes_log:jsonb
 
 # DELETED ANNOUNCEMENTS
 rails generate model DeletedAnnouncement \

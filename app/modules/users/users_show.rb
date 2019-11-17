@@ -1,27 +1,23 @@
 module UsersShow
   def phone
     @user = Announcement.find(params[:id]).user
-    @user_cipher = UserCipher.find(@user.id)
-    decrypt_phone_body
+    @phone_code = @user.phone['code']
+    @phone_body = @user.phone['body']
     render json: {
-      phone: "#{@user.phone['phone_code']} #{@phone_body[0..2]} #{@phone_body[3..5]} #{@phone_body[6..8]}"
+      phone: "#{@phone_code} #{@phone_body[0..2]} #{@phone_body[3..5]} #{@phone_body[6..8]}"
     }
   end
 
-  def get_account_data
-    return render_bad_request unless user_validated?
+  def fetch_account_data
+    return bad_request unless user_validated?
 
-    decrypt_business_name
-    decrypt_tax_identification
-    decrypt_phone_body
-    decrypt_email
     @response = {
-      business_name: @business_name,
-      tax_identification: @tax_identification,
-      phone_country_code: @user.phone['phone_code'],
-      phone_body: @phone_body,
-      email: @email
+      business_name: @user.business_name,
+      tax_number: @user.tax_number,
+      phone_code: @user.phone['code'],
+      phone_body: @user.phone['body'],
+      email: @user.email
     }
-    render_ok
+    ok
   end
 end

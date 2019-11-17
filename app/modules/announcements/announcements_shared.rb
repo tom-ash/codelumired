@@ -5,7 +5,7 @@ module AnnouncementsShared
     @announcement_object = {}
     handle_rent_amount
     @response = @announcement_object
-    render_ok
+    ok
   end
 
   private

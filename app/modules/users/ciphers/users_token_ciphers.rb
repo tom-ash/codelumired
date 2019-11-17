@@ -1,32 +1,29 @@
 module UsersTokenCiphers
   private
 
-  def generate_token
-    @token = SecureRandom.hex(64)
-    @user.token_date = Date.today if @user
-    encrypt_token
+  def generate_access_token
+    @access_token = SecureRandom.hex(64)
+    @user.access_token_date = Date.today if @user
+    encrypt_access_token
   end
 
-  def encrypt_token
-    @record = @token
-    @key = Rails.application.secrets.token_key
-    @iv = Rails.application.secrets.token_iv
-    @salt = Rails.application.secrets.token_salt
-    @encrypted_token = encrypt_with_fixed_iv_and_salt
+  def encrypt_access_token
+    @record = @access_token
+    @key = Rails.application.secrets.access_token_key
+    @iv = Rails.application.secrets.access_token_iv
+    @salt = Rails.application.secrets.access_token_salt
+    @encrypted_access_token = encrypt_with_fixed_iv_and_salt
   end
 
-  def decrypt_token
-    @encrypted_record = @user.encrypted_token
-    @key = Rails.application.secrets.token_key
-    @iv = Rails.application.secrets.token_iv
+  def decrypt_access_token
+    @encrypted_record = @user.encrypted_access_token
+    @key = Rails.application.secrets.access_token_key
+    @iv = Rails.application.secrets.access_token_iv
     decrypt
   end
 
   def find_user_with_token
-    encrypt_token
-    @user = User.find_by(encrypted_token: @encrypted_token)
-    return false unless @user
-
-    @user_cipher = UserCipher.find(@user.id)
+    encrypt_access_token
+    @user = User.find_by(encrypted_access_token: @encrypted_access_token)
   end
 end

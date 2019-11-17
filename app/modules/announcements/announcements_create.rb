@@ -2,16 +2,16 @@
 
 module AnnouncementsCreate
   def create
-    return render_bad_request unless user_validated?
+    return bad_request unless user_validated?
 
-    return render_bad_request unless phone_verified?
+    return bad_request unless phone_verified?
 
     prepare_announcement_object
     handle_rent_amount
     handle_availability_date
     create_announcement
     handle_pictures
-    render_created
+    created
   end
 
   private
@@ -31,7 +31,7 @@ module AnnouncementsCreate
       reports: [],
       visible: true,
       active_until: Date.today + 30.days,
-      past_log: []
+      changes_log: []
     }
   end
 

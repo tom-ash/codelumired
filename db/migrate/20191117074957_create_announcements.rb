@@ -29,7 +29,7 @@ class CreateAnnouncements < ActiveRecord::Migration[6.0]
       t.text :english_description, null: false
       t.integer :longitude, null: false
       t.integer :latitude, null: false
-      t.jsonb :past_log, null: false
+      t.jsonb :changes_log, null: false
 
       t.timestamps
     end

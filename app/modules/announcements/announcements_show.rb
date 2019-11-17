@@ -14,7 +14,7 @@ module AnnouncementsShow
     @announcement[:phone] = user.showcase['phone'] unless only_tile?
 
     @response = @announcement
-    render_ok
+    ok
   end
 
   private

@@ -1,54 +1,47 @@
 module UsersAuthorize
   def authorize_with_email
-    find_user_and_cipher_with_email
-    return render_something_went_wrong unless @user && @user_cipher
+    find_user_with_email
+    return bad_request unless @user
+    return bad_request unless user_password_valid?
 
-    return render_something_went_wrong unless user_password_valid?
-
-    token_current? ? find_token : generate_token
-    decrypt_business_name
+    token_current? ? current_access_token : generate_access_token
     phone_verified?
-    @response = {
-      uT: @token,
-      name: @business_name,
-      phone_verified: @phone_verified
-    }
-    return render_ok if token_current? || token_updated?
+    @response = { access_token: @access_token, name: @user.business_name, phone_verified: @phone_verified }
+    return ok if token_current? || token_updated?
 
     @response = {}
-    render_bad_request
+    bad_request
   end
 
   def authorize_with_token
-    return render_something_went_wrong unless user_validated?
+    return bad_request unless user_validated?
 
     phone_verified?
-    decrypt_business_name
     @response = {
-      name: @business_name,
+      name: @user.business_name,
       phone_verified: @phone_verified
     }
-    render_ok
+    ok
   end
 
   protected
 
-  def find_token
-    @token = decrypt_token
+  def current_access_token
+    @access_token = decrypt_access_token
   end
 
   def token_current?
-    @user.token_date > 1.year.ago
+    @user.access_token_date > 1.year.ago
   end
 
   def user_validated?
-    @token = request.headers[:uT]
-    return false unless @token
+    @access_token = request.headers['Access-Token']
+    return false unless @access_token
 
     find_user_with_token
   end
 
   def token_updated?
-    @user.update_attribute(:encrypted_token, @encrypted_token)
+    @user.update(:encrypted_access_token, @encrypted_access_token)
   end
 end

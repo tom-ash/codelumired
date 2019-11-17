@@ -1,5 +1,4 @@
 module UsersPasswordCiphers
-
   private
 
   def hash_user_password
@@ -10,11 +9,11 @@ module UsersPasswordCiphers
 
   def user_password_valid?
     @password ||= request.headers[:password] || params[:password]
-    @password_salt = @user_cipher.password_salt
+    @password_salt = @user.password_salt
     BCrypt::Password.new(@user.hashed_password) == extended_password
   end
 
   def extended_password
-    (Digest::SHA512.new).base64digest(@password + @password_salt + Rails.application.secrets.password_salt)
+    Digest::SHA512.new.base64digest(@password + @password_salt + Rails.application.secrets.password_salt)
   end
 end

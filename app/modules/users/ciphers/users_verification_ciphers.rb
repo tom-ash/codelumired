@@ -11,7 +11,7 @@ module UsersVerificationCiphers
   def decrypt_verification_code
     @encrypted_record = @user.verification['encrypted_code']
     @key = Rails.application.secrets.verification_code_key
-    @iv = @user_cipher.verification_code_iv
+    @iv = @user.verification_code_iv
     @verification_code = decrypt
   end
 end

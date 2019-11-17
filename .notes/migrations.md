@@ -1,38 +1,15 @@
-# DERIVED CIPHERS
-class CreateDerivedCiphers < ActiveRecord::Migration[6.0]
-  def change
-    create_table :derived_ciphers do |t|
-      t.string :iv, null: false
-      t.string :salt, null: false
-
-      t.timestamps
-    end
-  end
-end
-
 # PROSPECTIVE USERS
 class CreateProspectiveUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :prospective_users do |t|
       t.string :encrypted_token, null: false
       t.jsonb :verification, null: false
+      t.string :verification_code_iv, null: false
       t.jsonb :user, null: false
 
       t.timestamps
     end
-    add_index :users, :encrypted_token, unique: true
-  end
-end
-
-# PROSPECTIVE USER CIPHERS
-class CreateProspectiveUserCiphers < ActiveRecord::Migration[6.0]
-  def change
-    create_table :prospective_user_ciphers do |t|
-      t.string :verification_code_iv, null: false
-      t.jsonb :user_cipher, null: false
-
-      t.timestamps
-    end
+    add_index :prospective_users, :encrypted_token, unique: true
   end
 end
 
@@ -43,43 +20,26 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :status, null: false, limit: 2
       t.string :encrypted_token, null: false
       t.date :token_date, null: false
-      t.jsonb :verification, null: false
+      t.jsonb :verification
+      t.string :verification_code_iv
       t.integer :points, null: false
-      t.string :encrypted_email, null: false
+      t.string :email, null: false
       t.string :hashed_password, null: false
+      t.string :password_salt, null: false
       t.jsonb :consents, null: false
       t.jsonb :phone, null: false
-      t.string :encrypted_business_name, null: false
+      t.string :business_name, null: false
       t.jsonb :showcase, null: false
-      t.string :encrypted_tax_identification, null: false
-      t.string :encrypted_legal_name, null: false
-      t.text :encrypted_address, null: false
-      t.jsonb :past_log, null: false
+      t.string :legal_name, null: false
+      t.string :tax_number, null: false
+      t.text :address, null: false
+      t.jsonb :changes_log, null: false
 
       t.timestamps
     end
     add_index :users, :status
     add_index :users, :encrypted_token, unique: true
-    add_index :users, :encrypted_email, unique: true
-  end
-end
-
-# USER CIPHERS
-class CreateUserCiphers < ActiveRecord::Migration[6.0]
-  def change
-    create_table :user_ciphers do |t|
-      t.string :verification_code_iv, null: false
-      t.integer :email_derived_cipher_id, null: false
-      t.string :password_salt, null: false
-      t.string :phone_body_iv, null: false
-      t.string :business_name_iv, null: false
-      t.string :tax_identification_iv, null: false
-      t.string :legal_name_iv, null: false
-      t.string :address_iv, null: false
-      t.jsonb :past_log, null: false
-
-      t.timestamps
-    end
+    add_index :users, :email, unique: true
   end
 end
 
@@ -88,17 +48,6 @@ class CreateDeletedUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :deleted_users do |t|
       t.jsonb :original_user, null: false
-
-      t.timestamps
-    end
-  end
-end
-
-# DELETED USER CIPHERS
-class CreateDeletedUserCiphers < ActiveRecord::Migration[6.0]
-  def change
-    create_table :deleted_user_ciphers do |t|
-      t.jsonb :original_user_cipher, null: false
 
       t.timestamps
     end
@@ -137,7 +86,7 @@ class CreateAnnouncements < ActiveRecord::Migration[6.0]
       t.text :english_description, null: false
       t.integer :longitude, null: false
       t.integer :latitude, null: false
-      t.jsonb :past_log, null: false
+      t.jsonb :changes_log, null: false
 
       t.timestamps
     end
