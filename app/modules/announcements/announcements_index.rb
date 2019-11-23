@@ -15,10 +15,7 @@ module AnnouncementsIndex
     limit_announcements
     sort_announcements
     select_attributes
-    @response = {
-      amount: @amount,
-      announcements: @announcements.map(&:attributes).to_a
-    }
+    @response = { amount: @amount, announcements: @announcements.map(&:attributes).to_a }
     ok
   end
 
@@ -78,7 +75,7 @@ module AnnouncementsIndex
 
   def filter_announcements
     filters.each do |filter|
-      next if request.headers[filter[:name]] == 'true'
+      next if params[filter[:name]] == 'true'
 
       @announcements = @announcements.where.not(filter[:attribute] => filter[:value])
     end
@@ -86,7 +83,7 @@ module AnnouncementsIndex
   end
 
   def limit_announcements
-    @announcements = @announcements.limit(per_page).offset!(offset)
+    @announcements = @announcements.limit(10).offset!(params[:offset])
   end
 
   def sort_announcements
