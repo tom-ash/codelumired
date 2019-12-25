@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2019_11_17_075012) do
     t.integer "net_rent_amount_per_sqm", null: false
     t.integer "gross_rent_amount", null: false
     t.integer "gross_rent_amount_per_sqm", null: false
-    t.boolean "additional_fees", null: false
     t.integer "rooms", limit: 2, null: false
     t.integer "floor", limit: 2, null: false
     t.integer "total_floors", limit: 2, null: false
@@ -48,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_11_17_075012) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["active_until"], name: "index_announcements_on_active_until"
-    t.index ["additional_fees"], name: "index_announcements_on_additional_fees"
     t.index ["area"], name: "index_announcements_on_area"
     t.index ["availability_date"], name: "index_announcements_on_availability_date"
     t.index ["category"], name: "index_announcements_on_category"

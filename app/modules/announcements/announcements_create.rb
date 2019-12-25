@@ -11,6 +11,7 @@ module AnnouncementsCreate
     handle_availability_date
     create_announcement
     handle_pictures
+    @response = { id: @announcement.id }
     created
   end
 

@@ -74,7 +74,6 @@ class CreateAnnouncements < ActiveRecord::Migration[6.0]
       t.integer :net_rent_amount_per_sqm, null: false
       t.integer :gross_rent_amount, null: false
       t.integer :gross_rent_amount_per_sqm, null: false
-      t.boolean :additional_fees, null: false
       t.integer :rooms, null: false, limit: 2
       t.integer :floor, null: false, limit: 2
       t.integer :total_floors, null: false, limit: 2

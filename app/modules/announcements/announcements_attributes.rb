@@ -3,7 +3,6 @@ module AnnouncementsAttributes
     category
     district
     rent_currency
-    additional_fees
     rooms
     floor
     total_floors
@@ -106,7 +105,6 @@ module AnnouncementsAttributes
     gross_rent_amount
     gross_rent_amount_per_sqm
     rent_currency
-    additional_fees
     floor
     total_floors
     availability_date
@@ -131,7 +129,6 @@ module AnnouncementsAttributes
     gross_rent_amount
     gross_rent_amount_per_sqm
     rent_currency
-    additional_fees
     floor
     total_floors
     availability_date
@@ -147,7 +144,6 @@ module AnnouncementsAttributes
     rooms
     rent_currency
     net_rent_amount
-    additional_fees
     availability_date
     floor
     total_floors
@@ -165,7 +161,6 @@ module AnnouncementsAttributes
     district
     area
     rent_currency
-    additional_fees
     rooms
     floor
     total_floors

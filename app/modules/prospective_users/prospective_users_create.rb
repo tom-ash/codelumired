@@ -23,7 +23,12 @@ module ProspectiveUsersCreate
     @business_name = params[:business_name]
     @phone_code = params[:phone_code]
     @phone_body = params[:phone]
-    @consents = [params[:terms], params[:privacy]]
+    terms_and_privacy_consent_attrs = params[:terms_and_privacy_consent]
+    @consents = [{
+      granted: terms_and_privacy_consent_attrs[:value] == 'granted',
+      displayed_text: terms_and_privacy_consent_attrs[:text],
+      expressed_at: Time.zone.now
+    }]
   end
 
   def invalid_params?

@@ -10,7 +10,6 @@ class Announcement < ApplicationRecord
   validates :net_rent_amount_per_sqm, presence: true, numericality: { only_integer: true }
   validates :gross_rent_amount, presence: true, numericality: { only_integer: true }
   validates :gross_rent_amount_per_sqm, presence: true, numericality: { only_integer: true }
-  validates :additional_fees, inclusion: { in: [true, false] }
   validates :area, presence: true, numericality: { only_integer: true }
   validates :rooms, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
   validates :floor, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
@@ -40,7 +39,7 @@ class Announcement < ApplicationRecord
   end
 
   def self.create_test_announcements
-    100.times do
+    10.times do
       floor = [5, 10, 15, 20, 25, 30].shuffle[0]
       @announcement = Announcement.all.shuffle[0]
       @pictures = @announcement.pictures.shuffle
@@ -66,7 +65,6 @@ class Announcement < ApplicationRecord
         net_rent_amount_per_sqm: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000].shuffle[0],
         gross_rent_amount: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000].shuffle[0],
         gross_rent_amount_per_sqm: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000].shuffle[0],
-        additional_fees: [true, false].shuffle[0],
         pictures: @pictures,
         area: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100].shuffle[0],
         availability_date: ['2019-05-20', '2019-05-25', '2019-10-01', '2019-11-30'].shuffle[0],

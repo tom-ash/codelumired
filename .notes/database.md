@@ -47,7 +47,6 @@ net_rent_amount:integer:index \
 net_rent_amount_per_sqm:integer:index \
 gross_rent_amount:integer:index \
 gross_rent_amount_per_sqm:integer:index \
-additional_fees:boolean:index \
 rooms:integer:index \
 floor:integer:index \
 total_floors:integer:index \

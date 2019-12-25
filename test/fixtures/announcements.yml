@@ -17,7 +17,6 @@ one:
   net_rent_amount_per_sqm: 1
   gross_rent_amount: 1
   gross_rent_amount_per_sqm: 1
-  additional_fees: false
   rooms: 1
   floor: 1
   total_floors: 1
@@ -48,7 +47,6 @@ two:
   net_rent_amount_per_sqm: 1
   gross_rent_amount: 1
   gross_rent_amount_per_sqm: 1
-  additional_fees: false
   rooms: 1
   floor: 1
   total_floors: 1
