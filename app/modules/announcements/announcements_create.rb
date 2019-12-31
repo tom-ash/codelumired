@@ -26,13 +26,12 @@ module AnnouncementsCreate
     {
       user_id: @user.id,
       status: 1,
-      distinct: 0,
       points: 0,
       views: 0,
       reports: [],
       visible: true,
       active_until: Date.today + 30.days,
-      changes_log: []
+      change_log: []
     }
   end
 

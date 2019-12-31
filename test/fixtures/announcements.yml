@@ -3,7 +3,6 @@
 one:
   user: one
   status: 1
-  distinct: 1
   points: 1
   views: 1
   reports: 
@@ -28,12 +27,11 @@ one:
   english_description: MyText
   longitude: 1
   latitude: 1
-  changes_log: 
+  change_log: 
 
 two:
   user: two
   status: 1
-  distinct: 1
   points: 1
   views: 1
   reports: 
@@ -58,4 +56,4 @@ two:
   english_description: MyText
   longitude: 1
   latitude: 1
-  changes_log: 
+  change_log: 

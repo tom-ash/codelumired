@@ -95,7 +95,6 @@ module AnnouncementsIndex
       [*full_attributes, %i[
         views
         status
-        distinct
         visible
         active_until
         created_at

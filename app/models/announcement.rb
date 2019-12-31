@@ -46,11 +46,10 @@ class Announcement < ApplicationRecord
 
       @new_announcement = Announcement.create({
         status: 1,
-        distinct: 0,
         points: 0,
         views: 0,
         reports: [],
-        changes_log: [],
+        change_log: [],
         visible: true,
         active_until: Date.today + [-30, -12, -6, -1, 0, 1, 2, 4, 8, 12, 16, 18, 22, 26, 30].shuffle[0].days,
         features: [],

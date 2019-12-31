@@ -17,7 +17,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :legal_name, null: false
       t.string :tax_number, null: false
       t.text :address, null: false
-      t.jsonb :changes_log, null: false
+      t.jsonb :change_log, null: false
 
       t.timestamps
     end

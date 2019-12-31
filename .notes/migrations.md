@@ -33,7 +33,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :legal_name, null: false
       t.string :tax_number, null: false
       t.text :address, null: false
-      t.jsonb :changes_log, null: false
+      t.jsonb :change_log, null: false
 
       t.timestamps
     end
@@ -60,7 +60,6 @@ class CreateAnnouncements < ActiveRecord::Migration[6.0]
     create_table :announcements do |t|
       t.references :user, foreign_key: true, null: false
       t.integer :status, null: false, limit: 2
-      t.integer :distinct, null: false, limit: 2
       t.integer :points, null: false
       t.integer :views, null: false
       t.jsonb :reports, null: false
@@ -85,12 +84,11 @@ class CreateAnnouncements < ActiveRecord::Migration[6.0]
       t.text :english_description, null: false
       t.integer :longitude, null: false
       t.integer :latitude, null: false
-      t.jsonb :changes_log, null: false
+      t.jsonb :change_log, null: false
 
       t.timestamps
     end
     add_index :announcements, :status
-    add_index :announcements, :distinct
     add_index :announcements, :points
     add_index :announcements, :visible
     add_index :announcements, :active_until

@@ -23,7 +23,7 @@ showcase:jsonb \
 legal_name:string \
 tax_number:string \
 address:text \
-changes_log:jsonb
+change_log:jsonb
 
 # DELETED USERS
 rails generate model DeletedUser \
@@ -33,7 +33,6 @@ original_user:jsonb
 rails generate model Announcement \
 user:references \
 status:integer:index \
-distinct:integer:index \
 points:integer:index \
 views:integer \
 reports:jsonb \
@@ -58,7 +57,7 @@ polish_description:text \
 english_description:text \
 longitude:integer:index \
 latitude:integer:index \
-changes_log:jsonb
+change_log:jsonb
 
 # DELETED ANNOUNCEMENTS
 rails generate model DeletedAnnouncement \

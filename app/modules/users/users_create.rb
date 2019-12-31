@@ -32,7 +32,7 @@ module UsersCreate
       legal_name: '',
       tax_number: '',
       address: '',
-      changes_log: []
+      change_log: []
     ).with_indifferent_access
   end
 

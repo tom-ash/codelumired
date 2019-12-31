@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2019_11_17_075012) do
   create_table "announcements", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "status", limit: 2, null: false
-    t.integer "distinct", limit: 2, null: false
     t.integer "points", null: false
     t.integer "views", null: false
     t.jsonb "reports", null: false
@@ -43,14 +42,13 @@ ActiveRecord::Schema.define(version: 2019_11_17_075012) do
     t.text "english_description", null: false
     t.integer "longitude", null: false
     t.integer "latitude", null: false
-    t.jsonb "changes_log", null: false
+    t.jsonb "change_log", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["active_until"], name: "index_announcements_on_active_until"
     t.index ["area"], name: "index_announcements_on_area"
     t.index ["availability_date"], name: "index_announcements_on_availability_date"
     t.index ["category"], name: "index_announcements_on_category"
-    t.index ["distinct"], name: "index_announcements_on_distinct"
     t.index ["district"], name: "index_announcements_on_district"
     t.index ["floor"], name: "index_announcements_on_floor"
     t.index ["gross_rent_amount"], name: "index_announcements_on_gross_rent_amount"
@@ -107,7 +105,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_075012) do
     t.string "legal_name", null: false
     t.string "tax_number", null: false
     t.text "address", null: false
-    t.jsonb "changes_log", null: false
+    t.jsonb "change_log", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
