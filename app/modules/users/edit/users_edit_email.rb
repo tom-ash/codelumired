@@ -25,7 +25,7 @@ module UsersEditEmail
     return bad_request unless user_validated? && required_params_present?
 
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
-    @email_recipient = @email = params[:new_email]
+    @email_recipient = @email = params[:new_email].downcase
     @email_subject = @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
     @new_email_verification_code = SecureRandom.hex(4).upcase
     @email_text = @new_email_verification_code
@@ -33,7 +33,7 @@ module UsersEditEmail
     send_email
     @verification_code = decrypt_verification_code + @new_email_verification_code
     generate_verification
-    @verification['new_email'] = params[:new_email]
+    @verification['new_email'] = params[:new_email].downcase
     @user.verification = @verification
     @user.verification_code_iv = @verification_code_iv
     return ok if @user.save

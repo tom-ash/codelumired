@@ -18,7 +18,7 @@ module ProspectiveUsersCreate
 
   def parse_params
     @language = request.headers[:language]
-    @email = params[:email]
+    @email = params[:email].downcase
     @password = params[:password]
     @business_name = params[:business_name]
     @phone_code = params[:phone_code]
