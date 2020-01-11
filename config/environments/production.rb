@@ -72,7 +72,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -84,10 +84,11 @@ Rails.application.configure do
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins 'https://www.warsawlease.pl'
-      resource '*',
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      resource '*', headers: :any, methods: %i[get post put patch delete options head]
+    end
+    allow do
+      origins %r{^https:\/\/.*\.googleusercontent\.com$}
+      resource '*', headers: :any, methods: %i[get post put patch delete options head]
     end
   end
-
 end
