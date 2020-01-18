@@ -23,9 +23,17 @@ module AnnouncementsIndex
 
   def search_announcements
     @announcements = Announcement.where(status: 1, visible: true)
+    handle_rent
     handle_equal_attributes
     handle_minimal_attributes
     handle_maximal_attributes
+  end
+
+  def handle_rent
+    @min_rent = params[:min_rent]
+    @max_rent = params[:max_rent]
+    @announcements = @announcements.where('gross_rent_amount_int >= ?', @min_rent.to_i * 100) if @min_rent
+    @announcements = @announcements.where('gross_rent_amount_int <= ?', @max_rent.to_i * 100) if @max_rent
   end
 
   def handle_equal_attributes
@@ -57,11 +65,20 @@ module AnnouncementsIndex
   end
 
   def prepare_response
-    @response = { announcements: announcements, amount: amount }
+    @response = {
+      announcements: announcements,
+      amount: amount
+    }
   end
 
   def announcements
-    @announcements.limit(per_page).offset(params[:offset]).select(full_attributes)
+    @announcements.limit(per_page)
+                  .offset(params[:offset])
+                  .select(AnnouncementsAttributes::INDEX_FULL).each do |item|
+      item = item.attributes
+      item['latitude'] = item['latitude'].to_f / 1_000_000
+      item['longitude'] = item['longitude'].to_f / 1_000_000
+    end
   end
 
   def amount
@@ -103,9 +120,9 @@ module AnnouncementsIndex
     )
   end
 
-  def full_attributes
-    AnnouncementsAttributes::INDEX_FULL
-  end
+  # def full_attributes
+  #   AnnouncementsAttributes::INDEX_FULL
+  # end
 
   def equal_attributes
     AnnouncementsAttributes::INDEX_EQUAL

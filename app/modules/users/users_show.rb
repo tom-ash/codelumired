@@ -12,12 +12,27 @@ module UsersShow
     return bad_request unless user_validated?
 
     @response = {
-      business_name: @user.business_name,
-      tax_number: @user.tax_number,
       phone_code: @user.phone['code'],
       phone_body: @user.phone['body'],
       email: @user.email
-    }
+    }.merge(account_type_specific_attributes)
+
     ok
+  end
+
+  private
+
+  def account_type_specific_attributes
+    if @user.professional_account?
+      return {
+        business_name: @user.business_name,
+        tax_number: @user.tax_number
+      }
+    end
+
+    {
+      first_name: @user.first_name,
+      last_name: @user.last_name
+    }
   end
 end

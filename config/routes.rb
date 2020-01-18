@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/user/edit/account_data', to: 'users#fetch_account_data'
   get '/authorize_with_token', to: 'users#authorize_with_token'
   put '/authorize_with_email', to: 'users#authorize_with_email'
+  put '/user/edit/first_name', to: 'users#edit_first_name'
+  put '/user/edit/last_name', to: 'users#edit_last_name'
   put '/user/edit/business_name', to: 'users#edit_business_name'
   put '/user/edit/tax_number', to: 'users#edit_tax_number'
   put '/user/edit/phone', to: 'users#edit_phone'

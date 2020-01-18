@@ -12,17 +12,18 @@ module AnnouncementsAttributes
     furnishings
     polish_description
     english_description
-    longitude
-    latitude
   ].freeze
 
   INDEX_FULL = %i[
     id
     category
     district
-    net_rent_amount
     rent_currency
     area
+    net_rent_amount
+    net_rent_amount_per_sqm
+    gross_rent_amount
+    gross_rent_amount_per_sqm
     pictures
     rooms
     floor
@@ -41,7 +42,6 @@ module AnnouncementsAttributes
   INDEX_MINIMAL = %i[
     min_area
     min_rooms
-    min_net_rent_amount
     min_floor
     min_total_floors
   ].freeze
@@ -49,11 +49,8 @@ module AnnouncementsAttributes
   INDEX_MAXIMAL = %i[
     max_area
     max_rooms
-    max_net_rent
-    amount
     max_floor
     max_total_floors
-    availability_date
   ].freeze
 
   INDEX_PER_PAGE = 50
@@ -90,7 +87,7 @@ module AnnouncementsAttributes
     viewsdesc: 'views DESC'
   }.freeze.with_indifferent_access
 
-  SHOW_FULL = %i[
+  SHOW_FULL = %w[
     id
     user_id
     status
@@ -99,11 +96,11 @@ module AnnouncementsAttributes
     district
     pictures
     area
-    rooms
     net_rent_amount
     net_rent_amount_per_sqm
     gross_rent_amount
     gross_rent_amount_per_sqm
+    rooms
     rent_currency
     floor
     total_floors
@@ -112,22 +109,22 @@ module AnnouncementsAttributes
     furnishings
     polish_description
     english_description
-    latitude
     longitude
+    latitude
   ].freeze
 
-  SHOW_TILE = %i[
+  SHOW_TILE = %w[
     id
     visible
     category
     district
     pictures
     area
-    rooms
     net_rent_amount
     net_rent_amount_per_sqm
     gross_rent_amount
     gross_rent_amount_per_sqm
+    rooms
     rent_currency
     floor
     total_floors
@@ -144,6 +141,7 @@ module AnnouncementsAttributes
     rooms
     rent_currency
     net_rent_amount
+    gross_rent_amount
     availability_date
     floor
     total_floors

@@ -3,22 +3,22 @@ class Announcement < ApplicationRecord
   validates :status, presence: true
   validates :points, presence: true
   validates :views, presence: true
-  validates :category, presence: true, numericality: { only_integer: true }, inclusion: { in: [0, 1] }
+  validates :category, presence: true, numericality: { only_integer: true }, inclusion: { in: [0, 1, 2] }
   validates :district, presence: true, numericality: { only_integer: true }, inclusion: { in: [*0..17] }
   validates :rent_currency, presence: true, numericality: { only_integer: true }, inclusion: { in: [0, 1, 2] }
-  validates :net_rent_amount, presence: true, numericality: { only_integer: true }
-  validates :net_rent_amount_per_sqm, presence: true, numericality: { only_integer: true }
-  validates :gross_rent_amount, presence: true, numericality: { only_integer: true }
-  validates :gross_rent_amount_per_sqm, presence: true, numericality: { only_integer: true }
-  validates :area, presence: true, numericality: { only_integer: true }
+  # validates :net_rent_amount, numericality: { only_float: true }
+  # validates :net_rent_amount_per_sqm, numericality: { only_float: true }
+  validates :gross_rent_amount, presence: true, numericality: { only_float: true }
+  validates :gross_rent_amount_per_sqm, presence: true, numericality: { only_float: true }
+  validates :area, presence: true, numericality: { only_float: true }
   validates :rooms, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
   validates :floor, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
   validates :total_floors, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
   validates :availability_date, presence: true
   validates :pictures, presence: true, length: { minimum: 1 }
   validate :pictures_structure
-  validates :latitude, presence: true, numericality: { only_integer: true }
-  validates :longitude, presence: true, numericality: { only_integer: true }
+  validates :latitude, presence: true, numericality: { only_float: true }
+  validates :longitude, presence: true, numericality: { only_float: true }
   before_update :log_changes
   before_destroy :create_deleted_announcement
 

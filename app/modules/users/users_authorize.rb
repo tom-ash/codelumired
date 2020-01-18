@@ -8,7 +8,8 @@ module UsersAuthorize
     phone_verified?
     @response = {
       access_token: @access_token,
-      name: @user.business_name,
+      account_type: @user.account_type,
+      name: name,
       phone_verified: @phone_verified
     }
     return ok if token_current? || token_updated?
@@ -22,13 +23,18 @@ module UsersAuthorize
 
     phone_verified?
     @response = {
-      name: @user.business_name,
+      account_type: @user.account_type,
+      name: name,
       phone_verified: @phone_verified
     }
     ok
   end
 
   protected
+
+  def name
+    @user.private_account? ? @user.first_name : @user.business_name
+  end
 
   def current_access_token
     @access_token = decrypt_access_token

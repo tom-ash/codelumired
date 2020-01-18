@@ -11,18 +11,63 @@ module AnnouncementsShared
   private
 
   def handle_rent_amount
-    @area = params[:area].to_i
-    @net_rent_amount = params[:net_rent_amount].to_i
-    return unless @net_rent_amount != 0 && @area != 0
+    @category = params[:category].to_i
+    return unless [0, 1, 2].include?(@category)
 
-    @gross_rent_amount = @net_rent_amount * 1.23
+    if params[:longitude] && params[:latitude]
+      @longitude = params[:longitude].truncate(7)
+      @longitude_int = @longitude * 10_000_000
+      @latitude = params[:latitude].truncate(7)
+      @latitude_int = @latitude * 10_000_000
+    end
+
     @announcement_object.merge!(
-      area: @area,
-      net_rent_amount: @net_rent_amount,
-      net_rent_amount_per_sqm: ((@net_rent_amount * 100) / @area).ceil,
-      gross_rent_amount: (@gross_rent_amount * 100).ceil,
-      gross_rent_amount_per_sqm: ((@gross_rent_amount * 100) / @area).ceil
+      longitude: @longitude,
+      longitude_int: @longitude_int,
+      latitude: @latitude,
+      latitude_int: @latitude_int
     )
+
+    @area = params[:area].to_f
+    @area_int = @area * 100
+
+    if @category == 2
+      @gross_rent_amount = params[:gross_rent_amount].to_f
+      @gross_rent_amount_int = @gross_rent_amount * 100
+      @gross_rent_amount_per_sqm_int = ((@gross_rent_amount_int / @area_int) * 100).ceil
+      @gross_rent_amount_per_sqm = @gross_rent_amount_per_sqm_int / 100.0
+
+      @announcement_object.merge!(
+        area: @area,
+        area_int: @area_int,
+        gross_rent_amount: @gross_rent_amount,
+        gross_rent_amount_int: @gross_rent_amount_int,
+        gross_rent_amount_per_sqm: @gross_rent_amount_per_sqm,
+        gross_rent_amount_per_sqm_int: @gross_rent_amount_per_sqm_int
+      )
+    else
+      @net_rent_amount = params[:net_rent_amount].to_f
+      @net_rent_amount_int = @net_rent_amount * 100
+      @net_rent_amount_per_sqm_int = ((@net_rent_amount_int / @area_int) * 100).ceil
+      @net_rent_amount_per_sqm = @net_rent_amount_per_sqm_int / 100.0
+      @gross_rent_amount = @net_rent_amount.to_f * 1.23
+      @gross_rent_amount_int = @gross_rent_amount * 100
+      @gross_rent_amount_per_sqm_int = ((@gross_rent_amount_int / @area_int) * 100).ceil
+      @gross_rent_amount_per_sqm = @gross_rent_amount_per_sqm_int / 100.0
+
+      @announcement_object.merge!(
+        area: @area,
+        area_int: @area_int,
+        net_rent_amount: @net_rent_amount,
+        net_rent_amount_int: @net_rent_amount_int,
+        net_rent_amount_per_sqm: @net_rent_amount_per_sqm,
+        net_rent_amount_per_sqm_int: @net_rent_amount_per_sqm_int,
+        gross_rent_amount: @gross_rent_amount,
+        gross_rent_amount_int: @gross_rent_amount_int,
+        gross_rent_amount_per_sqm: @gross_rent_amount_per_sqm,
+        gross_rent_amount_per_sqm_int: @gross_rent_amount_per_sqm_int
+      )
+    end
   end
 
   def handle_availability_date

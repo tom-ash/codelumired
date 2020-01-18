@@ -1,19 +1,21 @@
 module AnnouncementsShow
   def show
     attributes = only_tile? ? tile_attributes : full_attributes
-    @announcement = Announcement.where(id: params[:id]).select(attributes).take
+    @announcement = Announcement.find_by(id: params[:id])
     return render_409 unless @announcement.visible
+
+    @attributes = @announcement.attributes.slice(*attributes)
 
     unless only_tile?
       user = @announcement.user
       @announcement.user_id = nil
     end
-    @announcement = @announcement.as_json.with_indifferent_access
-    parse_availability_date
-    @announcement[:name] = only_tile? ? '' : user.showcase['business_name']
-    @announcement[:phone] = user.showcase['phone'] unless only_tile?
 
-    @response = @announcement
+    @attributes = @attributes.as_json.with_indifferent_access
+    parse_availability_date
+    @attributes[:name] = only_tile? ? '' : user.showcase['name']
+    @attributes[:phone] = user.showcase['phone'] unless only_tile?
+    @response = @attributes
     ok
   end
 

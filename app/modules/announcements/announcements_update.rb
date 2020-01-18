@@ -2,14 +2,13 @@ module AnnouncementsUpdate
   def edit
     return bad_request unless user_validated?
 
-    @announcement = Announcement.where(id: params[:id]).select(edit_attributes)
-                                .take.serializable_hash.with_indifferent_access
+    @attributes = Announcement.where(id: params[:id]).select(edit_attributes).take.serializable_hash.with_indifferent_access
     return bad_request unless owner?
 
-    @announcement.delete(:user_id)
+    @attributes.delete(:user_id)
+    @announcement = @attributes
     parse_availability_date
     @response = @announcement
-    # render json: { announcement: @announcement }
     ok
   end
 
@@ -44,11 +43,11 @@ module AnnouncementsUpdate
   private
 
   def owner?
-    @user.id == User.find(@announcement[:user_id]).id
+    @user.id == User.find(@attributes[:user_id]).id
   end
 
   def find_announcement
-    @announcement = Announcement.find_by(id: params[:id])
+    @attributes = Announcement.find_by(id: params[:id])
   end
 
   def prepare_update_object
@@ -61,7 +60,7 @@ module AnnouncementsUpdate
   end
 
   def update_announcement
-    @announcement.update_attributes(@announcement_object)
+    @attributes.update_attributes(@announcement_object)
   end
 
   def edit_attributes

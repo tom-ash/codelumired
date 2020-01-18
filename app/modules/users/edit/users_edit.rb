@@ -1,4 +1,6 @@
 module UsersEdit
+  include UsersEditFirstName
+  include UsersEditLastName
   include UsersEditBusinessName
   include UsersEditTaxNumber
   include UsersEditPhone

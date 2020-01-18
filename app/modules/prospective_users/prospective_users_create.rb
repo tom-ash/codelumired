@@ -17,8 +17,12 @@ module ProspectiveUsersCreate
   private
 
   def parse_params
+    @account_type = params[:account_type]
+    @private_account = @account_type == 'private'
     @language = request.headers[:language]
     @email = params[:email].downcase
+    @first_name = params[:first_name]
+    @last_name = params[:last_name]
     @password = params[:password]
     @business_name = params[:business_name]
     @phone_code = params[:phone_code]
@@ -32,7 +36,8 @@ module ProspectiveUsersCreate
   end
 
   def invalid_params?
-    params_to_validate = [@business_name, @phone_code, @phone_body, @email, @password, @consents]
+    params_to_validate = [@phone_code, @phone_body, @email, @password, @consents]
+    params_to_validate.concat(@account_type == 'private' ? [@first_name, @last_name] : [@business_name])
     params_to_validate.each { |param| return true if param.blank? }
 
     false
@@ -60,14 +65,20 @@ module ProspectiveUsersCreate
   def prepare_user
     hash_user_password
     @user_object = {
+      account_type: @account_type,
       email: @email,
       hashed_password: @hashed_password,
       password_salt: @password_salt,
-      business_name: @business_name,
       phone: { code: @phone_code, body: @phone_body, verified: false },
       consents: @consents
-    }
+    }.merge(account_type_specific_attributes)
     @prospective_user.user = @user_object
+  end
+
+  def account_type_specific_attributes
+    return { first_name: @first_name, last_name: @last_name } if @private_account
+
+    { business_name: @business_name }
   end
 
   def send_verification
