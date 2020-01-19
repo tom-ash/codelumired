@@ -6,7 +6,11 @@ module UsersAuthorize
 
     token_current? ? current_access_token : generate_access_token
     phone_verified?
-    @response = { access_token: @access_token, name: @user.business_name, phone_verified: @phone_verified }
+    @response = {
+      access_token: @access_token,
+      name: @user.business_name,
+      phone_verified: @phone_verified
+    }
     return ok if token_current? || token_updated?
 
     @response = {}
