@@ -83,7 +83,7 @@ Rails.application.configure do
 
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'https://www.warsawlease.pl'
+      origins ENV['APP_ENV'] == 'production' ? 'https://www.warsawlease.pl' : 'https://warsaw-lease-client-staging.herokuapp.com'
       resource '*', headers: :any, methods: %i[get post put patch delete options head]
     end
     allow do
