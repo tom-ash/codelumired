@@ -23,15 +23,15 @@ module UsersVerify
   end
 
   def verification_code_valid
-    raise ArgumentError unless @verification_code_from_client.length == 8 &&
-                               @verification_code_from_database.length == 8
+    raise ArgumentError unless @verification_code_from_client.length == 4 &&
+                               @verification_code_from_database.length == 4
 
     @verification_code_from_client == @verification_code_from_database
   end
 
   def verification_code_invalid?
     decrypt_verification_code
-    raise ArgumentError unless @verification_code.length >= 8
+    raise ArgumentError unless @verification_code.length >= 4
 
     @verification_code != request.headers[:verification_code] &&
       @verification_code != params[:verification_code] &&

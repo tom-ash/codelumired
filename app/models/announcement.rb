@@ -6,8 +6,6 @@ class Announcement < ApplicationRecord
   validates :category, presence: true, numericality: { only_integer: true }, inclusion: { in: [0, 1, 2] }
   validates :district, presence: true, numericality: { only_integer: true }, inclusion: { in: [*0..17] }
   validates :rent_currency, presence: true, numericality: { only_integer: true }, inclusion: { in: [0, 1, 2] }
-  # validates :net_rent_amount, numericality: { only_float: true }
-  # validates :net_rent_amount_per_sqm, numericality: { only_float: true }
   validates :gross_rent_amount, presence: true, numericality: { only_float: true }
   validates :gross_rent_amount_per_sqm, presence: true, numericality: { only_float: true }
   validates :area, presence: true, numericality: { only_float: true }
@@ -19,6 +17,7 @@ class Announcement < ApplicationRecord
   validate :pictures_structure
   validates :latitude, presence: true, numericality: { only_float: true }
   validates :longitude, presence: true, numericality: { only_float: true }
+
   before_update :log_changes
   before_destroy :create_deleted_announcement
 

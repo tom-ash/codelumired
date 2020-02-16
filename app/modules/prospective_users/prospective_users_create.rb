@@ -22,7 +22,6 @@ module ProspectiveUsersCreate
     @language = request.headers[:language]
     @email = params[:email].downcase
     @first_name = params[:first_name]
-    @last_name = params[:last_name]
     @password = params[:password]
     @business_name = params[:business_name]
     @phone_code = params[:phone_code]
@@ -37,7 +36,7 @@ module ProspectiveUsersCreate
 
   def invalid_params?
     params_to_validate = [@phone_code, @phone_body, @email, @password, @consents]
-    params_to_validate.concat(@account_type == 'private' ? [@first_name, @last_name] : [@business_name])
+    params_to_validate.concat(@account_type == 'private' ? [@first_name] : [@business_name])
     params_to_validate.each { |param| return true if param.blank? }
 
     false
@@ -76,7 +75,7 @@ module ProspectiveUsersCreate
   end
 
   def account_type_specific_attributes
-    return { first_name: @first_name, last_name: @last_name } if @private_account
+    return { first_name: @first_name } if @private_account
 
     { business_name: @business_name }
   end

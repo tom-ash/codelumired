@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :consents, presence: true
   validates :phone, presence: true
   validates :first_name, presence: true, if: :private_account?
-  validates :last_name, presence: true, if: :private_account?
   validates :business_name, presence: true, if: :professional_account?
   validates :showcase, presence: true
 
