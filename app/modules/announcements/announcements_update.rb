@@ -40,6 +40,14 @@ module AnnouncementsUpdate
     ok if announcement.update_attribute(:active_until, active_until)
   end
 
+  def trigger_visible
+    return bad_request unless user_validated?
+
+    announcement = Announcement.find(params[:id])
+
+    ok if announcement.update_attribute(:visible, !announcement.visible)
+  end
+
   private
 
   def owner?

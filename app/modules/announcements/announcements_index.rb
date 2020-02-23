@@ -75,6 +75,7 @@ module AnnouncementsIndex
     @announcements.limit(per_page)
                   .offset(params[:offset])
                   .select(AnnouncementsAttributes::INDEX_FULL).each do |item|
+
       item = item.attributes
       item['latitude'] = item['latitude'].to_f / 1_000_000
       item['longitude'] = item['longitude'].to_f / 1_000_000
@@ -119,10 +120,6 @@ module AnnouncementsIndex
       ]]
     )
   end
-
-  # def full_attributes
-  #   AnnouncementsAttributes::INDEX_FULL
-  # end
 
   def equal_attributes
     AnnouncementsAttributes::INDEX_EQUAL

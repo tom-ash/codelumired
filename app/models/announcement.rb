@@ -22,7 +22,7 @@ class Announcement < ApplicationRecord
   before_destroy :create_deleted_announcement
 
   private
-
+  
   def pictures_structure
     errors.add(:pictures, 'invalid pictures structure') if pictures.class != Array
     pictures.each do |picture|
