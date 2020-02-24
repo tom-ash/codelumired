@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_063047) do
+ActiveRecord::Schema.define(version: 2020_02_24_065051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2020_02_14_063047) do
     t.float "net_rent_amount_per_sqm"
     t.float "gross_rent_amount", null: false
     t.float "gross_rent_amount_per_sqm", null: false
-    t.integer "rooms", limit: 2, null: false
-    t.integer "floor", limit: 2, null: false
-    t.integer "total_floors", limit: 2, null: false
-    t.date "availability_date", null: false
+    t.integer "rooms", limit: 2
+    t.integer "floor", limit: 2
+    t.integer "total_floors", limit: 2
+    t.date "availability_date"
     t.jsonb "pictures", null: false
     t.jsonb "features", null: false
     t.jsonb "furnishings", null: false

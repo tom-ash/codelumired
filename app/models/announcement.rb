@@ -9,20 +9,15 @@ class Announcement < ApplicationRecord
   validates :gross_rent_amount, presence: true, numericality: { only_float: true }
   validates :gross_rent_amount_per_sqm, presence: true, numericality: { only_float: true }
   validates :area, presence: true, numericality: { only_float: true }
-  validates :rooms, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
-  validates :floor, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
-  validates :total_floors, presence: true, numericality: { only_integer: true }, inclusion: { in: [*-1..99] }
-  validates :availability_date, presence: true
   validates :pictures, presence: true, length: { minimum: 1 }
   validate :pictures_structure
   validates :latitude, presence: true, numericality: { only_float: true }
   validates :longitude, presence: true, numericality: { only_float: true }
-
   before_update :log_changes
   before_destroy :create_deleted_announcement
 
   private
-  
+
   def pictures_structure
     errors.add(:pictures, 'invalid pictures structure') if pictures.class != Array
     pictures.each do |picture|

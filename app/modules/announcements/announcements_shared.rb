@@ -75,6 +75,8 @@ module AnnouncementsShared
   end
 
   def parse_availability_date
+    return if @announcement[:availability_date].blank?
+    
     @announcement[:availability_date] = 'now' if Date.current >= @announcement[:availability_date].to_date
   end
 end
