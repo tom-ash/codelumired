@@ -22,7 +22,7 @@ module AnnouncementsIndex
   private
 
   def search_announcements
-    @announcements = Announcement.where(status: 1, visible: true)
+    @announcements = Announcement.where(status: 1, visible: true).order('active_until DESC')
     handle_rent
     handle_equal_attributes
     handle_minimal_attributes
