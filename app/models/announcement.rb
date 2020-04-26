@@ -21,7 +21,7 @@ class Announcement < ApplicationRecord
   def pictures_structure
     errors.add(:pictures, 'invalid pictures structure') if pictures.class != Array
     pictures.each do |picture|
-      errors.add(:pictures, 'invalid picture database key length') if picture['database'].length != 44
+      errors.add(:pictures, 'invalid picture database key length') if picture['database'].length < 8
     end
   end
 
