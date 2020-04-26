@@ -27,7 +27,7 @@ module UsersEditEmail
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = @email = params[:new_email].downcase
     @email_subject = @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
-    @new_email_verification_code = rand(10_000).to_s
+    @new_email_verification_code = rand(1000..9999).to_s
     @email_text = @new_email_verification_code
     @email_html = verification_email
     send_email
