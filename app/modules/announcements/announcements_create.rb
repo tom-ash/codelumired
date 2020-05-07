@@ -29,7 +29,7 @@ module AnnouncementsCreate
       views: 0,
       reports: [],
       visible: true,
-      active_until: Date.today + 30.days,
+      active_until: Date.today + 60.days,
       change_log: []
     }
   end
