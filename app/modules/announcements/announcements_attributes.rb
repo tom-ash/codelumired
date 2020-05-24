@@ -62,7 +62,7 @@ module AnnouncementsAttributes
       value: 0
     },
     {
-      name: 'usable_premises',
+      name: 'usable-premises',
       attribute: 'category',
       value: 1
     },
