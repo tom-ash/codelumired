@@ -11,7 +11,7 @@ module AnnouncementsIndex
     return bad_request unless user_validated?
 
     prepare_announcements
-    filter_announcements
+    # filter_announcements # FIXME
     limit_announcements
     sort_announcements
     select_attributes

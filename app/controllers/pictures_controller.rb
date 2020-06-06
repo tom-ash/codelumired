@@ -17,28 +17,25 @@ class PicturesController < ApplicationController
       end
 
       key = Time.now.strftime("%Y%m%d%H%M%S%L") + "#{SecureRandom.urlsafe_base64}.#{file_type}"
-      post = Aws::S3::PresignedPost.new(CREDS,
-                                        'eu-central-1',
-                                        Rails.application.secrets.aws_bucket,
-                                        {
-                                          key: "temporary/" + key,
-                                          success_action_status: '201',
-                                          acl: 'private',
-                                        })
+      post = Aws::S3::PresignedPost.new(
+        CREDS,
+        'eu-central-1',
+        Rails.application.secrets.aws_bucket,
+        {
+          key: "temporary/" + key,
+          success_action_status: '201',
+          # acl: 'public-read'
+        })
 
       render json: {
        'fields': post.fields,
        'url': post.url,
        'key': key
       }
-
-    # end
   end
 
 
   def create_for_announcement
-
-
     if request.headers[:fileType].include?("jpg")
       file_type = "jpg"
     elsif request.headers[:fileType].include?("jpeg")
@@ -53,27 +50,22 @@ class PicturesController < ApplicationController
 
     key = Time.now.strftime("%Y%m%d%H%M%S%L") + "#{SecureRandom.urlsafe_base64}.#{file_type}"
 
-
-    post = Aws::S3::PresignedPost.new(CREDS,
-                                      'eu-central-1',
-                                      Rails.application.secrets.aws_bucket,
-                                      {
-                                        key: "announcements/#{params[:id]}/" + key,
-                                        success_action_status: '201',
-                                        acl: 'private',
-                                      })
+    post = Aws::S3::PresignedPost.new(
+      CREDS,
+      'eu-central-1',
+      Rails.application.secrets.aws_bucket,
+      {
+        key: "announcements/#{params[:id]}/" + key,
+        success_action_status: '201',
+        # acl: 'public-read'
+      }
+    )
 
     render json: {
      'fields': post.fields,
      'url': post.url,
      'key': key
     }
-
-
-
-
-
-
   end
 
 
