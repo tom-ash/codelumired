@@ -3,7 +3,6 @@
 module AnnouncementsCreate
   def create
     return bad_request unless user_validated?
-    return bad_request unless phone_verified?
 
     prepare_announcement_object
     handle_rent_amount

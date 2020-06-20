@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_063449) do
+ActiveRecord::Schema.define(version: 2020_06_20_062330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_063449) do
     t.integer "views", null: false
     t.jsonb "reports", null: false
     t.boolean "visible", null: false
-    t.date "active_until", null: false
+    t.datetime "active_until", null: false
     t.integer "category", limit: 2, null: false
     t.integer "district", limit: 2, null: false
     t.float "area", null: false
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 2020_06_06_063449) do
     t.integer "total_floors", limit: 2
     t.date "availability_date"
     t.jsonb "pictures", null: false
-    t.jsonb "features", null: false
-    t.jsonb "furnishings", null: false
-    t.text "polish_description", null: false
-    t.text "english_description", null: false
+    t.jsonb "features"
+    t.jsonb "furnishings"
+    t.text "polish_description"
+    t.text "english_description"
     t.float "longitude", null: false
     t.float "latitude", null: false
     t.jsonb "change_log", null: false
