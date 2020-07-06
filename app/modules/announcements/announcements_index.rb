@@ -69,6 +69,8 @@ module AnnouncementsIndex
       announcements: announcements,
       amount: amount
     }
+
+    @response.merge!(welcome: Post.find_by(name: 'welcome')) if params[:with_welcome] == 'true'
   end
 
   def announcements

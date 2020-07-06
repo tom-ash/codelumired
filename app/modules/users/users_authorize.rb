@@ -25,7 +25,8 @@ module UsersAuthorize
     @response = {
       account_type: @user.account_type,
       name: name,
-      phone_verified: @phone_verified
+      phone_verified: @phone_verified,
+      admin: @user.role == 'admin'
     }
     ok
   end

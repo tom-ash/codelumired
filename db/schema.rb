@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_062330) do
+ActiveRecord::Schema.define(version: 2020_07_04_154152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,21 @@ ActiveRecord::Schema.define(version: 2020_06_20_062330) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.string "name", null: false
+    t.jsonb "meta"
+    t.jsonb "url"
+    t.jsonb "title", null: false
+    t.jsonb "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["name"], name: "index_posts_on_name", unique: true
+    t.index ["title"], name: "index_posts_on_title", unique: true
+    t.index ["url"], name: "index_posts_on_url", unique: true
+  end
+
   create_table "prospective_users", force: :cascade do |t|
     t.string "encrypted_access_token", null: false
     t.jsonb "verification", null: false
@@ -125,10 +140,12 @@ ActiveRecord::Schema.define(version: 2020_06_20_062330) do
     t.string "account_type"
     t.string "first_name"
     t.string "last_name"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["encrypted_access_token"], name: "index_users_on_encrypted_access_token", unique: true
     t.index ["status"], name: "index_users_on_status"
   end
 
   add_foreign_key "announcements", "users"
+  add_foreign_key "posts", "users", column: "author_id"
 end

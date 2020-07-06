@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :announcements
   get '/announcements/:id/edit', to: 'announcements#edit'
   get '/announcement/phone/:id', to: 'users#phone'
+
+  get '/posts/:name', to: 'posts#show'
+  post '/posts', to: 'posts#create'
+
   put '/announcements/view/:id', to: 'announcements#view'
   put '/announcements/extend/:id', to: 'announcements#extend_active'
   put '/announcements/trigger_visible/:id', to: 'announcements#trigger_visible'
