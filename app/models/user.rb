@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   validates :encrypted_access_token, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
@@ -8,9 +10,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, if: :private_account?
   validates :business_name, presence: true, if: :professional_account?
   validates :showcase, presence: true
-
   has_many :announcements, dependent: :destroy
-
   before_update :log_changes
 
   def private_account?
@@ -19,5 +19,9 @@ class User < ApplicationRecord
 
   def professional_account?
     account_type == 'professional'
+  end
+
+  def unloggable
+    %w[encrypted_access_token access_token_date verification verification_code_iv]
   end
 end

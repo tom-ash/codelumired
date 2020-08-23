@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AnnouncementsDestroy
   def destroy
     return bad_request unless user_validated?

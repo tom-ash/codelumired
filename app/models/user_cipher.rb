@@ -1,6 +1,4 @@
 class UserCipher < ApplicationRecord
-  before_update :log_changes
-
   def self.create_secrets
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.encrypt

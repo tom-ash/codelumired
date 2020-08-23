@@ -4,13 +4,13 @@ class ApplicationRecord < ActiveRecord::Base
   private
 
   def log_changes
-    self.change_log = change_log + changes.map do |name, values|
-      next if %w[updated_at verification verification_code_iv].include?(name)
+    self.change_log = change_log + changes.map do |attr, values|
+      next if unloggable.concat(%w[updated_at]).include?(attr)
 
       {
-        name: name,
-        value: values[0],
-        time: Time.now
+        attr: attr,
+        until: Time.now,
+        value: values[0]
       }
     end.compact
   end
