@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 task create_mock_announcements: :environment do
-  1.times do
+  10.times do
     floor = [5, 10, 15, 20, 25, 30].sample
     @announcement = Announcement.all.sample
     @pictures = @announcement.pictures.shuffle

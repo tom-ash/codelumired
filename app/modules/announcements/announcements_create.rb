@@ -43,13 +43,9 @@ module AnnouncementsCreate
 
   def handle_pictures
     params[:pictures].each do |picture|
-      obj = Aws::S3::Object.new(
-        bucket_name: Rails.application.secrets.aws_bucket,
-        key: 'temporary/' + picture[:database],
-        region: Rails.application.secrets.aws_region,
-        credentials: CREDS
+      PersistedObject.new("temporary/#{picture[:database]}").move_to(
+        "announcements/#{@announcement.id}/#{picture[:database]}"
       )
-      obj.move_to("#{Rails.application.secrets.aws_bucket}/announcements/#{@announcement.id}/#{picture[:database]}")
     end
   end
 end

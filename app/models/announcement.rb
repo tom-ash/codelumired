@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Announcement < ApplicationRecord
   belongs_to :user
   validates :status, presence: true
@@ -13,7 +15,6 @@ class Announcement < ApplicationRecord
 
   before_update :log_changes
   before_destroy :create_deleted_announcement
-  # after_destroy :move_pictures_for_deleted_announcement
 
   private
 
