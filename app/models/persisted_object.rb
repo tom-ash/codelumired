@@ -5,6 +5,10 @@ class PersistedObject
     @source_key = source_key
   end
 
+  def copy_to(target)
+    s3_object.copy_to("#{bucket_name}/#{target}")
+  end
+
   def move_to(target)
     s3_object.move_to("#{bucket_name}/#{target}")
   end
