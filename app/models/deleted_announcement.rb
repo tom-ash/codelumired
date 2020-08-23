@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class DeletedAnnouncement < ApplicationRecord
-#   after_create :move_pictures
-
-#   private
+  after_create :move_pictures
 
   def move_pictures
     pictures.each do |picture|
