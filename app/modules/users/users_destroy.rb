@@ -1,10 +1,17 @@
 module UsersDestroy
+  SUBJECT = {
+    'pl' => 'Usuwanie konta',
+    'en' => 'Account Deletion'
+  }
+
   def destroy_send_email
     return bad_request unless user_validated?
 
+    @language = request.headers[:language]
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:email]
-    @email_subject = @context = 'Account Deletion Verification Code'
+    @email_subject = @context = SUBJECT[@language]
+
     send_verification
   end
 

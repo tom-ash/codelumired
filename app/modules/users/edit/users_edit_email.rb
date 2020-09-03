@@ -2,12 +2,15 @@ module UsersEditEmail
   def edit_email_send_current
 
     @language = request.headers[:language]
+
+
+
     @required_params = [:email]
     return bad_request unless user_validated? && required_params_present?
 
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:email]
-    @email_subject = @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
+    @email_subject = @context = @language == 'pl' ? 'Zmiana adresu email #1' : 'Email Address Change #2'
     send_verification
   end
 
@@ -26,7 +29,7 @@ module UsersEditEmail
 
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = @email = params[:new_email].downcase
-    @email_subject = @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
+    @email_subject = @context = @language == 'pl' ? 'Zmiana adresu email #2' : 'Email Address Change #2'
     @new_email_verification_code = rand(1000..9999).to_s
     @email_text = @new_email_verification_code
     @email_html = verification_email

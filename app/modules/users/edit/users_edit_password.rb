@@ -6,7 +6,7 @@ module UsersEditPassword
 
     @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
     @email_recipient = params[:email]
-    @email_subject = @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
+    @email_subject = @context = @language == 'pl' ? 'Zmiana hasła' : 'Password Change'
     send_verification
   end
 

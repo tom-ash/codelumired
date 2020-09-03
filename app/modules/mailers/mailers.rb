@@ -8,21 +8,21 @@ module Mailers
   private
 
   def send_email_with_emaillabs
-    @email_sender = "noreply@warsawlease.pl"
+    @email_sender = 'noreply@warsawlease.pl'
     app_key = Rails.application.secrets.smslabs_app_key
     secret_key = Rails.application.secrets.emaillabs_secret_key
     auth = 'Basic ' + Base64.strict_encode64("#{app_key}:#{secret_key}")
     data = {
       smtp_account: Rails.application.secrets.emaillabs_smtp_account,
       from: @email_sender,
-      from_name: "warsawlease.pl",
+      from_name: 'warsawlease.pl',
       to: { "#{@email_recipient}": nil },
       subject: @email_subject,
       html: @email_html,
       text: "aaa"
     }
     headers = {  "Authorization" => auth }
-    RestClient.post("https://api.emaillabs.net.pl/api/new_sendmail", data, headers)
+    RestClient.post('https://api.emaillabs.net.pl/api/new_sendmail', data, headers)
   end
 
   def send_email_with_mailgun

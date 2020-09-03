@@ -55,7 +55,7 @@ module ProspectiveUsersCreate
   end
 
   def prepare_verification
-    @context = @language == 'polish' ? 'Kod weryfikacyjny' : 'Verification Code'
+    @context = @language == 'pl' ? 'Rejestracja konta' : 'Account Registration'
     generate_verification
     @prospective_user.verification = @verification
     @prospective_user.verification_code_iv = @verification_code_iv
