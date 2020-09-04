@@ -19,7 +19,7 @@ module Mailers
       to: { "#{@email_recipient}": nil },
       subject: @email_subject,
       html: @email_html,
-      text: "aaa"
+      text: @text_message
     }
     headers = {  "Authorization" => auth }
     RestClient.post('https://api.emaillabs.net.pl/api/new_sendmail', data, headers)
@@ -31,7 +31,7 @@ module Mailers
       :from => @email_sender,
       :to => @email_recipient,
       :subject => @email_subject,
-      :text => "aaa",
+      :text => @text_message,
       :html => @email_html,
       'o:dkim' => 'yes'
   end

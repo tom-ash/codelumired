@@ -22,7 +22,9 @@ module Mailers::EmailContents
     <div class='verification-code'>
       #{@verification_code}
     </div>"
-    email
+    email_content = email
+    @text_message = ActionView::Base.full_sanitizer.sanitize(email_content)
+    email_content
   end
 
   def email
