@@ -3,5 +3,4 @@ class ProspectiveUsersController < ApplicationController
   include ProspectiveUsersCiphers
   include UsersCiphers
   include Responses
-  include Mailers
 end

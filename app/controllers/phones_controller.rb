@@ -2,7 +2,6 @@ class PhonesController < ApplicationController
   include UsersAuthorize
   include UsersCiphers
   include Responses
-  include Mailers
   include Messages
 
   def verification

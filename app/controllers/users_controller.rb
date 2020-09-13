@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   include UsersDestroy
   include UsersCiphers
   include ProspectiveUsersCiphers
-  include Mailers
   include Responses
   include Messages
 
