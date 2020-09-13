@@ -21,6 +21,7 @@ module ProspectiveUsersCreate
     @private_account = @account_type == 'private'
     @language = request.headers[:language]
     @email = params[:email].downcase
+    @subject = @language == 'pl' ? 'Rejestracja konta' : 'Account Registration'
     @first_name = params[:first_name]
     @password = params[:password]
     @business_name = params[:business_name]
@@ -55,7 +56,6 @@ module ProspectiveUsersCreate
   end
 
   def prepare_verification
-    @context = @language == 'pl' ? 'Rejestracja konta' : 'Account Registration'
     generate_verification
     @prospective_user.verification = @verification
     @prospective_user.verification_code_iv = @verification_code_iv
@@ -83,6 +83,7 @@ module ProspectiveUsersCreate
   def send_verification
     TransactionalMailer.verification_email(
       to: @email,
+      subject: @subject,
       verification_code: @verification_code,
       language: @language
     ).deliver_now

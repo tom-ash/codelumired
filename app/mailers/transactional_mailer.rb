@@ -9,7 +9,7 @@ class TransactionalMailer < ApplicationMailer
     'en' => 'Verification code:'
   }
 
-  def verification_email(to:, verification_code:, language:)
+  def verification_email(to:, subject:, verification_code:, language:)
     @verification_code = verification_code
     @language = language
     @subject = subject
@@ -32,9 +32,5 @@ class TransactionalMailer < ApplicationMailer
 
   def verification_code_message
     VERIFICATION_CODE_MESSAGE[@language]
-  end
-
-  def subject
-    @language == 'pl' ? 'Rejestracja konta' : 'Account Registration'
   end
 end

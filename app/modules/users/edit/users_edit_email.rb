@@ -2,16 +2,12 @@ module UsersEditEmail
   def edit_email_send_current
 
     @language = request.headers[:language]
-
-
-
     @required_params = [:email]
     return bad_request unless user_validated? && required_params_present?
 
-    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
-    @email_recipient = params[:email]
-    @email_subject = @context = @language == 'pl' ? 'Zmiana adresu email #1' : 'Email Address Change #2'
-    send_verification
+    @email = params[:email]
+    @subject = @context = @language == 'pl' ? 'Zmiana adresu email #1' : 'Email Address Change #1'
+    handle_verification
   end
 
   def edit_email_verify_current
@@ -27,16 +23,13 @@ module UsersEditEmail
     @required_params = [:new_email]
     return bad_request unless user_validated? && required_params_present?
 
-    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
-    @email_recipient = @email = params[:new_email].downcase
-    @email_subject = @context = @language == 'pl' ? 'Zmiana adresu email #2' : 'Email Address Change #2'
-    @new_email_verification_code = rand(1000..9999).to_s
-    @email_text = @new_email_verification_code
-    @email_html = verification_email
-    send_email
-    @verification_code = decrypt_verification_code + @new_email_verification_code
+    @email = @email = params[:new_email].downcase
+    @subject = @language == 'pl' ? 'Zmiana adresu email #2' : 'Email Address Change #2'
+    @verification_code = @new_verification_code = rand(1000..9999).to_s
+    send_verification
+    @verification_code = decrypt_verification_code + @new_verification_code 
     generate_verification
-    @verification['new_email'] = params[:new_email].downcase
+    @verification['new_email'] = @email.downcase
     @user.verification = @verification
     @user.verification_code_iv = @verification_code_iv
     return ok if @user.save

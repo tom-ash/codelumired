@@ -1,21 +1,15 @@
 module UsersVerify
   private
 
-  def send_verification
+  def handle_verification
     find_user_with_email
     return ok unless @user
 
     generate_verification
-    prepare_email_verification
-    send_email
+    send_verification
     return ok if update_user_verification
 
     bad_request
-  end
-
-  def prepare_email_verification
-    @email_text = @verification_code
-    @email_html = verification_email
   end
 
   def update_user_verification
@@ -40,5 +34,14 @@ module UsersVerify
 
   def phone_verified?
     @phone_verified = @user.phone['verified']
+  end
+
+  def send_verification
+    TransactionalMailer.verification_email(
+      to: @email,
+      subject: @subject,
+      verification_code: @verification_code,
+      language: @language
+    ).deliver_now
   end
 end

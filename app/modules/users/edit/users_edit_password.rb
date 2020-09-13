@@ -4,10 +4,9 @@ module UsersEditPassword
     @required_params = [:email]
     return bad_request unless required_params_present?
 
-    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
-    @email_recipient = params[:email]
-    @email_subject = @context = @language == 'pl' ? 'Zmiana hasła' : 'Password Change'
-    send_verification
+    @email = params[:email]
+    @subject = @language == 'pl' ? 'Zmiana hasła' : 'Password Change'
+    handle_verification
   end
 
   def edit_password_send_verification
