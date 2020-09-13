@@ -81,12 +81,11 @@ module ProspectiveUsersCreate
   end
 
   def send_verification
-    @email_sender = 'warsawlease.pl <noreply@warsawlease.pl>'
-    @email_recipient = @email
-    @email_subject = @context
-    @email_text = @verification_code
-    @email_html = verification_email
-    send_email
+    TransactionalMailer.verification_email(
+      to: @email,
+      verification_code: @verification_code,
+      language: @language
+    ).deliver_now
   end
 
   def account_prepared

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      * {
+        line-height: 28px;
+        color: #424949;
+      }
+      .company {
+        margin-top: 12px;
+        padding-top: 9px;
+        border-top: 1px solid lightgray;
+        text-align: justify;
+        font-size: 11px;
+        line-height: 16px;
+        font-family: Arial, sans-serif;
+        color: #5D6D7E;
+      }
+      .verification-code {
+        margin: 3px 0;
+        font-size: 24px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: #D35400;
+      }
+      .logo-and-site {
+        margin-top: 12px;
+        height: 36px;
+      }
+      .logo {
+        width: 36px;
+        float: left;
+      }
+      .site {
+        margin-left: 8px;
+        line-height: 36px;
+        float: left;
+      }
+      .float-clear {
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <%= yield %>
+    <div class='logo-and-site'>
+      <img
+        class='logo'
+        src='https://warsawlease.s3.eu-central-1.amazonaws.com/assets/warsawlease.pl-logo.jpg'
+        alt='warsawlease.pl'
+      >
+      </img>
+      <div class='site'>
+        warsawlease.pl
+      </div>
+      <div class='float-clear'>
+      </div>
+    </div>
+    <div class='company'>
+      <%= @company %>
+    </div>
+  </body>
+</html>
