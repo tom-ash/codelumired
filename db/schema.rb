@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_154152) do
+ActiveRecord::Schema.define(version: 2020_09_17_054706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,14 @@ ActiveRecord::Schema.define(version: 2020_07_04_154152) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["encrypted_access_token"], name: "index_prospective_users_on_encrypted_access_token", unique: true
+  end
+
+  create_table "scalable_vector_graphics", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "path_data", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_scalable_vector_graphics_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

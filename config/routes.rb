@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/posts/:name', to: 'posts#show'
   post '/posts', to: 'posts#create'
 
+  get '/scalable_vector_graphics', to: 'scalable_vector_graphics#index'
+
   put '/announcements/view/:id', to: 'announcements#view'
   put '/announcements/extend/:id', to: 'announcements#extend_active'
   put '/announcements/trigger_visible/:id', to: 'announcements#trigger_visible'
