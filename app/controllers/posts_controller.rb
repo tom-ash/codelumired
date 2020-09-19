@@ -23,6 +23,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    render json: Post.find_by(name: params[:name])
+    render json: {
+      'post': Post.find_by(name: params[:name]),
+      'scalableVectorGraphics': ScalableVectorGraphic.all
+    }
   end
 end

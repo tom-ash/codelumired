@@ -28,12 +28,11 @@ class PicturesController < ApplicationController
         })
 
       render json: {
-       'fields': post.fields,
-       'url': post.url,
-       'key': key
+        'fields': post.fields,
+        'url': post.url,
+        'key': key
       }
   end
-
 
   def create_for_announcement
     if request.headers[:fileType].include?("jpg")

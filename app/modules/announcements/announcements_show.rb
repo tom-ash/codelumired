@@ -15,7 +15,7 @@ module AnnouncementsShow
     parse_availability_date
     @attributes[:name] = only_tile? ? '' : user.showcase['name']
     @attributes[:phone] = user.showcase['phone'] unless only_tile?
-    @response = @attributes
+    @response = @attributes.merge(scalableVectorGraphics: ScalableVectorGraphic.all)
     ok
   end
 

@@ -67,7 +67,8 @@ module AnnouncementsIndex
   def prepare_response
     @response = {
       announcements: announcements,
-      amount: amount
+      amount: amount,
+      scalableVectorGraphics: ScalableVectorGraphic.all
     }
 
     @response.merge!(welcome: Post.find_by(name: 'welcome')) if params[:with_welcome] == 'true'
