@@ -12,7 +12,6 @@ module AnnouncementsShared
 
   def handle_rent_amount
     @category = params[:category].to_i
-    return unless [0, 1, 2].include?(@category)
 
     if params[:longitude] && params[:latitude]
       @longitude = params[:longitude].truncate(7)

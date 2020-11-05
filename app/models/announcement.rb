@@ -2,19 +2,20 @@
 
 class Announcement < ApplicationRecord
   belongs_to :user
+
+  before_update :log_changes
+  before_destroy :create_deleted_announcement
+
   validates :status, presence: true
   validates :points, presence: true
   validates :views, presence: true
-  validates :category, presence: true, numericality: { only_integer: true }, inclusion: { in: [0, 1, 2] }
+  validates :category, presence: true, numericality: { only_integer: true }, inclusion: { in: [*0..7] }
   validates :district, presence: true, numericality: { only_integer: true }, inclusion: { in: [*0..17] }
   validates :area, presence: true, numericality: { only_float: true }
   validates :pictures, presence: true, length: { minimum: 1 }
   validate :pictures_structure
   validates :latitude, presence: true, numericality: { only_float: true }
   validates :longitude, presence: true, numericality: { only_float: true }
-
-  before_update :log_changes
-  before_destroy :create_deleted_announcement
 
   private
 
