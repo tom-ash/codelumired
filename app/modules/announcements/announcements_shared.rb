@@ -30,7 +30,7 @@ module AnnouncementsShared
     @area = params[:area].to_f
     @area_int = @area * 100
 
-    if @category == 2
+    if [2, 3, 4, 5].include?(@category)
       @gross_rent_amount = params[:gross_rent_amount].to_f
       @gross_rent_amount_int = @gross_rent_amount * 100
       @gross_rent_amount_per_sqm_int = ((@gross_rent_amount_int / @area_int) * 100).ceil
@@ -75,7 +75,7 @@ module AnnouncementsShared
 
   def parse_availability_date
     return if @announcement[:availability_date].blank?
-    
+
     @announcement[:availability_date] = 'now' if Date.current >= @announcement[:availability_date].to_date
   end
 end
