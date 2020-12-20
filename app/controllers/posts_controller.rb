@@ -7,27 +7,35 @@ class PostsController < ApplicationController
   def create
     return bad_request unless user_validated?
 
-    post = Post.find_by(name: params[:name]) || Post.new
+    allowed_languages = %w[pl en]
+    name = params[:name]
 
-    meta = params[:meta] || {"en": "", "pl": ""}
-    url = params[:url] || {"en": "", "pl": ""}
-    title = params[:url] || {"en": "", "pl": ""}
+    allowed_languages.each do |language|
+      post_params = params[language]
+      post = Post.find_or_create_by!(author_id: @user.id, name: name, language: language)
+      post.update!(title: post_params[:title], body: post_params[:body])
+    end
 
-    post.assign_attributes(
-      author_id: @user.id,
-      name: params[:name],
-      meta: params[:meta],
-      url: params[:url],
-      body: params[:body]
-    )
+    post_language_variations = Post.where(name: name)
+    post = { name: name }
 
-    post.save!
+    post_language_variations.each do |language_variation|
+      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+    end
 
     render json: post, status: 201
   end
 
   def show
-    render json: Post.find_by(name: params[:name]).slice(:name, :title, :body).merge(
+    name = params[:name]
+    post_language_variations = Post.where(name: name)
+    post = { name: name }
+
+    post_language_variations.each do |language_variation|
+      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+    end
+
+    render json: post.merge(
       scalableVectorGraphics: ScalableVectorGraphic.all
     )
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_054706) do
+ActiveRecord::Schema.define(version: 2020_12_18_073038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_054706) do
   create_table "posts", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.string "name", null: false
+    t.string "language", null: false
     t.jsonb "meta"
     t.jsonb "url"
     t.jsonb "title", null: false
@@ -102,9 +103,11 @@ ActiveRecord::Schema.define(version: 2020_09_17_054706) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["name"], name: "index_posts_on_name", unique: true
-    t.index ["title"], name: "index_posts_on_title", unique: true
-    t.index ["url"], name: "index_posts_on_url", unique: true
+    t.index ["language"], name: "index_posts_on_language"
+    t.index ["name", "language"], name: "index_posts_on_name_and_language", unique: true
+    t.index ["name"], name: "index_posts_on_name"
+    t.index ["title"], name: "index_posts_on_title"
+    t.index ["url"], name: "index_posts_on_url"
   end
 
   create_table "prospective_users", force: :cascade do |t|

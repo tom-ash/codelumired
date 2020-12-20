@@ -11,7 +11,6 @@ module AnnouncementsIndex
     return bad_request unless user_validated?
 
     prepare_announcements
-    # filter_announcements # FIXME
     limit_announcements
     sort_announcements
     select_attributes
@@ -71,7 +70,15 @@ module AnnouncementsIndex
       scalableVectorGraphics: ScalableVectorGraphic.all
     }
 
-    @response.merge!(welcome: Post.find_by(name: 'welcome')) if params[:with_welcome] == 'true'
+    name = 'welcome'
+    post_language_variations = Post.where(name: name)
+    post = { name: name }
+
+    post_language_variations.each do |language_variation|
+      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+    end
+
+    @response.merge!(welcome: post) if params[:with_welcome] == 'true'
   end
 
   def announcements
