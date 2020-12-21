@@ -12,8 +12,17 @@ class PostsController < ApplicationController
 
     allowed_languages.each do |language|
       post_params = params[language]
-      post = Post.find_or_create_by!(author_id: @user.id, name: name, language: language)
-      post.update!(title: post_params[:title], body: post_params[:body])
+      next if post_params.nil?
+
+      url = post_params[:url]
+      title = post_params[:title]
+      body = post_params[:body]
+      meta = post_params[:meta]
+      next if title.nil? || body.nil?
+
+      post = Post.find_or_initialize_by(author_id: @user.id, name: name, language: language)
+      post.assign_attributes(url: url, title: title, body: body, meta: meta)
+      post.save!
     end
 
     post_language_variations = Post.where(name: name)
