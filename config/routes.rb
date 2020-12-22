@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/announcement/phone/:id', to: 'users#phone'
 
   get '/posts/:name', to: 'posts#show'
+  get '/posts/urls/:url', to: 'posts#show_by_url'
   post '/posts', to: 'posts#create'
 
   get '/scalable_vector_graphics', to: 'scalable_vector_graphics#index'

@@ -48,4 +48,23 @@ class PostsController < ApplicationController
       scalableVectorGraphics: ScalableVectorGraphic.all
     )
   end
+
+  def show_by_url
+    post_from_url = Post.find_by(url: params[:url])
+    name = post_from_url&.name
+    return render json: {}, status: 404 if name.blank?
+
+    language = post_from_url.language
+    post_language_variations = Post.where(name: name)
+    post = { name: name }
+
+    post_language_variations.each do |language_variation|
+      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+    end
+
+    render json: post.merge(
+      scalableVectorGraphics: ScalableVectorGraphic.all,
+      language: language
+    )
+  end
 end
