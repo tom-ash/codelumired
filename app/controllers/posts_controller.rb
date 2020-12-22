@@ -12,13 +12,13 @@ class PostsController < ApplicationController
 
     allowed_languages.each do |language|
       post_params = params[language]
-      next if post_params.nil?
+      next unless post_params.present?
 
       url = post_params[:url]
       title = post_params[:title]
       body = post_params[:body]
       meta = post_params[:meta]
-      next if title.nil? || body.nil?
+      raise ArgumentError unless title.present? && body.present?
 
       post = Post.find_or_initialize_by(author_id: @user.id, name: name, language: language)
       post.assign_attributes(url: url, title: title, body: body, meta: meta)
