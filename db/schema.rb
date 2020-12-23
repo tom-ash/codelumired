@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_073038) do
+ActiveRecord::Schema.define(version: 2020_12_22_120641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,22 +92,28 @@ ActiveRecord::Schema.define(version: 2020_12_18_073038) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "pages", force: :cascade do |t|
     t.bigint "author_id", null: false
-    t.string "name", null: false
     t.string "language", null: false
-    t.jsonb "meta"
-    t.jsonb "url"
-    t.jsonb "title", null: false
+    t.string "name", null: false
+    t.string "url", null: false
+    t.string "title"
+    t.string "title_tag"
+    t.string "keywords"
+    t.string "description"
+    t.string "style"
     t.jsonb "body", null: false
+    t.jsonb "meta"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["language"], name: "index_posts_on_language"
-    t.index ["name", "language"], name: "index_posts_on_name_and_language", unique: true
-    t.index ["name"], name: "index_posts_on_name"
-    t.index ["title"], name: "index_posts_on_title"
-    t.index ["url"], name: "index_posts_on_url"
+    t.index ["author_id"], name: "index_pages_on_author_id"
+    t.index ["description"], name: "index_pages_on_description"
+    t.index ["keywords"], name: "index_pages_on_keywords"
+    t.index ["language"], name: "index_pages_on_language"
+    t.index ["name", "language"], name: "index_pages_on_name_and_language", unique: true
+    t.index ["name"], name: "index_pages_on_name"
+    t.index ["title"], name: "index_pages_on_title"
+    t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
   create_table "prospective_users", force: :cascade do |t|
@@ -158,5 +164,5 @@ ActiveRecord::Schema.define(version: 2020_12_18_073038) do
   end
 
   add_foreign_key "announcements", "users"
-  add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "pages", "users", column: "author_id"
 end

@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       title = post_params[:title]
       body = post_params[:body]
       meta = post_params[:meta]
-      raise ArgumentError unless title.present? && body.present?
+      raise ArgumentError unless url.present? && body.present?
 
       post = Post.find_or_initialize_by(author_id: @user.id, name: name, language: language)
       post.assign_attributes(url: url, title: title, body: body, meta: meta)
