@@ -15,13 +15,28 @@ class PostsController < ApplicationController
       next unless post_params.present?
 
       url = post_params[:url]
-      title = post_params[:title]
       body = post_params[:body]
+      style = post_params[:style]
+      title = post_params[:title]
+      description = post_params[:description]
+      keywords = post_params[:keywords]
+      canonical_url = post_params[:canonical_url]
+      picture = post_params[:picture]
       meta = post_params[:meta]
       raise ArgumentError unless url.present? && body.present?
 
       post = Post.find_or_initialize_by(author_id: @user.id, name: name, language: language)
-      post.assign_attributes(url: url, title: title, body: body, meta: meta)
+      post.assign_attributes(
+        url: url,
+        body: body,
+        style: style,
+        title: title,
+        description: description,
+        meta: meta,
+        keywords: keywords,
+        canonical_url: canonical_url,
+        picture: picture
+      )
       post.save!
     end
 
@@ -29,7 +44,17 @@ class PostsController < ApplicationController
     post = { name: name }
 
     post_language_variations.each do |language_variation|
-      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+      post[language_variation.language.to_sym] = language_variation.slice(
+        :url,
+        :body,
+        :style,
+        :title,
+        :description,
+        :keywords,
+        :canonical_url,
+        :picture,
+        :meta
+      )
     end
 
     render json: post, status: 201
@@ -41,7 +66,17 @@ class PostsController < ApplicationController
     post = { name: name }
 
     post_language_variations.each do |language_variation|
-      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+      post[language_variation.language.to_sym] = language_variation.slice(
+        :url,
+        :body,
+        :style,
+        :title,
+        :description,
+        :keywords,
+        :canonical_url,
+        :picture,
+        :meta
+      )
     end
 
     render json: post.merge(
@@ -59,7 +94,17 @@ class PostsController < ApplicationController
     post = { name: name }
 
     post_language_variations.each do |language_variation|
-      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+      post[language_variation.language.to_sym] = language_variation.slice(
+        :url,
+        :body,
+        :style,
+        :title,
+        :description,
+        :keywords,
+        :canonical_url,
+        :picture,
+        :meta
+      )
     end
 
     render json: post.merge(
