@@ -112,4 +112,10 @@ class PostsController < ApplicationController
       language: language
     )
   end
+
+  def site_map
+    language = request.headers['Language']
+
+    render json: Post.where(language: language).distinct.pluck(:url)
+  end
 end
