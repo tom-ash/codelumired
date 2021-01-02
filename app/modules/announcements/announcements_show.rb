@@ -2,7 +2,7 @@ module AnnouncementsShow
   def show
     attributes = only_tile? ? tile_attributes : full_attributes
     @announcement = Announcement.find_by(id: params[:id])
-    return render_409 unless @announcement.visible
+    return render_404 unless @announcement&.visible?
 
     @attributes = @announcement.attributes.slice(*attributes)
 

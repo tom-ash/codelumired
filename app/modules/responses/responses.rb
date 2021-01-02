@@ -17,6 +17,10 @@ module Responses
     render json: camelized_response, status: 401
   end
 
+  def render_404
+    render json: camelized_response, status: 404
+  end
+
   def render_409
     render json: camelized_response, status: 409
   end
