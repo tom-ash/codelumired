@@ -1,6 +1,6 @@
 module AnnouncementsIndex
   def index
-    return list if params[:type] == 'list'
+    return list if request.headers['my']
 
     search_announcements
     prepare_response

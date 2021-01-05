@@ -6,9 +6,13 @@ class DeletedAnnouncement < ApplicationRecord
   def move_pictures
     pictures.each do |picture|
       database_key = "#{id}/#{picture['database']}"
-      PersistedObject.new("announcements/#{database_key}").move_to(
-        "deleted_announcements/#{database_key}"
-      )
+      begin
+        PersistedObject.new(
+          "announcements/#{database_key}"
+        ).move_to("deleted_announcements/#{database_key}")
+      rescue
+        puts 'The provided key does not exist!'
+      end
     end
   end
 
