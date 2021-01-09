@@ -18,8 +18,6 @@ module AnnouncementsIndex
     ok
   end
 
-  private
-
   def search_announcements
     @announcements = Announcement.where(status: 1, visible: true).order('points DESC').order('active_until DESC')
     handle_rent
@@ -27,6 +25,8 @@ module AnnouncementsIndex
     handle_minimal_attributes
     handle_maximal_attributes
   end
+
+  private
 
   def handle_rent
     @min_rent = params[:min_rent]

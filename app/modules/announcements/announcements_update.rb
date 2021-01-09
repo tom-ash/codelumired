@@ -36,7 +36,7 @@ module AnnouncementsUpdate
 
     announcement = Announcement.find(params[:id])
     return bad_request unless @user.id == announcement.user_id
-
+ 
     active_until = Date.today + 60.days
     @response = { active_until: active_until }
     ok if announcement.update_attribute(:active_until, active_until)

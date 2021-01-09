@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
   resources :announcements
+
+
+  get 'route_data', to: 'route_data#show'
+
+
   get '/announcements/:id/edit', to: 'announcements#edit'
   get '/announcement/phone/:id', to: 'users#phone'
-
   get '/posts/:name', to: 'posts#show'
   get '/posts/urls/:url', to: 'posts#show_by_url'
   get '/site_map', to: 'posts#site_map'
   post '/posts', to: 'posts#create'
-
   get '/scalable_vector_graphics', to: 'scalable_vector_graphics#index'
-
   put '/announcements/view/:id', to: 'announcements#view'
   put '/announcements/extend/:id', to: 'announcements#extend_active'
   put '/announcements/trigger_visible/:id', to: 'announcements#trigger_visible'
