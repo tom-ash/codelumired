@@ -2,11 +2,13 @@
 
 module AnnouncementsDestroy
   def destroy
-    return bad_request unless user_validated? && owner?
+    return bad_request unless user_validated?
 
-    Announcement.find_by_id(params[:id]).destroy
+    announcement = Announcement.find_by_id(params[:id])
     return bad_request unless @user.id == announcement.user_id
-    
+
+    announcement.destroy!
+
     render json: {}
   end
 end
