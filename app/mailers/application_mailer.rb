@@ -8,6 +8,7 @@ class ApplicationMailer < ActionMailer::Base
   }
 
   def company
-    COMPANY[@language]
+    # COMPANY[@language] # TODO: FIX !!!
+    'Warsaw Digital Sp. z o.o., z siedzibą w Warszawie przy ul. Twardej 18, 00-105 Warszawa, zarejestrowana w rejestrze przedsiębiorców prowadzonym przez Sąd Rejonowy dla m. st. Warszawy, XII Wydział Gospodarczy Krajowego Rejestru Sądowego, pod numerem KRS 0000735294, o kapitale zakładowym 20.000,00 PLN, w pełni wpłaconym, posiadająca numer REGON 380529016 oraz numer NIP 5252753799'
   end
 end

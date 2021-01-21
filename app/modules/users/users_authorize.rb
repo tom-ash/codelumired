@@ -4,6 +4,7 @@ module UsersAuthorize
     return bad_request unless @user
     return bad_request unless user_password_valid?
 
+    # FIX!!!
     token_current? ? current_access_token : generate_access_token
     phone_verified?
     @response = {
