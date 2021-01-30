@@ -10,8 +10,8 @@ class PostsController < ApplicationController
     allowed_languages = %w[pl en]
     name = params[:name]
 
-    allowed_languages.each do |language|
-      post_params = params[language]
+    allowed_languages.each do |lang|
+      post_params = params[lang]
       next unless post_params.present?
 
       url = post_params[:url]
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       meta = post_params[:meta]
       raise ArgumentError unless url.present? && body.present?
 
-      post = Post.find_or_initialize_by(author_id: @user.id, name: name, language: language)
+      post = Post.find_or_initialize_by(author_id: @user.id, name: name, lang: lang)
       post.assign_attributes(
         url: url,
         body: body,
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     post = { name: name }
 
     post_language_variations.each do |language_variation|
-      post[language_variation.language.to_sym] = language_variation.slice(
+      post[language_variation.lang.to_sym] = language_variation.slice(
         :url,
         :body,
         :style,
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
     post = { name: name }
 
     post_language_variations.each do |language_variation|
-      post[language_variation.language.to_sym] = language_variation.slice(
+      post[language_variation.lang.to_sym] = language_variation.slice(
         :url,
         :body,
         :style,
@@ -89,12 +89,12 @@ class PostsController < ApplicationController
     name = post_from_url&.name
     return render json: {}, status: 404 if name.blank?
 
-    language = post_from_url.language
+    lang = post_from_url.lang
     post_language_variations = Post.where(name: name)
     post = { name: name }
 
     post_language_variations.each do |language_variation|
-      post[language_variation.language.to_sym] = language_variation.slice(
+      post[language_variation.lang.to_sym] = language_variation.slice(
         :url,
         :body,
         :style,
@@ -103,19 +103,20 @@ class PostsController < ApplicationController
         :keywords,
         :canonical_url,
         :picture,
-        :meta
+        :meta,
+        :lang
       )
     end
 
     render json: post.merge(
       scalableVectorGraphics: ScalableVectorGraphic.all,
-      language: language
+      lang: lang
     )
   end
 
   def site_map
-    language = request.headers['Language']
+    lang = request.headers['Language']
 
-    render json: Post.where(language: language).distinct.pluck(:url)
+    render json: Post.where(lang: lang).distinct.pluck(:url)
   end
 end

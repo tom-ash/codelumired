@@ -20,7 +20,7 @@ class RouteDataController < ApplicationController
       post = { name: name }
 
       post_language_variations.each do |language_variation|
-        post[language_variation.language.to_sym] = language_variation.slice(
+        post[language_variation.lang.to_sym] = language_variation.slice(
           :url,
           :body,
           :style,

@@ -1,12 +1,12 @@
 module UsersEditEmail
   def edit_email_send_current
 
-    @language = request.headers[:language]
+    @lang = request.headers[:lang]
     @required_params = [:email]
     return bad_request unless user_validated? && required_params_present?
 
     @email = params[:email]
-    @subject = @context = @language == 'pl' ? 'Zmiana adresu email #1' : 'Email Address Change #1'
+    @subject = @context = @lang == 'pl' ? 'Zmiana adresu email #1' : 'Email Address Change #1'
     handle_verification
   end
 
@@ -19,12 +19,12 @@ module UsersEditEmail
   end
 
   def edit_email_send_new
-    @language = request.headers[:language]
+    @lang = request.headers[:lang]
     @required_params = [:new_email]
     return bad_request unless user_validated? && required_params_present?
 
     @email = @email = params[:new_email].downcase
-    @subject = @language == 'pl' ? 'Zmiana adresu email #2' : 'Email Address Change #2'
+    @subject = @lang == 'pl' ? 'Zmiana adresu email #2' : 'Email Address Change #2'
     @verification_code = @new_verification_code = rand(1000..9999).to_s
     send_verification
     @verification_code = decrypt_verification_code + @new_verification_code 

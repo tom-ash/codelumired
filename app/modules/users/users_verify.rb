@@ -41,7 +41,7 @@ module UsersVerify
       to: @email,
       subject: @subject,
       verification_code: @verification_code,
-      language: @language
+      lang: @lang
     ).deliver_now
   end
 end

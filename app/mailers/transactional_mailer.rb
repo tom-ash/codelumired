@@ -9,9 +9,9 @@ class TransactionalMailer < ApplicationMailer
     'en' => 'Verification code:'
   }
 
-  def verification_email(to:, subject:, verification_code:, language:)
+  def verification_email(to:, subject:, verification_code:, lang:)
     @verification_code = verification_code
-    @language = language
+    @lang = lang
     @subject = subject
     @hello = hello
     @verification_code_message = verification_code_message
@@ -27,10 +27,10 @@ class TransactionalMailer < ApplicationMailer
   private
 
   def hello
-    HELLO[@language]
+    HELLO[@lang]
   end
 
   def verification_code_message
-    VERIFICATION_CODE_MESSAGE[@language]
+    VERIFICATION_CODE_MESSAGE[@lang]
   end
 end

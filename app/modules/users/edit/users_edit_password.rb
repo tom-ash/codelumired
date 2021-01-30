@@ -1,11 +1,11 @@
 module UsersEditPassword
   def edit_password_send_email
-    @language = params[:language]
+    @lang = params[:lang]
     @required_params = [:email]
     return bad_request unless required_params_present?
 
     @email = params[:email]
-    @subject = @language == 'pl' ? 'Zmiana hasła' : 'Password Change'
+    @subject = @lang == 'pl' ? 'Zmiana hasła' : 'Password Change'
     handle_verification
   end
 

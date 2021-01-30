@@ -19,9 +19,9 @@ module ProspectiveUsersCreate
   def parse_params
     @account_type = params[:account_type]
     @private_account = @account_type == 'private'
-    @language = request.headers[:language]
+    @lang = request.headers[:lang]
     @email = params[:email].downcase
-    @subject = @language == 'pl' ? 'Rejestracja konta' : 'Account Registration'
+    @subject = @lang == 'pl' ? 'Rejestracja konta' : 'Account Registration'
     @first_name = params[:first_name]
     @password = params[:password]
     @business_name = params[:business_name]
@@ -85,7 +85,7 @@ module ProspectiveUsersCreate
       to: @email,
       subject: @subject,
       verification_code: @verification_code,
-      language: @language
+      lang: @lang
     ).deliver_now
   end
 

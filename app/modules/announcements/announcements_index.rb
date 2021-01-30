@@ -75,7 +75,7 @@ module AnnouncementsIndex
     post = { name: name }
 
     post_language_variations.each do |language_variation|
-      post[language_variation.language.to_sym] = language_variation.slice(:meta, :url, :title, :body)
+      post[language_variation.lang.to_sym] = language_variation.slice(:meta, :url, :title, :body)
     end
 
     @response.merge!(welcome: post) if params[:with_welcome] == 'true'

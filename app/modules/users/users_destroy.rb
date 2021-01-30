@@ -7,9 +7,9 @@ module UsersDestroy
   def destroy_send_email
     return bad_request unless user_validated?
 
-    @language = request.headers[:language]
+    @lang = request.headers[:lang]
     @email = params[:email]
-    @subject = SUBJECT[@language]
+    @subject = SUBJECT[@lang]
 
     handle_verification
   end
