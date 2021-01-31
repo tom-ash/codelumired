@@ -1,0 +1,2 @@
+class SVG < ApplicationRecord
+end

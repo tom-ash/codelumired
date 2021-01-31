@@ -67,7 +67,7 @@ module AnnouncementsIndex
     @response = {
       announcements: announcements,
       amount: amount,
-      scalableVectorGraphics: ScalableVectorGraphic.all
+      svgs: SVG.all
     }
 
     name = 'welcome'

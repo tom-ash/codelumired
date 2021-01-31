@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     end
 
     render json: post.merge(
-      scalableVectorGraphics: ScalableVectorGraphic.all
+      svgs: SVG.all
     )
   end
 
@@ -109,7 +109,7 @@ class PostsController < ApplicationController
     end
 
     render json: post.merge(
-      scalableVectorGraphics: ScalableVectorGraphic.all,
+      svgs: svg.all,
       lang: lang
     )
   end

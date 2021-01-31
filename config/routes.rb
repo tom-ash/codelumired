@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/posts/urls/:url', to: 'posts#show_by_url'
   get '/site_map', to: 'posts#site_map'
   post '/posts', to: 'posts#create'
-  get '/scalable_vector_graphics', to: 'scalable_vector_graphics#index'
+  get '/svgs', to: 'svgs#index'
   put '/announcements/view/:id', to: 'announcements#view'
   put '/announcements/extend/:id', to: 'announcements#extend_active'
   put '/announcements/trigger_visible/:id', to: 'announcements#trigger_visible'

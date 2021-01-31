@@ -73,7 +73,7 @@ class RouteDataController < ApplicationController
       metaData: meta_data,
       initialState: initial_state,
       pageShow: post,
-      svgs: ScalableVectorGraphic.all
+      svgs: SVG.all
     }
   end
 end
