@@ -109,7 +109,7 @@ class PostsController < ApplicationController
     end
 
     render json: post.merge(
-      svgs: svg.all,
+      svgs: SVG.all,
       lang: lang
     )
   end
