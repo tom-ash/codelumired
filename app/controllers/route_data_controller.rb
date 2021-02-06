@@ -2,39 +2,17 @@ class RouteDataController < ApplicationController
   include Responses
   include AnnouncementsIndex
   include AnnouncementsShared
+  include UsersAuthorize
+  include UsersVerify
+  include UsersCiphers
 
   def show
     route_url = request.headers['Route-Url']
+    track = request.headers['Track']
     meta_data = {}
     initial_state = nil
 
-    post = nil
-    if ['/', 'en'].include?(route_url)
-      name = 'welcome'
-    elsif ['dodaj-ogloszenie-wynajmu-nieruchomosci-w-warszawie', 'add-announcement-of-real-estate-lease-in-warsaw'].include?(route_url)
-      name = 'create_announcement'
-    end
-
-    if name
-      post_language_variations = Post.where(name: name)
-      post = { name: name }
-
-      post_language_variations.each do |language_variation|
-        post[language_variation.lang.to_sym] = language_variation.slice(
-          :url,
-          :body,
-          :style,
-          :title,
-          :description,
-          :keywords,
-          :canonical_url,
-          :picture,
-          :meta
-        )
-      end
-    end
-
-    if ['/', 'en', 'katalog-nieruchomosci-na-wynajem-warszawa', 'catalogue-of-real-estates-for-lease-warsaw'].include?(route_url)
+    if ['root', 'announcement/index/catalogue'].include?(track)
       search_announcements
 
       initial_state = {
@@ -58,9 +36,6 @@ class RouteDataController < ApplicationController
       initial_state = { announcement: @attributes }
       # TODO: REWRITE TO SERVICE END
 
-
-      # const image = `${AWS_S3_URL}/announcements/${showData.id}/${showData.pictures[0].database}`
-
       meta_data = {
         title: { category: @attributes[:category], district: @attributes[:district], area: @attributes[:area] },
         description: { pl: @attributes[:polish_description], en: @attributes[:english_description] },
@@ -69,11 +44,43 @@ class RouteDataController < ApplicationController
       }
     end
 
+    post = nil
+    if ['root'].include?(track)
+      name = 'welcome'
+    elsif ['announcement/create'].include?(track)
+      name = 'create_announcement'
+    end
+
+    if name
+      post_language_variations = Post.where(name: name)
+      post = { name: name }
+
+      post_language_variations.each do |language_variation|
+        post[language_variation.lang.to_sym] = language_variation.slice(
+          :url,
+          :body,
+          :style,
+          :title,
+          :description,
+          :keywords,
+          :canonical_url,
+          :picture,
+          :meta
+        )
+      end
+    end
+
+    user_validated?
+    authorized = @user.present?
+    user_data = { 'authorized' => authorized, 'account_type' => nil, 'first_name' => nil, 'business_name' => nil, 'role' => nil }
+    user_data.merge!(@user&.attributes&.slice('account_type', 'first_name', 'business_name', 'role')) if authorized
+
     render json: {
       metaData: meta_data,
       initialState: initial_state,
       pageShow: post,
-      svgs: SVG.all
+      svgs: SVG.all,
+      user: user_data
     }
   end
 end
