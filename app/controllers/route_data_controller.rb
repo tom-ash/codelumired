@@ -3,6 +3,7 @@ class RouteDataController < ApplicationController
   include AnnouncementsIndex
   include AnnouncementsShared
   include UsersAuthorize
+  include UsersShow
   include UsersVerify
   include UsersCiphers
 
@@ -11,6 +12,7 @@ class RouteDataController < ApplicationController
     track = request.headers['Track']
     meta_data = {}
     initial_state = nil
+    isSSR = request.headers['Type'] == 'ssr'
 
     if ['root', 'announcement/index/catalogue'].include?(track)
       search_announcements
@@ -21,7 +23,21 @@ class RouteDataController < ApplicationController
       }
     end
 
-    if route_url.match(/^(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
+    if track == 'announcement/index/my'
+      return bad_request unless user_validated?
+
+      prepare_announcements
+      limit_announcements
+      sort_announcements
+      select_attributes
+
+      initial_state = {
+        announcements: @announcements,
+        amount: @announcements.count
+      }
+    end
+
+    if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
       # TODO: REWRITE TO SERVICE BEGIN
       @announcement = Announcement.find_by(id: $1)
       return render_404 unless @announcement&.visible?
@@ -42,6 +58,17 @@ class RouteDataController < ApplicationController
         keywords: { category: @attributes[:category], district: @attributes[:district] },
         image: { imageKey: "announcements/#{@attributes[:id]}/#{@attributes[:pictures][0]['database']}" }
       }
+    end
+
+    if track == 'user/edit'
+      return bad_request unless user_validated?
+
+      initial_state = {
+        phone_code: @user.phone['code'],
+        phone_body: @user.phone['body'],
+        email: @user.email
+      }.merge(account_type_specific_attributes)
+
     end
 
     post = nil
@@ -70,17 +97,20 @@ class RouteDataController < ApplicationController
       end
     end
 
-    user_validated?
-    authorized = @user.present?
-    user_data = { 'authorized' => authorized, 'account_type' => nil, 'first_name' => nil, 'business_name' => nil, 'role' => nil }
-    user_data.merge!(@user&.attributes&.slice('account_type', 'first_name', 'business_name', 'role')) if authorized
+    response = { metaData: meta_data, initialState: initial_state, pageShow: post }
 
-    render json: {
-      metaData: meta_data,
-      initialState: initial_state,
-      pageShow: post,
-      svgs: SVG.all,
-      user: user_data
-    }
+    if isSSR
+      user_data = { 'authorized' => false, 'account_type' => nil, 'first_name' => nil, 'business_name' => nil, 'role' => nil }
+      user_validated?
+      authorized = @user.present?
+      if authorized
+        user_data.merge!(@user&.attributes&.slice('account_type', 'first_name', 'business_name', 'role')).merge!('authorized' => true)
+      end
+
+      response.merge!(user: user_data)
+      response.merge!(svgs: SVG.all)
+    end
+
+    render json: response.as_json.deep_transform_keys { |key| key.to_s.camelize(:lower) }
   end
 end

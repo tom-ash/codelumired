@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   resources :announcements
 
-
   get 'route_data', to: 'route_data#show'
-
-
   get '/announcements/:id/edit', to: 'announcements#edit'
   get '/announcement/phone/:id', to: 'users#phone'
   get '/posts/:name', to: 'posts#show'
@@ -23,7 +20,6 @@ Rails.application.routes.draw do
   post '/testsmslabs', to: 'users#testsmslabs'
   resource :prospective_users, only: :create
   post '/user_create_with_email', to: 'users#create_with_email'
-  get '/user/edit/account_data', to: 'users#fetch_account_data'
   get '/authorize_with_token', to: 'users#authorize_with_token'
   put '/authorize_with_email', to: 'users#authorize_with_email'
   put '/user/edit/first_name', to: 'users#edit_first_name'

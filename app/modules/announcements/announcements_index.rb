@@ -120,7 +120,7 @@ module AnnouncementsIndex
 
   def select_attributes
     @announcements = @announcements.select(
-      [*full_attributes, %i[
+      [*AnnouncementsAttributes::SHOW_FULL, %i[
         views
         status
         visible

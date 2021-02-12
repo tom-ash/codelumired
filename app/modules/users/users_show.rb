@@ -8,18 +8,6 @@ module UsersShow
     }
   end
 
-  def fetch_account_data
-    return bad_request unless user_validated?
-
-    @response = {
-      phone_code: @user.phone['code'],
-      phone_body: @user.phone['body'],
-      email: @user.email
-    }.merge(account_type_specific_attributes)
-
-    ok
-  end
-
   private
 
   def account_type_specific_attributes
