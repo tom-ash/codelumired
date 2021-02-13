@@ -14,6 +14,8 @@ class RouteDataController < ApplicationController
     initial_state = nil
     isSSR = request.headers['Type'] == 'ssr'
 
+    # byebug
+
     if ['root', 'announcement/index/catalogue'].include?(track)
       search_announcements
 
