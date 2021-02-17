@@ -13,8 +13,8 @@ class RouteDataController < ApplicationController
     meta_data = {}
     initial_state = nil
     isSSR = request.headers['Type'] == 'ssr'
-
-    # byebug
+    lang = request.headers['Lang']
+    page_name = request.headers['Page-Name']
 
     if ['root', 'announcement/index/catalogue'].include?(track)
       search_announcements
@@ -73,33 +73,22 @@ class RouteDataController < ApplicationController
 
     end
 
-    post = nil
-    if ['root'].include?(track)
-      name = 'welcome'
-    elsif ['announcement/create'].include?(track)
-      name = 'create_announcement'
+    page = {}
+    if page_name.present?
+      page = Post.find_by(name: page_name, lang: lang)
+      urls = Post.where(name: page.name).pluck(:lang, :url).to_h
+      page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_vers: urls)
     end
 
-    if name
-      post_language_variations = Post.where(name: name)
-      post = { name: name }
-
-      post_language_variations.each do |language_variation|
-        post[language_variation.lang.to_sym] = language_variation.slice(
-          :url,
-          :body,
-          :style,
-          :title,
-          :description,
-          :keywords,
-          :canonical_url,
-          :picture,
-          :meta
-        )
-      end
+    if track == 'page/edit'
+      page_name_or_url = route_url.match(/^(edit-page|edytuj-strone)\/(.+)$/)[2]
+      page = Post.find_by(name: page_name_or_url, lang: lang) || Post.find_by(url: page_name_or_url)
+      urls = Post.where(name: page.name).pluck(:lang, :url).to_h
+      page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_vers: urls)
+      initial_state = { 'page_create': page }
     end
 
-    response = { metaData: meta_data, initialState: initial_state, pageShow: post }
+    response = { metaData: meta_data, initialState: initial_state, page: page }
 
     if isSSR
       user_data = { 'authorized' => false, 'account_type' => nil, 'first_name' => nil, 'business_name' => nil, 'role' => nil }

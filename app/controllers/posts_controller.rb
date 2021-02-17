@@ -5,113 +5,43 @@ class PostsController < ApplicationController
   include UsersCiphers
 
   def create
-    return bad_request unless user_validated?
-
-    allowed_languages = %w[pl en]
     name = params[:name]
+    lang = params[:lang]
 
-    allowed_languages.each do |lang|
-      post_params = params[lang]
-      next unless post_params.present?
+    page = Post.find_by(name: name, lang: lang)
 
-      url = post_params[:url]
-      body = post_params[:body]
-      style = post_params[:style]
-      title = post_params[:title]
-      description = post_params[:description]
-      keywords = post_params[:keywords]
-      canonical_url = post_params[:canonical_url]
-      picture = post_params[:picture]
-      meta = post_params[:meta]
-      raise ArgumentError unless url.present? && body.present?
+    body = params[:body]
+    title = params[:title]
+    description = params[:description]
+    keywords = params[:keywords]
+    picture = params[:picture]
+    meta = params[:meta]
+    url = params[:url]
+    canonical_url = params[:canonical_url]
 
-      post = Post.find_or_initialize_by(author_id: @user.id, name: name, lang: lang)
-      post.assign_attributes(
-        url: url,
-        body: body,
-        style: style,
-        title: title,
-        description: description,
-        meta: meta,
-        keywords: keywords,
-        canonical_url: canonical_url,
-        picture: picture
-      )
-      post.save!
-    end
-
-    post_language_variations = Post.where(name: name)
-    post = { name: name }
-
-    post_language_variations.each do |language_variation|
-      post[language_variation.lang.to_sym] = language_variation.slice(
-        :url,
-        :body,
-        :style,
-        :title,
-        :description,
-        :keywords,
-        :canonical_url,
-        :picture,
-        :meta
-      )
-    end
-
-    render json: post, status: 201
-  end
-
-  def show
-    name = params[:name]
-    post_language_variations = Post.where(name: name)
-    post = { name: name }
-
-    post_language_variations.each do |language_variation|
-      post[language_variation.lang.to_sym] = language_variation.slice(
-        :url,
-        :body,
-        :style,
-        :title,
-        :description,
-        :keywords,
-        :canonical_url,
-        :picture,
-        :meta
-      )
-    end
-
-    render json: post.merge(
-      svgs: SVG.all
+    page.update!(
+      body: body,
+      title: title,
+      description: description,
+      keywords: keywords,
+      picture: picture,
+      meta: meta,
+      url: url,
+      canonical_url: canonical_url,
+      name: name
     )
   end
 
   def show_by_url
-    post_from_url = Post.find_by(url: params[:url])
-    name = post_from_url&.name
-    return render json: {}, status: 404 if name.blank?
+    page = Post.find_by(url: params[:url])
+    return render json: {}, status: 404 if page.blank?
 
-    lang = post_from_url.lang
-    post_language_variations = Post.where(name: name)
-    post = { name: name }
+    urls = Post.where(name: page.name).pluck(:lang, :url).to_h
 
-    post_language_variations.each do |language_variation|
-      post[language_variation.lang.to_sym] = language_variation.slice(
-        :url,
-        :body,
-        :style,
-        :title,
-        :description,
-        :keywords,
-        :canonical_url,
-        :picture,
-        :meta,
-        :lang
-      )
-    end
-
-    render json: post.merge(
-      svgs: SVG.all,
-      lang: lang
-    )
+    render json: {
+      page: page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_vers: urls),
+      svgs: SVG.all
+    }
   end
 
   def site_map
