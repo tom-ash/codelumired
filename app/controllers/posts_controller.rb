@@ -25,6 +25,10 @@ class PostsController < ApplicationController
         meta: {}
       )
     end
+
+    urls = Post.where(name: name).pluck(:lang, :url).to_h
+
+    render json: { lang_ver_urls: urls }
   end
 
   def edit

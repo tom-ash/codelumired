@@ -80,6 +80,10 @@ class RouteDataController < ApplicationController
       page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls)
     end
 
+    if track == 'page/create'
+      initial_state = { 'page_create': Post.all.pluck(:name).uniq.sort }
+    end
+
     if track == 'page/edit'
       page_name_or_url = route_url.match(/^(edit-page|edytuj-strone)\/(.+)$/)[2]
       page = Post.find_by(name: page_name_or_url, lang: lang) || Post.find_by(url: page_name_or_url)
