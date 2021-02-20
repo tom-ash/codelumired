@@ -77,14 +77,14 @@ class RouteDataController < ApplicationController
     if page_name.present?
       page = Post.find_by(name: page_name, lang: lang)
       urls = Post.where(name: page.name).pluck(:lang, :url).to_h
-      page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_vers: urls)
+      page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls)
     end
 
     if track == 'page/edit'
       page_name_or_url = route_url.match(/^(edit-page|edytuj-strone)\/(.+)$/)[2]
       page = Post.find_by(name: page_name_or_url, lang: lang) || Post.find_by(url: page_name_or_url)
       urls = Post.where(name: page.name).pluck(:lang, :url).to_h
-      page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_vers: urls)
+      page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls)
       initial_state = { 'page_create': page }
     end
 

@@ -4,7 +4,30 @@ class PostsController < ApplicationController
   include UsersVerify
   include UsersCiphers
 
+  LANGS = %i[pl en]
+
   def create
+    return bad_request unless user_validated?
+
+    name = params[:name]
+    LANGS.each do |lang|
+      Post.create!(
+        name: name,
+        author_id: @user.id,
+        lang: lang,
+        body: [],
+        style: [],
+        url: SecureRandom.hex(32),
+        canonical_url: '',
+        title: '',
+        keywords: '',
+        description: '',
+        meta: {}
+      )
+    end
+  end
+
+  def edit
     name = params[:name]
     lang = params[:lang]
 
@@ -30,6 +53,8 @@ class PostsController < ApplicationController
       canonical_url: canonical_url,
       name: name
     )
+
+    render 200
   end
 
   def show_by_url
@@ -39,7 +64,7 @@ class PostsController < ApplicationController
     urls = Post.where(name: page.name).pluck(:lang, :url).to_h
 
     render json: {
-      page: page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_vers: urls),
+      page: page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls),
       svgs: SVG.all
     }
   end

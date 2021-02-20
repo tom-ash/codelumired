@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/posts/urls/:url', to: 'posts#show_by_url'
   get '/site_map', to: 'posts#site_map'
   post '/posts', to: 'posts#create'
+
+  put '/posts', to: 'posts#edit'
+
   get '/svgs', to: 'svgs#index'
   put '/announcements/view/:id', to: 'announcements#view'
   put '/announcements/extend/:id', to: 'announcements#extend_active'
