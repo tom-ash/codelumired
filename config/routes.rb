@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   post '/testsmslabs', to: 'users#testsmslabs'
   resource :prospective_users, only: :create
   post '/user_create_with_email', to: 'users#create_with_email'
-  get '/authorize_with_token', to: 'users#authorize_with_token'
   put '/authorize_with_email', to: 'users#authorize_with_email'
   put '/user/edit/first_name', to: 'users#edit_first_name'
   put '/user/edit/last_name', to: 'users#edit_last_name'

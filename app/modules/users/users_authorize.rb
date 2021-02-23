@@ -19,19 +19,6 @@ module UsersAuthorize
     bad_request
   end
 
-  def authorize_with_token
-    return bad_request unless user_validated?
-
-    phone_verified?
-    @response = {
-      account_type: @user.account_type,
-      name: name,
-      phone_verified: @phone_verified,
-      admin: @user.role == 'admin'
-    }
-    ok
-  end
-
   protected
 
   def name

@@ -61,18 +61,6 @@ class PostsController < ApplicationController
     render 200
   end
 
-  def show_by_url
-    page = Post.find_by(url: params[:url])
-    return render json: {}, status: 404 if page.blank?
-
-    urls = Post.where(name: page.name).pluck(:lang, :url).to_h
-
-    render json: {
-      page: page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls),
-      svgs: SVG.all
-    }
-  end
-
   def site_map
     lang = request.headers['Language']
 

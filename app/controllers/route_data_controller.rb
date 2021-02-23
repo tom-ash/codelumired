@@ -7,22 +7,30 @@ class RouteDataController < ApplicationController
   include UsersVerify
   include UsersCiphers
 
+  def serialize_announcements(announcements)
+    announcements.map do |announcement|
+      announcement.attributes.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+    end
+  end
+
   def show
     route_url = request.headers['Route-Url']
     track = request.headers['Track']
     meta_data = {}
-    initial_state = nil
-    isSSR = request.headers['Type'] == 'ssr'
+    state = {}
+    is_ssr = request.headers['Type'] == 'ssr'
     lang = request.headers['Lang']
     page_name = request.headers['Page-Name']
 
     if ['root', 'announcement/index/catalogue'].include?(track)
       search_announcements
 
-      initial_state = {
-        announcements: @announcements,
-        amount: @announcements.count
-      }
+      state.merge!(
+        'announcement/index/data': {
+          announcements: serialize_announcements(@announcements),
+          amount: @announcements.count
+        }
+      )
     end
 
     if track == 'announcement/index/my'
@@ -33,10 +41,12 @@ class RouteDataController < ApplicationController
       sort_announcements
       select_attributes
 
-      initial_state = {
-        announcements: @announcements,
-        amount: @announcements.count
-      }
+      state.merge!(
+        'announcement/index/data': {
+          announcements: serialize_announcements(@announcements),
+          amount: @announcements.count
+        }
+      )
     end
 
     if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
@@ -51,7 +61,9 @@ class RouteDataController < ApplicationController
       parse_availability_date
       @attributes[:name] = user.showcase['name']
       @attributes[:phone] = user.showcase['phone']
-      initial_state = { announcement: @attributes }
+      state.merge!(
+        'announcement/show/data': @attributes.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+      )
       # TODO: REWRITE TO SERVICE END
 
       meta_data = {
@@ -65,12 +77,13 @@ class RouteDataController < ApplicationController
     if track == 'user/edit'
       return bad_request unless user_validated?
 
-      initial_state = {
-        phone_code: @user.phone['code'],
-        phone_body: @user.phone['body'],
-        email: @user.email
-      }.merge(account_type_specific_attributes)
-
+      state.merge!(
+        'user/edit/data': {
+          phone_code: @user.phone['code'],
+          phone_body: @user.phone['body'],
+          email: @user.email
+        }.merge(account_type_specific_attributes).deep_transform_keys { |key| key.to_s.camelize(:lower) }
+      )
     end
 
     page = {}
@@ -78,10 +91,16 @@ class RouteDataController < ApplicationController
       page = Post.find_by(name: page_name, lang: lang)
       urls = Post.where(name: page.name).pluck(:lang, :url).to_h
       page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls)
+
+      state.merge!(
+        'page/show/data': page.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+      )
     end
 
     if track == 'page/create'
-      initial_state = { 'page_create': Post.all.pluck(:name).uniq.sort }
+      state.merge!(
+        'page/create/data': { names: Post.all.pluck(:name).uniq.sort }
+      )
     end
 
     if track == 'page/edit'
@@ -89,23 +108,76 @@ class RouteDataController < ApplicationController
       page = Post.find_by(name: page_name_or_url, lang: lang) || Post.find_by(url: page_name_or_url)
       urls = Post.where(name: page.name).pluck(:lang, :url).to_h
       page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls)
-      initial_state = { 'page_create': page }
+
+      state.merge!(
+        'page/edit': page.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+      )
     end
 
-    response = { metaData: meta_data, initialState: initial_state, page: page }
+    if track == 'page/index/manage'
+      pages = Post.all.select(:name, :lang, :url)
 
-    if isSSR
-      user_data = { 'authorized' => false, 'account_type' => nil, 'first_name' => nil, 'business_name' => nil, 'role' => nil }
+      parsed_pages = {}
+      pages.each do |page|
+        urls = parsed_pages[page.name] || {}
+        urls[page.lang] = page.url
+        parsed_pages[page.name] = urls
+      end
+
+      state.merge!(
+        'page/index/data': { pages: parsed_pages },
+        'page/index/inputs': { name: '' }
+      )
+    end
+
+    if track == 'page/show'
+      page = Post.find_by(url: route_url)
+
+      return render json: {}, status: 404 if page.blank?
+
+      urls = Post.where(name: page.name).pluck(:lang, :url).to_h
+
+      meta_data = {
+        title: page.title,
+        description: page.description,
+        keywords: page.keywords,
+        canonical_url: page.canonical_url,
+        picture: page.picture,
+        lang: page.lang
+      }
+
+      state.merge!(
+        'page/show/data': page.slice(
+          :name, :url, :body, :style, :title, :description,
+          :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls
+        ).deep_transform_keys { |key| key.to_s.camelize(:lower) },
+        lang: page.lang
+      )
+    end
+
+    response = {
+      metaData: meta_data.deep_transform_keys { |key| key.to_s.camelize(:lower) },
+      state: state
+    }
+
+    if is_ssr
+      user_data = {
+        'authorized' => false,
+        'account_type' => nil,
+        'first_name' => nil,
+        'business_name' => nil,
+        'role' => nil
+      }
       user_validated?
       authorized = @user.present?
       if authorized
         user_data.merge!(@user&.attributes&.slice('account_type', 'first_name', 'business_name', 'role')).merge!('authorized' => true)
       end
 
-      response.merge!(user: user_data)
+      state.merge!('user/authorize/data': user_data.deep_transform_keys { |key| key.to_s.camelize(:lower) })
       response.merge!(svgs: SVG.all)
     end
 
-    render json: response.as_json.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+    render json: response.as_json
   end
 end
