@@ -16,8 +16,8 @@ class RouteDataController < ApplicationController
   def show
     route_url = request.headers['Route-Url']
     track = request.headers['Track']
-    meta_data = {}
     state = {}
+    meta = {}
     is_ssr = request.headers['Type'] == 'ssr'
     lang = request.headers['Lang']
     page_name = request.headers['Page-Name']
@@ -66,7 +66,7 @@ class RouteDataController < ApplicationController
       )
       # TODO: REWRITE TO SERVICE END
 
-      meta_data = {
+      meta = {
         title: { category: @attributes[:category], district: @attributes[:district], area: @attributes[:area] },
         description: { pl: @attributes[:polish_description], en: @attributes[:english_description] },
         keywords: { category: @attributes[:category], district: @attributes[:district] },
@@ -137,7 +137,7 @@ class RouteDataController < ApplicationController
 
       urls = Post.where(name: page.name).pluck(:lang, :url).to_h
 
-      meta_data = {
+      meta = {
         title: page.title,
         description: page.description,
         keywords: page.keywords,
@@ -155,11 +155,6 @@ class RouteDataController < ApplicationController
       )
     end
 
-    response = {
-      metaData: meta_data.deep_transform_keys { |key| key.to_s.camelize(:lower) },
-      state: state
-    }
-
     if is_ssr
       user_data = {
         'authorized' => false,
@@ -173,10 +168,17 @@ class RouteDataController < ApplicationController
       if authorized
         user_data.merge!(@user&.attributes&.slice('account_type', 'first_name', 'business_name', 'role')).merge!('authorized' => true)
       end
-
-      state.merge!('user/authorize/data': user_data.deep_transform_keys { |key| key.to_s.camelize(:lower) })
-      response.merge!(svgs: SVG.all)
+      
+      state.merge!(
+        'user/authorize/data': user_data.deep_transform_keys { |key| key.to_s.camelize(:lower) },
+        'assets/svgs': SvgsSerializer.new.serialize
+      )
     end
+
+    response = {
+      metaData: meta.deep_transform_keys { |key| key.to_s.camelize(:lower) },
+      state: state
+    }
 
     render json: response.as_json
   end

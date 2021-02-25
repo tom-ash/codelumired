@@ -17,12 +17,10 @@ Bundler.require(*Rails.groups)
 
 module WarsawleaseBackend
   class Application < Rails::Application
-
     config.load_defaults 5.1
-
     config.api_only = true
 
     config.autoload_paths += Dir["#{config.root}/app/modules/**/"]
-
+    config.autoload_paths += Dir["#{config.root}/app/lib/**/"]
   end
 end

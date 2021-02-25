@@ -1,2 +1,2 @@
-class SVG < ApplicationRecord
+class SVG < Asset
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_121803) do
+ActiveRecord::Schema.define(version: 2021_02_24_063713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,16 @@ ActiveRecord::Schema.define(version: 2021_01_30_121803) do
     t.index ["visible"], name: "index_announcements_on_visible"
   end
 
+  create_table "assets", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "path_data", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
+    t.jsonb "data"
+    t.index ["name"], name: "index_assets_on_name", unique: true
+  end
+
   create_table "deleted_announcements", force: :cascade do |t|
     t.jsonb "original_announcement", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -125,14 +135,6 @@ ActiveRecord::Schema.define(version: 2021_01_30_121803) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["encrypted_access_token"], name: "index_prospective_users_on_encrypted_access_token", unique: true
-  end
-
-  create_table "svgs", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "path_data", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_svgs_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
