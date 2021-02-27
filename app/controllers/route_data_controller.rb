@@ -168,7 +168,7 @@ class RouteDataController < ApplicationController
       if authorized
         user_data.merge!(@user&.attributes&.slice('account_type', 'first_name', 'business_name', 'role')).merge!('authorized' => true)
       end
-      
+
       state.merge!(
         'user/authorize/data': user_data.deep_transform_keys { |key| key.to_s.camelize(:lower) },
         'assets/svgs': SvgsSerializer.new.serialize

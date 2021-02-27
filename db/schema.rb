@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2021_02_24_063713) do
 
   create_table "assets", force: :cascade do |t|
     t.string "name", null: false
-    t.text "path_data", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
