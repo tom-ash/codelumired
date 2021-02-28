@@ -1,6 +1,6 @@
 module UsersShow
   def phone
-    @user = Announcement.find(params[:id]).user
+    @user = site::Announcement.find(params[:id]).user
     @phone_code = @user.phone['code']
     @phone_body = @user.phone['body']
     render json: {

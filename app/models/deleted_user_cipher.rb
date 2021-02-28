@@ -1,2 +1,0 @@
-class DeletedUserCipher < ApplicationRecord
-end

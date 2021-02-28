@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class SvgsSerializer
-  def initialize(names: [])
-    # TODO
+  def initialize(site:)
+    @site = site
   end
 
   def serialize
@@ -11,7 +13,9 @@ class SvgsSerializer
 
   private
 
+  attr_reader :site
+
   def svgs
-    SVG.all
+    Object.const_get(site)::SVG.all
   end
 end

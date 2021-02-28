@@ -42,7 +42,7 @@ module UsersEditEmail
     return bad_request unless user_validated? && required_params_present?
     return bad_request if verification_code_invalid?
 
-    render 200
+    ok
   end
 
   def edit_email

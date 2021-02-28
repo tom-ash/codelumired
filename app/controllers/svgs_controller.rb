@@ -1,2 +1,0 @@
-class SvgsController < ApplicationController
-end

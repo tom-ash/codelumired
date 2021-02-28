@@ -49,6 +49,6 @@ module UsersCreate
   end
 
   def create_user
-    @user = User.create(@user_object)
+    @user = site::User.create(@user_object)
   end
 end

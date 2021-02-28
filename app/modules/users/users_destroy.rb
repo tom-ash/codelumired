@@ -18,9 +18,7 @@ module UsersDestroy
     return bad_request unless user_validated?
     return bad_request if verification_code_invalid?
 
-    @deleted_user = DeletedUser.find_by(id: @user.id) || DeletedUser.create(id: @user.id, original_user: {})
-
-
+    @deleted_user = site::DeletedUser.find_by(id: @user.id) || site::DeletedUser.create(id: @user.id, original_user: {})
 
     return ok if @deleted_user.update!(original_user: @user) && @user.destroy
 

@@ -11,10 +11,6 @@ development:
     <<: *default
     database: codelumi_dev
     migrations_paths: db/codelumi_migrate
-  triviawall:
-    <<: *default
-    database: triviawall_dev
-    migrations_paths: db/triviawall_migrate
   warsawlease:
     <<: *default
     database: warsawlease_dev
@@ -28,10 +24,6 @@ test:
     <<: *default
     database: codelumi_test
     migrations_paths: db/codelumi_migrate
-  triviawall:
-    <<: *default
-    database: triviawall_test
-    migrations_paths: db/triviawall_migrate
   warsawlease:
     <<: *default
     database: warsawlease_test
@@ -45,10 +37,6 @@ production:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
     migrations_paths: db/warsawlease_migrate
-  triviawall:
-    <<: *default
-    url: <%= ENV['HEROKU_POSTGRESQL_AMBER_URL'] %>
-    migrations_paths: db/triviawall_migrate
   warsawlease:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>

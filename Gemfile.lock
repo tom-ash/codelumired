@@ -1,3 +1,15 @@
+PATH
+  remote: sites/codelumi
+  specs:
+    codelumi (0.1.0)
+      rails (~> 6.1.3)
+
+PATH
+  remote: sites/warsawlease
+  specs:
+    warsawlease (0.1.0)
+      rails (~> 6.1.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -194,6 +206,7 @@ DEPENDENCIES
   aws-sdk-ses (~> 1.6)
   bcrypt
   byebug
+  codelumi!
   mailgun-ruby (~> 1.1.6)
   pg (~> 1.1.4)
   pry-rails
@@ -203,6 +216,7 @@ DEPENDENCIES
   rest-client
   twilio-ruby (~> 5.7.2)
   tzinfo-data
+  warsawlease!
 
 RUBY VERSION
    ruby 2.6.3p62

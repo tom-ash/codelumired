@@ -6,6 +6,6 @@ module UsersGeneral
              params[:emailAddress] ||
              request.headers[:email] ||
              params[:email]).downcase
-    @user = User.find_by(email: @email)
+    @user = site::User.find_by(email: @email)
   end
 end

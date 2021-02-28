@@ -1,2 +1,0 @@
-class SVG < Asset
-end

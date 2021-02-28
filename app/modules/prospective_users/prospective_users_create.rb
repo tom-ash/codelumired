@@ -28,6 +28,7 @@ module ProspectiveUsersCreate
     @phone_code = params[:phone_code]
     @phone_body = params[:phone]
     terms_and_privacy_consent_attrs = params[:terms_and_privacy_consent]
+
     @consents = [{
       granted: terms_and_privacy_consent_attrs[:value] == 'granted',
       displayed_text: terms_and_privacy_consent_attrs[:text],
@@ -44,11 +45,11 @@ module ProspectiveUsersCreate
   end
 
   def user_exists
-    @user = User.find_by(email: @email)
+    @user = site::User.find_by(email: @email)
   end
 
   def create_prospective_user
-    @prospective_user = ProspectiveUser.new(
+    @prospective_user = site::ProspectiveUser.new(
       encrypted_access_token: @encrypted_access_token,
       verification: {},
       user: {}

@@ -24,6 +24,6 @@ module UsersTokenCiphers
 
   def find_user_with_token
     encrypt_access_token
-    @user = User.find_by(encrypted_access_token: @encrypted_access_token)
+    @user = site::User.find_by(encrypted_access_token: @encrypted_access_token)
   end
 end
