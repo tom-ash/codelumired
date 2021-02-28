@@ -19,7 +19,10 @@ module UsersDestroy
     return bad_request if verification_code_invalid?
 
     @deleted_user = DeletedUser.find_by(id: @user.id) || DeletedUser.create(id: @user.id, original_user: {})
-    return ok if @deleted_user.update_attributes(original_user: @user) && @user.destroy
+
+
+
+    return ok if @deleted_user.update!(original_user: @user) && @user.destroy
 
     unprocessable_entity
   end

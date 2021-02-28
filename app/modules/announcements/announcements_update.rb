@@ -63,7 +63,7 @@ module AnnouncementsUpdate
 
   def prepare_update_object
     @announcement_object = {}
-    update_attributes.each do |symbol|
+    update!.each do |symbol|
       next if params[symbol].nil?
 
       @announcement_object[symbol] = params[symbol]
@@ -71,14 +71,14 @@ module AnnouncementsUpdate
   end
 
   def update_announcement
-    @attributes.update_attributes(@announcement_object)
+    @attributes.update!(@announcement_object)
   end
 
   def edit_attributes
     AnnouncementsAttributes::EDIT
   end
 
-  def update_attributes
+  def update!
     AnnouncementsAttributes::UPDATE
   end
 end

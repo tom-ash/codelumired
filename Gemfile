@@ -7,7 +7,7 @@ end
 
 ruby '~> 2.6.3'
 
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.3'
 gem 'pg', '~> 1.1.4'
 gem 'puma', '~> 3.12'
 gem 'bcrypt'

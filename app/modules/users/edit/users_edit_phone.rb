@@ -19,7 +19,7 @@ module UsersEditPhone
 
     @phone = { code: @phone_code, body: @phone_body, verified: false }
     @user.showcase[:phone] = "#{@phone_code} #{@phone_body[0..2]}"
-    return ok if @user.update_attributes(phone: @phone)
+    return ok if @user.update!(phone: @phone)
 
     bad_request
   end

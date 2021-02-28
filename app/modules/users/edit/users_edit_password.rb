@@ -36,6 +36,6 @@ module UsersEditPassword
   private
 
   def user_saved
-    @user.update_attributes(hashed_password: @hashed_password, password_salt: @password_salt)
+    @user.update!(hashed_password: @hashed_password, password_salt: @password_salt)
   end
 end
