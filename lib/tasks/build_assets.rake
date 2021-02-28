@@ -2,7 +2,7 @@
 
 require 'open-uri'
 
-task migrate_assets_data: :environment do
+task build_assets: :environment do
   ASSETS_URI = ENV['WARSAWLEASEPL_ASSETS']
 
   Asset.destroy_all

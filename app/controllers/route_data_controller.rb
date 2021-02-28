@@ -89,12 +89,15 @@ class RouteDataController < ApplicationController
     page = {}
     if page_name.present?
       page = Post.find_by(name: page_name, lang: lang)
-      urls = Post.where(name: page.name).pluck(:lang, :url).to_h
-      page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls)
 
-      state.merge!(
-        'page/show/data': page.deep_transform_keys { |key| key.to_s.camelize(:lower) }
-      )
+      if page.present?
+        urls = Post.where(name: page.name).pluck(:lang, :url).to_h
+        page = page.slice(:name, :url, :body, :style, :title, :description, :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls)
+
+        state.merge!(
+          'page/show/data': page.deep_transform_keys { |key| key.to_s.camelize(:lower) }
+        )
+      end
     end
 
     if track == 'page/create'

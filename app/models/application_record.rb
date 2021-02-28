@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationRecord < ActiveRecord::Base
+  establish_connection :warsawlease
+  
   self.abstract_class = true
 
   private
