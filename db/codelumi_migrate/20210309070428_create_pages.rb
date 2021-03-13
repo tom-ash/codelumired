@@ -2,9 +2,6 @@ class CreatePages < ActiveRecord::Migration[6.1]
   def change
     create_table :pages do |t|
       t.string :name, null: false, index: true
-      # t.string :category, null: false, index: true
-      # t.boolean :published, null: false, index: true
-      # t.belongs_to :author, foreign_key: { to_table: :users }, null: false
       t.string :lang, null: false, index: true
       t.string :url, null: false, index: { unique: true }
       t.string :canonical_url

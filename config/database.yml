@@ -36,7 +36,7 @@ production:
   codelumi:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
-    migrations_paths: db/warsawlease_migrate
+    migrations_paths: db/codelumi_migrate
   warsawlease:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>
