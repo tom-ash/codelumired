@@ -3,11 +3,7 @@ module Warsawlease
     include Sites
     include Responses
     include AnnouncementsIndex
-    include AnnouncementsShared
-    include UsersAuthorize
-    include UsersShow
-    include UsersVerify
-    include UsersCiphers
+    include AnnouncementsShow
 
     def serialize_announcements(announcements)
       announcements.map do |announcement|
@@ -17,6 +13,7 @@ module Warsawlease
 
     def show
       route_url = request.headers['Route-Url']
+      access_token = request.headers['Access-Token']
       track = request.headers['Track']
       state = {}
       meta = {}
@@ -36,7 +33,8 @@ module Warsawlease
       end
 
       if track == 'announcement/index/my'
-        return bad_request unless user_validated?
+        @user ||= ::Queries::User::SingleByAccessToken.new(access_token: access_token, site_name: 'Warsawlease' ).call
+        return render json: {}, status: 401 if @user.blank?
 
         prepare_announcements
         limit_announcements
@@ -77,12 +75,13 @@ module Warsawlease
       end
 
       if track == 'user/edit'
-        return bad_request unless user_validated?
+        @user ||= ::Queries::User::SingleByAccessToken.new(access_token: access_token, site_name: 'Warsawlease' ).call
+        return render json: {}, status: 401 if @user.blank?
 
         state.merge!(
           'user/edit/data': {
-            phone_code: @user.phone['code'],
-            phone_body: @user.phone['body'],
+            country_code: @user.country_code,
+            phone_number: @user.phone_number,
             email: @user.email
           }.merge(account_type_specific_attributes).deep_transform_keys { |key| key.to_s.camelize(:lower) }
         )
@@ -168,7 +167,9 @@ module Warsawlease
           'business_name' => nil,
           'role' => nil
         }
-        user_validated?
+
+        @user ||= ::Queries::User::SingleByAccessToken.new( access_token: access_token, site_name: 'Warsawlease' ).call
+
         authorized = @user.present?
         if authorized
           user_data.merge!(@user&.attributes&.slice('account_type', 'first_name', 'business_name', 'role')).merge!('authorized' => true)
@@ -188,4 +189,18 @@ module Warsawlease
       render json: response.as_json
     end
   end
+end
+
+def account_type_specific_attributes
+  if @user.professional_account?
+    return {
+      business_name: @user.business_name,
+      tax_number: @user.tax_number
+    }
+  end
+
+  {
+    first_name: @user.first_name,
+    last_name: @user.last_name
+  }
 end

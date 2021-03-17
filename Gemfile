@@ -7,28 +7,24 @@ end
 
 ruby '~> 2.6.3'
 
-gem 'rails', '~> 6.1.3'
-gem 'pg', '~> 1.1.4'
-gem 'puma', '~> 3.12'
-gem 'bcrypt'
-gem 'mailgun-ruby', '~>1.1.6'
-
-gem 'rack-cors', require: 'rack/cors'
-gem 'twilio-ruby', '~> 5.7.2'
 gem 'aws-sdk-s3', '~> 1'
 gem 'aws-sdk-ses', '~> 1.6'
-
+gem 'bcrypt'
+gem 'grape'
+gem 'mailgun-ruby', '~>1.1.6'
+gem 'pg', '~> 1.1.4'
+gem 'puma', '~> 3.12'
+gem 'rack-cors', require: 'rack/cors'
+gem 'rails', '~> 6.1.3'
 gem 'rest-client'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'twilio-ruby', '~> 5.7.2'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do

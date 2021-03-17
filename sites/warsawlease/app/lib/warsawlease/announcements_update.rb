@@ -2,7 +2,7 @@
 module Warsawlease
   module AnnouncementsUpdate
     def edit
-      return bad_request unless user_validated?
+      @user ||= ::Queries::User::SingleByAccessToken.new(access_token: request.headers['Access-Token'], site_name: 'Warsawlease' ).call
 
       @attributes = Announcement.where(id: params[:id]).select(edit_attributes).take.serializable_hash.with_indifferent_access
       return bad_request unless owner?
@@ -14,19 +14,6 @@ module Warsawlease
       ok
     end
 
-    def update
-      return bad_request unless user_validated?
-
-      find_announcement
-      return bad_request unless owner?
-
-      prepare_update_object
-      handle_rent_amount
-      handle_availability_date
-      update_announcement
-      ok
-    end
-
     def view
       announcement = Announcement.find(params[:id])
       views = announcement.views
@@ -34,7 +21,7 @@ module Warsawlease
     end
 
     def extend_active
-      return bad_request unless user_validated?
+      @user ||= ::Queries::User::SingleByAccessToken.new(access_token: request.headers['Access-Token'], site_name: 'Warsawlease' ).call
 
       announcement = Announcement.find(params[:id])
       return bad_request unless @user.id == announcement.user_id
@@ -45,7 +32,7 @@ module Warsawlease
     end
 
     def trigger_visible
-      return bad_request unless user_validated?
+      @user ||= ::Queries::User::SingleByAccessToken.new(access_token: request.headers['Access-Token'], site_name: 'Warsawlease' ).call
 
       announcement = Announcement.find(params[:id])
       return bad_request unless @user.id == announcement.user_id

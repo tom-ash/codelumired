@@ -9,7 +9,7 @@ module Codelumi
       state = {}
       meta = {}
       is_ssr = request.headers['Type'] == 'ssr'
-      lang = request.headers['Lang']
+      lang = request.lang
 
       if ['root'].include?(track)
         # TODO

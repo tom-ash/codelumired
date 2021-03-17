@@ -1,14 +1,11 @@
 module Warsawlease
   class PagesController < Warsawlease::ApplicationController
     include Responses
-    include UsersAuthorize
-    include UsersVerify
-    include UsersCiphers
 
     LANGS = %i[pl en]
 
     def create
-      return bad_request unless user_validated?
+      @user ||= ::Queries::User::SingleByAccessToken.new(access_token: request.headers['Access-Token'], site_name: 'Warsawlease' ).call
 
       name = params[:name]
       LANGS.each do |lang|

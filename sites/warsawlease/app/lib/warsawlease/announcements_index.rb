@@ -20,7 +20,7 @@ module Warsawlease
     end
 
     def search_announcements
-      @announcements = Announcement.where(status: 1, visible: true).order('points DESC').order('active_until DESC')
+      @announcements = Announcement.where(status: 1, visible: true, confirmed: true).order('points DESC').order('active_until DESC')
       handle_rent
       handle_equal_attributes
       handle_minimal_attributes

@@ -1,10 +1,7 @@
-include UsersCiphers
 
 module Warsawlease
   class PicturesController < Warsawlease::ApplicationController
     def create_temporary
-      # USER SECURE
-        
         if request.headers[:fileType].include?("jpg")
           file_type = "jpg"
         elsif request.headers[:fileType].include?("jpeg")

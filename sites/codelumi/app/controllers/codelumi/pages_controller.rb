@@ -1,9 +1,6 @@
 module Codelumi
   class PagesController < Codelumi::ApplicationController
     include Responses
-    # include UsersAuthorize
-    # include UsersVerify
-    # include UsersCiphers
 
     LANGS = %i[pl en]
 

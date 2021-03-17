@@ -3,9 +3,10 @@
 module Warsawlease
   class Announcement < ApplicationRecord
     establish_connection :warsawlease
+
     self.table_name = 'announcements'
 
-    belongs_to :user
+    belongs_to :user, class_name: '::Warsawlease::User'
 
     before_update :log_changes
     before_destroy :create_deleted_announcement

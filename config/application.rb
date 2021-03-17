@@ -10,17 +10,17 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
-require "rails/test_unit/railtie"
+# require "rails/test_unit/railtie"
 require 'rack/cors'
 
 Bundler.require(*Rails.groups)
 
-module WarsawleaseBackend
+module Codelumi
   class Application < Rails::Application
     config.load_defaults 5.1
     config.api_only = true
 
-    config.autoload_paths += Dir["#{config.root}/app/modules/**/"]
     config.autoload_paths += Dir["#{config.root}/app/lib/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/modules/**/"]
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_063713) do
+ActiveRecord::Schema.define(version: 2021_04_04_234128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,11 +52,13 @@ ActiveRecord::Schema.define(version: 2021_02_24_063713) do
     t.integer "gross_rent_amount_per_sqm_int"
     t.integer "longitude_int"
     t.integer "latitude_int"
+    t.boolean "confirmed"
     t.index ["active_until"], name: "index_announcements_on_active_until"
     t.index ["area"], name: "index_announcements_on_area"
     t.index ["area_int"], name: "index_announcements_on_area_int"
     t.index ["availability_date"], name: "index_announcements_on_availability_date"
     t.index ["category"], name: "index_announcements_on_category"
+    t.index ["confirmed"], name: "index_announcements_on_confirmed"
     t.index ["district"], name: "index_announcements_on_district"
     t.index ["floor"], name: "index_announcements_on_floor"
     t.index ["gross_rent_amount"], name: "index_announcements_on_gross_rent_amount"
@@ -160,8 +162,16 @@ ActiveRecord::Schema.define(version: 2021_02_24_063713) do
     t.string "first_name"
     t.string "last_name"
     t.string "role"
+    t.boolean "confirmed", default: false, null: false
+    t.datetime "email_confirmed_at"
+    t.string "country_code"
+    t.string "phone_number"
+    t.index ["confirmed"], name: "index_users_on_confirmed"
+    t.index ["country_code"], name: "index_users_on_country_code"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
     t.index ["encrypted_access_token"], name: "index_users_on_encrypted_access_token", unique: true
+    t.index ["phone_number"], name: "index_users_on_phone_number"
     t.index ["status"], name: "index_users_on_status"
   end
 
