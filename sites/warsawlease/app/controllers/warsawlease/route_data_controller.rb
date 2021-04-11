@@ -2,14 +2,6 @@ module Warsawlease
   class RouteDataController < Warsawlease::ApplicationController
     include Sites
     include Responses
-    include AnnouncementsIndex
-    include AnnouncementsShow
-
-    def serialize_announcements(announcements)
-      announcements.map do |announcement|
-        announcement.attributes.deep_transform_keys { |key| key.to_s.camelize(:lower) }
-      end
-    end
 
     def show
       route_url = request.headers['Route-Url']
@@ -21,61 +13,33 @@ module Warsawlease
       lang = request.headers['Lang']
       page_name = request.headers['Page-Name']
 
-      if ['root', 'announcement/index/catalogue'].include?(track)
-        search_announcements
+      if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
+        announcement = ::Warsawlease::Queries::Announcement::ById.new(id: $1).call
+        state.merge!('announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call)
+        meta.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement).call)
+      end
 
-        state.merge!(
-          'announcement/index/data': {
-            announcements: serialize_announcements(@announcements),
-            amount: @announcements.count
-          }
-        )
+      if ['root', 'announcement/index/catalogue'].include?(track)
+        announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new.call
+        serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
+        state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
       end
 
       if track == 'announcement/index/my'
-        @user ||= ::Queries::User::SingleByAccessToken.new(access_token: access_token, site_name: 'Warsawlease' ).call
-        return render json: {}, status: 401 if @user.blank?
-
-        prepare_announcements
-        limit_announcements
-        sort_announcements
-        select_attributes
-
-        state.merge!(
-          'announcement/index/data': {
-            announcements: serialize_announcements(@announcements),
-            amount: @announcements.count
-          }
-        )
+        @user ||= ::Commands::User::Authorize::AccessToken.new(access_token: access_token, site_name: 'Warsawlease' ).call
+        announcements = ::Warsawlease::Queries::Announcement::Index::User.new(user_id: @user.id).call
+        serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::User.new(announcements).call
+        state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
       end
 
-      if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
-        # TODO: REWRITE TO SERVICE BEGIN
-        @announcement = Announcement.find_by(id: $1)
-        return render_404 unless @announcement&.visible?
-
-        @attributes = @announcement.attributes.slice(*AnnouncementsAttributes::SHOW_FULL)
-        user = @announcement.user
-        @announcement.user_id = nil
-        @attributes = @attributes.as_json.with_indifferent_access
-        parse_availability_date
-        @attributes[:name] = user.showcase['name']
-        @attributes[:phone] = user.showcase['phone']
-        state.merge!(
-          'announcement/show/data': @attributes.deep_transform_keys { |key| key.to_s.camelize(:lower) }
-        )
-        # TODO: REWRITE TO SERVICE END
-
-        meta = {
-          title: { category: @attributes[:category], district: @attributes[:district], area: @attributes[:area] },
-          description: { pl: @attributes[:polish_description], en: @attributes[:english_description] },
-          keywords: { category: @attributes[:category], district: @attributes[:district] },
-          image: { imageKey: "announcements/#{@attributes[:id]}/#{@attributes[:pictures][0]['database']}" }
-        }
+      if track == 'announcement/edit'
+        announcement_id = route_url.match(%r{(edytuj-ogloszenie|edit-announcement)/(\d+)})[2].to_i
+        announcement = ::Warsawlease::Queries::Announcement::ById.new(id: announcement_id).call
+        state.merge!('announcement/create/data': { announcement: ::Warsawlease::Serializers::Announcement::Edit.new(announcement).call })
       end
 
       if track == 'user/edit'
-        @user ||= ::Queries::User::SingleByAccessToken.new(access_token: access_token, site_name: 'Warsawlease' ).call
+        @user ||= ::Commands::User::Authorize::AccessToken.new(access_token: access_token, site_name: 'Warsawlease' ).call
         return render json: {}, status: 401 if @user.blank?
 
         state.merge!(

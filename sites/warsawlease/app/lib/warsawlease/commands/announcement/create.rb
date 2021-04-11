@@ -72,6 +72,14 @@ module Warsawlease
           { gross_rent_amount: gross_rent_amount, gross_rent_amount_per_sqm: (gross_rent_amount / area).ceil(2) }
         end
 
+        def confirmed
+          { confirmed: attrs[:confirmed] }
+        end
+
+        def availability_date
+          ::Warsawlease::Helpers::Announcement::AvailabilityDateParser.new(attrs[:availability_date]).call
+        end
+
         def net_rent_amount
           @net_rent_amount ||= attrs[:net_rent_amount]
         end
@@ -80,12 +88,8 @@ module Warsawlease
           @gross_rent_amount ||= attrs[:gross_rent_amount]
         end
 
-        def confirmed
-          { confirmed: attrs[:confirmed] }
-        end
-
-        def availability_date
-          ::Warsawlease::Helpers::Announcement::AvailabilityDateParser.new(attrs[:availability_date]).call
+        def area
+          @area ||= attrs[:area]
         end
       end
     end

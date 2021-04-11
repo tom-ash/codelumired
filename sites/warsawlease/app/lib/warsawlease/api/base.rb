@@ -14,6 +14,16 @@ module Warsawlease
         def allowed_update_attrs
           @allowed_update_attrs ||= ALLOWED_UPDATE_ATTRS
         end
+
+        def current_announcement
+          @current_announcement ||= ::Warsawlease::Announcement.find(params[:id])
+        end
+
+        def authorize_for_announcement!
+          current_user.id == current_announcement.user_id
+        rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::AccessToken::AccessTokenError
+          error!('Unauthorized!.', 401)
+        end
       end
 
       mount ::Api::User::Create::EmailAndPassword => 'user/create/email-and-password'
@@ -24,10 +34,15 @@ module Warsawlease
       mount ::Api::User::Update::Email => 'user/update/email'
       mount ::Api::User::Update::Phone => 'user/update/phone'
       mount ::Api::User::Delete => 'user/delete'
-      mount ::Warsawlease::Api::Announcement::Create => 'announcement/create'
-      mount ::Warsawlease::Api::Announcement::CreateWithUser => 'announcement/create-with-user'
+      mount ::Warsawlease::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
+      mount ::Warsawlease::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
+      mount ::Warsawlease::Api::Announcement::GetTile => 'announcement/get-tile/:id'
       mount ::Warsawlease::Api::Announcement::GetPhoneNumber => 'announcement/get-phone-number/:id'
-      mount ::Warsawlease::Api::Announcement::Update => 'announcement/update/:id'
+      mount ::Warsawlease::Api::Announcement::Update::Views => 'announcement/update/views/:id'
+      mount ::Warsawlease::Api::Announcement::Update::Form => 'announcement/update/form/:id'
+      mount ::Warsawlease::Api::Announcement::Update::ActiveUntil => 'announcement/update/active-until/:id'
+      mount ::Warsawlease::Api::Announcement::Update::Visible => 'announcement/update/visible/:id'
+      mount ::Warsawlease::Api::Announcement::Delete => 'announcement/delete/:id'
     end
   end
 end
