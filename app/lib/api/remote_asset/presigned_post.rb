@@ -3,7 +3,6 @@
 module Api
   module RemoteAsset
     class PresignedPost < Grape::API
-      before { authorize! }
       params do
         optional :key, type: String
         optional :prefix, type: String
