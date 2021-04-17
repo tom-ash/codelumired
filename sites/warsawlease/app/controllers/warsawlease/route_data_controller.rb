@@ -7,10 +7,10 @@ module Warsawlease
       route_url = request.headers['Route-Url']
       access_token = request.headers['Access-Token']
       track = request.headers['Track']
-      state = {}
       meta = {}
       is_ssr = request.headers['Type'] == 'ssr'
       lang = request.headers['Lang']
+      state = { 'app': { lang: lang } }
       page_name = request.headers['Page-Name']
 
       if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
@@ -66,9 +66,7 @@ module Warsawlease
       end
 
       if track == 'page/create'
-        state.merge!(
-          'page/create/data': { names: Page.all.pluck(:name).uniq.sort }
-        )
+        state.merge!('page/create/data': { names: Page.all.pluck(:name).uniq.sort })
       end
 
       if track == 'page/edit'
@@ -106,15 +104,16 @@ module Warsawlease
         urls = Page.where(name: page.name).pluck(:lang, :url).to_h
 
         meta = {
+          canonical_url: page.canonical_url,
           title: page.title,
           description: page.description,
           keywords: page.keywords,
-          canonical_url: page.canonical_url,
           picture: page.picture,
           lang: page.lang
         }
 
         state.merge!(
+          'app': { lang: page.lang },
           'page/show/data': page.slice(
             :name, :url, :body, :style, :title, :description,
             :keywords, :canonical_url, :picture, :meta, :lang).merge(lang_ver_urls: urls

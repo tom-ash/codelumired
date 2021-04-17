@@ -5,6 +5,7 @@ module Warsawlease
     class Base < ::Api::Base
       SITENAME = 'Warsawlease'
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
+      PAGE_LANGS = %w[pl en].freeze
 
       helpers do
         def site_name
@@ -24,6 +25,10 @@ module Warsawlease
         rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::AccessToken::AccessTokenError
           error!('Unauthorized!.', 401)
         end
+
+        def page_langs
+          @page_langs ||= PAGE_LANGS
+        end
       end
 
       mount ::Api::User::Create::EmailAndPassword => 'user/create/email-and-password'
@@ -35,6 +40,8 @@ module Warsawlease
       mount ::Api::User::Update::Phone => 'user/update/phone'
       mount ::Api::User::Delete => 'user/delete'
       mount ::Api::RemoteAsset::PresignedPost => 'remote-asset/presigned-post'
+      mount ::Api::Page::Create => 'page/create'
+      mount ::Api::Page::Update => 'page/update'
       mount ::Warsawlease::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
       mount ::Warsawlease::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
       mount ::Warsawlease::Api::Announcement::GetTile => 'announcement/get-tile/:id'

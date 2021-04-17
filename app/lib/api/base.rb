@@ -5,6 +5,10 @@ module Api
     format :json
 
     helpers do
+      def snakelize_params
+        params.deep_transform_keys!(&:underscore)
+      end
+
       def site
         @site ||= Object.const_get(site_name)
       end
@@ -34,8 +38,10 @@ module Api
         error!('Invalid access token.', 401)
       end
 
-      def snakelize_params
-        params.deep_transform_keys!(&:underscore)
+      def authorize_for_page!
+        error!('Unauthorized!.', 401) unless current_user.role == 'admin'
+      rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::AccessToken::AccessTokenError
+        error!('Unauthorized!.', 401)
       end
     end
 
