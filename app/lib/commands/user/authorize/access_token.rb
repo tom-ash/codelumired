@@ -6,17 +6,12 @@ module Commands
       class AccessToken
         include SiteName
 
-        class AccessTokenError < StandardError; end
-
         def initialize(attrs)
           @access_token = attrs[:access_token]
           @site_name = attrs[:site_name]
         end
 
         def call
-          raise AccessTokenError if user.blank?
-
-          # TODO: Add update! :last_authorized_at
           user
         end
 

@@ -21,9 +21,7 @@ module Warsawlease
         end
 
         def authorize_for_announcement!
-          current_user.id == current_announcement.user_id
-        rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::AccessToken::AccessTokenError
-          error!('Unauthorized!.', 401)
+          error!('Unauthorized!.', 401) unless current_user.id == current_announcement.user_id
         end
 
         def page_langs

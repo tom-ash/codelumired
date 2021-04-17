@@ -33,15 +33,11 @@ module Api
       end
 
       def authorize!
-        current_user
-      rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::AccessToken::AccessTokenError
-        error!('Invalid access token.', 401)
+        error!('Invalid access token.', 401) if current_user.blank?
       end
 
       def authorize_for_page!
-        error!('Unauthorized!.', 401) unless current_user.role == 'admin'
-      rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::AccessToken::AccessTokenError
-        error!('Unauthorized!.', 401)
+        error!('Unauthorized!.', 401) unless current_user&.role == 'admin'
       end
     end
 
