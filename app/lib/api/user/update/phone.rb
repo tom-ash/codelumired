@@ -12,8 +12,8 @@ module Api
           requires :phone_number, type: String, desc: 'User\'s Phone Number.'
         end
         put do
-          phone = { code: params[:country_code], body: params[:phone_number], verified: true}
-          ::Commands::User::Update::GenericAttr.new(user_id: current_user.id, name: 'phone', value: phone, site_name: site_name).call
+          ::Commands::User::Update::GenericAttr.new(user_id: current_user.id, name: 'country_code', value: params[:country_code], site_name: site_name).call
+          ::Commands::User::Update::GenericAttr.new(user_id: current_user.id, name: 'phone_number', value: params[:phone_number], site_name: site_name).call
         end
       end
     end
