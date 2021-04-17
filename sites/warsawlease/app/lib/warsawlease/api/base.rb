@@ -34,6 +34,7 @@ module Warsawlease
       mount ::Api::User::Update::Email => 'user/update/email'
       mount ::Api::User::Update::Phone => 'user/update/phone'
       mount ::Api::User::Delete => 'user/delete'
+      mount ::Api::RemoteAsset::PresignedPost => 'remote-asset/presigned-post'
       mount ::Warsawlease::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
       mount ::Warsawlease::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
       mount ::Warsawlease::Api::Announcement::GetTile => 'announcement/get-tile/:id'
