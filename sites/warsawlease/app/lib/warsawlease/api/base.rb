@@ -12,6 +12,10 @@ module Warsawlease
           @site_name ||= SITENAME
         end
 
+        def page_langs
+          @page_langs ||= PAGE_LANGS
+        end
+
         def allowed_update_attrs
           @allowed_update_attrs ||= ALLOWED_UPDATE_ATTRS
         end
@@ -23,25 +27,9 @@ module Warsawlease
         def authorize_for_announcement!
           error!('Unauthorized!.', 401) unless current_user&.id == current_announcement.user_id
         end
-
-        def page_langs
-          @page_langs ||= PAGE_LANGS
-        end
       end
 
       mount ::Warsawlease::Api::Sync => 'sync'
-      mount ::Api::User::Create::EmailAndPassword => 'user/create/email-and-password'
-      mount ::Api::User::Authorize::EmailAndPassword => 'user/authorize/email-and-password'
-      mount ::Api::User::Authorize::AccessToken => 'user/authorize/access-token'
-      mount ::Api::User::Update::GenericAttr => 'user/update/generic-attr/:name'
-      mount ::Api::User::Update::Password => 'user/update/password'
-      mount ::Api::User::Update::Email => 'user/update/email'
-      mount ::Api::User::Update::Phone => 'user/update/phone'
-      mount ::Api::User::Delete => 'user/delete'
-      mount ::Api::RemoteAsset::PresignedGet => 'remote-asset/presigned-get'
-      mount ::Api::RemoteAsset::PresignedPost => 'remote-asset/presigned-post'
-      mount ::Api::Page::Create => 'page/create'
-      mount ::Api::Page::Update => 'page/update'
       mount ::Warsawlease::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
       mount ::Warsawlease::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
       mount ::Warsawlease::Api::Announcement::GetTile => 'announcement/get-tile/:id'
