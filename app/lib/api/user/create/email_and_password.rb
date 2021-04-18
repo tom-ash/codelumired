@@ -37,7 +37,7 @@ module Api
             ::Commands::User::Update::GenericAttr.new(user_id: user.id, name: 'email_confirmed_at', value: email_confirmed_at, site_name: site_name).call
             user.announcements.last&.update!(confirmed: true)
           end
-          ::Queries::User::SingleByEmail.new(email: email, site_name: site_name).call
+          camelize(::Queries::User::SingleByEmail.new(email: email, site_name: site_name).call)
         rescue StandardError
           error!('Invalid email or verification code!', 422)
         end

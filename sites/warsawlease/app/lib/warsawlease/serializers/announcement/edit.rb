@@ -4,8 +4,6 @@ module Warsawlease
   module Serializers
     module Announcement
       class Edit
-        include Camelize
-
         ATTRS = %w[
           id user_id category district area pictures longitude latitude
           rent_currency net_rent_amount net_rent_amount_per_sqm gross_rent_amount gross_rent_amount_per_sqm
@@ -18,7 +16,7 @@ module Warsawlease
         end
 
         def call
-          camelize(announcement_attrs.merge(availability_date))
+          announcement_attrs.merge(availability_date)
         end
 
         private

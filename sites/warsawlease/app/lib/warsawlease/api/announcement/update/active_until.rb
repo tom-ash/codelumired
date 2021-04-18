@@ -12,7 +12,7 @@ module Warsawlease
           put do
             active_until = Date.today + 60.days
             current_announcement.update_attribute(:active_until, active_until)
-            ::Warsawlease::Serializers::Announcement::Edit.new(current_announcement).call
+            camelize(::Warsawlease::Serializers::Announcement::Edit.new(current_announcement).call)
           end
         end
       end

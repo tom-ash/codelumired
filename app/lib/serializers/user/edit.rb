@@ -4,7 +4,6 @@ module Serializers
   module User
     class Edit
       include SiteName
-      include Camelize
 
       def initialize(user:, site_name:)
         @user = user
@@ -12,7 +11,6 @@ module Serializers
       end
 
       def call
-        camelize(
           {
             account_type: user.account_type,
             email: user.email,
@@ -22,7 +20,6 @@ module Serializers
             role: user.role,
             authorized: true
           }.merge(account_type_specific_attributes)
-        )
       end
 
       private

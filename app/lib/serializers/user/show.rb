@@ -4,7 +4,6 @@ module Serializers
   module User
     class Show
       include SiteName
-      include Camelize
 
       def initialize(user:, site_name:)
         @user = user
@@ -12,12 +11,12 @@ module Serializers
       end
 
       def call
-        camelize(
+        {
           account_type: user.account_type,
           name: user.try(:first_name) || user.try(:business_name),
           role: user.role,
           authorized: true
-        )
+        }
       end
 
       private

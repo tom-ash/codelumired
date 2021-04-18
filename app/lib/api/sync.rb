@@ -98,6 +98,10 @@ module Api
           handle_user_tracks
           handle_page_tracks
         end
+
+        get do
+          camelize(state: state, meta_data: meta_data)
+        end
       end
     end
   end

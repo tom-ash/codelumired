@@ -7,7 +7,7 @@ class SvgsSerializer
 
   def serialize
     svgs.each_with_object({}) do |svg, serialized_svgs|
-      serialized_svgs[svg.name.to_s.camelize(:lower)] = svg.data
+      serialized_svgs[svg.name.to_s] = svg.data
     end
   end
 

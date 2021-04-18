@@ -11,7 +11,7 @@ module Api
         end
         put do
           ::Commands::User::Authorize::EmailAndPassword.new(params.merge(site_name: site_name)).call
-          ::Queries::User::SingleByEmail.new(email: params[:email], site_name: site_name).call
+          camelize(::Queries::User::SingleByEmail.new(email: params[:email], site_name: site_name).call)
         rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::EmailAndPassword::PasswordError
           error!('Invalid email or password.', 400)
         end

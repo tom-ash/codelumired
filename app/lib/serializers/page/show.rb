@@ -4,7 +4,6 @@ module Serializers
   module Page
     class Show
       include SiteName
-      include Camelize
 
       def initialize(page:, site_name:)
         @page = page
@@ -12,13 +11,11 @@ module Serializers
       end
 
       def call
-        camelize(
-          page.slice(
-            :name, :url, :lang,
-            :body, :style, :meta,
-            :canonical_url, :title, :description, :keywords, :picture
-          ).merge(lang_ver_urls: lang_ver_urls)
-        )
+        page.slice(
+          :name, :url, :lang,
+          :body, :style, :meta,
+          :canonical_url, :title, :description, :keywords, :picture
+        ).merge(lang_ver_urls: lang_ver_urls)
       end
 
       private

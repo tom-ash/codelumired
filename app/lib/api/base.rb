@@ -9,6 +9,12 @@ module Api
         params.deep_transform_keys!(&:underscore)
       end
 
+      def camelize(response)
+        response.as_json.deep_transform_keys do |key|
+          key.exclude?('/') ? key.to_s.camelize(:lower) : key
+        end
+      end
+
       def site
         @site ||= Object.const_get(site_name)
       end

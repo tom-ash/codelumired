@@ -11,7 +11,7 @@ module Warsawlease
 
           put do
             current_announcement.update_attribute(:visible, !current_announcement.visible)
-            ::Warsawlease::Serializers::Announcement::Edit.new(current_announcement).call
+            camelize(::Warsawlease::Serializers::Announcement::Edit.new(current_announcement).call)
           end
         end
       end
