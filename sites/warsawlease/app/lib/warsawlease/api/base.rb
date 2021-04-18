@@ -38,6 +38,7 @@ module Warsawlease
       mount ::Api::User::Update::Email => 'user/update/email'
       mount ::Api::User::Update::Phone => 'user/update/phone'
       mount ::Api::User::Delete => 'user/delete'
+      mount ::Api::RemoteAsset::PresignedGet => 'remote-asset/presigned-get'
       mount ::Api::RemoteAsset::PresignedPost => 'remote-asset/presigned-post'
       mount ::Api::Page::Create => 'page/create'
       mount ::Api::Page::Update => 'page/update'
