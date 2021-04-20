@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_073242) do
+ActiveRecord::Schema.define(version: 2021_04_19_185156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2021_03_17_073242) do
     t.jsonb "meta"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_pages_on_author_id"
     t.index ["description"], name: "index_pages_on_description"
     t.index ["keywords"], name: "index_pages_on_keywords"
     t.index ["lang"], name: "index_pages_on_lang"
@@ -55,6 +57,11 @@ ActiveRecord::Schema.define(version: 2021_03_17_073242) do
     t.jsonb "change_log", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "confirmed", default: false, null: false
+    t.datetime "email_confirmed_at"
+    t.index ["confirmed"], name: "index_users_on_confirmed"
+    t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
   end
 
+  add_foreign_key "pages", "users", column: "author_id"
 end

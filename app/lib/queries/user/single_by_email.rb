@@ -14,7 +14,7 @@ module Queries
         {
           account_type: user.account_type,
           access_token: ::Ciphers::User::DecryptAccessToken.new(user.encrypted_access_token).call,
-          name: user.first_name || user.business_name
+          name: user.try(:first_name) || user.try(:business_name)
         }
       end
 

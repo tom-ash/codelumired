@@ -35,7 +35,7 @@ module Api
             ::Commands::User::Verify.new(user: user, namespace: 'user/create/email-and-password', verification_code: verification_code).call
             ::Commands::User::Update::GenericAttr.new(user_id: user.id, name: 'confirmed', value: true, site_name: site_name).call
             ::Commands::User::Update::GenericAttr.new(user_id: user.id, name: 'email_confirmed_at', value: email_confirmed_at, site_name: site_name).call
-            user.announcements.last&.update!(confirmed: true)
+            site::Commands::User::Confirm.new(user_id: user.id).call
           end
           camelize(::Queries::User::SingleByEmail.new(email: email, site_name: site_name).call)
         rescue StandardError
