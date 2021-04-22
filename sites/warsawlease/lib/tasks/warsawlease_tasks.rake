@@ -27,4 +27,11 @@ namespace :warsawlease do
       )
     end
   end
+
+  desc 'Prepares user verification for new user architecture.'
+  task prepare_user_verification: :environment do
+    ::Warsawlease::User.all.each do |user|
+      user.update!(verification: []) if user.verification&.class != Array
+    end
+  end
 end
