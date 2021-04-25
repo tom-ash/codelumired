@@ -24,6 +24,12 @@ module Warsawlease
             state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
           end
 
+          if track == 'announcement/create/summary'
+            authorize_for_announcement!
+
+            state.merge!('announcement/create/data': { announcement: ::Warsawlease::Serializers::Announcement::Show.new(current_announcement).call })
+          end
+
           if track == 'announcement/edit'
             announcement_id = route_url.match(%r{(edytuj-ogloszenie|edit-announcement)/(\d+)})[2].to_i
             announcement = ::Warsawlease::Queries::Announcement::ById.new(id: announcement_id).call

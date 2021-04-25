@@ -14,7 +14,12 @@ task build_assets: :environment do
 
   Object.const_get(site)::Asset.destroy_all
 
+  # Prod
   assets = JSON.load(URI.open(ASSETS_URI))
+
+  # Local
+  # assets_file = File.open '../../Assets/assets_20210425.json'
+  # assets = JSON.load(assets_file)
 
   assets.each do |name, attrs|
     Object.const_get(site)::Asset.create( name: name, type: "#{site}::#{attrs['type']}", data: attrs['data'])
