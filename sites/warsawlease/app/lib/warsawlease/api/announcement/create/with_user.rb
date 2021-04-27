@@ -18,7 +18,7 @@ module Warsawlease
             announcement_attrs = { attrs: params[:announcement].merge(confirmed: false), user_id: user.id }
             ::Warsawlease::Commands::Announcement::Create.new(announcement_attrs).call
             ::Mailers::Verification.new(email: params[:user][:email], namespace: 'user/create/email-and-password', lang: lang, site_name: site_name).send
-            { id: user.announcements.last.id }
+            camelize(id: user.announcements.last.id, confirmation_token: ::Ciphers::User::DecryptConfirmationToken.new(user.encrypted_confirmation_token).call)
           end
         end
       end

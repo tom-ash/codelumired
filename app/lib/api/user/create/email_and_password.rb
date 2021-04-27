@@ -19,16 +19,16 @@ module Api
         post do
           ::Commands::User::Create::EmailAndPassword.new(params.merge(site_name: site_name)).call
           ::Mailers::Verification.new(email: email, namespace: 'user/create/email-and-password', lang: lang, site_name: site_name).send
-          nil
+          camelize(confirmation_token: ::Ciphers::User::DecryptConfirmationToken.new(site::User.find_by(email: email).encrypted_confirmation_token).call)
         end
 
         params do
-          requires :email, type: String
+          requires :confirmation_token, type: String
           requires :verification_code, type: String
         end
         put do
-          user = site::User.find_by!(email: email)
-          error!('Invalid email or verification code!', 422) if user.confirmed?
+          user = ::Queries::User::SingleByConfirmationToken.new(confirmation_token: params[:confirmation_token], site_name: 'Warsawlease').call
+          error!('Invalid confirmation token or verification code!', 422) if user.confirmed?
 
           email_confirmed_at = Time.zone.now
           ActiveRecord::Base.transaction do
@@ -37,9 +37,9 @@ module Api
             ::Commands::User::Update::GenericAttr.new(user_id: user.id, name: 'email_confirmed_at', value: email_confirmed_at, site_name: site_name).call
             site::Commands::User::Confirm.new(user_id: user.id).call
           end
-          camelize(::Queries::User::SingleByEmail.new(email: email, site_name: site_name).call)
+          camelize(::Queries::User::SingleByEmail.new(email: user.email, site_name: site_name).call)
         rescue StandardError
-          error!('Invalid email or verification code!', 422)
+          error!('Invalid confirmation token or verification code!', 422)
         end
       end
     end
