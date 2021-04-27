@@ -31,8 +31,8 @@ module Api
             @state ||= { 'app': { lang: lang } }
           end
 
-          def meta_data
-            @meta_data ||= {}
+          def meta
+            @meta ||= { lang: lang }
           end
 
           def append_assets
@@ -74,10 +74,8 @@ module Api
               page = site::Page.find_by(url: route_url)
               return error!('Page Not Found!.', 404) if page.blank?
 
-              state.merge!(
-                'app': { lang: page.lang },
-                'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call
-              )
+              state.merge!('app': { lang: page.lang }, 'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call)
+              meta.merge!(lang: page.lang, title: page.title, description: page.description, keywords: page.keywords)
             end
 
             if track == 'page/edit'
@@ -100,7 +98,7 @@ module Api
         end
 
         get do
-          camelize(state: state, meta_data: meta_data)
+          camelize(state: state, meta: meta)
         end
       end
     end

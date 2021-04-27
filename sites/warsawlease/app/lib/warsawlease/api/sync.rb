@@ -14,7 +14,7 @@ module Warsawlease
           if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
             announcement = ::Warsawlease::Queries::Announcement::ById.new(id: $1).call
             state.merge!('announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call)
-            meta_data.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement).call)
+            meta.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement: announcement, lang: lang).call)
           end
 
           if track == 'announcement/index/my'
