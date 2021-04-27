@@ -75,7 +75,7 @@ module Api
               return error!('Page Not Found!.', 404) if page.blank?
 
               state.merge!('app': { lang: page.lang }, 'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call)
-              meta.merge!(lang: page.lang, title: page.title, description: page.description, keywords: page.keywords)
+              meta.merge!(lang: page.lang, title: page.title, description: page.description, keywords: page.keywords, image: page.picture)
             end
 
             if track == 'page/edit'
