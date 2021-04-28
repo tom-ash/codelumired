@@ -5,8 +5,8 @@ module Ciphers
     class DecryptConfirmationToken
       def initialize(encrypted_confirmation_token)
         @encrypted_confirmation_token = encrypted_confirmation_token
-        @key = Rails.application.secrets.access_token_key
-        @iv = Rails.application.secrets.access_token_iv
+        @key = Rails.application.secrets.confirmation_token_key
+        @iv = Rails.application.secrets.confirmation_token_iv
       end
 
       def call

@@ -34,4 +34,11 @@ namespace :warsawlease do
       user.update!(verification: []) if user.verification&.class != Array
     end
   end
+
+  desc 'Generate encryption :key, :iv and :salt.'
+  task generate_encryption_key_iv_and_salt: :environment do
+    { key: 32, iv: 16, salt: 128 }.each do |k, length|
+      puts "#{k}: \"#{Base64.encode64(SecureRandom.random_bytes(length)).delete("\n")}\""
+    end
+  end
 end

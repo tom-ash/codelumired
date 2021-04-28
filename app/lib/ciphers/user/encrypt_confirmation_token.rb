@@ -6,9 +6,9 @@ module Ciphers
       def initialize(confirmation_token)
         @confirmation_token = confirmation_token
 
-        @key = Rails.application.secrets.access_token_key
-        @iv = Rails.application.secrets.access_token_iv
-        @salt = Rails.application.secrets.access_token_salt
+        @key = Rails.application.secrets.confirmation_token_key
+        @iv = Rails.application.secrets.confirmation_token_iv
+        @salt = Rails.application.secrets.confirmation_token_salt
       end
 
       def call
