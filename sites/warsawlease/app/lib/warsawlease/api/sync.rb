@@ -11,6 +11,12 @@ module Warsawlease
             state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
           end
 
+          if track.match(%r{announcement/index/map/(.+)})
+            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: $1).call
+            serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
+            state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
+          end
+
           if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
             announcement = ::Warsawlease::Queries::Announcement::ById.new(id: $1).call
             state.merge!('announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call)

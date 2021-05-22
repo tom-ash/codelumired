@@ -18,7 +18,7 @@ task build_assets: :environment do
   assets = JSON.load(URI.open(ASSETS_URI))
 
   # Local
-  # assets_file = File.open '../../Assets/assets_20210425.json'
+  # assets_file = File.open '../../Assets/assets_20210515.json'
   # assets = JSON.load(assets_file)
 
   assets.each do |name, attrs|
