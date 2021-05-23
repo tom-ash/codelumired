@@ -11,8 +11,8 @@ module Warsawlease
             state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
           end
 
-          if track.match(%r{announcement/index/map/(.+)})
-            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: $1).call
+          if track.match(%r{announcement/index/(map|catalogue)/(.+)})
+            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: $2).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
           end
