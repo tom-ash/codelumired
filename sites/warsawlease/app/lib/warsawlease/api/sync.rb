@@ -8,13 +8,15 @@ module Warsawlease
           if ['root', 'announcement/index/catalogue'].include?(track)
             announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new.call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
-            state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
+            category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
+            state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
           end
 
           if track.match(%r{announcement/index/(map|catalogue)/(.+)})
             announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: $2).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
-            state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
+            category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
+            state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
           end
 
           if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
