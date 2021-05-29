@@ -3,20 +3,25 @@
 module Warsawlease
   module Api
     class Sync < ::Api::Sync
+      CATEGORY_VALUES = {
+        'apartments' => 2, 'houses' => 3, 'rooms' => 4, 'parking-spaces' => 5,
+        'usable-premises' => 1, 'offices' => 0, 'virtual-offices' => 6, 'coworking' => 7
+      }.freeze
+
       helpers do
         def handle_announcement_tracks
           if ['root', 'announcement/index/catalogue'].include?(track)
             announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new.call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
-            state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
+            state.merge!('announcement/index/data': { current_category: nil, announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
           end
 
           if track.match(%r{announcement/index/(map|catalogue)/(.+)})
             announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: $2).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
-            state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
+            state.merge!('announcement/index/data': { current_category: CATEGORY_VALUES[$2], announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
           end
 
           if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
