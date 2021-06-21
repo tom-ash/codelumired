@@ -17,7 +17,9 @@ gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 6.1.3'
 gem 'rest-client'
-gem 'twilio-ruby', '~> 5.7.2'
+
+gem 'sentry-ruby'
+gem 'sentry-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
