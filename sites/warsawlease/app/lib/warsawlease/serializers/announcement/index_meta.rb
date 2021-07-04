@@ -23,7 +23,7 @@ module Warsawlease
         attr_reader :track, :lang, :track_meta_data
 
         def components
-          @components ||= track_meta_data.dig(track.sub('catalogue', 'map'), lang)
+          @components ||= track_meta_data.dig(track.sub(%r{/(map|catalogue)}, ''), lang)
         end
 
         def polish_meta

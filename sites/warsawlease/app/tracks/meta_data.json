@@ -1,14 +1,34 @@
 {
-  "announcement/index/map/apartments": {
+  "announcement/index/apartments": {
     "pl": { "nominative": "Mieszkania", "genitive": "mieszkań" },
     "en": { "nominative": "Apartments" }
   },
-  "announcement/index/map/houses": {
+  "announcement/index/houses": {
     "pl": { "nominative": "Domy", "genitive": "domów" },
     "en": { "nominative": "Houses" }
   },
-  "announcement/index/map/rooms": {
+  "announcement/index/rooms": {
     "pl": { "nominative": "Pokoje", "genitive": "pokoi" },
     "en": { "nominative": "Rooms" }
+  },
+  "announcement/index/parking-spaces": {
+    "pl": { "nominative": "Miejsca postojowe", "genitive": "miejsc postojowych" },
+    "en": { "nominative": "Parking Spaces" }
+  },
+  "announcement/index/usable-premises": {
+    "pl": { "nominative": "Lokale użytkowe", "genitive": "lokali użytkowych" },
+    "en": { "nominative": "Usable Premises" }
+  },
+  "announcement/index/offices": {
+    "pl": { "nominative": "Biura", "genitive": "biur" },
+    "en": { "nominative": "Offices" }
+  },
+  "announcement/index/virtual-offices": {
+    "pl": { "nominative": "Biura wirtualne", "genitive": "biur wirtualnych" },
+    "en": { "nominative": "Virtual Offices" }
+  },
+  "announcement/index/coworking": {
+    "pl": { "nominative": "Przestrzenie coworkingowe", "genitive": "przestrzeni coworkinowych" },
+    "en": { "nominative": "Coworking Areas" }
   }
 }
