@@ -8,6 +8,8 @@ module Warsawlease
         'usable-premises' => 1, 'offices' => 0, 'virtual-offices' => 6, 'coworking' => 7
       }.freeze
 
+      TRACK_META_DATA = JSON.parse(File.read('./sites/warsawlease/app/tracks/meta_data.json'))
+
       helpers do
         def handle_announcement_tracks
           if ['root', 'announcement/index/catalogue'].include?(track)
@@ -22,6 +24,7 @@ module Warsawlease
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
             state.merge!('announcement/index/data': { current_category: CATEGORY_VALUES[$2], announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
+            meta.merge!(::Warsawlease::Serializers::Announcement::IndexMeta.new(track: track, lang: lang, track_meta_data: TRACK_META_DATA).call)
           end
 
           if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)

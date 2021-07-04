@@ -1,0 +1,20 @@
+{
+  "announcement/index/map/apartments": {
+    "pl": {
+      "nominative": "Mieszkania",
+      "genitive": "mieszkań"
+    },
+    "en": {
+      "nominative": "Apartments"
+    }
+  },
+  "announcement/index/catalogue/apartments": {
+    "pl": {
+      "nominative": "Mieszkania",
+      "genitive": "mieszkań"
+    },
+    "en": {
+      "nominative": "Apartments"
+    }
+  }
+}

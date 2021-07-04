@@ -4,7 +4,7 @@ module Serializers
   module Page
     class Index
       include SiteName
-      
+
       def initialize(pages:, site_name:)
         @pages = pages
         @site_name = site_name
