@@ -1,20 +1,14 @@
 {
   "announcement/index/map/apartments": {
-    "pl": {
-      "nominative": "Mieszkania",
-      "genitive": "mieszkań"
-    },
-    "en": {
-      "nominative": "Apartments"
-    }
+    "pl": { "nominative": "Mieszkania", "genitive": "mieszkań" },
+    "en": { "nominative": "Apartments" }
   },
-  "announcement/index/catalogue/apartments": {
-    "pl": {
-      "nominative": "Mieszkania",
-      "genitive": "mieszkań"
-    },
-    "en": {
-      "nominative": "Apartments"
-    }
+  "announcement/index/map/houses": {
+    "pl": { "nominative": "Domy", "genitive": "domów" },
+    "en": { "nominative": "Houses" }
+  },
+  "announcement/index/map/rooms": {
+    "pl": { "nominative": "Pokoje", "genitive": "pokoi" },
+    "en": { "nominative": "Rooms" }
   }
 }
