@@ -4,7 +4,17 @@ module Codelumi
   module Api
     class Sync < ::Api::Sync
       helpers do
-        # TODO
+        def track_data
+          {
+            root: {
+              en: {
+                title: 'Code, Light & People | codelumi.com',
+                description: 'Resources on coding in JavaScript, Ruby, Python, SQL and other.',
+                keywords: 'code, coding, programming, dev, it, javascript, ruby, python, sql, docker'
+              }
+            }
+          }
+        end
       end
 
       before do

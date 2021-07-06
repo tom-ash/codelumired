@@ -85,6 +85,10 @@ module Api
               state.merge!('page/edit': ::Serializers::Page::Show.new(page: page, site_name: site_name).call)
             end
           end
+
+          def append_meta
+            meta.merge!(::Serializers::Meta.new(track_data: track_data, track: track, lang: lang).call)
+          end
         end
 
         before do
@@ -95,6 +99,7 @@ module Api
           append_page if page_name.present?
           handle_user_tracks
           handle_page_tracks
+          append_meta
         end
 
         get do

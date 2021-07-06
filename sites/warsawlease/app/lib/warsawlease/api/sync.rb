@@ -11,6 +11,10 @@ module Warsawlease
       TRACK_META_DATA = JSON.parse(File.read('./sites/warsawlease/app/tracks/meta_data.json'))
 
       helpers do
+        def track_data
+          {}
+        end
+
         def handle_announcement_tracks
           if ['root', 'announcement/index/catalogue'].include?(track)
             announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new.call
