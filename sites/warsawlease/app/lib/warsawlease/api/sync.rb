@@ -17,7 +17,10 @@ module Warsawlease
 
         def handle_announcement_tracks
           if ['root', 'announcement/index/catalogue'].include?(track)
-            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new.call
+            area_min = params[:area_min] || params[:powierzchnia_min]
+            filter_attrs = { area_min: area_min }
+
+            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(filter_attrs).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
             state.merge!('announcement/index/data': { current_category: nil, announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
