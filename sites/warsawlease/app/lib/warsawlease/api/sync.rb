@@ -18,7 +18,8 @@ module Warsawlease
         def handle_announcement_tracks
           if ['root', 'announcement/index/catalogue'].include?(track)
             area_min = params[:area_min] || params[:powierzchnia_min]
-            filter_attrs = { area_min: area_min }
+            area_max = params[:area_max] || params[:powierzchnia_max]
+            filter_attrs = { area_min: area_min, area_max: area_max }
 
             announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(filter_attrs).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call

@@ -10,9 +10,10 @@ module Warsawlease
             'usable-premises': 1, 'offices': 0, 'virtual-offices': 6, 'coworking': 7
           }.freeze
 
-          def initialize(category: nil, area_min: nil)
+          def initialize(category: nil, area_min: nil, area_max: nil)
             @category = category
             @area_min = area_min
+            @area_max = area_max
           end
 
           def call
@@ -21,11 +22,13 @@ module Warsawlease
 
           private
 
-          attr_reader :category, :area_min
+          attr_reader :category, :area_min, :area_max
 
           def announcements
             @announcement ||= ::Warsawlease::Announcement.where(search_params).order('points DESC').order('active_until DESC')
-            @announcement = ::Warsawlease::Announcement.where('area >= ?', area_min) if area_min.present?
+            @announcement = @announcement.where('area >= ?', area_min) if area_min.present?
+            @announcement = @announcement.where('area <= ?', area_max) if area_max.present?
+
             @announcement
           end
 
