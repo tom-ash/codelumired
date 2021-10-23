@@ -24,7 +24,10 @@ module Warsawlease
             announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(filter_attrs).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
-            state.merge!('announcement/index/data': { current_category: nil, announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
+            state.merge!(
+              'announcement/index/data': { current_category: nil, announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts),
+              'announcement/index/inputs': { areaMin: area_min.to_s, areaMinInput: area_min.to_s, areaMax: area_max.to_s, areaMaxInput: area_max.to_s }
+            )
           end
 
           if track.match(%r{announcement/index/(map|catalogue)/(.+)})
