@@ -8,7 +8,7 @@ module Codelumi
           {
             root: {
               en: {
-                title: 'Code, Light & People | codelumi.com',
+                title: 'Code, Light & People | soundof.IT',
                 description: 'Resources on coding in JavaScript, Ruby, Python, SQL and other.',
                 keywords: 'code, coding, programming, dev, it, javascript, ruby, python, sql, docker'
               }
