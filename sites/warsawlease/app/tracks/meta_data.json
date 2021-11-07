@@ -30,5 +30,21 @@
   "announcement/index/coworking": {
     "pl": { "nominative": "Przestrzenie coworkingowe", "genitive": "przestrzeni coworkinowych" },
     "en": { "nominative": "Coworking Areas" }
+  },
+  "announcement/create/verification": {
+    "pl": {
+      "title": "Potwierdzenie adresu email"
+    },
+    "en": {
+      "title": "Email Address Confirmation"
+    }
+  },
+  "announcement/create/summary": {
+    "pl": {
+      "title": "Podsumowanie dodanego ogłoszenia"
+    },
+    "en": {
+      "title": "Added Announcement Summary"
+    }
   }
 }
