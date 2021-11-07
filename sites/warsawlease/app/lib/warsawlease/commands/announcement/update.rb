@@ -4,7 +4,7 @@ module Warsawlease
   module Commands
     module Announcement
       class Update
-        DIRECT_ATTR_NAMES = %i[category district area pictures longitude latitude rent_currency rooms floor total_floors features furnishings polish_description english_description].freeze
+        DIRECT_ATTR_NAMES = %i[category district area pictures longitude latitude rent_currency rooms floor total_floors availability_date features furnishings polish_description english_description].freeze
 
         def initialize(id:, attrs:)
           @id = id
@@ -27,8 +27,7 @@ module Warsawlease
           direct_attrs.merge(
             **active_until,
             **net_rent_amount_per_sqm,
-            **gross_rent_amount_per_sqm,
-            **availability_date
+            **gross_rent_amount_per_sqm
           )
         end
 
@@ -62,10 +61,6 @@ module Warsawlease
 
         def area
           @area ||= attrs[:area]
-        end
-
-        def availability_date
-          ::Warsawlease::Helpers::Announcement::AvailabilityDateParser.new(attrs[:availability_date]).call
         end
       end
     end

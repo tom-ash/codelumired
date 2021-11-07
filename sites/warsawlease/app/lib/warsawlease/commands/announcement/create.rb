@@ -4,7 +4,7 @@ module Warsawlease
   module Commands
     module Announcement
       class Create
-        DIRECT_ATTR_NAMES = %i[category district area pictures longitude latitude rent_currency rooms floor total_floors features furnishings polish_description english_description].freeze
+        DIRECT_ATTR_NAMES = %i[category district area pictures longitude latitude rent_currency rooms floor total_floors availability_date features furnishings polish_description english_description].freeze
         STATIC_ATTRS = { status: 1, points: 0, views: 0, reports: [], visible: true, change_log: [] }.freeze
 
         def initialize(user_id:, attrs:)
@@ -47,8 +47,7 @@ module Warsawlease
             **active_until,
             **net_rent_amount_per_sqm,
             **gross_rent_amount_per_sqm,
-            **confirmed,
-            **availability_date
+            **confirmed
           )
         end
 
@@ -74,10 +73,6 @@ module Warsawlease
 
         def confirmed
           { confirmed: attrs[:confirmed] }
-        end
-
-        def availability_date
-          ::Warsawlease::Helpers::Announcement::AvailabilityDateParser.new(attrs[:availability_date]).call
         end
 
         def net_rent_amount

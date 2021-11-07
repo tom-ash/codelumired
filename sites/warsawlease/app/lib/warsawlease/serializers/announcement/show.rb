@@ -7,7 +7,7 @@ module Warsawlease
         ATTRS = %w[
           id category district area pictures longitude latitude
           rent_currency net_rent_amount net_rent_amount_per_sqm gross_rent_amount gross_rent_amount_per_sqm
-          rooms floor total_floors features furnishings polish_description english_description
+          rooms floor total_floors availability_date features furnishings polish_description english_description
         ].freeze
 
         def initialize(announcement)
@@ -15,7 +15,7 @@ module Warsawlease
         end
 
         def call
-          announcement_attrs.merge(availability_date).merge(showcase)
+          announcement_attrs.merge(showcase)
         end
 
         private
@@ -24,10 +24,6 @@ module Warsawlease
 
         def announcement_attrs
           @announcement.attributes.slice(*ATTRS)
-        end
-
-        def availability_date
-          { availability_date: ::Warsawlease::Serializers::Announcement::AvailabilityDate.new(announcement.availability_date).call }
         end
 
         def showcase
