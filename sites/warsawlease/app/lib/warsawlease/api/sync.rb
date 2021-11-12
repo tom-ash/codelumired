@@ -3,6 +3,8 @@
 module Warsawlease
   module Api
     class Sync < ::Api::Sync
+      helpers Warsawlease::Api::Announcement::Helpers::Filters
+
       CATEGORY_VALUES = {
         'apartments' => 2, 'houses' => 3, 'rooms' => 4, 'parking-spaces' => 5,
         'usable-premises' => 1, 'offices' => 0, 'virtual-offices' => 6, 'coworking' => 7
@@ -15,11 +17,7 @@ module Warsawlease
 
         def handle_announcement_tracks
           if ['root', 'announcement/index/catalogue'].include?(track)
-            area_min = params[:area_min] || params[:powierzchnia_min]
-            area_max = params[:area_max] || params[:powierzchnia_max]
-            filter_attrs = { area_min: area_min, area_max: area_max }
-
-            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(filter_attrs).call
+            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(announcement_filters).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
             state.merge!(
@@ -29,10 +27,13 @@ module Warsawlease
           end
 
           if track.match(%r{announcement/index/(map|catalogue)/(.+)})
-            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: $2).call
+            announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: $2, **announcement_filters).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
-            state.merge!('announcement/index/data': { current_category: CATEGORY_VALUES[$2], announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts))
+            state.merge!(
+              'announcement/index/data': { current_category: CATEGORY_VALUES[$2], announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts),
+              'announcement/index/inputs': { areaMin: area_min.to_s, areaMinInput: area_min.to_s, areaMax: area_max.to_s, areaMaxInput: area_max.to_s }
+            )
             meta.merge!(::Warsawlease::Serializers::Announcement::IndexMeta.new(track: track, lang: lang, track_meta_data: track_data).call)
           end
 
@@ -43,7 +44,7 @@ module Warsawlease
           end
 
           if track == 'announcement/index/my'
-            @user ||= ::Commands::User::Authorize::AccessToken.new(access_token: access_token, site_name: 'Warsawlease' ).call
+            @user ||= ::Commands::User::Authorize::AccessToken.new(access_token: access_token, site_name: 'Warsawlease').call
             announcements = ::Warsawlease::Queries::Announcement::Index::User.new(user_id: @user.id).call
             serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::User.new(announcements).call
             state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
