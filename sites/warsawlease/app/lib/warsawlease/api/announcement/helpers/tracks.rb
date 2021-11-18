@@ -16,11 +16,11 @@ module Warsawlease
 
           def handle_announcement_tracks
             if track == 'root'
-              ::Warsawlease::Api::Announcement::Tracks::Root.new(url: route_url, lang: lang, params: params, current_user: current_user, state: state, meta: meta).call
+              ::Warsawlease::Api::Announcement::Tracks::Root::Merge.new(url: route_url, lang: lang, params: params, current_user: current_user, state: state, meta: meta).call
             end
 
             if track == 'announcement/index/catalogue'
-              ::Warsawlease::Api::Announcement::Tracks::Root.new(url: route_url, lang: lang, params: params, current_user: current_user, state: state, meta: meta).call
+              ::Warsawlease::Api::Announcement::Tracks::Root::Merge.new(url: route_url, lang: lang, params: params, current_user: current_user, state: state, meta: meta).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
