@@ -7,6 +7,17 @@ module Api
 
       subclass.instance_eval do
         helpers do
+          def attrs
+            @attrs ||= {
+              url: route_url,
+              lang: lang,
+              params: params,
+              current_user: current_user,
+              state: state,
+              meta: meta
+            }
+          end
+
           def route_url
             @route_url ||= request.headers['Route-Url']
           end
