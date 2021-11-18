@@ -8,6 +8,7 @@ module Warsawlease
           class Merge < ::Warsawlease::Api::Announcement::Tracks::Base
             include ::Warsawlease::Api::Announcement::Tracks::Root::Meta
             include ::Warsawlease::Api::Announcement::Tracks::Helpers::Filters
+            include ::Warsawlease::Api::Announcement::Tracks::Helpers::Announcements
 
             def call
               merge_state
@@ -15,8 +16,6 @@ module Warsawlease
             end
 
             private
-
-            attr_reader :url, :params, :lang, :current_user, :state, :meta
 
             def merge_state
               state.merge!(
@@ -39,14 +38,6 @@ module Warsawlease
                 amount: announcements.count,
                 current_category: nil
               }
-            end
-
-            def announcements
-              @announcements ||= ::Warsawlease::Queries::Announcement::Index::Visitor.new(filters).call
-            end
-
-            def serialized_announcements
-              @serialized_announcements ||= ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
             end
           end
         end

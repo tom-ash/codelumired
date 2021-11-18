@@ -21,7 +21,8 @@ module Warsawlease
             end
 
             def area_max
-              @area_max ||= params[:area_max] || params[:powierzchnia_max]
+              @area_max ||= params[:area_max] ||
+                            params[:powierzchnia_max]
             end
 
             def inputs
