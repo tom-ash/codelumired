@@ -20,7 +20,7 @@ module Warsawlease
             end
 
             if track == 'announcement/index/catalogue'
-              ::Warsawlease::Api::Announcement::Tracks::Root::Merge.new(attrs).call
+              ::Warsawlease::Api::Announcement::Tracks::Catalogue::Merge.new(attrs).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})

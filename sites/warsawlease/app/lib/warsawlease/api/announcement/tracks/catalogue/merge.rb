@@ -4,9 +4,9 @@ module Warsawlease
   module Api
     module Announcement
       module Tracks
-        module Root
+        module Catalogue
           class Merge < ::Warsawlease::Api::Announcement::Tracks::Base
-            include ::Warsawlease::Api::Announcement::Tracks::Root::Meta
+            include ::Warsawlease::Api::Announcement::Tracks::Catalogue::Meta
             include ::Warsawlease::Api::Announcement::Tracks::Helpers::Announcements
             include ::Warsawlease::Api::Announcement::Tracks::Helpers::Filters
 

@@ -6,24 +6,26 @@ module Warsawlease
       module Tracks
         module Root
           module Meta
+            private
+
             def unlocalized_title
               @unlocalized_title ||= {
-                pl: 'Mapa nieruchomości na wynajem w Warszawie - Mieszkania, biura i lokale użytkowe',
-                en: 'Map of Real Estates for Lease in Warsaw - Apartments, Offices and Usable premises'
+                pl: 'Ogłoszenia wynajmu nieruchomości w Warszawie | Mapa',
+                en: 'Real Estate Lease Announcements in Warsaw | Map'
               }.freeze
             end
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                pl: 'mapa, warszawa, nieruchomość, nieruchomości, wynajem, najem, wynajęcie, mieszkania, lokale użytkowe, biura, mieszkanie, lokal użytkowy, biuro, ogłoszenia, ogłoszenie',
-                en: 'map, warsaw, real estate, real estates, lease, apartments, usable premises, offices, apartment, office, announcements, announcement'
+                pl: 'ogłoszenia, oferty, wynajem, najem, nieruchomości, warszawa, mapa, bezpłatne, bezpłatnie, darmowe, za darmo, mieszkania, domy, pokoje, miejsca postojowe, lokale użytkowe, biura, biura wirtualne, coworking',
+                en: 'announcements, offers, lease, rent, real estate, warsaw, map, free, apartments, flats, houses, rooms, parking spaces, usable premises, offices, virtual offices, coworking'
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                pl: 'Bezpłatne ogłoszenia nieruchomości na wynajem w Warszawie na mapie. Przeglądaj i dodawaj darmowe ogłoszenia wynajmu w kategorii: mieszkanie, biuro, lokal użytkowy.',
-                en: 'Free announcements of real estate lease in Warsaw on the map. Search and add free announcements of lease in the categories: apartment, office, usable premises.'
+                pl: 'Ogłoszenia nieruchomości na wynajem w Warszawie na mapie. Za darmo dodaj ogłoszenie wynajmu między innymi mieszkania, pokoju, biura lub lokalu użytkowego.',
+                en: 'Warsaw real estate lease announcements on a map. Add a free lease announcement of among others an apartment, a room, an office and/or usable premises.'
               }.freeze
             end
           end
