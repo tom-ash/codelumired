@@ -20,7 +20,10 @@ module Warsawlease
             def merge_state
               state.merge!(
                 'announcement/index/data': data,
-                'announcement/index/inputs': inputs
+                'announcement/index/inputs': inputs,
+                'links': {
+                  'root': ::Warsawlease::Api::Announcement::Links::Root::Build.new(lang).call
+                }
               )
             end
 
