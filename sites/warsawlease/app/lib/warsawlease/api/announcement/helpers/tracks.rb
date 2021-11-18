@@ -15,14 +15,12 @@ module Warsawlease
           private
 
           def handle_announcement_tracks
-            if ['root', 'announcement/index/catalogue'].include?(track)
-              announcements = ::Warsawlease::Queries::Announcement::Index::Visitor.new(announcement_filters).call
-              serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
-              category_amounts = ::Warsawlease::Queries::Announcement::Index::CategoryAmounts.new({}).call
-              state.merge!(
-                'announcement/index/data': { current_category: nil, announcements: serialized_announcements, amount: announcements.count }.merge(category_amounts),
-                'announcement/index/inputs': { areaMin: area_min.to_s, areaMinInput: area_min.to_s, areaMax: area_max.to_s, areaMaxInput: area_max.to_s }
-              )
+            if track == 'root'
+              ::Warsawlease::Api::Announcement::Tracks::Root.new(url: route_url, lang: lang, params: params, current_user: current_user, state: state, meta: meta).call
+            end
+
+            if track == 'announcement/index/catalogue'
+              ::Warsawlease::Api::Announcement::Tracks::Root.new(url: route_url, lang: lang, params: params, current_user: current_user, state: state, meta: meta).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
