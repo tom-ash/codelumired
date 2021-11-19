@@ -47,6 +47,10 @@ module Warsawlease
               state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
             end
 
+            if track == 'announcement/create/form'
+              ::Warsawlease::Api::Announcement::Tracks::Create::Merge.new(attrs).call
+            end
+
             if track == 'announcement/create/summary'
               authorize_for_announcement!
 
