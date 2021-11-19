@@ -15,12 +15,23 @@ module Warsawlease
           private
 
           def handle_announcement_tracks
-            if track == 'root'
+            case track
+            when 'root'
               ::Warsawlease::Api::Announcement::Tracks::Root::Merge.new(attrs).call
-            end
-
-            if track == 'announcement/index/catalogue'
+            when 'announcement/index/catalogue'
               ::Warsawlease::Api::Announcement::Tracks::Catalogue::Merge.new(attrs).call
+            when 'announcement/create/form'
+              ::Warsawlease::Api::Announcement::Tracks::Create::Merge.new(attrs).call
+            when 'visitor/contact'
+              ::Warsawlease::Api::Visitor::Tracks::Contact::Merge.new(attrs).call
+            when 'visitor/terms-of-service'
+              ::Warsawlease::Api::Visitor::Tracks::TermsOfService::Merge.new(attrs).call
+            when 'visitor/privacy-policy'
+              ::Warsawlease::Api::Visitor::Tracks::PrivacyPolicy::Merge.new(attrs).call
+            when 'visitor/cookies-policy'
+              ::Warsawlease::Api::Visitor::Tracks::CookiesPolicy::Merge.new(attrs).call
+            when 'visitor/privacy-settings'
+              ::Warsawlease::Api::Visitor::Tracks::PrivacySettings::Merge.new(attrs).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
@@ -45,10 +56,6 @@ module Warsawlease
               announcements = ::Warsawlease::Queries::Announcement::Index::User.new(user_id: @user.id).call
               serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::User.new(announcements).call
               state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
-            end
-
-            if track == 'announcement/create/form'
-              ::Warsawlease::Api::Announcement::Tracks::Create::Merge.new(attrs).call
             end
 
             if track == 'announcement/create/summary'

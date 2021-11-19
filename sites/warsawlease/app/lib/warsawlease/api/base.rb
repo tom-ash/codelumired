@@ -4,12 +4,17 @@ module Warsawlease
   module Api
     class Base < ::Api::Base
       SITENAME = 'Warsawlease'
+      SITE_TITLE = 'warsawlease.pl'
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
       PAGE_LANGS = %w[pl en].freeze
 
       helpers do
         def site_name
           @site_name ||= SITENAME
+        end
+
+        def site_title
+          @site_title ||= SITE_TITLE
         end
 
         def page_langs
@@ -26,6 +31,12 @@ module Warsawlease
 
         def authorize_for_announcement!
           error!('Unauthorized!.', 401) unless current_user&.id == current_announcement.user_id
+        end
+
+        def root_domain
+          return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
+
+          'https://www.warsawlease.pl'
         end
       end
 
