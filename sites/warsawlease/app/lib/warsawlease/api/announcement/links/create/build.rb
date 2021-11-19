@@ -4,10 +4,12 @@ module Warsawlease
   module Api
     module Announcement
       module Links
-        module Root
+        module Create
           class Build < ::Warsawlease::Api::Announcement::Tracks::Base
             include ::Warsawlease::Api::RouteData
-            include ::Warsawlease::Api::Announcement::Tracks::Root::Meta
+            include ::Warsawlease::Api::Announcement::Tracks::Create::Meta
+
+            TRACK = 'announcement/create'
 
             def initialize(lang)
               @lang = lang.to_sym
@@ -24,8 +26,8 @@ module Warsawlease
 
             def url
               @url ||= begin
-                path = route_data[:root][lang]
-                "#{root_domain}#{path == '/' ? '' : "/#{path}"}"
+                path = route_data[TRACK.to_sym][lang]
+                "#{root_domain}/#{path}"
               end
             end
           end

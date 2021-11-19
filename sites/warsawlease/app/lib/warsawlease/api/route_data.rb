@@ -9,10 +9,14 @@ module Warsawlease
 
       def route_data
         {
-          '/': { track: 'root', lang: :pl },
-          'en': { track: 'root', lang: :en },
-          'dodaj-ogloszenie-wynajmu-nieruchomosci-w-warszawie': { track: 'announcement/create', lang: :pl },
-          'add-announcement-of-real-estate-lease-in-warsaw': { track: 'announcement/create', lang: :en }
+          'root': {
+            pl: '/',
+            en: 'en'
+          },
+          'announcement/create': {
+            pl: 'dodaj-ogloszenie-wynajmu-nieruchomosci-w-warszawie',
+            en: 'add-announcement-of-real-estate-lease-in-warsaw'
+          }
         }
       end
 
