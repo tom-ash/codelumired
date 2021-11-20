@@ -19,15 +19,15 @@ module Codelumi
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                pl: 'regulamin, soundof.IT, ogłoszenia, wynajem, nieruchomości, warszawa',
-                en: 'terms of service, soundof.IT, announcement, lease, real estate, warsaw'
+                pl: 'regulamin, soundof.IT',
+                en: 'terms of service'
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                pl: 'Regulamin soundof.IT, serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.',
-                en: 'Terms of Service of soundof.IT, a service featuring real estate lease announcements in Warsaw.'
+                pl: 'Regulamin soundof.IT.',
+                en: 'Terms of Service of soundof.IT.'
               }.freeze
             end
           end

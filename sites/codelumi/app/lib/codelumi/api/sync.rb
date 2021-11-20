@@ -37,10 +37,26 @@ module Codelumi
 
           'https://soundof.it'
         end
+
+        def append_track_data
+          case track
+          when 'visitor/contact'
+            ::Codelumi::Api::Visitor::Tracks::Contact::Merge.new(attrs).call
+          when 'visitor/terms-of-service'
+            ::Codelumi::Api::Visitor::Tracks::TermsOfService::Merge.new(attrs).call
+          when 'visitor/privacy-policy'
+            ::Codelumi::Api::Visitor::Tracks::PrivacyPolicy::Merge.new(attrs).call
+          when 'visitor/cookies-policy'
+            ::Codelumi::Api::Visitor::Tracks::CookiesPolicy::Merge.new(attrs).call
+          when 'visitor/privacy-settings'
+            ::Codelumi::Api::Visitor::Tracks::PrivacySettings::Merge.new(attrs).call
+          end
+        end
       end
 
       before do
         append_links
+        append_track_data
       end
     end
   end

@@ -19,15 +19,15 @@ module Codelumi
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                pl: 'polityka cookies, soundof.IT, ogłoszenia, wynajem, nieruchomości, warszawa',
-                en: 'cookies policy, soundof.IT, announcement, lease, real estate, warsaw'
+                pl: 'polityka cookies, soundof.IT',
+                en: 'cookies policy, soundof.IT'
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                pl: 'Polityka Cookies soundof.IT, serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.',
-                en: 'Cookies Policy of soundof.IT, a service featuring real estate lease announcements in Warsaw.'
+                pl: 'Polityka Cookies soundof.IT.',
+                en: 'Cookies Policy of soundof.IT.'
               }.freeze
             end
           end
