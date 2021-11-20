@@ -15,10 +15,32 @@ module Codelumi
             }
           }
         end
+
+        def append_links
+          state.merge!(
+            links: {
+              'visitor/contact': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/contact', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::Contact::Meta::UNLOCALIZED_TITLE).call,
+              'visitor/terms-of-service': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/terms-of-service', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::TermsOfService::Meta::UNLOCALIZED_TITLE).call,
+              'visitor/privacy-policy': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/privacy-policy', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::PrivacyPolicy::Meta::UNLOCALIZED_TITLE).call,
+              'visitor/cookies-policy': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/cookies-policy', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::CookiesPolicy::Meta::UNLOCALIZED_TITLE).call,
+              'visitor/privacy-settings': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/privacy-settings', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::PrivacySettings::Meta::UNLOCALIZED_TITLE).call
+            }
+          )
+        end
+
+        def link_attrs
+          { site: site, lang: lang, root_domain: root_domain }
+        end
+
+        def root_domain
+          return 'http://local.soundof.it:8080' if Rails.env == 'development'
+
+          'https://soundof.it'
+        end
       end
 
       before do
-        # TODO
+        append_links
       end
     end
   end
