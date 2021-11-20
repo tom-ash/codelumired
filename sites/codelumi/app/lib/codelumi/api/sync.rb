@@ -4,18 +4,6 @@ module Codelumi
   module Api
     class Sync < ::Api::Sync
       helpers do
-        def track_data
-          {
-            root: {
-              en: {
-                title: 'Code, Light & People | soundof.IT',
-                description: 'Resources on coding in JavaScript, Ruby, Python, SQL and other.',
-                keywords: 'code, coding, programming, dev, it, javascript, ruby, python, sql, docker'
-              }
-            }
-          }
-        end
-
         def append_links
           state.merge!(
             links: {
@@ -40,6 +28,8 @@ module Codelumi
 
         def append_track_data
           case track
+          when 'root'
+            ::Codelumi::Api::Visitor::Tracks::Root::Merge.new(attrs).call
           when 'visitor/contact'
             ::Codelumi::Api::Visitor::Tracks::Contact::Merge.new(attrs).call
           when 'visitor/terms-of-service'
