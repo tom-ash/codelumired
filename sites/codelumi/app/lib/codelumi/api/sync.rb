@@ -29,7 +29,7 @@ module Codelumi
         def append_track_data
           case track
           when 'root'
-            ::Codelumi::Api::Visitor::Tracks::Root::Merge.new(attrs).call
+            ::Codelumi::Api::Tracks::Root::Appender.new(attrs).call
           when 'visitor/contact'
             ::Codelumi::Api::Visitor::Tracks::Contact::Merge.new(attrs).call
           when 'visitor/terms-of-service'

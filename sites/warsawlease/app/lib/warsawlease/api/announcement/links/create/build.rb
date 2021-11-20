@@ -26,7 +26,7 @@ module Warsawlease
 
             def url
               @url ||= begin
-                path = route_data[TRACK.to_sym][lang]
+                path = track_paths[TRACK.to_sym][lang]
                 "#{root_domain}/#{path}"
               end
             end

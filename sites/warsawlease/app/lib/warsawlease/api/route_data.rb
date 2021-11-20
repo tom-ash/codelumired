@@ -38,8 +38,8 @@ module Warsawlease
 
       private
 
-      def route_data
-        @route_data ||= ROUTE_DATA
+      def track_paths
+        @track_paths ||= ROUTE_DATA
       end
 
       def root_domain

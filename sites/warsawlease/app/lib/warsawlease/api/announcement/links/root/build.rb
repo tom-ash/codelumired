@@ -24,7 +24,7 @@ module Warsawlease
 
             def url
               @url ||= begin
-                path = route_data[:root][lang]
+                path = track_paths[:root][lang]
                 "#{root_domain}#{path == '/' ? '' : "/#{path}"}"
               end
             end

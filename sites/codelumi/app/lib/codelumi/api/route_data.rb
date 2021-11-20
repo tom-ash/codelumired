@@ -6,10 +6,7 @@ module Codelumi
       extend Grape::API::Helpers
 
       ROUTE_DATA = {
-        'root': {
-          pl: '/',
-          en: 'en'
-        },
+        ::Codelumi::Api::Tracks::Root::Meta::TRACK => ::Codelumi::Api::Tracks::Root::Meta::UNLOCALIZED_PATH,
         'visitor/contact': {
           pl: 'kontakt',
           en: 'contact'
@@ -34,8 +31,8 @@ module Codelumi
 
       private
 
-      def route_data
-        @route_data ||= ROUTE_DATA
+      def track_paths
+        @track_paths ||= ROUTE_DATA
       end
 
       def root_domain

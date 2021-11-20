@@ -24,7 +24,7 @@ module Api
         attr_reader :site, :track, :lang, :root_domain, :unlocalized_title
 
         def url
-          path = route_data[track.to_sym][lang]
+          path = track_paths[track.to_sym][lang]
           "#{root_domain}/#{path}"
         end
 
@@ -32,7 +32,7 @@ module Api
           unlocalized_title[lang]
         end
 
-        def route_data
+        def track_paths
           site::Api::RouteData::ROUTE_DATA
         end
       end
