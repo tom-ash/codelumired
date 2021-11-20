@@ -4,10 +4,10 @@ module Warsawlease
   module Api
     module Tracks
       module User
-        module Edit
+        module ResetPassword
           class Appender
             include ::Api::Tracks::Helpers::Appender
-            include ::Warsawlease::Api::Tracks::User::Edit::Meta
+            include ::Warsawlease::Api::Tracks::User::ResetPassword::Meta
           end
         end
       end
