@@ -21,7 +21,7 @@ module Warsawlease
               'visitor/privacy-policy': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/privacy-policy', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::PrivacyPolicy::Meta::UNLOCALIZED_TITLE).call,
               'visitor/cookies-policy': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/cookies-policy', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::CookiesPolicy::Meta::UNLOCALIZED_TITLE).call,
               'visitor/privacy-settings': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/privacy-settings', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::PrivacySettings::Meta::UNLOCALIZED_TITLE).call,
-              ::Warsawlease::Api::Tracks::User::Create::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Create::Linker.new(lang).call
+              ::Warsawlease::Api::Tracks::User::Create::Form::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Create::Form::Linker.new(lang).call
             }
           )
         end
