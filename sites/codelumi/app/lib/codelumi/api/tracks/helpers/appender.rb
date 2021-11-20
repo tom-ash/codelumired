@@ -9,9 +9,21 @@ module Codelumi
             @attrs = attrs
           end
 
+          def call
+            merge_meta
+          end
+
           private
 
           attr_reader :attrs
+
+          def merge_meta
+            meta.merge!(
+              title: title,
+              keywords: keywords,
+              description: description
+            )
+          end
 
           def lang
             @lang ||= attrs[:lang].to_sym

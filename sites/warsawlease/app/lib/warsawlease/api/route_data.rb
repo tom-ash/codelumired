@@ -33,10 +33,20 @@ module Warsawlease
         'visitor/privacy-settings': {
           pl: 'ustawienia-prywatnosci',
           en: 'privacy-settings'
-        }
+        },
+        Warsawlease::Api::Tracks::User::Create::Meta::TRACK => Warsawlease::Api::Tracks::User::Create::Meta::UNLOCALIZED_PATH
       }
 
       private
+
+      # export const USER_CREATE_TRACK = 'user/create'
+      # export const USER_CREATE_FORM_TRACK = 'user/create/form'
+      # export const USER_CREATE_VERIFICATION_TRACK = 'user/create/verification'
+      # export const USER_EDIT_TRACK = 'user/edit'
+      # export const USER_EDIT_PASSWORD_TRACK = 'user/reset-password'
+      # export const USER_AUTHORIZE_TRACK = 'user/authorize'
+      # export const USER_SHOW_TRACK = 'user/show'
+
 
       def track_paths
         @track_paths ||= ROUTE_DATA

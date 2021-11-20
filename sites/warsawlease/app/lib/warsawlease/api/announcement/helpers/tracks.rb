@@ -32,6 +32,8 @@ module Warsawlease
               ::Warsawlease::Api::Visitor::Tracks::CookiesPolicy::Merge.new(attrs).call
             when 'visitor/privacy-settings'
               ::Warsawlease::Api::Visitor::Tracks::PrivacySettings::Merge.new(attrs).call
+            when Warsawlease::Api::Tracks::User::Create::Meta::TRACK
+              ::Warsawlease::Api::Tracks::User::Create::Appender.new(attrs).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
