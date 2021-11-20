@@ -26,12 +26,6 @@ module Api
         def title
           unlocalized_title[lang]
         end
-
-        def root_domain
-          return 'http://local.soundof.it:8080' if Rails.env == 'development'
-
-          'https://soundof.it'
-        end
       end
     end
   end

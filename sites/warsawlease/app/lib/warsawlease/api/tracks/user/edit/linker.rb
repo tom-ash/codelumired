@@ -6,7 +6,7 @@ module Warsawlease
       module User
         module Edit
           class Linker
-            include ::Api::Tracks::Helpers::Linker
+            include ::Warsawlease::Api::Tracks::Helpers::Linker
             include ::Warsawlease::Api::Tracks::User::Edit::Meta
           end
         end

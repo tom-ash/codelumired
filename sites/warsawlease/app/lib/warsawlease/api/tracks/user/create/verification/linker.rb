@@ -7,7 +7,7 @@ module Warsawlease
         module Create
           module Verification
             class Linker
-              include ::Api::Tracks::Helpers::Linker
+              include ::Warsawlease::Api::Tracks::Helpers::Linker
               include ::Warsawlease::Api::Tracks::User::Create::Verification::Meta
             end
           end

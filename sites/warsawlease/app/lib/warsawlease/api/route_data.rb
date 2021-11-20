@@ -44,9 +44,6 @@ module Warsawlease
 
       private
 
-      # export const USER_AUTHORIZE_TRACK = ''
-      # export const USER_SHOW_TRACK = 'user/show'
-
       def track_paths
         @track_paths ||= ROUTE_DATA
       end

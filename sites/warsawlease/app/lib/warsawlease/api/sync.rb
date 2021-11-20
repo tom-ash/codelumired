@@ -26,6 +26,7 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::User::Edit::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Edit::Linker.new(lang).call,
               ::Warsawlease::Api::Tracks::User::ResetPassword::Meta::TRACK => ::Warsawlease::Api::Tracks::User::ResetPassword::Linker.new(lang).call,
               ::Warsawlease::Api::Tracks::User::Authorize::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Authorize::Linker.new(lang).call,
+              ::Warsawlease::Api::Tracks::User::Show::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Show::Linker.new(lang).call,
             }
           )
         end
