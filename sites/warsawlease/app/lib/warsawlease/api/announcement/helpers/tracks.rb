@@ -36,6 +36,8 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::User::Create::Form::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::User::Create::Verification::Meta::TRACK
               ::Warsawlease::Api::Tracks::User::Create::Verification::Appender.new(attrs).call
+            when ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Announcement::Index::User::Appender.new(attrs).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
@@ -53,13 +55,6 @@ module Warsawlease
               announcement = ::Warsawlease::Queries::Announcement::ById.new(id: $1).call
               state.merge!('announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call)
               meta.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement: announcement, lang: lang).call)
-            end
-
-            if track == 'announcement/index/user'
-              @user ||= ::Commands::User::Authorize::AccessToken.new(access_token: access_token, site_name: 'Warsawlease').call
-              announcements = ::Warsawlease::Queries::Announcement::Index::User.new(user_id: @user.id).call
-              serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::User.new(announcements).call
-              state.merge!('announcement/index/data': { announcements: serialized_announcements, amount: announcements.count })
             end
 
             if track == 'announcement/create/summary'

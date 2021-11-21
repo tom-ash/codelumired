@@ -36,6 +36,10 @@ module Api
           @meta ||= attrs[:meta]
         end
 
+        def current_user
+          @current_user ||= attrs[:current_user]
+        end
+
         def title
           @title ||= unlocalized_title[lang]
         end
