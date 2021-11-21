@@ -22,8 +22,8 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::Announcement::Catalogue::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK
               ::Warsawlease::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
-            when 'visitor/contact'
-              ::Warsawlease::Api::Visitor::Tracks::Contact::Merge.new(attrs).call
+            when Warsawlease::Api::Tracks::Visitor::Contact::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Visitor::Contact::Appender.new(attrs).call
             when 'visitor/terms-of-service'
               ::Warsawlease::Api::Visitor::Tracks::TermsOfService::Merge.new(attrs).call
             when 'visitor/privacy-policy'

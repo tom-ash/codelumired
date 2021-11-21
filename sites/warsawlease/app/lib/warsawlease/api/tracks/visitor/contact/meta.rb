@@ -2,16 +2,31 @@
 
 module Warsawlease
   module Api
-    module Visitor
-      module Tracks
+    module Tracks
+      module Visitor
         module Contact
           module Meta
+            TRACK = 'visitor/contact'
+
+            UNLOCALIZED_PATH = {
+              pl: 'kontakt',
+              en: 'contact'
+            }.freeze
+
             UNLOCALIZED_TITLE = {
               pl: 'Kontakt',
               en: 'Contact'
             }.freeze
 
             private
+
+            def track
+              @track ||= TRACK
+            end
+
+            def unlocalized_path
+              @unlocalized_path ||= UNLOCALIZED_PATH
+            end
 
             def unlocalized_title
               @unlocalized_title ||= UNLOCALIZED_TITLE
