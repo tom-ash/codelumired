@@ -7,7 +7,7 @@ module Warsawlease
         module Root
           class Build < ::Warsawlease::Api::Announcement::Tracks::Base
             include ::Warsawlease::Api::RouteData
-            include ::Warsawlease::Api::Announcement::Tracks::Root::Meta
+            include ::Warsawlease::Api::Tracks::Root::Meta
 
             def initialize(lang)
               @lang = lang.to_sym

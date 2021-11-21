@@ -40,6 +40,10 @@ module Api
           @current_user ||= attrs[:current_user]
         end
 
+        def params
+          @params ||= attrs[:params]
+        end
+
         def title
           @title ||= unlocalized_title[lang]
         end

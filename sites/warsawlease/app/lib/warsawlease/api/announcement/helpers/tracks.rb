@@ -16,8 +16,8 @@ module Warsawlease
 
           def handle_announcement_tracks
             case track
-            when 'root'
-              ::Warsawlease::Api::Announcement::Tracks::Root::Merge.new(attrs).call
+            when Warsawlease::Api::Tracks::Root::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Root::Appender.new(attrs).call
             when 'announcement/index/catalogue'
               ::Warsawlease::Api::Announcement::Tracks::Catalogue::Merge.new(attrs).call
             when 'announcement/create/form'
@@ -60,7 +60,6 @@ module Warsawlease
               state.merge!('announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call)
               meta.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement: announcement, lang: lang).call)
             end
-
 
             if track == 'announcement/edit'
               announcement_id = route_url.match(%r{(edytuj-ogloszenie|edit-announcement)/(\d+)})[2].to_i
