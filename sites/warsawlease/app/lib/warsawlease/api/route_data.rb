@@ -38,8 +38,7 @@ module Warsawlease
         Warsawlease::Api::Tracks::User::Create::Verification::Meta::TRACK => Warsawlease::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH,
         Warsawlease::Api::Tracks::User::Edit::Meta::TRACK => Warsawlease::Api::Tracks::User::Edit::Meta::UNLOCALIZED_PATH,
         Warsawlease::Api::Tracks::User::ResetPassword::Meta::TRACK => Warsawlease::Api::Tracks::User::ResetPassword::Meta::UNLOCALIZED_PATH,
-        Warsawlease::Api::Tracks::User::Authorize::Meta::TRACK => Warsawlease::Api::Tracks::User::Authorize::Meta::UNLOCALIZED_PATH,
-
+        Warsawlease::Api::Tracks::User::Authorize::Meta::TRACK => Warsawlease::Api::Tracks::User::Authorize::Meta::UNLOCALIZED_PATH
       }
 
       private

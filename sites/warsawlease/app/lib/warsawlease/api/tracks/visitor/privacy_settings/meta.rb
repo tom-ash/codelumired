@@ -2,16 +2,31 @@
 
 module Warsawlease
   module Api
-    module Visitor
-      module Tracks
+    module Tracks
+      module Visitor
         module PrivacySettings
           module Meta
+            TRACK = 'visitor/privacy-settings'
+
+            UNLOCALIZED_PATH = {
+              pl: 'ustawienia-prywatnosci',
+              en: 'privacy-settings'
+            }.freeze
+
             UNLOCALIZED_TITLE = {
               pl: 'Ustawienia Prywatności',
               en: 'Privacy Settings'
             }.freeze
 
             private
+
+            def track
+              @track ||= TRACK
+            end
+
+            def unlocalized_path
+              @unlocalized_path ||= UNLOCALIZED_PATH
+            end
 
             def unlocalized_title
               @unlocalized_title ||= UNLOCALIZED_TITLE
