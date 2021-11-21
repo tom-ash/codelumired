@@ -40,6 +40,8 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::Announcement::Index::User::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::User::Edit::Meta::TRACK
               ::Warsawlease::Api::Tracks::User::Edit::Appender.new(attrs).call
+            when ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Appender.new(**attrs, current_announcement: current_announcement).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
@@ -59,11 +61,6 @@ module Warsawlease
               meta.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement: announcement, lang: lang).call)
             end
 
-            if track == 'announcement/create/summary'
-              authorize_for_announcement!
-
-              state.merge!('announcement/create/data': { announcement: ::Warsawlease::Serializers::Announcement::Show.new(current_announcement).call })
-            end
 
             if track == 'announcement/edit'
               announcement_id = route_url.match(%r{(edytuj-ogloszenie|edit-announcement)/(\d+)})[2].to_i
