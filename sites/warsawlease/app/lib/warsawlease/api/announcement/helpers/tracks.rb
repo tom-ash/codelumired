@@ -38,6 +38,8 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::User::Create::Verification::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta::TRACK
               ::Warsawlease::Api::Tracks::Announcement::Index::User::Appender.new(attrs).call
+            when ::Warsawlease::Api::Tracks::User::Edit::Meta::TRACK
+              ::Warsawlease::Api::Tracks::User::Edit::Appender.new(attrs).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
