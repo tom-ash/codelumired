@@ -14,7 +14,7 @@ module Warsawlease
         def append_links
           state.merge!(
             links: {
-              'root': ::Warsawlease::Api::Announcement::Links::Root::Build.new(lang).call,
+              ::Warsawlease::Api::Tracks::Root::Meta::TRACK => ::Warsawlease::Api::Tracks::Root::Linker.new(lang).call,
               'announcement/create': ::Warsawlease::Api::Announcement::Links::Create::Build.new(lang).call,
               'visitor/contact': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/contact', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::Contact::Meta::UNLOCALIZED_TITLE).call,
               'visitor/terms-of-service': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/terms-of-service', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::TermsOfService::Meta::UNLOCALIZED_TITLE).call,
