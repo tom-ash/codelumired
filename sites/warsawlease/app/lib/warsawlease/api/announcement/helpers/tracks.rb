@@ -20,8 +20,8 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::Root::Appender.new(attrs).call
             when 'announcement/index/catalogue'
               ::Warsawlease::Api::Announcement::Tracks::Catalogue::Merge.new(attrs).call
-            when 'announcement/create/form'
-              ::Warsawlease::Api::Announcement::Tracks::Create::Merge.new(attrs).call
+            when ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
             when 'visitor/contact'
               ::Warsawlease::Api::Visitor::Tracks::Contact::Merge.new(attrs).call
             when 'visitor/terms-of-service'
