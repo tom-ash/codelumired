@@ -28,8 +28,8 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Appender.new(attrs).call
             when Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK
               ::Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Appender.new(attrs).call
-            when 'visitor/cookies-policy'
-              ::Warsawlease::Api::Visitor::Tracks::CookiesPolicy::Merge.new(attrs).call
+            when Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Appender.new(attrs).call
             when 'visitor/privacy-settings'
               ::Warsawlease::Api::Visitor::Tracks::PrivacySettings::Merge.new(attrs).call
             when Warsawlease::Api::Tracks::User::Create::Form::Meta::TRACK

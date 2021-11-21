@@ -20,7 +20,7 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::Visitor::Contact::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::Contact::Linker.new(lang).call,
               ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Linker.new(lang).call,
               ::Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(lang).call,
-              'visitor/cookies-policy': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/cookies-policy', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::CookiesPolicy::Meta::UNLOCALIZED_TITLE).call,
+              ::Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Linker.new(lang).call,
               'visitor/privacy-settings': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/privacy-settings', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::PrivacySettings::Meta::UNLOCALIZED_TITLE).call,
               ::Warsawlease::Api::Tracks::User::Create::Form::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Create::Form::Linker.new(lang).call,
               ::Warsawlease::Api::Tracks::User::Create::Verification::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Create::Verification::Linker.new(lang).call,

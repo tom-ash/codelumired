@@ -2,16 +2,31 @@
 
 module Warsawlease
   module Api
-    module Visitor
-      module Tracks
+    module Tracks
+      module Visitor
         module CookiesPolicy
           module Meta
+            TRACK = 'visitor/cookies-policy'
+
+            UNLOCALIZED_PATH = {
+              pl: 'polityka-cookies',
+              en: 'cookies-policy'
+            }.freeze
+
             UNLOCALIZED_TITLE = {
               pl: 'Polityka Cookies',
               en: 'Cookies Policy'
             }.freeze
 
             private
+
+            def track
+              @track ||= TRACK
+            end
+
+            def unlocalized_path
+              @unlocalized_path ||= UNLOCALIZED_PATH
+            end
 
             def unlocalized_title
               @unlocalized_title ||= UNLOCALIZED_TITLE
