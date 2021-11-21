@@ -55,7 +55,7 @@ module Warsawlease
               meta.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement: announcement, lang: lang).call)
             end
 
-            if track == 'announcement/index/my'
+            if track == 'announcement/index/user'
               @user ||= ::Commands::User::Authorize::AccessToken.new(access_token: access_token, site_name: 'Warsawlease').call
               announcements = ::Warsawlease::Queries::Announcement::Index::User.new(user_id: @user.id).call
               serialized_announcements = ::Warsawlease::Serializers::Announcement::Index::User.new(announcements).call
