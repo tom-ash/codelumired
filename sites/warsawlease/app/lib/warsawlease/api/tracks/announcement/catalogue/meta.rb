@@ -2,17 +2,34 @@
 
 module Warsawlease
   module Api
-    module Announcement
-      module Tracks
+    module Tracks
+      module Announcement
         module Catalogue
           module Meta
+            TRACK = 'announcement/index/catalogue'
+
+            UNLOCALIZED_PATH = {
+              pl: 'warszawa/wynajem/nieruchomosci/katalog',
+              en: 'property/catalogue'
+            }.freeze
+
+            UNLOCALIZED_TITLE = {
+              pl: 'Ogłoszenia wynajmu nieruchomości w Warszawie | Katalog',
+              en: 'Real Estate Lease Announcements in Warsaw | Catalogue'
+            }.freeze
+
             private
 
+            def track
+              @track ||= TRACK
+            end
+
+            def unlocalized_path
+              @unlocalized_path ||= UNLOCALIZED_PATH
+            end
+
             def unlocalized_title
-              @unlocalized_title ||= {
-                pl: 'Ogłoszenia wynajmu nieruchomości w Warszawie | Katalog',
-                en: 'Real Estate Lease Announcements in Warsaw | Catalogue'
-              }.freeze
+              @unlocalized_title ||= UNLOCALIZED_TITLE
             end
 
             def unlocalized_keywords

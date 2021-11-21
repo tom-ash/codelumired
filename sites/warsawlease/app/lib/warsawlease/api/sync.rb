@@ -15,6 +15,7 @@ module Warsawlease
           state.merge!(
             links: {
               ::Warsawlease::Api::Tracks::Root::Meta::TRACK => ::Warsawlease::Api::Tracks::Root::Linker.new(lang).call,
+              ::Warsawlease::Api::Tracks::Announcement::Catalogue::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Catalogue::Linker.new(lang).call,
               ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Create::Form::Linker.new(lang).call,
               'visitor/contact': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/contact', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::Contact::Meta::UNLOCALIZED_TITLE).call,
               'visitor/terms-of-service': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/terms-of-service', unlocalized_title: ::Warsawlease::Api::Visitor::Tracks::TermsOfService::Meta::UNLOCALIZED_TITLE).call,

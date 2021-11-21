@@ -18,8 +18,8 @@ module Warsawlease
             case track
             when Warsawlease::Api::Tracks::Root::Meta::TRACK
               ::Warsawlease::Api::Tracks::Root::Appender.new(attrs).call
-            when 'announcement/index/catalogue'
-              ::Warsawlease::Api::Announcement::Tracks::Catalogue::Merge.new(attrs).call
+            when ::Warsawlease::Api::Tracks::Announcement::Catalogue::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Announcement::Catalogue::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK
               ::Warsawlease::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
             when 'visitor/contact'
