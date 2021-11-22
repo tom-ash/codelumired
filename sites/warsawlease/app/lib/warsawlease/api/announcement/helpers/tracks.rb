@@ -42,6 +42,8 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::User::Edit::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::TRACK
               ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Appender.new(**attrs, current_announcement: current_announcement).call
+            when ::Warsawlease::Api::Tracks::Announcement::Show::Meta::TRACK
+              ::Warsawlease::Api::Tracks::Announcement::Show::Appender.new(attrs).call
             end
 
             if track.match(%r{announcement/index/(map|catalogue)/(.+)})
@@ -53,12 +55,6 @@ module Warsawlease
                 'announcement/index/inputs': { areaMin: area_min.to_s, areaMinInput: area_min.to_s, areaMax: area_max.to_s, areaMaxInput: area_max.to_s }
               )
               meta.merge!(::Warsawlease::Serializers::Announcement::IndexMeta.new(track: track, lang: lang, track_meta_data: track_data).call)
-            end
-
-            if route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)
-              announcement = ::Warsawlease::Queries::Announcement::ById.new(id: $1).call
-              state.merge!('announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call)
-              meta.merge!(::Warsawlease::Serializers::Announcement::ShowMeta.new(announcement: announcement, lang: lang).call)
             end
 
             if track == 'announcement/edit'

@@ -2,6 +2,10 @@
 
 module Warsawlease
   class Announcement < ApplicationRecord
+    include ::Warsawlease::AnnouncementModules::Title
+    include ::Warsawlease::AnnouncementModules::Categories
+    include ::Warsawlease::AnnouncementModules::Districts
+
     establish_connection :warsawlease
 
     self.table_name = 'announcements'
