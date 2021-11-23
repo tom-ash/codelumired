@@ -24,9 +24,10 @@ module Warsawlease
 
             def merge_meta
               meta.merge!(
-                title: '123',
-                keywords: '456',
-                description: '789'
+                title: announcement.title(lang),
+                keywords: 'TODO',
+                description: 'TODO',
+                image: 'TODO'
               )
             end
 
