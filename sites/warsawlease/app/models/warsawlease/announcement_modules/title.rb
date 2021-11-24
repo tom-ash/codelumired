@@ -6,10 +6,15 @@ module Warsawlease
       def title(lang)
         @lang = lang
 
-        "#{titleized_category}#{titleized_for_lease}#{titleized_district}#{titleized_area}#{titleized_rent}"
+        title_array = [
+          "#{titleized_category}#{titleized_for_lease}",
+          titleized_district,
+          titleized_city,
+          titleized_area,
+          titleized_rent,
+        ].compact
+        title_array.join(', ')
       end
-
-      private
 
       attr_reader :lang
 
@@ -17,8 +22,8 @@ module Warsawlease
         ::Warsawlease::Announcement::CATEGORIES[category][:name][lang]
       end
 
-      def titleized_for_lease
-        { pl: ' do wynajęcia, Warszawa ', en: ' for lease, Warsaw ' }[lang]
+      def titleized_city
+        ::Warsawlease::Announcement::CITY[lang]
       end
 
       def titleized_district
@@ -28,13 +33,19 @@ module Warsawlease
       def titleized_area
         return if area.blank?
 
-        ", #{area} #{lang == :pl ? 'm2' : 'sqm'}"
+        "#{area} #{lang == :pl ? 'm2' : 'sqm'}"
       end
 
       def titleized_rent
         return if gross_rent_amount.blank?
 
-        ", #{gross_rent_amount} PLN"
+        "#{gross_rent_amount} PLN"
+      end
+
+      private
+
+      def titleized_for_lease
+        { pl: ' do wynajęcia', en: ' for lease' }[lang]
       end
     end
   end

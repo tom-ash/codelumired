@@ -3,6 +3,7 @@
 module Warsawlease
   class Announcement < ApplicationRecord
     include ::Warsawlease::AnnouncementModules::Title
+    include ::Warsawlease::AnnouncementModules::Keywords
     include ::Warsawlease::AnnouncementModules::Categories
     include ::Warsawlease::AnnouncementModules::Districts
 
