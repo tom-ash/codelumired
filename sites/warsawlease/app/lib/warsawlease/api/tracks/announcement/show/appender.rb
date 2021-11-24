@@ -26,7 +26,7 @@ module Warsawlease
               meta.merge!(
                 title: announcement.title(lang),
                 keywords: announcement.keywords(lang),
-                description: 'TODO',
+                description: announcement.description(lang),
                 image: 'TODO'
               )
             end
