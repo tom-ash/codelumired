@@ -4,7 +4,7 @@ module Warsawlease
   module AnnouncementModules
     module Url
       def url(lang)
-        @lang = lang
+        @lang = lang.to_sym
 
         "#{root_domain}/#{id}-#{urlified_category}-#{for_lease}-#{urlified_city}-#{urlified_district}"
       end
