@@ -13,7 +13,7 @@ module Warsawlease
             end
 
             def serialized_announcements
-              @serialized_announcements ||= ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements).call
+              @serialized_announcements ||= ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements, lang).call
             end
           end
         end

@@ -11,8 +11,9 @@ module Warsawlease
             rooms floor total_floors availability_date
           ].freeze
 
-          def initialize(announcements)
+          def initialize(announcements, lang)
             @announcements = announcements
+            @lang = lang
           end
 
           def call
@@ -21,10 +22,12 @@ module Warsawlease
 
           private
 
-          attr_reader :announcements
+          attr_reader :announcements, :lang
 
           def serialize_announcement(announcement)
-            announcement.attributes.slice(*ATTRS)
+            serialized_announcement = announcement.attributes.slice(*ATTRS)
+            serialized_announcement['title'] = announcement.title(lang)
+            serialized_announcement
           end
         end
       end
