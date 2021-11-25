@@ -4,7 +4,11 @@ module Warsawlease
   module AnnouncementModules
     module Districts
       DISTRICTS = {
-        0 => { name: 'Bemowo', urlified: 'bemowo', location: { pl: 'na Bemowie', en: 'in Bemowo' } },
+        0 => {
+          name: 'Bemowo',
+          urlified: 'bemowo',
+          location: { pl: 'na Bemowie', en: 'in Bemowo' }
+        },
         1 => { name: 'Białołęka', urlified: 'bialoleka', location: { pl: 'na Białołęce', en: 'in Białołęka' } },
         2 => { name: 'Bielany', urlified: 'bielany', location: { pl: 'na Bielanach', en: 'in Bielany' } },
         3 => { name: 'Mokotów', urlified: 'mokotow', location: { pl: 'na Mokotowie', en: 'in Mokotów' } },

@@ -6,35 +6,35 @@ module Warsawlease
       CATEGORIES = {
         0 => {
           name: { pl: 'Biuro', en: 'Office' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'biuro', en: 'office' }
         },
         1 => {
           name: { pl: 'Lokal użytkowy', en: 'Usable Premises' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'lokal-uzytkowy', en: 'usable-premises' }
         },
         2 => {
           name: { pl: 'Mieszkanie', en: 'Apartment' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'mieszkanie', en: 'apartment' }
         },
         3 => {
           name: { pl: 'Dom', en: 'House' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'dom', en: 'house' }
         },
         4 => {
           name: { pl: 'Pokój', en: 'Room' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'pokoj', en: 'room' }
         },
         5 => {
           name: { pl: 'Miejsce postojowe', en: 'Parking Space' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'miejsce-postojowe', en: 'parking-space' }
         },
         6 => {
           name: { pl: 'Biuro Wirtualne', en: 'Virtual Office' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'biuro-wirtualne', en: 'virtual-office' }
         },
         7 => {
           name: { pl: 'Przestrzeń coworkingowa', en: 'Coworking Space' },
-          urlified: { pl: 'TODO', en: 'TODO' }
+          urlified: { pl: 'przestrzen-coworkingowa', en: 'coworking-space' }
         }
       }.freeze
     end

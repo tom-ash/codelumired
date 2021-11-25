@@ -26,6 +26,7 @@ module Warsawlease
 
           def serialize_announcement(announcement)
             serialized_announcement = announcement.attributes.slice(*ATTRS)
+            serialized_announcement['url'] = announcement.url(lang)
             serialized_announcement['title'] = announcement.title(lang)
             serialized_announcement
           end
