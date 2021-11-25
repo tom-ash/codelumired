@@ -40,6 +40,10 @@ module Api
           @current_user ||= attrs[:current_user]
         end
 
+        def url
+          @url ||= attrs[:url]
+        end
+
         def params
           @params ||= attrs[:params]
         end

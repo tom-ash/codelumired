@@ -27,7 +27,8 @@ module Warsawlease
                 title: announcement.title(lang),
                 keywords: announcement.keywords(lang),
                 description: announcement.description(lang),
-                image: announcement.image
+                image: announcement.image,
+                canonical_url: url
               )
             end
 
