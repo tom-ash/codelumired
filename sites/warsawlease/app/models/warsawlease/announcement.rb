@@ -5,6 +5,7 @@ module Warsawlease
     include ::Warsawlease::AnnouncementModules::Title
     include ::Warsawlease::AnnouncementModules::Keywords
     include ::Warsawlease::AnnouncementModules::Description
+    include ::Warsawlease::AnnouncementModules::Image
     include ::Warsawlease::AnnouncementModules::Categories
     include ::Warsawlease::AnnouncementModules::Districts
 

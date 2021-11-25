@@ -27,7 +27,7 @@ module Warsawlease
                 title: announcement.title(lang),
                 keywords: announcement.keywords(lang),
                 description: announcement.description(lang),
-                image: 'TODO'
+                image: announcement.image
               )
             end
 
