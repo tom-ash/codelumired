@@ -10,8 +10,9 @@ module Warsawlease
           rooms floor total_floors availability_date
         ].freeze
 
-        def initialize(announcement)
+        def initialize(announcement:, lang:)
           @announcement = announcement
+          @lang = lang.to_sym
         end
 
         def call
@@ -20,10 +21,13 @@ module Warsawlease
 
         private
 
-        attr_reader :announcement
+        attr_reader :announcement, :lang
 
         def announcement_attrs
-          @announcement.attributes.slice(*ATTRS)
+          @announcement.attributes.slice(*ATTRS).merge(
+            url: announcement.url(lang),
+            title: announcement.title(lang)
+          )
         end
       end
     end

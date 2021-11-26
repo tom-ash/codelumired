@@ -5,9 +5,10 @@ module Warsawlease
     module Announcement
       class GetTile < Grape::API
         params { requires :id, type: Integer }
+
         get do
           announcement = ::Warsawlease::Queries::Announcement::ById.new(id: params[:id]).call
-          camelize(::Warsawlease::Serializers::Announcement::Tile.new(announcement).call)
+          camelize(::Warsawlease::Serializers::Announcement::Tile.new(announcement: announcement, lang: lang).call)
         end
       end
     end
