@@ -31,7 +31,7 @@ module Warsawlease
               end
 
               def serialized_announcements
-                ::Warsawlease::Serializers::Announcement::Index::User.new(announcements).call
+                ::Warsawlease::Serializers::Announcement::Index::User.new(announcements, lang).call
               end
             end
           end

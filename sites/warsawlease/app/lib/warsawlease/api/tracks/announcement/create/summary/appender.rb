@@ -27,7 +27,10 @@ module Warsawlease
               def merge_state
                 state.merge!(
                   'announcement/create/data': {
-                    announcement: ::Warsawlease::Serializers::Announcement::Show.new(current_announcement).call
+                    announcement: ::Warsawlease::Serializers::Announcement::Show.new(current_announcement).call.merge(
+                      url: current_announcement.url(lang),
+                      title: current_announcement.title(lang)
+                    )
                   }
                 )
               end
