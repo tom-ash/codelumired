@@ -29,7 +29,7 @@ module Warsawlease
             serialized_announcement = announcement.attributes.slice(*ATTRS)
             serialized_announcement['url'] = announcement.url(lang)
             serialized_announcement['title'] = announcement.title(lang)
-            serialized_announcement['edit_path'] = announcement.edit_url(lang)
+            serialized_announcement['edit_url'] = announcement.edit_url(lang)
             serialized_announcement['edit_title'] = announcement.edit_title(lang)
             serialized_announcement
           end
