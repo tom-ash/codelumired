@@ -7,7 +7,7 @@ module Warsawlease
         class User
           ATTRS = %w[
             id category district area pictures longitude latitude
-            rent_currency net_rent_amount net_rent_amount_per_sqm gross_rent_amount gross_rent_amount_per_sqm    
+            rent_currency net_rent_amount net_rent_amount_per_sqm gross_rent_amount gross_rent_amount_per_sqm
             rooms floor total_floors availability_date
             status visible views active_until created_at updated_at
           ].freeze
@@ -29,10 +29,20 @@ module Warsawlease
             serialized_announcement = announcement.attributes.slice(*ATTRS)
             serialized_announcement['url'] = announcement.url(lang)
             serialized_announcement['title'] = announcement.title(lang)
+            serialized_announcement['edit_path'] = announcement.edit_url(lang)
             serialized_announcement
+          end
+
+          def root_domain
+            return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
+    
+            'https://www.warsawlease.pl'
           end
         end
       end
     end
   end
 end
+
+# [PL]: /^edytuj-ogloszenie\/\d+$/,
+# [EN]: /^edit-announcement\/\d+$/
