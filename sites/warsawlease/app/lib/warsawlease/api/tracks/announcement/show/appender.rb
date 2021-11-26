@@ -18,7 +18,11 @@ module Warsawlease
 
             def merge_state
               state.merge!(
-                'announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call
+                'announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call,
+                'links': {
+                  current_pl: Warsawlease::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :pl).call,
+                  current_en: Warsawlease::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :en).call
+                }
               )
             end
 

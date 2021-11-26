@@ -6,8 +6,18 @@ module Warsawlease
       module Announcement
         module Show
           class Linker
-            include ::Warsawlease::Api::Tracks::Helpers::Linker
-            include ::Warsawlease::Api::Tracks::Announcement::Show::Meta
+            def initialize(announcement:, lang:)
+              @announcement = announcement
+              @lang = lang
+            end
+
+            def call
+              announcement.url(lang)
+            end
+
+            private
+
+            attr_reader :announcement, :lang
           end
         end
       end

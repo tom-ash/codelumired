@@ -59,6 +59,10 @@ module Api
         def description
           @description ||= unlocalized_description[lang]
         end
+
+        def lang_counterpart
+          @lang_counterpart ||= lang == :pl ? :en : :pl
+        end
       end
     end
   end

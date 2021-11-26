@@ -26,7 +26,8 @@ module Warsawlease
         end
 
         def current_announcement
-          @current_announcement ||= ::Warsawlease::Announcement.find(params[:id])
+          id = params[:id] || route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)[1]
+          @current_announcement ||= ::Warsawlease::Announcement.find(id)
         end
 
         def authorize_for_announcement!
