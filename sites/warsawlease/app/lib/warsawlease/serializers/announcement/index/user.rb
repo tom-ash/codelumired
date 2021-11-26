@@ -30,12 +30,13 @@ module Warsawlease
             serialized_announcement['url'] = announcement.url(lang)
             serialized_announcement['title'] = announcement.title(lang)
             serialized_announcement['edit_path'] = announcement.edit_url(lang)
+            serialized_announcement['edit_title'] = announcement.edit_title(lang)
             serialized_announcement
           end
 
           def root_domain
             return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
-    
+
             'https://www.warsawlease.pl'
           end
         end
@@ -43,6 +44,3 @@ module Warsawlease
     end
   end
 end
-
-# [PL]: /^edytuj-ogloszenie\/\d+$/,
-# [EN]: /^edit-announcement\/\d+$/
