@@ -11,11 +11,6 @@ module Api
           class PageNotFoundError < StandardError; end
           # TODO: PageNotFoundError: return error!('Page Not Found!.', 404) if page.blank?
 
-          def call
-            merge_state
-            merge_meta
-          end
-
           private
 
           def page

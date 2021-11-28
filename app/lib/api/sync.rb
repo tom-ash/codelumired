@@ -70,6 +70,13 @@ module Api
           end
 
           def handle_page_tracks
+            case track
+            when ::Api::Tracks::Page::Show::Meta::TRACK
+              ::Api::Tracks::Page::Show::Appender.new(attrs).call
+            when ::Api::Tracks::Page::Edit::Meta::TRACK
+              ::Api::Tracks::Page::Edit::Appender.new(attrs).call
+            end
+
             if track == 'page/create'
               state.merge!('page/create/data': { names: site::Page.all.pluck(:name).uniq.sort })
             end
@@ -81,21 +88,6 @@ module Api
                 'page/index/data': { pages: ::Serializers::Page::Index.new(pages: pages, site_name: site_name).call },
                 'page/index/inputs': { name: '' }
               )
-            end
-
-            if track == 'page/show'
-              # begin
-                ::Api::Tracks::Page::Show::Appender.new(attrs).call
-              # rescue
-              #   byebug
-              # end
-            end
-
-            if track == 'page/edit'
-              page_url = route_url.match(%r{^(edit-page|edytuj-strone)/(.+)$})[2]
-              page = site::Page.find_by(url: page_url, lang: lang)
-
-              state.merge!('page/edit': ::Serializers::Page::Show.new(page: page, site_name: site_name).call)
             end
           end
         end

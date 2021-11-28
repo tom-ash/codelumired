@@ -9,12 +9,15 @@ module Api
         end
 
         def call
+          merge_state
           merge_meta
         end
 
         private
 
         attr_reader :attrs
+
+        def merge_state; end
 
         def merge_meta
           meta.merge!(
