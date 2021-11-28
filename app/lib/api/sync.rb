@@ -60,7 +60,10 @@ module Api
             page = site::Page.find_by(name: page_name, lang: lang)
             return if page.blank?
 
-            state.merge!('page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call)
+            state.merge!(
+              'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call,
+              links: { 'page/edit': page.edit_link }
+            )
           end
 
           def handle_user_tracks
@@ -77,15 +80,8 @@ module Api
               ::Api::Tracks::Page::Show::Appender.new(attrs).call
             when ::Api::Tracks::Page::Edit::Meta::TRACK
               ::Api::Tracks::Page::Edit::Appender.new(attrs).call
-            end
-
-            if track == 'page/index/manage'
-              pages = site::Page.all.select(:name, :lang, :url)
-
-              state.merge!(
-                'page/index/data': { pages: ::Serializers::Page::Index.new(pages: pages, site_name: site_name).call },
-                'page/index/inputs': { name: '' }
-              )
+            when ::Api::Tracks::Page::Index::Manage::Meta::TRACK
+              ::Api::Tracks::Page::Index::Manage::Appender.new(attrs).call
             end
           end
         end
