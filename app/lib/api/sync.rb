@@ -14,7 +14,9 @@ module Api
               params: params,
               current_user: current_user,
               state: state,
-              meta: meta
+              meta: meta,
+              site: site,
+              site_name: site_name
             }
           end
 
@@ -82,11 +84,11 @@ module Api
             end
 
             if track == 'page/show'
-              page = site::Page.find_by(url: route_url)
-              return error!('Page Not Found!.', 404) if page.blank?
-
-              state.merge!('app': { lang: page.lang }, 'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call)
-              meta.merge!(lang: page.lang, title: page.title, description: page.description, keywords: page.keywords, image: page.picture)
+              # begin
+                ::Api::Tracks::Page::Show::Appender.new(attrs).call
+              # rescue
+              #   byebug
+              # end
             end
 
             if track == 'page/edit'

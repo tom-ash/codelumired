@@ -48,6 +48,14 @@ module Api
           @params ||= attrs[:params]
         end
 
+        def site
+          @site ||= attrs[:site]
+        end
+
+        def site_name
+          @site_name ||= attrs[:site_name]
+        end
+
         def title
           @title ||= unlocalized_title[lang]
         end
