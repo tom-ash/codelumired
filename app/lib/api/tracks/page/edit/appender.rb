@@ -11,8 +11,12 @@ module Api
           private
 
           def merge_state
+            serialized_page = ::Serializers::Page::Show.new(page: page, site_name: site_name).call
             state.merge!(
-              'page/edit': ::Serializers::Page::Show.new(page: page, site_name: site_name).call,
+              'page/edit/inputs': serialized_page.merge(
+                body: JSON.pretty_generate(serialized_page[:body]),
+                meta: JSON.pretty_generate(serialized_page[:meta])
+              ),
               links: { 'langs': page.lang_edit_links }
             )
           end

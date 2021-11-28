@@ -3,8 +3,6 @@
 class Page < ApplicationRecord
   self.table_name = 'pages'
 
-  belongs_to :user, foreign_key: :author_id
-
   def show_link
     "#{root_domain}/#{url}"
   end
@@ -34,6 +32,8 @@ class Page < ApplicationRecord
     end
     lang_urls
   end
+
+  private
 
   def root_domain
     return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
