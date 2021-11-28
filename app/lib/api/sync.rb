@@ -24,10 +24,6 @@ module Api
             @route_url ||= request.headers['Route-Url']
           end
 
-          def track
-            @track ||= request.headers['Track']
-          end
-
           def page_name
             @page_name ||= request.headers['Page-Name']
           end

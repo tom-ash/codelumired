@@ -7,6 +7,11 @@ module Warsawlease
         module Show
           module Meta
             TRACK = 'announcement/show'
+
+            UNLOCALIZED_PATH = {
+              pl: /^\/?\d+-.*-na-wynajem-warszawa-.*$/,
+              en: /^\/?\d+-.*-for-lease-warsaw-.*$/
+            }.freeze
           end
         end
       end

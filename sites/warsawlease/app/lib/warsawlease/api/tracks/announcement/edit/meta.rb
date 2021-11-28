@@ -7,6 +7,11 @@ module Warsawlease
         module Edit
           module Meta
             TRACK = 'announcement/edit'
+
+            UNLOCALIZED_PATH = {
+              pl: /^edytuj-ogloszenie\/\d+$/,
+              en: /^edit-announcement\/\d+$/
+            }.freeze
           end
         end
       end

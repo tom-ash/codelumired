@@ -23,8 +23,19 @@ module Api
             @site ||= Object.const_get(site_name)
           end
 
+          def track_and_lang
+            @track_and_lang ||= tracks.find do |track, unlocalized_path|
+              return { track: track, lang: :pl } if unlocalized_path[:pl].match(route_url)
+              return { track: track, lang: :en } if unlocalized_path[:en].match(route_url)
+            end
+          end
+
+          def track
+            @track ||= track_and_lang[:track]
+          end
+
           def lang
-            @lang ||= headers['Lang']
+            @lang ||= headers['Lang'] || track_and_lang[:lang]
           end
 
           def email

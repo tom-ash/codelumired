@@ -8,7 +8,7 @@ module Warsawlease
           TRACK = 'root'
 
           UNLOCALIZED_PATH = {
-            pl: '/',
+            pl: /^\/$/,
             en: 'en'
           }.freeze
 
