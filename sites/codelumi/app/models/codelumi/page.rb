@@ -1,6 +1,15 @@
 module Codelumi
-  class Page < ApplicationRecord
+  class Page < ::Page
     establish_connection :codelumi
-    self.table_name = 'pages'
+
+    private
+
+    def site
+      @site ||= Codelumi
+    end
+
+    def langs
+      @langs ||= %w[pl en]
+    end
   end
 end
