@@ -1,8 +1,17 @@
-module Warsawlease
-  class Page < ApplicationRecord
-    establish_connection :warsawlease
-    self.table_name = 'pages'
+# frozen_string_literal: true
 
-    belongs_to :user, foreign_key: :author_id
+module Warsawlease
+  class Page < ::Page
+    establish_connection :warsawlease
+
+    private
+
+    def site
+      @site ||= Warsawlease
+    end
+
+    def langs
+      @langs ||= %w[pl en]
+    end
   end
 end

@@ -9,9 +9,9 @@ module Api
           include ::Api::Tracks::Page::Show::Meta
 
           class PageNotFoundError < StandardError; end
+          # TODO: PageNotFoundError: return error!('Page Not Found!.', 404) if page.blank?
 
           def call
-            # return error!('Page Not Found!.', 404) if page.blank?
             merge_state
             merge_meta
           end
@@ -25,7 +25,11 @@ module Api
           def merge_state
             state.merge!(
               'app': { lang: page.lang },
-              'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call
+              'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call,
+              links: {
+                'page/edit': page.edit_link,
+                'langs': page.lang_show_links
+              }
             )
           end
 
