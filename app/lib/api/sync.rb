@@ -71,14 +71,12 @@ module Api
 
           def handle_page_tracks
             case track
+            when ::Api::Tracks::Page::New::Meta::TRACK
+              ::Api::Tracks::Page::New::Appender.new(attrs).call
             when ::Api::Tracks::Page::Show::Meta::TRACK
               ::Api::Tracks::Page::Show::Appender.new(attrs).call
             when ::Api::Tracks::Page::Edit::Meta::TRACK
               ::Api::Tracks::Page::Edit::Appender.new(attrs).call
-            end
-
-            if track == 'page/create'
-              state.merge!('page/create/data': { names: site::Page.all.pluck(:name).uniq.sort })
             end
 
             if track == 'page/index/manage'

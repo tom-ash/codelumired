@@ -8,7 +8,7 @@ module Api
       params { requires :name, type: String }
       post do
         ::Commands::Page::Create.new(name: params[:name], user_id: current_user.id, page_langs: page_langs, site_name: site_name).call
-        camelize(site::Page.where(name: params[:name]).pluck(:lang, :url).to_h)
+        site::Page.find_by(name: params[:name], lang: lang).edit_link
       end
     end
   end
