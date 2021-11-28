@@ -10,7 +10,6 @@ module Warsawlease
         def tracks
           {
             ::Warsawlease::Api::Tracks::Root::Meta::TRACK => ::Warsawlease::Api::Tracks::Root::Meta::UNLOCALIZED_PATH,
-            ::Warsawlease::Api::Tracks::Announcement::Catalogue::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Catalogue::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Visitor::Contact::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::Contact::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Meta::UNLOCALIZED_PATH,
@@ -31,7 +30,6 @@ module Warsawlease
           links = state[:links] || {}
           state[:links] = links.merge(
             ::Warsawlease::Api::Tracks::Root::Meta::TRACK => ::Warsawlease::Api::Tracks::Root::Linker.new(lang).call,
-            ::Warsawlease::Api::Tracks::Announcement::Catalogue::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Catalogue::Linker.new(lang).call,
             ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Create::Form::Linker.new(lang).call,
             ::Warsawlease::Api::Tracks::Visitor::Contact::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::Contact::Linker.new(lang).call,
             ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Meta::TRACK => ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Linker.new(lang).call,
