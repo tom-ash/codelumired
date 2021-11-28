@@ -36,8 +36,12 @@ class Page < ApplicationRecord
   private
 
   def root_domain
-    return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
-
-    'https://www.warsawlease.pl'
+    if site == Warsawlease
+      return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
+      return 'https://www.warsawlease.pl'
+    else
+      return 'http://local.soundof.it:8080' if Rails.env == 'development'
+      return 'https://soundof.it'
+    end
   end
 end
