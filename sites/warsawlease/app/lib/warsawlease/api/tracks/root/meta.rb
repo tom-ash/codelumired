@@ -8,8 +8,8 @@ module Warsawlease
           TRACK = 'root'
 
           UNLOCALIZED_PATH = {
-            pl: /(^\/$)|(^warszawa\/wynajem\/nieruchomosci)\/(mapa|katalog)\/?(#{::Warsawlease::Announcement::URL_CATEGORIES})/,
-            en: /(^en$)|(^property\/map|catalogue\/(#{::Warsawlease::Announcement::URL_CATEGORIES}))/
+            pl: /^\/$|^warszawa\/wynajem\/nieruchomosci\/(?<venue_name>mapa|katalog)\/?(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})/,
+            en: /^en$|^property\/(?<venue_name>map|catalogue)\/(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})/
           }.freeze
 
           UNLOCALIZED_TITLE = {
@@ -21,6 +21,21 @@ module Warsawlease
 
           def track
             @track ||= TRACK
+          end
+
+          def match_data
+            @match_data ||= UNLOCALIZED_PATH[lang].match(url)
+          end
+
+          def category
+            @category ||= begin
+              category_name = match_data[:category_name]
+              return if category_name.blank?
+
+              ::Warsawlease::Announcement::CATEGORIES.each do |key, value|
+                return key if value[:plural_urlified][lang] == category_name
+              end
+            end
           end
 
           def unlocalized_path
