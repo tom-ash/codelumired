@@ -8,8 +8,8 @@ module Warsawlease
           TRACK = 'root'
 
           UNLOCALIZED_PATH = {
-            pl: /^\/$|^warszawa\/wynajem\/nieruchomosci\/(?<venue_name>mapa|katalog)\/?(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})?$/,
-            en: /^en$|^property\/(?<venue_name>map|catalogue)\/?(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})?$/
+            pl: %r{^/$|^warszawa/wynajem/nieruchomosci/(?<venue_name>mapa|katalog)/?(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})?$},
+            en: %r{^en$|^property/(?<venue_name>map|catalogue)/?(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})?$}
           }.freeze
 
           UNLOCALIZED_TITLE = {

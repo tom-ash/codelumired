@@ -42,7 +42,7 @@ module Warsawlease
         7 => {
           name: { pl: 'Przestrzeń coworkingowa', en: 'Coworking Space' },
           urlified: { pl: 'przestrzen-coworkingowa', en: 'coworking-space' },
-          plural_urlified: { pl: 'przestrzenie-coworkingowe', en: 'coworking-space' }
+          plural_urlified: { pl: 'przestrzenie-coworkingowe', en: 'coworking-spaces' }
         }
       }.freeze
 
