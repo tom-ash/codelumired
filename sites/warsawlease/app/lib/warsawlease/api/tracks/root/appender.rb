@@ -11,8 +11,6 @@ module Warsawlease
           include ::Warsawlease::Api::Announcement::Tracks::Helpers::Filters
 
           def call
-            # category
-            # byebug
             merge_state
             super
           end

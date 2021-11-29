@@ -17,10 +17,25 @@ module Warsawlease
             en: 'Real Estate Lease Announcements in Warsaw | Map'
           }.freeze
 
+          FOR_LEASE_IN_WARSAW = { pl: 'do wynajęcia w Warszawie', en: 'for lease in Warsaw' }.freeze
+          TITLEIZED_VENUE = { map: { pl: 'Mapa', en: 'Map' }, catalogue: { pl: 'Katalog', en: 'Catalogue' } }.freeze
+
           private
 
           def track
             @track ||= TRACK
+          end
+
+          def title
+            @title ||= begin
+              return category_title if category.present?
+
+              unlocalized_title[lang]
+            end
+          end
+
+          def category_title
+            "#{::Warsawlease::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE_IN_WARSAW[lang]} | #{TITLEIZED_VENUE[venue.to_sym][lang]}"
           end
 
           def match_data
@@ -35,6 +50,14 @@ module Warsawlease
               ::Warsawlease::Announcement::CATEGORIES.each do |key, value|
                 return key if value[:plural_urlified][lang] == category_name
               end
+            end
+          end
+
+          def venue
+            @venue ||= begin
+              return 'catalogue' if match_data[:venue_name].match?(/katalog|catalogue/)
+
+              'map'
             end
           end
 
