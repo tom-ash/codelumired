@@ -30,7 +30,7 @@ module Warsawlease
             {
               announcements: serialized_announcements,
               amount: serialized_announcements.count,
-              current_category: nil
+              current_category: category
             }
           end
         end

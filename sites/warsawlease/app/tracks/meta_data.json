@@ -12,7 +12,7 @@
     "en": { "nominative": "Rooms" }
   },
   "announcement/index/parking-spaces": {
-    "pl": { "nominative": "Miejsca postojowe", "genitive": "miejsc postojowych" },
+    "pl": { "nominative": "Miejsca parkingowe", "genitive": "miejsc postojowych" },
     "en": { "nominative": "Parking Spaces" }
   },
   "announcement/index/usable-premises": {

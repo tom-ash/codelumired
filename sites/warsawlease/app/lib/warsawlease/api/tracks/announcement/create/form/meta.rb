@@ -35,7 +35,7 @@ module Warsawlease
 
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
-                  pl: 'dodaj, bezpłatne, bezpłatnie, darmowe, za darmo, ogłoszenie, oferta, oferte, wynajem, wynajmu, najem, najmu, nieruchomości, warszawa, mieszkania, mieszkanie, domy, dom, pokoje, pokój, miejsca postojowe, miejsce postojowe, lokale użytkowe, lokal użytkowy, biura, biuro, biura wirtualne, biuro wirtualne, coworking',
+                  pl: 'dodaj, bezpłatne, bezpłatnie, darmowe, za darmo, ogłoszenie, oferta, oferte, wynajem, wynajmu, najem, najmu, nieruchomości, warszawa, mieszkania, mieszkanie, domy, dom, pokoje, pokój, miejsca parkingowe, miejsce parkingowe, lokale użytkowe, lokal użytkowy, biura, biuro, biura wirtualne, biuro wirtualne, coworking',
                   en: 'add, free, announcement, offer, lease, rent, real estate, warsaw, apartments, flats, apartment, flat, houses, house, rooms, room, parking spaces, parking space, usable premises, offices, office, virtual offices, virtual office, coworking'
                 }.freeze
               end

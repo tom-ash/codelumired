@@ -5,11 +5,6 @@ module Warsawlease
     module Announcement
       module Index
         class Visitor
-          CATEGORY_VALUES = {
-            'apartments': 2, 'houses': 3, 'rooms': 4, 'parking-spaces': 5,
-            'usable-premises': 1, 'offices': 0, 'virtual-offices': 6, 'coworking': 7
-          }.freeze
-
           def initialize(category: nil, area_min: nil, area_max: nil)
             @category = category
             @area_min = area_min
@@ -43,7 +38,7 @@ module Warsawlease
           def category_search_params
             return {} if category.blank?
 
-            { category: CATEGORY_VALUES[category.to_sym] }
+            { category: category }
           end
         end
       end

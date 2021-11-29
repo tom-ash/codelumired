@@ -9,7 +9,7 @@ module Warsawlease
             private
 
             def announcements
-              @announcements ||= ::Warsawlease::Queries::Announcement::Index::Visitor.new(filters).call
+              @announcements ||= ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: category, **filters).call
             end
 
             def serialized_announcements

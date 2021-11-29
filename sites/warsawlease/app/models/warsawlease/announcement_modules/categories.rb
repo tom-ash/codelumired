@@ -30,9 +30,9 @@ module Warsawlease
           plural_urlified: { pl: 'pokoje', en: 'rooms' },
         },
         5 => {
-          name: { pl: 'Miejsce postojowe', en: 'Parking Space' },
-          urlified: { pl: 'miejsce-postojowe', en: 'parking-space' },
-          plural_urlified: { pl: 'miejsca-postojowe', en: 'parking-spaces' }
+          name: { pl: 'Miejsce parkingowe', en: 'Parking Space' },
+          urlified: { pl: 'miejsce-parkingowe', en: 'parking-space' },
+          plural_urlified: { pl: 'miejsca-parkingowe', en: 'parking-spaces' }
         },
         6 => {
           name: { pl: 'Biuro Wirtualne', en: 'Virtual Office' },
