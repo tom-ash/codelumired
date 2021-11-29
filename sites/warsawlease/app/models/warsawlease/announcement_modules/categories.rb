@@ -49,7 +49,7 @@ module Warsawlease
       URL_CATEGORIES = begin
         categories = []
         CATEGORIES.each_value do |category|
-          categories += [category[:plural_urlified][:pl], category[:urlified][:en]]
+          categories += [category[:plural_urlified][:pl], category[:plural_urlified][:en]]
         end
         categories.join('|')
       end

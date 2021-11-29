@@ -15,6 +15,7 @@ module Warsawlease
           private
 
           def handle_announcement_tracks
+            # byebug
             case track
             when Warsawlease::Api::Tracks::Root::Meta::TRACK
               ::Warsawlease::Api::Tracks::Root::Appender.new(attrs).call
