@@ -8,14 +8,24 @@ module Warsawlease
           include ::Warsawlease::Api::Tracks::Helpers::Linker
           include ::Warsawlease::Api::Tracks::Root::Meta
 
+          def initialize(lang, url = nil)
+            @lang = lang
+            @url = url
+          end
+
+          attr_reader :url
+
           def call
-            url
+            {
+              pl: { url: root_domain },
+              en: { url: "#{root_domain}/en" }
+            }[lang]
           end
 
           def venue_links
             {
-              'root/map': "#{root_domain}/#{venue_path(:map, lang)}".chomp('/'),
-              'root/catalogue': "#{root_domain}/#{venue_path(:catalogue, lang)}"
+              'root/map': { url: "#{root_domain}/#{venue_path(:map, lang)}".chomp('/') },
+              'root/catalogue': { url: "#{root_domain}/#{venue_path(:catalogue, lang)}" }
             }
           end
 
@@ -23,21 +33,33 @@ module Warsawlease
             category_links_hash = {}
 
             ::Warsawlease::Announcement::CATEGORIES.each_value do |category|
-              category_links_hash["root/#{venue}/#{category[:name][:en].downcase}"] = category_link(category, lang)
+              category_links_hash["root/#{venue}/#{category[:name][:en].downcase}"] = {
+                url: category_link(category, lang)
+              }
             end
 
             category_links_hash
           end
 
-          private
+          def lang_links(venue)
+            if category.present?
+              return {
+                pl: { url: "#{root_domain}/#{category_venue_path(venue, :pl)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:pl]}" },
+                en: { url: "#{root_domain}/#{category_venue_path(venue, :en)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:en]}" }
+              }
+            end
 
-          def url
-            { pl: root_domain, en: "#{root_domain}/en" }[lang]
+            {
+              pl: { url: "#{root_domain}/#{venue_path(venue, :pl)}".chomp('/') },
+              en: { url: "#{root_domain}/#{venue_path(venue, :en)}" }
+            }
           end
+
+          private
 
           def venue_path(venue, lang)
             case venue
-            when :mp
+            when :map
               lang == :pl ? '' : 'en'
             when :catalogue
               lang == :pl ? 'warszawa/wynajem/nieruchomosci/katalog' : 'property/catalogue'
