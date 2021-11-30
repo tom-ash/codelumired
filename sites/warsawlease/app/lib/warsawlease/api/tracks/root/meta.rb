@@ -55,9 +55,9 @@ module Warsawlease
 
           def venue
             @venue ||= begin
-              return 'catalogue' if match_data[:venue_name] && match_data[:venue_name].match?(/katalog|catalogue/)
+              return :catalogue if match_data && match_data[:venue_name].match?(/katalog|catalogue/)
 
-              'map'
+              :map
             end
           end
 
