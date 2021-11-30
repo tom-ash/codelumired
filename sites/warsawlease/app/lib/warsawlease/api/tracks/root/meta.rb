@@ -44,7 +44,7 @@ module Warsawlease
 
           def category
             @category ||= begin
-              category_name = match_data[:category_name]
+              category_name = match_data && match_data[:category_name]
               return if category_name.blank?
 
               ::Warsawlease::Announcement::CATEGORIES.each do |key, value|
@@ -55,7 +55,7 @@ module Warsawlease
 
           def venue
             @venue ||= begin
-              return 'catalogue' if match_data[:venue_name].match?(/katalog|catalogue/)
+              return 'catalogue' if match_data[:venue_name] && match_data[:venue_name].match?(/katalog|catalogue/)
 
               'map'
             end
