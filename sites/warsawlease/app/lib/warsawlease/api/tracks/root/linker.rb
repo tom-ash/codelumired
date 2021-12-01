@@ -33,7 +33,7 @@ module Warsawlease
             category_links_hash = {}
 
             ::Warsawlease::Announcement::CATEGORIES.each_value do |category|
-              category_links_hash["root/#{venue}/#{category[:name][:en].downcase}"] = {
+              category_links_hash["root/#{category[:trackified]}"] = {
                 path: category_link(category, lang)
               }
             end
@@ -75,7 +75,7 @@ module Warsawlease
             when :pl
               venue == :map ? 'warszawa/wynajem/nieruchomosci/mapa' : 'warszawa/wynajem/nieruchomosci/katalog'
             when :en
-              venue == :catalogue ? 'property/map' : 'property/catalogue'
+              venue == :map ? 'property/map' : 'property/catalogue'
             end
           end
         end
