@@ -45,10 +45,6 @@ module Warsawlease
             ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Index::User::Linker.new(lang).call,
           )
         end
-
-        def link_attrs
-          { site: site, lang: lang }
-        end
       end
 
       before do

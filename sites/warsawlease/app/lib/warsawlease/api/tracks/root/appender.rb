@@ -21,7 +21,7 @@ module Warsawlease
             state.merge!(
               'announcement/index/data': data,
               'announcement/index/inputs': inputs,
-              links: ::Warsawlease::Api::Tracks::Root::Linker.new(lang).venue_links.merge(
+              links: ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).venue_links.merge(
                 ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).category_links(venue),
                 ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).lang_links(venue)
               )

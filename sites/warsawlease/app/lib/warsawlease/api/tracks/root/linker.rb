@@ -22,7 +22,28 @@ module Warsawlease
             }[lang]
           end
 
+          def lang_links(venue)
+            if category.present?
+              return {
+                pl: { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :pl) },
+                en: { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :en) }
+              }
+            end
+
+            {
+              pl: { path: venue_path(venue, :pl).chomp('/') },
+              en: { path: venue_path(venue, :en) }
+            }
+          end
+
           def venue_links
+            if category.present?
+              return {
+                'root/map': { path: category_link(:map, ::Warsawlease::Announcement::CATEGORIES[category], lang) },
+                'root/catalogue': { path: category_link(:category, ::Warsawlease::Announcement::CATEGORIES[category], lang) }
+              }
+            end
+
             {
               'root/map': { path: venue_path(:map, lang).chomp('/') },
               'root/catalogue': { path: venue_path(:catalogue, lang) }
@@ -34,25 +55,11 @@ module Warsawlease
 
             ::Warsawlease::Announcement::CATEGORIES.each_value do |category|
               category_links_hash["root/#{category[:trackified]}"] = {
-                path: category_link(category, lang)
+                path: category_link(venue, category, lang)
               }
             end
 
             category_links_hash
-          end
-
-          def lang_links(venue)
-            if category.present?
-              return {
-                pl: { path: "#{category_venue_path(venue, :pl)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:pl]}" },
-                en: { path: "#{category_venue_path(venue, :en)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:en]}" }
-              }
-            end
-
-            {
-              pl: { path: venue_path(venue, :pl).chomp('/') },
-              en: { path: venue_path(venue, :en) }
-            }
           end
 
           private
@@ -66,7 +73,7 @@ module Warsawlease
             end
           end
 
-          def category_link(category, lang)
+          def category_link(venue, category, lang)
             "#{category_venue_path(venue, lang)}/#{category[:plural_urlified][lang]}"
           end
 
