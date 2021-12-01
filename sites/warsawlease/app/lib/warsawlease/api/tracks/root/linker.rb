@@ -17,15 +17,15 @@ module Warsawlease
 
           def call
             {
-              pl: { url: '' },
-              en: { url: '/en' }
+              pl: { path: '/' },
+              en: { path: '/en' }
             }[lang]
           end
 
           def venue_links
             {
-              'root/map': { url: venue_path(:map, lang).chomp('/') },
-              'root/catalogue': { url: venue_path(:catalogue, lang) }
+              'root/map': { path: venue_path(:map, lang).chomp('/') },
+              'root/catalogue': { path: venue_path(:catalogue, lang) }
             }
           end
 
@@ -34,7 +34,7 @@ module Warsawlease
 
             ::Warsawlease::Announcement::CATEGORIES.each_value do |category|
               category_links_hash["root/#{venue}/#{category[:name][:en].downcase}"] = {
-                url: category_link(category, lang)
+                path: category_link(category, lang)
               }
             end
 
@@ -44,14 +44,14 @@ module Warsawlease
           def lang_links(venue)
             if category.present?
               return {
-                pl: { url: "#{category_venue_path(venue, :pl)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:pl]}" },
-                en: { url: "#{category_venue_path(venue, :en)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:en]}" }
+                pl: { path: "#{category_venue_path(venue, :pl)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:pl]}" },
+                en: { path: "#{category_venue_path(venue, :en)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:en]}" }
               }
             end
 
             {
-              pl: { url: venue_path(venue, :pl).chomp('/') },
-              en: { url: venue_path(venue, :en) }
+              pl: { path: venue_path(venue, :pl).chomp('/') },
+              en: { path: venue_path(venue, :en) }
             }
           end
 

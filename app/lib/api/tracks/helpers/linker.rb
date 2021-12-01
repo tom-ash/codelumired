@@ -10,7 +10,7 @@ module Api
 
         def call
           {
-            url: href,
+            path: path,
             title: title
           }
         end
@@ -19,7 +19,7 @@ module Api
 
         attr_reader :lang
 
-        def href
+        def path
           unlocalized_path[lang]
         end
 

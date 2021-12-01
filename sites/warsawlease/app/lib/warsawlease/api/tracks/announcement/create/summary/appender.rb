@@ -28,7 +28,7 @@ module Warsawlease
                 state.merge!(
                   'announcement/create/data': {
                     announcement: ::Warsawlease::Serializers::Announcement::Show.new(current_announcement).call.merge(
-                      url: current_announcement.url(lang),
+                      path: current_announcement.url(lang),
                       title: current_announcement.title(lang)
                     )
                   }

@@ -25,7 +25,7 @@ module Warsawlease
 
         def announcement_attrs
           @announcement.attributes.slice(*ATTRS).merge(
-            url: announcement.url(lang),
+            path: announcement.url(lang),
             title: announcement.title(lang)
           )
         end

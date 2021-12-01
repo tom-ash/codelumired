@@ -13,7 +13,7 @@ module Api
 
         def call
           {
-            url: url,
+            path: path,
             title: title
           }
         end
@@ -22,7 +22,7 @@ module Api
 
         attr_reader :site, :track, :lang, :unlocalized_title
 
-        def url
+        def path
           track_paths[track.to_sym][lang]
         end
 

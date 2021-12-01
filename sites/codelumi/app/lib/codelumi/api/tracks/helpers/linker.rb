@@ -11,7 +11,7 @@ module Codelumi
 
           def call
             {
-              url: url,
+              path: path,
               title: title
             }
           end
@@ -20,7 +20,7 @@ module Codelumi
 
           attr_reader :lang
 
-          def url
+          def path
             unlocalized_path[lang]
           end
 
