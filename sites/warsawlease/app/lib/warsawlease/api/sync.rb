@@ -47,7 +47,7 @@ module Warsawlease
         end
 
         def link_attrs
-          { site: site, lang: lang, root_domain: root_domain }
+          { site: site, lang: lang }
         end
       end
 

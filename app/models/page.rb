@@ -4,11 +4,11 @@ class Page < ApplicationRecord
   self.table_name = 'pages'
 
   def show_link
-    "#{root_domain}/#{url}"
+    url
   end
 
   def edit_link
-    "#{root_domain}/#{edit_page}/#{url}"
+    "#{edit_page}/#{url}"
   end
 
   def edit_page
@@ -31,17 +31,5 @@ class Page < ApplicationRecord
       lang_urls[lang] = page.edit_link if page.present?
     end
     lang_urls
-  end
-
-  private
-
-  def root_domain
-    if site == Warsawlease
-      return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
-      return 'https://www.warsawlease.pl'
-    else
-      return 'http://local.soundof.it:8080' if Rails.env == 'development'
-      return 'https://soundof.it'
-    end
   end
 end

@@ -33,12 +33,6 @@ module Warsawlease
             serialized_announcement['edit_title'] = announcement.edit_title(lang)
             serialized_announcement
           end
-
-          def root_domain
-            return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
-
-            'https://www.warsawlease.pl'
-          end
         end
       end
     end

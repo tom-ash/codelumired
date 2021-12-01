@@ -20,7 +20,7 @@ module Api
         attr_reader :lang
 
         def href
-          "#{root_domain}/#{unlocalized_path[lang]}"
+          unlocalized_path[lang]
         end
 
         def title

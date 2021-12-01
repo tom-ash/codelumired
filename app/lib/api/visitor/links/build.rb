@@ -4,11 +4,10 @@ module Api
   module Visitor
     module Links
       class Build
-        def initialize(site:, track:, lang:, root_domain:, unlocalized_title:)
+        def initialize(site:, track:, lang:, unlocalized_title:)
           @site = site
           @track = track
           @lang = lang.to_sym
-          @root_domain = root_domain
           @unlocalized_title = unlocalized_title
         end
 
@@ -21,11 +20,10 @@ module Api
 
         private
 
-        attr_reader :site, :track, :lang, :root_domain, :unlocalized_title
+        attr_reader :site, :track, :lang, :unlocalized_title
 
         def url
-          path = track_paths[track.to_sym][lang]
-          "#{root_domain}/#{path}"
+          track_paths[track.to_sym][lang]
         end
 
         def title

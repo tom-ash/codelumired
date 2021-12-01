@@ -6,7 +6,7 @@ module Warsawlease
       def url(lang)
         @lang = lang.to_sym
 
-        "#{root_domain}/#{id}-#{urlified_category}-#{for_lease}-#{urlified_city}-#{urlified_district}"
+        "#{id}-#{urlified_category}-#{for_lease}-#{urlified_city}-#{urlified_district}"
       end
 
       attr_reader :lang
@@ -25,12 +25,6 @@ module Warsawlease
 
       def urlified_district
         ::Warsawlease::Announcement::DISTRICTS[category][:urlified]
-      end
-
-      def root_domain
-        return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
-
-        'https://www.warsawlease.pl'
       end
     end
   end

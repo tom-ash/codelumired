@@ -34,12 +34,6 @@ module Codelumi
       def track_paths
         @track_paths ||= ROUTE_DATA
       end
-
-      def root_domain
-        return 'http://local.soundof.it:8080' if Rails.env == 'development'
-
-        'https://soundof.it'
-      end
     end
   end
 end

@@ -6,7 +6,6 @@ module Warsawlease
       module Helpers
         module Linker
           include ::Api::Tracks::Helpers::Linker
-          include ::Warsawlease::Api::Tracks::Helpers::RootDomain
         end
       end
     end

@@ -17,15 +17,15 @@ module Warsawlease
 
           def call
             {
-              pl: { url: root_domain },
-              en: { url: "#{root_domain}/en" }
+              pl: { url: '' },
+              en: { url: '/en' }
             }[lang]
           end
 
           def venue_links
             {
-              'root/map': { url: "#{root_domain}/#{venue_path(:map, lang)}".chomp('/') },
-              'root/catalogue': { url: "#{root_domain}/#{venue_path(:catalogue, lang)}" }
+              'root/map': { url: venue_path(:map, lang).chomp('/') },
+              'root/catalogue': { url: venue_path(:catalogue, lang) }
             }
           end
 
@@ -44,14 +44,14 @@ module Warsawlease
           def lang_links(venue)
             if category.present?
               return {
-                pl: { url: "#{root_domain}/#{category_venue_path(venue, :pl)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:pl]}" },
-                en: { url: "#{root_domain}/#{category_venue_path(venue, :en)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:en]}" }
+                pl: { url: "#{category_venue_path(venue, :pl)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:pl]}" },
+                en: { url: "#{category_venue_path(venue, :en)}/#{::Warsawlease::Announcement::CATEGORIES[category][:plural_urlified][:en]}" }
               }
             end
 
             {
-              pl: { url: "#{root_domain}/#{venue_path(venue, :pl)}".chomp('/') },
-              en: { url: "#{root_domain}/#{venue_path(venue, :en)}" }
+              pl: { url: venue_path(venue, :pl).chomp('/') },
+              en: { url: venue_path(venue, :en) }
             }
           end
 
@@ -67,7 +67,7 @@ module Warsawlease
           end
 
           def category_link(category, lang)
-            "#{root_domain}/#{category_venue_path(venue, lang)}/#{category[:plural_urlified][lang]}"
+            "#{category_venue_path(venue, lang)}/#{category[:plural_urlified][lang]}"
           end
 
           def category_venue_path(venue, lang)
@@ -77,12 +77,6 @@ module Warsawlease
             when :en
               venue == :catalogue ? 'property/map' : 'property/catalogue'
             end
-          end
-
-          def root_domain
-            return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
-
-            'https://www.warsawlease.pl'
           end
         end
       end

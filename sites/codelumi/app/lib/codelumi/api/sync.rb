@@ -17,13 +17,7 @@ module Codelumi
         end
 
         def link_attrs
-          { site: site, lang: lang, root_domain: root_domain }
-        end
-
-        def root_domain
-          return 'http://local.soundof.it:8080' if Rails.env == 'development'
-
-          'https://soundof.it'
+          { site: site, lang: lang }
         end
 
         def append_track_data

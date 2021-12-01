@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  ENV['WARSAWLEASE_ROOT_DOMAIN'] = 'https://www.warsawlease.pl'
+  ENV['SOUNDOFIT_ROOT_DOMAIN'] = 'https://soundof.it'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

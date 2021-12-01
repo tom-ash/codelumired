@@ -33,12 +33,6 @@ module Warsawlease
         def authorize_for_announcement!
           error!('Unauthorized!.', 401) unless current_user&.id == current_announcement.user_id
         end
-
-        def root_domain
-          return 'http://local.warsawlease.pl:8080' if Rails.env == 'development'
-
-          'https://www.warsawlease.pl'
-        end
       end
 
       mount ::Warsawlease::Api::Sync => 'sync'
