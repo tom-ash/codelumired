@@ -2,12 +2,12 @@
 
 module Warsawlease
   class Announcement < ApplicationRecord
-    include ::Warsawlease::AnnouncementModules::Url
+    include ::Warsawlease::AnnouncementModules::Path
     include ::Warsawlease::AnnouncementModules::Title
     include ::Warsawlease::AnnouncementModules::Keywords
     include ::Warsawlease::AnnouncementModules::Description
     include ::Warsawlease::AnnouncementModules::Image
-    include ::Warsawlease::AnnouncementModules::EditUrl
+    include ::Warsawlease::AnnouncementModules::EditPath
     include ::Warsawlease::AnnouncementModules::EditTitle
     include ::Warsawlease::AnnouncementModules::Categories
     include ::Warsawlease::AnnouncementModules::Districts

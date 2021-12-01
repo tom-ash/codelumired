@@ -2,7 +2,7 @@
 
 module Warsawlease
   module AnnouncementModules
-    module Url
+    module Path
       def url(lang)
         @lang = lang.to_sym
 

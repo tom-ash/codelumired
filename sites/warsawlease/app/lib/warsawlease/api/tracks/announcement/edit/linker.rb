@@ -12,7 +12,7 @@ module Warsawlease
             end
 
             def call
-              announcement.edit_url(lang)
+              announcement.edit_path(lang)
             end
 
             private

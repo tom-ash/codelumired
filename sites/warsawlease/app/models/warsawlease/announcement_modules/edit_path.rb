@@ -2,8 +2,8 @@
 
 module Warsawlease
   module AnnouncementModules
-    module EditUrl
-      def edit_url(lang)
+    module EditPath
+      def edit_path(lang)
         @lang = lang.to_sym
 
         "#{lang == :pl ? 'edytuj-ogloszenie' : 'edit-announcement'}/#{id}"
