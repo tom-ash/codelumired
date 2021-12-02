@@ -12,7 +12,10 @@ module Warsawlease
             end
 
             def call
-              announcement.edit_path(lang)
+              {
+                path: announcement.edit_path(lang),
+                title: 'TODO'
+              }
             end
 
             private

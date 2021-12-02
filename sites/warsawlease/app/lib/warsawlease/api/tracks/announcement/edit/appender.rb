@@ -21,10 +21,8 @@ module Warsawlease
                 'announcement/create/data': {
                   announcement: ::Warsawlease::Serializers::Announcement::Show.new(announcement).call
                 },
-                'links': {
-                  current_pl: Warsawlease::Api::Tracks::Announcement::Edit::Linker.new(announcement: announcement, lang: :pl).call,
-                  current_en: Warsawlease::Api::Tracks::Announcement::Edit::Linker.new(announcement: announcement, lang: :en).call
-                }
+                render: render,
+                links: links
               )
             end
 
