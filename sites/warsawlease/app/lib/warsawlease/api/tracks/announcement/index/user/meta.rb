@@ -46,6 +46,22 @@ module Warsawlease
                   en: 'My announcements on warsawlease.pl - a service featuring real estate lease announcements in Warsaw.'
                 }.freeze
               end
+
+              def render
+                {
+                  visitor: true,
+                  announcement: true,
+                  'announcement/index': true,
+                  'announcement/index/user': true
+                }
+              end
+
+              def links
+                {
+                  'current/pl': ::Warsawlease::Api::Tracks::Announcement::Index::User::Linker.new(:pl).call,
+                  'current/en': ::Warsawlease::Api::Tracks::Announcement::Index::User::Linker.new(:en).call
+                }
+              end
             end
           end
         end

@@ -22,7 +22,9 @@ module Warsawlease
                   'announcement/index/data': {
                     announcements: serialized_announcements,
                     amount: serialized_announcements.count
-                  }
+                  },
+                  render: render,
+                  links: links
                 )
               end
 
