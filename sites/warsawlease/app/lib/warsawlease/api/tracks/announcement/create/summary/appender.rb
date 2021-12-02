@@ -31,7 +31,8 @@ module Warsawlease
                       path: current_announcement.url(lang),
                       title: current_announcement.title(lang)
                     )
-                  }
+                  },
+                  'render': render
                 )
               end
             end

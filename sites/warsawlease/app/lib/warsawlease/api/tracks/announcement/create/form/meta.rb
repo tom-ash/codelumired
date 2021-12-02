@@ -46,6 +46,17 @@ module Warsawlease
                   en: 'Add a free real estate lease announcement in Warsaw. Annouce lease of an apartment, a room, usable premises, an offices and/or other real estate in Warsaw.'
                 }.freeze
               end
+
+              def render
+                {
+                  'visitor': true,
+                  'announcement': true,
+                  'announcement/create': true,
+                  'announcement/create/form': true,
+                  'page': true,
+                  'page/show': true
+                }
+              end
             end
           end
         end

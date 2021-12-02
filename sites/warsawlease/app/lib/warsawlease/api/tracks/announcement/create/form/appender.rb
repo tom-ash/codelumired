@@ -9,6 +9,14 @@ module Warsawlease
             class Appender
               include ::Api::Tracks::Helpers::Appender
               include ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta
+
+              private
+
+              def merge_state
+                state.merge!(
+                  render: render
+                )
+              end
             end
           end
         end

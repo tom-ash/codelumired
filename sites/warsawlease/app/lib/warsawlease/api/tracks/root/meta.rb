@@ -82,6 +82,25 @@ module Warsawlease
               en: 'Warsaw real estate lease announcements on a map. Add a free lease announcement of among others an apartment, a room, an office and/or usable premises.'
             }.freeze
           end
+
+          def render
+            {
+              'visitor': true,
+              'announcement': true,
+              'announcement/index': true,
+              "announcement/index/#{venue}": true,
+              'page': true,
+              'page/show': true
+            }
+          end
+
+          def links
+            {}.merge(
+              ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).venue_links.merge,
+              ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).category_links(venue),
+              ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).lang_links(venue)
+            )
+          end
         end
       end
     end

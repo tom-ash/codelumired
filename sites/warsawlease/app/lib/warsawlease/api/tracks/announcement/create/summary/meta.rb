@@ -46,6 +46,17 @@ module Warsawlease
                   en: 'Summary of an announcement added on warsawlease.pl - a service featuring real estate lease announcements in Warsaw.'
                 }.freeze
               end
+
+              def render
+                {
+                  'visitor': true,
+                  'announcement': true,
+                  'announcement/create': true,
+                  'announcement/create/summary': true,
+                  'page': true,
+                  'page/show': true
+                }
+              end
             end
           end
         end
