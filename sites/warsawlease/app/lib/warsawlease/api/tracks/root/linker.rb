@@ -25,14 +25,14 @@ module Warsawlease
           def lang_links(venue)
             if category.present?
               return {
-                pl: { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :pl) },
-                en: { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :en) }
+                'current/pl': { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :pl) },
+                'current/en': { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :en) }
               }
             end
 
             {
-              pl: { path: venue_path(venue, :pl).chomp('/') },
-              en: { path: venue_path(venue, :en) }
+              'current/pl': { path: venue_path(venue, :pl).chomp('/') },
+              'current/en': { path: venue_path(venue, :en) }
             }
           end
 
