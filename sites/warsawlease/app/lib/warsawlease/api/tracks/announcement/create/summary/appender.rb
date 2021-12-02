@@ -32,7 +32,8 @@ module Warsawlease
                       title: current_announcement.title(lang)
                     )
                   },
-                  'render': render
+                  render: render,
+                  links: links
                 )
               end
             end

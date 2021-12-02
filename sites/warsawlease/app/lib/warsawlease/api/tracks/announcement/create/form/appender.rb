@@ -14,7 +14,8 @@ module Warsawlease
 
               def merge_state
                 state.merge!(
-                  render: render
+                  render: render,
+                  links: links
                 )
               end
             end

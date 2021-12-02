@@ -7,11 +7,6 @@ module Warsawlease
         module Tracks
           extend Grape::API::Helpers
 
-          CATEGORY_VALUES = {
-            'apartments' => 2, 'houses' => 3, 'rooms' => 4, 'parking-spaces' => 5,
-            'usable-premises' => 1, 'offices' => 0, 'virtual-offices' => 6, 'coworking' => 7
-          }.freeze
-
           private
 
           def handle_announcement_tracks
