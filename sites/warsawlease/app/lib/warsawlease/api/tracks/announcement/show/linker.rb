@@ -12,7 +12,10 @@ module Warsawlease
             end
 
             def call
-              announcement.url(lang)
+              {
+                path: announcement.url(lang),
+                title: 'TODO'
+              }
             end
 
             private
