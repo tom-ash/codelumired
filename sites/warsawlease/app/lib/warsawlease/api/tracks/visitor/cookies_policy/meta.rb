@@ -45,6 +45,20 @@ module Warsawlease
                 en: 'Cookies Policy of warsawlease.pl, a service featuring real estate lease announcements in Warsaw.'
               }.freeze
             end
+
+            def render
+              {
+                visitor: true,
+                'visitor/cookies-policy': true
+              }
+            end
+
+            def links
+              {
+                'current/pl': ::Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Linker.new(:pl).call,
+                'current/en': ::Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Linker.new(:en).call
+              }
+            end
           end
         end
       end

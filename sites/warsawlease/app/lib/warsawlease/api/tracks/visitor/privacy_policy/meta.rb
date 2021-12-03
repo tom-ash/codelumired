@@ -45,6 +45,20 @@ module Warsawlease
                 en: 'Privacy Policy of warsawlease.pl, a service featuring real estate lease announcements in Warsaw.'
               }.freeze
             end
+
+            def render
+              {
+                visitor: true,
+                'visitor/privacy-policy': true
+              }
+            end
+
+            def links
+              {
+                'current/pl': ::Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(:pl).call,
+                'current/en': ::Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(:en).call
+              }
+            end
           end
         end
       end

@@ -45,6 +45,20 @@ module Warsawlease
                 en: 'Terms of Service of warsawlease.pl, a service featuring real estate lease announcements in Warsaw.'
               }.freeze
             end
+
+            def render
+              {
+                visitor: true,
+                'visitor/terms-of-service': true
+              }
+            end
+
+            def links
+              {
+                'current/pl': ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Linker.new(:pl).call,
+                'current/en': ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Linker.new(:en).call
+              }
+            end
           end
         end
       end

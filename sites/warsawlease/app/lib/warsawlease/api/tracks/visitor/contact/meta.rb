@@ -45,6 +45,20 @@ module Warsawlease
                 en: 'Contact to warsawlease.pl, a service featuring real estate lease announcements in Warsaw.'
               }.freeze
             end
+
+            def render
+              {
+                visitor: true,
+                'visitor/contact': true
+              }
+            end
+
+            def links
+              {
+                'current/pl': ::Warsawlease::Api::Tracks::Visitor::Contact::Linker.new(:pl).call,
+                'current/en': ::Warsawlease::Api::Tracks::Visitor::Contact::Linker.new(:en).call
+              }
+            end
           end
         end
       end
