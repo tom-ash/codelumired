@@ -46,6 +46,22 @@ module Warsawlease
                   en: 'Email address confirmation on warsawlease.pl - a service featuring real estate lease announcements in Warsaw.'
                 }.freeze
               end
+
+              def render
+                {
+                  visitor: true,
+                  user: true,
+                  'user/create': true,
+                  'user/create/verification': true
+                }
+              end
+
+              def links
+                {
+                  'current/pl': ::Warsawlease::Api::Tracks::User::Create::Verification::Linker.new(:pl).call,
+                  'current/en': ::Warsawlease::Api::Tracks::User::Create::Verification::Linker.new(:en).call
+                }
+              end
             end
           end
         end

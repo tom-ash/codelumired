@@ -45,6 +45,21 @@ module Warsawlease
                 en: 'Account password reset on warsawlease.pl - a service featuring real estate lease announcements in Warsaw.'
               }.freeze
             end
+
+            def render
+              {
+                visitor: true,
+                user: true,
+                'user/reset-password': true
+              }
+            end
+
+            def links
+              {
+                'current/pl': ::Warsawlease::Api::Tracks::User::ResetPassword::Linker.new(:pl).call,
+                'current/en': ::Warsawlease::Api::Tracks::User::ResetPassword::Linker.new(:en).call
+              }
+            end
           end
         end
       end

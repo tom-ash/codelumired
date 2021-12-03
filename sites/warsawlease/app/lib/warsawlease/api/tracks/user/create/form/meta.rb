@@ -46,6 +46,22 @@ module Warsawlease
                   en: 'Account registration on warsawlease.pl - a service featuring real estate lease announcements in Warsaw.'
                 }.freeze
               end
+
+              def render
+                {
+                  visitor: true,
+                  user: true,
+                  'user/create': true,
+                  'user/create/form': true
+                }
+              end
+
+              def links
+                {
+                  'current/pl': ::Warsawlease::Api::Tracks::User::Create::Form::Linker.new(:pl).call,
+                  'current/en': ::Warsawlease::Api::Tracks::User::Create::Form::Linker.new(:en).call
+                }
+              end
             end
           end
         end

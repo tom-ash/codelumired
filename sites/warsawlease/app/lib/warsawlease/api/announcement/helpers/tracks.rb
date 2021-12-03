@@ -33,6 +33,10 @@ module Warsawlease
               ::Warsawlease::Api::Tracks::Announcement::Index::User::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::User::Edit::Meta::TRACK
               ::Warsawlease::Api::Tracks::User::Edit::Appender.new(attrs).call
+            when ::Warsawlease::Api::Tracks::User::ResetPassword::Meta::TRACK
+              ::Warsawlease::Api::Tracks::User::ResetPassword::Appender.new(attrs).call
+            when ::Warsawlease::Api::Tracks::User::Authorize::Meta::TRACK
+              ::Warsawlease::Api::Tracks::User::Authorize::Appender.new(attrs).call
             when ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::TRACK
               ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Appender.new(**attrs, current_announcement: current_announcement).call
             when ::Warsawlease::Api::Tracks::Announcement::Show::Meta::TRACK

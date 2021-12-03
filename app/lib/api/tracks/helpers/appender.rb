@@ -10,6 +10,8 @@ module Api
 
         def call
           merge_state
+          merge_render
+          merge_links
           merge_meta
         end
 
@@ -18,6 +20,22 @@ module Api
         attr_reader :attrs
 
         def merge_state; end
+
+        def merge_render
+          state.merge!(render: render)
+        end
+
+        def merge_links
+          state.merge!(links: links)
+        end
+
+        def render
+          {}
+        end
+
+        def links
+          {}
+        end
 
         def merge_meta
           meta.merge!(

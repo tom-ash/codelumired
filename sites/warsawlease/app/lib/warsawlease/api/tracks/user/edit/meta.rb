@@ -45,6 +45,21 @@ module Warsawlease
                 en: 'Account settings on warsawlease.pl - a service featuring real estate lease announcements in Warsaw.'
               }.freeze
             end
+
+            def render
+              {
+                visitor: true,
+                user: true,
+                'user/edit': true
+              }
+            end
+
+            def links
+              {
+                'current/pl': ::Warsawlease::Api::Tracks::User::Edit::Linker.new(:pl).call,
+                'current/en': ::Warsawlease::Api::Tracks::User::Edit::Linker.new(:en).call
+              }
+            end
           end
         end
       end

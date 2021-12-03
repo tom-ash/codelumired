@@ -20,6 +20,8 @@ module Warsawlease
             ::Warsawlease::Api::Tracks::User::Create::Verification::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::User::Edit::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Edit::Meta::UNLOCALIZED_PATH,
+            ::Warsawlease::Api::Tracks::User::ResetPassword::Meta::TRACK => ::Warsawlease::Api::Tracks::User::ResetPassword::Meta::UNLOCALIZED_PATH,
+            ::Warsawlease::Api::Tracks::User::Authorize::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Authorize::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Show::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Show::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Edit::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Edit::Meta::UNLOCALIZED_PATH
