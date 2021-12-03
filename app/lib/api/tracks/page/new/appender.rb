@@ -15,8 +15,6 @@ module Api
               'page/create/data': { names: site::Page.all.pluck(:name).uniq.sort }
             )
           end
-
-          def merge_meta; end
         end
       end
     end

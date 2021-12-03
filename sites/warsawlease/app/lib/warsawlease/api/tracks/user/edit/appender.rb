@@ -8,6 +8,14 @@ module Warsawlease
           class Appender
             include ::Api::Tracks::Helpers::Appender
             include ::Warsawlease::Api::Tracks::User::Edit::Meta
+
+            private
+
+            def merge_state
+              state.merge!(
+                'user/edit/data': ::Serializers::User::Edit.new(user: current_user, site_name: site_name).call
+              )
+            end
           end
         end
       end

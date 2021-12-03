@@ -61,25 +61,6 @@ module Api
               links: { 'page/edit': page.edit_link }
             )
           end
-
-          def handle_user_tracks
-            if track == 'user/edit'
-              state.merge!('user/edit/data': ::Serializers::User::Edit.new(user: current_user, site_name: site_name).call)
-            end
-          end
-
-          def handle_page_tracks
-            case track
-            when ::Api::Tracks::Page::New::Meta::TRACK
-              ::Api::Tracks::Page::New::Appender.new(attrs).call
-            when ::Api::Tracks::Page::Show::Meta::TRACK
-              ::Api::Tracks::Page::Show::Appender.new(attrs).call
-            when ::Api::Tracks::Page::Edit::Meta::TRACK
-              ::Api::Tracks::Page::Edit::Appender.new(attrs).call
-            when ::Api::Tracks::Page::Index::Manage::Meta::TRACK
-              ::Api::Tracks::Page::Index::Manage::Appender.new(attrs).call
-            end
-          end
         end
 
         before do
@@ -88,8 +69,6 @@ module Api
             append_user if current_user.present?
           end
           append_page if page_name.present?
-          handle_user_tracks
-          handle_page_tracks
         end
 
         get do
