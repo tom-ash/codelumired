@@ -24,9 +24,9 @@ module Api
           end
 
           def track_and_lang
-            @track_and_lang ||= tracks.find do |track, unlocalized_path|
-              return { track: track, lang: :pl } if unlocalized_path[:pl].match(route_url)
-              return { track: track, lang: :en } if unlocalized_path[:en].match(route_url)
+            @track_and_lang ||= track_paths.find do |track, path|
+              return { track: track, lang: :pl } if path[:pl].match(route_url)
+              return { track: track, lang: :en } if path[:en].match(route_url)
             end
           end
 

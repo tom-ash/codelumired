@@ -6,7 +6,7 @@ module Warsawlease
       helpers Warsawlease::Api::Announcement::Helpers::Filters
 
       helpers do
-        def tracks
+        def track_paths
           {
             ::Warsawlease::Api::Tracks::Root::Meta::TRACK => ::Warsawlease::Api::Tracks::Root::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::UNLOCALIZED_PATH,
