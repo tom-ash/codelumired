@@ -26,6 +26,7 @@ module Warsawlease
             ::Warsawlease::Api::Tracks::Announcement::Edit::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Edit::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Meta::UNLOCALIZED_PATH,
+            ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
           }
         end
 

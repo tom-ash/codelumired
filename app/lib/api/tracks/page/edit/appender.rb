@@ -21,11 +21,9 @@ module Api
             )
           end
 
-          def merge_meta; end
-
           def page
             page_url = url.match(%r{^(edit-page|edytuj-strone)/(.+)$})[2]
-            site::Page.find_by(url: page_url, lang: lang)
+            site::Page.find_by(url: page_url)
           end
 
           # TODO -> Move to service.
