@@ -24,7 +24,8 @@ module Warsawlease
             ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Show::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Show::Meta::UNLOCALIZED_PATH,
             ::Warsawlease::Api::Tracks::Announcement::Edit::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Edit::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Meta::UNLOCALIZED_PATH
+            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Meta::UNLOCALIZED_PATH,
+            ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Meta::UNLOCALIZED_PATH,
           }
         end
 
@@ -70,7 +71,8 @@ module Warsawlease
             ::Warsawlease::Api::Tracks::User::Authorize::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Authorize::Linker.new(lang).call,
             ::Warsawlease::Api::Tracks::User::Show::Meta::TRACK => ::Warsawlease::Api::Tracks::User::Show::Linker.new(lang).call,
             ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta::TRACK => ::Warsawlease::Api::Tracks::Announcement::Index::User::Linker.new(lang).call,
-            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(:pl).call
+            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(:pl).call,
+            ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Linker.new(:pl).call,
           )
         end
       end

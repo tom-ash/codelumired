@@ -29,8 +29,6 @@ module Api
             def pages
               site::Page.all.select(:name, :lang, :url)
             end
-
-            def merge_meta; end
           end
         end
       end
