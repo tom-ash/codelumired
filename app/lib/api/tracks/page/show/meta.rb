@@ -6,6 +6,26 @@ module Api
       module Show
         module Meta
           TRACK = 'page/show'
+
+          private
+
+          def render
+            {
+              page: true,
+              'page/show': true
+            }
+          end
+
+          def links
+            page_pl = site::Page.find_by(name: page.name, lang: :pl)
+            page_en = site::Page.find_by(name: page.name, lang: :en)
+
+            {
+              'page/edit': page.edit_link,
+              'current/pl': { path: page_pl.show_link, title: page_pl.title },
+              'current/en': { path: page_en.show_link, title: page_en.title }
+            }
+          end
         end
       end
     end

@@ -50,7 +50,7 @@ module Api
         end
 
         def state
-          @state ||= attrs[:state]
+          @state ||= attrs[:state] || {}
         end
 
         def meta

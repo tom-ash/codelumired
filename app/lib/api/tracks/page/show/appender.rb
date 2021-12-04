@@ -8,24 +8,24 @@ module Api
           include ::Api::Tracks::Helpers::Appender
           include ::Api::Tracks::Page::Show::Meta
 
-          class PageNotFoundError < StandardError; end
-          # TODO: PageNotFoundError: return error!('Page Not Found!.', 404) if page.blank?
+          def initialize(attrs)
+            @page = attrs[:page]
+            super
+          end
 
           private
 
-          def page
-            @page ||= site::Page.find_by!(url: url)
-          end
+          attr_reader :page
 
           def merge_state
             state.merge!(
-              'app': { lang: page.lang },
-              'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call,
-              links: {
-                'page/edit': page.edit_link,
-                'langs': page.lang_show_links
-              }
+              'page/show/data': data,
+              links: links
             )
+          end
+
+          def data
+            ::Serializers::Page::Show.new(page: page, site_name: site_name).call
           end
 
           def merge_meta
