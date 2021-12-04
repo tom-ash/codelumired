@@ -31,6 +31,7 @@ module Api
                 return { track: 'page/show', lang: page.lang } if page.present?
               end
 
+              status 404
               { track: 'page/not-found', lang: :pl }
             end
           end
