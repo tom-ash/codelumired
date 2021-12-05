@@ -16,6 +16,7 @@ module Api
         delete do
           ::Commands::User::Verify.new(user: current_user, namespace: 'user/delete', verification_code: verification_code).call
           ::Commands::User::Delete.new(user_id: current_user.id, site_name: site_name).call
+          site::Api::Tracks::Root::Linker.new(lang.to_sym).call
         end
       end
     end
