@@ -18,7 +18,7 @@ module Warsawlease
           def call
             {
               pl: { path: '/' },
-              en: { path: '/en' }
+              en: { path: 'en' }
             }[lang]
           end
 
