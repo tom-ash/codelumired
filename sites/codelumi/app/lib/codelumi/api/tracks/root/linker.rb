@@ -5,8 +5,8 @@ module Codelumi
     module Tracks
       module Root
         class Linker
-          include Codelumi::Api::Tracks::Helpers::Linker
-          include Codelumi::Api::Tracks::Root::Meta
+          include ::Api::Tracks::Helpers::Linker
+          include ::Codelumi::Api::Tracks::Root::Meta
         end
       end
     end

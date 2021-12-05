@@ -40,6 +40,13 @@ module Codelumi
               en: 'soundof.IT is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.'
             }.freeze
           end
+
+          def render
+            {
+              visitor: true,
+              page: true
+            }
+          end
         end
       end
     end

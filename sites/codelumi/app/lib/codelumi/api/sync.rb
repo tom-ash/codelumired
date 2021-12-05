@@ -4,43 +4,55 @@ module Codelumi
   module Api
     class Sync < ::Api::Sync
       helpers do
-        def append_links
-          links = state[:links] || {}
-          state[:links] = links.merge(
-            'root': ::Codelumi::Api::Tracks::Root::Linker.new(lang).call,
-            'visitor/contact': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/contact', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::Contact::Meta::UNLOCALIZED_TITLE).call,
-            'visitor/terms-of-service': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/terms-of-service', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::TermsOfService::Meta::UNLOCALIZED_TITLE).call,
-            'visitor/privacy-policy': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/privacy-policy', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::PrivacyPolicy::Meta::UNLOCALIZED_TITLE).call,
-            'visitor/cookies-policy': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/cookies-policy', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::CookiesPolicy::Meta::UNLOCALIZED_TITLE).call,
-            'visitor/privacy-settings': ::Api::Visitor::Links::Build.new(**link_attrs, track: 'visitor/privacy-settings', unlocalized_title: ::Codelumi::Api::Visitor::Tracks::PrivacySettings::Meta::UNLOCALIZED_TITLE).call
-          )
-        end
+        def track_paths
+          {
 
-        def link_attrs
-          { site: site, lang: lang }
+            ::Codelumi::Api::Tracks::Root::Meta::TRACK => ::Codelumi::Api::Tracks::Root::Meta::UNLOCALIZED_PATH,
+            ::Codelumi::Api::Tracks::Visitor::Contact::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::Contact::Meta::UNLOCALIZED_PATH,
+            ::Codelumi::Api::Tracks::Visitor::TermsOfService::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::TermsOfService::Meta::UNLOCALIZED_PATH,
+            ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::UNLOCALIZED_PATH,
+            ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::UNLOCALIZED_PATH,
+            ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::UNLOCALIZED_PATH,
+            # ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Meta::UNLOCALIZED_PATH,
+            # ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Meta::UNLOCALIZED_PATH,
+            # ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH
+          }
         end
 
         def append_track_data
           case track
-          when 'root'
-            ::Codelumi::Api::Tracks::Root::Appender.new(attrs).call
-          when 'visitor/contact'
-            ::Codelumi::Api::Visitor::Tracks::Contact::Merge.new(attrs).call
-          when 'visitor/terms-of-service'
-            ::Codelumi::Api::Visitor::Tracks::TermsOfService::Merge.new(attrs).call
-          when 'visitor/privacy-policy'
-            ::Codelumi::Api::Visitor::Tracks::PrivacyPolicy::Merge.new(attrs).call
-          when 'visitor/cookies-policy'
-            ::Codelumi::Api::Visitor::Tracks::CookiesPolicy::Merge.new(attrs).call
-          when 'visitor/privacy-settings'
-            ::Codelumi::Api::Visitor::Tracks::PrivacySettings::Merge.new(attrs).call
+          when ::Codelumi::Api::Tracks::Root::Meta::TRACK then ::Codelumi::Api::Tracks::Root::Appender.new(attrs).call
+          when ::Codelumi::Api::Tracks::Visitor::Contact::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::Contact::Appender.new(attrs).call
+          when ::Codelumi::Api::Tracks::Visitor::TermsOfService::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::TermsOfService::Appender.new(attrs).call
+          when ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Appender.new(attrs).call
+          when ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Appender.new(attrs).call
+          when ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Appender.new(attrs).call
+          # when ::Api::Tracks::Page::New::Meta::TRACK then ::Api::Tracks::Page::New::Appender.new(attrs).call
+          # when ::Api::Tracks::Page::Index::Manage::Meta::TRACK then ::Api::Tracks::Page::Index::Manage::Appender.new(attrs).call
+          # when ::Api::Tracks::Page::Show::Meta::TRACK then ::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
+          # when ::Api::Tracks::Page::Edit::Meta::TRACK then ::Api::Tracks::Page::Edit::Appender.new(attrs).call
+          # when ::Api::Tracks::Page::NotFound::Meta::TRACK then ::Api::Tracks::Page::NotFound::Appender.new(attrs).call
           end
+        end
+
+        def append_links
+          links = state[:links] || {}
+          state[:links] = links.merge(
+            ::Codelumi::Api::Tracks::Root::Meta::TRACK => ::Codelumi::Api::Tracks::Root::Linker.new(lang).call,
+            ::Codelumi::Api::Tracks::Visitor::Contact::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::Contact::Linker.new(lang).call,
+            ::Codelumi::Api::Tracks::Visitor::TermsOfService::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::TermsOfService::Linker.new(lang).call,
+            ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(lang).call,
+            ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Linker.new(lang).call,
+            ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Linker.new(lang).call,
+            # ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(:pl).call,
+            # ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Linker.new(:pl).call
+          )
         end
       end
 
       before do
-        append_links
         append_track_data
+        append_links
       end
     end
   end
