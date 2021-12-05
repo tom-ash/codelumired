@@ -13,9 +13,9 @@ module Codelumi
             ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::UNLOCALIZED_PATH,
             ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::UNLOCALIZED_PATH,
             ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::UNLOCALIZED_PATH,
-            # ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Meta::UNLOCALIZED_PATH,
-            # ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Meta::UNLOCALIZED_PATH,
-            # ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH
+            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Meta::UNLOCALIZED_PATH,
+            ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Meta::UNLOCALIZED_PATH,
+            ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH
           }
         end
 
@@ -27,11 +27,11 @@ module Codelumi
           when ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Appender.new(attrs).call
           when ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Appender.new(attrs).call
           when ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK then ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Appender.new(attrs).call
-          # when ::Api::Tracks::Page::New::Meta::TRACK then ::Api::Tracks::Page::New::Appender.new(attrs).call
-          # when ::Api::Tracks::Page::Index::Manage::Meta::TRACK then ::Api::Tracks::Page::Index::Manage::Appender.new(attrs).call
-          # when ::Api::Tracks::Page::Show::Meta::TRACK then ::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
-          # when ::Api::Tracks::Page::Edit::Meta::TRACK then ::Api::Tracks::Page::Edit::Appender.new(attrs).call
-          # when ::Api::Tracks::Page::NotFound::Meta::TRACK then ::Api::Tracks::Page::NotFound::Appender.new(attrs).call
+          when ::Api::Tracks::Page::New::Meta::TRACK then ::Api::Tracks::Page::New::Appender.new(attrs).call
+          when ::Api::Tracks::Page::Index::Manage::Meta::TRACK then ::Api::Tracks::Page::Index::Manage::Appender.new(attrs).call
+          when ::Api::Tracks::Page::Show::Meta::TRACK then ::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
+          when ::Api::Tracks::Page::Edit::Meta::TRACK then ::Api::Tracks::Page::Edit::Appender.new(attrs).call
+          when ::Api::Tracks::Page::NotFound::Meta::TRACK then ::Api::Tracks::Page::NotFound::Appender.new(attrs).call
           end
         end
 
@@ -44,8 +44,8 @@ module Codelumi
             ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(lang).call,
             ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Linker.new(lang).call,
             ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Linker.new(lang).call,
-            # ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(:pl).call,
-            # ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Linker.new(:pl).call
+            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(:pl).call,
+            ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Linker.new(:pl).call
           )
         end
       end
