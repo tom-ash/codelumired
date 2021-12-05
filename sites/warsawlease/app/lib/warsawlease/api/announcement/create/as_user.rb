@@ -13,7 +13,7 @@ module Warsawlease
           post do
             announcement_attrs = { user_id: current_user.id, attrs: params[:announcement].merge(confirmed: true) }
             ::Warsawlease::Commands::Announcement::Create.new(announcement_attrs).call
-            camelize(current_user.announcements.last)
+            current_user.announcements.last.summary_path(lang)
           end
         end
       end

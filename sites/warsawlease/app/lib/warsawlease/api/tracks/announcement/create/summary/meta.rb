@@ -10,8 +10,8 @@ module Warsawlease
               TRACK = 'announcement/create/summary'
 
               UNLOCALIZED_PATH = {
-                pl: 'podsumowanie-dodanego-ogloszenia',
-                en: 'added-announcement-summary'
+                pl: %r{^podsumowanie-dodanego-ogloszenia/(\d+)$},
+                en: %r{^added-announcement-summary/(\d+)$}
               }.freeze
 
               UNLOCALIZED_TITLE = {
@@ -20,6 +20,14 @@ module Warsawlease
               }.freeze
 
               private
+
+              def id
+                @id ||= unlocalized_path[lang].match(url)[1]
+              end
+
+              def announcement
+                @announcement ||= ::Warsawlease::Announcement.find(id)
+              end
 
               def track
                 @track ||= TRACK
@@ -60,8 +68,9 @@ module Warsawlease
 
               def links
                 {
-                  'current/pl': ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Linker.new(:pl).call,
-                  'current/en': ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Linker.new(:en).call
+                  'current/pl': { path: announcement.summary_path(:pl) },
+                  'current/en': { path: announcement.summary_path(:en) },
+                  'announcement/show': { path: announcement.url(lang) }
                 }
               end
             end

@@ -45,7 +45,7 @@ module Warsawlease
           when ::Warsawlease::Api::Tracks::User::Authorize::Meta::TRACK then ::Warsawlease::Api::Tracks::User::Authorize::Appender.new(attrs).call
           when ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta::TRACK then ::Warsawlease::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
           when ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta::TRACK then ::Warsawlease::Api::Tracks::Announcement::Index::User::Appender.new(attrs).call
-          when ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::TRACK then ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Appender.new(**attrs, current_announcement: current_announcement).call
+          when ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta::TRACK then ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Appender.new(attrs).call
           when ::Warsawlease::Api::Tracks::Announcement::Show::Meta::TRACK then ::Warsawlease::Api::Tracks::Announcement::Show::Appender.new(attrs).call
           when ::Warsawlease::Api::Tracks::Announcement::Edit::Meta::TRACK then ::Warsawlease::Api::Tracks::Announcement::Edit::Appender.new(attrs).call
           when ::Api::Tracks::Page::New::Meta::TRACK then ::Api::Tracks::Page::New::Appender.new(attrs).call

@@ -10,26 +10,14 @@ module Warsawlease
               include ::Api::Tracks::Helpers::Appender
               include ::Warsawlease::Api::Tracks::Announcement::Create::Summary::Meta
 
-              def initialize(attrs)
-                @current_announcement = attrs[:current_announcement]
-                super
-              end
-
-              def call
-                merge_state
-                super
-              end
-
               private
-
-              attr_reader :current_announcement
 
               def merge_state
                 state.merge!(
                   'announcement/create/data': {
-                    announcement: ::Warsawlease::Serializers::Announcement::Show.new(current_announcement).call.merge(
-                      path: current_announcement.url(lang),
-                      title: current_announcement.title(lang)
+                    announcement: ::Warsawlease::Serializers::Announcement::Show.new(announcement).call.merge(
+                      path: announcement.url(lang),
+                      title: announcement.title(lang)
                     )
                   },
                   render: render,

@@ -15,6 +15,7 @@ module Warsawlease
           end
           put do
             ::Warsawlease::Commands::Announcement::Update.new(id: current_announcement.id, attrs: params[:announcement]).call
+            current_announcement.url(lang.to_sym)
           end
         end
       end

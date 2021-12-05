@@ -10,8 +10,8 @@ module Warsawlease
               TRACK = 'user/create/verification'
 
               UNLOCALIZED_PATH = {
-                pl: 'zarejestruj/potwierdz',
-                en: 'sign-up/confirm'
+                pl: 'potwierdzenie-adresu-email',
+                en: 'email-address-confirmation'
               }.freeze
 
               UNLOCALIZED_TITLE = {
