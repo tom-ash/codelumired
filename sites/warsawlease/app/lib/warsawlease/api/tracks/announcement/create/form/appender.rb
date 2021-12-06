@@ -12,11 +12,8 @@ module Warsawlease
 
               private
 
-              def merge_state
-                state.merge!(
-                  render: render,
-                  links: links
-                )
+              def page_name
+                @page_name ||= 'create_announcement'
               end
             end
           end

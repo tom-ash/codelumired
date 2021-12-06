@@ -33,6 +33,10 @@ module Warsawlease
               current_category: category
             }
           end
+
+          def page_name
+            @page_name ||= 'welcome'
+          end
         end
       end
     end

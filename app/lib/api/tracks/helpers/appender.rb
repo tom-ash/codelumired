@@ -13,6 +13,7 @@ module Api
           merge_render
           merge_links
           merge_meta
+          merge_page
         end
 
         private
@@ -91,6 +92,31 @@ module Api
 
         def lang_counterpart
           @lang_counterpart ||= lang == :pl ? :en : :pl
+        end
+
+        def merge_page
+          return if page.blank?
+
+          state.merge!(
+            'page/show/data': page_data,
+            'render': state[:render].merge(page: true, 'page/show': true)
+          )
+        end
+
+        def page
+          @page ||= begin
+            return if page_name.blank?
+
+            site::Page.find_by(name: page_name, lang: lang)
+          end
+        end
+
+        def page_data
+          ::Serializers::Page::Show.new(page: page, site_name: site_name).call
+        end
+
+        def page_name
+          nil
         end
       end
     end
