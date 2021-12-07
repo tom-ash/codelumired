@@ -58,7 +58,7 @@ module Api
 
             state.merge!(
               'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call,
-              links: { 'page/edit': page.edit_link }
+              links: { 'page/edit': { path: page.edit_link } }
             )
           end
         end

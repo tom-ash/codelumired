@@ -21,7 +21,7 @@ module Api
             page_en = site::Page.find_by(name: page.name, lang: :en)
 
             {
-              'page/edit': page.edit_link,
+              'page/edit': { path: page.edit_link },
               'current/pl': { path: page_pl.show_link, title: page_pl.title },
               'current/en': { path: page_en.show_link, title: page_en.title }
             }
