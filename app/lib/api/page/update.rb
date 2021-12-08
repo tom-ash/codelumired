@@ -20,7 +20,8 @@ module Api
       end
       put do
         attrs = params.merge(user_id: current_user.id, site_name: site_name)
-        ::Commands::Page::Update.new(attrs).call
+        page = ::Commands::Page::Update.new(attrs).call
+        page.url
       end
     end
   end

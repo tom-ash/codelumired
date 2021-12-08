@@ -14,6 +14,7 @@ module Commands
 
       def call
         page.update!(attrs.slice(*PAGE_UPDATE_ATTRS))
+        page
       end
 
       private
