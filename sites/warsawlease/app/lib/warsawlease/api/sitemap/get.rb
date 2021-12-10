@@ -5,16 +5,21 @@ module Warsawlease
     module Sitemap
       class Get < Grape::API
         helpers do
-          def sitemap_data
+          def mappers
             [
-              ::Warsawlease::Api::Tracks::Root::Meta::UNLOCALIZED_PATH
+              ::Warsawlease::Api::Tracks::Root::Mapper
             ]
           end
         end
 
         get do
-          ::Warsawlease::Api::Tracks::Root::Mapper.new.call
+          link_groups = []
 
+          mappers.each do |mapper|
+            link_groups += mapper.links
+          end
+
+          link_groups
         end
       end
     end
