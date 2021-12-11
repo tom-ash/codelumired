@@ -7,7 +7,8 @@ module Warsawlease
         helpers do
           def mappers
             [
-              ::Warsawlease::Api::Tracks::Root::Mapper
+              ::Warsawlease::Api::Tracks::Root::Mapper,
+              ::Api::Methods::Page::Sitemap
             ]
           end
         end
@@ -16,7 +17,7 @@ module Warsawlease
           link_groups = []
 
           mappers.each do |mapper|
-            link_groups += mapper.links
+            link_groups += mapper.get(site)
           end
 
           link_groups

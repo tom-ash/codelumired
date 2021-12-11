@@ -3,10 +3,8 @@ module Warsawlease
     module Tracks
       module Root
         class Mapper
-          include ::Warsawlease::Api::Tracks::Root::Meta
-
           class << self
-            def links
+            def get(site)
               [
                 map_links,
                 catalogue_links
