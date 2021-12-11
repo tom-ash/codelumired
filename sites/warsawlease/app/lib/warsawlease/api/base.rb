@@ -38,7 +38,10 @@ module Warsawlease
           [
             ::Warsawlease::Api::Tracks::Root::Sitemap,
             ::Warsawlease::Api::Tracks::Announcement::Create::Form::Sitemap,
-            ::Warsawlease::Api::Tracks::Announcement::Show::Sitemap
+            ::Warsawlease::Api::Tracks::Announcement::Show::Sitemap,
+            ::Warsawlease::Api::Tracks::User::Create::Form::Sitemap,
+            ::Warsawlease::Api::Tracks::User::Authorize::Sitemap,
+            ::Warsawlease::Api::Tracks::User::ResetPassword::Sitemap
           ]
         end
       end
