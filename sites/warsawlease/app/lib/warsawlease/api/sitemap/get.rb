@@ -8,7 +8,8 @@ module Warsawlease
           def mappers
             [
               ::Warsawlease::Api::Tracks::Root::Mapper,
-              ::Api::Methods::Page::Sitemap
+              ::Api::Methods::Page::Sitemap,
+              ::Warsawlease::Queries::Announcement::Sitemap
             ]
           end
         end
