@@ -41,7 +41,12 @@ module Warsawlease
             ::Warsawlease::Api::Tracks::Announcement::Show::Sitemap,
             ::Warsawlease::Api::Tracks::User::Create::Form::Sitemap,
             ::Warsawlease::Api::Tracks::User::Authorize::Sitemap,
-            ::Warsawlease::Api::Tracks::User::ResetPassword::Sitemap
+            ::Warsawlease::Api::Tracks::User::ResetPassword::Sitemap,
+            ::Warsawlease::Api::Tracks::Visitor::Contact::Sitemap,
+            ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Sitemap,
+            ::Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
+            ::Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
+            ::Warsawlease::Api::Tracks::Visitor::PrivacySettings::Sitemap
           ]
         end
       end
