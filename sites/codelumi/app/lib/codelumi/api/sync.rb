@@ -6,7 +6,6 @@ module Codelumi
       helpers do
         def track_paths
           {
-
             ::Codelumi::Api::Tracks::Root::Meta::TRACK => ::Codelumi::Api::Tracks::Root::Meta::UNLOCALIZED_PATH,
             ::Codelumi::Api::Tracks::Visitor::Contact::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::Contact::Meta::UNLOCALIZED_PATH,
             ::Codelumi::Api::Tracks::Visitor::TermsOfService::Meta::TRACK => ::Codelumi::Api::Tracks::Visitor::TermsOfService::Meta::UNLOCALIZED_PATH,
