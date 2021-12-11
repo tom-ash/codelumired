@@ -37,6 +37,7 @@ module Warsawlease
         def sitemaps
           [
             ::Warsawlease::Api::Tracks::Root::Sitemap,
+            ::Warsawlease::Api::Tracks::Announcement::Create::Form::Sitemap,
             ::Warsawlease::Api::Tracks::Announcement::Show::Sitemap
           ]
         end

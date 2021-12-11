@@ -5,7 +5,7 @@ module Warsawlease
     module Tracks
       module Announcement
         module Show
-          module Sitemap
+          class Sitemap
             class << self
               def get
                 announcement_links

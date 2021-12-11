@@ -48,7 +48,7 @@ module Warsawlease
                       lang: lang,
                       changefreq: 'daily',
                       priority: '0.8'
-                    }  
+                    }
                   end
 
                   category_link_groups << category_link_group
