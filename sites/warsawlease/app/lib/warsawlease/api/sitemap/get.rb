@@ -5,11 +5,9 @@ module Warsawlease
     module Sitemap
       class Get < Grape::API
         helpers do
-          def mappers
+          def shared_sitemaps
             [
-              ::Warsawlease::Api::Tracks::Root::Mapper,
               ::Api::Methods::Page::Sitemap,
-              ::Warsawlease::Queries::Announcement::Sitemap
             ]
           end
         end
@@ -17,7 +15,11 @@ module Warsawlease
         get do
           link_groups = []
 
-          mappers.each do |mapper|
+          sitemaps.each do |mapper|
+            link_groups += mapper.get
+          end
+
+          shared_sitemaps.each do |mapper|
             link_groups += mapper.get(site)
           end
 

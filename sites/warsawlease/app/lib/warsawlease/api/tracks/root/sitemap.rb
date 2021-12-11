@@ -1,14 +1,13 @@
+# frozen_string_literal: true
+
 module Warsawlease
   module Api
     module Tracks
       module Root
-        class Mapper
+        class Sitemap
           class << self
-            def get(site)
-              [
-                map_links,
-                catalogue_links
-              ] + category_links
+            def get
+              [map_links, catalogue_links] + category_links
             end
 
             private
