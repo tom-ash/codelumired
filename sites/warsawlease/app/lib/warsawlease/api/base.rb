@@ -42,8 +42,8 @@ module Warsawlease
         end
       end
 
+      mount ::Api::Sitemap => 'sitemap'
       mount ::Warsawlease::Api::Sync => 'sync'
-      mount ::Warsawlease::Api::Sitemap::Get => 'sitemap'
       mount ::Warsawlease::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
       mount ::Warsawlease::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
       mount ::Warsawlease::Api::Announcement::GetTile => 'announcement/get-tile/:id'

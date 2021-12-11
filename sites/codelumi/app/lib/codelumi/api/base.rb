@@ -21,6 +21,7 @@ module Codelumi
         end
       end
 
+      mount ::Api::Sitemap => 'sitemap'
       mount ::Codelumi::Api::Sync => 'sync'
     end
   end
