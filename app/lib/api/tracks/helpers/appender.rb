@@ -13,6 +13,7 @@ module Api
           merge_render
           merge_links
           merge_meta
+          merge_assets
           merge_page
         end
 
@@ -28,6 +29,10 @@ module Api
 
         def merge_links
           state.merge!(links: links)
+        end
+
+        def merge_assets
+          state.merge!('assets/svgs': assets)
         end
 
         def render
@@ -117,6 +122,16 @@ module Api
 
         def page_name
           nil
+        end
+
+        def assets
+          ::Warsawlease::Asset.where(name: asset_names).each_with_object({}) do |svg, serialized_svgs|
+            serialized_svgs[svg.name.to_s] = svg.data
+          end
+        end
+
+        def asset_names
+          @asset_names ||= []
         end
       end
     end

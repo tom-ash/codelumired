@@ -73,6 +73,10 @@ module Warsawlease
                   'announcement/show': { path: announcement.url(lang) }
                 }
               end
+
+              def asset_names
+                @asset_names ||= %i[facebook]
+              end
             end
           end
         end

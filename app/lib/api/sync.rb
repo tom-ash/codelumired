@@ -44,10 +44,6 @@ module Api
             @meta ||= { lang: lang }
           end
 
-          def append_assets
-            state.merge!('assets/svgs': ::SvgsSerializer.new(site: 'Warsawlease').serialize)
-          end
-
           def append_user
             state.merge!('user/authorize/data': ::Serializers::User::Show.new(user: current_user, site_name: site_name).call)
           end
@@ -65,7 +61,6 @@ module Api
 
         before do
           if ssr?
-            append_assets
             append_user if current_user.present?
           end
           append_page if page_name.present?
