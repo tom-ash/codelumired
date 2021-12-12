@@ -29,6 +29,10 @@ module Warsawlease
                 'current/en': Warsawlease::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :en).call
               }
             end
+
+            def asset_names
+              @asset_names ||= %i[check]
+            end
           end
         end
       end

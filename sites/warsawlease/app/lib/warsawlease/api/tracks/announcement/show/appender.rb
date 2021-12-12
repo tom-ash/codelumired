@@ -9,18 +9,11 @@ module Warsawlease
             include ::Api::Tracks::Helpers::Appender
             include ::Warsawlease::Api::Tracks::Announcement::Show::Meta
 
-            def call
-              merge_state
-              merge_meta
-            end
-
             private
 
             def merge_state
               state.merge!(
-                'announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call,
-                render: render,
-                links: links
+                'announcement/show/data': ::Warsawlease::Serializers::Announcement::Show.new(announcement).call
               )
             end
 

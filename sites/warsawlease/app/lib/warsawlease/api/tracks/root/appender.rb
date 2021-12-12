@@ -10,19 +10,12 @@ module Warsawlease
           include ::Warsawlease::Api::Announcement::Tracks::Helpers::Announcements
           include ::Warsawlease::Api::Announcement::Tracks::Helpers::Filters
 
-          def call
-            merge_state
-            super
-          end
-
           private
 
           def merge_state
             state.merge!(
               'announcement/index/data': data,
-              'announcement/index/inputs': inputs,
-              links: links,
-              render: render
+              'announcement/index/inputs': inputs
             )
           end
 

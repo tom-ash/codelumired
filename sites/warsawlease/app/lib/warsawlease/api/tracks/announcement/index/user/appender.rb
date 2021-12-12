@@ -10,11 +10,6 @@ module Warsawlease
               include ::Api::Tracks::Helpers::Appender
               include ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta
 
-              def call
-                merge_state
-                super
-              end
-
               private
 
               def merge_state
@@ -22,9 +17,7 @@ module Warsawlease
                   'announcement/index/data': {
                     announcements: serialized_announcements,
                     amount: serialized_announcements.count
-                  },
-                  render: render,
-                  links: links
+                  }
                 )
               end
 
