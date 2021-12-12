@@ -31,7 +31,7 @@ module Warsawlease
             end
 
             def asset_names
-              @asset_names ||= %i[check]
+              @asset_names ||= %i[check facebook]
             end
           end
         end
