@@ -13,7 +13,7 @@ module Warsawlease
     end
 
     def langs
-      @langs ||= %w[pl en]
+      @langs ||= %i[pl en]
     end
   end
 end

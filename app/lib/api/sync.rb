@@ -11,6 +11,7 @@ module Api
             @attrs ||= {
               url: route_url,
               lang: lang,
+              langs: langs,
               params: params,
               current_user: current_user,
               state: state,

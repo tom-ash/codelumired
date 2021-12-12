@@ -9,7 +9,7 @@ module Codelumi
     end
 
     def langs
-      @langs ||= %w[pl en]
+      @langs ||= %i[en]
     end
   end
 end

@@ -6,7 +6,7 @@ module Warsawlease
       SITENAME = 'Warsawlease'
       SITE_TITLE = 'warsawlease.pl'
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
-      LANGS = %w[pl en].freeze
+      LANGS = %i[pl en].freeze
 
       helpers do
         def site_name

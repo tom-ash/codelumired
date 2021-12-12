@@ -5,7 +5,7 @@ module Codelumi
     class Base < ::Api::Base
       SITENAME = 'Codelumi'
       SITE_TITLE = 'soundof.IT'
-      LANGS = %w[en].freeze
+      LANGS = %i[en].freeze
 
       helpers do
         def site_name

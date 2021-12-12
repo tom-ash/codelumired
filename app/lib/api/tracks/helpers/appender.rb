@@ -14,6 +14,7 @@ module Api
           merge_links
           merge_meta
           merge_assets
+          merge_locale
           merge_page
         end
 
@@ -35,6 +36,32 @@ module Api
           state.merge!('assets/svgs': assets)
         end
 
+        def merge_locale
+          meta.merge!(
+            og_locale: og_locale,
+            og_locale_alts: og_locale_alts
+          )
+        end
+
+        def og_locale
+          og_unlocalized_locale[lang]
+        end
+
+        def og_locale_alts
+          alt_langs.map { |alt_lang| og_unlocalized_locale[alt_lang] }
+        end
+
+        def og_unlocalized_locale
+          @og_unlocalized_locale ||= {
+            pl: :pl_pl,
+            en: :en_us
+          }
+        end
+
+        def alt_langs
+          @alt_langs ||= langs.reject { |alt_lang| alt_lang == lang }
+        end
+
         def render
           {}
         end
@@ -53,6 +80,10 @@ module Api
 
         def lang
           @lang ||= attrs[:lang].to_sym
+        end
+
+        def langs
+          @langs ||= attrs[:langs]
         end
 
         def state
