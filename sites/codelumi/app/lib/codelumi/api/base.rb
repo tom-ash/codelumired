@@ -19,6 +19,16 @@ module Codelumi
         def page_langs
           @page_langs ||= PAGE_LANGS
         end
+
+        def sitemaps
+          [
+            ::Codelumi::Api::Tracks::Visitor::Contact::Sitemap,
+            ::Codelumi::Api::Tracks::Visitor::TermsOfService::Sitemap,
+            ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
+            ::Codelumi::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
+            ::Codelumi::Api::Tracks::Visitor::PrivacySettings::Sitemap
+          ]
+        end
       end
 
       mount ::Api::Sitemap => 'sitemap'
