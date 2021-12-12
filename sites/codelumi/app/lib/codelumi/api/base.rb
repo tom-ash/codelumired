@@ -26,6 +26,7 @@ module Codelumi
 
         def sitemaps
           [
+            ::Codelumi::Api::Tracks::Root::Sitemap,
             ::Codelumi::Api::Tracks::Visitor::Contact::Sitemap,
             ::Codelumi::Api::Tracks::Visitor::TermsOfService::Sitemap,
             ::Codelumi::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
