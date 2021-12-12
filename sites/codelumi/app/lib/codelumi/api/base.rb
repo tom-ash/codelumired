@@ -5,7 +5,7 @@ module Codelumi
     class Base < ::Api::Base
       SITENAME = 'Codelumi'
       SITE_TITLE = 'soundof.IT'
-      PAGE_LANGS = %w[pl en].freeze
+      LANGS = %w[en].freeze
 
       helpers do
         def site_name
@@ -17,7 +17,11 @@ module Codelumi
         end
 
         def page_langs
-          @page_langs ||= PAGE_LANGS
+          @page_langs ||= LANGS
+        end
+
+        def langs
+          @langs ||= LANGS
         end
 
         def sitemaps

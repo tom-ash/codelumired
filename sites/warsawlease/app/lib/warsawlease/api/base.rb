@@ -6,7 +6,7 @@ module Warsawlease
       SITENAME = 'Warsawlease'
       SITE_TITLE = 'warsawlease.pl'
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
-      PAGE_LANGS = %w[pl en].freeze
+      LANGS = %w[pl en].freeze
 
       helpers do
         def site_name
@@ -17,8 +17,12 @@ module Warsawlease
           @site_title ||= SITE_TITLE
         end
 
+        def langs
+          @langs ||= LANGS
+        end
+
         def page_langs
-          @page_langs ||= PAGE_LANGS
+          @page_langs ||= LANGS
         end
 
         def allowed_update_attrs

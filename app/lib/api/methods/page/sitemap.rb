@@ -5,16 +5,16 @@ module Api
     module Page
       module Sitemap
         class << self
-          def get(site)
-            page_links(site)
+          def get(site, langs)
+            page_links(site, langs)
           end
 
           private
 
-          def page_links(site)
+          def page_links(site, langs)
             links = []
 
-            site::Page.all.group_by(&:name).each_value do |pages|
+            site::Page.all.where(lang: langs).group_by(&:name).each_value do |pages|
               link = []
               pages.each do |page|
                 next if page.canonical_url.present?
