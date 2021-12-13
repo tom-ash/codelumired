@@ -131,7 +131,7 @@ module Api
         end
 
         def merge_page
-          return if page.blank?
+          return if show_page.blank?
 
           state.merge!(
             'page/show/data': page_data,
@@ -139,8 +139,8 @@ module Api
           )
         end
 
-        def page
-          @page ||= begin
+        def show_page
+          @show_page ||= begin
             return if page_name.blank?
 
             site::Page.find_by(name: page_name, lang: lang)
@@ -148,7 +148,7 @@ module Api
         end
 
         def page_data
-          ::Serializers::Page::Show.new(page: page, site_name: site_name).call
+          ::Serializers::Page::Show.new(page: show_page, site_name: site_name).call
         end
 
         def page_name
