@@ -16,6 +16,7 @@ module Api
           merge_assets
           merge_locale
           merge_page
+          merge_langs
         end
 
         private
@@ -163,6 +164,12 @@ module Api
 
         def asset_names
           @asset_names ||= []
+        end
+
+        def merge_langs
+          meta.merge!(
+            langs: langs
+          )
         end
       end
     end
