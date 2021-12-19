@@ -28,7 +28,11 @@ module Warsawlease
           end
 
           def page_name
-            @page_name ||= 'welcome'
+            @page_name ||= begin
+              return unless url.in?(['/', 'en'])
+
+              'root'
+            end
           end
         end
       end

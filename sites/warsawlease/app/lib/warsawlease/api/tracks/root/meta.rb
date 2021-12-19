@@ -88,10 +88,8 @@ module Warsawlease
               'visitor': true,
               'announcement': true,
               'announcement/index': true,
-              "announcement/index/#{venue}": true,
-              'page': true,
-              'page/show': true
-            }
+              "announcement/index/#{venue}": true
+            }.merge(page_render)
           end
 
           def links
@@ -108,6 +106,15 @@ module Warsawlease
 
           def canonical_url
             ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).lang_links(:map)["current/#{lang}".to_sym][:path]
+          end
+
+          def page_render
+            return {} if page_name.blank?
+
+            {
+              'page': true,
+              'page/show': true
+            }
           end
         end
       end
