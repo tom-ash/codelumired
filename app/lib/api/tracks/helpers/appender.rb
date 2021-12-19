@@ -17,6 +17,7 @@ module Api
           merge_locale
           merge_page
           merge_langs
+          merge_canonical_url
         end
 
         private
@@ -170,6 +171,18 @@ module Api
           meta.merge!(
             langs: langs
           )
+        end
+
+        def merge_canonical_url
+          return if canonical_url.nil?
+
+          meta.merge!(
+            canonical_url: canonical_url
+          )
+        end
+
+        def canonical_url
+          nil
         end
       end
     end

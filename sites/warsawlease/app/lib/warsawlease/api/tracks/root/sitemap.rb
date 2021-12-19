@@ -7,7 +7,7 @@ module Warsawlease
         class Sitemap
           class << self
             def get
-              [map_links, catalogue_links] + category_links
+              [map_links] + category_links
             end
 
             private
@@ -19,22 +19,12 @@ module Warsawlease
               ]
             end
 
-            def catalogue_links
-              [
-                { path: 'warszawa/wynajem/nieruchomosci/katalog', lang: :pl, changefreq: 'daily', priority: '1.0' },
-                { path: 'property/catalogue', lang: :en, changefreq: 'daily', priority: '1.0' }
-              ]
-            end
-
             def category_links
               langs = [:pl, :en]
 
               prefix = { pl: 'warszawa/wynajem/nieruchomosci', en: 'property' }
 
-              venues = {
-                map: { pl: 'mapa', en: 'map' },
-                catalogue: { pl: 'katalog', en: 'catalogue' }
-              }
+              venues = { map: { pl: 'mapa', en: 'map' } }
 
               category_link_groups = []
 
