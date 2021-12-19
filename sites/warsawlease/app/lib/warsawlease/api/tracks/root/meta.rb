@@ -101,7 +101,7 @@ module Warsawlease
           end
 
           def asset_names
-            @asset_names ||= %i[apartment house room parkingSpace usablePremises office virtualOffice coworkingSpace facebook chevron close phone]
+            @asset_names ||= %i[apartment house room parkingSpace usablePremises office virtualOffice coworkingSpace facebook chevron close phone caretDown]
           end
 
           def canonical_url
