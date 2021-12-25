@@ -26,6 +26,10 @@ module Api
               'current/en': { path: page_en.show_link, title: page_en.title }
             }
           end
+
+          def asset_names
+            @asset_names ||= %i[edit]
+          end
         end
       end
     end
