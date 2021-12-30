@@ -1,6 +1,6 @@
-class WelcomeMailer < ApplicationMailer
+class NotifierMailer < ApplicationMailer
   # http://localhost:3001/rails/mailers/welcome/send_welcome_email
-  def send_welcome_email
+  def before_name_change
     # TODO: USER
     @lang = 'pl'
     @company = company
