@@ -7,7 +7,7 @@ class WelcomeMailer < ApplicationMailer
     mail(
       to: 'test@test.pl',
       from: 'test@test.pl',
-      subject: 'Test Subject'
+      subject: 'warsawlease.pl zmienia się w mapawynajmu.pl'
     )
   end
 end
