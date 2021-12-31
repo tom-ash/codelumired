@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Root
         class Appender
           include ::Api::Tracks::Helpers::Appender
-          include ::Warsawlease::Api::Tracks::Root::Meta
-          include ::Warsawlease::Api::Announcement::Tracks::Helpers::Announcements
-          include ::Warsawlease::Api::Announcement::Tracks::Helpers::Filters
+          include ::MapawynajmuPl::Api::Tracks::Root::Meta
+          include ::MapawynajmuPl::Api::Announcement::Tracks::Helpers::Announcements
+          include ::MapawynajmuPl::Api::Announcement::Tracks::Helpers::Filters
 
           private
 

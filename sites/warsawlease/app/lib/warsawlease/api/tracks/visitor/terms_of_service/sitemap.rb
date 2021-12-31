@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Visitor
         module TermsOfService
           class Sitemap
             class << self
-              include ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Meta
+              include ::MapawynajmuPl::Api::Tracks::Visitor::TermsOfService::Meta
 
               def get
                 [links]

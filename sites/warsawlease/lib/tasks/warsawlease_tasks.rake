@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-namespace :warsawlease do
+namespace :mapawynajmu_pl do
   desc 'Deletes inactive announcements.'
   task delete_inactive_announcements: :environment do
-    Warsawlease::Announcement.where('active_until < ?', 1.day.ago).destroy_all
+    MapawynajmuPl::Announcement.where('active_until < ?', 1.day.ago).destroy_all
   end
 
-  desc 'Warsawlease Grape Routes'
+  desc 'MapawynajmuPl Grape Routes'
   task routes: :environment do
-    ::Warsawlease::Api::Base.routes.each do |api|
+    ::MapawynajmuPl::Api::Base.routes.each do |api|
       method = api.request_method.ljust(10)
       path = api.path
       puts "#{method} #{path}"
@@ -17,7 +17,7 @@ namespace :warsawlease do
 
   desc 'Migrates user data for new user architecture.'
   task migrate_user_data: :environment do
-    ::Warsawlease::User.all.each do |user|
+    ::MapawynajmuPl::User.all.each do |user|
       phone_data = user.phone
       user.update(
         confirmed: true,
@@ -30,7 +30,7 @@ namespace :warsawlease do
 
   desc 'Prepares user verification for new user architecture.'
   task prepare_user_verification: :environment do
-    ::Warsawlease::User.all.each do |user|
+    ::MapawynajmuPl::User.all.each do |user|
       user.update!(verification: []) if user.verification&.class != Array
     end
   end
@@ -44,7 +44,7 @@ namespace :warsawlease do
 
   desc 'Generate encryption :key, :iv and :salt.'
   task send_before_name_change_email: :environment do
-    users = Warsawlease::User.all
+    users = MapawynajmuPl::User.all
 
     users.each do |user|
       puts "Sending \"Before Name Change Email\" for user with id #{user.id}"

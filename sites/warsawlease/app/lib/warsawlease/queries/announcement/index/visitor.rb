@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Queries
     module Announcement
       module Index
@@ -20,7 +20,7 @@ module Warsawlease
           attr_reader :category, :area_min, :area_max
 
           def announcements
-            @announcement ||= ::Warsawlease::Announcement.where(search_params).order('points DESC').order('active_until DESC')
+            @announcement ||= ::MapawynajmuPl::Announcement.where(search_params).order('points DESC').order('active_until DESC')
             @announcement = @announcement.where('area >= ?', area_min) if area_min.present?
             @announcement = @announcement.where('area <= ?', area_max) if area_max.present?
 

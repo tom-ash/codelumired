@@ -1,6 +1,6 @@
-require "warsawlease/version"
-require "warsawlease/engine"
+require "mapawynajmu_pl/version"
+require "mapawynajmu_pl/engine"
 
-module Warsawlease
+module MapawynajmuPl
   # Your code goes here...
 end

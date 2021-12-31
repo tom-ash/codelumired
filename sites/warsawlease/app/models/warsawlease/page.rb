@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   class Page < ::Page
-    establish_connection :warsawlease
+    establish_connection :mapawynajmu_pl
 
     belongs_to :user, foreign_key: :author_id
 
     private
 
     def site
-      @site ||= Warsawlease
+      @site ||= MapawynajmuPl
     end
 
     def langs

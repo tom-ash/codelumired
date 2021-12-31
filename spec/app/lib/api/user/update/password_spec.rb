@@ -10,12 +10,12 @@ RSpec.describe ::Api::User::Update::Password do
   let(:namespace) { 'user/update/password' }
 
   describe '/update/password' do
-    let!(:user) { create(:warsawlease_user, email: email, verification: verification) }
+    let!(:user) { create(:mapawynajmu_pl_user, email: email, verification: verification) }
     let(:params) { { email: email, password: 'new_test_password', verification_code: verification_code } }
     let(:namespace) { 'user/update/password' }
 
     describe 'PUT /verification' do
-      subject { put '/warsawlease/user/update/password/verification', params: { email: email }, headers: { 'Lang': 'pl' } }
+      subject { put '/mapawynajmu_pl/user/update/password/verification', params: { email: email }, headers: { 'Lang': 'pl' } }
 
       context 'when sending verification email is successful' do
         it 'returns :ok (200)' do
@@ -26,7 +26,7 @@ RSpec.describe ::Api::User::Update::Password do
     end
 
     describe 'PUT /verify' do
-      subject { put '/warsawlease/user/update/password/verify', params: params, headers: { 'Lang': 'pl' } }
+      subject { put '/mapawynajmu_pl/user/update/password/verify', params: params, headers: { 'Lang': 'pl' } }
       let(:params) { { email: email, verification_code: verification_code } }
 
       context 'when verification code is valid' do
@@ -47,7 +47,7 @@ RSpec.describe ::Api::User::Update::Password do
     end
 
     describe 'PUT /' do
-      subject { put '/warsawlease/user/update/password', params: params }
+      subject { put '/mapawynajmu_pl/user/update/password', params: params }
 
       it 'returns :ok (200)' do
         subject

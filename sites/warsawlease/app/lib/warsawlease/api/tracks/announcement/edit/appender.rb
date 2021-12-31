@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Announcement
         module Edit
           class Appender
             include ::Api::Tracks::Helpers::Appender
-            include ::Warsawlease::Api::Tracks::Announcement::Edit::Meta
+            include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta
 
             private
 
             def merge_state
               state.merge!(
                 'announcement/create/data': {
-                  announcement: ::Warsawlease::Serializers::Announcement::Show.new(announcement).call
+                  announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call
                 }
               )
             end
@@ -26,11 +26,11 @@ module Warsawlease
             end
 
             def serialized_announcement
-              ::Warsawlease::Serializers::Announcement::Edit.new(announcement).call
+              ::MapawynajmuPl::Serializers::Announcement::Edit.new(announcement).call
             end
 
             def announcement
-              @announcement ||= ::Warsawlease::Queries::Announcement::ById.new(id: announcement_id).call
+              @announcement ||= ::MapawynajmuPl::Queries::Announcement::ById.new(id: announcement_id).call
             end
 
             def announcement_id

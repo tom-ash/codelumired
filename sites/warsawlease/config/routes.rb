@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-Warsawlease::Engine.routes.draw do
-  mount Warsawlease::Api::Base => '/'
+MapawynajmuPl::Engine.routes.draw do
+  mount MapawynajmuPl::Api::Base => '/'
 end

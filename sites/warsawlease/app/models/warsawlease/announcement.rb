@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   class Announcement < ApplicationRecord
-    include ::Warsawlease::AnnouncementModules::Categories
-    include ::Warsawlease::AnnouncementModules::Districts
-    include ::Warsawlease::AnnouncementModules::Path
-    include ::Warsawlease::AnnouncementModules::Title
-    include ::Warsawlease::AnnouncementModules::Keywords
-    include ::Warsawlease::AnnouncementModules::Description
-    include ::Warsawlease::AnnouncementModules::Image
-    include ::Warsawlease::AnnouncementModules::EditPath
-    include ::Warsawlease::AnnouncementModules::EditTitle
-    include ::Warsawlease::AnnouncementModules::SummaryPath
+    include ::MapawynajmuPl::AnnouncementModules::Categories
+    include ::MapawynajmuPl::AnnouncementModules::Districts
+    include ::MapawynajmuPl::AnnouncementModules::Path
+    include ::MapawynajmuPl::AnnouncementModules::Title
+    include ::MapawynajmuPl::AnnouncementModules::Keywords
+    include ::MapawynajmuPl::AnnouncementModules::Description
+    include ::MapawynajmuPl::AnnouncementModules::Image
+    include ::MapawynajmuPl::AnnouncementModules::EditPath
+    include ::MapawynajmuPl::AnnouncementModules::EditTitle
+    include ::MapawynajmuPl::AnnouncementModules::SummaryPath
 
-    establish_connection :warsawlease
+    establish_connection :mapawynajmu_pl
 
     self.table_name = 'announcements'
 
-    belongs_to :user, class_name: '::Warsawlease::User'
+    belongs_to :user, class_name: '::MapawynajmuPl::User'
 
     before_update :log_changes
     before_destroy :create_deleted_announcement

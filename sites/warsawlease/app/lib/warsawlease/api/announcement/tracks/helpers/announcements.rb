@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Announcement
       module Tracks
@@ -9,11 +9,11 @@ module Warsawlease
             private
 
             def announcements
-              @announcements ||= ::Warsawlease::Queries::Announcement::Index::Visitor.new(category: category, **filters).call
+              @announcements ||= ::MapawynajmuPl::Queries::Announcement::Index::Visitor.new(category: category, **filters).call
             end
 
             def serialized_announcements
-              @serialized_announcements ||= ::Warsawlease::Serializers::Announcement::Index::Visitor.new(announcements, lang).call
+              @serialized_announcements ||= ::MapawynajmuPl::Serializers::Announcement::Index::Visitor.new(announcements, lang).call
             end
           end
         end

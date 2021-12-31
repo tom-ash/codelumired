@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     class Base < ::Api::Base
-      SITENAME = 'Warsawlease'
+      SITENAME = 'MapawynajmuPl'
       SITE_TITLE = 'warsawlease.pl'
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
       LANGS = %i[pl en].freeze
@@ -31,7 +31,7 @@ module Warsawlease
 
         def current_announcement
           id = params[:id] || route_url.match(/(\d+)-.*-(na-wynajem-warszawa|for-lease-warsaw)-.*$/)[1]
-          @current_announcement ||= ::Warsawlease::Announcement.find(id)
+          @current_announcement ||= ::MapawynajmuPl::Announcement.find(id)
         end
 
         def authorize_for_announcement!
@@ -40,32 +40,32 @@ module Warsawlease
 
         def sitemaps
           [
-            ::Warsawlease::Api::Tracks::Root::Sitemap,
-            ::Warsawlease::Api::Tracks::Announcement::Create::Form::Sitemap,
-            ::Warsawlease::Api::Tracks::Announcement::Show::Sitemap,
-            ::Warsawlease::Api::Tracks::User::Create::Form::Sitemap,
-            ::Warsawlease::Api::Tracks::User::Authorize::Sitemap,
-            ::Warsawlease::Api::Tracks::User::ResetPassword::Sitemap,
-            ::Warsawlease::Api::Tracks::Visitor::Contact::Sitemap,
-            ::Warsawlease::Api::Tracks::Visitor::TermsOfService::Sitemap,
-            ::Warsawlease::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
-            ::Warsawlease::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
-            ::Warsawlease::Api::Tracks::Visitor::PrivacySettings::Sitemap
+            ::MapawynajmuPl::Api::Tracks::Root::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Announcement::Show::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::User::Create::Form::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::User::Authorize::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::TermsOfService::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Sitemap
           ]
         end
       end
 
       mount ::Api::Sitemap => 'sitemap'
-      mount ::Warsawlease::Api::Sync => 'sync'
-      mount ::Warsawlease::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
-      mount ::Warsawlease::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
-      mount ::Warsawlease::Api::Announcement::GetTile => 'announcement/get-tile/:id'
-      mount ::Warsawlease::Api::Announcement::GetPhoneNumber => 'announcement/get-phone-number/:id'
-      mount ::Warsawlease::Api::Announcement::Update::Views => 'announcement/update/views/:id'
-      mount ::Warsawlease::Api::Announcement::Update::Form => 'announcement/update/form/:id'
-      mount ::Warsawlease::Api::Announcement::Update::ActiveUntil => 'announcement/update/active-until/:id'
-      mount ::Warsawlease::Api::Announcement::Update::Visible => 'announcement/update/visible/:id'
-      mount ::Warsawlease::Api::Announcement::Delete => 'announcement/delete/:id'
+      mount ::MapawynajmuPl::Api::Sync => 'sync'
+      mount ::MapawynajmuPl::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
+      mount ::MapawynajmuPl::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
+      mount ::MapawynajmuPl::Api::Announcement::GetTile => 'announcement/get-tile/:id'
+      mount ::MapawynajmuPl::Api::Announcement::GetPhoneNumber => 'announcement/get-phone-number/:id'
+      mount ::MapawynajmuPl::Api::Announcement::Update::Views => 'announcement/update/views/:id'
+      mount ::MapawynajmuPl::Api::Announcement::Update::Form => 'announcement/update/form/:id'
+      mount ::MapawynajmuPl::Api::Announcement::Update::ActiveUntil => 'announcement/update/active-until/:id'
+      mount ::MapawynajmuPl::Api::Announcement::Update::Visible => 'announcement/update/visible/:id'
+      mount ::MapawynajmuPl::Api::Announcement::Delete => 'announcement/delete/:id'
     end
   end
 end

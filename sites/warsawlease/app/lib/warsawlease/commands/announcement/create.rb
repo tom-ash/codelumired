@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Commands
     module Announcement
       class Create
@@ -38,7 +38,7 @@ module Warsawlease
         end
 
         def user
-          @user ||= ::Warsawlease::User.find(user_id)
+          @user ||= ::MapawynajmuPl::User.find(user_id)
         end
 
         def parsed_attrs

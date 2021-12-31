@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Queries
     module Announcement
       module Index
@@ -19,7 +19,7 @@ module Warsawlease
           attr_reader :user_id, :search_params
 
           def user
-            @user ||= ::Warsawlease::User.find(user_id)
+            @user ||= ::MapawynajmuPl::User.find(user_id)
           end
         end
       end

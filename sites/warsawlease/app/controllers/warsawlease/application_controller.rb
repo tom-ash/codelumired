@@ -1,4 +1,4 @@
-module Warsawlease
+module MapawynajmuPl
   class ApplicationController < ActionController::Base
     include Sites
 

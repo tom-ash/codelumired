@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ::Commands::User::Verify do
   subject { described_class.new(user: user, namespace: namespace, verification_code: verification_code).call }
 
-  let(:user) { Warsawlease::User.new(verification: verification) }
+  let(:user) { MapawynajmuPl::User.new(verification: verification) }
   let(:verification) { [verification_bundle] }
   let(:verification_bundle) { { namespace: namespace, encrypted_code: encrypted_code, encrypted_code_iv: encrypted_code_iv } }
   let(:namespace) { 'user/update/password' }

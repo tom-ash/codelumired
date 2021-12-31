@@ -11,7 +11,7 @@ development:
     <<: *default
     database: codelumi_dev
     migrations_paths: db/codelumi_migrate
-  warsawlease:
+  mapawynajmu_pl:
     <<: *default
     database: warsawlease_dev
     migrations_paths: db/warsawlease_migrate
@@ -24,7 +24,7 @@ test:
     <<: *default
     database: codelumi_test
     migrations_paths: db/codelumi_migrate
-  warsawlease:
+  mapawynajmu_pl:
     <<: *default
     database: warsawlease_test
     migrations_paths: db/warsawlease_migrate
@@ -37,7 +37,7 @@ production:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
     migrations_paths: db/codelumi_migrate
-  warsawlease:
+  mapawynajmu_pl:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>
     migrations_paths: db/warsawlease_migrate

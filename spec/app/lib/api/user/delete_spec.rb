@@ -17,7 +17,7 @@ RSpec.describe ::Api::User::Delete do
 
       context 'when sending verification email is successful' do
         it 'returns :ok (200)' do
-          put '/warsawlease/user/delete/verification', headers: { 'Access-Token': access_token, 'Lang': 'pl' }
+          put '/mapawynajmu_pl/user/delete/verification', headers: { 'Access-Token': access_token, 'Lang': 'pl' }
           expect(response.status).to eq(200)
         end
       end
@@ -28,18 +28,18 @@ RSpec.describe ::Api::User::Delete do
 
       context 'user deletion is successful' do
         it 'returns :ok (200)' do
-          delete '/warsawlease/user/delete', params: { verification_code: verification_code }, headers: { 'Access-Token': access_token, 'Lang': 'pl' }
+          delete '/mapawynajmu_pl/user/delete', params: { verification_code: verification_code }, headers: { 'Access-Token': access_token, 'Lang': 'pl' }
           expect(response.status).to eq(200)
         end
 
         it 'deletes the user' do
-          delete '/warsawlease/user/delete', params: { verification_code: verification_code }, headers: { 'Access-Token': access_token, 'Lang': 'pl' }
-          expect(Warsawlease::User.exists?(user.id)).to be(false)
+          delete '/mapawynajmu_pl/user/delete', params: { verification_code: verification_code }, headers: { 'Access-Token': access_token, 'Lang': 'pl' }
+          expect(MapawynajmuPl::User.exists?(user.id)).to be(false)
         end
 
         it 'creates DeletedUser' do
-          delete '/warsawlease/user/delete', params: { verification_code: verification_code }, headers: { 'Access-Token': access_token, 'Lang': 'pl' }
-          expect(Warsawlease::DeletedUser.find(user.id)).to be_truthy
+          delete '/mapawynajmu_pl/user/delete', params: { verification_code: verification_code }, headers: { 'Access-Token': access_token, 'Lang': 'pl' }
+          expect(MapawynajmuPl::DeletedUser.find(user.id)).to be_truthy
         end
       end
     end

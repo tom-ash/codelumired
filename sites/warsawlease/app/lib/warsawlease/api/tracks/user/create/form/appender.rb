@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module User
@@ -8,7 +8,7 @@ module Warsawlease
           module Form
             class Appender
               include ::Api::Tracks::Helpers::Appender
-              include ::Warsawlease::Api::Tracks::User::Create::Form::Meta
+              include ::MapawynajmuPl::Api::Tracks::User::Create::Form::Meta
             end
           end
         end

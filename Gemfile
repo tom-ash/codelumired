@@ -36,4 +36,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'soundof_it', path: 'sites/soundof_it'
-gem 'warsawlease', path: 'sites/warsawlease'
+gem 'mapawynajmu_pl', path: 'sites/mapawynajmu_pl'

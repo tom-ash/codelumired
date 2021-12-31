@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   class DeletedAnnouncement < ApplicationRecord
-    establish_connection :warsawlease
+    establish_connection :mapawynajmu_pl
     self.table_name = 'deleted_announcements'
 
     after_create :move_pictures

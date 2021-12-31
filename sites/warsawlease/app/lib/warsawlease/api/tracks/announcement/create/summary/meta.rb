@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Announcement
@@ -26,7 +26,7 @@ module Warsawlease
               end
 
               def announcement
-                @announcement ||= ::Warsawlease::Announcement.find(id)
+                @announcement ||= ::MapawynajmuPl::Announcement.find(id)
               end
 
               def track

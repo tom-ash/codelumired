@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Helpers
     class DecorateUser
       DEFAULT_ACCOUNT = 'private'
@@ -47,7 +47,7 @@ module Warsawlease
       end
 
       def build_showcase
-        ::Warsawlease::Builders::User::Showcase.new(user).call
+        ::MapawynajmuPl::Builders::User::Showcase.new(user).call
       end
     end
   end

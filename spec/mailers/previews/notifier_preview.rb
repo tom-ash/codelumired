@@ -3,7 +3,7 @@
 class NotifierPreview < ActionMailer::Preview
   # http://localhost:3001/rails/mailers/notifier/before_name_change
   def before_name_change
-    user = ::Warsawlease::User.first
+    user = ::MapawynajmuPl::User.first
     NotifierMailer.before_name_change(user)
   end
 end

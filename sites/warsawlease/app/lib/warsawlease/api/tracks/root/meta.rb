@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Root
@@ -8,8 +8,8 @@ module Warsawlease
           TRACK = 'root'
 
           UNLOCALIZED_PATH = {
-            pl: %r{^/$|^warszawa/wynajem/nieruchomosci/(?<venue_name>mapa|katalog)/?(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})?$},
-            en: %r{^en$|^property/(?<venue_name>map|catalogue)/?(?<category_name>#{::Warsawlease::Announcement::URL_CATEGORIES})?$}
+            pl: %r{^/$|^warszawa/wynajem/nieruchomosci/(?<venue_name>mapa|katalog)/?(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$},
+            en: %r{^en$|^property/(?<venue_name>map|catalogue)/?(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$}
           }.freeze
 
           UNLOCALIZED_TITLE = {
@@ -35,7 +35,7 @@ module Warsawlease
           end
 
           def category_title
-            "#{::Warsawlease::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE_IN_WARSAW[lang]} | #{TITLEIZED_VENUE[venue.to_sym][lang]}"
+            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE_IN_WARSAW[lang]} | #{TITLEIZED_VENUE[venue.to_sym][lang]}"
           end
 
           def match_data
@@ -47,7 +47,7 @@ module Warsawlease
               category_name = match_data && match_data[:category_name]
               return if category_name.blank?
 
-              ::Warsawlease::Announcement::CATEGORIES.each do |key, value|
+              ::MapawynajmuPl::Announcement::CATEGORIES.each do |key, value|
                 return key if value[:plural_urlified][lang] == category_name
               end
             end
@@ -94,9 +94,9 @@ module Warsawlease
 
           def links
             {}.merge(
-              ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).venue_links.merge,
-              ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).category_links(venue),
-              ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).lang_links(venue)
+              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).venue_links.merge,
+              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).category_links(venue),
+              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links(venue)
             )
           end
 
@@ -105,7 +105,7 @@ module Warsawlease
           end
 
           def canonical_url
-            ::Warsawlease::Api::Tracks::Root::Linker.new(lang, url).lang_links(:map)["current/#{lang}".to_sym][:path]
+            ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links(:map)["current/#{lang}".to_sym][:path]
           end
 
           def page_render

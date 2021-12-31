@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :warsawlease_user, class: Warsawlease::User do
+  factory :warsawlease_user, class: MapawynajmuPl::User do
     email { 'test@example.net' }
     email_confirmed_at { nil }
     status { 0 }

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module User
         module Show
           class Linker
             include ::Api::Tracks::Helpers::Linker
-            include ::Warsawlease::Api::Tracks::User::Show::Meta
+            include ::MapawynajmuPl::Api::Tracks::User::Show::Meta
 
             def call
               {

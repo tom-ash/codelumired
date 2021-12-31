@@ -1,4 +1,4 @@
 module SoundofIt
-  class SVG < Warsawlease::Asset
+  class SVG < MapawynajmuPl::Asset
   end
 end

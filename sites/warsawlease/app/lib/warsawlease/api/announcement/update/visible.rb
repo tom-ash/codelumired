@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Announcement
       module Update
@@ -11,7 +11,7 @@ module Warsawlease
 
           put do
             current_announcement.update_attribute(:visible, !current_announcement.visible)
-            camelize(::Warsawlease::Serializers::Announcement::Edit.new(current_announcement).call)
+            camelize(::MapawynajmuPl::Serializers::Announcement::Edit.new(current_announcement).call)
           end
         end
       end

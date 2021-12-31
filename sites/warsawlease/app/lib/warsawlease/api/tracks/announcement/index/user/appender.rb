@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Announcement
@@ -8,7 +8,7 @@ module Warsawlease
           module User
             class Appender
               include ::Api::Tracks::Helpers::Appender
-              include ::Warsawlease::Api::Tracks::Announcement::Index::User::Meta
+              include ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta
 
               private
 
@@ -22,11 +22,11 @@ module Warsawlease
               end
 
               def announcements
-                ::Warsawlease::Queries::Announcement::Index::User.new(user_id: current_user.id).call
+                ::MapawynajmuPl::Queries::Announcement::Index::User.new(user_id: current_user.id).call
               end
 
               def serialized_announcements
-                ::Warsawlease::Serializers::Announcement::Index::User.new(announcements, lang).call
+                ::MapawynajmuPl::Serializers::Announcement::Index::User.new(announcements, lang).call
               end
             end
           end

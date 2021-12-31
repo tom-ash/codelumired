@@ -6,7 +6,7 @@ RSpec.describe ::Ciphers::User::GenerateAccessToken do
   subject { described_class.new(user).call }
 
   let(:user) do
-    Warsawlease::User.new
+    MapawynajmuPl::User.new
   end
 
   it 'returns the generated access token' do

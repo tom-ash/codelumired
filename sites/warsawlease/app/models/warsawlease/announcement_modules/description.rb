@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module AnnouncementModules
     module Description
       def description(lang)
@@ -20,7 +20,7 @@ module Warsawlease
       end
 
       def located_at_district
-        ::Warsawlease::Announcement::DISTRICTS[category][:location][lang]
+        ::MapawynajmuPl::Announcement::DISTRICTS[category][:location][lang]
       end
 
       def with_area_and_monthly_price

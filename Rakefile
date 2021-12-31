@@ -5,4 +5,4 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-load './sites/warsawlease/app/lib/tasks/create_mock_announcements.rake'
+load './sites/mapawynajmu_pl/app/lib/tasks/create_mock_announcements.rake'

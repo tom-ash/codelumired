@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Root
@@ -28,7 +28,7 @@ module Warsawlease
 
               category_link_groups = []
 
-              ::Warsawlease::Announcement::CATEGORIES.each_value do |category|
+              ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
                 venues.each do |venue, venue_data|
                   category_link_group = []
 

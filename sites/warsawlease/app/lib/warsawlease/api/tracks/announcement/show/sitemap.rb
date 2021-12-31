@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Announcement
@@ -16,7 +16,7 @@ module Warsawlease
               def announcement_links
                 links = []
 
-                ::Warsawlease::Announcement.where(confirmed: true, visible: true).all.each do |announcement|
+                ::MapawynajmuPl::Announcement.where(confirmed: true, visible: true).all.each do |announcement|
                   link = []
 
                   %i[pl en].each do |lang|

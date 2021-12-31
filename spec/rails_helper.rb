@@ -19,7 +19,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.before(:suite) do
-    ActiveRecord::Base.establish_connection :warsawlease
+    ActiveRecord::Base.establish_connection :mapawynajmu_pl
     DatabaseCleaner.strategy = :deletion
     DatabaseCleaner.clean_with(:deletion)
   end

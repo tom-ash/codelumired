@@ -9,7 +9,7 @@ RSpec.describe ::Api::User::Update::Email do
   let(:new_email_verification_code) { '1566' }
   let(:new_email_verification) { { namespace: new_email_verification_namespace, generated_at: '2021-03-29T08:34:36.336+02:00', encrypted_code: "vbkRU9eacx29FzKPWTmld5MuC2eTw4y9TwSGKOipTWSwuLgSNvn8GKfjSw34\nFED0\n", encrypted_code_iv: "ZCLtZ8D9Zvv6bXM3Lo7ggg==\n" } }
   let(:new_email_verification_namespace) { 'user/update/email/new' }
-  let!(:user) { create(:warsawlease_user, email: current_email, hashed_password: hashed_password, password_salt: password_salt, verification: verification, encrypted_access_token: encrypted_access_token) }
+  let!(:user) { create(:mapawynajmu_pl_user, email: current_email, hashed_password: hashed_password, password_salt: password_salt, verification: verification, encrypted_access_token: encrypted_access_token) }
   let(:current_email) { 'test@example.net' }
   let(:new_email) { 'new_test@example.net' }
   let(:access_token) { 'ba79099602b5ca78b2c44b652ebee8c8ff0c522e93ab8a7a39ceeb60c3dc40d5fe9984cb45fe4464b4d48c3d6eba70040e6c1f9987c7177f259beee19dcd1a1e' }
@@ -19,7 +19,7 @@ RSpec.describe ::Api::User::Update::Email do
 
   describe '/user/update/email' do
     describe 'current/verification' do
-      subject { put '/warsawlease/user/update/email/current/verification', headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
+      subject { put '/mapawynajmu_pl/user/update/email/current/verification', headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
 
       let(:verification) { [] }
 
@@ -32,7 +32,7 @@ RSpec.describe ::Api::User::Update::Email do
     end
 
     describe '/current/verify' do
-      subject { put '/warsawlease/user/update/email/current/verify', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
+      subject { put '/mapawynajmu_pl/user/update/email/current/verify', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
 
       let(:params) { { verification_code: current_email_verification_code } }
       let(:verification) { [current_email_verification] }
@@ -46,7 +46,7 @@ RSpec.describe ::Api::User::Update::Email do
     end
 
     describe 'new/verification' do
-      subject { put '/warsawlease/user/update/email/new/verification', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
+      subject { put '/mapawynajmu_pl/user/update/email/new/verification', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
 
       let(:params) { { email: new_email } }
       let(:verification) { [] }
@@ -60,7 +60,7 @@ RSpec.describe ::Api::User::Update::Email do
     end
 
     describe 'PUT /new/verify' do
-      subject { put '/warsawlease/user/update/email/new/verify', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
+      subject { put '/mapawynajmu_pl/user/update/email/new/verify', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
 
       let(:params) { { verification_code: new_email_verification_code } }
       let(:verification) { [current_email_verification, new_email_verification] }
@@ -74,7 +74,7 @@ RSpec.describe ::Api::User::Update::Email do
     end
 
     describe 'PUT' do
-      subject { put '/warsawlease/user/update/email', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
+      subject { put '/mapawynajmu_pl/user/update/email', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
 
       let(:params) { { current_email: current_email, current_email_verification_code: current_email_verification_code, new_email: new_email, new_email_verification_code: new_email_verification_code, client_hashed_password: client_hashed_password, client_rehashed_password: client_rehashed_password } }
       let(:verification) { [current_email_verification, new_email_verification] }

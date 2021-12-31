@@ -1,5 +1,5 @@
 module Sites
-  SITES = %w[Warsawlease].freeze
+  SITES = %w[MapawynajmuPl].freeze
 
   private
 

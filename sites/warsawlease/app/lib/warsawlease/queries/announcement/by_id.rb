@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Queries
     module Announcement
       class ById
@@ -10,7 +10,7 @@ module Warsawlease
         end
 
         def call
-          ::Warsawlease::Announcement.find(id)
+          ::MapawynajmuPl::Announcement.find(id)
         end
 
         private
@@ -18,9 +18,9 @@ module Warsawlease
         attr_reader :id, :only_visible
 
         def announcements
-          return ::Warsawlease::Announcement.where(visible: true) if only_visible
+          return ::MapawynajmuPl::Announcement.where(visible: true) if only_visible
 
-          ::Warsawlease::Announcement.all
+          ::MapawynajmuPl::Announcement.all
         end
       end
     end

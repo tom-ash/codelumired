@@ -29,7 +29,7 @@ module Api
           requires :verification_code, type: String
         end
         put do
-          user = ::Queries::User::SingleByConfirmationToken.new(confirmation_token: params[:confirmation_token], site_name: 'Warsawlease').call
+          user = ::Queries::User::SingleByConfirmationToken.new(confirmation_token: params[:confirmation_token], site_name: 'MapawynajmuPl').call
           error!('Invalid confirmation token or verification code!', 422) if user.confirmed?
 
           email_confirmed_at = Time.zone.now

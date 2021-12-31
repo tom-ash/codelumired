@@ -1,13 +1,13 @@
-require_relative "lib/warsawlease/version"
+require_relative "lib/mapawynajmu_pl/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "warsawlease"
-  spec.version     = Warsawlease::VERSION
+  spec.name        = "mapawynajmu_pl"
+  spec.version     = MapawynajmuPl::VERSION
   spec.authors     = ["tom-ash"]
   spec.email       = ["tomasz.bogusz@outlook.com"]
   # spec.homepage    = "TODO"
   spec.summary     = ""
-  # spec.description = "TODO: Description of Warsawlease."
+  # spec.description = "TODO: Description of MapawynajmuPl."
   spec.license     = ""
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

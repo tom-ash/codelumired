@@ -1,1 +1,1 @@
-//= link_directory ../stylesheets/warsawlease .css
+//= link_directory ../stylesheets/mapawynajmu_pl .css

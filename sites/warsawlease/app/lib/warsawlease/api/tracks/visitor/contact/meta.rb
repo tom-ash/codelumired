@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Visitor
@@ -55,8 +55,8 @@ module Warsawlease
 
             def links
               {
-                'current/pl': ::Warsawlease::Api::Tracks::Visitor::Contact::Linker.new(:pl).call,
-                'current/en': ::Warsawlease::Api::Tracks::Visitor::Contact::Linker.new(:en).call
+                'current/pl': ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Linker.new(:pl).call,
+                'current/en': ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Linker.new(:en).call
               }
             end
           end

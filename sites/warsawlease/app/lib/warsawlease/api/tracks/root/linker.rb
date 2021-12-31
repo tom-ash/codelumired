@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Root
         class Linker
-          include ::Warsawlease::Api::Tracks::Helpers::Linker
-          include ::Warsawlease::Api::Tracks::Root::Meta
+          include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+          include ::MapawynajmuPl::Api::Tracks::Root::Meta
 
           def initialize(lang, url = nil)
             @lang = lang
@@ -25,8 +25,8 @@ module Warsawlease
           def lang_links(venue)
             if category.present?
               return {
-                'current/pl': { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :pl) },
-                'current/en': { path: category_link(venue, ::Warsawlease::Announcement::CATEGORIES[category], :en) }
+                'current/pl': { path: category_link(venue, ::MapawynajmuPl::Announcement::CATEGORIES[category], :pl) },
+                'current/en': { path: category_link(venue, ::MapawynajmuPl::Announcement::CATEGORIES[category], :en) }
               }
             end
 
@@ -39,8 +39,8 @@ module Warsawlease
           def venue_links
             if category.present?
               return {
-                'root/map': { path: category_link(:map, ::Warsawlease::Announcement::CATEGORIES[category], lang) },
-                'root/catalogue': { path: category_link(:category, ::Warsawlease::Announcement::CATEGORIES[category], lang) }
+                'root/map': { path: category_link(:map, ::MapawynajmuPl::Announcement::CATEGORIES[category], lang) },
+                'root/catalogue': { path: category_link(:category, ::MapawynajmuPl::Announcement::CATEGORIES[category], lang) }
               }
             end
 
@@ -53,7 +53,7 @@ module Warsawlease
           def category_links(venue)
             category_links_hash = {}
 
-            ::Warsawlease::Announcement::CATEGORIES.each_value do |category|
+            ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
               category_links_hash["root/#{category[:trackified]}"] = {
                 path: category_link(venue, category, lang)
               }

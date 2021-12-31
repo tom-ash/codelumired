@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module AnnouncementModules
     module Title
       def title(lang)
@@ -19,15 +19,15 @@ module Warsawlease
       attr_reader :lang
 
       def titleized_category
-        ::Warsawlease::Announcement::CATEGORIES[category][:name][lang]
+        ::MapawynajmuPl::Announcement::CATEGORIES[category][:name][lang]
       end
 
       def titleized_city
-        ::Warsawlease::Announcement::CITY[lang]
+        ::MapawynajmuPl::Announcement::CITY[lang]
       end
 
       def titleized_district
-        ::Warsawlease::Announcement::DISTRICTS[category][:name]
+        ::MapawynajmuPl::Announcement::DISTRICTS[category][:name]
       end
 
       def titleized_area

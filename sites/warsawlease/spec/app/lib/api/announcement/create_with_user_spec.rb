@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ::Warsawlease::Api::Announcement::CreateWithUser do
+RSpec.describe ::MapawynajmuPl::Api::Announcement::CreateWithUser do
   let(:category) { 2 }
   let(:district) { 0 }
   let(:area) { 42.42 }
@@ -21,7 +21,7 @@ RSpec.describe ::Warsawlease::Api::Announcement::CreateWithUser do
   let(:user) { { email: email, password: password, first_name: first_name, country_code: country_code, phone_number: phone_number, consents: consents } }
 
   describe 'POST' do
-    subject { post '/warsawlease/announcement/create-with-user', params: params, headers: headers }
+    subject { post '/mapawynajmu_pl/announcement/create-with-user', params: params, headers: headers }
 
     context 'when all params are complete & valid' do
       let(:params) { { announcement: announcement, user: user } }

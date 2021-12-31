@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ::Ciphers::User::HashPassword do
   subject { described_class.new(user: user, password: password).call }
 
-  let(:user) { Warsawlease::User.new }
+  let(:user) { MapawynajmuPl::User.new }
   let(:password) { 'test_password' }
 
   it 'assigns the hashed passsword to the user' do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Announcement
@@ -8,7 +8,7 @@ module Warsawlease
           module Form
             class Sitemap
               class << self
-                include ::Warsawlease::Api::Tracks::Announcement::Create::Form::Meta
+                include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
 
                 def get
                   [links]

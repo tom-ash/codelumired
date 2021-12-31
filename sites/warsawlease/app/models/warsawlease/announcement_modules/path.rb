@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module AnnouncementModules
     module Path
       def url(lang)
@@ -12,7 +12,7 @@ module Warsawlease
       attr_reader :lang
 
       def urlified_category
-        ::Warsawlease::Announcement::CATEGORIES[category][:urlified][lang]
+        ::MapawynajmuPl::Announcement::CATEGORIES[category][:urlified][lang]
       end
 
       def for_lease
@@ -20,11 +20,11 @@ module Warsawlease
       end
 
       def urlified_city
-        ::Warsawlease::Announcement::CITY[lang].downcase
+        ::MapawynajmuPl::Announcement::CITY[lang].downcase
       end
 
       def urlified_district
-        ::Warsawlease::Announcement::DISTRICTS[category][:urlified]
+        ::MapawynajmuPl::Announcement::DISTRICTS[category][:urlified]
       end
     end
   end

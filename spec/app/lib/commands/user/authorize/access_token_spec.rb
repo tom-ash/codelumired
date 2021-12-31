@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ::Commands::User::Authorize::AccessToken do
-  subject { described_class.new(access_token: access_token, site_name: 'Warsawlease').call }
+  subject { described_class.new(access_token: access_token, site_name: 'MapawynajmuPl').call }
 
   let(:access_token) { 'ba79099602b5ca78b2c44b652ebee8c8ff0c522e93ab8a7a39ceeb60c3dc40d5fe9984cb45fe4464b4d48c3d6eba70040e6c1f9987c7177f259beee19dcd1a1e' }
   let!(:user) { create(:warsawlease_user, encrypted_access_token: encrypted_access_token) }

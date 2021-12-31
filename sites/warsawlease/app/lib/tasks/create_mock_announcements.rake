@@ -3,10 +3,10 @@
 task create_mock_announcements: :environment do
   10.times do
     floor = [5, 10, 15, 20, 25, 30].sample
-    @announcement = ::Warsawlease::Announcement.all.sample
+    @announcement = ::MapawynajmuPl::Announcement.all.sample
     @pictures = @announcement.pictures.shuffle
 
-    @new_announcement = ::Warsawlease::Announcement.create(
+    @new_announcement = ::MapawynajmuPl::Announcement.create(
       status: 1,
       points: 0,
       views: 0,
@@ -18,7 +18,7 @@ task create_mock_announcements: :environment do
       furnishings: [],
       polish_description: '',
       english_description: '',
-      user_id: ::Warsawlease::User.all.sample.id,
+      user_id: ::MapawynajmuPl::User.all.sample.id,
       category: [0, 1].sample,
       district: [*0..16].sample,
       rent_currency: [0, 1, 2].sample,

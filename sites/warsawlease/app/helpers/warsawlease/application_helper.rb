@@ -1,4 +1,4 @@
-module Warsawlease
+module MapawynajmuPl
   module ApplicationHelper
   end
 end

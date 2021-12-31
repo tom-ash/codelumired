@@ -1,4 +1,4 @@
-module Warsawlease
-  class SVG < Warsawlease::Asset
+module MapawynajmuPl
+  class SVG < MapawynajmuPl::Asset
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Queries
     module Announcement
       module Index
@@ -30,7 +30,7 @@ module Warsawlease
           private
 
           def announcements
-            @announcements ||= ::Warsawlease::Announcement.where(visible: true, confirmed: true)
+            @announcements ||= ::MapawynajmuPl::Announcement.where(visible: true, confirmed: true)
           end
         end
       end

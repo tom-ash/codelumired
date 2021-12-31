@@ -1,6 +1,6 @@
-module Warsawlease
+module MapawynajmuPl
   class Asset < ApplicationRecord
-    establish_connection :warsawlease
+    establish_connection :mapawynajmu_pl
     self.table_name = 'assets'
   end
 end

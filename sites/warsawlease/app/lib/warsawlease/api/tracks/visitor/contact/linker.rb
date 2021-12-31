@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Api
     module Tracks
       module Visitor
         module Contact
           class Linker
-            include ::Warsawlease::Api::Tracks::Helpers::Linker
-            include ::Warsawlease::Api::Tracks::Visitor::Contact::Meta
+            include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+            include ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Meta
           end
         end
       end

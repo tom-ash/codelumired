@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   class User < ApplicationRecord
-    establish_connection :warsawlease
+    establish_connection :mapawynajmu_pl
 
     self.table_name = 'users'
 
@@ -17,7 +17,7 @@ module Warsawlease
     validates :business_name, presence: true, if: :professional_account?
     validates :showcase, presence: true
 
-    has_many :announcements, class_name: '::Warsawlease::Announcement', foreign_key: :user_id, dependent: :destroy
+    has_many :announcements, class_name: '::MapawynajmuPl::Announcement', foreign_key: :user_id, dependent: :destroy
     has_many :pages, foreign_key: :author_id, dependent: :destroy
 
     before_update :log_changes, :build_showcase
@@ -37,7 +37,7 @@ module Warsawlease
     def build_showcase
       return if (SHOWCASE_ATTRS & changes.keys).blank?
 
-      ::Warsawlease::Builders::User::Showcase.new(self).call
+      ::MapawynajmuPl::Builders::User::Showcase.new(self).call
     end
   end
 end

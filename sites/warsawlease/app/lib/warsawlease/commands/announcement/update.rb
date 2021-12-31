@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Warsawlease
+module MapawynajmuPl
   module Commands
     module Announcement
       class Update
@@ -20,7 +20,7 @@ module Warsawlease
         attr_reader :id, :attrs
 
         def announcement
-          @announcement ||= Warsawlease::Announcement.find(id)
+          @announcement ||= MapawynajmuPl::Announcement.find(id)
         end
 
         def parsed_attrs

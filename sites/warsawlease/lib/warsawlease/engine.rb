@@ -1,5 +1,5 @@
-module Warsawlease
+module MapawynajmuPl
   class Engine < ::Rails::Engine
-    isolate_namespace Warsawlease
+    isolate_namespace MapawynajmuPl
   end
 end
