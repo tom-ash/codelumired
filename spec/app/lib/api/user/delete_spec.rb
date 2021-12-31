@@ -13,7 +13,7 @@ RSpec.describe ::Api::User::Delete do
 
   describe '/delete' do
     describe 'PUT /verification' do
-      let!(:user) { create(:warsawlease_user, email: email, encrypted_access_token: encrypted_access_token) }
+      let!(:user) { create(:mapawynajmu_pl_user, email: email, encrypted_access_token: encrypted_access_token) }
 
       context 'when sending verification email is successful' do
         it 'returns :ok (200)' do
@@ -24,7 +24,7 @@ RSpec.describe ::Api::User::Delete do
     end
 
     describe 'DELETE /' do
-      let!(:user) { create(:warsawlease_user, email: email, encrypted_access_token: encrypted_access_token, verification: verification) }
+      let!(:user) { create(:mapawynajmu_pl_user, email: email, encrypted_access_token: encrypted_access_token, verification: verification) }
 
       context 'user deletion is successful' do
         it 'returns :ok (200)' do

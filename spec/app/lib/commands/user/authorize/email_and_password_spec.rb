@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ::Commands::User::Authorize::EmailAndPassword do
   subject { described_class.new(email: email, password: password, site_name: 'MapawynajmuPl').call }
 
-  let!(:user) { create(:warsawlease_user, email: email, hashed_password: hashed_password, password_salt: password_salt) }
+  let!(:user) { create(:mapawynajmu_pl_user, email: email, hashed_password: hashed_password, password_salt: password_salt) }
   let(:email) { 'test@example.net' }
   let(:password) { 'test_password' }
   let(:hashed_password) { '$2a$12$xNgbSunb3cSQmHKpSyUT.uFj9Msr8/Fuwngwir/.x65EKvrLzWsVy' }

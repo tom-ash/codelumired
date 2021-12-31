@@ -1,13 +1,13 @@
 PATH
-  remote: sites/soundof_it
+  remote: sites/mapawynajmu_pl
   specs:
-    soundof_it (0.1.0)
+    mapawynajmu_pl (0.1.0)
       rails (~> 6.1.3)
 
 PATH
-  remote: sites/warsawlease
+  remote: sites/soundof_it
   specs:
-    warsawlease (0.1.0)
+    soundof_it (0.1.0)
       rails (~> 6.1.3)
 
 GEM
@@ -285,6 +285,7 @@ DEPENDENCIES
   factory_bot_rails
   grape
   mailgun-ruby (~> 1.1.6)
+  mapawynajmu_pl!
   pg (~> 1.1.4)
   pry-rails
   puma (~> 3.12)
@@ -296,7 +297,6 @@ DEPENDENCIES
   sentry-ruby
   soundof_it!
   tzinfo-data
-  warsawlease!
 
 RUBY VERSION
    ruby 2.6.3p62
