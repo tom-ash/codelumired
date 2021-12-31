@@ -7,7 +7,7 @@ development:
   primary:
     <<: *default
     database: primary_dev
-  codelumi:
+  soundof_it:
     <<: *default
     database: codelumi_dev
     migrations_paths: db/codelumi_migrate
@@ -20,7 +20,7 @@ test:
   primary:
     <<: *default
     database: primary_test
-  codelumi:
+  soundof_it:
     <<: *default
     database: codelumi_test
     migrations_paths: db/codelumi_migrate
@@ -33,7 +33,7 @@ production:
   primary:
     <<: *default
     url: <%= ENV['DATABASE_URL'] %>
-  codelumi:
+  soundof_it:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
     migrations_paths: db/codelumi_migrate

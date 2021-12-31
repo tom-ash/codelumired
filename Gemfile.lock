@@ -1,7 +1,7 @@
 PATH
-  remote: sites/codelumi
+  remote: sites/soundof_it
   specs:
-    codelumi (0.1.0)
+    soundof_it (0.1.0)
       rails (~> 6.1.3)
 
 PATH
@@ -281,7 +281,6 @@ DEPENDENCIES
   aws-sdk-ses (~> 1.6)
   bcrypt
   byebug
-  codelumi!
   database_cleaner-active_record
   factory_bot_rails
   grape
@@ -295,6 +294,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0.0)
   sentry-rails
   sentry-ruby
+  soundof_it!
   tzinfo-data
   warsawlease!
 
