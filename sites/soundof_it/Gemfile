@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Specify your gem's dependencies in soundof-it.gemspec.
+# Specify your gem's dependencies in soundof_it.gemspec.
 gemspec
 
 group :development do
