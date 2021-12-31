@@ -41,4 +41,23 @@ namespace :warsawlease do
       puts "#{k}: \"#{Base64.encode64(SecureRandom.random_bytes(length)).delete("\n")}\""
     end
   end
+
+  desc 'Generate encryption :key, :iv and :salt.'
+  task send_before_name_change_email: :environment do
+    users = Warsawlease::User.all
+
+    users.each do |user|
+      puts "Sending \"Before Name Change Email\" for user with id #{user.id}"
+
+      if NotifierMailer.before_name_change(user).deliver_now
+        puts 'Success'
+      else
+        puts 'Failure'
+      end
+
+      puts '---'
+
+      sleep(1)
+    end
+  end
 end
