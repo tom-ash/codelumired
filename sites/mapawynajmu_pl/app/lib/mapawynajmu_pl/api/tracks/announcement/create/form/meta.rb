@@ -66,7 +66,7 @@ module MapawynajmuPl
               end
 
               def asset_names
-                @asset_names ||= %i[camera]
+                @asset_names ||= %i[camera close chevron rotate]
               end
             end
           end
