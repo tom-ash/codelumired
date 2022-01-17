@@ -4,6 +4,8 @@ Rails.application.configure do
   ENV['WARSAWLEASE_ROOT_DOMAIN'] = 'http://local.warsawlease.pl:8080'
   ENV['SOUNDOFIT_ROOT_DOMAIN'] = 'http://local.soundof.it:8080'
 
+  ENV['MAPAWYNAJMU_PL_NAME'] = 'mapawynajmu.pl'
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -42,7 +44,7 @@ Rails.application.configure do
 
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'http://local.soundof.it:8080', 'http://local.warsawlease.pl:8080', 'http://local.mapawynajmu.pl:8080'
+      origins 'http://local.soundof.it:8080', 'http://local.warsawlease.pl:8080', "http://local.#{MAPAWYNAJMU_PL_ROOT_DOMAIN}:8080"
       resource '*', headers: :any, methods: %i[get post put patch delete options head]
     end
   end

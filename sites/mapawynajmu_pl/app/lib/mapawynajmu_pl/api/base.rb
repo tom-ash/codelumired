@@ -4,7 +4,7 @@ module MapawynajmuPl
   module Api
     class Base < ::Api::Base
       SITENAME = 'MapawynajmuPl'
-      SITE_TITLE = 'warsawlease.pl'
+      SITE_TITLE = MAPAWYNAJMU_PL_APP_NAME
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
       LANGS = %i[pl en].freeze
 

@@ -35,15 +35,15 @@ module MapawynajmuPl
 
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
-                  pl: 'ogłoszenia, moje, konto, użytkownik, warsawlease.pl, ogłoszenia, wynajem, nieruchomości, warszawa',
-                  en: 'announcements, my, account, user, warsawlease.pl, announcement, lease, real estate, warsaw'
+                  pl: "ogłoszenia, moje, konto, użytkownik, #{MAPAWYNAJMU_PL_APP_NAME}, ogłoszenia, wynajem, nieruchomości, warszawa",
+                  en: "announcements, my, account, user, #{MAPAWYNAJMU_PL_APP_NAME}, announcement, lease, real estate, warsaw"
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
-                  pl: 'Moje ogłoszenia na warsawlease.pl - serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.',
-                  en: 'My announcements on warsawlease.pl - a service featuring real estate lease announcements in Warsaw.'
+                  pl: "Moje ogłoszenia na #{MAPAWYNAJMU_PL_APP_NAME} - serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.",
+                  en: "My announcements on #{MAPAWYNAJMU_PL_APP_NAME} - a service featuring real estate lease announcements in Warsaw."
                 }.freeze
               end
 

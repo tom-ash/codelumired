@@ -12,6 +12,6 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :login,
   :user_name      => ENV['OFFICE_365_USER_NAME'],
   :password       => ENV['OFFICE_365_PASSWORD'],
-  :domain         => 'warsawlease.pl',
+  :domain         => MAPAWYNAJMU_PL_ROOT_DOMAIN,
   :enable_starttls_auto => true
 }

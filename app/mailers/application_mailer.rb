@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@warsawlease.pl'
+  default from: "noreply@#{MAPAWYNAJMU_PL_ROOT_DOMAIN}"
   layout 'mailer'
 
   COMPANY = {
