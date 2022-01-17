@@ -8,7 +8,7 @@ module Commands
 
         def initialize(attrs)
           @access_token = attrs[:access_token]
-          @site_name = attrs[:site_name]
+          @constantized_site_name = attrs[:constantized_site_name]
         end
 
         def call
@@ -17,7 +17,7 @@ module Commands
 
         private
 
-        attr_reader :access_token, :site_name
+        attr_reader :access_token, :constantized_site_name
 
         def user
           site::User.find_by(encrypted_access_token: encrypted_access_token)

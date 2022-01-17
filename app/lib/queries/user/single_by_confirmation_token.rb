@@ -5,9 +5,9 @@ module Queries
     class SingleByConfirmationToken
       include SiteName
 
-      def initialize(confirmation_token:, site_name:)
+      def initialize(confirmation_token:, constantized_site_name:)
         @confirmation_token = confirmation_token
-        @site_name = site_name
+        @constantized_site_name = constantized_site_name
       end
 
       def call
@@ -16,7 +16,7 @@ module Queries
 
       private
 
-      attr_reader :confirmation_token, :site_name
+      attr_reader :confirmation_token, :constantized_site_name
 
       def user
         site::User.find_by(encrypted_confirmation_token: encrypted_confirmation_token)

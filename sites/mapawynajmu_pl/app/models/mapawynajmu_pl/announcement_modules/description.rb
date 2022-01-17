@@ -12,11 +12,11 @@ module MapawynajmuPl
       attr_reader :lang
 
       def polish_description
-        "#{titleized_category} do wynajęcia #{located_at_district}#{with_area_and_monthly_price}. | #{MAPAWYNAJMU_PL_APP_NAME} - ogłoszenia wynajmu nieruchomości w Warszawie."
+        "#{titleized_category} do wynajęcia #{located_at_district}#{with_area_and_monthly_price}. | #{MAPAWYNAJMU_PL_NAME} - ogłoszenia wynajmu nieruchomości w Warszawie."
       end
 
       def english_description
-        "#{titleized_category} for lease #{located_at_district}#{with_area_and_monthly_price}. | #{MAPAWYNAJMU_PL_APP_NAME} - real estate lease announcements in Warsaw."
+        "#{titleized_category} for lease #{located_at_district}#{with_area_and_monthly_price}. | #{MAPAWYNAJMU_PL_NAME} - real estate lease announcements in Warsaw."
       end
 
       def located_at_district

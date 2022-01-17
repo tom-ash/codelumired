@@ -112,8 +112,8 @@ module Api
           @site ||= attrs[:site]
         end
 
-        def site_name
-          @site_name ||= attrs[:site_name]
+        def constantized_site_name
+          @constantized_site_name ||= attrs[:constantized_site_name]
         end
 
         def title
@@ -150,7 +150,7 @@ module Api
         end
 
         def page_data
-          ::Serializers::Page::Show.new(page: show_page, site_name: site_name).call
+          ::Serializers::Page::Show.new(page: show_page, constantized_site_name: constantized_site_name).call
         end
 
         def page_name

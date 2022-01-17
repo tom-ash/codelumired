@@ -11,7 +11,7 @@ module Api
           private
 
           def merge_state
-            serialized_page = camelize(::Serializers::Page::Show.new(page: page, site_name: site_name).call)
+            serialized_page = camelize(::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call)
             state.merge!(
               'page/edit/inputs': serialized_page.merge(
                 body: JSON.pretty_generate(serialized_page['body']),

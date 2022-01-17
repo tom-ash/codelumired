@@ -5,9 +5,9 @@ module Queries
     class SingleByEmail
       include SiteName
 
-      def initialize(email:, site_name:)
+      def initialize(email:, constantized_site_name:)
         @email = email
-        @site_name = site_name
+        @constantized_site_name = constantized_site_name
       end
 
       def call
@@ -20,7 +20,7 @@ module Queries
 
       private
 
-      attr_reader :email, :site_name
+      attr_reader :email, :constantized_site_name
 
       def user
         @user ||= begin

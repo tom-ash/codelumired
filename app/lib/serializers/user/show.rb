@@ -5,9 +5,9 @@ module Serializers
     class Show
       include SiteName
 
-      def initialize(user:, site_name:)
+      def initialize(user:, constantized_site_name:)
         @user = user
-        @site_name = site_name
+        @constantized_site_name = constantized_site_name
       end
 
       def call
@@ -21,7 +21,7 @@ module Serializers
 
       private
 
-      attr_reader :user, :site_name
+      attr_reader :user, :constantized_site_name
     end
   end
 end

@@ -6,10 +6,10 @@ module Commands
       class Password
         include SiteName
 
-        def initialize(user_id:, password:, site_name:)
+        def initialize(user_id:, password:, constantized_site_name:)
           @user_id = user_id
           @password = password
-          @site_name = site_name
+          @constantized_site_name = constantized_site_name
         end
 
         def call
@@ -20,7 +20,7 @@ module Commands
 
         private
 
-        attr_reader :user_id, :password, :site_name
+        attr_reader :user_id, :password, :constantized_site_name
 
         def user
           @user ||= site::User.find(user_id)

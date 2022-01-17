@@ -17,7 +17,7 @@ module Api
               state: state,
               meta: meta,
               site: site,
-              site_name: site_name
+              constantized_site_name: constantized_site_name
             }
           end
 
@@ -46,7 +46,7 @@ module Api
           end
 
           def append_user
-            state.merge!('user/authorize/data': ::Serializers::User::Show.new(user: current_user, site_name: site_name).call)
+            state.merge!('user/authorize/data': ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call)
           end
 
           def append_page
@@ -54,7 +54,7 @@ module Api
             return if page.blank?
 
             state.merge!(
-              'page/show/data': ::Serializers::Page::Show.new(page: page, site_name: site_name).call,
+              'page/show/data': ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
               links: { 'page/edit': { path: page.edit_link } }
             )
           end

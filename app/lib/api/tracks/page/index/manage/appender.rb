@@ -23,7 +23,7 @@ module Api
             end
 
             def serialized_pages
-              ::Serializers::Page::Index.new(pages: pages, site_name: site_name).call
+              ::Serializers::Page::Index.new(pages: pages, constantized_site_name: constantized_site_name).call
             end
 
             def pages

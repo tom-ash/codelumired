@@ -8,7 +8,7 @@ module Api
 
         namespace 'current/verification' do
           put do
-            ::Mailers::Verification.new(email: current_user.email, namespace: 'user/update/email/current', lang: lang, site_name: site_name).send
+            ::Mailers::Verification.new(email: current_user.email, namespace: 'user/update/email/current', lang: lang, constantized_site_name: constantized_site_name).send
           end
         end
 
@@ -24,7 +24,7 @@ module Api
         namespace 'new/verification' do
           params { requires :email, type: String }
           put do
-            ::Mailers::Verification.new(user: current_user, email: params[:email], namespace: 'user/update/email/new', lang: lang, site_name: site_name).send
+            ::Mailers::Verification.new(user: current_user, email: params[:email], namespace: 'user/update/email/new', lang: lang, constantized_site_name: constantized_site_name).send
           end
         end
 
@@ -47,12 +47,12 @@ module Api
             requires :client_rehashed_password, type: String
           end
           put do
-            ::Commands::User::Authorize::EmailAndPassword.new(email: params[:current_email], password: params[:client_hashed_password], site_name: site_name).call
+            ::Commands::User::Authorize::EmailAndPassword.new(email: params[:current_email], password: params[:client_hashed_password], constantized_site_name: constantized_site_name).call
             ::Commands::User::Verify.new(user: current_user, namespace: 'user/update/email/current', verification_code: params[:current_email_verification_code]).call
             ::Commands::User::Verify.new(user: current_user, namespace: 'user/update/email/new', verification_code: params[:new_email_verification_code]).call
             ActiveRecord::Base.transaction do
-              ::Commands::User::Update::GenericAttr.new(user_id: current_user.id, name: 'email', value: params[:new_email], site_name: site_name).call
-              ::Commands::User::Update::Password.new(user_id: current_user.id, password: params[:client_rehashed_password], site_name: site_name).call
+              ::Commands::User::Update::GenericAttr.new(user_id: current_user.id, name: 'email', value: params[:new_email], constantized_site_name: constantized_site_name).call
+              ::Commands::User::Update::Password.new(user_id: current_user.id, password: params[:client_rehashed_password], constantized_site_name: constantized_site_name).call
             end
           rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::EmailAndPassword::PasswordError, ::Commands::User::Verify::CodeMismatchError
             error!('Invalid email, password or verification code!', 422)

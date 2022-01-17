@@ -5,9 +5,9 @@ module Serializers
     class Edit
       include SiteName
 
-      def initialize(user:, site_name:)
+      def initialize(user:, constantized_site_name:)
         @user = user
-        @site_name = site_name
+        @constantized_site_name = constantized_site_name
       end
 
       def call
@@ -24,7 +24,7 @@ module Serializers
 
       private
 
-      attr_reader :user, :site_name
+      attr_reader :user, :constantized_site_name
 
       def account_type_specific_attributes
         return { business_name: @user.business_name, tax_number: @user.tax_number } if user.professional_account?

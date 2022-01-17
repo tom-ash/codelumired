@@ -5,9 +5,9 @@ module Queries
     class SingleByAccessToken
       include SiteName
 
-      def initialize(access_token:, site_name:)
+      def initialize(access_token:, constantized_site_name:)
         @access_token = access_token
-        @site_name = site_name
+        @constantized_site_name = constantized_site_name
       end
 
       def call
@@ -16,7 +16,7 @@ module Queries
 
       private
 
-      attr_reader :access_token, :site_name
+      attr_reader :access_token, :constantized_site_name
 
       def user
         site::User.find_by(encrypted_access_token: encrypted_access_token)

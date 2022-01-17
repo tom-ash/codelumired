@@ -5,9 +5,9 @@ module Serializers
     class Index
       include SiteName
 
-      def initialize(pages:, site_name:)
+      def initialize(pages:, constantized_site_name:)
         @pages = pages
-        @site_name = site_name
+        @constantized_site_name = constantized_site_name
       end
 
       def call
@@ -16,7 +16,7 @@ module Serializers
 
       private
 
-      attr_reader :pages, :site_name
+      attr_reader :pages, :constantized_site_name
 
       def page_names_with_urls
         page_names_with_urls = {}

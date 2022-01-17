@@ -3,18 +3,12 @@
 module MapawynajmuPl
   module Api
     class Base < ::Api::Base
-      SITENAME = 'MapawynajmuPl'
-      SITE_TITLE = MAPAWYNAJMU_PL_APP_NAME
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
       LANGS = %i[pl en].freeze
 
       helpers do
-        def site_name
-          @site_name ||= SITENAME
-        end
-
-        def site_title
-          @site_title ||= SITE_TITLE
+        def constantized_site_name
+          @constantized_site_name ||= MAPAWYNAJMU_PL_CONSTANTIZED_NAME
         end
 
         def langs

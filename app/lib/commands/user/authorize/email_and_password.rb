@@ -9,7 +9,7 @@ module Commands
         def initialize(attrs)
           @email = attrs[:email]
           @password = attrs[:password]
-          @site_name = attrs[:site_name]
+          @constantized_site_name = attrs[:constantized_site_name]
         end
 
         def call
@@ -21,7 +21,7 @@ module Commands
 
         private
 
-        attr_reader :email, :password, :site_name
+        attr_reader :email, :password, :constantized_site_name
 
         def user
           @user ||= site::User.find_by!(email: email)
@@ -40,7 +40,7 @@ module Commands
         end
 
         def site
-          @site ||= Object.const_get(site_name)
+          @site ||= Object.const_get(constantized_site_name)
         end
       end
     end

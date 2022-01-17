@@ -5,9 +5,9 @@ module Serializers
     class Show
       include SiteName
 
-      def initialize(page:, site_name:)
+      def initialize(page:, constantized_site_name:)
         @page = page
-        @site_name = site_name
+        @constantized_site_name = constantized_site_name
       end
 
       def call
@@ -20,7 +20,7 @@ module Serializers
 
       private
 
-      attr_reader :page, :site_name
+      attr_reader :page, :constantized_site_name
 
       def lang_ver_urls
         site::Page.where(name: page.name).pluck(:lang, :url).to_h

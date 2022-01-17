@@ -34,15 +34,15 @@ module MapawynajmuPl
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                pl: "polityka cookies, #{MAPAWYNAJMU_PL_APP_NAME}, ogłoszenia, wynajem, nieruchomości, warszawa",
-                en: "cookies policy, #{MAPAWYNAJMU_PL_APP_NAME}, announcement, lease, real estate, warsaw"
+                pl: "polityka cookies, #{MAPAWYNAJMU_PL_NAME}, ogłoszenia, wynajem, nieruchomości, warszawa",
+                en: "cookies policy, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw"
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                pl: "Polityka Cookies #{MAPAWYNAJMU_PL_APP_NAME}, serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.",
-                en: "Cookies Policy of #{MAPAWYNAJMU_PL_APP_NAME}, a service featuring real estate lease announcements in Warsaw."
+                pl: "Polityka Cookies #{MAPAWYNAJMU_PL_NAME}, serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.",
+                en: "Cookies Policy of #{MAPAWYNAJMU_PL_NAME}, a service featuring real estate lease announcements in Warsaw."
               }.freeze
             end
 

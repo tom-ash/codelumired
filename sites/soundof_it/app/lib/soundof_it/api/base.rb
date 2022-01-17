@@ -4,16 +4,11 @@ module SoundofIt
   module Api
     class Base < ::Api::Base
       SITENAME = 'SoundofIt'
-      SITE_TITLE = 'soundof.IT'
       LANGS = %i[en].freeze
 
       helpers do
-        def site_name
-          @site_name ||= SITENAME
-        end
-
-        def site_title
-          @site_title ||= SITE_TITLE
+        def constantized_site_name
+          @constantized_site_name ||= SITENAME
         end
 
         def page_langs

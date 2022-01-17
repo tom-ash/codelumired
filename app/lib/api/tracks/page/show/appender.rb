@@ -25,7 +25,7 @@ module Api
           end
 
           def data
-            ::Serializers::Page::Show.new(page: page, site_name: site_name).call
+            ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call
           end
 
           def merge_meta

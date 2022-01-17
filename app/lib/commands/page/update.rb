@@ -9,7 +9,7 @@ module Commands
 
       def initialize(attrs)
         @attrs = attrs
-        @site_name = attrs[:site_name]
+        @constantized_site_name = attrs[:constantized_site_name]
       end
 
       def call
@@ -19,7 +19,7 @@ module Commands
 
       private
 
-      attr_reader :attrs, :site_name
+      attr_reader :attrs, :constantized_site_name
 
       def page
         @page ||= site::Page.find_by!(name: attrs[:name], lang: attrs[:lang])

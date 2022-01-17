@@ -19,7 +19,7 @@ module Api
         requires :picture, type: String
       end
       put do
-        attrs = params.merge(user_id: current_user.id, site_name: site_name)
+        attrs = params.merge(user_id: current_user.id, constantized_site_name: constantized_site_name)
         page = ::Commands::Page::Update.new(attrs).call
         page.url
       end

@@ -20,7 +20,7 @@ module Api
           end
 
           def site
-            @site ||= Object.const_get(site_name)
+            @site ||= Object.const_get(constantized_site_name)
           end
 
           def track_and_lang
@@ -59,7 +59,7 @@ module Api
           def current_user
             @current_user ||= ::Commands::User::Authorize::AccessToken.new(
               access_token: headers['Access-Token'],
-              site_name: site_name
+              constantized_site_name: constantized_site_name
             ).call
           end
 

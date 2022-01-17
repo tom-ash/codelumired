@@ -10,8 +10,8 @@ module Api
           requires :password, type: String, desc: 'User\'s password'
         end
         put do
-          ::Commands::User::Authorize::EmailAndPassword.new(params.merge(site_name: site_name)).call
-          camelize(::Queries::User::SingleByEmail.new(email: params[:email], site_name: site_name).call).merge(
+          ::Commands::User::Authorize::EmailAndPassword.new(params.merge(constantized_site_name: constantized_site_name)).call
+          camelize(::Queries::User::SingleByEmail.new(email: params[:email], constantized_site_name: constantized_site_name).call).merge(
             site::Api::Tracks::Root::Linker.new(lang.to_sym).call
           )
         rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::EmailAndPassword::PasswordError

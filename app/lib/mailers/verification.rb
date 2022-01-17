@@ -12,16 +12,16 @@ module Mailers
       'user/delete': { pl: 'Usuwanie konta', en: 'Account Deletion' }
     }.with_indifferent_access.freeze
 
-    def initialize(user: nil, email:, namespace:, lang:, site_name:)
+    def initialize(user: nil, email:, namespace:, lang:, constantized_site_name:)
       @user = user
       @email = email
       @namespace = namespace
       @lang = lang
-      @site_name = site_name
+      @constantized_site_name = constantized_site_name
     end
 
     def send
-      raise StandardError unless [email, namespace, lang, site_name].all?
+      raise StandardError unless [email, namespace, lang, constantized_site_name].all?
 
       TransactionalMailer.verification_email(
         to: email,
@@ -33,7 +33,7 @@ module Mailers
 
     private
 
-    attr_reader :email, :namespace, :lang, :site_name
+    attr_reader :email, :namespace, :lang, :constantized_site_name
 
     def subject
       SUBJECTS[namespace][lang]
