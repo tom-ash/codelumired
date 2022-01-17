@@ -7,9 +7,9 @@ module Commands
 
       class PageWithNameExistsError < StandardError; end
 
-      def initialize(name:, page_langs:, user_id:, constantized_site_name:)
+      def initialize(name:, langs:, user_id:, constantized_site_name:)
         @name = name
-        @page_langs = page_langs
+        @langs = langs
         @user_id = user_id
         @constantized_site_name = constantized_site_name
       end
@@ -22,10 +22,10 @@ module Commands
 
       private
 
-      attr_reader :name, :page_langs, :user_id, :constantized_site_name
+      attr_reader :name, :langs, :user_id, :constantized_site_name
 
       def create_pages
-        page_langs.each do |lang|
+        langs.each do |lang|
           user.pages.create!(
             name: name, lang: lang, url: SecureRandom.hex(32),
             body: [], style: [], meta: {},

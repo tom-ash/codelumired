@@ -18,7 +18,7 @@ module Api
       end
 
       shared_sitemaps.each do |mapper|
-        link_groups += mapper.get(site, page_langs)
+        link_groups += mapper.get(site, langs)
       end
 
       link_groups

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TransactionalMailer < ApplicationMailer
   HELLO = {
     'pl' => 'Witaj!',
@@ -18,7 +20,7 @@ class TransactionalMailer < ApplicationMailer
     @company = company
 
     mail(
-      from: "#{MAPAWYNAJMU_PL_NAME} <noreply@w#{MAPAWYNAJMU_PL_ROOT_DOMAIN}>",
+      from: "#{MAPAWYNAJMU_PL_NAME} <noreply@#{MAPAWYNAJMU_PL_ROOT_DOMAIN}>",
       to: to,
       subject: @subject
     )

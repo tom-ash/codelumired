@@ -14,10 +14,6 @@ module MapawynajmuPl
           @langs ||= MAPAWYNAJMU_PL_NAME_LANGS
         end
 
-        def page_langs
-          @page_langs ||= MAPAWYNAJMU_PL_NAME_LANGS
-        end
-
         def allowed_update_attrs
           @allowed_update_attrs ||= ALLOWED_UPDATE_ATTRS
         end
