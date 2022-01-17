@@ -4,7 +4,6 @@ module MapawynajmuPl
   module Api
     class Base < ::Api::Base
       ALLOWED_UPDATE_ATTRS = %w[first_name last_name business_name].freeze
-      LANGS = %i[pl en].freeze
 
       helpers do
         def constantized_site_name
@@ -12,11 +11,11 @@ module MapawynajmuPl
         end
 
         def langs
-          @langs ||= LANGS
+          @langs ||= MAPAWYNAJMU_PL_NAME_LANGS
         end
 
         def page_langs
-          @page_langs ||= LANGS
+          @page_langs ||= MAPAWYNAJMU_PL_NAME_LANGS
         end
 
         def allowed_update_attrs

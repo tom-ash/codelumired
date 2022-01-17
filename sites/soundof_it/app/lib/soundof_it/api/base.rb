@@ -10,12 +10,12 @@ module SoundofIt
           @constantized_site_name ||= MAPAWYNAJMU_PL_CONSTANTIZED_NAME
         end
 
-        def page_langs
-          @page_langs ||= LANGS
+        def langs
+          @langs ||= SOUNDOF_IT_NAME_LANGS
         end
 
-        def langs
-          @langs ||= LANGS
+        def page_langs
+          @page_langs ||= SOUNDOF_IT_NAME_LANGS
         end
 
         def sitemaps
