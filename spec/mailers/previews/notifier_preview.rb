@@ -6,4 +6,10 @@ class NotifierPreview < ActionMailer::Preview
     user = ::MapawynajmuPl::User.first
     NotifierMailer.before_name_change(user)
   end
+
+  # http://localhost:3001/rails/mailers/notifier/after_name_change
+  def after_name_change
+    user = ::MapawynajmuPl::User.first
+    NotifierMailer.after_name_change(user)
+  end
 end
