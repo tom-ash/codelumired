@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@#{MAPAWYNAJMU_PL_ROOT_DOMAIN}"
+  default from: "noreply@#{MAPAWYNAJMU_PL_APEX_DOMAIN}"
   layout 'mailer'
 
   COMPANY = {

@@ -20,7 +20,7 @@ class TransactionalMailer < ApplicationMailer
     @company = company
 
     mail(
-      from: "#{MAPAWYNAJMU_PL_NAME} <noreply@#{MAPAWYNAJMU_PL_ROOT_DOMAIN}>",
+      from: "#{MAPAWYNAJMU_PL_NAME} <noreply@#{MAPAWYNAJMU_PL_APEX_DOMAIN}>",
       to: to,
       subject: @subject
     )

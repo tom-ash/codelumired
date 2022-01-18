@@ -39,7 +39,7 @@ Rails.application.configure do
 
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'http://local.soundof.it:8080', 'http://local.warsawlease.pl:8080', "http://local.#{MAPAWYNAJMU_PL_ROOT_DOMAIN}:8080"
+      origins 'http://local.soundof.it:8080', "http://local.#{MAPAWYNAJMU_PL_APEX_DOMAIN}:8080"
       resource '*', headers: :any, methods: %i[get post put patch delete options head]
     end
   end
