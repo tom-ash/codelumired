@@ -19,7 +19,7 @@ class NotifierMailer < ApplicationMailer
     mail(
       to: user.email,
       from: 'kontakt@warsawlease.pl',
-      subject: 'warsawlease.pl zmienia się w mapawynajmu.pl'
+      subject: 'warsawlease.pl zmienił się w mapawynajmu.pl'
     )
   end
 end

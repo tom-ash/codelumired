@@ -42,7 +42,7 @@ namespace :mapawynajmu_pl do
     end
   end
 
-  desc 'Generate encryption :key, :iv and :salt.'
+  desc 'Send email informing about incoming name change.'
   task send_before_name_change_email: :environment do
     users = MapawynajmuPl::User.all
 
@@ -50,6 +50,25 @@ namespace :mapawynajmu_pl do
       puts "Sending \"Before Name Change Email\" for user with id #{user.id}"
 
       if NotifierMailer.before_name_change(user).deliver_now
+        puts 'Success'
+      else
+        puts 'Failure'
+      end
+
+      puts '---'
+
+      sleep(1)
+    end
+  end
+
+  desc 'Send email infomring about the changed name.'
+  task send_after_name_change_email: :environment do
+    users = MapawynajmuPl::User.all
+
+    users.each do |user|
+      puts "Sending \"After Name Change Email\" for user with id #{user.id}"
+
+      if NotifierMailer.after_name_change(user).deliver_now
         puts 'Success'
       else
         puts 'Failure'
