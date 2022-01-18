@@ -5,7 +5,7 @@ module SoundofIt
     class Base < ::Api::Base
       helpers do
         def constantized_site_name
-          @constantized_site_name ||= MAPAWYNAJMU_PL_CONSTANTIZED_NAME
+          @constantized_site_name ||= SOUNDOF_IT_NAME_CONSTANTIZED_NAME
         end
 
         def langs
