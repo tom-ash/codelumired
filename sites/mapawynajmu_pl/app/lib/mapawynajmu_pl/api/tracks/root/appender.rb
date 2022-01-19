@@ -7,8 +7,8 @@ module MapawynajmuPl
         class Appender
           include ::Api::Tracks::Helpers::Appender
           include ::MapawynajmuPl::Api::Tracks::Root::Meta
-          include ::MapawynajmuPl::Api::Announcement::Tracks::Helpers::Announcements
-          include ::MapawynajmuPl::Api::Announcement::Tracks::Helpers::Filters
+          include ::MapawynajmuPl::Api::Tracks::Helpers::Announcements
+          include ::MapawynajmuPl::Api::Tracks::Helpers::Filters
 
           private
 

@@ -3,8 +3,6 @@
 module MapawynajmuPl
   module Api
     class Sync < ::Api::Sync
-      helpers MapawynajmuPl::Api::Announcement::Helpers::Filters
-
       helpers do
         def track_paths
           {
