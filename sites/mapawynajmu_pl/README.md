@@ -23,5 +23,3 @@ $ gem install mapawynajmu_pl
 
 ## Contributing
 Contribution directions go here.
-
-## Descriptions
