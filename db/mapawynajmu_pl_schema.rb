@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_072556) do
+ActiveRecord::Schema.define(version: 2022_01_22_092020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2022_01_22_072556) do
     t.boolean "confirmed"
     t.string "locality"
     t.string "sublocality"
-    t.string "route"
     t.index ["active_until"], name: "index_announcements_on_active_until"
     t.index ["area"], name: "index_announcements_on_area"
     t.index ["area_int"], name: "index_announcements_on_area_int"
