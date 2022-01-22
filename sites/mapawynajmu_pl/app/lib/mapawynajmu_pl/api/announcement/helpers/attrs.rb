@@ -26,6 +26,9 @@ module MapawynajmuPl
               optional :furnishings, type: Array
               optional :polish_description, type: String
               optional :english_description, type: String
+              optional :locality, type: String
+              optional :sublocality, type: String
+              optional :route, type: String
             end
           end
         end
