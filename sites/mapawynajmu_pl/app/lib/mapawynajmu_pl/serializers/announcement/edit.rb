@@ -9,6 +9,7 @@ module MapawynajmuPl
           rent_currency net_rent_amount net_rent_amount_per_sqm gross_rent_amount gross_rent_amount_per_sqm
           rooms floor total_floors availability_date features furnishings polish_description english_description
           status visible views active_until created_at updated_at
+          locality sublocality
         ].freeze
 
         def initialize(announcement)

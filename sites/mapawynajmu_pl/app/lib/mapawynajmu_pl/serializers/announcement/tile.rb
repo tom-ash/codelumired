@@ -8,6 +8,7 @@ module MapawynajmuPl
           id category district area pictures
           rent_currency net_rent_amount net_rent_amount_per_sqm gross_rent_amount gross_rent_amount_per_sqm
           rooms floor total_floors availability_date
+          locality sublocality
         ].freeze
 
         def initialize(announcement:, lang:)

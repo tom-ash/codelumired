@@ -4,7 +4,25 @@ module MapawynajmuPl
   module Commands
     module Announcement
       class Create
-        DIRECT_ATTR_NAMES = %i[category district area pictures longitude latitude rent_currency rooms floor total_floors availability_date features furnishings polish_description english_description].freeze
+        DIRECT_ATTR_NAMES = %i[
+          category
+          district
+          area 
+          pictures
+          longitude
+          latitude
+          rent_currency
+          rooms
+          floor
+          total_floors
+          availability_date
+          features
+          furnishings
+          polish_description
+          english_description
+          locality
+          sublocality
+        ].freeze
         STATIC_ATTRS = { status: 1, points: 0, views: 0, reports: [], visible: true, change_log: [] }.freeze
 
         def initialize(user_id:, attrs:)
