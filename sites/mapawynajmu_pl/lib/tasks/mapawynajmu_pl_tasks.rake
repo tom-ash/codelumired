@@ -79,4 +79,16 @@ namespace :mapawynajmu_pl do
       sleep(1)
     end
   end
+
+  desc 'Supplement :locality and :sublocality.'
+  task supplement_locality_and_sublocality: :environment do
+    announcements = ::MapawynajmuPl::Announcement.all
+
+    announcements.update_all(locality: 'Warszawa')
+
+    districts = ::MapawynajmuPl::AnnouncementModules::Districts::DISTRICTS
+    announcements.where(sublocality: nil).each do |announcement|
+      announcement.update(sublocality: districts[announcement.district][:name])
+    end
+  end
 end
