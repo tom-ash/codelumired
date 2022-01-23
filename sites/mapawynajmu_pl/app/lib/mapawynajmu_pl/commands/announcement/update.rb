@@ -19,6 +19,8 @@ module MapawynajmuPl
           furnishings
           polish_description
           english_description
+          locality
+          sublocality
         ].freeze
 
         def initialize(id:, attrs:)
