@@ -20,7 +20,6 @@ task create_mock_announcements: :environment do
       english_description: '',
       user_id: ::MapawynajmuPl::User.all.sample.id,
       category: [0, 1].sample,
-      district: [*0..16].sample,
       rent_currency: [0, 1, 2].sample,
       net_rent_amount: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000].sample,
       net_rent_amount_per_sqm: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000].sample,

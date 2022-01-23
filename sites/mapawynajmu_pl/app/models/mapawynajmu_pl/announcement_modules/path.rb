@@ -6,7 +6,15 @@ module MapawynajmuPl
       def url(lang)
         @lang = lang.to_sym
 
-        "#{id}-#{urlified_category}-#{for_lease}-#{urlified_locality}-#{urlified_sublocality}"
+        components = [
+          id,
+          urlified_category,
+          for_lease,
+          urlified_locality,
+          urlified_sublocality
+        ].compact
+
+        components.join('-')
       end
 
       attr_reader :lang
@@ -20,11 +28,11 @@ module MapawynajmuPl
       end
 
       def urlified_locality
-        locality.parameterize
+        locality&.parameterize
       end
 
       def urlified_sublocality
-        sublocality.parameterize
+        sublocality&.parameterize
       end
     end
   end
