@@ -5,9 +5,25 @@ module MapawynajmuPl
     module Announcement
       class Show
         ATTRS = %w[
-          id category district area pictures longitude latitude
-          rent_currency net_rent_amount net_rent_amount_per_sqm gross_rent_amount gross_rent_amount_per_sqm
-          rooms floor total_floors availability_date features furnishings polish_description english_description
+          id
+          category
+          area
+          pictures
+          longitude
+          latitude
+          rent_currency
+          net_rent_amount
+          net_rent_amount_per_sqm
+          gross_rent_amount
+          gross_rent_amount_per_sqm
+          rooms
+          floor
+          total_floors
+          availability_date
+          features
+          furnishings
+          polish_description
+          english_description
           locality sublocality
         ].freeze
 

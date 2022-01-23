@@ -8,8 +8,8 @@ module MapawynajmuPl
 
         keywords_array = [
           titleized_category.downcase,
-          titleized_district.downcase,
-          titleized_city.downcase,
+          sublocality&.downcase,
+          locality&.downcase,
           lease_keywords
         ]
         keywords_array.join(', ')

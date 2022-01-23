@@ -9,8 +9,8 @@ module MapawynajmuPl
             TRACK = 'announcement/show'
 
             UNLOCALIZED_PATH = {
-              pl: /^\/?\d+-.*-na-wynajem-warszawa-.*$/,
-              en: /^\/?\d+-.*-for-lease-warsaw-.*$/
+              pl: /^\/?\d+-.*-na-wynajem-.*$/,
+              en: /^\/?\d+-.*-for-lease-.*$/
             }.freeze
 
             private

@@ -8,10 +8,10 @@ module MapawynajmuPl
 
         title_array = [
           "#{titleized_category}#{titleized_for_lease}",
-          titleized_district,
-          titleized_city,
+          locality,
+          sublocality,
           titleized_area,
-          titleized_rent,
+          titleized_rent
         ].compact
         title_array.join(', ')
       end
@@ -20,14 +20,6 @@ module MapawynajmuPl
 
       def titleized_category
         ::MapawynajmuPl::Announcement::CATEGORIES[category][:name][lang]
-      end
-
-      def titleized_city
-        ::MapawynajmuPl::Announcement::CITY[lang]
-      end
-
-      def titleized_district
-        ::MapawynajmuPl::Announcement::DISTRICTS[category][:name]
       end
 
       def titleized_area

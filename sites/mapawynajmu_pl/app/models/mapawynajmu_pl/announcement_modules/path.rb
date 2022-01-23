@@ -6,7 +6,7 @@ module MapawynajmuPl
       def url(lang)
         @lang = lang.to_sym
 
-        "#{id}-#{urlified_category}-#{for_lease}-#{urlified_city}-#{urlified_district}"
+        "#{id}-#{urlified_category}-#{for_lease}-#{urlified_locality}-#{urlified_sublocality}"
       end
 
       attr_reader :lang
@@ -19,12 +19,12 @@ module MapawynajmuPl
         { pl: 'na-wynajem', en: 'for-lease' }[lang]
       end
 
-      def urlified_city
-        ::MapawynajmuPl::Announcement::CITY[lang].downcase
+      def urlified_locality
+        locality.parameterize
       end
 
-      def urlified_district
-        ::MapawynajmuPl::Announcement::DISTRICTS[category][:urlified]
+      def urlified_sublocality
+        sublocality.parameterize
       end
     end
   end
