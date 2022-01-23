@@ -18,7 +18,7 @@ module MapawynajmuPl
         attr_reader :announcement, :lang
 
         def title
-          { category: announcement.category, district: announcement.district, area: announcement.area }
+          { category: announcement.category, area: announcement.area }
         end
 
         def description
@@ -26,7 +26,7 @@ module MapawynajmuPl
         end
 
         def keywords
-          { category: announcement.category, district: announcement.district }
+          { category: announcement.category }
         end
 
         def image

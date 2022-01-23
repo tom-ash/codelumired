@@ -4,7 +4,22 @@ module MapawynajmuPl
   module Commands
     module Announcement
       class Update
-        DIRECT_ATTR_NAMES = %i[category district area pictures longitude latitude rent_currency rooms floor total_floors availability_date features furnishings polish_description english_description].freeze
+        DIRECT_ATTR_NAMES = %i[
+          category
+          area
+          pictures
+          longitude
+          latitude
+          rent_currency
+          rooms
+          floor
+          total_floors
+          availability_date
+          features
+          furnishings
+          polish_description
+          english_description
+        ].freeze
 
         def initialize(id:, attrs:)
           @id = id

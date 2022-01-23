@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_092020) do
+ActiveRecord::Schema.define(version: 2022_01_23_084421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2022_01_22_092020) do
     t.boolean "visible", null: false
     t.datetime "active_until", null: false
     t.integer "category", limit: 2, null: false
-    t.integer "district", limit: 2, null: false
     t.float "area", null: false
     t.integer "rent_currency", limit: 2
     t.float "net_rent_amount"
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 2022_01_22_092020) do
     t.index ["availability_date"], name: "index_announcements_on_availability_date"
     t.index ["category"], name: "index_announcements_on_category"
     t.index ["confirmed"], name: "index_announcements_on_confirmed"
-    t.index ["district"], name: "index_announcements_on_district"
     t.index ["floor"], name: "index_announcements_on_floor"
     t.index ["gross_rent_amount"], name: "index_announcements_on_gross_rent_amount"
     t.index ["gross_rent_amount_int"], name: "index_announcements_on_gross_rent_amount_int"

@@ -10,7 +10,6 @@ module MapawynajmuPl
           params :announcement_attrs do
             requires :announcement, type: Hash do
               requires :category, type: Integer
-              requires :district, type: Integer
               requires :area, type: Float
               requires :pictures, type: Array
               requires :latitude, type: Float

@@ -4,13 +4,12 @@ require 'rails_helper'
 
 RSpec.describe ::MapawynajmuPl::Api::Announcement::CreateWithUser do
   let(:category) { 2 }
-  let(:district) { 0 }
   let(:area) { 42.42 }
   let(:pictures) { [{ database: 'test_key', description: 'test_descriptiom' }] }
   let(:latitude) { 52.2248049 }
   let(:longitude) { 21.0115667 }
   let(:optional_attrs) { {} }
-  let(:announcement) { { category: category, district: district, area: area, pictures: pictures, longitude: longitude, latitude: latitude }.merge(optional_attrs) }
+  let(:announcement) { { category: category, area: area, pictures: pictures, longitude: longitude, latitude: latitude }.merge(optional_attrs) }
   let(:email) { 'test@example.net' }
   let(:password) { 'test_password' }
   let(:first_name) { 'Gandalf' }
@@ -32,6 +31,4 @@ RSpec.describe ::MapawynajmuPl::Api::Announcement::CreateWithUser do
       end
     end
   end
-
-
 end

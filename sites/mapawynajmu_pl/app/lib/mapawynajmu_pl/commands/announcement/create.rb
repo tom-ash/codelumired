@@ -6,7 +6,6 @@ module MapawynajmuPl
       class Create
         DIRECT_ATTR_NAMES = %i[
           category
-          district
           area 
           pictures
           longitude
