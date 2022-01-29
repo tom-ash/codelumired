@@ -12,9 +12,18 @@ module Serializers
 
       def call
         page.slice(
-          :name, :url, :lang,
-          :body, :style, :meta,
-          :canonical_url, :title, :description, :keywords, :picture
+          :name,
+          :url,
+          :lang,
+          :body,
+          :style,
+          :meta,
+          :canonical_url,
+          :title,
+          :description,
+          :keywords,
+          :picture,
+          :online
         ).merge(lang_ver_urls: lang_ver_urls)
       end
 
