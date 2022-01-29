@@ -37,7 +37,7 @@ module Api
           end
 
           def page
-            @page ||= site::Page.find_by(url: route_url)
+            @page ||= site::Page.find_by(url: route_url, online: true)
           end
 
           def track
