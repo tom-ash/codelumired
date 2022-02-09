@@ -62,6 +62,10 @@ module Api
               'current/en': { path: page_en.edit_link, title: 'Edit Page TODO' }
             }
           end
+
+          def asset_names
+            @asset_names ||= page.meta['assets'].split(', ').map(&:to_sym)
+          end
         end
       end
     end
