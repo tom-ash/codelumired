@@ -28,7 +28,10 @@ module Api
           end
 
           def asset_names
-            @asset_names ||= page.meta['assets'].split(', ').map(&:to_sym).push(:edit)
+            @asset_names ||= begin
+              assets = page.meta['assets'] || ''
+              assets.split(', ').map(&:to_sym).push(:edit)
+            end
           end
         end
       end
