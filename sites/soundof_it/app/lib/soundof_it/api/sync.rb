@@ -12,6 +12,8 @@ module SoundofIt
             ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Meta::UNLOCALIZED_PATH,
             ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Meta::UNLOCALIZED_PATH,
             ::SoundofIt::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SoundofIt::Api::Tracks::Visitor::PrivacySettings::Meta::UNLOCALIZED_PATH,
+            ::SoundofIt::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::SoundofIt::Api::Tracks::Announcement::Create::Form::Meta::UNLOCALIZED_PATH,
+            ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH
@@ -26,6 +28,8 @@ module SoundofIt
           when ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK then ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Appender.new(attrs).call
           when ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK then ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Appender.new(attrs).call
           when ::SoundofIt::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK then ::SoundofIt::Api::Tracks::Visitor::PrivacySettings::Appender.new(attrs).call
+          when ::SoundofIt::Api::Tracks::Announcement::Create::Form::Meta::TRACK then ::SoundofIt::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
+          when ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Meta::TRACK then ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Appender.new(attrs).call
           when ::Api::Tracks::Page::New::Meta::TRACK then ::Api::Tracks::Page::New::Appender.new(attrs).call
           when ::Api::Tracks::Page::Index::Manage::Meta::TRACK then ::Api::Tracks::Page::Index::Manage::Appender.new(attrs).call
           when ::Api::Tracks::Page::Show::Meta::TRACK then ::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
@@ -43,8 +47,10 @@ module SoundofIt
             ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(lang).call,
             ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Linker.new(lang).call,
             ::SoundofIt::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SoundofIt::Api::Tracks::Visitor::PrivacySettings::Linker.new(lang).call,
-            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(:pl).call,
-            ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Linker.new(:pl).call
+            ::SoundofIt::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::SoundofIt::Api::Tracks::Announcement::Create::Form::Linker.new(lang).call,
+            ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Linker.new(lang).call,
+            ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(lang).call,
+            ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Linker.new(lang).call
           )
         end
       end
