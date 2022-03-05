@@ -22,6 +22,10 @@ module SoundofIt
             ::SoundofIt::Api::Tracks::Visitor::PrivacySettings::Sitemap
           ]
         end
+
+        def bucket
+          @bucket ||= ENV['AWS_S3_SOUNDOFIT_BUCKET']
+        end
       end
 
       mount ::Api::Sitemap => 'sitemap'

@@ -36,6 +36,10 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Sitemap
           ]
         end
+
+        def bucket
+          @bucket ||= ENV['AWS_S3_MAPAWYNAJMUPL_BUCKET']
+        end
       end
 
       mount ::Api::Sitemap => 'sitemap'

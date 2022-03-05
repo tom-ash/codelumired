@@ -10,6 +10,7 @@ module Commands
       def initialize(attrs)
         @attrs = attrs
         @constantized_site_name = attrs[:constantized_site_name]
+        @bucket = attrs[:bucket]
       end
 
       def call
@@ -24,7 +25,7 @@ module Commands
         key = "pages/#{page_name} #{page_lang} (#{page_date})"
 
         s3_client.put_object(
-          bucket: Rails.application.secrets.aws_bucket,
+          bucket: bucket,
           key: key,
           body: page.to_json
         )
@@ -34,7 +35,7 @@ module Commands
 
       private
 
-      attr_reader :attrs, :constantized_site_name
+      attr_reader :attrs, :constantized_site_name, :bucket
 
       def page
         @page ||= site::Page.find_by!(name: attrs[:name], lang: attrs[:lang])
