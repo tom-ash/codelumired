@@ -14,22 +14,8 @@ module Commands
       end
 
       def call
-        page.update!(attrs.slice(*PAGE_UPDATE_ATTRS))
-
-        s3_client = Aws::S3::Client.new(region: Rails.application.secrets.aws_region)
-
-        page_date = page.updated_at
-        page_lang = page.lang
-        page_name = page.name
-
-        key = "pages/#{page_name} #{page_lang} (#{page_date})"
-
-        s3_client.put_object(
-          bucket: bucket,
-          key: key,
-          body: page.to_json
-        )
-
+        update_page
+        backup_page
         page
       end
 
@@ -37,12 +23,24 @@ module Commands
 
       attr_reader :attrs, :constantized_site_name, :bucket
 
+      def update_page
+        page.update!(attrs.slice(*PAGE_UPDATE_ATTRS))
+      end
+
+      def backup_page
+        ::Commands::S3Object::Upload.new(
+          bucket: bucket,
+          key: backup_key,
+          body: page.to_json
+        ).call
+      end
+
       def page
         @page ||= site::Page.find_by!(name: attrs[:name], lang: attrs[:lang])
       end
 
-      def user
-        @user ||= site::User.find(attrs[:user_id])
+      def backup_key
+        "pages/#{page.name} #{page.lang} (#{page.updated_at})"
       end
     end
   end
