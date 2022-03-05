@@ -14,6 +14,21 @@ module Commands
 
       def call
         page.update!(attrs.slice(*PAGE_UPDATE_ATTRS))
+
+        s3_client = Aws::S3::Client.new(region: Rails.application.secrets.aws_region)
+
+        page_date = page.updated_at
+        page_lang = page.lang
+        page_name = page.name
+
+        key = "pages/#{page_name} #{page_lang} (#{page_date})"
+
+        s3_client.put_object(
+          bucket: Rails.application.secrets.aws_bucket,
+          key: key,
+          body: page.to_json
+        )
+
         page
       end
 
