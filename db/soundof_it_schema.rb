@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_073933) do
+ActiveRecord::Schema.define(version: 2022_03_12_060538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jobs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "views", null: false
+    t.string "company_name", null: false
+    t.integer "company_size", null: false
+    t.boolean "remote", null: false
+    t.boolean "hybrid", null: false
+    t.boolean "office", null: false
+    t.string "country", null: false
+    t.string "locality", null: false
+    t.string "sublocality"
+    t.string "street"
+    t.boolean "employment", null: false
+    t.boolean "b2b", null: false
+    t.integer "employment_min"
+    t.integer "employment_max"
+    t.integer "b2b_min"
+    t.integer "b2b_max"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string "name", null: false
@@ -64,5 +88,6 @@ ActiveRecord::Schema.define(version: 2022_01_24_073933) do
     t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
   end
 
+  add_foreign_key "jobs", "users"
   add_foreign_key "pages", "users", column: "author_id"
 end
