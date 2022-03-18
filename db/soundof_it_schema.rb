@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_060538) do
+ActiveRecord::Schema.define(version: 2022_03_12_064021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,18 @@ ActiveRecord::Schema.define(version: 2022_03_12_060538) do
     t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.bigint "added_by_id", null: false
+    t.bigint "principal_skill_id"
+    t.string "name", null: false
+    t.string "type", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["added_by_id"], name: "index_skills_on_added_by_id"
+    t.index ["principal_skill_id"], name: "index_skills_on_principal_skill_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.integer "status", limit: 2, null: false
     t.string "email", null: false
@@ -90,4 +102,6 @@ ActiveRecord::Schema.define(version: 2022_03_12_060538) do
 
   add_foreign_key "jobs", "users"
   add_foreign_key "pages", "users", column: "author_id"
+  add_foreign_key "skills", "skills", column: "principal_skill_id"
+  add_foreign_key "skills", "users", column: "added_by_id"
 end
