@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_064021) do
+ActiveRecord::Schema.define(version: 2022_03_19_060207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2022_03_12_064021) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "jobs_skills", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_jobs_skills_on_job_id"
+    t.index ["skill_id"], name: "index_jobs_skills_on_skill_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -101,6 +110,8 @@ ActiveRecord::Schema.define(version: 2022_03_12_064021) do
   end
 
   add_foreign_key "jobs", "users"
+  add_foreign_key "jobs_skills", "jobs"
+  add_foreign_key "jobs_skills", "skills"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "skills", "skills", column: "principal_skill_id"
   add_foreign_key "skills", "users", column: "added_by_id"
