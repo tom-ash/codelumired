@@ -42,9 +42,11 @@ ActiveRecord::Schema.define(version: 2022_03_19_060207) do
   create_table "jobs_skills", force: :cascade do |t|
     t.bigint "job_id", null: false
     t.bigint "skill_id", null: false
+    t.integer "level", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_jobs_skills_on_job_id"
+    t.index ["level"], name: "index_jobs_skills_on_level"
     t.index ["skill_id"], name: "index_jobs_skills_on_skill_id"
   end
 
