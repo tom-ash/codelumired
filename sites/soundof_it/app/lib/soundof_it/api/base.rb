@@ -30,7 +30,7 @@ module SoundofIt
 
       mount ::Api::Sitemap => 'sitemap'
       mount ::SoundofIt::Api::Sync => 'sync'
-      mount ::SoundofIt::Api::Methods::Announcement::Create::AsUser => 'job/create/as-user'
+      mount ::SoundofIt::Api::Methods::Job::Create::AsUser => 'job/create/as-user'
     end
   end
 end
