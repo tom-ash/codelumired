@@ -13,7 +13,8 @@ module SoundofIt
               def merge_state
                 state.merge!(
                   'announcement/create': {
-                    selectable_skills: ::SoundofIt::Skill.all
+                    selectable_skills: ::SoundofIt::Skill.all,
+                    selected_skills: []
                   }
                 )
               end
