@@ -9,8 +9,8 @@ module SoundofIt
     # has_and_belongs_to_many :skills
     belongs_to :user
 
-    has_many :job_skills
-    has_many :skills, through: :job_skills
+    has_many :coveted_skills
+    has_many :skills, through: :coveted_skills
 
     # Non-validated fields: sublocality, street, description
     validates :user, presence: true

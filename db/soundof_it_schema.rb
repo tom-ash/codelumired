@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_20_072001) do
+ActiveRecord::Schema.define(version: 2022_03_20_074853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "job_skills", force: :cascade do |t|
+  create_table "coveted_skills", force: :cascade do |t|
     t.bigint "job_id", null: false
     t.bigint "skill_id", null: false
     t.integer "level", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_id"], name: "index_job_skills_on_job_id"
-    t.index ["level"], name: "index_job_skills_on_level"
-    t.index ["skill_id"], name: "index_job_skills_on_skill_id"
+    t.index ["job_id"], name: "index_coveted_skills_on_job_id"
+    t.index ["level"], name: "index_coveted_skills_on_level"
+    t.index ["skill_id"], name: "index_coveted_skills_on_skill_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 2022_03_20_072001) do
     t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
   end
 
-  add_foreign_key "job_skills", "jobs"
-  add_foreign_key "job_skills", "skills"
+  add_foreign_key "coveted_skills", "jobs"
+  add_foreign_key "coveted_skills", "skills"
   add_foreign_key "jobs", "users"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "skills", "skills", column: "principal_skill_id"

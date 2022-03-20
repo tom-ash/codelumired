@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module SoundofIt
-  class JobSkill < ApplicationRecord
+  class CovetedSkill < ApplicationRecord
     establish_connection :soundof_it
 
-    self.table_name = 'job_skills'
+    self.table_name = 'coveted_skills'
     # TODO: Add unique index on :job_id & :skill_id.
 
     belongs_to :job

@@ -6,8 +6,8 @@ module SoundofIt
 
     self.table_name = 'skills'
 
-    has_many :job_skills
-    has_many :jobs, through: :job_skills
+    has_many :coveted_skills
+    has_many :jobs, through: :coveted_skills
 
     validates :added_by_id, presence: true
     validates :name, presence: true, uniqueness: true # TODO: Add unique index to :name.

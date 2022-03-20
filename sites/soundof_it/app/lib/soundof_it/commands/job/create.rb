@@ -40,8 +40,7 @@ module SoundofIt
 
         def add_skills_to_job
           selected_skills.each do |selected_skill|
-            # TODO: Change 'JobSkill' model name to 'SkillLevel'.
-            @job.job_skills.create!(
+            @job.coveted_skills.create!(
               skill: ::SoundofIt::Skill.find_by(name: selected_skill[:name]),
               level: selected_skill[:level]
             )
