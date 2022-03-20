@@ -17,7 +17,8 @@ module Api
               state: state,
               meta: meta,
               site: site,
-              constantized_site_name: constantized_site_name
+              constantized_site_name: constantized_site_name,
+              redirect: redirect
             }
           end
 
@@ -68,6 +69,8 @@ module Api
         end
 
         get do
+          status redirect.status if redirect.present?
+
           camelize(state: state, meta: meta)
         end
       end

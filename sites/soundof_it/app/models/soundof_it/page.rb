@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SoundofIt
   class Page < ::Page
     establish_connection :soundof_it

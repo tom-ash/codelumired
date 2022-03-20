@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_073943) do
+ActiveRecord::Schema.define(version: 2022_03_20_120531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,18 @@ ActiveRecord::Schema.define(version: 2022_01_24_073943) do
     t.index ["encrypted_access_token"], name: "index_prospective_users_on_encrypted_access_token", unique: true
   end
 
+  create_table "redirects", force: :cascade do |t|
+    t.bigint "added_by_id", null: false
+    t.string "original_url", null: false
+    t.string "redirected_url", null: false
+    t.integer "status", null: false
+    t.text "reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["added_by_id"], name: "index_redirects_on_added_by_id"
+    t.index ["original_url"], name: "index_redirects_on_original_url", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.integer "status", limit: 2, null: false
     t.string "encrypted_access_token", null: false
@@ -181,4 +193,5 @@ ActiveRecord::Schema.define(version: 2022_01_24_073943) do
 
   add_foreign_key "announcements", "users"
   add_foreign_key "pages", "users", column: "author_id"
+  add_foreign_key "redirects", "users", column: "added_by_id"
 end

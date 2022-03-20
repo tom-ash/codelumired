@@ -29,6 +29,7 @@ module Api
                 return { track: track, lang: :pl } if path[:pl] && path[:pl].match(route_url)
                 return { track: track, lang: :en } if path[:en].match(route_url)
                 return { track: 'page/show', lang: page.lang.to_sym } if page.present?
+                return { track: 'redirect', lang: :en } if redirect.present? # TODO: Add :lang to :redirect.
               end
 
               status 404
@@ -38,6 +39,10 @@ module Api
 
           def page
             @page ||= site::Page.find_by(url: route_url, online: true)
+          end
+
+          def redirect
+            @redirect ||= site::Redirect.find_by(original_url: route_url)
           end
 
           def track

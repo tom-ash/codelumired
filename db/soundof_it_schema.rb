@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_20_074853) do
+ActiveRecord::Schema.define(version: 2022_03_20_083425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,18 @@ ActiveRecord::Schema.define(version: 2022_03_20_074853) do
     t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
+  create_table "redirects", force: :cascade do |t|
+    t.bigint "added_by_id", null: false
+    t.string "original_url", null: false
+    t.string "redirected_url", null: false
+    t.integer "status", null: false
+    t.text "reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["added_by_id"], name: "index_redirects_on_added_by_id"
+    t.index ["original_url"], name: "index_redirects_on_original_url", unique: true
+  end
+
   create_table "skills", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.bigint "principal_skill_id"
@@ -115,6 +127,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_074853) do
   add_foreign_key "coveted_skills", "skills"
   add_foreign_key "jobs", "users"
   add_foreign_key "pages", "users", column: "author_id"
+  add_foreign_key "redirects", "users", column: "added_by_id"
   add_foreign_key "skills", "skills", column: "principal_skill_id"
   add_foreign_key "skills", "users", column: "added_by_id"
 end
