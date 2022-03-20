@@ -10,7 +10,16 @@ module SoundofIt
         end
 
         def call
-          ::SoundofIt::Job.create!(
+          create_job
+          add_skills_to_job
+        end
+
+        private
+
+        attr_reader :user_id, :attrs
+
+        def create_job
+          @job ||= ::SoundofIt::Job.create!(
             user: user,
             views: 0,
             company_name: 'TODO',
@@ -27,13 +36,21 @@ module SoundofIt
             # b2b_min
             # b2b_max
           )
-
-          # TODO: ADD SKILLS
         end
 
-        private
+        def add_skills_to_job
+          selected_skills.each do |selected_skill|
+            # TODO: Change 'JobSkill' model name to 'SkillLevel'.
+            @job.job_skills.create!(
+              skill: ::SoundofIt::Skill.find_by(name: selected_skill[:name]),
+              level: selected_skill[:level]
+            )
+          end
+        end
 
-        attr_reader :user_id, :attrs
+        def selected_skills
+          @selected_skills ||= attrs[:selected_skills]
+        end
 
         def user
           ::SoundofIt::User.find(user_id)
