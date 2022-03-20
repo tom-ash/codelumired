@@ -6,14 +6,14 @@ module SoundofIt
       module Job
         module Create
           class AsUser < Grape::API
-            # before { authorize! }
+            before { authorize! }
 
             params do
               requires :selected_skills, type: Array
             end
             post do
               ::SoundofIt::Commands::Job::Create.new(
-                user_id: nil,
+                user_id: current_user.id,
                 attrs: {
                   selected_skills: params[:selected_skills]
                 }

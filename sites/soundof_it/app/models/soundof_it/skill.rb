@@ -6,7 +6,7 @@ module SoundofIt
 
     self.table_name = 'skills'
 
-    has_and_belongs_to_many :jobs
+    # has_and_belongs_to_many :jobs
 
     validates :added_by_id, presence: true
     validates :name, presence: true, uniqueness: true # TODO: Add unique index to :name.

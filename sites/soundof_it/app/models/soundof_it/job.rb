@@ -6,7 +6,8 @@ module SoundofIt
 
     self.table_name = 'jobs'
 
-    has_and_belongs_to_many :skills
+    # has_and_belongs_to_many :skills
+    belongs_to :user
 
     # Non-validated fields: sublocality, street, description
     validates :user, presence: true
@@ -21,9 +22,9 @@ module SoundofIt
     validates :employment, inclusion: { in: [true, false] }
     validates :b2b, inclusion: { in: [true, false] }
     # Add :mandate.
-    validates :employment_min, numericality: true
-    validates :employment_max, numericality: true
-    validates :b2b_min, numericality: true
-    validates :b2b_max, numericality: true
+    validates :employment_min, numericality: true, allow_nil: true
+    validates :employment_max, numericality: true, allow_nil: true
+    validates :b2b_min, numericality: true, allow_nil: true
+    validates :b2b_max, numericality: true, allow_nil: true
   end
 end

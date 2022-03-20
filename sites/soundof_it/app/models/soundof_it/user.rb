@@ -15,6 +15,7 @@ module SoundofIt
     validates :business_name, presence: true, if: :professional_account?
 
     has_many :pages, foreign_key: :author_id, dependent: :destroy
+    has_many :jobs, dependent: :destroy
 
     def private_account?
       account_type == 'private'
