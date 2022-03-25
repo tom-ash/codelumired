@@ -23,7 +23,8 @@ module Serializers
           :description,
           :keywords,
           :picture,
-          :online
+          :online,
+          :header_autonumbering
         ).merge(lang_ver_urls: lang_ver_urls)
       end
 
