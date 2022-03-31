@@ -11,7 +11,13 @@ module Api
           private
 
           def merge_state
-            # TODO
+            state.merge!(
+              'image/edit/data': site::Image.find(image_id)
+            )
+          end
+
+          def image_id
+            @image_id ||= url.match(%r{(edit-image|edytuj-obraz)/(\d+)})[2].to_i
           end
         end
       end
