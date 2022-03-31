@@ -2,7 +2,7 @@
 
 module Api
   module Tracks
-    module Page
+    module Image
       module Edit
         module Meta
           TRACK = 'image/edit'

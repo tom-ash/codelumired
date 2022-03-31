@@ -2,7 +2,7 @@
 
 module Api
   module Tracks
-    module Page
+    module Image
       module Edit
         class Appender
           include ::Api::Tracks::Helpers::Appender
