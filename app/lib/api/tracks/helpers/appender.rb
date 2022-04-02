@@ -76,7 +76,8 @@ module Api
           meta.merge!(
             title: title,
             keywords: keywords,
-            description: description
+            description: description,
+            image: image
           )
         end
 
@@ -183,6 +184,11 @@ module Api
 
         def canonical_url
           nil
+        end
+
+        def image
+          # TODO: Add for other sites.
+          @image ||= 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg'
         end
       end
     end
