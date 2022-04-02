@@ -12,7 +12,10 @@ module Api
 
           def merge_state
             state.merge!(
-              'image/edit/data': site::Image.find(image_id)
+              'image/edit/data': {
+                id: image_id,
+                body: JSON.pretty_generate(site::Image.find(image_id).body)
+              }
             )
           end
 

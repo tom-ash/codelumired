@@ -97,6 +97,7 @@ module Api
         mount ::Api::RemoteAsset::PresignedPost => 'remote-asset/presigned-post'
         mount ::Api::Page::Create => 'page/create'
         mount ::Api::Page::Update => 'page/update'
+        mount ::Api::Image::Update => 'image/update'
       end
     end
   end
