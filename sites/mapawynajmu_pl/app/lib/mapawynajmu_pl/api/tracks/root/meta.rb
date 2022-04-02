@@ -13,11 +13,11 @@ module MapawynajmuPl
           }.freeze
 
           UNLOCALIZED_TITLE = {
-            pl: 'Ogłoszenia wynajmu nieruchomości w Warszawie | Mapa',
-            en: 'Real Estate Lease Announcements in Warsaw | Map'
+            pl: 'Mapa wynajmu nieruchomości - mieszkania i lokale komercyjne',
+            en: 'Real Estate Lease Map - Apartments & Commercial Premises'
           }.freeze
 
-          FOR_LEASE_IN_WARSAW = { pl: 'do wynajęcia w Warszawie', en: 'for lease in Warsaw' }.freeze
+          FOR_LEASE = { pl: 'na wynajem', en: 'for lease' }.freeze
           TITLEIZED_VENUE = { map: { pl: 'Mapa', en: 'Map' }, catalogue: { pl: 'Katalog', en: 'Catalogue' } }.freeze
 
           private
@@ -35,7 +35,7 @@ module MapawynajmuPl
           end
 
           def category_title
-            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE_IN_WARSAW[lang]} | #{TITLEIZED_VENUE[venue.to_sym][lang]}"
+            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE[lang]} - #{TITLEIZED_VENUE[venue.to_sym][lang]}"
           end
 
           def match_data
@@ -71,15 +71,15 @@ module MapawynajmuPl
 
           def unlocalized_keywords
             @unlocalized_keywords ||= {
-              pl: 'ogłoszenia, oferty, wynajem, najem, nieruchomości, warszawa, mapa, bezpłatne, bezpłatnie, darmowe, za darmo, mieszkania, domy, pokoje, miejsca parkingowe, lokale użytkowe, biura, biura wirtualne, coworking',
-              en: 'announcements, offers, lease, rent, real estate, warsaw, map, free, apartments, flats, houses, rooms, parking spaces, usable premises, offices, virtual offices, coworking'
+              pl: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
+              en: 'map, lease, rent, real, estate, property, properties, apartments, free, announcements, houses, rooms, usable, premises, offices, virtual, parking, spaces, coworking'
             }.freeze
           end
 
           def unlocalized_description
             @unlocalized_description ||= {
-              pl: 'Ogłoszenia nieruchomości na wynajem w Warszawie na mapie. Za darmo dodaj ogłoszenie wynajmu między innymi mieszkania, pokoju, biura lub lokalu użytkowego.',
-              en: 'Warsaw real estate lease announcements on a map. Add a free lease announcement of among others an apartment, a room, an office and/or usable premises.'
+              pl: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem. Dodaj ogłoszenie za darmo.',
+              en: 'Free real estate lease announcements on map. Apartments, rooms, usable premises, offices and other properties for lease. Add announcement for free.'
             }.freeze
           end
 
