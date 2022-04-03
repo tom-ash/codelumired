@@ -27,14 +27,11 @@ module SoundofIt
             remote: attrs[:remote],
             hybrid: attrs[:hybrid],
             office: attrs[:office],
-            country: 'Poland',
-            locality: 'Warsaw',
-            employment: true,
-            b2b: true
-            # employment_min
-            # employment_max
-            # b2b_min
-            # b2b_max
+            b2b: attrs[:b2b],
+            employment: attrs[:employment],
+            # civil_contract: attrs[:civil_contract], # TODO
+            country: 'Poland', # TODO
+            locality: 'Warsaw' # TODO
           )
         end
 

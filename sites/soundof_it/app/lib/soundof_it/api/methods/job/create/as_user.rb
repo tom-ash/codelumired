@@ -13,6 +13,9 @@ module SoundofIt
               requires :remote, type: Boolean
               requires :hybrid, type: Boolean
               requires :office, type: Boolean
+              requires :b2b, type: Boolean
+              requires :employment, type: Boolean
+              requires :civil_contract, type: Boolean
             end
             post do
               ::SoundofIt::Commands::Job::Create.new(
@@ -21,7 +24,10 @@ module SoundofIt
                   selected_skills: params[:selected_skills],
                   remote: params[:remote],
                   hybrid: params[:hybrid],
-                  office: params[:office]
+                  office: params[:office],
+                  b2b: params[:b2b],
+                  employment: params[:employment],
+                  civil_contract: params[:civil_contract]
                 }
               ).call
             end
