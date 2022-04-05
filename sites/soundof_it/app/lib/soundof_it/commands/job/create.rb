@@ -28,7 +28,11 @@ module SoundofIt
             hybrid: attrs[:hybrid],
             office: attrs[:office],
             b2b: attrs[:b2b],
+            b2b_min: attrs[:b2b_min],
+            b2b_max: attrs[:b2b_max],
             employment: attrs[:employment],
+            employment_min: attrs[:employment_min],
+            employment_max: attrs[:employment_max],
             # civil_contract: attrs[:civil_contract], # TODO
             country: 'Poland', # TODO
             locality: 'Warsaw' # TODO
