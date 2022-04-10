@@ -4,11 +4,14 @@ module Api
   module Tracks
     module Helpers
       module Appender
+        class UnauthorizedError < StandardError; end
+
         def initialize(attrs)
           @attrs = attrs
         end
 
         def call
+          authorize!
           merge_state
           merge_render
           merge_links
@@ -23,6 +26,8 @@ module Api
         private
 
         attr_reader :attrs
+
+        def authorize!; end
 
         def merge_state; end
 

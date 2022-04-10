@@ -10,6 +10,10 @@ module Api
 
           private
 
+          def authorize!
+            raise UnauthorizedError unless current_user&.role == 'admin'
+          end
+
           def merge_state
             serialized_page = camelize(::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call)
             state.merge!(
