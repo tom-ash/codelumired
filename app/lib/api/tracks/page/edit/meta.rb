@@ -58,8 +58,8 @@ module Api
             page_en = site::Page.find_by(name: page.name, lang: :en)
 
             {
-              'current/pl': { path: page_pl.edit_link, title: 'Edytuj stronę TODO' },
-              'current/en': { path: page_en.edit_link, title: 'Edit Page TODO' }
+              'current/pl': { path: page_pl&.edit_link, title: 'Edytuj stronę TODO' },
+              'current/en': { path: page_en&.edit_link, title: 'Edit Page TODO' }
             }
           end
 
