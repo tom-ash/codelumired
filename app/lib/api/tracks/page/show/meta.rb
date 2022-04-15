@@ -22,8 +22,8 @@ module Api
 
             {
               'page/edit': { path: page.edit_link },
-              'current/pl': { path: page_pl.show_link, title: page_pl.title },
-              'current/en': { path: page_en.show_link, title: page_en.title }
+              'current/pl': { path: page_pl&.show_link, title: page_pl&.title },
+              'current/en': { path: page_en&.show_link, title: page_en&.title }
             }
           end
 
