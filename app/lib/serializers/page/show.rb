@@ -24,7 +24,10 @@ module Serializers
           :keywords,
           :picture,
           :online,
-          :header_autonumbering
+          :header_autonumbering,
+          :schema_mode,
+          :auto_schema,
+          :manual_schema
         ).merge(lang_ver_urls: lang_ver_urls)
       end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_050817) do
+ActiveRecord::Schema.define(version: 2022_04_16_144154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,9 @@ ActiveRecord::Schema.define(version: 2022_03_31_050817) do
     t.bigint "author_id"
     t.boolean "online"
     t.boolean "header_autonumbering"
+    t.string "schema_mode", default: "auto", null: false
+    t.jsonb "auto_schema", default: {}, null: false
+    t.jsonb "manual_schema", default: {}, null: false
     t.index ["author_id"], name: "index_pages_on_author_id"
     t.index ["description"], name: "index_pages_on_description"
     t.index ["keywords"], name: "index_pages_on_keywords"

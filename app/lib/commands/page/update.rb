@@ -5,7 +5,22 @@ module Commands
     class Update
       include SiteName
 
-      PAGE_UPDATE_ATTRS = %w[url body style meta canonical_url title description keywords picture online header_autonumbering].freeze
+      PAGE_UPDATE_ATTRS = %w[
+        url
+        body
+        style
+        meta
+        canonical_url
+        title
+        description
+        keywords
+        picture
+        online
+        header_autonumbering
+        schema_mode
+        auto_schema
+        manual_schema
+      ].freeze
 
       def initialize(attrs)
         @attrs = attrs

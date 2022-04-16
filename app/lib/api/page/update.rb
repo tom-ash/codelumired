@@ -17,6 +17,9 @@ module Api
         requires :description, type: String
         requires :keywords, type: String
         requires :picture, type: String
+        requires :schema_mode, type: String
+        requires :auto_schema, type: Hash
+        requires :manual_schema, type: Hash
       end
       put do
         attrs = params.merge(
