@@ -28,7 +28,7 @@ module Serializers
           :schema_mode,
           :auto_schema,
           :manual_schema
-        ).merge(lang_ver_urls: lang_ver_urls)
+        ).merge(lang_ver_urls: lang_ver_urls, schema: schema)
       end
 
       private
@@ -37,6 +37,10 @@ module Serializers
 
       def lang_ver_urls
         site::Page.where(name: page.name).pluck(:lang, :url).to_h
+      end
+
+      def schema
+        page[:schema_mode] == 'auto' ? page[:auto_schema] : page[:manual_schema]
       end
     end
   end

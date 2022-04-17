@@ -34,7 +34,8 @@ module Api
               title: page.title,
               description: page.description,
               keywords: page.keywords,
-              image: page.picture
+              image: page.picture,
+              schema: JSON.pretty_generate(page.schema_mode == 'auto' ? page.auto_schema : page.manual_schema)
             )
           end
         end
