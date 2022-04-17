@@ -20,6 +20,8 @@ module Commands
         schema_mode
         auto_schema
         manual_schema
+        published_on
+        modified_on
       ].freeze
 
       def initialize(attrs)

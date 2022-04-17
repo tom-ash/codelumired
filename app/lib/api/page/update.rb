@@ -20,6 +20,8 @@ module Api
         requires :schema_mode, type: String
         requires :auto_schema, type: String
         requires :manual_schema, type: String
+        requires :published_on, type: Date
+        requires :modified_on, type: Date
       end
       put do
         auto_schema = JSON.parse(params['auto_schema'])

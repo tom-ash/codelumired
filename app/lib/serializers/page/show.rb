@@ -27,7 +27,9 @@ module Serializers
           :header_autonumbering,
           :schema_mode,
           :auto_schema,
-          :manual_schema
+          :manual_schema,
+          :published_on,
+          :modified_on
         ).merge(lang_ver_urls: lang_ver_urls, schema: schema)
       end
 
