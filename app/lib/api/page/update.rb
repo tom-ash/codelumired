@@ -18,14 +18,19 @@ module Api
         requires :keywords, type: String
         requires :picture, type: String
         requires :schema_mode, type: String
-        requires :auto_schema, type: Hash
-        requires :manual_schema, type: Hash
+        requires :auto_schema, type: String
+        requires :manual_schema, type: String
       end
       put do
+        auto_schema = JSON.parse(params['auto_schema'])
+        manual_schema = JSON.parse(params['manual_schema'])
+
         attrs = params.merge(
           user_id: current_user.id,
           constantized_site_name: constantized_site_name,
-          bucket: bucket
+          bucket: bucket,
+          auto_schema: auto_schema,
+          manual_schema: manual_schema
         )
         page = ::Commands::Page::Update.new(attrs).call
         page.url
