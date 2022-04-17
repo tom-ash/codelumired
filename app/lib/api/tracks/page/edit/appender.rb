@@ -19,7 +19,9 @@ module Api
             state.merge!(
               'page/edit/inputs': serialized_page.merge(
                 body: JSON.pretty_generate(serialized_page['body']),
-                meta: JSON.pretty_generate(serialized_page['meta'])
+                meta: JSON.pretty_generate(serialized_page['meta']),
+                auto_schema: JSON.pretty_generate(serialized_page['autoSchema']),
+                manual_schema: JSON.pretty_generate(serialized_page['manualSchema'])
               ),
               links: { 'langs': page.lang_edit_links }
             )
