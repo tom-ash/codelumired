@@ -19,7 +19,13 @@ module Api
               pages.each do |page|
                 next if page.canonical_url.present?
 
-                link << { path: page.url, lang: page.lang, changefreq: 'monthly', priority: '0.9' }
+                link << {
+                  path: page.url,
+                  lang: page.lang,
+                  changefreq: 'monthly',
+                  modifiedon: page.modified_on,
+                  priority: '0.9'
+                }
               end
 
               links << link if link.any?
