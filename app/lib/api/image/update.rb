@@ -10,10 +10,16 @@ module Api
         requires :image_id, type: Integer
         requires :body, type: Array
         optional :page_id, type: Integer
+        optional :name, type: String
+        optional :width, type: Integer
+        optional :height, type: Integer
       end
       put do
+        # byebug
         image_id = params[:image_id]
         body = params[:body]
+        width = params[:width]
+        height = params[:height]
 
         image = site::Image.find(image_id)
 
@@ -25,7 +31,7 @@ module Api
           end
         end
 
-        image.update(body: body)
+        image.update(body: body, width: width, height: height)
       end
     end
   end
