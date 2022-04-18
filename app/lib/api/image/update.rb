@@ -17,13 +17,15 @@ module Api
 
         image = site::Image.find(image_id)
 
-        camelizedBody = body.map do |body_el|
+        body.map do |body_el|
+          next if body_el.class == String
+
           body_el.deep_transform_keys do |key|
             key.to_s.camelize(:lower)
           end
         end
 
-        image.update(body: camelizedBody)
+        image.update(body: body)
       end
     end
   end
