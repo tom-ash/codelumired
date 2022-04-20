@@ -3,21 +3,19 @@
 module Api
   module Image
     class Update < Grape::API
-      # TODO: Secure endpoint.
-      # before { authorize_for_page! }
+      # TODO: before { authorize_for_page! }
 
       params do
         requires :image_id, type: Integer
-        requires :body, type: Array
+        requires :body, type: String
         optional :page_id, type: Integer
         optional :name, type: String
         optional :width, type: Integer
         optional :height, type: Integer
       end
       put do
-        # byebug
         image_id = params[:image_id]
-        body = params[:body]
+        body = JSON.parse(params[:body])
         width = params[:width]
         height = params[:height]
 
