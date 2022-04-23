@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_102929) do
+ActiveRecord::Schema.define(version: 2022_04_23_061129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2022_04_18_102929) do
     t.string "name"
     t.integer "width"
     t.integer "height"
+    t.string "storage_key"
+    t.string "storage_url"
     t.index ["added_by_id"], name: "index_images_on_added_by_id"
     t.index ["page_id"], name: "index_images_on_page_id"
   end

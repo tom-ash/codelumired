@@ -16,7 +16,9 @@ module Api
                 id: image_id,
                 body: JSON.pretty_generate(image.body),
                 width: image.width,
-                height: image.height
+                height: image.height,
+                storage_key: image.storage_key,
+                storage_url: image.storage_url
               }
             )
           end
