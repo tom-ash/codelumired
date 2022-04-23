@@ -13,7 +13,7 @@ module Api
           def merge_state
             state.merge!(
               'image/edit/data': {
-                id: image_id,
+                id: image.id,
                 body: JSON.pretty_generate(image.body),
                 width: image.width,
                 height: image.height,
@@ -24,11 +24,11 @@ module Api
           end
 
           def image
-            @image ||= site::Image.find(image_id)
+            @image ||= site::Image.find_by(storage_key: storage_key)
           end
 
-          def image_id
-            @image_id ||= url.match(%r{(edit-image|edytuj-obraz)/(\d+)})[2].to_i
+          def storage_key
+            @storage_key ||= url.match(%r{(edit-image|edytuj-obraz)\/(.+)})[2]
           end
         end
       end
