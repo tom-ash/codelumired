@@ -11,28 +11,16 @@ module Api
           private
 
           def merge_state
-
-
-
-            # state.merge!(
-            #   'image/edit/data': {
-            #     id: image.id,
-            #     body: JSON.pretty_generate(image.body),
-            #     width: image.width,
-            #     height: image.height,
-            #     storage_key: image.storage_key,
-            #     storage_url: image.storage_url
-            #   }
-            # )
+            state.merge!(
+              'image/create': {
+                image_keys: image_keys
+              }
+            )
           end
 
-          # def image
-          #   @image ||= site::Image.find_by(storage_key: storage_key)
-          # end
-
-          # def storage_key
-          #   @storage_key ||= url.match(%r{(edit-image|edytuj-obraz)\/(.+)})[2]
-          # end
+          def image_keys
+            site::Image.pluck(:storage_key)
+          end
         end
       end
     end
