@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_142851) do
+ActiveRecord::Schema.define(version: 2022_04_24_043052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,22 @@ ActiveRecord::Schema.define(version: 2022_04_17_142851) do
     t.jsonb "original_user", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "added_by_id", null: false
+    t.bigint "page_id"
+    t.jsonb "body", null: false
+    t.string "name"
+    t.integer "width"
+    t.integer "height"
+    t.string "storage_key", null: false
+    t.string "storage_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["added_by_id"], name: "index_images_on_added_by_id"
+    t.index ["page_id"], name: "index_images_on_page_id"
+    t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
   end
 
   create_table "pages", force: :cascade do |t|
@@ -198,6 +214,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_142851) do
   end
 
   add_foreign_key "announcements", "users"
+  add_foreign_key "images", "users", column: "added_by_id"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "redirects", "users", column: "added_by_id"
 end
