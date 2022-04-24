@@ -19,7 +19,7 @@ module Api
           end
 
           def image_keys
-            site::Image.pluck(:storage_key)
+            site::Image.order(storage_key:  :asc).pluck(:storage_key)
           end
         end
       end
