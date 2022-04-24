@@ -98,6 +98,7 @@ module Api
         mount ::Api::Page::Create => 'page/create'
         mount ::Api::Page::Update => 'page/update'
         mount ::Api::Image::Update => 'image/update'
+        mount ::Api::Storage::S3PresignedPost => 'storage/s3-presigned-post'
       end
     end
   end
