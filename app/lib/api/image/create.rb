@@ -12,7 +12,7 @@ module Api
         image_key = params[:image_key]
         raise 'Empty Image Key Error' unless image_key.present? && current_user.present?
 
-        ::MapawynajmuPl::Image.create(
+        site::Image.create(
           added_by_id: current_user.id,
           storage_key: image_key,
           body: []
