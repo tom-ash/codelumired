@@ -3,7 +3,7 @@
 module Api
   module Tracks
     module Image
-      module Create
+      module Index
         module Meta
           TRACK = 'image/create'
 

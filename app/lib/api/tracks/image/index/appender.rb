@@ -3,10 +3,10 @@
 module Api
   module Tracks
     module Image
-      module Create
+      module Index
         class Appender
           include ::Api::Tracks::Helpers::Appender
-          include ::Api::Tracks::Image::Create::Meta
+          include ::Api::Tracks::Image::Index::Meta
 
           private
 

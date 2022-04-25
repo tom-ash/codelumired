@@ -3,10 +3,10 @@
 module Api
   module Tracks
     module Image
-      module Create
+      module Index
         class Linker
           include ::Api::Tracks::Helpers::Linker
-          include ::Api::Tracks::Image::Create::Meta
+          include ::Api::Tracks::Image::Index::Meta
         end
       end
     end

@@ -18,7 +18,7 @@ module SoundofIt
             ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Image::Create::Meta::TRACK => ::Api::Tracks::Image::Create::Meta::UNLOCALIZED_PATH
+            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH
           }
         end
 
@@ -39,7 +39,7 @@ module SoundofIt
           when ::Api::Tracks::Page::NotFound::Meta::TRACK then ::Api::Tracks::Page::NotFound::Appender.new(attrs).call
           when ::Api::Tracks::Redirect::Show::Meta::TRACK then ::Api::Tracks::Redirect::Show::Appender.new(attrs).call
           when ::Api::Tracks::Image::Edit::Meta::TRACK then ::Api::Tracks::Image::Edit::Appender.new(attrs).call
-          when ::Api::Tracks::Image::Create::Meta::TRACK then ::Api::Tracks::Image::Create::Appender.new(attrs).call
+          when ::Api::Tracks::Image::Index::Meta::TRACK then ::Api::Tracks::Image::Index::Appender.new(attrs).call
           end
         end
 
@@ -57,7 +57,7 @@ module SoundofIt
             ::Api::Tracks::Page::New::Meta::TRACK => ::Api::Tracks::Page::New::Linker.new(lang).call,
             ::Api::Tracks::Page::Index::Manage::Meta::TRACK => ::Api::Tracks::Page::Index::Manage::Linker.new(lang).call,
             ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Linker.new(lang).call,
-            ::Api::Tracks::Image::Create::Meta::TRACK => ::Api::Tracks::Image::Create::Linker.new(lang).call
+            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Linker.new(lang).call
           )
         end
       end
