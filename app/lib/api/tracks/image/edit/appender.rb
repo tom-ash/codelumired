@@ -28,7 +28,7 @@ module Api
           end
 
           def storage_key
-            @storage_key ||= url.match(%r{(edit-image|edytuj-obraz)\/(.+)})[2]
+            @storage_key ||= url.match(%r{(images|obrazy)\/(.+)})[2]
           end
         end
       end

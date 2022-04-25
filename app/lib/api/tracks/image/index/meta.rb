@@ -8,13 +8,13 @@ module Api
           TRACK = 'image/index'
 
           UNLOCALIZED_PATH = {
-            pl: 'dodaj-obraz',
-            en: 'add-image'
+            pl: 'obrazy',
+            en: 'images'
           }.freeze
 
           UNLOCALIZED_TITLE = {
-            pl: 'Dodaj obraz',
-            en: 'Add Image'
+            pl: 'Obrazy',
+            en: 'Images'
           }.freeze
 
           private
@@ -33,15 +33,15 @@ module Api
 
           def unlocalized_keywords
             @unlocalized_keywords ||= {
-              pl: 'dodaj, obraz',
-              en: 'add, image'
+              pl: 'obrazy',
+              en: 'images'
             }.freeze
           end
 
           def unlocalized_description
             @unlocalized_description ||= {
-              pl: 'Dodaj obraz.',
-              en: 'Add image.'
+              pl: 'Obrazy.',
+              en: 'Images.'
             }.freeze
           end
 

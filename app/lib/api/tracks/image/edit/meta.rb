@@ -8,8 +8,8 @@ module Api
           TRACK = 'image/edit'
 
           UNLOCALIZED_PATH = {
-            pl: %r{^edytuj-obraz/.+$},
-            en: %r{^edit-image/.+$}
+            pl: %r{^obrazy/.+$},
+            en: %r{^images/.+$}
           }.freeze
 
           UNLOCALIZED_TITLE = {
