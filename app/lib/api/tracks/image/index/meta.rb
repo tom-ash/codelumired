@@ -5,7 +5,7 @@ module Api
     module Image
       module Index
         module Meta
-          TRACK = 'image/create'
+          TRACK = 'image/index'
 
           UNLOCALIZED_PATH = {
             pl: 'dodaj-obraz',
@@ -49,7 +49,7 @@ module Api
             {
               visitor: true,
               image: true,
-              'image/create': true
+              'image/index': true
             }
           end
 

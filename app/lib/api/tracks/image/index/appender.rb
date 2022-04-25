@@ -12,7 +12,7 @@ module Api
 
           def merge_state
             state.merge!(
-              'image/create': {
+              'image/index': {
                 image_keys: image_keys
               }
             )
