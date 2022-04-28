@@ -12,7 +12,7 @@ class Page < ApplicationRecord
   end
 
   def edit_page
-    { pl: 'edytuj-strone', en: 'edit-page' }[lang.to_sym]
+    { pl: 'strony', en: 'pages' }[lang.to_sym]
   end
 
   def lang_show_links

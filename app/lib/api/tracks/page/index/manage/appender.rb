@@ -13,21 +13,15 @@ module Api
 
             def merge_state
               state.merge!(
-                'page/index/data': {
-                  pages: serialized_pages
-                },
-                'page/index/inputs': {
-                  name: ''
+                'page/index': {
+                  page_keys: page_keys,
+                  page_key: ''
                 }
               )
             end
 
-            def serialized_pages
-              ::Serializers::Page::Index.new(pages: pages, constantized_site_name: constantized_site_name).call
-            end
-
-            def pages
-              site::Page.all.select(:name, :lang, :url)
+            def page_keys
+              @page_keys ||= site::Page.pluck(:url)
             end
           end
         end

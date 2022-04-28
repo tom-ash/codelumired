@@ -28,7 +28,7 @@ module Api
           end
 
           def page
-            page_url = url.match(%r{^(edit-page|edytuj-strone)/(.+)$})[2]
+            page_url = url.match(%r{^(pages|strony)/(.+)$})[2]
             site::Page.find_by(url: page_url)
           end
 

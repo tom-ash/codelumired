@@ -8,8 +8,8 @@ module Api
           TRACK = 'page/edit'
 
           UNLOCALIZED_PATH = {
-            pl: %r{^edytuj-strone/.+$},
-            en: %r{^edit-page/.+$}
+            pl: %r{^strony/.+$},
+            en: %r{^pages/.+$}
           }.freeze
 
           UNLOCALIZED_TITLE = {
