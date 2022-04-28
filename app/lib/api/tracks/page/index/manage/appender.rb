@@ -21,7 +21,7 @@ module Api
             end
 
             def page_keys
-              @page_keys ||= site::Page.pluck(:url)
+              @page_keys ||= site::Page.order(url: :asc).pluck(:url)
             end
           end
         end
