@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_24_043052) do
+ActiveRecord::Schema.define(version: 2022_05_03_141247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,12 +141,17 @@ ActiveRecord::Schema.define(version: 2022_04_24_043052) do
     t.jsonb "manual_schema", default: {}, null: false
     t.date "published_on"
     t.date "modified_on"
+    t.string "category"
+    t.string "subcategory"
+    t.jsonb "link_data"
     t.index ["author_id"], name: "index_pages_on_author_id"
+    t.index ["category"], name: "index_pages_on_category"
     t.index ["description"], name: "index_pages_on_description"
     t.index ["keywords"], name: "index_pages_on_keywords"
     t.index ["lang"], name: "index_pages_on_lang"
     t.index ["name", "lang"], name: "index_pages_on_name_and_lang", unique: true
     t.index ["name"], name: "index_pages_on_name"
+    t.index ["subcategory"], name: "index_pages_on_subcategory"
     t.index ["title"], name: "index_pages_on_title"
     t.index ["url"], name: "index_pages_on_url", unique: true
   end

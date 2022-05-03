@@ -29,7 +29,10 @@ module Serializers
           :auto_schema,
           :manual_schema,
           :published_on,
-          :modified_on
+          :modified_on,
+          :category,
+          :subcategory,
+          :link_data
         ).merge(lang_ver_urls: lang_ver_urls, schema: schema)
       end
 
