@@ -22,6 +22,9 @@ module Commands
         manual_schema
         published_on
         modified_on
+        category
+        subcategory
+        link_data
       ].freeze
 
       def initialize(attrs)

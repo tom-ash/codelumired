@@ -22,17 +22,22 @@ module Api
         requires :manual_schema, type: String
         requires :published_on, type: Date
         requires :modified_on, type: Date
+        requires :category, type: String
+        requires :subcategory, type: String
+        requires :link_data, type: String
       end
       put do
         auto_schema = JSON.parse(params['auto_schema'])
         manual_schema = JSON.parse(params['manual_schema'])
+        link_data = JSON.parse(params['link_data'])
 
         attrs = params.merge(
           user_id: current_user.id,
           constantized_site_name: constantized_site_name,
           bucket: bucket,
           auto_schema: auto_schema,
-          manual_schema: manual_schema
+          manual_schema: manual_schema,
+          link_data: link_data
         )
         page = ::Commands::Page::Update.new(attrs).call
         page.url
