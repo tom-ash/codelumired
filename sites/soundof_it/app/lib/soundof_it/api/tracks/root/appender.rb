@@ -23,7 +23,17 @@ module SoundofIt
           end
 
           def tutorials
-            ::SoundofIt::Page.where(category: 'tutorials').pluck(:link_data)
+            ::SoundofIt::Page.where(category: ['tutorials', 'insights']).map do |page|
+              {
+                title: page.title,
+                description: page.description,
+                category: page.category,
+                hrefLang: page.lang,
+                pathname: page.url,
+                modifiedOn: page.modified_on,
+                logo: page.link_data['logo']
+              }
+            end
           end
         end
       end
