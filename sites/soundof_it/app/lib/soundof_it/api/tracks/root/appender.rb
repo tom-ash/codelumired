@@ -28,10 +28,12 @@ module SoundofIt
                 title: page.title,
                 description: page.description,
                 category: page.category,
+                subcategory: page.subcategory,
                 hrefLang: page.lang,
                 pathname: page.url,
                 modifiedOn: page.modified_on,
-                logo: page.link_data['logo']
+                logo: page.link_data['logo'],
+                image: page.link_data['image']
               }
             end
           end
