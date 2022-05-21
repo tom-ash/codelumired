@@ -13,7 +13,8 @@ module SoundofIt
           def merge_state
             state.merge!(
               'page/index': {
-                tutorials: tutorials
+                tutorials: tutorials,
+                articles: articles
               }
             )
           end
@@ -24,6 +25,22 @@ module SoundofIt
 
           def tutorials
             ::SoundofIt::Page.where(category: ['tutorials', 'insights']).map do |page|
+              {
+                title: page.title,
+                description: page.description,
+                category: page.category,
+                subcategory: page.subcategory,
+                hrefLang: page.lang,
+                pathname: page.url,
+                modifiedOn: page.modified_on,
+                logo: page.link_data['logo'],
+                image: page.link_data['image']
+              }
+            end
+          end
+
+          def articles
+            ::SoundofIt::Page.where(category: 'articles').map do |page|
               {
                 title: page.title,
                 description: page.description,
