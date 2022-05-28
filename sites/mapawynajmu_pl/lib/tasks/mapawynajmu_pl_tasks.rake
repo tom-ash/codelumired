@@ -79,4 +79,15 @@ namespace :mapawynajmu_pl do
       sleep(1)
     end
   end
+
+  desc 'Update Page Schemas'
+  task update_page_schemas: :environment do
+    ::MapawynajmuPl::Page.all.each do |page|
+      ::Builders::Pages::AutoSchemaBuilder.new(
+        page: page,
+        domain_url: MAPAWYNAJMU_PL_URL,
+        bucket: MAPAWYNAJMU_PL_S3
+      ).call
+    end
+  end
 end
