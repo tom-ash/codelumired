@@ -8,6 +8,10 @@ module SoundofIt
           @constantized_site_name ||= SOUNDOF_IT_NAME_CONSTANTIZED_NAME
         end
 
+        def domain_url
+          @domain_url ||= SOUNDOF_IT_URL
+        end
+
         def langs
           @langs ||= SOUNDOF_IT_NAME_LANGS
         end

@@ -39,7 +39,15 @@ module Api
           manual_schema: manual_schema,
           link_data: link_data
         )
+
         page = ::Commands::Page::Update.new(attrs).call
+
+        ::Builders::Pages::AutoSchemaBuilder.new(
+          page: page,
+          domain_url: domain_url,
+          bucket: bucket
+        ).call if page.schema_mode == 'auto'
+
         page.url
       end
     end

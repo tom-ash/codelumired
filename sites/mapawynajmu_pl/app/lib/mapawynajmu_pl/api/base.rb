@@ -8,6 +8,10 @@ module MapawynajmuPl
           @constantized_site_name ||= MAPAWYNAJMU_PL_CONSTANTIZED_NAME
         end
 
+        def domain_url
+          @domain_url ||= MAPAWYNAJMU_PL_URL
+        end
+
         def langs
           @langs ||= MAPAWYNAJMU_PL_NAME_LANGS
         end
