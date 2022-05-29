@@ -82,8 +82,23 @@ module Api
             title: title,
             keywords: keywords,
             description: description,
-            image: image
+            image: image,
+            schema: schema
           )
+        end
+
+        def schema
+          JSON.pretty_generate({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            # "url": "https://soundof.it/javascript-for-loop",
+            name: title,
+            keywords: keywords,
+            image: image,
+            inLanguage: lang,
+            isFamilyFriendly: true,
+            description: description
+          }.compact)
         end
 
         def lang
