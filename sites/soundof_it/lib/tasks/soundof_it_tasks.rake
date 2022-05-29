@@ -13,7 +13,7 @@ namespace :soundof_it do
   desc 'Update Page Schemas'
   task update_page_schemas: :environment do
     ::SoundofIt::Page.all.each do |page|
-      ::Builders::Pages::AutoSchemaBuilder.new(
+      ::Builders::Pages::SchemaOrgBuilder.new(
         page: page,
         domain_url: SOUNDOF_IT_URL,
         bucket: SOUNDOF_IT_S3

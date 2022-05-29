@@ -42,11 +42,11 @@ module Api
 
         page = ::Commands::Page::Update.new(attrs).call
 
-        ::Builders::Pages::AutoSchemaBuilder.new(
+        ::Builders::Pages::SchemaOrgBuilder.new(
           page: page,
           domain_url: domain_url,
           bucket: bucket
-        ).call if page.schema_mode == 'auto'
+        ).call
 
         page.url
       end
