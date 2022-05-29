@@ -30,10 +30,20 @@ module Builders
       private
 
       attr_reader :page, :domain_url, :bucket
+      delegate :category, to: :page
 
       def type
-        'WebSite'
+        case category
+        when 'tutorials'
+          'CreativeWork'
+        when 'insights'
+          'CreativeWork'
+        else
+          'WebSite'
+        end
       end
+
+      # TODO?: Add learningResourceType.
     end
   end
 end
