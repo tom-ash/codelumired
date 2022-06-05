@@ -45,8 +45,22 @@ module Api
             keywords: keywords,
             description: description,
             image: image,
-            schema: schema
+            schema: schema,
+            open_graph: open_graph
           )
+        end
+
+        def open_graph
+          @open_graph ||= ::Builders::OpenGraph.new(
+            site_name: attrs[:site_name],
+            url: full_url,
+            title: title,
+            description: description,
+            keywords: keywords,
+            image: image,
+            locale: lang,
+            locale_alts: alt_langs
+          ).call
         end
 
         def merge_assets
@@ -150,12 +164,12 @@ module Api
           @title ||= unlocalized_title[lang]
         end
 
-        def keywords
-          @keywords ||= unlocalized_keywords[lang]
-        end
-
         def description
           @description ||= unlocalized_description[lang]
+        end
+
+        def keywords
+          @keywords ||= unlocalized_keywords[lang]
         end
 
         def lang_counterpart

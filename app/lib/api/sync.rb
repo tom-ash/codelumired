@@ -17,6 +17,7 @@ module Api
               state: state,
               meta: meta,
               site: site,
+              site_name: site_name,
               constantized_site_name: constantized_site_name,
               redirect: redirect,
               domain_url: domain_url

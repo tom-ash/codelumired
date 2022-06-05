@@ -4,6 +4,10 @@ module MapawynajmuPl
   module Api
     class Base < ::Api::Base
       helpers do
+        def site_name
+          @site_name ||= MAPAWYNAJMU_PL_NAME
+        end
+
         def constantized_site_name
           @constantized_site_name ||= MAPAWYNAJMU_PL_CONSTANTIZED_NAME
         end

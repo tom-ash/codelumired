@@ -4,6 +4,10 @@ module SoundofIt
   module Api
     class Base < ::Api::Base
       helpers do
+        def site_name
+          @site_name ||= SOUNDOF_IT_NAME
+        end
+
         def constantized_site_name
           @constantized_site_name ||= SOUNDOF_IT_NAME_CONSTANTIZED_NAME
         end
