@@ -39,7 +39,15 @@ module Api
           state.merge!(links: links)
         end
 
-        def merge_meta; end
+        def merge_meta
+          meta.merge!(
+            title: title,
+            keywords: keywords,
+            description: description,
+            image: image,
+            schema: schema
+          )
+        end
 
         def merge_assets
           state.merge!('assets/svgs': assets)
@@ -92,17 +100,7 @@ module Api
         end
 
         def meta
-          @meta ||= begin
-            attrs_meta = attrs[:meta]
-            attrs_meta.merge!(
-              title: title,
-              keywords: keywords,
-              description: description,
-              image: image,
-              schema: schema
-            )
-            attrs_meta
-          end
+          @meta ||= attrs[:meta]
         end
 
         def schema
