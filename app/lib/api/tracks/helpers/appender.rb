@@ -109,7 +109,7 @@ module Api
 
         def schema_data
           @schema_data ||= {
-            url: 'TODO',
+            url: full_url,
             title: title,
             description: description,
             keywords: keywords,
@@ -124,6 +124,14 @@ module Api
 
         def url
           @url ||= attrs[:url]
+        end
+
+        def domain_url
+          @domain_url ||= attrs[:domain_url]
+        end
+
+        def full_url
+          @full_url ||= domain_url + (url == '/' ? url : "/#{url}")
         end
 
         def params

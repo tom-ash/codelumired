@@ -18,7 +18,8 @@ module Api
               meta: meta,
               site: site,
               constantized_site_name: constantized_site_name,
-              redirect: redirect
+              redirect: redirect,
+              domain_url: domain_url
             }
           end
 
