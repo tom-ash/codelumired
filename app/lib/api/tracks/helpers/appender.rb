@@ -13,11 +13,10 @@ module Api
         def call
           authorize!
           merge_state
+          merge_meta
           merge_render
           merge_links
-          merge_meta
           merge_assets
-          merge_locale
           merge_page
         end
 
@@ -59,7 +58,7 @@ module Api
 
           alt_langs.map do |alt_lang|
             href = links["current/#{alt_lang}".to_sym][:path]
-            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{alt_lang}\" href=\"#{domain_url}#{href}\" />"
+            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{alt_lang}\" href=\"#{domain_url}#{href == '' ? '' : '/'}#{href}\" />"
           end
 
           alternate_links_string
@@ -88,28 +87,6 @@ module Api
 
         def merge_assets
           state.merge!('assets/svgs': assets)
-        end
-
-        def merge_locale
-          meta.merge!(
-            og_locale: og_locale,
-            og_locale_alts: og_locale_alts
-          )
-        end
-
-        def og_locale
-          og_unlocalized_locale[lang]
-        end
-
-        def og_locale_alts
-          alt_langs.map { |alt_lang| og_unlocalized_locale[alt_lang] }
-        end
-
-        def og_unlocalized_locale
-          @og_unlocalized_locale ||= {
-            pl: :pl_pl,
-            en: :en_us
-          }
         end
 
         def alt_langs
@@ -168,7 +145,7 @@ module Api
         end
 
         def full_url
-          @full_url ||= domain_url + (url == '/' ? url : "/#{url}")
+          @full_url ||= domain_url + (url == '/' ? '' : "/#{url}")
         end
 
         def params
