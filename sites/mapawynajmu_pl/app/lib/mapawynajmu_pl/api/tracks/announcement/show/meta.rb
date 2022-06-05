@@ -33,6 +33,22 @@ module MapawynajmuPl
             def asset_names
               @asset_names ||= %i[check facebook phone]
             end
+
+            def title
+              @title ||= announcement.title(lang)
+            end
+
+            def description
+              @description ||= announcement.description(lang)
+            end
+
+            def keywords
+              @keywords ||= announcement.keywords(lang)
+            end
+
+            def image
+              @image ||= announcement.image
+            end
           end
         end
       end

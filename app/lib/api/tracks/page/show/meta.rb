@@ -33,6 +33,26 @@ module Api
               assets.split(', ').map(&:to_sym).push(:edit)
             end
           end
+
+          def title
+            @title ||= page.title
+          end
+
+          def description
+            @description ||= page.description
+          end
+
+          def keywords
+            @keywords ||= page.keywords
+          end
+
+          def image
+            @image ||= page.picture
+          end
+
+          def schema
+            @schema ||= JSON.pretty_generate(page.schema_mode == 'auto' ? page.auto_schema : page.manual_schema)
+          end
         end
       end
     end

@@ -17,16 +17,6 @@ module MapawynajmuPl
               )
             end
 
-            def merge_meta
-              meta.merge!(
-                title: announcement.title(lang),
-                keywords: announcement.keywords(lang),
-                description: announcement.description(lang),
-                image: announcement.image,
-                canonical_url: url
-              )
-            end
-
             def announcement
               @announcement ||= ::MapawynajmuPl::Queries::Announcement::ById.new(id: announcement_id).call
             end

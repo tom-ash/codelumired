@@ -19,12 +19,6 @@ module MapawynajmuPl
               )
             end
 
-            def merge_meta
-              meta.merge!(
-                title: announcement.edit_title(lang)
-              )
-            end
-
             def serialized_announcement
               ::MapawynajmuPl::Serializers::Announcement::Edit.new(announcement).call
             end

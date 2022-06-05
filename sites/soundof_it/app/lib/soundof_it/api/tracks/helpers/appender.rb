@@ -17,13 +17,7 @@ module SoundofIt
 
           attr_reader :attrs
 
-          def merge_meta
-            meta.merge!(
-              title: title,
-              keywords: keywords,
-              description: description
-            )
-          end
+          def merge_meta; end
 
           def lang
             @lang ||= attrs[:lang].to_sym
@@ -34,7 +28,17 @@ module SoundofIt
           end
 
           def meta
-            @meta ||= attrs[:meta]
+            @meta ||= begin
+              attrs_meta = attrs[:meta]
+              attrs_meta.merge!(
+                title: title,
+                description: description,
+                keywords: keywords,
+                image: image,
+                schema: schema
+              )
+              attrs_meta
+            end
           end
 
           def title
