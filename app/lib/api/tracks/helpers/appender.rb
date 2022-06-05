@@ -19,8 +19,6 @@ module Api
           merge_assets
           merge_locale
           merge_page
-          merge_langs
-          merge_canonical_url
         end
 
         private
@@ -41,13 +39,38 @@ module Api
 
         def merge_meta
           meta.merge!(
+            langs: langs,
             title: title,
             keywords: keywords,
             description: description,
             image: image,
             schema: schema,
-            open_graph: open_graph
+            open_graph: open_graph,
+            robots: robots,
+            canonical_url: canonical_url,
+            alternate_links: alternate_links
           )
+        end
+
+        def alternate_links
+          return if alt_langs.blank?
+
+          alternate_links_string = ''
+
+          alt_langs.map do |alt_lang|
+            href = links["current/#{alt_lang}".to_sym][:path]
+            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{alt_lang}\" href=\"#{domain_url}#{href}\" />"
+          end
+
+          alternate_links_string
+        end
+
+        def robots
+          @robots ||= 'index,follow,all'
+        end
+
+        def canonical_url
+          @canonical_url ||= full_url
         end
 
         def open_graph
@@ -209,24 +232,6 @@ module Api
 
         def asset_names
           @asset_names ||= []
-        end
-
-        def merge_langs
-          meta.merge!(
-            langs: langs
-          )
-        end
-
-        def merge_canonical_url
-          return if canonical_url.nil?
-
-          meta.merge!(
-            canonical_url: canonical_url
-          )
-        end
-
-        def canonical_url
-          nil
         end
 
         def image

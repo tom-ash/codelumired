@@ -40,8 +40,8 @@ module Builders
         description: attrs[:description],
         keywords: attrs[:keywords],
         image: attrs[:image],
-        'og:image:width': DEFAULT_IMAGE_WIDTH,
-        'og:image:height': DEFAULT_IMAGE_HEIGHT,
+        'image:width': DEFAULT_IMAGE_WIDTH,
+        'image:height': DEFAULT_IMAGE_HEIGHT,
         locale: open_graph_locale(attrs[:locale])
       }
     end

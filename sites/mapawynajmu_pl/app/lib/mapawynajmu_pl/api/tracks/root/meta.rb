@@ -104,10 +104,6 @@ module MapawynajmuPl
             @asset_names ||= %i[apartment house room parkingSpace usablePremises office virtualOffice coworkingSpace facebook chevron close phone caretDown]
           end
 
-          def canonical_url
-            ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links(:map)["current/#{lang}".to_sym][:path]
-          end
-
           def page_render
             return {} if page_name.blank?
 
