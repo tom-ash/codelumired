@@ -52,7 +52,7 @@ module Api
         end
 
         def alternate_links
-          return if alt_langs.blank?
+          return '' if alt_langs.blank?
 
           alternate_links_string = ''
 
