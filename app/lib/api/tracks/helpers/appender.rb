@@ -39,6 +39,8 @@ module Api
           state.merge!(links: links)
         end
 
+        def merge_meta; end
+
         def merge_assets
           state.merge!('assets/svgs': assets)
         end
@@ -77,30 +79,6 @@ module Api
           {}
         end
 
-        def merge_meta
-          meta.merge!(
-            title: title,
-            keywords: keywords,
-            description: description,
-            image: image,
-            schema: schema
-          )
-        end
-
-        def schema
-          JSON.pretty_generate({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            # "url": "https://soundof.it/javascript-for-loop",
-            name: title,
-            keywords: keywords,
-            image: image,
-            inLanguage: lang,
-            isFamilyFriendly: true,
-            description: description
-          }.compact)
-        end
-
         def lang
           @lang ||= attrs[:lang].to_sym
         end
@@ -114,7 +92,32 @@ module Api
         end
 
         def meta
-          @meta ||= attrs[:meta]
+          @meta ||= begin
+            attrs_meta = attrs[:meta]
+            attrs_meta.merge!(
+              title: title,
+              keywords: keywords,
+              description: description,
+              image: image,
+              schema: schema
+            )
+            attrs_meta
+          end
+        end
+
+        def schema
+          @schema ||= ::Builders::SchemaOrg.new(schema_data).call
+        end
+
+        def schema_data
+          @schema_data ||= {
+            url: 'TODO',
+            title: title,
+            description: description,
+            keywords: keywords,
+            image: image,
+            lang: lang
+          }
         end
 
         def current_user
