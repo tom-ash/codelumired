@@ -20,7 +20,8 @@ module Api
               site_name: site_name,
               constantized_site_name: constantized_site_name,
               redirect: redirect,
-              domain_url: domain_url
+              domain_url: domain_url,
+              image: image
             }
           end
 

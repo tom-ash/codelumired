@@ -16,6 +16,10 @@ module MapawynajmuPl
           @domain_url ||= MAPAWYNAJMU_PL_URL
         end
 
+        def image
+          @image ||= MAPAWYNAJMU_PL_IMAGE
+        end
+
         def langs
           @langs ||= MAPAWYNAJMU_PL_NAME_LANGS
         end

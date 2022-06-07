@@ -12,6 +12,10 @@ module SoundofIt
           @constantized_site_name ||= SOUNDOF_IT_NAME_CONSTANTIZED_NAME
         end
 
+        def image
+          @image ||= SOUNDOF_IT_IMAGE
+        end
+
         def domain_url
           @domain_url ||= SOUNDOF_IT_URL
         end

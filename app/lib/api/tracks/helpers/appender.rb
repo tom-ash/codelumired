@@ -212,8 +212,7 @@ module Api
         end
 
         def image
-          # TODO: Add for other sites.
-          @image ||= 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg'
+          @image ||= attrs[:image]
         end
       end
     end
