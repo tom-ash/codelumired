@@ -8,7 +8,7 @@ module Api
       params do
         requires :id, type: Integer
         requires :name, type: String
-        requires :lang, type: String
+        requires :page_lang, type: String
         requires :url, type: String
         requires :body, type: Array
         requires :style, type: Array
@@ -33,6 +33,7 @@ module Api
         link_data = JSON.parse(params['link_data'])
 
         attrs = params.merge(
+          lang: params[:page_lang],
           user_id: current_user.id,
           constantized_site_name: constantized_site_name,
           bucket: bucket,

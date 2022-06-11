@@ -7,6 +7,7 @@ module Commands
 
       PAGE_UPDATE_ATTRS = %w[
         url
+        lang
         body
         style
         meta
