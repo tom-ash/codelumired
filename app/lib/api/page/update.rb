@@ -6,6 +6,7 @@ module Api
       before { authorize_for_page! }
 
       params do
+        requires :id, type: Integer
         requires :name, type: String
         requires :lang, type: String
         requires :url, type: String

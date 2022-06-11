@@ -12,6 +12,7 @@ module Serializers
 
       def call
         page.slice(
+          :id,
           :name,
           :url,
           :lang,

@@ -56,7 +56,7 @@ module Commands
       end
 
       def page
-        @page ||= site::Page.find_by!(name: attrs[:name], lang: attrs[:lang])
+        @page ||= site::Page.find(attrs[:id])
       end
 
       def backup_key
