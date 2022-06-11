@@ -39,7 +39,7 @@ module MapawynajmuPl
           end
 
           def articles
-            ::MapawynajmuPl::Page.where(category: 'articles').map do |page|
+            ::MapawynajmuPl::Page.where(category: 'articles', lang: lang).map do |page|
               {
                 title: page.title,
                 description: page.description,
