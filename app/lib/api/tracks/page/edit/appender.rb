@@ -23,8 +23,7 @@ module Api
                 auto_schema: JSON.pretty_generate(serialized_page['autoSchema']),
                 manual_schema: JSON.pretty_generate(serialized_page['manualSchema']),
                 link_data: JSON.pretty_generate(serialized_page['linkData'])
-              ),
-              links: { 'langs': page.lang_edit_links }
+              )
             )
           end
 

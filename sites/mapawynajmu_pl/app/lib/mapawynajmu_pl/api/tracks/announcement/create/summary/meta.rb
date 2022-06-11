@@ -60,9 +60,7 @@ module MapawynajmuPl
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'announcement/create/summary': true,
-                  'page': true,
-                  'page/show': true
+                  'announcement/create/summary': true
                 }
               end
 

@@ -11,6 +11,7 @@ module Api
 
           def render
             {
+              visitor: true,
               page: true,
               'page/show': true
             }

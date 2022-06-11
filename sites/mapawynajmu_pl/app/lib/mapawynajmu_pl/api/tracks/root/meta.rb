@@ -105,7 +105,7 @@ module MapawynajmuPl
           end
 
           def page_render
-            return {} if page_name.blank?
+            return {} if accessory_page.blank?
 
             {
               'page': true,

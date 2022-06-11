@@ -38,7 +38,7 @@ module Api
           end
 
           def page
-            @page ||= site::Page.find_by(url: route_url, online: true)
+            @page ||= site::Page.find_by(url: route_url)
           end
 
           def redirect

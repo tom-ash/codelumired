@@ -62,7 +62,7 @@ module Commands
       end
 
       def backup_key
-        "pages/#{page.name} #{page.lang} (#{page.updated_at})"
+        "pages/#{page.url} (#{page.updated_at})"
       end
     end
   end

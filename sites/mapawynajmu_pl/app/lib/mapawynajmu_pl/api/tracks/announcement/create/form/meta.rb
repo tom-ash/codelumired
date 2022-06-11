@@ -52,9 +52,7 @@ module MapawynajmuPl
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'announcement/create/form': true,
-                  'page': true,
-                  'page/show': true
+                  'announcement/create/form': true
                 }
               end
 

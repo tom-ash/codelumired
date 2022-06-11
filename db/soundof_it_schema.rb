@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_11_084239) do
+ActiveRecord::Schema.define(version: 2022_06_11_122410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2022_06_11_084239) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.string "name", null: false
     t.string "lang", null: false
     t.string "url", null: false
     t.string "canonical_url"
@@ -99,7 +98,6 @@ ActiveRecord::Schema.define(version: 2022_06_11_084239) do
     t.index ["keywords"], name: "index_pages_on_keywords"
     t.index ["lang"], name: "index_pages_on_lang"
     t.index ["lang_alts_group"], name: "index_pages_on_lang_alts_group"
-    t.index ["name"], name: "index_pages_on_name"
     t.index ["subcategory"], name: "index_pages_on_subcategory"
     t.index ["title"], name: "index_pages_on_title"
     t.index ["url"], name: "index_pages_on_url", unique: true

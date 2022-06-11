@@ -177,7 +177,7 @@ module Api
         end
 
         def merge_page
-          return if show_page.blank?
+          return if accessory_page.blank?
 
           state.merge!(
             'page/show/data': page_data,
@@ -185,19 +185,14 @@ module Api
           )
         end
 
-        def show_page
-          @show_page ||= begin
-            return if page_name.blank?
-
-            site::Page.find_by(name: page_name, lang: lang)
-          end
-        end
-
         def page_data
-          ::Serializers::Page::Show.new(page: show_page, constantized_site_name: constantized_site_name).call
+          ::Serializers::Page::Show.new(
+            page: site::Page.find_by(url: accessory_page),
+            constantized_site_name: constantized_site_name
+          ).call
         end
 
-        def page_name
+        def accessory_page
           nil
         end
 
@@ -213,6 +208,10 @@ module Api
 
         def image
           @image ||= attrs[:image]
+        end
+
+        def page
+          @page ||= attrs[:page]
         end
       end
     end

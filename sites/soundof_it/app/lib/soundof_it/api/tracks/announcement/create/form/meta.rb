@@ -49,8 +49,6 @@ module SoundofIt
                   'announcement': true,
                   'announcement/create': true,
                   'announcement/create/form': true
-                  # 'page': true,
-                  # 'page/show': true
                 }
               end
             end

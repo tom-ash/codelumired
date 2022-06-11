@@ -7,7 +7,6 @@ module Api
 
       params do
         requires :id, type: Integer
-        requires :name, type: String
         requires :page_lang, type: String
         requires :url, type: String
         requires :body, type: Array

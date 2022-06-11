@@ -57,8 +57,6 @@ module SoundofIt
                   'announcement': true,
                   'announcement/create': true,
                   'announcement/create/summary': true
-                  # 'page': true,
-                  # 'page/show': true
                 }
               end
 

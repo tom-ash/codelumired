@@ -21,16 +21,13 @@ module Api
               constantized_site_name: constantized_site_name,
               redirect: redirect,
               domain_url: domain_url,
-              image: image
+              image: image,
+              page: page
             }
           end
 
           def route_url
             @route_url ||= request.headers['Route-Url']
-          end
-
-          def page_name
-            @page_name ||= request.headers['Page-Name']
           end
 
           def ssr?
@@ -54,12 +51,15 @@ module Api
           end
 
           def append_page
-            page = site::Page.find_by(name: page_name, lang: lang)
             return if page.blank?
 
             state.merge!(
               'page/show/data': ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
-              links: { 'page/edit': { path: page.edit_link } }
+              links: {
+                'page/edit': {
+                  path: page.edit_link
+                }
+              }
             )
           end
         end
@@ -68,7 +68,7 @@ module Api
           if ssr?
             append_user if current_user.present?
           end
-          append_page if page_name.present?
+          append_page
         end
 
         get do

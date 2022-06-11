@@ -9,12 +9,6 @@ module MapawynajmuPl
             class Appender
               include ::Api::Tracks::Helpers::Appender
               include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
-
-              private
-
-              def page_name
-                @page_name ||= 'create_announcement'
-              end
             end
           end
         end

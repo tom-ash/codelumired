@@ -30,12 +30,8 @@ module MapawynajmuPl
             }
           end
 
-          def page_name
-            @page_name ||= begin
-              return unless url.in?(['/', 'en'])
-
-              'root'
-            end
+          def accessory_page
+            @accessory_page ||= "root/#{lang}"
           end
 
           def articles

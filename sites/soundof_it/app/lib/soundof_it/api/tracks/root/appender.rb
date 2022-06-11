@@ -19,8 +19,8 @@ module SoundofIt
             )
           end
 
-          def page_name
-            @page_name ||= 'root'
+          def accessory_page
+            @accessory_page ||= "root/#{lang}"
           end
 
           def tutorials

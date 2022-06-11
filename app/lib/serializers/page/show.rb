@@ -13,7 +13,6 @@ module Serializers
       def call
         page.slice(
           :id,
-          :name,
           :url,
           :lang,
           :body,
@@ -43,7 +42,7 @@ module Serializers
       attr_reader :page, :constantized_site_name
 
       def lang_ver_urls
-        site::Page.where(name: page.name).pluck(:lang, :url).to_h
+        site::Page.where(lang_alts_group: page.lang_alts_group).pluck(:lang, :url).to_h
       end
 
       def schema
