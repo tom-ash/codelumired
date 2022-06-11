@@ -55,8 +55,8 @@ module Api
 
           def links
             {
-              'current/pl': 'TODO',
-              'current/en': 'TODO'
+              'current/pl': { path: 'obrazy' },
+              'current/en': { path: 'images' }
             }
           end
         end

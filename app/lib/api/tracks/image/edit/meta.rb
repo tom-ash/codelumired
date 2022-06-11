@@ -55,8 +55,8 @@ module Api
 
           def links
             {
-              'current/pl': 'TODO',
-              'current/en': 'TODO'
+              'current/pl': { path: image.edit_link(:pl) },
+              'current/en': { path: image.edit_link(:en) }
             }
           end
         end
