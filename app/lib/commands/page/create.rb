@@ -5,34 +5,33 @@ module Commands
     class Create
       include SiteName
 
-      class PageWithNameExistsError < StandardError; end
+      DEFAULT_LANG = :en
 
-      def initialize(name:, langs:, user_id:, constantized_site_name:)
-        @name = name
-        @langs = langs
+      def initialize(user_id:, constantized_site_name:)
         @user_id = user_id
         @constantized_site_name = constantized_site_name
       end
 
       def call
-        raise PageWithNameExistsError if site::Page.where(name: name).any?
-
-        create_pages
+        user.pages.create!(
+          url: SecureRandom.hex(32),
+          name: SecureRandom.hex(32),
+          lang: DEFAULT_LANG,
+          body: [],
+          style: [],
+          meta: {},
+          link_data: {},
+          canonical_url: '',
+          title: '',
+          keywords: '',
+          description: '',
+          picture: ''
+        )
       end
 
       private
 
-      attr_reader :name, :langs, :user_id, :constantized_site_name
-
-      def create_pages
-        langs.each do |lang|
-          user.pages.create!(
-            name: name, lang: lang, url: SecureRandom.hex(32),
-            body: [], style: [], meta: {},
-            canonical_url: '', title: '', keywords: '', description: '', picture: ''
-          )
-        end
-      end
+      attr_reader :user_id, :constantized_site_name
 
       def user
         @user ||= site::User.find(user_id)

@@ -5,10 +5,13 @@ module Api
     class Create < Grape::API
       before { authorize_for_page! }
 
-      params { requires :name, type: String }
       post do
-        ::Commands::Page::Create.new(name: params[:name], user_id: current_user.id, langs: langs, constantized_site_name: constantized_site_name).call
-        site::Page.find_by(name: params[:name], lang: lang).edit_link
+        page = ::Commands::Page::Create.new(
+          user_id: current_user.id,
+          constantized_site_name: constantized_site_name
+        ).call
+
+        page.edit_link
       end
     end
   end
