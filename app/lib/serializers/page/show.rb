@@ -33,7 +33,8 @@ module Serializers
           :modified_on,
           :category,
           :subcategory,
-          :link_data
+          :link_data,
+          :lang_alts_group
         ).merge(lang_ver_urls: lang_ver_urls, schema: schema)
       end
 

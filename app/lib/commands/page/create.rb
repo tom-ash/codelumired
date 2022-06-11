@@ -25,7 +25,8 @@ module Commands
           title: '',
           keywords: '',
           description: '',
-          picture: ''
+          picture: '',
+          lang_alts_group: SecureRandom.uuid
         )
       end
 
