@@ -17,14 +17,22 @@ module Api
           end
 
           def links
-            page_pl = site::Page.find_by(name: page.name, lang: :pl)
-            page_en = site::Page.find_by(name: page.name, lang: :en)
-
             {
               'page/edit': { path: page.edit_link },
-              'current/pl': { path: page_pl&.show_link, title: page_pl&.title },
-              'current/en': { path: page_en&.show_link, title: page_en&.title }
-            }
+              'current/pl': { path: nil },
+              'current/en': { path: nil }
+            }.merge(page_lang_alts_links)
+          end
+
+          def page_lang_alts_links
+            page_lang_alts = site::Page.where(lang_alts_group: page.lang_alts_group)
+
+            page_lang_alts.each_with_object({}) do |group_page, link_object|
+              link_object["current/#{group_page.lang}".to_sym] = {
+                path: group_page.show_link,
+                title: group_page.title
+              }
+            end
           end
 
           def asset_names
