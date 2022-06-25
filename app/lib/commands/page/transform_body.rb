@@ -24,9 +24,15 @@ module Commands
         body = page.body
 
         body.each_with_index do |e, i|
-          if e.class == Hash && e['t'] == 'ul'
+          # if e.class == Hash && e['t'] == 'ul'
+          #   body[i] = {
+          #     'ul' => e['c']
+          #   }
+          # end
+
+          if e.class == Hash && e['t'] == 'c'
             body[i] = {
-              'ul' => e['c']
+              'code' => e['c']
             }
           end
         end
