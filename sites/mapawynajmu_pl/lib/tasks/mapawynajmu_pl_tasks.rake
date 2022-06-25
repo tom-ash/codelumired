@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 namespace :mapawynajmu_pl do
+  desc 'Transform Page Bodies'
+  task transform_page_bodies: :environment do
+    ::MapawynajmuPl::Page.all.each do |page|
+      ::Commands::Page::TransformBody.new(
+        page: page,
+        constantized_site_name: 'MapawynajmuPl',
+        bucket: ENV['AWS_S3_MAPAWYNAJMUPL_BUCKET']
+      ).call
+    end
+  end
+
   desc 'Deletes inactive announcements.'
   task delete_inactive_announcements: :environment do
     MapawynajmuPl::Announcement.where('active_until < ?', 1.day.ago).destroy_all

@@ -20,4 +20,15 @@ namespace :soundof_it do
       ).call
     end
   end
+
+  desc 'Transform Page Bodies'
+  task transform_page_bodies: :environment do
+    ::SoundofIt::Page.all.each do |page|
+      ::Commands::Page::TransformBody.new(
+        page: page,
+        constantized_site_name: 'SoundofIt',
+        bucket: ENV['AWS_S3_SOUNDOFIT_BUCKET']
+      ).call
+    end
+  end
 end
