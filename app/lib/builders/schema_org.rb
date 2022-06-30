@@ -25,9 +25,6 @@ module Builders
       }.compact)
     end
 
-    # datePublished: attrs[:published_on]
-    # dateModified: attrs[:modified_on]
-
     private
 
     attr_reader :attrs
