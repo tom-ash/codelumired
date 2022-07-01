@@ -24,9 +24,15 @@ module Commands
         body = page.body
 
         body.each_with_index do |e, i|
-          if e.class == Hash && e['ul']
-            body[i] = e['ul']
+          if e.class == Hash && e['i']
+            body[i] = {
+              'img' => e['i']
+            }
           end
+
+          # if e.class == Hash && e['ul']
+          #   body[i] = e['ul']
+          # end
 
           # if e.class == Hash && e['t'] && e['t'].match(/^h(1|2|3|4)$/)
           #   if e['n']
