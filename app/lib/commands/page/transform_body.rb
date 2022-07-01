@@ -24,17 +24,21 @@ module Commands
         body = page.body
 
         body.each_with_index do |e, i|
-          if e.class == Hash && e['t'] && e['t'].match(/^h(1|2|3|4)$/)
-            if e['n']
-              body[i] = {
-                e['t'] => { c: e['c'], n: e['n'] }
-              }
-            else
-              body[i] = {
-                e['t'] => e['c']
-              }
-            end
+          if e.class == Hash && e['ul']
+            body[i] = e['ul']
           end
+
+          # if e.class == Hash && e['t'] && e['t'].match(/^h(1|2|3|4)$/)
+          #   if e['n']
+          #     body[i] = {
+          #       e['t'] => { c: e['c'], n: e['n'] }
+          #     }
+          #   else
+          #     body[i] = {
+          #       e['t'] => e['c']
+          #     }
+          #   end
+          # end
         end
 
         page.save!
