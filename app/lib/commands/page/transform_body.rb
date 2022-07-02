@@ -24,11 +24,17 @@ module Commands
         body = page.body
 
         body.each_with_index do |e, i|
-          if e.class == Hash && e['i']
+          if e.class == Hash && e['t'] == 'yte'
             body[i] = {
-              'img' => e['i']
+              'yte' => { 's' => e['src'], 'w' => e['width'] }
             }
           end
+
+          # if e.class == Hash && e['i']
+          #   body[i] = {
+          #     'img' => e['i']
+          #   }
+          # end
 
           # if e.class == Hash && e['ul']
           #   body[i] = e['ul']
