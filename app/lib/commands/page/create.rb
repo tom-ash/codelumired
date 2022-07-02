@@ -15,7 +15,6 @@ module Commands
       def call
         user.pages.create!(
           url: SecureRandom.hex(32),
-          name: SecureRandom.hex(32),
           lang: DEFAULT_LANG,
           body: [],
           style: [],
