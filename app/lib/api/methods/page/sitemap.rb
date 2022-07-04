@@ -14,7 +14,7 @@ module Api
           def page_links(site, langs)
             links = []
 
-            site::Page.all.where(lang: langs, online: true).group_by(&:name).each_value do |pages|
+            site::Page.all.where(lang: langs, online: true).group_by(&:lang_alts_group).each_value do |pages|
               link = []
               pages.each do |page|
                 next if page.canonical_url.present?
