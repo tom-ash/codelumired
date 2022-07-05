@@ -61,10 +61,8 @@ module Commands
           # end
         end
 
-        new_body.push('main' => main)
-        page.body = new_body
-
-        # byebug
+        # new_body.push('main' => main)
+        # page.body = new_body
 
         page.save!
       end
