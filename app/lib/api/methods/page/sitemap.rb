@@ -24,7 +24,7 @@ module Api
                   lang: page.lang,
                   changefreq: 'monthly',
                   modifiedon: page.modified_on,
-                  priority: '0.9'
+                  priority: '1.0'
                 }
               end
 
