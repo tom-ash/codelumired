@@ -27,9 +27,9 @@ module Commands
 
         body.each_with_index do |e, i|
 
-          if e.class == Hash && e['t'] == 'toc'
+          if e.class == Hash && e['t'] == 'e'
             body[i] = {
-              'toc' => e['c']
+              'editorial' => e['c']
             }
           end
 
