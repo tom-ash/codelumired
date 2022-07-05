@@ -26,6 +26,13 @@ module Commands
         # main = []
 
         body.each_with_index do |e, i|
+
+          if e.class == Hash && e['t'] == 'toc'
+            body[i] = {
+              'toc' => e['c']
+            }
+          end
+
           # if (e.class == Hash && (['tb', 'e', 'toc'].include?(e['t'])))
           #   new_body[i] = e
           # else
