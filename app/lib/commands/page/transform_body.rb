@@ -22,15 +22,15 @@ module Commands
 
       def transform_body
         body = page.body
-        new_body = []
-        main = []
+        # new_body = []
+        # main = []
 
         body.each_with_index do |e, i|
-          if (e.class == Hash && (['tb', 'e', 'toc'].include?(e['t'])))
-            new_body[i] = e
-          else
-            main.push(e)
-          end
+          # if (e.class == Hash && (['tb', 'e', 'toc'].include?(e['t'])))
+          #   new_body[i] = e
+          # else
+          #   main.push(e)
+          # end
 
           # if e.class == Hash && e['t'] == 'yte'
           #   body[i] = {
