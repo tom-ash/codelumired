@@ -26,10 +26,20 @@ module Commands
         # main = []
 
         body.each_with_index do |e, i|
+          if e.class == Hash && e['t'] == 'tb'
+            header = {
+              't' => e['title'],
+              'a' => { 'n' => e['author'], 'l' => e['author_link'] }
+            }
 
-          if e.class == Hash && e['t'] == 'e'
+            image = e['image']
+            header['i'] = { 's' => image } if image.present?
+
+            logo = e['logo']
+            header['l'] = { 's' => logo } if logo.present?
+
             body[i] = {
-              'editorial' => e['c']
+              'header' => header
             }
           end
 
