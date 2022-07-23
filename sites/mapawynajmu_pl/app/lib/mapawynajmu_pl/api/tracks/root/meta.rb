@@ -8,8 +8,8 @@ module MapawynajmuPl
           TRACK = 'root'
 
           UNLOCALIZED_PATH = {
-            pl: %r{^/$|^warszawa/wynajem/nieruchomosci/(?<venue_name>mapa|katalog)/?(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$},
-            en: %r{^en$|^property/(?<venue_name>map|catalogue)/?(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$}
+            pl: %r{^/$|^wynajem/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$},
+            en: %r{^en$|^rent/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$}
           }.freeze
 
           UNLOCALIZED_TITLE = {
@@ -18,7 +18,6 @@ module MapawynajmuPl
           }.freeze
 
           FOR_LEASE = { pl: 'na wynajem', en: 'for lease' }.freeze
-          TITLEIZED_VENUE = { map: { pl: 'Mapa', en: 'Map' }, catalogue: { pl: 'Katalog', en: 'Catalogue' } }.freeze
 
           private
 
@@ -35,7 +34,7 @@ module MapawynajmuPl
           end
 
           def category_title
-            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE[lang]} - #{TITLEIZED_VENUE[venue.to_sym][lang]}"
+            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE[lang]}"
           end
 
           def match_data
@@ -54,11 +53,7 @@ module MapawynajmuPl
           end
 
           def venue
-            @venue ||= begin
-              return :catalogue if match_data[:venue_name] && match_data[:venue_name].match?(/katalog|catalogue/)
-
-              :map
-            end
+            @venue ||= :map
           end
 
           def unlocalized_path
@@ -94,9 +89,8 @@ module MapawynajmuPl
 
           def links
             {}.merge(
-              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).venue_links.merge,
-              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).category_links(venue),
-              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links(venue)
+              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).category_links,
+              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links
             )
           end
 

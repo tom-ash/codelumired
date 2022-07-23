@@ -22,40 +22,26 @@ module MapawynajmuPl
             }[lang]
           end
 
-          def lang_links(venue)
+          def lang_links
             if category.present?
               return {
-                'current/pl': { path: category_link(venue, ::MapawynajmuPl::Announcement::CATEGORIES[category], :pl) },
-                'current/en': { path: category_link(venue, ::MapawynajmuPl::Announcement::CATEGORIES[category], :en) }
+                'current/pl': { path: category_link(::MapawynajmuPl::Announcement::CATEGORIES[category], :pl) },
+                'current/en': { path: category_link(::MapawynajmuPl::Announcement::CATEGORIES[category], :en) }
               }
             end
 
             {
-              'current/pl': { path: venue_path(venue, :pl).chomp('/') },
-              'current/en': { path: venue_path(venue, :en) }
+              'current/pl': { path: lang_prefix(:pl).chomp('/') },
+              'current/en': { path: lang_prefix(:en) }
             }
           end
 
-          def venue_links
-            if category.present?
-              return {
-                'root/map': { path: category_link(:map, ::MapawynajmuPl::Announcement::CATEGORIES[category], lang) },
-                'root/catalogue': { path: category_link(:category, ::MapawynajmuPl::Announcement::CATEGORIES[category], lang) }
-              }
-            end
-
-            {
-              'root/map': { path: venue_path(:map, lang).chomp('/') },
-              'root/catalogue': { path: venue_path(:catalogue, lang) }
-            }
-          end
-
-          def category_links(venue)
+          def category_links
             category_links_hash = {}
 
             ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
               category_links_hash["root/#{category[:trackified]}"] = {
-                path: category_link(venue, category, lang)
+                path: category_link(category, lang)
               }
             end
 
@@ -64,26 +50,16 @@ module MapawynajmuPl
 
           private
 
-          def venue_path(venue, lang)
-            case venue
-            when :map
-              lang == :pl ? '' : 'en'
-            when :catalogue
-              lang == :pl ? 'warszawa/wynajem/nieruchomosci/katalog' : 'property/catalogue'
-            end
+          def category_link(category, lang)
+            "#{category_prefix(lang)}/#{category[:plural_urlified][lang]}"
           end
 
-          def category_link(venue, category, lang)
-            "#{category_venue_path(venue, lang)}/#{category[:plural_urlified][lang]}"
+          def lang_prefix(lang)
+            lang == :pl ? '' : 'en'
           end
 
-          def category_venue_path(venue, lang)
-            case lang
-            when :pl
-              venue == :map ? 'warszawa/wynajem/nieruchomosci/mapa' : 'warszawa/wynajem/nieruchomosci/katalog'
-            when :en
-              venue == :map ? 'property/map' : 'property/catalogue'
-            end
+          def category_prefix(lang)
+            lang == :pl ? 'wynajem' : 'rent'
           end
         end
       end

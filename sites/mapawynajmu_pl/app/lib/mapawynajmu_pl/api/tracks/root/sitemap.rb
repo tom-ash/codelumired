@@ -22,7 +22,7 @@ module MapawynajmuPl
             def category_links
               langs = [:pl, :en]
 
-              prefix = { pl: 'warszawa/wynajem/nieruchomosci', en: 'property' }
+              prefix = { pl: 'wynajem', en: 'rent' }
 
               venues = { map: { pl: 'mapa', en: 'map' } }
 
