@@ -37,7 +37,7 @@ module MapawynajmuPl
       private
 
       def titleized_for_lease
-        { pl: ' do wynajęcia', en: ' for lease' }[lang]
+        { pl: ' do wynajęcia', en: ' for rent' }[lang]
       end
     end
   end

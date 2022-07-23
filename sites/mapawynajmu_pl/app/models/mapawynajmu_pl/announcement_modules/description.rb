@@ -16,7 +16,7 @@ module MapawynajmuPl
       end
 
       def english_description
-        "#{titleized_category} for lease#{located_at}#{with_area_and_monthly_price}. | #{MAPAWYNAJMU_PL_NAME} - real estate lease announcements."
+        "#{titleized_category} for rent#{located_at}#{with_area_and_monthly_price}. | #{MAPAWYNAJMU_PL_NAME} - real estate lease announcements."
       end
 
       def located_at

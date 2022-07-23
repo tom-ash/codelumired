@@ -17,7 +17,7 @@ module MapawynajmuPl
             en: 'Real Estate Lease Map - Apartments & Commercial Premises'
           }.freeze
 
-          FOR_LEASE = { pl: 'na wynajem', en: 'for lease' }.freeze
+          FOR_LEASE = { pl: 'na wynajem', en: 'for rent' }.freeze
 
           private
 
@@ -74,7 +74,7 @@ module MapawynajmuPl
           def unlocalized_description
             @unlocalized_description ||= {
               pl: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem. Dodaj ogłoszenie za darmo.',
-              en: 'Free real estate lease announcements on map. Apartments, rooms, usable premises, offices and other properties for lease. Add announcement for free.'
+              en: 'Free real estate lease announcements on map. Apartments, rooms, usable premises, offices and other properties for rent. Add announcement for free.'
             }.freeze
           end
 

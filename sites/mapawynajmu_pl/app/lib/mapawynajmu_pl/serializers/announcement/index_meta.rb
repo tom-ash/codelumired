@@ -44,9 +44,9 @@ module MapawynajmuPl
           venue = track.include?('map') ? 'Map' : 'Catalogue'
 
           {
-            title: "#{nominative} for Lease in Warsaw - #{venue} - Free Announcements",
+            title: "#{nominative} for Rent in Warsaw - #{venue} - Free Announcements",
             keywords: "#{nominative.downcase}, lease, warsaw, #{venue.downcase}, free, announcements",
-            description: "#{nominative} for lease in Warsaw - #{venue} - free announcements. Search and add free announcements of lease of #{nominative} in Warsaw.",
+            description: "#{nominative} for Rent in Warsaw - #{venue} - free announcements. Search and add free announcements of lease of #{nominative} in Warsaw.",
             image: DEFAULT_IMAGE
           }
         end
