@@ -13,8 +13,8 @@ module MapawynajmuPl
           }.freeze
 
           UNLOCALIZED_TITLE = {
-            pl: 'Mapa wynajmu nieruchomości - mieszkania i lokale komercyjne',
-            en: 'Real Estate Lease Map - Apartments & Commercial Premises'
+            pl: 'Nieruchomości na wynajem',
+            en: 'Properties for Rent'
           }.freeze
 
           FOR_LEASE = { pl: 'na wynajem', en: 'for rent' }.freeze
