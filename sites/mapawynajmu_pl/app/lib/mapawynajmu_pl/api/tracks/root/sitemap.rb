@@ -29,12 +29,12 @@ module MapawynajmuPl
               category_link_groups = []
 
               ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
-                venues.each do |venue, venue_data|
+                venues.each do |venue|
                   category_link_group = []
 
                   langs.each do |lang|
                     category_link_group << {
-                      path: "#{prefix[lang]}/#{venue_data[lang]}/#{category[:plural_urlified][lang]}",
+                      path: "#{prefix[lang]}/#{category[:plural_urlified][lang]}",
                       lang: lang,
                       changefreq: 'daily',
                       priority: '0.8'
