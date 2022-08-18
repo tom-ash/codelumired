@@ -21,74 +21,21 @@ module Commands
       attr_reader :page, :constantized_site_name, :bucket
 
       def transform_body
-        page.body = [{
-          "article" => page.body,
-          "className" => "article"
-        }]
+        article = page.body[0]
+        article_data = article['article']
+        new_article_data = []
 
+        article_data.each_with_index do |e, i|
+          if e.class == Hash && e['main']
+            new_article_data = new_article_data + e['main']
+          else
+            new_article_data << e
+          end
+        end
+
+        article['article'] = new_article_data
+        page.body[0] = article
         page.save!
-
-        # body = page.body
-        # new_body = []
-        # main = []
-
-        # body.each_with_index do |e, i|
-        #   # if e.class == Hash && e['t'] == 'tb'
-        #   #   header = {
-        #   #     't' => e['title'],
-        #   #     'a' => { 'n' => e['author'], 'l' => e['author_link'] }
-        #   #   }
-
-        #   #   image = e['image']
-        #   #   header['i'] = { 's' => image } if image.present?
-
-        #   #   logo = e['logo']
-        #   #   header['l'] = { 's' => logo } if logo.present?
-
-        #   #   body[i] = {
-        #   #     'header' => header
-        #   #   }
-        #   # end
-
-        #   # if (e.class == Hash && (['tb', 'e', 'toc'].include?(e['t'])))
-        #   #   new_body[i] = e
-        #   # else
-        #   #   main.push(e)
-        #   # end
-
-        #   # if e.class == Hash && e['t'] == 'yte'
-        #   #   body[i] = {
-        #   #     'yte' => { 's' => e['src'], 'w' => e['width'] }
-        #   #   }
-        #   # end
-
-        #   # if e.class == Hash && e['i']
-        #   #   body[i] = {
-        #   #     'img' => e['i']
-        #   #   }
-        #   # end
-
-        #   # if e.class == Hash && e['ul']
-        #   #   body[i] = e['ul']
-        #   # end
-
-        #   # if e.class == Hash && e['t'] && e['t'].match(/^h(1|2|3|4)$/)
-        #   #   if e['n']
-        #   #     body[i] = {
-        #   #       e['t'] => { c: e['c'], n: e['n'] }
-        #   #     }
-        #   #   else
-        #   #     body[i] = {
-        #   #       e['t'] => e['c']
-        #   #     }
-        #   #   end
-        #   # end
-        # end
-
-        # # new_body.push('main' => main)
-        # # page.body = new_body
-
-        # page.save!
       end
 
       def backup_page
