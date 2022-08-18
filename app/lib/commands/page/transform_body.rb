@@ -21,20 +21,9 @@ module Commands
       attr_reader :page, :constantized_site_name, :bucket
 
       def transform_body
-        article = page.body[0]
-        article_data = article['article']
-        new_article_data = []
-
-        article_data.each_with_index do |e, i|
-          if e.class == Hash && e['main']
-            new_article_data = new_article_data + e['main']
-          else
-            new_article_data << e
-          end
-        end
-
-        article['article'] = new_article_data
-        page.body[0] = article
+        page.body = [{
+          main: page.body
+        }]
         page.save!
       end
 
