@@ -21,9 +21,7 @@ module Commands
       attr_reader :page, :constantized_site_name, :bucket
 
       def transform_body
-        page.body = [{
-          main: page.body
-        }]
+        page.body[0]['className'] = 'page'
         page.save!
       end
 
