@@ -33,8 +33,7 @@ module SoundofIt
                 hrefLang: page.lang,
                 pathname: page.url,
                 modifiedOn: page.modified_on,
-                logo: page.link_data['logo'],
-                image: page.link_data['image']
+                image: page.picture
               }
             end
           end
@@ -49,8 +48,7 @@ module SoundofIt
                 hrefLang: page.lang,
                 pathname: page.url,
                 modifiedOn: page.modified_on,
-                logo: page.link_data['logo'],
-                image: page.link_data['image']
+                image: page.picture
               }
             end
           end
