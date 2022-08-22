@@ -25,7 +25,6 @@ module Commands
         modified_on
         category
         subcategory
-        link_data
         lang_alts_group
       ].freeze
 

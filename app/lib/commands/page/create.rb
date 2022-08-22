@@ -19,7 +19,6 @@ module Commands
           body: [],
           style: [],
           meta: {},
-          link_data: {},
           canonical_url: '',
           title: '',
           keywords: '',

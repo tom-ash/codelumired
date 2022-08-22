@@ -21,8 +21,7 @@ module Api
                 body: JSON.pretty_generate(serialized_page['body']),
                 meta: JSON.pretty_generate(serialized_page['meta']),
                 auto_schema: JSON.pretty_generate(serialized_page['autoSchema']),
-                manual_schema: JSON.pretty_generate(serialized_page['manualSchema']),
-                link_data: JSON.pretty_generate(serialized_page['linkData'])
+                manual_schema: JSON.pretty_generate(serialized_page['manualSchema'])
               )
             )
           end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_11_122410) do
+ActiveRecord::Schema.define(version: 2022_08_22_133020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2022_06_11_122410) do
     t.date "modified_on"
     t.string "category"
     t.string "subcategory"
-    t.jsonb "link_data"
     t.uuid "lang_alts_group"
     t.index ["author_id"], name: "index_pages_on_author_id"
     t.index ["category"], name: "index_pages_on_category"
