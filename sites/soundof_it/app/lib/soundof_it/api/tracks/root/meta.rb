@@ -41,6 +41,10 @@ module SoundofIt
             }.freeze
           end
 
+          def asset_names
+            @asset_names ||= %i[calendar]
+          end
+
           def render
             {
               visitor: true,
