@@ -25,7 +25,7 @@ module Builders
                :keywords,
                :published_on,
                :modified_on,
-               :picture,
+               :cover_image,
                :url,
                :category, to: :page
 
@@ -48,7 +48,7 @@ module Builders
           dateModified: page.modified_on,
           url: "#{domain_url}/#{page.url}",
           isFamilyFriendly: true,
-          image: page.picture
+          image: cover_image
         }
       end
 

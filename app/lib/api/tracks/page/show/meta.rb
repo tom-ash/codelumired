@@ -54,7 +54,7 @@ module Api
           end
 
           def image
-            @image ||= page.picture
+            @image ||= page.cover_image
           end
 
           def schema

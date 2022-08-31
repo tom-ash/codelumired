@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_31_094535) do
+ActiveRecord::Schema.define(version: 2022_08_31_095550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2022_08_31_094535) do
     t.string "title"
     t.string "keywords"
     t.string "description"
-    t.string "picture"
+    t.string "cover_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_08_31_094535) do
     t.string "category"
     t.string "subcategory"
     t.uuid "lang_alts_group"
+    t.string "link_image"
     t.index ["author_id"], name: "index_pages_on_author_id"
     t.index ["category"], name: "index_pages_on_category"
     t.index ["description"], name: "index_pages_on_description"

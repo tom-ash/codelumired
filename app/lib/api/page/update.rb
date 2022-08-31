@@ -16,7 +16,7 @@ module Api
         requires :title, type: String
         requires :description, type: String
         requires :keywords, type: String
-        requires :picture, type: String
+        requires :cover_image, type: String
         requires :schema_mode, type: String
         requires :auto_schema, type: String
         requires :manual_schema, type: String

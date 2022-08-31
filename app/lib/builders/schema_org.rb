@@ -21,7 +21,7 @@ module Builders
         datePublished: attrs[:published_on],
         dateModified: attrs[:modified_on],
         url: attrs[:url],
-        image: attrs[:picture]
+        image: attrs[:image]
       }.compact)
     end
 

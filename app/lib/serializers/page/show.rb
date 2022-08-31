@@ -20,7 +20,7 @@ module Serializers
           :title,
           :description,
           :keywords,
-          :picture,
+          :cover_image,
           :online,
           :header_autonumbering,
           :schema_mode,
