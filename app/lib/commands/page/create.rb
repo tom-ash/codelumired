@@ -17,8 +17,6 @@ module Commands
           url: SecureRandom.hex(32),
           lang: DEFAULT_LANG,
           body: [],
-          style: [],
-          meta: {},
           canonical_url: '',
           title: '',
           keywords: '',

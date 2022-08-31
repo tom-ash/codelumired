@@ -9,7 +9,6 @@ module Commands
         url
         lang
         body
-        style
         canonical_url
         title
         description

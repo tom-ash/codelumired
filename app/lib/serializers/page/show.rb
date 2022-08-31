@@ -16,7 +16,6 @@ module Serializers
           :url,
           :lang,
           :body,
-          :style,
           :canonical_url,
           :title,
           :description,
