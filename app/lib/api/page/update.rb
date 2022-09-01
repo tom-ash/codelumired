@@ -10,8 +10,6 @@ module Api
         requires :page_lang, type: String
         requires :url, type: String
         requires :body, type: Array
-        requires :style, type: Array
-        requires :meta, type: Hash
         requires :canonical_url, type: String
         requires :title, type: String
         requires :description, type: String
