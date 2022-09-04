@@ -51,6 +51,12 @@ module SoundofIt
               page: true
             }
           end
+
+          def links
+            {
+              'current/en': ::SoundofIt::Api::Tracks::Root::Linker.new(:en).call
+            }
+          end
         end
       end
     end
