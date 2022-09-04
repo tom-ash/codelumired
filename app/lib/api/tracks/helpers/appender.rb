@@ -52,13 +52,11 @@ module Api
         end
 
         def alternate_links
-          return '' if alt_langs.blank?
-
           alternate_links_string = ''
 
-          alt_langs.map do |alt_lang|
-            href = links["current/#{alt_lang}".to_sym][:path]
-            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{alt_lang}\" href=\"#{domain_url}#{href == '' ? '' : '/'}#{href}\" />"
+          langs.map do |lang|
+            href = links["current/#{lang}".to_sym][:path]
+            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{lang}\" href=\"#{domain_url}#{href == '' ? '' : '/'}#{href}\" />"
           end
 
           alternate_links_string
@@ -81,16 +79,12 @@ module Api
             keywords: keywords,
             image: image,
             locale: lang,
-            locale_alts: alt_langs
+            locale_alts: langs
           ).call
         end
 
         def merge_assets
           state.merge!('assets/svgs': assets)
-        end
-
-        def alt_langs
-          @alt_langs ||= langs.reject { |alt_lang| alt_lang == lang }
         end
 
         def render
