@@ -13,7 +13,7 @@ module MapawynajmuPl
 
             def merge_state
               state.merge!(
-                'announcement/show/data': ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call
+                'announcement/show/data': ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call.merge(title: title)
               )
             end
 

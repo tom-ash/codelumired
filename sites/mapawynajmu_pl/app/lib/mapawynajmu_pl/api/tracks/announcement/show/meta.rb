@@ -31,7 +31,7 @@ module MapawynajmuPl
             end
 
             def asset_names
-              @asset_names ||= %i[check facebook phone]
+              @asset_names ||= %i[check facebook phone chevron]
             end
 
             def title
