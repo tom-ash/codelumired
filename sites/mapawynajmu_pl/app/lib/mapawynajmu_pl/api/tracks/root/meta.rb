@@ -73,8 +73,8 @@ module MapawynajmuPl
 
           def unlocalized_description
             @unlocalized_description ||= {
-              pl: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem. Dodaj ogłoszenie za darmo.',
-              en: 'Free real estate lease announcements on map. Apartments, rooms, usable premises, offices and other properties for rent. Add announcement for free.'
+              pl: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
+              en: 'Free property rental listings on a map. Apartments, rooms, usable premises, offices, and other properties for rent.'
             }.freeze
           end
 
