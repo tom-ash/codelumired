@@ -13,11 +13,12 @@ module MapawynajmuPl
           }.freeze
 
           UNLOCALIZED_TITLE = {
-            pl: 'Nieruchomości na wynajem',
-            en: 'Properties for Rent'
+            pl: 'Nieruchomości na wynajem na mapie',
+            en: 'Properties for Rent on a Map'
           }.freeze
 
           FOR_LEASE = { pl: 'na wynajem', en: 'for rent' }.freeze
+          ON_MAP = { pl: 'na mapie', en: 'on a Map' }.freeze
 
           private
 
@@ -34,7 +35,7 @@ module MapawynajmuPl
           end
 
           def category_title
-            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE[lang]}"
+            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE[lang]} #{ON_MAP[lang]}"
           end
 
           def match_data
