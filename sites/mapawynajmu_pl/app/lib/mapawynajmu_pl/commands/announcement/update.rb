@@ -29,7 +29,6 @@ module MapawynajmuPl
         end
 
         def call
-          byebug
           announcement.update!(parsed_attrs)
         end
 
