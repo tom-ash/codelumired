@@ -60,10 +60,10 @@ module MapawynajmuPl
       mount ::MapawynajmuPl::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
       mount ::MapawynajmuPl::Api::Announcement::GetTile => 'announcement/get-tile/:id'
       mount ::MapawynajmuPl::Api::Announcement::GetPhoneNumber => 'announcement/get-phone-number/:id'
-      mount ::MapawynajmuPl::Api::Announcement::Update::Views => 'announcement/update/views/:id'
       mount ::MapawynajmuPl::Api::Announcement::Update::Form => 'announcement/update/form/:id'
       mount ::MapawynajmuPl::Api::Announcement::Update::ActiveUntil => 'announcement/update/active-until/:id'
       mount ::MapawynajmuPl::Api::Announcement::Update::Visible => 'announcement/update/visible/:id'
+      mount ::MapawynajmuPl::Api::Announcement::Update::Views => 'announcement/update/views/:id'
       mount ::MapawynajmuPl::Api::Announcement::Delete => 'announcement/delete/:id'
     end
   end
