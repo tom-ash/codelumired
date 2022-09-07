@@ -14,7 +14,10 @@ module MapawynajmuPl
             use :announcement_attrs
           end
           put do
-            ::MapawynajmuPl::Commands::Announcement::Update.new(id: current_announcement.id, attrs: params[:announcement]).call
+            ::MapawynajmuPl::Commands::Announcement::Update.new(
+              id: current_announcement.id,
+              attrs: params[:announcement]
+            ).call
             current_announcement.url(lang.to_sym)
           end
         end

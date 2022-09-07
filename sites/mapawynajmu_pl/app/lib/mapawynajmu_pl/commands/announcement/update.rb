@@ -21,6 +21,8 @@ module MapawynajmuPl
           english_description
           locality
           sublocality
+          name
+          link
         ].freeze
 
         def initialize(id:, attrs:)

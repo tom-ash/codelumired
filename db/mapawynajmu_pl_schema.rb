@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_05_100230) do
+ActiveRecord::Schema.define(version: 2022_09_07_061858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,11 @@ ActiveRecord::Schema.define(version: 2022_09_05_100230) do
     t.boolean "confirmed"
     t.string "locality"
     t.string "sublocality"
+    t.string "name"
+    t.string "link"
+    t.bigint "admin_id"
     t.index ["active_until"], name: "index_announcements_on_active_until"
+    t.index ["admin_id"], name: "index_announcements_on_admin_id"
     t.index ["area"], name: "index_announcements_on_area"
     t.index ["area_int"], name: "index_announcements_on_area_int"
     t.index ["availability_date"], name: "index_announcements_on_availability_date"
@@ -216,6 +220,7 @@ ActiveRecord::Schema.define(version: 2022_09_05_100230) do
   end
 
   add_foreign_key "announcements", "users"
+  add_foreign_key "announcements", "users", column: "admin_id"
   add_foreign_key "images", "users", column: "added_by_id"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "redirects", "users", column: "added_by_id"

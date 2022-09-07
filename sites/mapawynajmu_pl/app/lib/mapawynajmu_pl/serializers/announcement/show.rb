@@ -25,6 +25,8 @@ module MapawynajmuPl
           polish_description
           english_description
           locality sublocality
+          name
+          link
         ].freeze
 
         def initialize(announcement)
@@ -46,7 +48,7 @@ module MapawynajmuPl
         def showcase
           user = announcement.user
 
-          { name: user.showcase['name'], phone: user.showcase['phone'] }
+          { first_name: user.showcase['name'], phone: user.showcase['phone'] }
         end
       end
     end
