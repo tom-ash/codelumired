@@ -38,7 +38,8 @@ module MapawynajmuPl
         def announcement_attrs
           @announcement.attributes.slice(*ATTRS).merge(
             path: announcement.url(lang),
-            title: announcement.title(lang)
+            title: announcement.title(lang),
+            description: { pl: announcement[:polish_description], en: announcement[:english_description] }[lang]
           )
         end
       end
