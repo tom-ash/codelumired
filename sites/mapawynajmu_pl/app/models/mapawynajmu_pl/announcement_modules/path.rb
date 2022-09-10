@@ -8,6 +8,7 @@ module MapawynajmuPl
 
         components = [
           id,
+          urlified_name,
           urlified_category,
           for_lease,
           urlified_locality,
@@ -33,6 +34,12 @@ module MapawynajmuPl
 
       def urlified_sublocality
         sublocality&.parameterize
+      end
+
+      def urlified_name
+        return if name.blank?
+
+        name.parameterize
       end
     end
   end

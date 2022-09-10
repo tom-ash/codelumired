@@ -5,10 +5,22 @@ module MapawynajmuPl
     module Categories
       CATEGORIES = {
         0 => {
-          name: { pl: 'Biuro', en: 'Office' },
-          plural_name: { pl: 'Biura', en: 'Offices' },
-          urlified: { pl: 'biuro', en: 'office' },
-          plural_urlified: { pl: 'biura', en: 'offices' },
+          name: {
+            pl: 'Biuro',
+            en: 'Office'
+          },
+          plural_name: {
+            pl: 'Biura',
+            en: 'Offices'
+          },
+          urlified: {
+            pl: 'biuro',
+            en: 'office'
+          },
+          plural_urlified: {
+            pl: 'biura',
+            en: 'offices'
+          },
           trackified: 'offices'
         },
         1 => {
@@ -55,9 +67,9 @@ module MapawynajmuPl
         },
         7 => {
           name: { pl: 'Przestrzeń coworkingowa', en: 'Coworking Spaces' },
-          plural_name: { pl: 'Przestrzenie coworkingowa', en: 'Coworking Spaces' },
-          urlified: { pl: 'przestrzen-coworkingowa', en: 'coworking-space' },
-          plural_urlified: { pl: 'przestrzenie-coworkingowe', en: 'coworking-spaces' },
+          plural_name: { pl: 'Przestrzenie coworkingowe', en: 'Coworking Spaces' },
+          urlified: { pl: 'coworking-przestrzen-coworkingowa', en: 'coworking-space' },
+          plural_urlified: { pl: 'coworking-przestrzenie-coworkingowe', en: 'coworking-spaces' },
           trackified: 'coworking_spaces'
         }
       }.freeze
