@@ -22,7 +22,7 @@ module MapawynajmuPl
             end
 
             def announcement_id
-              @announcement_id ||= attrs[:url].match(/(\d+)-.*-(na-wynajem|for-lease).*$/)[1]
+              @announcement_id ||= attrs[:url].match(/(\d+)-.*-(na-wynajem|for-(rent|lease)).*$/)[1]
             end
           end
         end

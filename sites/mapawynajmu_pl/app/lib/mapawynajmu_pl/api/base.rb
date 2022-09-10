@@ -25,7 +25,7 @@ module MapawynajmuPl
         end
 
         def current_announcement
-          id = params[:id] || route_url.match(/(\d+)-.*-(na-wynajem|for-lease).*$/)[1]
+          id = params[:id] || route_url.match(/(\d+)-.*-(na-wynajem|for-(rent|lease)).*$/)[1]
           @current_announcement ||= ::MapawynajmuPl::Announcement.find(id)
         end
 
