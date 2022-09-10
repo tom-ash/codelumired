@@ -20,6 +20,8 @@ module MapawynajmuPl
           availability_date
           locality
           sublocality
+          name
+          link
         ].freeze
 
         def initialize(announcement:, lang:)
