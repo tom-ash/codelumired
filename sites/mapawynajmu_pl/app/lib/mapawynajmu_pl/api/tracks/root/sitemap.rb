@@ -34,7 +34,7 @@ module MapawynajmuPl
 
                   langs.each do |lang|
                     category_link_group << {
-                      path: "#{prefix[lang]}/#{category[:plural_urlified][lang]}",
+                      path: "#{prefix[lang]}/#{category[:urlified_plural][lang]}",
                       lang: lang,
                       changefreq: 'daily',
                       priority: '0.8'

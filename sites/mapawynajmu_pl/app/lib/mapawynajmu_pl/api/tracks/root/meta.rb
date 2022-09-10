@@ -35,7 +35,7 @@ module MapawynajmuPl
           end
 
           def category_title
-            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:plural_name][lang]} #{FOR_LEASE[lang]} #{ON_MAP[lang]}"
+            "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:name_plural][lang]} #{FOR_LEASE[lang]} #{ON_MAP[lang]}"
           end
 
           def match_data
@@ -48,7 +48,7 @@ module MapawynajmuPl
               return if category_name.blank?
 
               ::MapawynajmuPl::Announcement::CATEGORIES.each do |key, value|
-                return key if value[:plural_urlified][lang] == category_name
+                return key if value[:urlified_plural][lang] == category_name
               end
             end
           end

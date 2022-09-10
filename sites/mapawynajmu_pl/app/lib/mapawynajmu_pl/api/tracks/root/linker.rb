@@ -51,7 +51,7 @@ module MapawynajmuPl
           private
 
           def category_link(category, lang)
-            "#{category_prefix(lang)}/#{category[:plural_urlified][lang]}"
+            "#{category_prefix(lang)}/#{category[:urlified_plural][lang]}"
           end
 
           def lang_prefix(lang)

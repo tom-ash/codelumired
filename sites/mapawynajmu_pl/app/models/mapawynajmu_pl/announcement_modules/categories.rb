@@ -9,7 +9,7 @@ module MapawynajmuPl
             pl: 'Biuro',
             en: 'Office'
           },
-          plural_name: {
+          name_plural: {
             pl: 'Biura',
             en: 'Offices'
           },
@@ -17,59 +17,143 @@ module MapawynajmuPl
             pl: 'biuro',
             en: 'office'
           },
-          plural_urlified: {
+          urlified_plural: {
             pl: 'biura',
             en: 'offices'
           },
           trackified: 'offices'
         },
         1 => {
-          name: { pl: 'Lokal użytkowy', en: 'Usable Premises' },
-          plural_name: { pl: 'Lokale użytkowe', en: 'Usable Premises' },
-          urlified: { pl: 'lokal-uzytkowy', en: 'usable-premises' },
-          plural_urlified: { pl: 'lokale-uzytkowe', en: 'usable-premises' },
+          name: {
+            pl: 'Lokal użytkowy',
+            en: 'Usable Premises'
+          },
+          name_plural: {
+            pl: 'Lokale użytkowe',
+            en: 'Usable Premises'
+          },
+          urlified: {
+            pl: 'lokal-uzytkowy',
+            en: 'usable-premises'
+          },
+          urlified_plural: {
+            pl: 'lokale-uzytkowe',
+            en: 'usable-premises'
+          },
           trackified: 'usable_premises'
         },
         2 => {
-          name: { pl: 'Mieszkanie', en: 'Apartment' },
-          plural_name: { pl: 'Mieszkania', en: 'Apartments' },
-          urlified: { pl: 'mieszkanie', en: 'apartment' },
-          plural_urlified: { pl: 'mieszkania', en: 'apartments' },
+          name: {
+            pl: 'Mieszkanie',
+            en: 'Apartment'
+          },
+          name_plural: {
+            pl: 'Mieszkania',
+            en: 'Apartments'
+          },
+          urlified: {
+            pl: 'mieszkanie',
+            en: 'apartment'
+          },
+          urlified_plural: {
+            pl: 'mieszkania',
+            en: 'apartments'
+          },
           trackified: 'apartments'
         },
         3 => {
-          name: { pl: 'Dom', en: 'House' },
-          plural_name: { pl: 'Domy', en: 'Houses' },
-          urlified: { pl: 'dom', en: 'house' },
-          plural_urlified: { pl: 'domy', en: 'houses' },
+          name: {
+            pl: 'Dom',
+            en: 'House'
+          },
+          name_plural: {
+            pl: 'Domy',
+            en: 'Houses'
+          },
+          urlified: {
+            pl: 'dom',
+            en: 'house'
+          },
+          urlified_plural: {
+            pl: 'domy',
+            en: 'houses'
+          },
           trackified: 'houses'
         },
         4 => {
-          name: { pl: 'Pokój', en: 'Room' },
-          plural_name: { pl: 'Pokoje', en: 'Rooms' },
-          urlified: { pl: 'pokoj', en: 'room' },
-          plural_urlified: { pl: 'pokoje', en: 'rooms' },
+          name: {
+            pl: 'Pokój',
+            en: 'Room'
+          },
+          name_plural: {
+            pl: 'Pokoje',
+            en: 'Rooms'
+          },
+          urlified: {
+            pl: 'pokoj',
+            en: 'room'
+          },
+          urlified_plural: {
+            pl: 'pokoje',
+            en: 'rooms'
+          },
           trackified: 'rooms'
         },
         5 => {
-          name: { pl: 'Miejsce parkingowe', en: 'Parking Space' },
-          plural_name: { pl: 'Miejsca parkingowe', en: 'Parking Spaces' },
-          urlified: { pl: 'miejsce-parkingowe', en: 'parking-space' },
-          plural_urlified: { pl: 'miejsca-parkingowe', en: 'parking-spaces' },
+          name: {
+            pl: 'Miejsce parkingowe',
+            en: 'Parking Space'
+          },
+          name_plural: {
+            pl: 'Miejsca parkingowe',
+            en: 'Parking Spaces'
+          },
+          urlified: {
+            pl: 'miejsce-parkingowe',
+            en: 'parking-space'
+          },
+          urlified_plural: {
+            pl: 'miejsca-parkingowe',
+            en: 'parking-spaces'
+          },
           trackified: 'parking_spaces'
         },
         6 => {
-          name: { pl: 'Biuro Wirtualne', en: 'Virtual Office' },
-          plural_name: { pl: 'Biura Wirtualne', en: 'Virtual Offices' },
-          urlified: { pl: 'biuro-wirtualne', en: 'virtual-office' },
-          plural_urlified: { pl: 'biura-wirtualne', en: 'virtual-offices' },
+          name: {
+            pl: 'Biuro Wirtualne',
+            en: 'Virtual Office'
+          },
+          name_plural: {
+            pl: 'Biura Wirtualne',
+            en: 'Virtual Offices'
+          },
+          urlified: {
+            pl: 'biuro-wirtualne',
+            en: 'virtual-office'
+          },
+          urlified_plural: {
+            pl: 'biura-wirtualne',
+            en: 'virtual-offices'
+          },
           trackified: 'virtual_offices'
         },
         7 => {
-          name: { pl: 'Przestrzeń coworkingowa', en: 'Coworking Spaces' },
-          plural_name: { pl: 'Przestrzenie coworkingowe', en: 'Coworking Spaces' },
-          urlified: { pl: 'coworking-przestrzen-coworkingowa', en: 'coworking-space' },
-          plural_urlified: { pl: 'coworking-przestrzenie-coworkingowe', en: 'coworking-spaces' },
+          name: {
+            pl: 'Coworking - Przestrzeń coworkingowa',
+            en: 'Coworking Spaces'
+          },
+          name_plural: {
+            pl: 'Coworking - Przestrzenie coworkingowe',
+            en: 'Coworking Spaces'
+          },
+          urlified: {
+            pl: 'coworking-przestrzen-coworkingowa',
+            en: 'coworking-space'
+          },
+          urlified_plural: {
+            pl: 'coworking-przestrzenie-coworkingowe',
+            en: 'coworking-spaces'
+          },
           trackified: 'coworking_spaces'
         }
       }.freeze
@@ -77,7 +161,7 @@ module MapawynajmuPl
       URL_CATEGORIES = begin
         categories = []
         CATEGORIES.each_value do |category|
-          categories += [category[:plural_urlified][:pl], category[:plural_urlified][:en]]
+          categories += [category[:urlified_plural][:pl], category[:urlified_plural][:en]]
         end
         categories.join('|')
       end
