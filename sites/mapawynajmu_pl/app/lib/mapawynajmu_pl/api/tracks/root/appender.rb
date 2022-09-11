@@ -28,7 +28,7 @@ module MapawynajmuPl
               amount: serialized_announcements.count,
               current_category: category,
               title: title,
-              tile: nil
+              # tile: nil
             }
           end
 

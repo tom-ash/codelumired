@@ -34,7 +34,7 @@ module MapawynajmuPl
         end
 
         def call
-          announcement_attrs.merge(showcase)
+          announcement_attrs
         end
 
         private
@@ -42,13 +42,9 @@ module MapawynajmuPl
         attr_reader :announcement
 
         def announcement_attrs
-          @announcement.attributes.slice(*ATTRS)
-        end
-
-        def showcase
-          user = announcement.user
-
-          { first_name: user.showcase['name'], phone: user.showcase['phone'] }
+          @announcement.attributes.slice(*ATTRS).merge(
+            phone: announcement.user.showcase['phone']
+          )
         end
       end
     end
