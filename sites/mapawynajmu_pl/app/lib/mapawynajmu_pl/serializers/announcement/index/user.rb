@@ -29,6 +29,8 @@ module MapawynajmuPl
             updated_at
             locality
             sublocality
+            name
+            link
           ].freeze
 
           def initialize(announcements, lang)
