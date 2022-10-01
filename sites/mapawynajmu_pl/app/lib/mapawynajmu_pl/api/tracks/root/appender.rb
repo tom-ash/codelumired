@@ -16,9 +16,9 @@ module MapawynajmuPl
             state.merge!(
               'announcement/index/data': data,
               'announcement/index/inputs': inputs,
-              'page/index': {
-                articles: articles
-              }
+              # 'page/index': {
+              #   articles: articles
+              # }
             )
           end
 
@@ -32,9 +32,9 @@ module MapawynajmuPl
             }
           end
 
-          def accessory_page
-            @accessory_page ||= "root/#{lang}"
-          end
+          # def accessory_page
+          #   @accessory_page ||= "root/#{lang}"
+          # end
 
           def articles
             ::MapawynajmuPl::Page.where(category: 'articles', lang: lang).map do |page|
