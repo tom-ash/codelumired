@@ -31,25 +31,6 @@ module MapawynajmuPl
               # tile: nil
             }
           end
-
-          # def accessory_page
-          #   @accessory_page ||= "root/#{lang}"
-          # end
-
-          def articles
-            ::MapawynajmuPl::Page.where(category: 'articles', lang: lang).map do |page|
-              {
-                title: page.title,
-                description: page.description,
-                category: page.category,
-                subcategory: page.subcategory,
-                hrefLang: page.lang,
-                pathname: page.url,
-                modifiedOn: page.modified_on,
-                image: page.cover_image
-              }
-            end
-          end
         end
       end
     end
