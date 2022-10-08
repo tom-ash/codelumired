@@ -1,8 +1,14 @@
 Metrics/LineLength:
   Max: 512
+Metrics/MethodLength:
+  Max: 64
 Documentation:
   Enabled: false
 Metrics/BlockLength:
   Exclude:
     - '**/api/**/*.rb'
     - '**/spec/**/*.rb'
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma

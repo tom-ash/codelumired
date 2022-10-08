@@ -16,9 +16,6 @@ module MapawynajmuPl
             state.merge!(
               'announcement/index/data': data,
               'announcement/index/inputs': inputs,
-              # 'page/index': {
-              #   articles: articles
-              # }
             )
           end
 
@@ -28,7 +25,7 @@ module MapawynajmuPl
               amount: serialized_announcements.count,
               current_category: category,
               title: title,
-              # tile: nil
+              tile: nil,
             }
           end
         end

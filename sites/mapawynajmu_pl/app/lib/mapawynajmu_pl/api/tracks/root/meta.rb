@@ -75,7 +75,7 @@ module MapawynajmuPl
           def unlocalized_description
             @unlocalized_description ||= {
               pl: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
-              en: 'Free property rental listings on a map. Apartments, rooms, usable premises, offices, and other properties for rent.'
+              en: 'Free property rental listings on a map. Apartments, rooms, usable premises, offices, and other properties for rent.',
             }.freeze
           end
 
@@ -84,28 +84,19 @@ module MapawynajmuPl
               'visitor': true,
               'announcement': true,
               'announcement/index': true,
-              "announcement/index/#{venue}": true
-            }.merge(page_render)
+              "announcement/index/#{venue}": true,
+            }
           end
 
           def links
             {}.merge(
               ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).category_links,
-              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links
+              ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links,
             )
           end
 
           def asset_names
             @asset_names ||= %i[arrowRight globe calendar apartment house room parkingSpace usablePremises office virtualOffice coworkingSpace facebook chevron close phone caretDown]
-          end
-
-          def page_render
-            return {} if accessory_page.blank?
-
-            {
-              'page': true,
-              'page/show': true
-            }
           end
         end
       end

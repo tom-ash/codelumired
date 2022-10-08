@@ -10,7 +10,7 @@ module MapawynajmuPl
 
             UNLOCALIZED_PATH = {
               pl: %r{^\/?\d+-.*-na-wynajem.*$},
-              en: %r{^\/?\d+-.*-for-(rent|lease).*$}
+              en: %r{^\/?\d+-.*-for-(rent|lease).*$},
             }.freeze
 
             private
@@ -19,19 +19,43 @@ module MapawynajmuPl
               {
                 visitor: true,
                 announcement: true,
-                'announcement/show': true
+                'announcement/index': true,
+                "announcement/index/map": true,
               }
             end
 
             def links
               {
                 'current/pl': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :pl).call,
-                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :en).call
+                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :en).call,
               }
             end
 
             def asset_names
-              @asset_names ||= %i[check facebook phone chevron globe link]
+              @asset_names ||= %i[
+                check
+                facebook
+                phone
+                chevron
+                globe
+                link
+                arrowRight
+                globe
+                calendar
+                apartment
+                house
+                room
+                parkingSpace
+                usablePremises
+                office
+                virtualOffice
+                coworkingSpace
+                facebook
+                chevron
+                close
+                phone
+                caretDown
+              ]
             end
 
             def title
@@ -48,6 +72,10 @@ module MapawynajmuPl
 
             def image
               @image ||= announcement.image
+            end
+
+            def category
+              nil
             end
           end
         end
