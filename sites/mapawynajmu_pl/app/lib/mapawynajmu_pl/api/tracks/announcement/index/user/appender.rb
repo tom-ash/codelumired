@@ -16,8 +16,8 @@ module MapawynajmuPl
                 state.merge!(
                   'announcement/index/data': {
                     announcements: serialized_announcements,
-                    amount: serialized_announcements.count
-                  }
+                    amount: serialized_announcements.count,
+                  },
                 )
               end
 

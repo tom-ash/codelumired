@@ -22,7 +22,8 @@ module Api
               redirect: redirect,
               domain_url: domain_url,
               image: image,
-              page: page
+              page: page,
+              is_ssr: ssr?,
             }
           end
 

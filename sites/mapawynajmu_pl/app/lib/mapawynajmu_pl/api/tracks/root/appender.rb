@@ -13,9 +13,13 @@ module MapawynajmuPl
           private
 
           def merge_state
+            # byebug
             state.merge!(
               'announcement/index/data': data,
               'announcement/index/inputs': inputs,
+              # 'announcement/index/control': {
+              #   reload_pins: !attrs[:is_ssr],
+              # },
             )
           end
 
