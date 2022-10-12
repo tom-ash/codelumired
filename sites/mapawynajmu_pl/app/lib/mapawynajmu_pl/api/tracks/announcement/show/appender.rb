@@ -17,6 +17,9 @@ module MapawynajmuPl
               state.merge!(
                 # 'announcement/show/data': serialized_announcement,
                 'announcement/index/data': data,
+                'announcement/index/control': {
+                  current_tile_id: announcement_id,
+                },
               )
             end
 
