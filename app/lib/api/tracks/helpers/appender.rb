@@ -207,6 +207,10 @@ module Api
         def page
           @page ||= attrs[:page]
         end
+
+        def ssr?
+          @ssr ||= attrs[:is_ssr]
+        end
       end
     end
   end

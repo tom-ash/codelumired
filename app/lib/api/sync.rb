@@ -50,26 +50,10 @@ module Api
           def append_user
             state.merge!('user/authorize/data': ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call)
           end
-
-          def append_page
-            return if page.blank?
-
-            state.merge!(
-              'page/show/data': ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
-              links: {
-                'page/edit': {
-                  path: page.edit_link
-                }
-              }
-            )
-          end
         end
 
         before do
-          if ssr?
-            append_user if current_user.present?
-          end
-          append_page
+          append_user if current_user.present?
         end
 
         get do

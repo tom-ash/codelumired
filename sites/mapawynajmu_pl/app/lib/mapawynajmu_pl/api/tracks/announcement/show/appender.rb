@@ -15,10 +15,10 @@ module MapawynajmuPl
 
             def merge_state
               state.merge!(
-                # 'announcement/show/data': serialized_announcement,
                 'announcement/index/data': data,
                 'announcement/index/control': {
                   current_tile_id: announcement_id,
+                  reload_pins: true,
                 },
               )
             end
@@ -36,12 +36,23 @@ module MapawynajmuPl
             end
 
             def data
-              {
-                announcements: serialized_announcements,
-                amount: serialized_announcements.count,
+              data_hash = {
+                # announcements: serialized_announcements,
+                # amount: serialized_announcements.count,
                 current_category: category,
                 tile: serialized_announcement,
               }
+
+              # byebug
+
+              if ssr?
+                data_hash.merge!(
+                  announcements: serialized_announcements,
+                  amount: serialized_announcements.count,
+                )
+              end
+
+              data_hash
             end
           end
         end

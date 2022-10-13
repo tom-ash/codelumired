@@ -23,13 +23,20 @@ module MapawynajmuPl
           end
 
           def data
-            {
-              announcements: serialized_announcements,
-              amount: serialized_announcements.count,
+            data_hash = {
               current_category: category,
               title: title,
               tile: nil,
             }
+
+            if ssr?
+              data_hash.merge!(
+                announcements: serialized_announcements,
+                amount: serialized_announcements.count,
+              )
+            end
+
+            data_hash
           end
         end
       end
