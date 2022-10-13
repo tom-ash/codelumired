@@ -24,6 +24,7 @@ module Api
               image: image,
               page: page,
               is_ssr: ssr?,
+              listings_obsolete: listings_obsolete?,
             }
           end
 
@@ -49,6 +50,10 @@ module Api
 
           def append_user
             state.merge!('user/authorize/data': ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call)
+          end
+
+          def listings_obsolete?
+            @listings_obsolete ||= request.headers['Is-Listings-Obsolete'] == 'true'
           end
         end
 

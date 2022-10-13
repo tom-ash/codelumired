@@ -29,7 +29,7 @@ module MapawynajmuPl
               tile: nil,
             }
 
-            if ssr?
+            if ssr? || attrs[:listings_obsolete]
               data_hash.merge!(
                 announcements: serialized_announcements,
                 amount: serialized_announcements.count,
