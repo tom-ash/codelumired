@@ -19,6 +19,13 @@ module MapawynajmuPl
                 'announcement/index/control': {
                   current_tile_id: announcement_id,
                   reload_pins: true,
+                  map_options: {
+                    center: {
+                      lat: announcement.latitude,
+                      lng: announcement.longitude,
+                    },
+                    zoom: 12.4,
+                  },
                 },
               )
             end
