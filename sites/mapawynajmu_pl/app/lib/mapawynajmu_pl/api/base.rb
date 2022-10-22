@@ -58,7 +58,6 @@ module MapawynajmuPl
       mount ::MapawynajmuPl::Api::Sync => 'sync'
       mount ::MapawynajmuPl::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
       mount ::MapawynajmuPl::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
-      mount ::MapawynajmuPl::Api::Announcement::GetTile => 'announcement/get-tile/:id'
       mount ::MapawynajmuPl::Api::Announcement::GetPhoneNumber => 'announcement/get-phone-number/:id'
       mount ::MapawynajmuPl::Api::Announcement::Update::Form => 'announcement/update/form/:id'
       mount ::MapawynajmuPl::Api::Announcement::Update::ActiveUntil => 'announcement/update/active-until/:id'
