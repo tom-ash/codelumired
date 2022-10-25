@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_31_123513) do
+ActiveRecord::Schema.define(version: 2022_10_25_053052) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "coveted_skills", force: :cascade do |t|
@@ -66,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_08_31_123513) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
-  create_table "pages", force: :cascade do |t|
+  create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "lang", null: false
     t.string "url", null: false
     t.string "canonical_url"
