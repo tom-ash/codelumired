@@ -10,13 +10,13 @@ module MapawynajmuPl
               TRACK = 'user/create/verification'
 
               UNLOCALIZED_PATH = {
-                pl: 'potwierdzenie-adresu-email',
-                en: 'email-address-confirmation'
+                pl: 'potwierdz-adres-email',
+                en: 'confirm-email-address',
               }.freeze
 
               UNLOCALIZED_TITLE = {
-                pl: 'Potwierdzenie Adresu Email',
-                en: 'Email Address Confirmation'
+                pl: 'Potwierdź Adres Email',
+                en: 'Confirm Email Address',
               }.freeze
 
               private
