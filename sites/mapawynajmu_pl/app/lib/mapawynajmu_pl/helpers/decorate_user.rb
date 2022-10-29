@@ -11,7 +11,6 @@ module MapawynajmuPl
       end
 
       def call
-        assign_name
         assign_phone
         assign_points
         assing_account_type
@@ -22,19 +21,11 @@ module MapawynajmuPl
 
       attr_reader :user, :attrs
 
-      def assign_name
-        user.assign_attributes(
-          first_name: attrs[:first_name],
-          last_name: attrs[:last_name],
-          business_name: attrs[:business_name]
-        )
-      end
-
       def assign_phone
         user.assign_attributes(
           country_code: attrs[:country_code],
           phone_number: attrs[:phone_number],
-          phone: {}
+          phone: {},
         )
       end
 

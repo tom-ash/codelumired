@@ -11,8 +11,6 @@ module SoundofIt
     validates :hashed_password, presence: true
     validates :password_salt, presence: true
     validates :consents, presence: true
-    validates :first_name, presence: true, if: :private_account?
-    validates :business_name, presence: true, if: :professional_account?
 
     has_many :pages, foreign_key: :author_id, dependent: :destroy
     has_many :jobs, dependent: :destroy

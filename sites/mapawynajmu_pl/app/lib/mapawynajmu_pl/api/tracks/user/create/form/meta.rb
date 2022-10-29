@@ -11,12 +11,12 @@ module MapawynajmuPl
 
               UNLOCALIZED_PATH = {
                 pl: 'zarejestruj',
-                en: 'sign-up'
+                en: 'sign-up',
               }.freeze
 
               UNLOCALIZED_TITLE = {
                 pl: 'Zarejestruj',
-                en: 'Sign Up'
+                en: 'Sign Up',
               }.freeze
 
               private
@@ -36,31 +36,35 @@ module MapawynajmuPl
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
                   pl: "rejestracja, konto, użytkownik, #{MAPAWYNAJMU_PL_NAME}, ogłoszenia, wynajem, nieruchomości, warszawa",
-                  en: "sign up, registration, account, user, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw"
+                  en: "sign up, registration, account, user, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw",
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
                   pl: "Rejestracja konta użytkownika na #{MAPAWYNAJMU_PL_NAME} - serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.",
-                  en: "Account registration on #{MAPAWYNAJMU_PL_NAME} - a service featuring real estate lease announcements in Warsaw."
+                  en: "Account registration on #{MAPAWYNAJMU_PL_NAME} - a service featuring real estate lease announcements in Warsaw.",
                 }.freeze
               end
 
               def render
                 {
-                  visitor: true,
-                  user: true,
+                  'visitor': true,
+                  'user': true,
                   'user/create': true,
-                  'user/create/form': true
+                  'user/create/form': true,
                 }
               end
 
               def links
                 {
                   'current/pl': ::MapawynajmuPl::Api::Tracks::User::Create::Form::Linker.new(:pl).call,
-                  'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Form::Linker.new(:en).call
+                  'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Form::Linker.new(:en).call,
                 }
+              end
+
+              def asset_names
+                @asset_names ||= %i[chevron]
               end
             end
           end

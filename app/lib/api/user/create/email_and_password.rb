@@ -7,7 +7,6 @@ module Api
         params do
           requires :email, type: String
           requires :password, type: String
-          requires :first_name, type: String
           requires :country_code, type: String
           requires :phone_number, type: String
           requires :consents, type: Array do
@@ -20,7 +19,7 @@ module Api
           ::Commands::User::Create::EmailAndPassword.new(params.merge(constantized_site_name: constantized_site_name)).call
           ::Mailers::Verification.new(email: email, namespace: 'user/create/email-and-password', lang: lang, constantized_site_name: constantized_site_name).send
           camelize(confirmation_token: ::Ciphers::User::DecryptConfirmationToken.new(site::User.find_by(email: email).encrypted_confirmation_token).call).merge(
-            path: site::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH[lang.to_sym]
+            path: site::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH[lang.to_sym],
           )
         end
 
@@ -41,7 +40,7 @@ module Api
           end
           camelize(::Queries::User::SingleByEmail.new(email: user.email, constantized_site_name: constantized_site_name).call).merge(
             site::Api::Tracks::Root::Linker.new(lang.to_sym).call,
-            announcement_path: user.announcements.last&.summary_path(lang.to_sym)
+            announcement_path: user.announcements.last&.summary_path(lang.to_sym),
           )
         rescue StandardError
           error!('Invalid confirmation token or verification code!', 422)

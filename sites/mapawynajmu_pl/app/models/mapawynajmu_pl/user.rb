@@ -6,15 +6,13 @@ module MapawynajmuPl
 
     self.table_name = 'users'
 
-    SHOWCASE_ATTRS = %w[first_name last_name business_name phone_number].freeze
+    SHOWCASE_ATTRS = %w[phone_number].freeze
 
     validates :encrypted_access_token, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
     validates :hashed_password, presence: true
     validates :password_salt, presence: true
     validates :consents, presence: true
-    validates :first_name, presence: true, if: :private_account?
-    validates :business_name, presence: true, if: :professional_account?
     validates :showcase, presence: true
 
     has_many :announcements, class_name: '::MapawynajmuPl::Announcement', foreign_key: :user_id, dependent: :destroy

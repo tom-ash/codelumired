@@ -13,9 +13,8 @@ module Serializers
       def call
         {
           account_type: user.account_type,
-          name: user.try(:first_name) || user.try(:business_name),
           role: user.role,
-          authorized: true
+          authorized: true,
         }
       end
 

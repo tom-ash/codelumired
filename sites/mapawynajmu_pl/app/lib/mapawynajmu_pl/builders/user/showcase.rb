@@ -11,9 +11,8 @@ module MapawynajmuPl
         def call
           user.assign_attributes(
             showcase: {
-              name: user.first_name || user.business_name,
-              phone: "#{user.country_code} #{user.phone_number[0, 3]}"
-            }
+              phone: "#{user.country_code} #{user.phone_number[0, 3]}",
+            },
           )
         end
 
