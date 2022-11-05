@@ -13,7 +13,13 @@ module MapawynajmuPl
 
             def merge_state
               state.merge!(
-                'user/edit/data': ::Serializers::User::Edit.new(user: current_user, constantized_site_name: constantized_site_name).call
+                'user/edit/data': ::Serializers::User::Edit.new(
+                  user: current_user,
+                  constantized_site_name: constantized_site_name,
+                ).call,
+                'user/edit/inputs': {
+                  country_code: current_user.country_code,
+                },
               )
             end
           end
