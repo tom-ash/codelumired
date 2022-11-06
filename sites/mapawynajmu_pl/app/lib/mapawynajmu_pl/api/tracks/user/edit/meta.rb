@@ -62,7 +62,7 @@ module MapawynajmuPl
             end
 
             def asset_names
-              @asset_names ||= %i[chevron lock]
+              @asset_names ||= %i[chevron eyeSlash]
             end
           end
         end
