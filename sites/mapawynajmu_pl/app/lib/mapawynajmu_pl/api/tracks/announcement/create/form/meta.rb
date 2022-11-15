@@ -10,13 +10,13 @@ module MapawynajmuPl
               TRACK = 'announcement/create/form'
 
               UNLOCALIZED_PATH = {
-                pl: 'dodaj-ogloszenie',
-                en: 'add-listing'
+                pl: 'dodaj-ogloszenie-wynajmu-nieruchomosci',
+                en: 'add-real-estate-lease-listing',
               }.freeze
 
               UNLOCALIZED_TITLE = {
-                pl: 'Dodaj ogłoszenie nieruchomości na wynajem na mapawynajmu.pl',
-                en: 'Add Property Rent Listing on mapawynajmu.pl'
+                pl: 'Dodaj ogłoszenie wynajmu nieruchomości',
+                en: 'Add Real Estate Lease Listing',
               }.freeze
 
               private
@@ -36,14 +36,14 @@ module MapawynajmuPl
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
                   pl: 'dodaj, bezpłatne, bezpłatnie, darmowe, za darmo, ogłoszenie, oferta, oferte, wynajem, wynajmu, najem, najmu, nieruchomości, mieszkania, mieszkanie, domy, dom, pokoje, pokój, miejsca parkingowe, miejsce parkingowe, lokale użytkowe, lokal użytkowy, biura, biuro, biura wirtualne, biuro wirtualne, coworking',
-                  en: 'add, free, announcement, offer, lease, rent, property, real estate, apartments, flats, apartment, flat, houses, house, rooms, room, parking spaces, parking space, usable premises, offices, office, virtual offices, virtual office, coworking'
+                  en: 'add, free, announcement, offer, lease, rent, property, real estate, apartments, flats, apartment, flat, houses, house, rooms, room, parking spaces, parking space, usable premises, offices, office, virtual offices, virtual office, coworking',
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
                   pl: 'Dodaj ogłoszenie wynajmu nieruchomości. Ogłoś o najmie mieszkania, pokoju, lokalu użytkowego, biura lub innej nieruchomości.',
-                  en: 'Add a property rent listing. Annouce a rent of an apartment, a room, usable premises, an offices and/or other real estate.'
+                  en: 'Add a real estate lease listing. Annouce a rent of an apartment, a room, usable premises, an offices and/or other real estate.',
                 }.freeze
               end
 
@@ -52,14 +52,14 @@ module MapawynajmuPl
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'announcement/create/form': true
+                  'announcement/create/form': true,
                 }
               end
 
               def links
                 {
                   'current/pl': ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Linker.new(:pl).call,
-                  'current/en': ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Linker.new(:en).call
+                  'current/en': ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Linker.new(:en).call,
                 }
               end
 
