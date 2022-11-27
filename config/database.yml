@@ -4,9 +4,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  primary:
-    <<: *default
-    database: primary_dev
   soundof_it:
     <<: *default
     database: soundof_it_dev
@@ -17,9 +14,6 @@ development:
     migrations_paths: db/mapawynajmu_pl_migrate
 
 test:
-  primary:
-    <<: *default
-    database: primary_test
   soundof_it:
     <<: *default
     database: soundof_it_test
@@ -30,9 +24,6 @@ test:
     migrations_paths: db/mapawynajmu_pl_migrate
 
 production:
-  primary:
-    <<: *default
-    url: <%= ENV['DATABASE_URL'] %>
   soundof_it:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
