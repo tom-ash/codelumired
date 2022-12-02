@@ -11,12 +11,12 @@ module MapawynajmuPl
 
               UNLOCALIZED_PATH = {
                 pl: 'moje-ogloszenia',
-                en: 'my-announcements'
+                en: 'my-announcements',
               }.freeze
 
               UNLOCALIZED_TITLE = {
                 pl: 'Moje ogłoszenia',
-                en: 'My announcements'
+                en: 'My announcements',
               }.freeze
 
               private
@@ -36,14 +36,14 @@ module MapawynajmuPl
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
                   pl: "ogłoszenia, moje, konto, użytkownik, #{MAPAWYNAJMU_PL_NAME}, ogłoszenia, wynajem, nieruchomości, warszawa",
-                  en: "announcements, my, account, user, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw"
+                  en: "announcements, my, account, user, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw",
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
                   pl: "Moje ogłoszenia na #{MAPAWYNAJMU_PL_NAME} - serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.",
-                  en: "My announcements on #{MAPAWYNAJMU_PL_NAME} - a service featuring real estate lease announcements in Warsaw."
+                  en: "My announcements on #{MAPAWYNAJMU_PL_NAME} - a service featuring real estate lease announcements in Warsaw.",
                 }.freeze
               end
 
@@ -52,14 +52,14 @@ module MapawynajmuPl
                   visitor: true,
                   announcement: true,
                   'announcement/index': true,
-                  'announcement/index/user': true
+                  'announcement/index/user': true,
                 }
               end
 
               def links
                 {
                   'current/pl': ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Linker.new(:pl).call,
-                  'current/en': ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Linker.new(:en).call
+                  'current/en': ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Linker.new(:en).call,
                 }
               end
             end

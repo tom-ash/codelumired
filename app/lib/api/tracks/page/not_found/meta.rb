@@ -12,7 +12,7 @@ module Api
           def unlocalized_title
             {
               pl: 'Nie znaleziono',
-              en: 'Not Found'
+              en: 'Not Found',
             }
           end
 
@@ -26,21 +26,21 @@ module Api
           def unlocalized_keywords
             {
               pl: 'nie znaleziono',
-              en: 'not found'
+              en: 'not found',
             }
           end
 
           def render
             {
               page: true,
-              'page/not-found': true
+              'page/not-found': true,
             }
           end
 
           def links
             {
               'current/pl': { path: url, title: 'Nie znaleziono' },
-              'current/en': { path: url, title: 'Not Found' }
+              'current/en': { path: url, title: 'Not Found' },
             }
           end
         end
