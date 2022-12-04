@@ -3,14 +3,15 @@
 class TransactionalMailer < ApplicationMailer
   HELLO = {
     'pl' => 'Witaj!',
-    'en' => 'Hello!'
+    'en' => 'Hello!',
   }
 
   VERIFICATION_CODE_MESSAGE = {
-    'pl' => 'Kod weryfikacyjny:',
-    'en' => 'Verification code:'
+    'pl' => 'Twój jednorazowy kod weryfikacyjny to:',
+    'en' => 'Verification code:',
   }
 
+  # http://localhost:3001/rails/mailers/transactional_mailer/verification_email
   def verification_email(to:, subject:, verification_code:, lang:)
     @verification_code = verification_code
     @lang = lang
