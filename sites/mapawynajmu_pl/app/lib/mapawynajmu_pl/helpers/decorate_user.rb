@@ -3,8 +3,6 @@
 module MapawynajmuPl
   module Helpers
     class DecorateUser
-      DEFAULT_ACCOUNT = 'private'
-
       def initialize(user:, attrs:)
         @user = user
         @attrs = attrs
@@ -34,7 +32,7 @@ module MapawynajmuPl
       end
 
       def assing_account_type
-        user.assign_attributes(account_type: DEFAULT_ACCOUNT)
+        user.assign_attributes(account_type: attrs[:account_type])
       end
 
       def build_showcase

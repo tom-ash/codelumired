@@ -50,8 +50,6 @@ module MapawynajmuPl
                 tile: serialized_announcement,
               }
 
-              # byebug
-
               if ssr?
                 data_hash.merge!(
                   announcements: serialized_announcements,
