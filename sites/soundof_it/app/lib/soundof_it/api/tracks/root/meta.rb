@@ -42,7 +42,7 @@ module SoundofIt
           end
 
           def asset_names
-            @asset_names ||= %i[calendar]
+            @asset_names ||= %i[chevron calendar]
           end
 
           def render

@@ -37,8 +37,9 @@ module Api
           end
 
           def asset_names
-            # TODO: Fix.
-            @asset_names ||= []
+            @asset_names ||= %i[
+              chevron
+            ]
           end
 
           def title
