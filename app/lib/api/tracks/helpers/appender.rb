@@ -47,7 +47,7 @@ module Api
             open_graph: open_graph,
             robots: robots,
             canonical_url: canonical_url,
-            alternate_links: alternate_links
+            alternate_links: alternate_links,
           )
         end
 
@@ -175,14 +175,14 @@ module Api
 
           state.merge!(
             'page/show/data': page_data,
-            'render': state[:render].merge(page: true, 'page/show': true)
+            'render': state[:render].merge(page: true, 'page/show': true),
           )
         end
 
         def page_data
           ::Serializers::Page::Show.new(
             page: site::Page.find_by(url: accessory_page),
-            constantized_site_name: constantized_site_name
+            constantized_site_name: constantized_site_name,
           ).call
         end
 

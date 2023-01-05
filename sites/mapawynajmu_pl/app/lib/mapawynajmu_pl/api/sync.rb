@@ -26,7 +26,7 @@ module MapawynajmuPl
             ::Api::Tracks::Page::Index::Visitor::Meta::TRACK => ::Api::Tracks::Page::Index::Visitor::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH
+            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH,
           }
         end
 
@@ -78,7 +78,7 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Linker.new(lang).call,
             ::Api::Tracks::Page::Index::Meta::TRACK => ::Api::Tracks::Page::Index::Linker.new(:pl).call,
             ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Linker.new(lang).call,
-            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Linker.new(lang).call
+            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Linker.new(lang).call,
           )
         end
       end

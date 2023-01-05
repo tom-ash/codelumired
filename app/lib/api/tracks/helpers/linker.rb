@@ -11,7 +11,7 @@ module Api
         def call
           {
             path: path,
-            title: title
+            title: title,
           }
         end
 

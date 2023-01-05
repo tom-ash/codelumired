@@ -11,7 +11,7 @@ module SoundofIt
     end
 
     def langs
-      @langs ||= %i[en]
+      @langs ||= %i[en pl]
     end
   end
 end

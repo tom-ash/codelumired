@@ -17,7 +17,7 @@ module SoundofIt
             ::Api::Tracks::Page::Index::Meta::TRACK => ::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH
+            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH,
           }
         end
 
@@ -54,7 +54,7 @@ module SoundofIt
             ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SoundofIt::Api::Tracks::Announcement::Create::Summary::Linker.new(lang).call,
             ::Api::Tracks::Page::Index::Meta::TRACK => ::Api::Tracks::Page::Index::Linker.new(lang).call,
             ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Linker.new(lang).call,
-            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Linker.new(lang).call
+            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Linker.new(lang).call,
           )
         end
       end

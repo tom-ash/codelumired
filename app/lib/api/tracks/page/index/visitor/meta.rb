@@ -36,7 +36,7 @@ module Api
               # TODO: SEO.
               @unlocalized_keywords ||= {
                 pl: 'strony',
-                en: 'pages'
+                en: 'pages',
               }.freeze
             end
 
@@ -44,7 +44,7 @@ module Api
               # TODO: SEO.
               @unlocalized_description ||= {
                 pl: 'Artykuły o wynajmie nieruchomości.',
-                en: 'Articles on Real Estate Leasing.'
+                en: 'Articles on Real Estate Leasing.',
               }.freeze
             end
 
@@ -52,14 +52,14 @@ module Api
               {
                 visitor: true,
                 page: true,
-                'page/show': true
+                'page/show': true,
               }
             end
 
             def links
               {
                 'current/pl': ::Api::Tracks::Page::Index::Visitor::Linker.new(:pl).call,
-                'current/en': ::Api::Tracks::Page::Index::Visitor::Linker.new(:en).call
+                'current/en': ::Api::Tracks::Page::Index::Visitor::Linker.new(:en).call,
               }
             end
           end

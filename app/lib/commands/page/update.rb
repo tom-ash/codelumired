@@ -50,7 +50,7 @@ module Commands
         ::Commands::S3Object::Upload.new(
           bucket: bucket,
           key: backup_key,
-          body: page.to_json
+          body: page.to_json,
         ).call
       end
 

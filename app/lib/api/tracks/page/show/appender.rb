@@ -20,7 +20,7 @@ module Api
           def merge_state
             state.merge!(
               'page/show/data': data,
-              links: links
+              links: links,
             )
           end
 

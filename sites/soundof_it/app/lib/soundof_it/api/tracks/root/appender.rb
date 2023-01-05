@@ -14,8 +14,8 @@ module SoundofIt
             state.merge!(
               'page/index': {
                 tutorials: tutorials,
-                articles: articles
-              }
+                articles: articles,
+              },
             )
           end
 
@@ -33,7 +33,7 @@ module SoundofIt
                 hrefLang: page.lang,
                 pathname: page.url,
                 modifiedOn: page.modified_on,
-                image: page.cover_image
+                image: page.cover_image,
               }
             end
           end
