@@ -9,7 +9,7 @@ module MapawynajmuPl
 
           UNLOCALIZED_PATH = {
             pl: %r{^/$|^wynajem/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$},
-            en: %r{^en$|^rent/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$}
+            en: %r{^en$|^rent/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$},
           }.freeze
 
           UNLOCALIZED_TITLE = {

@@ -9,12 +9,12 @@ module Api
 
           UNLOCALIZED_PATH = {
             pl: 'strony',
-            en: 'pages'
+            en: 'pages',
           }.freeze
 
           UNLOCALIZED_TITLE = {
             pl: 'Strony',
-            en: 'Pages'
+            en: 'Pages',
           }.freeze
 
           private

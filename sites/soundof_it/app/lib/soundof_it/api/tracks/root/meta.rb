@@ -9,7 +9,7 @@ module SoundofIt
 
           UNLOCALIZED_PATH = {
             en: '/',
-            pl: '/pl',
+            pl: 'pl',
           }.freeze
 
           UNLOCALIZED_TITLE = {

@@ -26,8 +26,8 @@ module Api
           def track_and_lang
             @track_and_lang ||= begin
               track_paths.find do |track, path|
-                return { track: track, lang: :pl } if route_url.match(path[:pl])
-                return { track: track, lang: :en } if route_url.match(path[:en])
+                return { track: track, lang: :pl } if path[:pl]&.match(route_url)
+                return { track: track, lang: :en } if path[:en]&.match(route_url)
                 return { track: 'page/show', lang: page.lang.to_sym } if page.present?
                 return { track: 'redirect', lang: :en } if redirect.present? # TODO: Add :lang to :redirect.
               end
