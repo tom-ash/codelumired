@@ -20,8 +20,8 @@ module Api
 
           def merge_meta
             meta.merge!(
-              redirected_url: redirect.redirected_url,
-              status: redirect.status
+              redirected_url: "#{domain_url}/#{redirect.redirected_url}",
+              status: redirect.status,
             )
           end
 

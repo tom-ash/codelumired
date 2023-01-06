@@ -18,7 +18,7 @@ module MapawynajmuPl
           def call
             {
               pl: { path: '/' },
-              en: { path: 'en' }
+              en: { path: 'en' },
             }[lang]
           end
 
@@ -26,13 +26,13 @@ module MapawynajmuPl
             if category.present?
               return {
                 'current/pl': { path: category_link(::MapawynajmuPl::Announcement::CATEGORIES[category], :pl) },
-                'current/en': { path: category_link(::MapawynajmuPl::Announcement::CATEGORIES[category], :en) }
+                'current/en': { path: category_link(::MapawynajmuPl::Announcement::CATEGORIES[category], :en) },
               }
             end
 
             {
               'current/pl': { path: lang_prefix(:pl).chomp('/') },
-              'current/en': { path: lang_prefix(:en) }
+              'current/en': { path: lang_prefix(:en) },
             }
           end
 
@@ -41,7 +41,7 @@ module MapawynajmuPl
 
             ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
               category_links_hash["root/#{category[:trackified]}"] = {
-                path: category_link(category, lang)
+                path: category_link(category, lang),
               }
             end
 
