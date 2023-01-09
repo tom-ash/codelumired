@@ -54,7 +54,7 @@ module Api
           end
 
           def email
-            @email ||= params[:email]
+            @email ||= params[:email_address] || params[:email]
           end
 
           def verification_code

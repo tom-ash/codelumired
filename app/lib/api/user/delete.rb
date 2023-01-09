@@ -6,7 +6,12 @@ module Api
       namespace 'verification' do
         before { authorize! }
         put do
-          ::Mailers::Verification.new(email: current_user.email, namespace: 'user/delete', lang: lang, constantized_site_name: constantized_site_name).send
+          ::Mailers::Verification.new(
+            email: current_user.email,
+            namespace: 'user/delete',
+            lang: lang,
+            constantized_site_name: constantized_site_name,
+          ).send
         end
       end
 

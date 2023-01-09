@@ -9,7 +9,7 @@ module MapawynajmuPl
 
           params :user_attrs do
             requires :user, type: Hash do
-              requires :email, type: String
+              requires :email_address, type: String
               requires :password, type: String
               requires :country_code, type: String
               requires :phone_number, type: String
