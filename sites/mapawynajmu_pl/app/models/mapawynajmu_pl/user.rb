@@ -14,6 +14,7 @@ module MapawynajmuPl
     validates :password_salt, presence: true
     validates :consents, presence: true
     validates :showcase, presence: true
+    validates :business_name, presence: true, if: -> { account_type == 'business' }
 
     has_many :announcements, class_name: '::MapawynajmuPl::Announcement', foreign_key: :user_id, dependent: :destroy
     has_many :pages, foreign_key: :author_id, dependent: :destroy
