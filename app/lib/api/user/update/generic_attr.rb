@@ -7,13 +7,18 @@ module Api
         before { authorize! }
 
         params do
-          requires :value, type: String
           requires :name, type: String
+          requires :value, type: String
         end
         put do
-          name = params[:name]
+          name = params[:name].underscore
           value = params[:value]
-          ::Commands::User::Update::GenericAttr.new(user_id: current_user.id, name: name, value: value, constantized_site_name: constantized_site_name).call
+          ::Commands::User::Update::GenericAttr.new(
+            user_id: current_user.id,
+            name: name,
+            value: value,
+            constantized_site_name: constantized_site_name,
+          ).call
         end
       end
     end
