@@ -13,6 +13,7 @@ module Serializers
       def call
         {
           account_type: user.account_type,
+          business_name: user.business_name,
           email: user.email,
           country_code: user.country_code,
           phone_number: user.phone_number,
