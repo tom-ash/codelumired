@@ -64,7 +64,23 @@ module MapawynajmuPl
               end
 
               def asset_names
-                @asset_names ||= %i[info camera close chevron rotate apartment house room parkingSpace usablePremises office virtualOffice coworkingSpace caretDown]
+                @asset_names ||= %i[
+                  info
+                  caretDown
+                  camera
+                  close
+                  chevron
+                  rotate
+                  apartment
+                  house
+                  room
+                  parkingSpace
+                  usablePremises
+                  office
+                  virtualOffice
+                  coworkingSpace
+                  advertisingSpaces
+                ]
               end
             end
           end

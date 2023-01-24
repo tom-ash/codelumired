@@ -50,6 +50,7 @@ module MapawynajmuPl
                 office
                 virtualOffice
                 coworkingSpace
+                advertisingSpaces
                 facebook
                 chevron
                 close

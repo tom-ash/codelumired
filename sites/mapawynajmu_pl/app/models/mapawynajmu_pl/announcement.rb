@@ -24,7 +24,7 @@ module MapawynajmuPl
     validates :status, presence: true
     validates :points, presence: true
     validates :views, presence: true
-    validates :category, presence: true, numericality: { only_integer: true }, inclusion: { in: [*0..7] }
+    validates :category, presence: true, numericality: { only_integer: true }, inclusion: { in: [*0..8] }
     validates :area, numericality: { only_float: true }, allow_nil: true
     validates :pictures, presence: true, length: { minimum: 1 }
     validate :pictures_structure
