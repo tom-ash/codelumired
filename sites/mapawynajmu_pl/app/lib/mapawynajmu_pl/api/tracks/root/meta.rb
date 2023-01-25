@@ -109,6 +109,7 @@ module MapawynajmuPl
               virtualOffice
               coworkingSpace
               advertisingSpaces
+              garage
               facebook
               chevron
               close

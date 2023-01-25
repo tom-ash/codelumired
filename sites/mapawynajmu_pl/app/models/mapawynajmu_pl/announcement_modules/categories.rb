@@ -175,6 +175,25 @@ module MapawynajmuPl
           },
           trackified: 'advertising_spaces',
         },
+        9 => {
+          name: {
+            pl: 'Garaż',
+            en: 'Garage',
+          },
+          name_plural: {
+            pl: 'Garaże',
+            en: 'Garages',
+          },
+          urlified: {
+            pl: 'garaz',
+            en: 'garage',
+          },
+          urlified_plural: {
+            pl: 'garaze',
+            en: 'garages',
+          },
+          trackified: 'garages',
+        },
       }.freeze
 
       URL_CATEGORIES = begin

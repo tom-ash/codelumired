@@ -80,6 +80,7 @@ module MapawynajmuPl
                   virtualOffice
                   coworkingSpace
                   advertisingSpaces
+                  garage
                 ]
               end
             end
