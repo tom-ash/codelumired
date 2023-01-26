@@ -7,9 +7,17 @@ module MapawynajmuPl
         module Meta
           TRACK = 'root'
 
+          ROOT_PL = '/'
+          CATEGORY_PL = "wynajem/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})$"
+          PARTNERS_PL = "partnerzy\/(?<partner_name>[^\/]*)(\/#{CATEGORY_PL})?"
+
+          ROOT_EN = 'en'
+          CATEGORY_EN = "rent/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+          PARTNERS_EN = "partners\/(?<partner_name>[^\/]*)(\/#{CATEGORY_EN})?"
+
           UNLOCALIZED_PATH = {
-            pl: %r{^/$|^wynajem/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$},
-            en: %r{^en$|^rent/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})?$},
+            pl: /^#{ROOT_PL}|#{CATEGORY_PL}|#{PARTNERS_PL}$/,
+            en: /^#{ROOT_EN}|#{CATEGORY_EN}|#{PARTNERS_EN}$/,
           }.freeze
 
           UNLOCALIZED_TITLE = {
@@ -68,7 +76,7 @@ module MapawynajmuPl
           def unlocalized_keywords
             @unlocalized_keywords ||= {
               pl: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
-              en: 'map, lease, rent, real, estate, property, properties, apartments, free, announcements, houses, rooms, usable, premises, offices, virtual, parking, spaces, coworking'
+              en: 'map, lease, rent, real, estate, property, properties, apartments, free, announcements, houses, rooms, usable, premises, offices, virtual, parking, spaces, coworking',
             }.freeze
           end
 
