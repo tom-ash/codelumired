@@ -5,7 +5,15 @@ module MapawynajmuPl
     module Announcement
       module Index
         class Visitor
-          def initialize(category: nil, area_min: nil, area_max: nil, price_min: nil, price_max: nil)
+          def initialize(
+            partner: nil,
+            category: nil,
+            area_min: nil,
+            area_max: nil,
+            price_min: nil,
+            price_max: nil
+          )
+            @partner = partner
             @category = category
             @area_min = area_min
             @area_max = area_max
@@ -19,10 +27,15 @@ module MapawynajmuPl
 
           private
 
-          attr_reader :category, :area_min, :area_max, :price_min, :price_max
+          attr_reader :partner, :category, :area_min, :area_max, :price_min, :price_max
 
           def announcements
-            @announcement ||= ::MapawynajmuPl::Announcement.where(search_params).order('points DESC').order('active_until DESC')
+            @announcement ||= ::MapawynajmuPl::Announcement.where(search_params)
+                                                           .order('points DESC')
+                                                           .order('active_until DESC')
+
+            @announcement = @announcement.where(user_id: partner.id) if partner.present?
+
             @announcement = @announcement.where('area >= ?', area_min) if area_min.present?
             @announcement = @announcement.where('area <= ?', area_max) if area_max.present?
 

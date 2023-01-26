@@ -50,6 +50,15 @@ module MapawynajmuPl
             @match_data ||= UNLOCALIZED_PATH[lang].match(url)
           end
 
+          def partner
+            @partner ||= begin
+              urlified_business_name = match_data && match_data[:partner_name]
+              return if urlified_business_name.blank?
+
+              ::MapawynajmuPl::User.find_by!(urlified_business_name: urlified_business_name)
+            end
+          end
+
           def category
             @category ||= begin
               category_name = match_data && match_data[:category_name]

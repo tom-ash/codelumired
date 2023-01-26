@@ -15,11 +15,19 @@ module MapawynajmuPl
     validates :consents, presence: true
     validates :showcase, presence: true
     validates :business_name, presence: true, if: -> { account_type == 'business' }
+    validates :urlified_business_name, presence: true, if: -> { account_type == 'business' }
 
     has_many :announcements, class_name: '::MapawynajmuPl::Announcement', foreign_key: :user_id, dependent: :destroy
     has_many :pages, foreign_key: :author_id, dependent: :destroy
 
+    before_save :urlify_business_name
     before_update :log_changes, :build_showcase
+
+    def urlify_business_name
+      return unless business_name_changed?
+
+      self.urlified_business_name = business_name.parameterize
+    end
 
     def private_account?
       account_type == 'private'

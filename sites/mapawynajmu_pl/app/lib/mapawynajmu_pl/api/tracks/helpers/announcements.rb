@@ -8,11 +8,18 @@ module MapawynajmuPl
           private
 
           def announcements
-            @announcements ||= ::MapawynajmuPl::Queries::Announcement::Index::Visitor.new(category: category, **filters).call
+            @announcements ||= ::MapawynajmuPl::Queries::Announcement::Index::Visitor.new(
+              partner: partner,
+              category: category,
+              **filters,
+            ).call
           end
 
           def serialized_announcements
-            @serialized_announcements ||= ::MapawynajmuPl::Serializers::Announcement::Index::Visitor.new(announcements, lang).call
+            @serialized_announcements ||= ::MapawynajmuPl::Serializers::Announcement::Index::Visitor.new(
+              announcements,
+              lang,
+            ).call
           end
         end
       end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_25_052348) do
+ActiveRecord::Schema.define(version: 2023_01_26_055610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -158,16 +158,6 @@ ActiveRecord::Schema.define(version: 2022_10_25_052348) do
     t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
-  create_table "prospective_users", force: :cascade do |t|
-    t.string "encrypted_access_token", null: false
-    t.jsonb "verification", null: false
-    t.string "verification_code_iv", null: false
-    t.jsonb "user", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["encrypted_access_token"], name: "index_prospective_users_on_encrypted_access_token", unique: true
-  end
-
   create_table "redirects", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.string "original_url", null: false
@@ -210,6 +200,7 @@ ActiveRecord::Schema.define(version: 2022_10_25_052348) do
     t.string "phone_number"
     t.string "encrypted_confirmation_token"
     t.datetime "confirmation_token_generated_at", precision: 6
+    t.string "urlified_business_name"
     t.index ["confirmed"], name: "index_users_on_confirmed"
     t.index ["country_code"], name: "index_users_on_country_code"
     t.index ["email"], name: "index_users_on_email", unique: true
