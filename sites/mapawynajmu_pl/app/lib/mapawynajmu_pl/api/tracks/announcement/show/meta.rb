@@ -40,6 +40,9 @@ module MapawynajmuPl
                   announcement: announcement,
                   lang: :en,
                 ).call,
+                'listing/index/go-back': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
+                  lang: lang,
+                ).go_back_link,
               }
             end
 

@@ -33,6 +33,20 @@ module MapawynajmuPl
             root_paths
           end
 
+          def category_links
+            category_links_hash = {}
+
+            ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
+              category_path = category_link(category, lang)
+
+              category_links_hash["root/#{category[:trackified]}"] = {
+                path: partner.present? ? "#{partner_path(lang)}/#{category_path}" : category_path,
+              }
+            end
+
+            category_links_hash
+          end
+
           def partner_and_category_paths
             {
               'current/pl': { path: "#{partner_path(:pl)}/#{category_path(:pl)}" },
@@ -56,20 +70,6 @@ module MapawynajmuPl
 
           def category_path(lang)
             category_link(::MapawynajmuPl::Announcement::CATEGORIES[category], lang)
-          end
-
-          def category_links
-            category_links_hash = {}
-
-            ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
-              category_path = category_link(category, lang)
-
-              category_links_hash["root/#{category[:trackified]}"] = {
-                path: partner.present? ? "#{partner_path(lang)}/#{category_path}" : category_path,
-              }
-            end
-
-            category_links_hash
           end
 
           private
