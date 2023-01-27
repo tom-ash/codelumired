@@ -25,6 +25,7 @@ module MapawynajmuPl
           def data
             data_hash = {
               current_category: category,
+              partner_name: partner&.business_name,
               title: title,
               tile: nil,
             }
