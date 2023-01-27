@@ -16,9 +16,12 @@ module MapawynajmuPl
           end
 
           def serialized_announcements
+            localized_partner_path = partner.present? ? "#{partner_path(lang)}/" : ''
+
             @serialized_announcements ||= ::MapawynajmuPl::Serializers::Announcement::Index::Visitor.new(
-              announcements,
-              lang,
+              announcements: announcements,
+              lang: lang,
+              partner_path: localized_partner_path,
             ).call
           end
         end

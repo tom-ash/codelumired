@@ -9,15 +9,15 @@ module MapawynajmuPl
 
           ROOT_PL = '/'
           CATEGORY_PL = "wynajem/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})$"
-          PARTNERS_PL = "partnerzy\/(?<partner_name>[^\/]*)(\/#{CATEGORY_PL})?"
+          PARTNER_PL = "partnerzy\/(?<partner_name>[^\/]*)(\/#{CATEGORY_PL})?"
 
           ROOT_EN = 'en'
           CATEGORY_EN = "rent/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
-          PARTNERS_EN = "partners\/(?<partner_name>[^\/]*)(\/#{CATEGORY_EN})?"
+          PARTNER_EN = "partners\/(?<partner_name>[^\/]*)(\/#{CATEGORY_EN})?"
 
           UNLOCALIZED_PATH = {
-            pl: /^#{ROOT_PL}|#{CATEGORY_PL}|#{PARTNERS_PL}$/,
-            en: /^#{ROOT_EN}|#{CATEGORY_EN}|#{PARTNERS_EN}$/,
+            pl: /^#{ROOT_PL}|#{CATEGORY_PL}|#{PARTNER_PL}$/,
+            en: /^#{ROOT_EN}|#{CATEGORY_EN}|#{PARTNER_EN}$/,
           }.freeze
 
           UNLOCALIZED_TITLE = {
@@ -133,6 +133,20 @@ module MapawynajmuPl
               phone
               caretDown
             ]
+          end
+
+          def partner_paths
+            {
+              'current/pl': { path: partner_path(:pl) },
+              'current/en': { path: partner_path(:en) },
+            }
+          end
+
+          def partner_path(lang)
+            {
+              pl: "partnerzy/#{partner.urlified_business_name}",
+              en: "partners/#{partner.urlified_business_name}",
+            }[lang]
           end
         end
       end

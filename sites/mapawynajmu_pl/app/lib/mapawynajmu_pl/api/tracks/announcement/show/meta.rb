@@ -8,9 +8,15 @@ module MapawynajmuPl
           module Meta
             TRACK = 'announcement/show'
 
+            LISTING_PL = '\d+-.*-na-wynajem.*'
+            LISTING_EN = '\d+-.*-for-(rent|lease).*'
+
+            PARTNER_PL = "partnerzy\/(?<partner_name>[^\/]*)(\/#{LISTING_PL})?"
+            PARTNER_EN = "partners\/(?<partner_name>[^\/]*)(\/#{LISTING_EN})?"
+
             UNLOCALIZED_PATH = {
-              pl: %r{^\/?\d+-.*-na-wynajem.*$},
-              en: %r{^\/?\d+-.*-for-(rent|lease).*$},
+              pl: /^#{LISTING_PL}|#{PARTNER_PL}$/,
+              en: /^#{LISTING_EN}|#{PARTNER_EN}$/,
             }.freeze
 
             private
@@ -26,8 +32,14 @@ module MapawynajmuPl
 
             def links
               {
-                'current/pl': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :pl).call,
-                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: :en).call,
+                'current/pl': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
+                  announcement: announcement,
+                  lang: :pl,
+                ).call,
+                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
+                  announcement: announcement,
+                  lang: :en,
+                ).call,
               }
             end
 
@@ -78,6 +90,26 @@ module MapawynajmuPl
 
             def category
               nil
+            end
+
+            def match_data
+              @match_data ||= UNLOCALIZED_PATH[lang].match(url)
+            end
+
+            def partner
+              @partner ||= begin
+                urlified_business_name = match_data && match_data[:partner_name]
+                return if urlified_business_name.blank?
+
+                ::MapawynajmuPl::User.find_by!(urlified_business_name: urlified_business_name)
+              end
+            end
+
+            def partner_path(lang)
+              {
+                pl: "partnerzy/#{partner.urlified_business_name}",
+                en: "partners/#{partner.urlified_business_name}",
+              }[lang]
             end
           end
         end

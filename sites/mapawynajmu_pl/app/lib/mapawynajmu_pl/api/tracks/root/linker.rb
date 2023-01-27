@@ -40,13 +40,6 @@ module MapawynajmuPl
             }
           end
 
-          def partner_paths
-            {
-              'current/pl': { path: partner_path(:pl) },
-              'current/en': { path: partner_path(:en) },
-            }
-          end
-
           def category_paths
             {
               'current/pl': { path: category_path(:pl) },
@@ -59,13 +52,6 @@ module MapawynajmuPl
               'current/pl': { path: ROOT_PL.chomp('/') },
               'current/en': { path: ROOT_EN },
             }
-          end
-
-          def partner_path(lang)
-            {
-              pl: "partnerzy/#{partner.urlified_business_name}",
-              en: "partners/#{partner.urlified_business_name}",
-            }[lang]
           end
 
           def category_path(lang)
