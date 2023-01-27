@@ -6,6 +6,7 @@ module MapawynajmuPl
       module Root
         class Appender
           include ::Api::Tracks::Helpers::Appender
+          include ::MapawynajmuPl::Api::Tracks::Root::Assets
           include ::MapawynajmuPl::Api::Tracks::Root::Meta
           include ::MapawynajmuPl::Api::Tracks::Helpers::Announcements
           include ::MapawynajmuPl::Api::Tracks::Helpers::Filters

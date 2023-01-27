@@ -19,11 +19,18 @@ module MapawynajmuPl
             end
 
             def go_back_link
+              root_pl = ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_PL
+              root_en = ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN
+
+              # return partner_and_category_paths if partner.present? && category.present?
+              # return partner_paths if partner.present?
+              # return category_paths if category.present?
+
               # byebug
               {
                 path: {
-                  pl: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_PL,
-                  en: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN,
+                  pl: root_pl,
+                  en: root_en,
                 }[lang],
               }
             end
@@ -31,6 +38,10 @@ module MapawynajmuPl
             private
 
             attr_reader :announcement, :lang
+
+            def go_back_partner_link
+              
+            end
           end
         end
       end
