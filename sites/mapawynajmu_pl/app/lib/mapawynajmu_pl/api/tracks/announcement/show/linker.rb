@@ -23,15 +23,19 @@ module MapawynajmuPl
             end
 
             def go_back_link
-              root_pl = ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_PL
-              root_en = ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN
+              if current_partner.present? || current_category.present?
+                partner_path = current_partner.present? ? "#{current_partner_path(lang)}/" : ''
+                category_path = current_category.present? ? current_category_path(lang) : ''
 
-              return { path: current_partner_path(lang) } if current_partner.present?
+                return {
+                  path: "#{partner_path}#{category_path}".chomp('/'),
+                }
+              end
 
               {
                 path: {
-                  pl: root_pl,
-                  en: root_en,
+                  pl: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_PL,
+                  en: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN,
                 }[lang],
               }
             end
