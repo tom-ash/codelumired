@@ -10,15 +10,18 @@ module MapawynajmuPl
 
             TRACK = 'announcement/show'
 
+            PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]+)"
+            PARTNER_EN = "partners\/(?<current_partner_name>[^\/]+)"
+
+            CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+            CATEGORY_EN = "rent/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+
             LISTING_PL = '\d+-.*-na-wynajem.*'
             LISTING_EN = '\d+-.*-for-(rent|lease).*'
 
-            PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]*)(\/#{LISTING_PL})?"
-            PARTNER_EN = "partners\/(?<current_partner_name>[^\/]*)(\/#{LISTING_EN})?"
-
             UNLOCALIZED_PATH = {
-              pl: /^#{LISTING_PL}|#{PARTNER_PL}$/,
-              en: /^#{LISTING_EN}|#{PARTNER_EN}$/,
+              pl: %r{^(#{PARTNER_PL}\/)?(#{CATEGORY_PL}\/)?#{LISTING_PL}$},
+              en: %r{^(#{PARTNER_EN}\/)?(#{CATEGORY_EN}\/)?#{LISTING_EN}$},
             }.freeze
 
             private
@@ -44,7 +47,7 @@ module MapawynajmuPl
                 ).call,
                 'listing/index/go-back': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
                   lang: lang,
-                  url: url
+                  url: url,
                 ).go_back_link,
               }
             end

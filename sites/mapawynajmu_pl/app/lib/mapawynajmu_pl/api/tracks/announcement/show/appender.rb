@@ -44,9 +44,8 @@ module MapawynajmuPl
             end
 
             def data
+              # byebug
               data_hash = {
-                # announcements: serialized_announcements,
-                # amount: serialized_announcements.count,
                 current_category: current_category,
                 tile: serialized_announcement,
               }

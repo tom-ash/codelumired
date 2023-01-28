@@ -10,16 +10,16 @@ module MapawynajmuPl
           TRACK = 'root'
 
           ROOT_PL = '/'
-          CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})$"
-          PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]*)(\/#{CATEGORY_PL})?"
+          CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+          PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]+)"
 
           ROOT_EN = 'en'
           CATEGORY_EN = "rent/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
-          PARTNER_EN = "partners\/(?<current_partner_name>[^\/]*)(\/#{CATEGORY_EN})?"
+          PARTNER_EN = "partners\/(?<current_partner_name>[^\/]+)"
 
           UNLOCALIZED_PATH = {
-            pl: /^#{ROOT_PL}|#{CATEGORY_PL}|#{PARTNER_PL}$/,
-            en: /^#{ROOT_EN}|#{CATEGORY_EN}|#{PARTNER_EN}$/,
+            pl: %r{^#{ROOT_PL}$|^(#{PARTNER_PL})?(\/)?(#{CATEGORY_PL})?$},
+            en: %r{^#{ROOT_EN}$|^(#{PARTNER_EN})?(\/)?(#{CATEGORY_EN})?$},
           }.freeze
 
           UNLOCALIZED_TITLE = {
