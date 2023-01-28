@@ -6,9 +6,13 @@ module MapawynajmuPl
       module Announcement
         module Show
           class Linker
-            def initialize(announcement: nil, lang:)
+            include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+            include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta
+
+            def initialize(announcement: nil, lang:, url: nil)
               @announcement = announcement
               @lang = lang
+              @url = url
             end
 
             def call
@@ -22,11 +26,8 @@ module MapawynajmuPl
               root_pl = ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_PL
               root_en = ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN
 
-              # return partner_and_category_paths if partner.present? && category.present?
-              # return partner_paths if partner.present?
-              # return category_paths if category.present?
+              return { path: current_partner_path(lang) } if current_partner.present?
 
-              # byebug
               {
                 path: {
                   pl: root_pl,
@@ -37,11 +38,7 @@ module MapawynajmuPl
 
             private
 
-            attr_reader :announcement, :lang
-
-            def go_back_partner_link
-              
-            end
+            attr_reader :announcement, :lang, :url
           end
         end
       end

@@ -14,42 +14,43 @@ module MapawynajmuPl
               @match_data ||= unlocalized_path[lang].match(url)
             end
 
-            def partner
-              @partner ||= begin
-                urlified_business_name = match_data && match_data[:partner_name]
+            def current_partner
+              @current_partner ||= begin
+                urlified_business_name = match_data && match_data[:current_partner_name]
                 return if urlified_business_name.blank?
 
                 ::MapawynajmuPl::User.find_by!(urlified_business_name: urlified_business_name)
               end
             end
 
-            def category
-              @category ||= begin
-                category_name = match_data && match_data[:category_name]
-                return if category_name.blank?
+            def current_category
+              @current_category ||= begin
+                current_category_name = match_data && match_data[:current_category_name]
+                return if current_category_name.blank?
 
                 ::MapawynajmuPl::Announcement::CATEGORIES.each do |key, value|
-                  return key if value[:urlified_plural][lang] == category_name
+                  return key if value[:urlified_plural][lang] == current_category_name
                 end
               end
             end
 
-            def partner_paths
+            def current_partner_path(lang)
               {
-                'current/pl': { path: partner_path(:pl) },
-                'current/en': { path: partner_path(:en) },
-              }
-            end
-
-            def partner_path(lang)
-              {
-                pl: "partnerzy/#{partner.urlified_business_name}",
-                en: "partners/#{partner.urlified_business_name}",
+                pl: "partnerzy/#{current_partner.urlified_business_name}",
+                en: "partners/#{current_partner.urlified_business_name}",
               }[lang]
             end
 
-            def category_title
-              "#{::MapawynajmuPl::Announcement::CATEGORIES[category][:name_plural][lang]} #{FOR_LEASE[lang]}"
+            def current_category_path(lang)
+              category_link(::MapawynajmuPl::Announcement::CATEGORIES[current_category], lang)
+            end
+
+            def category_link(category, lang)
+              "#{category_prefix(lang)}/#{category[:urlified_plural][lang]}"
+            end
+
+            def category_prefix(lang)
+              lang == :pl ? 'wynajem' : 'rent'
             end
           end
         end

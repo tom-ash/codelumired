@@ -27,10 +27,10 @@ module MapawynajmuPl
             link
           ].freeze
 
-          def initialize(announcements:, lang:, partner_path:)
+          def initialize(announcements:, lang:, current_partner_path:)
             @announcements = announcements
             @lang = lang
-            @partner_path = partner_path
+            @current_partner_path = current_partner_path
           end
 
           def call
@@ -39,11 +39,11 @@ module MapawynajmuPl
 
           private
 
-          attr_reader :announcements, :lang, :partner_path
+          attr_reader :announcements, :lang, :current_partner_path
 
           def serialize_announcement(announcement)
             serialized_announcement = announcement.attributes.slice(*ATTRS)
-            serialized_announcement['path'] = "#{partner_path}#{announcement.url(lang)}"
+            serialized_announcement['path'] = "#{current_partner_path}#{announcement.url(lang)}"
             serialized_announcement['title'] = announcement.title(lang)
             serialized_announcement
           end

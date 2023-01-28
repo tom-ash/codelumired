@@ -10,12 +10,12 @@ module MapawynajmuPl
           TRACK = 'root'
 
           ROOT_PL = '/'
-          CATEGORY_PL = "wynajem/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})$"
-          PARTNER_PL = "partnerzy\/(?<partner_name>[^\/]*)(\/#{CATEGORY_PL})?"
+          CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})$"
+          PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]*)(\/#{CATEGORY_PL})?"
 
           ROOT_EN = 'en'
-          CATEGORY_EN = "rent/(?<category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
-          PARTNER_EN = "partners\/(?<partner_name>[^\/]*)(\/#{CATEGORY_EN})?"
+          CATEGORY_EN = "rent/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+          PARTNER_EN = "partners\/(?<current_partner_name>[^\/]*)(\/#{CATEGORY_EN})?"
 
           UNLOCALIZED_PATH = {
             pl: /^#{ROOT_PL}|#{CATEGORY_PL}|#{PARTNER_PL}$/,
@@ -27,8 +27,6 @@ module MapawynajmuPl
             en: 'Properties for Rent',
           }.freeze
 
-
-
           private
 
           def track
@@ -37,7 +35,7 @@ module MapawynajmuPl
 
           def title
             @title ||= begin
-              return category_title if category.present?
+              return current_category_title if current_category.present?
 
               unlocalized_title[lang]
             end
@@ -83,6 +81,10 @@ module MapawynajmuPl
               ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).category_links,
               ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links,
             )
+          end
+
+          def current_category_title
+            "#{::MapawynajmuPl::Announcement::CATEGORIES[current_category][:name_plural][lang]} #{FOR_LEASE[lang]}"
           end
         end
       end

@@ -26,9 +26,9 @@ module MapawynajmuPl
           end
 
           def lang_links
-            return partner_and_category_paths if partner.present? && category.present?
-            return partner_paths if partner.present?
-            return category_paths if category.present?
+            return lang_links_with_current_partner_and_current_category if current_partner.present? && current_category.present?
+            return lang_links_with_current_partner if current_partner.present?
+            return lang_links_with_current_category if current_category.present?
 
             root_paths
           end
@@ -37,27 +37,36 @@ module MapawynajmuPl
             category_links_hash = {}
 
             ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
-              category_path = category_link(category, lang)
+              current_category_path = category_link(category, lang)
 
               category_links_hash["root/#{category[:trackified]}"] = {
-                path: partner.present? ? "#{partner_path(lang)}/#{category_path}" : category_path,
+                path: current_partner.present? ? "#{current_partner_path(lang)}/#{current_category_path}" : current_category_path,
               }
             end
 
             category_links_hash
           end
 
-          def partner_and_category_paths
+          private
+
+          def lang_links_with_current_partner_and_current_category
             {
-              'current/pl': { path: "#{partner_path(:pl)}/#{category_path(:pl)}" },
-              'current/en': { path: "#{partner_path(:en)}/#{category_path(:en)}" },
+              'current/pl': { path: "#{current_partner_path(:pl)}/#{current_category_path(:pl)}" },
+              'current/en': { path: "#{current_partner_path(:en)}/#{current_category_path(:en)}" },
             }
           end
 
-          def category_paths
+          def lang_links_with_current_partner
             {
-              'current/pl': { path: category_path(:pl) },
-              'current/en': { path: category_path(:en) },
+              'current/pl': { path: current_partner_path(:pl) },
+              'current/en': { path: current_partner_path(:en) },
+            }
+          end
+
+          def lang_links_with_current_category
+            {
+              'current/pl': { path: current_category_path(:pl) },
+              'current/en': { path: current_category_path(:en) },
             }
           end
 
@@ -66,20 +75,6 @@ module MapawynajmuPl
               'current/pl': { path: ROOT_PL.chomp('/') },
               'current/en': { path: ROOT_EN },
             }
-          end
-
-          def category_path(lang)
-            category_link(::MapawynajmuPl::Announcement::CATEGORIES[category], lang)
-          end
-
-          private
-
-          def category_link(category, lang)
-            "#{category_prefix(lang)}/#{category[:urlified_plural][lang]}"
-          end
-
-          def category_prefix(lang)
-            lang == :pl ? 'wynajem' : 'rent'
           end
         end
       end

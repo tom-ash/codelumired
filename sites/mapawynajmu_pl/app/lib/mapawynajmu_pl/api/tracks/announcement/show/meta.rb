@@ -6,13 +6,15 @@ module MapawynajmuPl
       module Announcement
         module Show
           module Meta
+            include ::MapawynajmuPl::Api::Tracks::Announcement::Common::PartnerAndCategory
+
             TRACK = 'announcement/show'
 
             LISTING_PL = '\d+-.*-na-wynajem.*'
             LISTING_EN = '\d+-.*-for-(rent|lease).*'
 
-            PARTNER_PL = "partnerzy\/(?<partner_name>[^\/]*)(\/#{LISTING_PL})?"
-            PARTNER_EN = "partners\/(?<partner_name>[^\/]*)(\/#{LISTING_EN})?"
+            PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]*)(\/#{LISTING_PL})?"
+            PARTNER_EN = "partners\/(?<current_partner_name>[^\/]*)(\/#{LISTING_EN})?"
 
             UNLOCALIZED_PATH = {
               pl: /^#{LISTING_PL}|#{PARTNER_PL}$/,
@@ -42,37 +44,9 @@ module MapawynajmuPl
                 ).call,
                 'listing/index/go-back': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
                   lang: lang,
+                  url: url
                 ).go_back_link,
               }
-            end
-
-            def asset_names
-              @asset_names ||= %i[
-                check
-                facebook
-                phone
-                chevron
-                globe
-                link
-                arrowRight
-                globe
-                calendar
-                apartment
-                house
-                room
-                parkingSpace
-                usablePremises
-                office
-                virtualOffice
-                coworkingSpace
-                advertisingSpaces
-                garage
-                facebook
-                chevron
-                close
-                phone
-                caretDown
-              ]
             end
 
             def title
@@ -95,24 +69,8 @@ module MapawynajmuPl
               nil
             end
 
-            def match_data
-              @match_data ||= UNLOCALIZED_PATH[lang].match(url)
-            end
-
-            def partner
-              @partner ||= begin
-                urlified_business_name = match_data && match_data[:partner_name]
-                return if urlified_business_name.blank?
-
-                ::MapawynajmuPl::User.find_by!(urlified_business_name: urlified_business_name)
-              end
-            end
-
-            def partner_path(lang)
-              {
-                pl: "partnerzy/#{partner.urlified_business_name}",
-                en: "partners/#{partner.urlified_business_name}",
-              }[lang]
+            def unlocalized_path
+              @unlocalized_path ||= UNLOCALIZED_PATH
             end
           end
         end

@@ -8,6 +8,7 @@ module MapawynajmuPl
           class Appender
             include ::Api::Tracks::Helpers::Appender
             include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta
+            include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Assets
             include ::MapawynajmuPl::Api::Tracks::Helpers::Announcements
             include ::MapawynajmuPl::Api::Tracks::Helpers::Filters
 
@@ -46,7 +47,7 @@ module MapawynajmuPl
               data_hash = {
                 # announcements: serialized_announcements,
                 # amount: serialized_announcements.count,
-                current_category: category,
+                current_category: current_category,
                 tile: serialized_announcement,
               }
 
