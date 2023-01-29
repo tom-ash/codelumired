@@ -18,7 +18,7 @@ module MapawynajmuPl
               ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
                 current_category_path = category_link(category, lang)
 
-                category_links_hash["root/#{category[:trackified]}"] = {
+                category_links_hash["listing/index/#{category[:trackified]}"] = {
                   path: "#{partner_path}#{current_category_path}",
                 }
               end
