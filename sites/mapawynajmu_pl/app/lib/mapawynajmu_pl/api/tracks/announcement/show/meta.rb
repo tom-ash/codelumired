@@ -49,7 +49,9 @@ module MapawynajmuPl
                   lang: lang,
                   url: url,
                 ).go_back_link,
-              }
+              }.merge(
+                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(lang: lang, url: url).category_links,
+              )
             end
 
             def title

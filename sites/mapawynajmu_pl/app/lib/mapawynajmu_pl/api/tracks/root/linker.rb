@@ -33,24 +33,6 @@ module MapawynajmuPl
             root_paths
           end
 
-          def category_links
-            partner_path = current_partner.present? ? "#{current_partner_path(lang)}/" : ''
-
-            category_links_hash = {
-              'listing/index/all-categories': { path: partner_path.chomp('/') },
-            }
-
-            ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
-              current_category_path = category_link(category, lang)
-
-              category_links_hash["root/#{category[:trackified]}"] = {
-                path: "#{partner_path}#{current_category_path}",
-              }
-            end
-
-            category_links_hash
-          end
-
           private
 
           def lang_links_with_current_partner_and_current_category
