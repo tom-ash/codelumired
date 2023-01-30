@@ -36,21 +36,10 @@ module MapawynajmuPl
             end
 
             def links
-              {
-                'current/pl': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
-                  announcement: announcement,
-                  lang: :pl,
-                ).call,
-                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
-                  announcement: announcement,
-                  lang: :en,
-                ).call,
-                'listing/index/go-back': MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(
-                  lang: lang,
-                  url: url,
-                ).go_back_link,
-              }.merge(
-                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(lang: lang, url: url).category_links,
+              {}.merge(
+                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: lang, url: url).category_links,
+                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: lang, url: url).lang_links,
+                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: lang, url: url).go_back_link,
               )
             end
 

@@ -9,17 +9,13 @@ module MapawynajmuPl
             FOR_LEASE = { pl: 'na wynajem', en: 'for rent' }.freeze
 
             def category_links
-              partner_path = current_partner.present? ? "#{current_partner_path(lang)}/" : ''
-
               category_links_hash = {
-                'listing/index/all-categories': { path: partner_path.chomp('/') },
+                'listing/index/all-categories': { path: partner_path_with_slash(lang)&.chomp('/') },
               }
 
               ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
-                current_category_path = category_link(category, lang)
-
                 category_links_hash["listing/index/#{category[:trackified]}"] = {
-                  path: "#{partner_path}#{current_category_path}",
+                  path: "#{partner_path_with_slash(lang)}#{category_link(category, lang)}",
                 }
               end
 
@@ -69,6 +65,18 @@ module MapawynajmuPl
 
             def category_prefix(lang)
               lang == :pl ? 'wynajem' : 'rent'
+            end
+
+            def partner_path_with_slash(lang)
+              return nil if current_partner.nil?
+
+              "#{current_partner_path(lang)}/"
+            end
+
+            def category_path_with_slash(lang)
+              return nil if current_category.nil?
+
+              "#{current_category_path(lang)}/"
             end
           end
         end
