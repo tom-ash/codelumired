@@ -46,7 +46,7 @@ module MapawynajmuPl
           direct_attrs.merge(
             **active_until,
             **net_rent_amount_per_sqm,
-            **gross_rent_amount_per_sqm
+            **gross_rent_amount_per_sqm,
           )
         end
 
@@ -61,13 +61,19 @@ module MapawynajmuPl
         def net_rent_amount_per_sqm
           return {} if net_rent_amount.blank?
 
-          { net_rent_amount: net_rent_amount, net_rent_amount_per_sqm: (net_rent_amount / area).ceil(2) }
+          {
+            net_rent_amount: net_rent_amount,
+            net_rent_amount_per_sqm: (net_rent_amount / area).ceil(2),
+          }
         end
 
         def gross_rent_amount_per_sqm
           return {} if gross_rent_amount.blank?
 
-          { gross_rent_amount: gross_rent_amount, gross_rent_amount_per_sqm: (gross_rent_amount / area).ceil(2) }
+          {
+            gross_rent_amount: gross_rent_amount,
+            gross_rent_amount_per_sqm: (gross_rent_amount / area).ceil(2),
+          }
         end
 
         def net_rent_amount

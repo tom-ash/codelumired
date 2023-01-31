@@ -49,7 +49,7 @@ module MapawynajmuPl
         def move_pictures
           attrs[:pictures].each do |picture|
             ::PersistedObject.new("temporary/#{picture[:database]}").move_to(
-              "announcements/#{announcement.id}/#{picture[:database]}"
+              "announcements/#{announcement.id}/#{picture[:database]}",
             )
           end
         end
@@ -61,10 +61,12 @@ module MapawynajmuPl
         def parsed_attrs
           direct_attrs.merge(
             **STATIC_ATTRS,
-            **active_until,
-            **net_rent_amount_per_sqm,
-            **gross_rent_amount_per_sqm,
-            **confirmed
+            **net_rent_amount_object,
+            **net_rent_amount_per_sqm_object,
+            **gross_rent_amount_object,
+            **gross_rent_amount_per_sqm_object,
+            **active_until_object,
+            **confirmed_object,
           )
         end
 
@@ -72,23 +74,31 @@ module MapawynajmuPl
           attrs.slice(*DIRECT_ATTR_NAMES)
         end
 
-        def active_until
+        def net_rent_amount_object
+          { net_rent_amount: net_rent_amount }
+        end
+
+        def net_rent_amount_per_sqm_object
+          return {} if net_rent_amount.blank? || area.blank?
+
+          { net_rent_amount_per_sqm: (net_rent_amount / area).ceil(2) }
+        end
+
+        def gross_rent_amount_object
+          { gross_rent_amount: gross_rent_amount }
+        end
+
+        def gross_rent_amount_per_sqm_object
+          return {} if gross_rent_amount.blank? || area.blank?
+
+          { gross_rent_amount_per_sqm: (gross_rent_amount / area).ceil(2) }
+        end
+
+        def active_until_object
           { active_until: Date.today + 60.days }
         end
 
-        def net_rent_amount_per_sqm
-          return {} if net_rent_amount.blank?
-
-          { net_rent_amount: net_rent_amount, net_rent_amount_per_sqm: (net_rent_amount / area).ceil(2) }
-        end
-
-        def gross_rent_amount_per_sqm
-          return {} if gross_rent_amount.blank?
-
-          { gross_rent_amount: gross_rent_amount, gross_rent_amount_per_sqm: (gross_rent_amount / area).ceil(2) }
-        end
-
-        def confirmed
+        def confirmed_object
           { confirmed: attrs[:confirmed] }
         end
 

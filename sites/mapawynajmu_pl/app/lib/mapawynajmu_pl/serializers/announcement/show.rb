@@ -43,7 +43,7 @@ module MapawynajmuPl
 
         def announcement_attrs
           @announcement.attributes.slice(*ATTRS).merge(
-            phone: announcement.user.showcase['phone']
+            phone: announcement.user.showcase['phone'],
           )
         end
       end
