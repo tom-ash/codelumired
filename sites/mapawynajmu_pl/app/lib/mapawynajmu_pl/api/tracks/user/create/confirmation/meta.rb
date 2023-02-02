@@ -5,24 +5,41 @@ module MapawynajmuPl
     module Tracks
       module User
         module Create
-          module Verification
+          module Confirmation
             module Meta
-              TRACK = 'user/create/verification'
+              TRACK = 'user/create/confirmation'
+
+              # UNLOCALIZED_PATH = {
+              #   pl: 'potwierdzenie-utworzenia-konta',
+              #   en: 'account-creation-confirmation',
+              # }.freeze
 
               UNLOCALIZED_PATH = {
-                pl: 'potwierdz-adres-email',
-                en: 'confirm-email-address',
+                pl: %r{potwierdzenie-utworzenia-konta/(?<user_id>\d+)},
+                en: 'account-creation-confirmation',
               }.freeze
 
               UNLOCALIZED_TITLE = {
-                pl: 'Potwierdź Adres Email',
-                en: 'Confirm Email Address',
+                pl: 'Potwierdzenie utworzenia konta',
+                en: 'Account creation confirmation',
               }.freeze
 
               private
 
               def track
                 @track ||= TRACK
+              end
+
+              def match_data
+                @match_data ||= unlocalized_path[lang].match(url)
+              end
+
+              def user
+                @user ||= begin
+                  user_id = match_data && match_data[:user_id]
+
+                  ::MapawynajmuPl::User.find(user_id)
+                end
               end
 
               def unlocalized_path
@@ -49,17 +66,17 @@ module MapawynajmuPl
 
               def render
                 {
-                  visitor: true,
-                  user: true,
+                  'visitor': true,
+                  'user': true,
                   'user/create': true,
-                  'user/create/verification': true,
+                  'user/create/confirmation': true,
                 }
               end
 
               def links
                 {
-                  'current/pl': ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Linker.new(:pl).call,
-                  'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Linker.new(:en).call,
+                  'current/pl': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:pl).call,
+                  'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:en).call,
                 }
               end
             end
