@@ -9,6 +9,7 @@ module MapawynajmuPl
             class Appender
               include ::Api::Tracks::Helpers::Appender
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta
+              include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Texts
 
               private
 
@@ -19,6 +20,7 @@ module MapawynajmuPl
                     business_name: user.business_name,
                     urlified_business_name: user.urlified_business_name,
                   },
+                  texts: texts,
                 )
               end
             end
