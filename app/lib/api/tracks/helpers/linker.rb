@@ -4,8 +4,9 @@ module Api
   module Tracks
     module Helpers
       module Linker
-        def initialize(lang)
+        def initialize(lang, decorators = nil)
           @lang = lang.to_sym
+          @decorators = decorators
         end
 
         def call
@@ -20,7 +21,7 @@ module Api
 
         private
 
-        attr_reader :lang
+        attr_reader :lang, :decorators
 
         def path
           unlocalized_path[lang]

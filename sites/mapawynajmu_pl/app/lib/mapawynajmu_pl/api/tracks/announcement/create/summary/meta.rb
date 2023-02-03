@@ -11,12 +11,12 @@ module MapawynajmuPl
 
               UNLOCALIZED_PATH = {
                 pl: %r{^podsumowanie-dodanego-ogloszenia/(\d+)$},
-                en: %r{^added-announcement-summary/(\d+)$}
+                en: %r{^added-announcement-summary/(\d+)$},
               }.freeze
 
               UNLOCALIZED_TITLE = {
                 pl: 'Podsumowanie dodanego ogłoszenia',
-                en: 'Added Announcement Summary'
+                en: 'Added Announcement Summary',
               }.freeze
 
               private
@@ -44,14 +44,14 @@ module MapawynajmuPl
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
                   pl: "dodane, ogłoszenie, podsumowanie, użytkownik, #{MAPAWYNAJMU_PL_NAME}, ogłoszenia, wynajem, nieruchomości, warszawa",
-                  en: "added, announcement, summary, user, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw"
+                  en: "added, announcement, summary, user, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw",
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
                   pl: "Podsumowanie ogłoszenia dodanego na #{MAPAWYNAJMU_PL_NAME} - serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.",
-                  en: "Summary of an announcement added on #{MAPAWYNAJMU_PL_NAME} - a service featuring real estate lease announcements in Warsaw."
+                  en: "Summary of an announcement added on #{MAPAWYNAJMU_PL_NAME} - a service featuring real estate lease announcements in Warsaw.",
                 }.freeze
               end
 
@@ -60,7 +60,7 @@ module MapawynajmuPl
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'announcement/create/summary': true
+                  'announcement/create/summary': true,
                 }
               end
 
@@ -68,7 +68,7 @@ module MapawynajmuPl
                 {
                   'current/pl': { path: announcement.summary_path(:pl) },
                   'current/en': { path: announcement.summary_path(:en) },
-                  'announcement/show': { path: announcement.url(lang) }
+                  'announcement/show': { path: announcement.url(lang) },
                 }
               end
 

@@ -9,14 +9,12 @@ module MapawynajmuPl
             module Meta
               TRACK = 'user/create/confirmation'
 
-              # UNLOCALIZED_PATH = {
-              #   pl: 'potwierdzenie-utworzenia-konta',
-              #   en: 'account-creation-confirmation',
-              # }.freeze
+              PATH_PL = 'potwierdzenie-utworzenia-konta'
+              PATH_EN = 'account-creation-confirmation'
 
               UNLOCALIZED_PATH = {
-                pl: %r{potwierdzenie-utworzenia-konta/(?<user_id>\d+)},
-                en: 'account-creation-confirmation',
+                pl: %r{#{PATH_PL}/(?<user_id>\d+)},
+                en: %r{#{PATH_EN}/(?<user_id>\d+)},
               }.freeze
 
               UNLOCALIZED_TITLE = {
@@ -34,12 +32,12 @@ module MapawynajmuPl
                 @match_data ||= unlocalized_path[lang].match(url)
               end
 
-              def user
-                @user ||= begin
-                  user_id = match_data && match_data[:user_id]
+              def user_id
+                @user_id ||= match_data[:user_id]
+              end
 
-                  ::MapawynajmuPl::User.find(user_id)
-                end
+              def user
+                @user ||= ::MapawynajmuPl::User.find(user_id)
               end
 
               def unlocalized_path
@@ -73,10 +71,16 @@ module MapawynajmuPl
                 }
               end
 
+              def link_decorators
+                {
+                  user_id: user_id,
+                }
+              end
+
               def links
                 {
-                  'current/pl': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:pl).call,
-                  'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:en).call,
+                  'current/pl': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:pl, link_decorators).call,
+                  'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:en, link_decorators).call,
                 }
               end
             end

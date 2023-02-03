@@ -72,7 +72,6 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::User::Create::Form::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Create::Form::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Linker.new(lang).call,
-            ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::User::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Edit::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::User::Authorize::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Authorize::Linker.new(lang).call,
