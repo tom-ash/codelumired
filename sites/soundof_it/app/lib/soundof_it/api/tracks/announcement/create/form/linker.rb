@@ -9,6 +9,12 @@ module SoundofIt
             class Linker
               include ::Api::Tracks::Helpers::Linker
               include ::SoundofIt::Api::Tracks::Announcement::Create::Form::Meta
+
+              private
+
+              def label
+                'ASDASDASDAS'
+              end
             end
           end
         end

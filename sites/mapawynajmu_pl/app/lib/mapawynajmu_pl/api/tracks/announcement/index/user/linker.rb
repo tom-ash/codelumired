@@ -9,6 +9,15 @@ module MapawynajmuPl
             class Linker
               include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
               include ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta
+
+              private
+
+              def label
+                {
+                  pl: 'Moje ogłoszenia',
+                  en: 'My listings',
+                }[lang]
+              end
             end
           end
         end

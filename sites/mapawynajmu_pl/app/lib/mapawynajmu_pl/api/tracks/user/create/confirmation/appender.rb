@@ -17,7 +17,7 @@ module MapawynajmuPl
                   'user/create/data': {
                     account_type: user.account_type,
                     business_name: user.business_name,
-                    urlified_business_name: user.urlified_business_name
+                    urlified_business_name: user.urlified_business_name,
                   },
                 )
               end

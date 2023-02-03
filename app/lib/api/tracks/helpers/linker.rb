@@ -10,8 +10,11 @@ module Api
 
         def call
           {
+            href: href,
             path: path,
             title: title,
+            label: label,
+            href_lang: lang,
           }
         end
 
@@ -25,6 +28,18 @@ module Api
 
         def title
           unlocalized_title[lang]
+        end
+
+        def label
+          nil
+        end
+
+        def href
+          "#{protocol_and_domain}/#{path}"
+        end
+
+        def protocol_and_domain
+          Rails.env.production? ? MAPAWYNAJMU_PL_URL : MAPAWYNAJMU_PL_DEV_URL
         end
       end
     end

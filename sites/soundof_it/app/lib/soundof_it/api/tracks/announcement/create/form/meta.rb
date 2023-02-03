@@ -19,6 +19,10 @@ module SoundofIt
 
               private
 
+              def label
+                'ASDASDASDAS'
+              end
+
               def track
                 @track ||= TRACK
               end
@@ -48,7 +52,7 @@ module SoundofIt
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'announcement/create/form': true
+                  'announcement/create/form': true,
                 }
               end
             end

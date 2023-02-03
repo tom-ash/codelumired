@@ -20,9 +20,12 @@ module MapawynajmuPl
 
           def call
             {
-              pl: { path: ROOT_PL },
-              en: { path: ROOT_EN },
-            }[lang]
+              href: href,
+              href_lang: lang,
+              path: path,
+              label: label,
+              title: title,
+            }
           end
 
           def lang_links
@@ -34,6 +37,26 @@ module MapawynajmuPl
                 path: "#{partner_path_with_slash(:en)}#{category_path_with_slash(:en)}".presence || ROOT_EN,
               },
             }
+          end
+
+          private
+
+          def href
+            "#{protocol_and_domain}/#{path}"
+          end
+
+          def path
+            {
+              pl: ROOT_PL,
+              en: ROOT_EN,
+            }[lang].chomp('/')
+          end
+
+          def label
+            {
+              pl: 'Strona główna',
+              en: 'Main Page',
+            }[lang]
           end
         end
       end
