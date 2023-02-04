@@ -10,6 +10,7 @@ module MapawynajmuPl
               include ::Api::Tracks::Helpers::Appender
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Texts
+              include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Assets
 
               private
 
