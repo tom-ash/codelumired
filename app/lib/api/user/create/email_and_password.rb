@@ -78,14 +78,25 @@ module Api
             site::Commands::User::Confirm.new(user_id: user.id).call
           end
 
+          listing_confirmation_href = begin
+            listing_confirmation_path = user.announcements.last&.summary_path(lang.to_sym)
+            "#{MAPAWYNAJMU_PL_DEV_URL}/#{listing_confirmation_path}" if listing_confirmation_path.present?
+          end
+
+          user_confirmation_href = ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(
+            lang.to_sym,
+            user_id: user.id,
+          ).call[:href]
+
+          href = listing_confirmation_href || user_confirmation_href
+
           camelize(
             ::Queries::User::SingleByEmail.new(
               email: user.email,
               constantized_site_name: constantized_site_name,
             ).call,
           ).merge(
-            site::Api::Tracks::Root::Linker.new(lang.to_sym).call,
-            announcement_path: user.announcements.last&.summary_path(lang.to_sym),
+            href: href,
           )
         rescue StandardError
           error!('Invalid confirmation token or verification code!', 422)

@@ -22,7 +22,7 @@ module MapawynajmuPl
               private
 
               def href
-                "#{protocol_and_domain}/#{path}}"
+                "#{protocol_and_domain}/#{path}"
               end
 
               def path
