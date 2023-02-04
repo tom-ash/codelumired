@@ -5,7 +5,11 @@ module MapawynajmuPl
     private
 
     def protocol_and_domain
-      Rails.env.production? ? MAPAWYNAJMU_PL_URL : MAPAWYNAJMU_PL_DEV_URL
+      Rails.env.production? ? MAPAWYNAJMU_PL_URL : MAPAWYNAJMU_PL_URL_DEV
+    end
+
+    def domain
+      Rails.env.production? ? MAPAWYNAJMU_PL_ROOT_DOMAIN : MAPAWYNAJMU_PL_ROOT_DOMAIN_DEV
     end
   end
 end

@@ -14,6 +14,7 @@ module MapawynajmuPl
                   h1: h1,
                   congratulations: congratulations,
                   account_created: account_created,
+                  partner_page: partner_page,
                 }
               end
 
@@ -35,6 +36,13 @@ module MapawynajmuPl
                 {
                   pl: 'Twoje konto zostało utworzone pomyślnie!',
                   en: 'Your account has been created successfully!',
+                }[lang]
+              end
+
+              def partner_page
+                {
+                  pl: 'Strona partnerska',
+                  en: 'Partner page of ',
                 }[lang]
               end
             end

@@ -7,6 +7,8 @@ module MapawynajmuPl
         module Create
           module Confirmation
             module Meta
+              include ::MapawynajmuPl::ProtocolAndDomain
+
               TRACK = 'user/create/confirmation'
 
               PATH_PL = 'potwierdzenie-utworzenia-konta'
@@ -81,7 +83,23 @@ module MapawynajmuPl
                 {
                   'current/pl': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:pl, link_decorators).call,
                   'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(:en, link_decorators).call,
+                  'user/index/partner': user_page,
                 }
+              end
+
+              def user_page
+                {
+                  href: "#{protocol_and_domain}/#{partners}/#{user.urlified_business_name}",
+                  href_lang: lang,
+                  label: "#{domain}/#{partners}/#{user.urlified_business_name}",
+                }
+              end
+
+              def partners
+                @partners ||= {
+                  pl: 'partnerzy',
+                  en: 'partners',
+                }[lang]
               end
             end
           end

@@ -16,10 +16,9 @@ module MapawynajmuPl
 
               def merge_state
                 state.merge!(
-                  'user/create/data': {
+                  data: {
                     account_type: user.account_type,
                     business_name: user.business_name,
-                    urlified_business_name: user.urlified_business_name,
                   },
                   texts: texts,
                 )
