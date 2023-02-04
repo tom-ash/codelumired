@@ -4,6 +4,8 @@ module Api
   module User
     module Create
       class EmailAndPassword < Grape::API
+        helpers ::MapawynajmuPl::ProtocolAndDomain
+
         params do
           optional :business_name, type: String
           requires :email_address, type: String
@@ -80,7 +82,7 @@ module Api
 
           listing_confirmation_href = begin
             listing_confirmation_path = user.announcements.last&.summary_path(lang.to_sym)
-            "#{MAPAWYNAJMU_PL_DEV_URL}/#{listing_confirmation_path}" if listing_confirmation_path.present?
+            "#{protocol_and_domain}/#{listing_confirmation_path}" if listing_confirmation_path.present?
           end
 
           user_confirmation_href = ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(

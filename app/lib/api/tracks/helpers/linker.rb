@@ -4,6 +4,8 @@ module Api
   module Tracks
     module Helpers
       module Linker
+        include ::MapawynajmuPl::ProtocolAndDomain
+
         def initialize(lang, decorators = nil)
           @lang = lang.to_sym
           @decorators = decorators
@@ -37,10 +39,6 @@ module Api
 
         def href
           "#{protocol_and_domain}/#{path}"
-        end
-
-        def protocol_and_domain
-          Rails.env.production? ? MAPAWYNAJMU_PL_URL : MAPAWYNAJMU_PL_DEV_URL
         end
       end
     end
