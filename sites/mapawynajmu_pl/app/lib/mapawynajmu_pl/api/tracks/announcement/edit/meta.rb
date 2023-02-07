@@ -10,7 +10,7 @@ module MapawynajmuPl
 
             UNLOCALIZED_PATH = {
               pl: %r{^edytuj-ogloszenie/\d+$},
-              en: %r{^edit-announcement/\d+$}
+              en: %r{^edit-announcement/\d+$},
             }.freeze
 
             private
@@ -20,14 +20,14 @@ module MapawynajmuPl
                 visitor: true,
                 announcement: true,
                 'announcement/create': true,
-                'announcement/edit': true
+                'announcement/edit': true,
               }
             end
 
             def links
               {
                 'current/pl': MapawynajmuPl::Api::Tracks::Announcement::Edit::Linker.new(announcement: announcement, lang: :pl).call,
-                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Edit::Linker.new(announcement: announcement, lang: :en).call
+                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Edit::Linker.new(announcement: announcement, lang: :en).call,
               }
             end
 

@@ -14,7 +14,7 @@ module MapawynajmuPl
             def call
               {
                 path: announcement.edit_path(lang),
-                title: 'TODO'
+                title: 'TODO',
               }
             end
 

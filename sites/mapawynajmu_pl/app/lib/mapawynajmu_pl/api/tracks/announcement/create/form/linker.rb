@@ -15,7 +15,7 @@ module MapawynajmuPl
               def label
                 {
                   pl: 'Dodaj ogłoszenie',
-                  en: 'Add Listing'
+                  en: 'Add Listing',
                 }[lang]
               end
             end

@@ -8,14 +8,15 @@ module MapawynajmuPl
           class Appender
             include ::Api::Tracks::Helpers::Appender
             include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta
+            include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Assets
 
             private
 
             def merge_state
               state.merge!(
-                'announcement/create/data': {
-                  announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call
-                }
+                data: {
+                  announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call,
+                },
               )
             end
 
