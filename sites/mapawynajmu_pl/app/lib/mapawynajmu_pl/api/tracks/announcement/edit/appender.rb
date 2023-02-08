@@ -11,6 +11,8 @@ module MapawynajmuPl
             include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Assets
 
             NO_ERROR = { pl: '', en: '' }.freeze
+            EMPTY_TEXT_INPUT = ''
+            EMPTY_ARRAY_INPUT = [].freeze
 
             private
 
@@ -42,36 +44,37 @@ module MapawynajmuPl
               }
             end
 
-            # def inputs
-            #   id: '',
-            #   category: '',
-            #   rentCurrency: 0,
-            #   netRentAmount: '',
-            #   grossRentAmount: '',
-            #   area: '',
-            #   rooms: '',
-            #   availabilityDate: null,
-            #   floor: '',
-            #   totalFloors: '',
-            #   blobs: [],
-            #   picFiles: [],
-            #   picUploads: [],
-            #   addFeatures: false,
-            #   features: parseFeaturesForState(),
-            #   addFurnishings: false,
-            #   furnishings: parseFurnishingsForState(),
-            #   showPolishDescription: false,
-            #   polishDescription: '',
-            #   showEnglishDescription: false,
-            #   englishDescription: '',
-            #   latitude: null,
-            #   longitude: null,
-            #   verificationCode: '',
-            #   locality: null,
-            #   sublocality: null,
-            #   name: null,
-            #   link: null,
-            # end
+            def inputs
+              {
+                # id: nil,
+                category: announcement.category,
+                latitude: announcement.latitude,
+                longitude: announcement.longitude,
+                locality: announcement.locality,
+                sublocality: announcement.sublocality,
+                blobs: EMPTY_ARRAY_INPUT,
+                picFiles: EMPTY_ARRAY_INPUT,
+                picUploads: EMPTY_ARRAY_INPUT,
+                area: announcement.area,
+                netRentAmount: announcement.net_rent_amount,
+                grossRentAmount: announcement.gross_rent_amount,
+                rentCurrency: announcement.rent_currency,
+                availabilityDate: announcement.availability_date,
+                rooms: announcement.rooms,
+                floor: announcement.floor,
+                totalFloors: announcement.total_floors,
+                addFeatures: announcement.features.any?,
+                features: announcement.features,
+                addFurnishings: announcement.furnishings.any?,
+                furnishings: announcement.furnishings,
+                showPolishDescription: announcement.polish_description.present?,
+                polishDescription: announcement.polish_description,
+                showEnglishDescription: announcement.english_description.present?,
+                englishDescription: announcement.english_description,
+                name: announcement.name,
+                link: announcement.link,
+              }
+            end
 
             def serialized_announcement
               ::MapawynajmuPl::Serializers::Announcement::Edit.new(announcement).call
