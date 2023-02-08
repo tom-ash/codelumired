@@ -10,6 +10,8 @@ module MapawynajmuPl
             include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta
             include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Assets
 
+            NO_ERROR = { pl: '', en: '' }.freeze
+
             private
 
             def control
@@ -29,6 +31,14 @@ module MapawynajmuPl
             def data
               {
                 announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call,
+              }
+            end
+
+            def errors
+              {
+                category: NO_ERROR,
+                map: NO_ERROR,
+                pictures: NO_ERROR,
               }
             end
 

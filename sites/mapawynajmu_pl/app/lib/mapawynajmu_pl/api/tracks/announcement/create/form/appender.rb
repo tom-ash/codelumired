@@ -10,6 +10,8 @@ module MapawynajmuPl
               include ::Api::Tracks::Helpers::Appender
               include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
 
+              NO_ERROR = { pl: '', en: '' }.freeze
+
               private
 
               def control
@@ -23,6 +25,14 @@ module MapawynajmuPl
                   addingPicture: false,
                   savingAnnouncement: false,
                   success: false,
+                }
+              end
+
+              def errors
+                {
+                  category: NO_ERROR,
+                  map: NO_ERROR,
+                  pictures: NO_ERROR,
                 }
               end
             end
