@@ -42,6 +42,37 @@ module MapawynajmuPl
               }
             end
 
+            # def inputs
+            #   id: '',
+            #   category: '',
+            #   rentCurrency: 0,
+            #   netRentAmount: '',
+            #   grossRentAmount: '',
+            #   area: '',
+            #   rooms: '',
+            #   availabilityDate: null,
+            #   floor: '',
+            #   totalFloors: '',
+            #   blobs: [],
+            #   picFiles: [],
+            #   picUploads: [],
+            #   addFeatures: false,
+            #   features: parseFeaturesForState(),
+            #   addFurnishings: false,
+            #   furnishings: parseFurnishingsForState(),
+            #   showPolishDescription: false,
+            #   polishDescription: '',
+            #   showEnglishDescription: false,
+            #   englishDescription: '',
+            #   latitude: null,
+            #   longitude: null,
+            #   verificationCode: '',
+            #   locality: null,
+            #   sublocality: null,
+            #   name: null,
+            #   link: null,
+            # end
+
             def serialized_announcement
               ::MapawynajmuPl::Serializers::Announcement::Edit.new(announcement).call
             end
