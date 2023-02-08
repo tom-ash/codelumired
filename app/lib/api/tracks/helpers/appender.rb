@@ -26,7 +26,30 @@ module Api
 
         def authorize!; end
 
-        def merge_state; end
+        def merge_state
+          state.merge!(
+            control: control,
+            data: data,
+            inputs: inputs,
+            errors: errors,
+          )
+        end
+
+        def control
+          {}
+        end
+
+        def data
+          {}
+        end
+
+        def inputs
+          {}
+        end
+
+        def errors
+          {}
+        end
 
         def merge_render
           state.merge!(render: render)

@@ -9,6 +9,26 @@ module MapawynajmuPl
             class Appender
               include ::Api::Tracks::Helpers::Appender
               include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
+
+              private
+
+              def control
+                {
+                  step: 'form',
+                  shouldInitializeMap: false,
+                  isMapInitialized: false,
+                  addAvailabilityDate: false, # TODO: Move to data.
+                  connecting: false,
+                  publishing: false,
+                  addingPicture: false,
+                  savingAnnouncement: false,
+                  success: false,
+                }
+              end
+
+              def data
+                {}
+              end
             end
           end
         end

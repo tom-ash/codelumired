@@ -14,8 +14,8 @@ module SoundofIt
                 state.merge!(
                   'announcement/create': {
                     selectable_skills: ::SoundofIt::Skill.all,
-                    selected_skills: []
-                  }
+                    selected_skills: [],
+                  },
                 )
               end
             end
