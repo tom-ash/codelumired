@@ -12,12 +12,24 @@ module MapawynajmuPl
 
             private
 
-            def merge_state
-              state.merge!(
-                data: {
-                  announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call,
-                },
-              )
+            def control
+              {
+                step: 'form',
+                shouldInitializeMap: false,
+                isMapInitialized: false,
+                addAvailabilityDate: false, # TODO: Move to data.
+                connecting: false,
+                publishing: false,
+                addingPicture: false,
+                savingAnnouncement: false,
+                success: false,
+              }
+            end
+
+            def data
+              {
+                announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call,
+              }
             end
 
             def serialized_announcement

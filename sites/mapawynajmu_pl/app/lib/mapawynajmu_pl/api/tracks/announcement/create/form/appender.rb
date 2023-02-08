@@ -25,10 +25,6 @@ module MapawynajmuPl
                   success: false,
                 }
               end
-
-              def data
-                {}
-              end
             end
           end
         end
