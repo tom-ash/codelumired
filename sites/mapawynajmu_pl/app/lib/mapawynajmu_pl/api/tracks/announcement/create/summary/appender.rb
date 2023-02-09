@@ -12,15 +12,13 @@ module MapawynajmuPl
 
               private
 
-              def merge_state
-                state.merge!(
-                  'announcement/create/data': {
-                    announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call.merge(
-                      path: announcement.url(lang),
-                      title: announcement.title(lang)
-                    )
-                  }
-                )
+              def data
+                {
+                  announcement: ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call.merge(
+                    path: announcement.url(lang),
+                    title: announcement.title(lang),
+                  ),
+                }
               end
             end
           end

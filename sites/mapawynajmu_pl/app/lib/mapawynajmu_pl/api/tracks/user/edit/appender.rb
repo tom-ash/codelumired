@@ -11,16 +11,26 @@ module MapawynajmuPl
 
             private
 
-            def merge_state
-              state.merge!(
-                'user/edit/data': ::Serializers::User::Edit.new(
-                  user: current_user,
-                  constantized_site_name: constantized_site_name,
-                ).call,
-                'user/edit/inputs': {
-                  country_code: current_user.country_code,
-                },
-              )
+            def control
+              {
+                emailStage: nil,
+                emailStep: 'currentEmailVerification',
+                phoneStage: nil,
+                destroyStage: nil,
+              }
+            end
+
+            def data
+              ::Serializers::User::Edit.new(
+                user: current_user,
+                constantized_site_name: constantized_site_name,
+              ).call
+            end
+
+            def inputs
+              {
+                country_code: current_user.country_code,
+              }
             end
           end
         end

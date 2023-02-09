@@ -19,22 +19,11 @@ module MapawynajmuPl
               def control
                 {
                   step: 'form',
-                  shouldInitializeMap: false,
                   isMapInitialized: false,
-                  addAvailabilityDate: false, # TODO: Move to data.
-                  connecting: false,
-                  publishing: false,
+                  shouldInitializeMap: false,
                   addingPicture: false,
                   savingAnnouncement: false,
-                  success: false,
-                }
-              end
-
-              def errors
-                {
-                  category: NO_ERROR,
-                  map: NO_ERROR,
-                  pictures: NO_ERROR,
+                  savingPicture: false,
                 }
               end
 
@@ -68,6 +57,26 @@ module MapawynajmuPl
                   verificationCode: EMPTY_TEXT_INPUT,
                   name: nil,
                   link: nil,
+                  account_type: 'private',
+                  businessName: EMPTY_TEXT_INPUT,
+                  emailAddress: EMPTY_TEXT_INPUT,
+                  password: EMPTY_TEXT_INPUT,
+                  countryCode: '+48',
+                  phoneNumber: EMPTY_TEXT_INPUT,
+                  termsAndPrivacyConsent: false,
+                }
+              end
+
+              def errors
+                {
+                  category: NO_ERROR,
+                  map: NO_ERROR,
+                  pictures: NO_ERROR,
+                  businessName: NO_ERROR,
+                  emailAddress: NO_ERROR,
+                  password: NO_ERROR,
+                  phoneNumber: NO_ERROR,
+                  termsAndPrivacyConsent: NO_ERROR,
                 }
               end
             end

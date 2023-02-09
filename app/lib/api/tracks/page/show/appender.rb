@@ -17,13 +17,6 @@ module Api
 
           attr_reader :page
 
-          def merge_state
-            state.merge!(
-              'page/show/data': data,
-              links: links,
-            )
-          end
-
           def data
             ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call
           end

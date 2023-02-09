@@ -10,21 +10,21 @@ module SoundofIt
 
           private
 
-          def merge_state
-            state.merge!(
-              'page/index': {
-                tutorials: tutorials,
-                articles: articles,
-              },
+          def data
+            {
+              tutorials: tutorials,
+              articles: articles,
+            }.merge(
+              ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
             )
           end
 
-          def accessory_page
-            @accessory_page ||= "root/#{lang}"
+          def page
+            ::SoundofIt::Page.find_by(url: "root/#{lang}")
           end
 
           def tutorials
-            ::SoundofIt::Page.where(category: ['tutorials', 'insights']).map do |page|
+            ::SoundofIt::Page.where(category: %w[tutorials insights]).map do |page|
               {
                 title: page.title,
                 description: page.description,
@@ -48,7 +48,7 @@ module SoundofIt
                 hrefLang: page.lang,
                 pathname: page.url,
                 modifiedOn: page.modified_on,
-                image: page.cover_image
+                image: page.cover_image,
               }
             end
           end

@@ -49,7 +49,7 @@ module Api
           end
 
           def append_user
-            state.merge!('user/authorize/data': ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call)
+            state.merge!('user': ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call)
           end
 
           def listings_obsolete?

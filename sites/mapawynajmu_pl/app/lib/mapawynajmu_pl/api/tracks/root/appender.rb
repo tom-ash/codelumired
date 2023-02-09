@@ -13,14 +13,20 @@ module MapawynajmuPl
 
           private
 
-          def merge_state
-            state.merge!(
-              'announcement/index/data': data,
-              'announcement/index/inputs': inputs,
-              'announcement/index/control': {
-                current_tile_id: nil,
+          def control
+            {
+              isMapInitialized: false,
+              isMapInitializedAaa: false, 
+              shouldInitializeMap: false,
+              isPinsDrawn: false,
+              mapOptions: {
+                center: {
+                  lat: 52,
+                  lng: 19,
+                },
+                zoom: 6.7,
               },
-            )
+            }
           end
 
           def data

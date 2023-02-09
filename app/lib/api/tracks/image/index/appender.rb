@@ -10,12 +10,14 @@ module Api
 
           private
 
-          def merge_state
-            state.merge!(
-              'image/index': {
-                image_keys: image_keys
-              }
-            )
+          def data
+            {
+              image_keys: image_keys,
+            }
+          end
+
+          def inputs
+            # TODO: Add imageKey.
           end
 
           def image_keys

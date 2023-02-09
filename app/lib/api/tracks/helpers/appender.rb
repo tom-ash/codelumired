@@ -14,10 +14,6 @@ module Api
           authorize!
           merge_state
           merge_meta
-          merge_render
-          merge_links
-          merge_assets
-          merge_page
         end
 
         private
@@ -26,8 +22,22 @@ module Api
 
         def authorize!; end
 
+        def state
+          @state ||= attrs[:state] || {}
+        end
+
+        def meta
+          @meta ||= attrs[:meta]
+        end
+
         def merge_state
           state.merge!(
+            render: render,
+            assets: {
+              abc: 123,
+              svgs: assets,
+            },
+            links: links,
             control: control,
             data: data,
             inputs: inputs,
@@ -49,14 +59,6 @@ module Api
 
         def errors
           {}
-        end
-
-        def merge_render
-          state.merge!(render: render)
-        end
-
-        def merge_links
-          state.merge!(links: links)
         end
 
         def merge_meta
@@ -102,16 +104,18 @@ module Api
             keywords: keywords,
             image: image,
             locale: lang,
-            locale_alts: langs
+            locale_alts: langs,
           ).call
-        end
-
-        def merge_assets
-          state.merge!('assets/svgs': assets)
         end
 
         def render
           {}
+        end
+
+        def assets
+          ::MapawynajmuPl::Asset.where(name: asset_names).each_with_object({}) do |svg, serialized_svgs|
+            serialized_svgs[svg.name.to_s] = svg.data
+          end
         end
 
         def links
@@ -126,13 +130,7 @@ module Api
           @langs ||= attrs[:langs]
         end
 
-        def state
-          @state ||= attrs[:state] || {}
-        end
 
-        def meta
-          @meta ||= attrs[:meta]
-        end
 
         def schema
           @schema ||= ::Builders::SchemaOrg.new(schema_data).call
@@ -145,7 +143,7 @@ module Api
             description: description,
             keywords: keywords,
             image: image,
-            lang: lang
+            lang: lang,
           }
         end
 
@@ -193,30 +191,8 @@ module Api
           @lang_counterpart ||= lang == :pl ? :en : :pl
         end
 
-        def merge_page
-          return if accessory_page.blank?
-
-          state.merge!(
-            'page/show/data': page_data,
-            'render': state[:render].merge(page: true, 'page/show': true),
-          )
-        end
-
-        def page_data
-          ::Serializers::Page::Show.new(
-            page: site::Page.find_by(url: accessory_page),
-            constantized_site_name: constantized_site_name,
-          ).call
-        end
-
         def accessory_page
           nil
-        end
-
-        def assets
-          ::MapawynajmuPl::Asset.where(name: asset_names).each_with_object({}) do |svg, serialized_svgs|
-            serialized_svgs[svg.name.to_s] = svg.data
-          end
         end
 
         def asset_names

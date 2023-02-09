@@ -14,14 +14,11 @@ module MapawynajmuPl
 
               private
 
-              def merge_state
-                state.merge!(
-                  data: {
-                    account_type: user.account_type,
-                    business_name: user.business_name,
-                  },
-                  texts: texts,
-                )
+              def data
+                {
+                  account_type: user.account_type,
+                  business_name: user.business_name,
+                }
               end
             end
           end

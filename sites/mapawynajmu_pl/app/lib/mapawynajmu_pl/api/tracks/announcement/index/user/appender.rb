@@ -12,13 +12,11 @@ module MapawynajmuPl
 
               private
 
-              def merge_state
-                state.merge!(
-                  'announcement/index/data': {
-                    announcements: serialized_announcements,
-                    amount: serialized_announcements.count,
-                  },
-                )
+              def data
+                {
+                  announcements: serialized_announcements,
+                  amount: serialized_announcements.count,
+                }
               end
 
               def announcements

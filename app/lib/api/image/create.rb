@@ -15,7 +15,7 @@ module Api
         site::Image.create(
           added_by_id: current_user.id,
           storage_key: image_key,
-          body: []
+          body: [],
         )
       end
     end

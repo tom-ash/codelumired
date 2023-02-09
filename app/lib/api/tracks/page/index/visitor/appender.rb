@@ -11,20 +11,14 @@ module Api
 
             private
 
-            def merge_state
-              state.merge!(
-                'page/show/data': data,
-                'page/index': {
-                  articles: articles
-                }
-              )
-            end
-
             def data
+              # TODO: Refactor!
               ::Serializers::Page::Show.new(
                 page: page,
-                constantized_site_name: constantized_site_name
-              ).call
+                constantized_site_name: constantized_site_name,
+              ).call.merge(
+                articles: articles,
+              )
             end
 
             def page
@@ -41,7 +35,7 @@ module Api
                   hrefLang: page.lang,
                   pathname: page.url,
                   modifiedOn: page.modified_on,
-                  image: page.cover_image
+                  image: page.cover_image,
                 }
               end
             end

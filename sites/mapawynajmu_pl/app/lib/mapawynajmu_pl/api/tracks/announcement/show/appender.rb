@@ -14,21 +14,43 @@ module MapawynajmuPl
 
             private
 
-            def merge_state
-              state.merge!(
-                'announcement/index/data': data,
-                'announcement/index/control': {
-                  current_tile_id: announcement_id,
-                  reload_pins: true,
-                  map_options: {
-                    center: {
-                      lat: announcement.latitude,
-                      lng: announcement.longitude,
-                    },
-                    zoom: 12.4,
+            def control
+              control_hash = {
+                current_tile_id: announcement_id,
+                reload_pins: true,
+                map_options: {
+                  center: {
+                    lat: announcement.latitude,
+                    lng: announcement.longitude,
                   },
+                  zoom: 12.4,
                 },
-              )
+              }
+
+              if ssr?
+                control_hash.merge!(
+                  isMapInitialized: false,
+                  shouldInitializeMap: false,
+                )
+              end
+
+              control_hash
+            end
+
+            def data
+              data_hash = {
+                current_category: current_category,
+                tile: serialized_announcement,
+              }
+
+              if ssr? || attrs[:listings_obsolete]
+                data_hash.merge!(
+                  announcements: serialized_announcements,
+                  amount: serialized_announcements.count,
+                )
+              end
+
+              data_hash
             end
 
             def serialized_announcement
@@ -41,22 +63,6 @@ module MapawynajmuPl
 
             def announcement_id
               @announcement_id ||= attrs[:url].match(/(\d+)-.*-(na-wynajem|for-(rent|lease)).*$/)[1]
-            end
-
-            def data
-              data_hash = {
-                current_category: current_category,
-                tile: serialized_announcement,
-              }
-
-              if ssr?
-                data_hash.merge!(
-                  announcements: serialized_announcements,
-                  amount: serialized_announcements.count,
-                )
-              end
-
-              data_hash
             end
           end
         end

@@ -51,6 +51,7 @@ module SoundofIt
             {
               visitor: true,
               page: true,
+              'page/show': true,
             }
           end
 

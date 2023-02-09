@@ -10,18 +10,28 @@ module Api
 
           private
 
-          def merge_state
-            state.merge!(
-              'page/index': {
-                page_keys: page_keys,
-                page_key: ''
-              }
-            )
+          def data
+            {
+              page_keys: page_keys,
+              page_key: '',
+            }
           end
 
           def page_keys
             @page_keys ||= site::Page.order(url: :asc).pluck(:url)
           end
+
+          # export const control = {
+          #   connecting: false,
+          # }
+
+          # export const inputs = {
+          #   name: null,
+          # }
+
+          # export const data = {
+          #   names: null,
+          # }
         end
       end
     end
