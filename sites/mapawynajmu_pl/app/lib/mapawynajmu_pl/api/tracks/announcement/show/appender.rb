@@ -41,14 +41,16 @@ module MapawynajmuPl
               data_hash = {
                 current_category: current_category,
                 tile: serialized_announcement,
+                announcements: serialized_announcements,
+                amount: serialized_announcements.count,
               }
 
-              if ssr? || attrs[:listings_obsolete]
-                data_hash.merge!(
-                  announcements: serialized_announcements,
-                  amount: serialized_announcements.count,
-                )
-              end
+              # if ssr? || attrs[:listings_obsolete]
+              #   data_hash.merge!(
+              #     announcements: serialized_announcements,
+              #     amount: serialized_announcements.count,
+              #   )
+              # end
 
               data_hash
             end

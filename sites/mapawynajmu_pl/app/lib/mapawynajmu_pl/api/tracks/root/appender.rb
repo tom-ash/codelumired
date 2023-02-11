@@ -35,14 +35,16 @@ module MapawynajmuPl
               current_partner_name: current_partner&.business_name,
               title: title,
               tile: nil,
+              announcements: serialized_announcements,
+              amount: serialized_announcements.count,
             }
 
-            if ssr? || attrs[:listings_obsolete]
-              data_hash.merge!(
-                announcements: serialized_announcements,
-                amount: serialized_announcements.count,
-              )
-            end
+            # if ssr? || attrs[:listings_obsolete]
+            #   data_hash.merge!(
+            #     announcements: serialized_announcements,
+            #     amount: serialized_announcements.count,
+            #   )
+            # end
 
             data_hash
           end
