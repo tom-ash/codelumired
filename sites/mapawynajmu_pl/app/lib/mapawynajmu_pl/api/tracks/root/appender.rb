@@ -16,7 +16,6 @@ module MapawynajmuPl
           def control
             {
               isMapInitialized: false,
-              isMapInitializedAaa: false, 
               shouldInitializeMap: false,
               isPinsDrawn: false,
               mapOptions: {

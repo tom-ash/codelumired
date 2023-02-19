@@ -12,7 +12,7 @@ module MapawynajmuPl
               area_min: area_min,
               area_max: area_max,
               price_min: price_min,
-              price_max: price_max
+              price_max: price_max,
             }
           end
 
