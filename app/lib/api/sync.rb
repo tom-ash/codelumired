@@ -48,18 +48,12 @@ module Api
             @meta ||= { lang: lang }
           end
 
-          def append_user
-            state.merge!('user': ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call)
-          end
-
           def listings_obsolete?
             @listings_obsolete ||= request.headers['Is-Listings-Obsolete'] == 'true'
           end
         end
 
-        before do
-          append_user if current_user.present?
-        end
+        before {}
 
         get do
           status redirect.status if redirect.present?

@@ -23,7 +23,7 @@ module Api
         def authorize!; end
 
         def state
-          @state ||= attrs[:state] || {}
+          @state ||= attrs[:state]
         end
 
         def meta
@@ -33,16 +33,54 @@ module Api
         def merge_state
           state.merge!(
             render: render,
-            assets: {
-              abc: 123,
-              svgs: assets,
-            },
+            user: user,
+            texts: texts,
+            assets: { svgs: assets },
             links: links,
             control: control,
             data: data,
             inputs: inputs,
             errors: errors,
           )
+        end
+
+        def merge_meta
+          meta.merge!(
+            langs: langs,
+            title: title,
+            keywords: keywords,
+            description: description,
+            image: image,
+            schema: schema,
+            open_graph: open_graph,
+            robots: robots,
+            canonical_url: canonical_url,
+            alternate_links: alternate_links,
+          )
+        end
+
+        def render
+          {}
+        end
+
+        def user
+          return {} if current_user.blank?
+
+          ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call
+        end
+
+        def texts
+          {}
+        end
+
+        def assets
+          ::MapawynajmuPl::Asset.where(name: asset_names).each_with_object({}) do |svg, serialized_svgs|
+            serialized_svgs[svg.name.to_s] = svg.data
+          end
+        end
+
+        def links
+          {}
         end
 
         def control
@@ -59,21 +97,6 @@ module Api
 
         def errors
           {}
-        end
-
-        def merge_meta
-          meta.merge!(
-            langs: langs,
-            title: title,
-            keywords: keywords,
-            description: description,
-            image: image,
-            schema: schema,
-            open_graph: open_graph,
-            robots: robots,
-            canonical_url: canonical_url,
-            alternate_links: alternate_links,
-          )
         end
 
         def alternate_links
@@ -108,20 +131,6 @@ module Api
           ).call
         end
 
-        def render
-          {}
-        end
-
-        def assets
-          ::MapawynajmuPl::Asset.where(name: asset_names).each_with_object({}) do |svg, serialized_svgs|
-            serialized_svgs[svg.name.to_s] = svg.data
-          end
-        end
-
-        def links
-          {}
-        end
-
         def lang
           @lang ||= attrs[:lang].to_sym
         end
@@ -129,8 +138,6 @@ module Api
         def langs
           @langs ||= attrs[:langs]
         end
-
-
 
         def schema
           @schema ||= ::Builders::SchemaOrg.new(schema_data).call
@@ -191,20 +198,12 @@ module Api
           @lang_counterpart ||= lang == :pl ? :en : :pl
         end
 
-        def accessory_page
-          nil
-        end
-
         def asset_names
           @asset_names ||= []
         end
 
         def image
           @image ||= attrs[:image]
-        end
-
-        def page
-          @page ||= attrs[:page]
         end
 
         def ssr?
