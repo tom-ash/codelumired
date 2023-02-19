@@ -6,6 +6,7 @@ module Api
       module Appender
         include ::Api::Tracks::Helpers::State
         include ::Api::Tracks::Helpers::Meta
+        include ::Api::Tracks::Helpers::OpenGraph
 
         class UnauthorizedError < StandardError; end
 

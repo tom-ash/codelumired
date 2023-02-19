@@ -55,16 +55,6 @@ module Api
           @schema ||= ::Builders::SchemaOrg.new(schema_data).call
         end
 
-        def open_graph
-          @open_graph ||= ::Builders::OpenGraph.new(
-            **primary_meta,
-            url: full_url,
-            site_name: attrs[:site_name],
-            locale: lang,
-            locale_alts: langs,
-          ).call
-        end
-
         def robots
           @robots ||= 'index,follow,all'
         end
@@ -90,6 +80,10 @@ module Api
             url: full_url,
             lang: lang,
           }
+        end
+
+        def site_name
+          @site_name ||= attrs[:site_name]
         end
       end
     end
