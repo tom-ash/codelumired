@@ -10,6 +10,7 @@ module Api
           state.merge!(
             render: render,
             user: user,
+            meta: meta_preview,
             texts: texts,
             assets: { svgs: assets },
             links: links,
@@ -32,6 +33,12 @@ module Api
           return {} if current_user.blank?
 
           ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call
+        end
+
+        def meta_preview
+          return {} unless Rails.env == 'development'
+
+          meta
         end
 
         def texts

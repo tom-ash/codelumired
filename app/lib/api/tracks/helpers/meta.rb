@@ -6,23 +6,29 @@ module Api
       module Meta
         private
 
-        def meta
-          @meta ||= attrs[:meta]
-        end
-
         def merge_meta
           meta.merge!(
+            primary_meta,
             langs: langs,
-            title: title,
-            keywords: keywords,
-            description: description,
-            image: image,
             schema: schema,
             open_graph: open_graph,
             robots: robots,
             canonical_url: canonical_url,
             alternate_links: alternate_links,
           )
+        end
+
+        def meta
+          @meta ||= attrs[:meta]
+        end
+
+        def primary_meta
+          @primary_meta ||= {
+            title: title,
+            keywords: keywords,
+            description: description,
+            image: image,
+          }
         end
 
         def langs
@@ -51,12 +57,9 @@ module Api
 
         def open_graph
           @open_graph ||= ::Builders::OpenGraph.new(
-            site_name: attrs[:site_name],
+            **primary_meta,
             url: full_url,
-            title: title,
-            description: description,
-            keywords: keywords,
-            image: image,
+            site_name: attrs[:site_name],
             locale: lang,
             locale_alts: langs,
           ).call
@@ -81,17 +84,10 @@ module Api
           alternate_links_string
         end
 
-        def lang
-          @lang ||= attrs[:lang].to_sym
-        end
-
         def schema_data
           @schema_data ||= {
+            **primary_meta,
             url: full_url,
-            title: title,
-            description: description,
-            keywords: keywords,
-            image: image,
             lang: lang,
           }
         end

@@ -15,8 +15,8 @@ module Api
 
         def call
           authorize!
-          merge_state
           merge_meta
+          merge_state
         end
 
         private
@@ -24,6 +24,10 @@ module Api
         attr_reader :attrs
 
         def authorize!; end
+
+        def lang
+          @lang ||= attrs[:lang].to_sym
+        end
 
         def current_user
           @current_user ||= attrs[:current_user]
