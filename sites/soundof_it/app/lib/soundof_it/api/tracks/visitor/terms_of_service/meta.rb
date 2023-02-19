@@ -9,13 +9,13 @@ module SoundofIt
             TRACK = 'visitor/terms-of-service'
 
             UNLOCALIZED_PATH = {
+              en: 'terms-of-service',
               pl: 'regulamin',
-              en: 'terms-of-service'
             }.freeze
 
             UNLOCALIZED_TITLE = {
+              en: 'Terms of Service',
               pl: 'Regulamin',
-              en: 'Terms of Service'
             }.freeze
 
             private
@@ -34,13 +34,15 @@ module SoundofIt
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                en: 'terms of service, soundof.IT, IT, dev, programming, board, job, knowledge, repository'
+                en: 'terms of service, soundof.IT, IT, dev, programming, board, job, knowledge, repository',
+                # TODO: Add :pl.
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                en: 'Terms of Service of soundof.IT, an IT skill driven job board & knowledge repository.'
+                en: 'Terms of Service of soundof.IT, an IT skill driven job board & knowledge repository.',
+                # TODO: Add :pl.
               }.freeze
             end
 
@@ -53,7 +55,8 @@ module SoundofIt
 
             def links
               {
-                'current/en': ::SoundofIt::Api::Tracks::Visitor::TermsOfService::Linker.new(:en).call
+                'current/en': ::SoundofIt::Api::Tracks::Visitor::TermsOfService::Linker.new(:en).call,
+                'current/pl': ::SoundofIt::Api::Tracks::Visitor::TermsOfService::Linker.new(:pl).call,
               }
             end
           end

@@ -9,11 +9,13 @@ module SoundofIt
             TRACK = 'visitor/cookies-policy'
 
             UNLOCALIZED_PATH = {
-              en: 'cookies-policy'
+              en: 'cookies-policy',
+              pl: 'polityka-cookies',
             }.freeze
 
             UNLOCALIZED_TITLE = {
-              en: 'Cookies Policy'
+              en: 'Cookies Policy',
+              pl: 'Polityka Cookies',
             }.freeze
 
             private
@@ -32,26 +34,29 @@ module SoundofIt
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                en: 'cookies policy, soundof.IT, IT, dev, programming, board, job, knowledge, repository'
+                en: 'cookies policy, soundof.IT, IT, dev, programming, board, job, knowledge, repository',
+                # TODO: Add :pl!
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                en: 'Cookies Policy of soundof.IT, an IT skill driven job board & knowledge repository.'
+                en: 'Cookies Policy of soundof.IT, an IT skill driven job board & knowledge repository.',
+                # TODO: Add :pl!
               }.freeze
             end
 
             def render
               {
-                visitor: true,
-                'visitor/cookies-policy': true
+                'visitor': true,
+                'visitor/cookies-policy': true,
               }
             end
 
             def links
               {
-                'current/en': ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Linker.new(:en).call
+                'current/en': ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Linker.new(:en).call,
+                'current/pl': ::SoundofIt::Api::Tracks::Visitor::CookiesPolicy::Linker.new(:pl).call,
               }
             end
           end

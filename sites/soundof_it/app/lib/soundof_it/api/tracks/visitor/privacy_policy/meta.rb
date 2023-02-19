@@ -9,11 +9,13 @@ module SoundofIt
             TRACK = 'visitor/privacy-policy'
 
             UNLOCALIZED_PATH = {
-              en: 'privacy-policy'
+              en: 'privacy-policy',
+              pl: 'polityka-prywatnosci',
             }.freeze
 
             UNLOCALIZED_TITLE = {
-              en: 'Privacy Policy'
+              en: 'Privacy Policy',
+              pl: 'Polityka prywatności',
             }.freeze
 
             private
@@ -32,26 +34,29 @@ module SoundofIt
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                en: 'privacy policy, soundof.IT, IT, dev, programming, board, job, knowledge, repository'
+                en: 'privacy policy, soundof.IT, IT, dev, programming, board, job, knowledge, repository',
+                # TODO: Add :pl.
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                en: 'Privacy Policy of soundof.IT, an IT skill driven job board & knowledge repository.'
+                en: 'Privacy Policy of soundof.IT, an IT skill driven job board & knowledge repository.',
+                # TODO: Add :pl.
               }.freeze
             end
 
             def render
               {
-                visitor: true,
-                'visitor/privacy-policy': true
+                'visitor': true,
+                'visitor/privacy-policy': true,
               }
             end
 
             def links
               {
-                'current/en': ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(:en).call
+                'current/en': ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(:en).call,
+                'current/pl': ::SoundofIt::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(:pl).call,
               }
             end
           end

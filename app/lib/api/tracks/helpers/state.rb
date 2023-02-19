@@ -76,7 +76,9 @@ module Api
         end
 
         def asset_names
-          @asset_names ||= []
+          @asset_names ||= %w[
+            chevron
+          ]
         end
       end
     end

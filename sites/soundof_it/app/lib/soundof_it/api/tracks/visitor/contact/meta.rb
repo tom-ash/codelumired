@@ -9,11 +9,13 @@ module SoundofIt
             TRACK = 'visitor/contact'
 
             UNLOCALIZED_PATH = {
-              en: 'contact'
+              en: 'contact',
+              pl: 'kontakt',
             }.freeze
 
             UNLOCALIZED_TITLE = {
-              en: 'Contact'
+              en: 'Contact',
+              pl: 'Kontakt',
             }.freeze
 
             private
@@ -32,26 +34,29 @@ module SoundofIt
 
             def unlocalized_keywords
               @unlocalized_keywords ||= {
-                en: 'contact, soundof.IT, IT, dev, programming, board, job, knowledge, repository'
+                en: 'contact, soundof.IT, IT, dev, programming, board, job, knowledge, repository',
+                # TODO: Add :pl!
               }.freeze
             end
 
             def unlocalized_description
               @unlocalized_description ||= {
-                en: 'Contact to soundof.IT, an IT skill driven job board & knowledge repository.'
+                en: 'Contact to soundof.IT, an IT skill driven job board & knowledge repository.',
+                # TODO: Add :pl!
               }.freeze
             end
 
             def render
               {
-                visitor: true,
-                'visitor/contact': true
+                'visitor': true,
+                'visitor/contact': true,
               }
             end
 
             def links
               {
-                'current/en': ::SoundofIt::Api::Tracks::Visitor::Contact::Linker.new(:en).call
+                'current/en': ::SoundofIt::Api::Tracks::Visitor::Contact::Linker.new(:en).call,
+                'current/pl': ::SoundofIt::Api::Tracks::Visitor::Contact::Linker.new(:pl).call,
               }
             end
           end
