@@ -10,7 +10,7 @@ module Api
           meta.merge!(
             primary_meta,
             langs: langs,
-            schema: schema,
+            schema_org: schema_org,
             open_graph: open_graph,
             robots: robots,
             canonical_url: canonical_url,
@@ -51,10 +51,6 @@ module Api
           @image ||= attrs[:image]
         end
 
-        def schema
-          @schema ||= ::Builders::SchemaOrg.new(schema_data).call
-        end
-
         def robots
           @robots ||= 'index,follow,all'
         end
@@ -72,14 +68,6 @@ module Api
           end
 
           alternate_links_string
-        end
-
-        def schema_data
-          @schema_data ||= {
-            **primary_meta,
-            url: full_url,
-            lang: lang,
-          }
         end
 
         def site_name

@@ -30,8 +30,11 @@ module Serializers
           :modified_on,
           :category,
           :subcategory,
-          :lang_alts_group
-        ).merge(lang_ver_urls: lang_ver_urls, schema: schema)
+          :lang_alts_group,
+        ).merge(
+          lang_ver_urls: lang_ver_urls,
+          schema_org: schema_org,
+        )
       end
 
       private
@@ -42,7 +45,7 @@ module Serializers
         site::Page.where(lang_alts_group: page.lang_alts_group).pluck(:lang, :url).to_h
       end
 
-      def schema
+      def schema_org
         page[:schema_mode] == 'auto' ? page[:auto_schema] : page[:manual_schema]
       end
     end

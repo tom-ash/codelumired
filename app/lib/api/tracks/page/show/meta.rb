@@ -58,8 +58,8 @@ module Api
             @image ||= page.cover_image
           end
 
-          def schema
-            @schema ||= JSON.pretty_generate(page.schema_mode == 'auto' ? page.auto_schema : page.manual_schema)
+          def schema_org
+            @schema_org ||= page.schema_mode == 'auto' ? page.auto_schema : page.manual_schema
           end
         end
       end

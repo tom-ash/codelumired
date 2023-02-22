@@ -7,6 +7,7 @@ module Api
         include ::Api::Tracks::Helpers::State
         include ::Api::Tracks::Helpers::Meta
         include ::Api::Tracks::Helpers::OpenGraph
+        include ::Api::Tracks::Helpers::SchemaOrg
 
         class UnauthorizedError < StandardError; end
 
