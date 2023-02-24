@@ -10,11 +10,13 @@ module SoundofIt
               TRACK = 'announcement/create/form'
 
               UNLOCALIZED_PATH = {
-                en: 'post-a-job'
+                en: 'add-posting',
+                pl: 'dodaj-ogloszenie',
               }.freeze
 
               UNLOCALIZED_TITLE = {
-                en: 'TODO'
+                en: 'TODO',
+                pl: 'TODO',
               }.freeze
 
               private
@@ -37,13 +39,13 @@ module SoundofIt
 
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
-                  en: 'TODO'
+                  en: 'TODO',
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
-                  en: 'TODO'
+                  en: 'TODO',
                 }.freeze
               end
 
@@ -53,6 +55,13 @@ module SoundofIt
                   'announcement': true,
                   'announcement/create': true,
                   'announcement/create/form': true,
+                }
+              end
+
+              def links
+                {
+                  'current/en': ::SoundofIt::Api::Tracks::Announcement::Create::Form::Linker.new(:en).call,
+                  'current/pl': ::SoundofIt::Api::Tracks::Announcement::Create::Form::Linker.new(:pl).call,
                 }
               end
             end
