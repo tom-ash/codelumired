@@ -4,6 +4,9 @@ module Api
   module Tracks
     module Helpers
       module Meta
+        include ::Api::Tracks::Helpers::Meta::OpenGraph
+        include ::Api::Tracks::Helpers::Meta::SchemaOrg
+
         private
 
         def merge_meta

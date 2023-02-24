@@ -6,8 +6,6 @@ module Api
       module Appender
         include ::Api::Tracks::Helpers::State
         include ::Api::Tracks::Helpers::Meta
-        include ::Api::Tracks::Helpers::OpenGraph
-        include ::Api::Tracks::Helpers::SchemaOrg
 
         class UnauthorizedError < StandardError; end
 
@@ -35,14 +33,17 @@ module Api
           @current_user ||= attrs[:current_user]
         end
 
+        # TODO: This is path!
         def url
           @url ||= attrs[:url]
         end
 
+        # TODO: This is just domain!
         def domain_url
           @domain_url ||= attrs[:domain_url]
         end
 
+        # TODO: This is just url!
         def full_url
           @full_url ||= domain_url + (url == '/' ? '' : "/#{url}")
         end
