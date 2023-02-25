@@ -83,7 +83,7 @@ Rails.application.configure do
 
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'https://soundof.it', "https://#{MAPAWYNAJMU_PL_ROOT_DOMAIN}", %r{^https:\/\/.*\.googleusercontent\.com$}
+      origins 'https://skillfind.tech', "https://#{MAPAWYNAJMU_PL_ROOT_DOMAIN}", %r{^https:\/\/.*\.googleusercontent\.com$}
       resource '*', headers: :any, methods: %i[get post put patch delete options head]
     end
   end

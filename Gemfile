@@ -35,5 +35,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'soundof_it', path: 'sites/soundof_it'
+gem 'skillfind_tech', path: 'sites/skillfind_tech'
 gem 'mapawynajmu_pl', path: 'sites/mapawynajmu_pl'

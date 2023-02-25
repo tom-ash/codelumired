@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  mount SoundofIt::Engine => '/soundof_it'
+  mount SkillfindTech::Engine => '/skillfind_tech'
   mount MapawynajmuPl::Engine => '/mapawynajmu-pl'
 end

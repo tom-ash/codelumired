@@ -4,30 +4,30 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  soundof_it:
+  skillfind_tech:
     <<: *default
-    database: soundof_it_dev
-    migrations_paths: db/soundof_it_migrate
+    database: skillfind_tech_dev
+    migrations_paths: db/skillfind_tech_migrate
   mapawynajmu_pl:
     <<: *default
     database: mapawynajmu_pl_dev
     migrations_paths: db/mapawynajmu_pl_migrate
 
 test:
-  soundof_it:
+  skillfind_tech:
     <<: *default
-    database: soundof_it_test
-    migrations_paths: db/soundof_it_migrate
+    database: skillfind_tech_test
+    migrations_paths: db/skillfind_tech_migrate
   mapawynajmu_pl:
     <<: *default
     database: mapawynajmu_pl_test
     migrations_paths: db/mapawynajmu_pl_migrate
 
 production:
-  soundof_it:
+  skillfind_tech:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
-    migrations_paths: db/soundof_it_migrate
+    migrations_paths: db/skillfind_tech_migrate
   mapawynajmu_pl:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>
