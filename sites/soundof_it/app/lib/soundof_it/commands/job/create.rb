@@ -10,32 +10,36 @@ module SoundofIt
         end
 
         def call
-          create_job
-          add_skills_to_job
+          ActiveRecord::Base.transaction do
+            job.save!
+            add_skills_to_job
+          end
+
+          job
         end
 
         private
 
         attr_reader :user_id, :attrs
 
-        def create_job
-          @job ||= ::SoundofIt::Job.create!(
+        def job
+          @job ||= ::SoundofIt::Job.new(
             user: user,
             views: 0,
-            company_name: 'TODO',
-            company_size: 'TODO',
-            remote: attrs[:remote],
-            hybrid: attrs[:hybrid],
-            office: attrs[:office],
-            b2b: attrs[:b2b],
-            b2b_min: attrs[:b2b_min],
-            b2b_max: attrs[:b2b_max],
-            employment: attrs[:employment],
-            employment_min: attrs[:employment_min],
-            employment_max: attrs[:employment_max],
-            # civil_contract: attrs[:civil_contract], # TODO
-            country: 'Poland', # TODO
-            locality: 'Warsaw' # TODO
+            company_name: 'Not implemented!',
+            company_size: 42,
+            country: 'Not implemented!',
+            locality: 'Not implemented!',
+            remote: false,
+            hybrid: false,
+            office: false,
+            employment: false,
+            # employment_min: attrs[:employment_min],
+            # employment_max: attrs[:employment_max],
+            b2b: false,
+            # b2b_min: attrs[:b2b_min],
+            # b2b_max: attrs[:b2b_max],
+            # # civil_contract: attrs[:civil_contract], # TODO
           )
         end
 
@@ -43,7 +47,7 @@ module SoundofIt
           selected_skills.each do |selected_skill|
             @job.coveted_skills.create!(
               skill: ::SoundofIt::Skill.find_by(name: selected_skill[:name]),
-              level: selected_skill[:level]
+              level: selected_skill[:level],
             )
           end
         end

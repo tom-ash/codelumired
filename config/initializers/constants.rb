@@ -19,6 +19,7 @@ MAPAWYNAJMU_PL_S3 = ENV['AWS_S3_MAPAWYNAJMUPL_BUCKET']
 MAPAWYNAJMU_PL_IMAGE = 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg'
 
 # DEV
-SOUNDOF_IT_URL_DEV = 'http://local.soundof.it:8080'
-MAPAWYNAJMU_PL_URL_DEV = 'http://local.mapawynajmu.pl:8080'
-MAPAWYNAJMU_PL_ROOT_DOMAIN_DEV = 'local.mapawynajmu.pl:8080'
+SOUNDOF_IT_DOMAIN_DEV = 'local.soundof.it:8080'
+SOUNDOF_IT_URL_DEV = "http://#{SOUNDOF_IT_DOMAIN_DEV}"
+MAPAWYNAJMU_PL_DOMAIN_DEV = 'local.mapawynajmu.pl:8080'
+MAPAWYNAJMU_PL_URL_DEV = "http://#{MAPAWYNAJMU_PL_DOMAIN_DEV}"

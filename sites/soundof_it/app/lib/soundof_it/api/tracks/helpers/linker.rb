@@ -5,27 +5,16 @@ module SoundofIt
     module Tracks
       module Helpers
         module Linker
-          def initialize(lang)
-            @lang = lang.to_sym
-          end
-
-          def call
-            {
-              path: path,
-              title: title
-            }
-          end
+          include ::Api::Tracks::Helpers::Linker
 
           private
 
-          attr_reader :lang
-
-          def path
-            unlocalized_path[lang]
+          def protocol_and_domain
+            Rails.env.production? ? SOUNDOF_IT_URL : SOUNDOF_IT_URL_DEV
           end
 
-          def title
-            unlocalized_title[lang]
+          def domain
+            Rails.env.production? ? SOUNDOF_IT_DOMAIN_DEV : SOUNDOF_IT_URL_DEV
           end
         end
       end
