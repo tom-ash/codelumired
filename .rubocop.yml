@@ -4,6 +4,10 @@ Metrics/MethodLength:
   Max: 64
 Documentation:
   Enabled: false
+Naming/MethodName:
+  Enabled: false
+Naming/VariableName:
+  Enabled: false
 Metrics/BlockLength:
   Exclude:
     - '**/api/**/*.rb'
