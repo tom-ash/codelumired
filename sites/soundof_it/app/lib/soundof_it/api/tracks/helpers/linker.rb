@@ -10,11 +10,11 @@ module SoundofIt
           private
 
           def protocol_and_domain
-            Rails.env.production? ? SOUNDOF_IT_URL : SOUNDOF_IT_URL_DEV
+            Rails.env.production? ? SKILLFIND_TECH_URL : SKILLFIND_TECH_URL_DEV
           end
 
           def domain
-            Rails.env.production? ? SOUNDOF_IT_DOMAIN_DEV : SOUNDOF_IT_URL_DEV
+            Rails.env.production? ? SKILLFIND_TECH_DOMAIN_DEV : SKILLFIND_TECH_URL_DEV
           end
         end
       end

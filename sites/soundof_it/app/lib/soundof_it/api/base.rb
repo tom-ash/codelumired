@@ -5,23 +5,23 @@ module SoundofIt
     class Base < ::Api::Base
       helpers do
         def site_name
-          @site_name ||= SOUNDOF_IT_NAME
+          @site_name ||= SKILLFIND_TECH_NAME
         end
 
         def constantized_site_name
-          @constantized_site_name ||= SOUNDOF_IT_NAME_CONSTANTIZED_NAME
+          @constantized_site_name ||= SKILLFIND_TECH_NAME_CONSTANTIZED_NAME
         end
 
         def image
-          @image ||= SOUNDOF_IT_IMAGE
+          @image ||= SKILLFIND_TECH_IMAGE
         end
 
         def domain_url
-          @domain_url ||= SOUNDOF_IT_URL
+          @domain_url ||= SKILLFIND_TECH_URL
         end
 
         def langs
-          @langs ||= SOUNDOF_IT_NAME_LANGS
+          @langs ||= SKILLFIND_TECH_NAME_LANGS
         end
 
         def sitemaps

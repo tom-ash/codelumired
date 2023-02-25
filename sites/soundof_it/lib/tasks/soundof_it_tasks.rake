@@ -15,8 +15,8 @@ namespace :soundof_it do
     ::SoundofIt::Page.all.each do |page|
       ::Builders::Pages::SchemaOrgBuilder.new(
         page: page,
-        domain_url: SOUNDOF_IT_URL,
-        bucket: SOUNDOF_IT_S3
+        domain_url: SKILLFIND_TECH_URL,
+        bucket: SKILLFIND_TECH_S3
       ).call
     end
   end
