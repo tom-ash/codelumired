@@ -4,6 +4,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
+  primary:
+    <<: *default
+    database: primary_dev
   skillfind_tech:
     <<: *default
     database: skillfind_tech_dev
@@ -14,21 +17,23 @@ development:
     migrations_paths: db/mapawynajmu_pl_migrate
 
 test:
+  primary:
+    <<: *default
+    database: primary_test
   skillfind_tech:
     <<: *default
     database: skillfind_tech_test
-    migrations_paths: db/skillfind_tech_migrate
   mapawynajmu_pl:
     <<: *default
     database: mapawynajmu_pl_test
-    migrations_paths: db/mapawynajmu_pl_migrate
 
 production:
+  primary:
+    <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
   skillfind_tech:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
-    migrations_paths: db/skillfind_tech_migrate
   mapawynajmu_pl:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>
-    migrations_paths: db/mapawynajmu_pl_migrate
