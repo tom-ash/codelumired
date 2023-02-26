@@ -34,6 +34,8 @@ production:
   skillfind_tech:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_GOLD_URL'] %>
+    migrations_paths: db/skillfind_tech_migrate
   mapawynajmu_pl:
     <<: *default
     url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>
+    migrations_paths: db/mapawynajmu_pl_migrate
