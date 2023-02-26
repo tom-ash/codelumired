@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_25_053052) do
+ActiveRecord::Schema.define(version: 2023_02_26_061547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -101,6 +101,32 @@ ActiveRecord::Schema.define(version: 2022_10_25_053052) do
     t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
+  create_table "pages_1", id: false, force: :cascade do |t|
+    t.text "lang"
+    t.text "url"
+    t.text "canonical_url"
+    t.text "body"
+    t.text "title"
+    t.text "keywords"
+    t.text "description"
+    t.text "cover_image"
+    t.text "created_at"
+    t.text "updated_at"
+    t.integer "author_id"
+    t.boolean "online"
+    t.text "header_autonumbering"
+    t.text "schema_mode"
+    t.text "auto_schema"
+    t.text "manual_schema"
+    t.text "published_on"
+    t.text "modified_on"
+    t.text "category"
+    t.text "subcategory"
+    t.text "lang_alts_group"
+    t.text "link_image"
+    t.text "id"
+  end
+
   create_table "redirects", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.string "original_url", null: false
@@ -114,14 +140,13 @@ ActiveRecord::Schema.define(version: 2022_10_25_053052) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.bigint "added_by_id", null: false
     t.bigint "principal_skill_id"
     t.string "name", null: false
     t.string "type", null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["added_by_id"], name: "index_skills_on_added_by_id"
+    t.index ["name"], name: "index_skills_on_name", unique: true
     t.index ["principal_skill_id"], name: "index_skills_on_principal_skill_id"
   end
 
@@ -155,5 +180,4 @@ ActiveRecord::Schema.define(version: 2022_10_25_053052) do
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "redirects", "users", column: "added_by_id"
   add_foreign_key "skills", "skills", column: "principal_skill_id"
-  add_foreign_key "skills", "users", column: "added_by_id"
 end
