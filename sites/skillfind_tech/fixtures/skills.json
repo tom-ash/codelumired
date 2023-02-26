@@ -17,6 +17,91 @@
   {
     "name": "Python",
     "type": "SkillfindTech::Language",
-    "description": "123"
+    "description": "TODO"
+  },
+  {
+    "name": "Java",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "PHP",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "C",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "C++",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "C#",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Swift",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "SQL",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "NoSQL",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Kotlin",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Scala",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Perl",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Rust",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Objective-C",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "CSS",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "HTML",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Perl",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Go",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
   }
 ]
