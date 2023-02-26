@@ -32,33 +32,12 @@ namespace :skillfind_tech do
     end
   end
 
-  skills = [
-  {
-    name: 'JavaScript',
-    type: 'SkillfindTech::Language',
-    description: 'TODO',
-  },
-  {
-    name: 'TypeScript',
-    type: 'SkillfindTech::Language',
-    description: 'TODO',
-  },
-  {
-    name: 'Ruby',
-    type: 'SkillfindTech::Language',
-    description: 'TODO',
-  },
-  {
-    name: 'Python',
-    type: 'SkillfindTech::Language',
-    description: 'TODO',
-  },
-]
-
   task build_skills: :environment do
+    skills = JSON.parse(File.read('sites/skillfind_tech/fixtures/skills.json'))
+
     skills.each do |skill|
       time_now = Time.now
-      existing_skill = ::SkillfindTech::Skill.find_by(name: skill[:name])&.attributes || {
+      existing_skill = ::SkillfindTech::Skill.find_by(name: skill['name'])&.attributes || {
         created_at: time_now,
         updated_at: time_now,
       }

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "JavaScript",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "TypeScript",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Ruby",
+    "type": "SkillfindTech::Language",
+    "description": "TODO"
+  },
+  {
+    "name": "Python",
+    "type": "SkillfindTech::Language",
+    "description": "123"
+  }
+]
