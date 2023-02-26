@@ -10,10 +10,11 @@ module Api
           requires :password, type: String, desc: 'User\'s password'
         end
         put do
-          ::Commands::User::Authorize::EmailAndPassword.new(params.merge(constantized_site_name: constantized_site_name)).call
-          camelize(::Queries::User::SingleByEmail.new(email: params[:email], constantized_site_name: constantized_site_name).call).merge(
-            site::Api::Tracks::Root::Linker.new(lang.to_sym).call
-          )
+          user = ::Commands::User::Authorize::EmailAndPassword.new(params.merge(constantized_site_name: constantized_site_name)).call
+
+          private_key = RbNaCl::Signatures::Ed25519::SigningKey.new(ENV['JWT_SECRET'])
+          payload = { id: user.id }
+          JWT.encode payload, private_key, 'ED25519'
         rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::EmailAndPassword::PasswordError
           error!('Invalid email or password.', 400)
         end

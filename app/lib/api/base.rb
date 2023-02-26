@@ -65,10 +65,12 @@ module Api
             access_token = headers['Access-Token']
             return if access_token.blank? || access_token == 'null'
 
-            @current_user ||= ::Commands::User::Authorize::AccessToken.new(
-              access_token: access_token,
-              constantized_site_name: constantized_site_name,
-            ).call
+            private_key = RbNaCl::Signatures::Ed25519::SigningKey.new(ENV['JWT_SECRET'])
+            public_key = private_key.verify_key
+
+            user_id = (JWT.decode access_token, public_key, true, algorithm: 'ED25519')[0]['id']
+
+            @current_user ||= site::User.find(user_id)
           end
 
           def authorize!

@@ -15,6 +15,7 @@ module SkillfindTech
           ::Ciphers::User::HashPassword.new(user: user, password: password).call
 
           user.save!
+          user
         end
 
         private
