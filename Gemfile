@@ -7,6 +7,9 @@ end
 
 ruby '~> 2.6.3'
 
+gem 'jwt', '~> 2.7.0'
+gem 'rbnacl', '~> 7.1.1'
+
 gem 'aws-sdk-s3', '~> 1'
 gem 'aws-sdk-ses', '~> 1.6'
 gem 'bcrypt'
