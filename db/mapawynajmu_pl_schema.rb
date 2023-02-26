@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_26_055610) do
+ActiveRecord::Schema.define(version: 2023_02_26_132530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -172,8 +172,6 @@ ActiveRecord::Schema.define(version: 2023_01_26_055610) do
 
   create_table "users", force: :cascade do |t|
     t.integer "status", limit: 2, null: false
-    t.string "encrypted_access_token", null: false
-    t.date "access_token_date", null: false
     t.jsonb "verification"
     t.string "verification_code_iv"
     t.integer "points", null: false
@@ -205,7 +203,6 @@ ActiveRecord::Schema.define(version: 2023_01_26_055610) do
     t.index ["country_code"], name: "index_users_on_country_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
-    t.index ["encrypted_access_token"], name: "index_users_on_encrypted_access_token", unique: true
     t.index ["encrypted_confirmation_token"], name: "index_users_on_encrypted_confirmation_token"
     t.index ["phone_number"], name: "index_users_on_phone_number"
     t.index ["status"], name: "index_users_on_status"

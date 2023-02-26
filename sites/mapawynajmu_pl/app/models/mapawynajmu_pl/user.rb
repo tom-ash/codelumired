@@ -8,7 +8,6 @@ module MapawynajmuPl
 
     SHOWCASE_ATTRS = %w[phone_number].freeze
 
-    validates :encrypted_access_token, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
     validates :hashed_password, presence: true
     validates :password_salt, presence: true
@@ -37,7 +36,7 @@ module MapawynajmuPl
     end
 
     def unloggable
-      %w[encrypted_access_token access_token_date verification verification_code_iv]
+      %w[verification verification_code_iv]
     end
 
     def build_showcase

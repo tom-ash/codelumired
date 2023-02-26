@@ -28,7 +28,7 @@ module Commands
         @decrypted_code ||= ::Ciphers::Decrypt.new(
           encrypted_record: last_namespaced_verification_bundle['encrypted_code'],
           key: key,
-          iv: last_namespaced_verification_bundle['encrypted_code_iv']
+          iv: last_namespaced_verification_bundle['encrypted_code_iv'],
         ).call
       end
 

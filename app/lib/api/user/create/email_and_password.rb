@@ -92,14 +92,13 @@ module Api
 
           href = listing_confirmation_href || user_confirmation_href
 
-          camelize(
-            ::Queries::User::SingleByEmail.new(
-              email: user.email,
-              constantized_site_name: constantized_site_name,
-            ).call,
-          ).merge(
+          private_key = RbNaCl::Signatures::Ed25519::SigningKey.new(ENV['JWT_SECRET'])
+          payload = { id: user.id }
+
+          {
+            accessToken: (JWT.encode payload, private_key, 'ED25519'),
             href: href,
-          )
+          }
         rescue StandardError
           error!('Invalid confirmation token or verification code!', 422)
         end

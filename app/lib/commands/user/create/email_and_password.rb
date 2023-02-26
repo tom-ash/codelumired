@@ -17,7 +17,6 @@ module Commands
           assign_basic_attrs
           ::Parsers::User::Consents.new(user: user, consents: attrs[:consents]).call
           ::Ciphers::User::HashPassword.new(user: user, password: password).call
-          ::Ciphers::User::GenerateAccessToken.new(user).call
           ::Ciphers::User::GenerateConfirmationToken.new(user).call
           site::Helpers::DecorateUser.new(user: user, attrs: attrs).call
 

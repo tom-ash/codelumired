@@ -8,7 +8,7 @@ module Ciphers
       end
 
       def call
-        user.assign_attributes(encrypted_confirmation_token: encrypted_confirmation_token, access_token_date: Date.today)
+        user.assign_attributes(encrypted_confirmation_token: encrypted_confirmation_token)
 
         confirmation_token
       end
