@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_26_061547) do
+ActiveRecord::Schema.define(version: 2023_02_26_074400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -151,26 +151,19 @@ ActiveRecord::Schema.define(version: 2023_02_26_061547) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "status", limit: 2, null: false
     t.string "email", null: false
     t.string "role"
     t.string "account_type"
     t.string "first_name"
     t.string "last_name"
-    t.string "encrypted_access_token", null: false
-    t.date "access_token_date", null: false
     t.jsonb "verification"
     t.string "verification_code_iv"
     t.string "hashed_password", null: false
     t.string "password_salt", null: false
-    t.jsonb "consents", null: false
     t.jsonb "change_log", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "confirmed", default: false, null: false
-    t.datetime "email_confirmed_at"
-    t.index ["confirmed"], name: "index_users_on_confirmed"
-    t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
+    t.datetime "confirmed_at"
   end
 
   add_foreign_key "coveted_skills", "jobs"

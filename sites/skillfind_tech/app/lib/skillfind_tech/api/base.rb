@@ -42,6 +42,7 @@ module SkillfindTech
 
       mount ::Api::Sitemap => 'sitemap'
       mount ::SkillfindTech::Api::Sync => 'sync'
+      mount ::SkillfindTech::Api::Methods::Users => 'users'
       mount ::SkillfindTech::Api::Methods::Job::Create::AsUser => 'job/create/as-user'
     end
   end
