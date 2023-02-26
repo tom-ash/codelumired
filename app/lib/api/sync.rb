@@ -13,7 +13,7 @@ module Api
               lang: lang,
               langs: langs,
               params: params,
-              current_user: current_user,
+              authenticated_user: authenticated_user,
               state: state,
               meta: meta,
               site: site,

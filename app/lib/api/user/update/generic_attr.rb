@@ -14,7 +14,7 @@ module Api
           name = params[:name].underscore
           value = params[:value]
           ::Commands::User::Update::GenericAttr.new(
-            user_id: current_user.id,
+            user_id: authenticated_user.id,
             name: name,
             value: value,
             constantized_site_name: constantized_site_name,

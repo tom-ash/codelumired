@@ -61,7 +61,7 @@ module Api
             @verification_code ||= params['verification_code']
           end
 
-          def current_user
+          def authenticated_user
             access_token = headers['Access-Token']
             return if access_token.blank? || access_token == 'null'
 
@@ -70,15 +70,15 @@ module Api
 
             user_id = (JWT.decode access_token, public_key, true, algorithm: 'ED25519')[0]['id']
 
-            @current_user ||= site::User.find(user_id)
+            @authenticated_user ||= site::User.find(user_id)
           end
 
           def authorize!
-            error!('Invalid access token.', 401) if current_user.blank?
+            error!('Invalid access token.', 401) if authenticated_user.blank?
           end
 
           def authorize_for_page!
-            error!('Unauthorized!.', 401) unless current_user&.role == 'admin'
+            error!('Unauthorized!.', 401) unless authenticated_user&.role == 'admin'
           end
 
           def sitemaps

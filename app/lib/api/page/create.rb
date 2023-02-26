@@ -7,7 +7,7 @@ module Api
 
       post do
         page = ::Commands::Page::Create.new(
-          user_id: current_user.id,
+          user_id: authenticated_user.id,
           constantized_site_name: constantized_site_name
         ).call
 

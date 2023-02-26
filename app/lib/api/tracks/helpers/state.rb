@@ -30,9 +30,9 @@ module Api
         end
 
         def user
-          return {} if current_user.blank?
+          return {} if authenticated_user.blank?
 
-          ::Serializers::User::Show.new(user: current_user, constantized_site_name: constantized_site_name).call
+          ::Serializers::User::Show.new(user: authenticated_user, constantized_site_name: constantized_site_name).call
         end
 
         def meta_preview
@@ -71,8 +71,8 @@ module Api
           {}
         end
 
-        def current_user
-          @current_user ||= attrs[:current_user]
+        def authenticated_user
+          @authenticated_user ||= attrs[:authenticated_user]
         end
 
         def asset_names

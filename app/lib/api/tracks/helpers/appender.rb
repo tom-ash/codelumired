@@ -29,8 +29,8 @@ module Api
           @lang ||= attrs[:lang].to_sym
         end
 
-        def current_user
-          @current_user ||= attrs[:current_user]
+        def authenticated_user
+          @authenticated_user ||= attrs[:authenticated_user]
         end
 
         # TODO: This is path!

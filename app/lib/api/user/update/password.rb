@@ -31,9 +31,9 @@ module Api
             requires :verification_code, type: String
           end
           put do
-            current_user = site::User.find_by!(email: params[:email])
-            ::Commands::User::Verify.new(user: current_user, namespace: 'user/update/password', verification_code: verification_code).call
-            ::Commands::User::Update::Password.new(user_id: current_user.id, password: params[:password], constantized_site_name: constantized_site_name).call
+            authenticated_user = site::User.find_by!(email: params[:email])
+            ::Commands::User::Verify.new(user: authenticated_user, namespace: 'user/update/password', verification_code: verification_code).call
+            ::Commands::User::Update::Password.new(user_id: authenticated_user.id, password: params[:password], constantized_site_name: constantized_site_name).call
           rescue ::Commands::User::Verify::CodeMismatchError
             error!('Invalid email, password or verification code!.', 422)
           end

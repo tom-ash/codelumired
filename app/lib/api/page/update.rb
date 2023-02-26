@@ -29,7 +29,7 @@ module Api
 
         attrs = params.merge(
           lang: params[:page_lang],
-          user_id: current_user.id,
+          user_id: authenticated_user.id,
           constantized_site_name: constantized_site_name,
           bucket: bucket,
           auto_schema: auto_schema,

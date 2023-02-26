@@ -20,7 +20,7 @@ module MapawynajmuPl
               end
 
               def announcements
-                ::MapawynajmuPl::Queries::Announcement::Index::User.new(user_id: current_user.id).call
+                ::MapawynajmuPl::Queries::Announcement::Index::User.new(user_id: authenticated_user.id).call
               end
 
               def serialized_announcements

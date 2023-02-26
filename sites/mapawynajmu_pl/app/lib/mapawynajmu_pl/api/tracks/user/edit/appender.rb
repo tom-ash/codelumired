@@ -22,14 +22,14 @@ module MapawynajmuPl
 
             def data
               ::Serializers::User::Edit.new(
-                user: current_user,
+                user: authenticated_user,
                 constantized_site_name: constantized_site_name,
               ).call
             end
 
             def inputs
               {
-                country_code: current_user.country_code,
+                country_code: authenticated_user.country_code,
               }
             end
           end

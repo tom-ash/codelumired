@@ -10,10 +10,10 @@ module Api
       end
       post do
         image_key = params[:image_key]
-        raise 'Empty Image Key Error' unless image_key.present? && current_user.present?
+        raise 'Empty Image Key Error' unless image_key.present? && authenticated_user.present?
 
         site::Image.create(
-          added_by_id: current_user.id,
+          added_by_id: authenticated_user.id,
           storage_key: image_key,
           body: [],
         )

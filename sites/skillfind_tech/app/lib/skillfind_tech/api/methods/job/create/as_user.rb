@@ -23,7 +23,7 @@ module SkillfindTech
             end
             post do
               ::SkillfindTech::Commands::Job::Create.new(
-                user_id: current_user.id,
+                user_id: authenticated_user.id,
                 attrs: {
                   selected_skills: params[:selected_skills],
                   # remote: params[:remote],

@@ -30,7 +30,7 @@ module MapawynajmuPl
         end
 
         def authorize_for_announcement!
-          error!('Unauthorized!.', 401) unless current_user&.id == current_announcement.user_id
+          error!('Unauthorized!.', 401) unless authenticated_user&.id == current_announcement.user_id
         end
 
         def sitemaps
