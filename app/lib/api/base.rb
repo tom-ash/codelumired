@@ -62,8 +62,11 @@ module Api
           end
 
           def current_user
+            access_token = headers['Access-Token']
+            return if access_token.blank? || access_token == 'null'
+
             @current_user ||= ::Commands::User::Authorize::AccessToken.new(
-              access_token: headers['Access-Token'],
+              access_token: access_token,
               constantized_site_name: constantized_site_name,
             ).call
           end
