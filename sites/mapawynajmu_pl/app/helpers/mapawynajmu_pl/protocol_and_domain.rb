@@ -9,7 +9,7 @@ module MapawynajmuPl
     end
 
     def domain
-      Rails.env.production? ? MAPAWYNAJMU_PL_ROOT_DOMAIN : MAPAWYNAJMU_PL_ROOT_DOMAIN_DEV
+      Rails.env.production? ? MAPAWYNAJMU_PL_DOMAIN : MAPAWYNAJMU_PL_DOMAIN_DEV
     end
   end
 end

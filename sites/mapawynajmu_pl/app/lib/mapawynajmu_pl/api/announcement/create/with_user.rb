@@ -24,21 +24,32 @@ module MapawynajmuPl
 
             user = MapawynajmuPl::User.find_by!(email: email)
 
-            announcement_attrs = { attrs: params[:announcement].merge(confirmed: false), user_id: user.id }
+            announcement_attrs = {
+              user_id: user.id,
+              attrs: params[:announcement].merge(confirmed: false),
+            }
 
             ::MapawynajmuPl::Commands::Announcement::Create.new(announcement_attrs).call
+
+            verificationCode = rand(1000..9999).to_s
 
             ::Mailers::Verification.new(
               email: email,
               namespace: 'user/create/email-and-password',
               lang: lang,
-              constantized_site_name: constantized_site_name,
+              verification_code: verificationCode,
             ).send
 
-            camelize(
-              confirmation_token: ::Ciphers::User::DecryptConfirmationToken.new(user.encrypted_confirmation_token).call,
+            verificationToken = {
+              verificationCode: verificationCode,
+              userId: user.id,
+            }
+            encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+
+            {
+              verificationToken: encodedVerificationToken,
               path: ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH[lang.to_sym],
-            )
+            }
           end
         end
       end

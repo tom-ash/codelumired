@@ -22,7 +22,8 @@ module SkillfindTech
     end
 
     def unloggable
-      %w[verification verification_code_iv]
+      # TODO: Check!
+      %w[]
     end
   end
 end

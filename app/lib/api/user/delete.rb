@@ -6,20 +6,35 @@ module Api
       namespace 'verification' do
         before { authorize! }
         put do
+          verificationCode = rand(1000..9999).to_s
+          verificationToken = {
+            verificationCode: verificationCode,
+            userId: authenticated_user.id,
+          }
+          encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+
           ::Mailers::Verification.new(
-            email: authenticated_user.email,
+            email: email,
             namespace: 'user/delete',
             lang: lang,
-            constantized_site_name: constantized_site_name,
+            verification_code: verificationCode,
           ).send
+
+          encodedVerificationToken
         end
       end
 
       namespace do
         before { authorize! }
-        params { requires :verification_code, type: String }
+        params do
+          requires :verification_token, type: String
+          requires :verification_code, type: String
+        end
         delete do
-          ::Commands::User::Verify.new(user: authenticated_user, namespace: 'user/delete', verification_code: verification_code).call
+          decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+          error!('Verification code invalid.', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
+          error!('Verification code user mismatch.', 422) if decodedVerificationToken['userId'] != authenticated_user.id
+
           ::Commands::User::Delete.new(user_id: authenticated_user.id, constantized_site_name: constantized_site_name).call
           site::Api::Tracks::Root::Linker.new(lang.to_sym).call
         end

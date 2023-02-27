@@ -19,50 +19,48 @@ module Api
           end
         end
         post do
-          ::Commands::User::Create::EmailAndPassword.new(
+          user = ::Commands::User::Create::EmailAndPassword.new(
             params.merge(
               email: email,
               constantized_site_name: constantized_site_name,
             ),
           ).call
 
+          verificationCode = rand(1000..9999).to_s
+
           ::Mailers::Verification.new(
             email: email,
             namespace: 'user/create/email-and-password',
             lang: lang,
-            constantized_site_name: constantized_site_name,
+            verification_code: verificationCode,
           ).send
 
-          camelize(
-            confirmation_token: ::Ciphers::User::DecryptConfirmationToken.new(
-              site::User.find_by(email: email).encrypted_confirmation_token,
-            ).call,
-          ).merge(
+          verificationToken = {
+            verificationCode: verificationCode,
+            userId: user.id,
+          }
+          encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+
+          {
+            verificationToken: encodedVerificationToken,
+            userId: user.id,
             path: site::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH[lang.to_sym],
-          )
+          }
         end
 
         params do
-          requires :confirmation_token, type: String
+          requires :verification_token, type: String
           requires :verification_code, type: String
         end
         put do
-          user = ::Queries::User::SingleByConfirmationToken.new(
-            confirmation_token: params[:confirmation_token],
-            constantized_site_name: 'MapawynajmuPl',
-          ).call
+          decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+          error!('Invalid verification code!', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
 
-          error!('Invalid confirmation token or verification code!', 422) if user.confirmed?
-
-          email_confirmed_at = Time.zone.now
+          user_id = decodedVerificationToken['userId']
+          user = ::MapawynajmuPl::User.find(user_id)
+          error!('Invalid verification code!', 422) if user.confirmed?
 
           ActiveRecord::Base.transaction do
-            ::Commands::User::Verify.new(
-              user: user,
-              namespace: 'user/create/email-and-password',
-              verification_code: verification_code,
-            ).call
-
             ::Commands::User::Update::GenericAttr.new(
               user_id: user.id,
               name: 'confirmed',
@@ -73,12 +71,14 @@ module Api
             ::Commands::User::Update::GenericAttr.new(
               user_id: user.id,
               name: 'email_confirmed_at',
-              value: email_confirmed_at,
+              value: Time.zone.now,
               constantized_site_name: constantized_site_name,
             ).call
 
             site::Commands::User::Confirm.new(user_id: user.id).call
           end
+
+          encodedAccessToken = ::JWT::Encoder.new(id: user.id).call
 
           listing_confirmation_href = begin
             listing_confirmation_path = user.announcements.last&.summary_path(lang.to_sym)
@@ -92,11 +92,8 @@ module Api
 
           href = listing_confirmation_href || user_confirmation_href
 
-          private_key = RbNaCl::Signatures::Ed25519::SigningKey.new(ENV['JWT_SECRET'])
-          payload = { id: user.id }
-
           {
-            accessToken: (JWT.encode payload, private_key, 'ED25519'),
+            accessToken: encodedAccessToken,
             href: href,
           }
         rescue StandardError

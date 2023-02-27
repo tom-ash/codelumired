@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_26_132530) do
+ActiveRecord::Schema.define(version: 2023_02_28_150033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -172,8 +172,6 @@ ActiveRecord::Schema.define(version: 2023_02_26_132530) do
 
   create_table "users", force: :cascade do |t|
     t.integer "status", limit: 2, null: false
-    t.jsonb "verification"
-    t.string "verification_code_iv"
     t.integer "points", null: false
     t.string "email", null: false
     t.string "hashed_password", null: false
@@ -196,14 +194,11 @@ ActiveRecord::Schema.define(version: 2023_02_26_132530) do
     t.datetime "email_confirmed_at"
     t.string "country_code"
     t.string "phone_number"
-    t.string "encrypted_confirmation_token"
-    t.datetime "confirmation_token_generated_at", precision: 6
     t.string "urlified_business_name"
     t.index ["confirmed"], name: "index_users_on_confirmed"
     t.index ["country_code"], name: "index_users_on_country_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
-    t.index ["encrypted_confirmation_token"], name: "index_users_on_encrypted_confirmation_token"
     t.index ["phone_number"], name: "index_users_on_phone_number"
     t.index ["status"], name: "index_users_on_status"
   end

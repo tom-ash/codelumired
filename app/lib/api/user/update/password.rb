@@ -5,20 +5,37 @@ module Api
     module Update
       class Password < Grape::API
         namespace 'verification' do
-          params { requires :email, type: String }
+          params do
+            requires :email, type: String
+          end
           put do
-            ::Mailers::Verification.new(email: email, namespace: 'user/update/password', lang: lang, constantized_site_name: constantized_site_name).send
+            verificationCode = rand(1000..9999).to_s
+            userId = site::User.find_by(email: params[:email])&.id
+            verificationToken = {
+              verificationCode: verificationCode,
+              userId: userId,
+            }
+            encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+
+            ::Mailers::Verification.new(
+              email: email,
+              namespace: 'user/update/password',
+              lang: lang,
+              verification_code: verificationCode,
+            ).send
+
+            encodedVerificationToken
           end
         end
 
         namespace 'verify' do
           params do
-            requires :email, type: String
-            requires :verification_code, type: String
+            requires :verification_token, type: String
           end
           put do
-            ::Commands::User::Verify.new(user: site::User.find_by!(email: params[:email]), namespace: 'user/update/password', verification_code: verification_code).call
-          rescue ::Commands::User::Verify::CodeMismatchError
+            decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+            error!('Verification code invalid.', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
+          rescue StandardError
             error!('Invalid email or verification code!', 422)
           end
         end
@@ -26,15 +43,19 @@ module Api
         namespace do
           desc 'Resets the password.'
           params do
-            requires :email, type: String
+            requires :verification_token, type: String
             requires :password, type: String
-            requires :verification_code, type: String
           end
           put do
-            authenticated_user = site::User.find_by!(email: params[:email])
-            ::Commands::User::Verify.new(user: authenticated_user, namespace: 'user/update/password', verification_code: verification_code).call
-            ::Commands::User::Update::Password.new(user_id: authenticated_user.id, password: params[:password], constantized_site_name: constantized_site_name).call
-          rescue ::Commands::User::Verify::CodeMismatchError
+            decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+            error!('Verification code invalid.', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
+
+            ::Commands::User::Update::Password.new(
+              user_id: decodedVerificationToken['userId'],
+              password: params[:password],
+              constantized_site_name: constantized_site_name,
+            ).call
+          rescue StandardError
             error!('Invalid email, password or verification code!.', 422)
           end
         end

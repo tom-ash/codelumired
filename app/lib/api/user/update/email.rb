@@ -8,54 +8,152 @@ module Api
 
         namespace 'current/verification' do
           put do
-            ::Mailers::Verification.new(email: authenticated_user.email, namespace: 'user/update/email/current', lang: lang, constantized_site_name: constantized_site_name).send
+            currentEmailVerificationCode = rand(1000..9999).to_s
+
+            ::Mailers::Verification.new(
+              email: email,
+              namespace: 'user/update/email/current',
+              lang: lang,
+              verification_code: currentEmailVerificationCode,
+            ).send
+
+            verificationToken = {
+              currentEmailVerificationCode: currentEmailVerificationCode,
+              currentEmailHash: Digest::SHA256.hexdigest(email),
+              userId: authenticated_user.id,
+            }
+
+            ::JWT::Encoder.new(verificationToken).call
           end
         end
 
         namespace 'current/verify' do
-          params { requires :verification_code, type: String }
+          params do
+            requires :verification_token, type: String
+            requires :verification_code, type: String
+          end
           put do
-            ::Commands::User::Verify.new(user: authenticated_user, namespace: 'user/update/email/current', verification_code: verification_code).call
-          rescue ::Commands::User::Verify::CodeMismatchError
-            error!('Invalid email or verification code!', 422)
+            verificationCodeFromParams = params['verification_code']
+            verificationToken = params['verification_token']
+            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+            currentEmailVerificationCodeFromToken = decodedVerificationToken.currentEmailVerificationCode
+
+            error! unless verificationCodeFromParams == currentEmailVerificationCodeFromToken
+          rescue StandardError
+            error!('Verification code invalid.', 422)
           end
         end
 
         namespace 'new/verification' do
-          params { requires :email, type: String }
+          params do
+            requires :email, type: String
+            requires :verification_token, type: String
+            requires :verification_code, type: String
+          end
           put do
-            ::Mailers::Verification.new(user: authenticated_user, email: params[:email], namespace: 'user/update/email/new', lang: lang, constantized_site_name: constantized_site_name).send
+            verificationCodeFromParams = params['verification_code']
+            verificationToken = params['verification_token']
+            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+            currentEmailVerificationCodeFromToken = decodedVerificationToken.currentEmailVerificationCode
+            error! unless verificationCodeFromParams == currentEmailVerificationCodeFromToken
+
+            authenticatedUserId = authenticated_user.id
+            userIdFromToken = decodedVerificationToken.userId
+            error! unless authenticatedUserId == userIdFromToken
+
+            newEmailVerificationCode = rand(1000..9999).to_s
+
+            ::Mailers::Verification.new(
+              email: email,
+              namespace: 'user/update/email/current',
+              lang: lang,
+              verification_code: newEmailVerificationCode,
+            ).send
+
+            newVerificationToken = {
+              currentEmailVerificationCode: currentEmailVerificationCodeFromToken,
+              currentEmailHash: decodedVerificationToken.currentEmailHash,
+              newEmailVerificationCode: newEmailVerificationCode,
+              newEmailHash: Digest::SHA256.hexdigest(email),
+              userId: authenticatedUserId,
+            }
+
+            ::JWT::Encoder.new(newVerificationToken).call
           end
         end
 
         namespace 'new/verify' do
-          params { requires :verification_code, type: String }
+          params do
+            requires :verification_token, type: String
+            requires :verification_code, type: String
+          end
           put do
-            ::Commands::User::Verify.new(user: authenticated_user, namespace: 'user/update/email/new', verification_code: verification_code).call
-          rescue ::Commands::User::Verify::CodeMismatchError
-            error!('Invalid email or verification code!', 422)
+            verificationCodeFromParams = params['verification_code']
+            verificationToken = params['verification_token']
+            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+            newEmailVerificationCodeFromToken = decodedVerificationToken.newEmailVerificationCode
+
+            error! unless verificationCodeFromParams == newEmailVerificationCodeFromToken
+          rescue StandardError
+            error!('Verification code invalid.', 422)
           end
         end
 
         namespace do
           params do
-            requires :current_email, type: String
             requires :current_email_verification_code, type: String
             requires :new_email, type: String
             requires :new_email_verification_code, type: String
-            requires :client_hashed_password, type: String
-            requires :client_rehashed_password, type: String
+            requires :current_client_hashed_password, type: String
+            requires :new_client_hashed_password, type: String
           end
           put do
-            ::Commands::User::Authorize::EmailAndPassword.new(email: params[:current_email], password: params[:client_hashed_password], constantized_site_name: constantized_site_name).call
-            ::Commands::User::Verify.new(user: authenticated_user, namespace: 'user/update/email/current', verification_code: params[:current_email_verification_code]).call
-            ::Commands::User::Verify.new(user: authenticated_user, namespace: 'user/update/email/new', verification_code: params[:new_email_verification_code]).call
+            verificationToken = params['verification_token']
+            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+
+            currentEmailVerificationCodeFromParams = params['current_email_verification_code']
+            currentEmailVerificationCodeFromToken = decodedVerificationToken.currentEmailVerificationCode
+            error! unless currentEmailVerificationCodeFromParams == currentEmailVerificationCodeFromToken
+
+            newEmailVerificationCodeFromParams = params['new_email_verification_code']
+            newEmailVerificationCodeFromToken = decodedVerificationToken.newEmailVerificationCode
+            error! unless newEmailVerificationCodeFromParams == newEmailVerificationCodeFromToken
+
+            authenticatedUserId = authenticated_user.id
+            userIdFromToken = decodedVerificationToken.userId
+            error! unless authenticatedUserId == userIdFromToken
+
+            currentEmail = authenticated_user.email
+            currentEmailHash = Digest::SHA256.hexdigest(currentEmail)
+            currentEmailHashFromToken = decodedVerificationToken.currentEmailHash
+            error! unless currentEmailHash == currentEmailHashFromToken
+
+            newEmail = params['new_email']
+            newEmailHash = Digest::SHA256.hexdigest(newEmail)
+            newEmailHashFromToken = decodedVerificationToken.newEmailHash
+            error! unless newEmailHash == newEmailHashFromToken
+
+            ::Commands::User::Authorize::EmailAndPassword.new(
+              email: currentEmail,
+              password: params[:current_client_hashed_password],
+              constantized_site_name: constantized_site_name,
+            ).call
+
             ActiveRecord::Base.transaction do
-              ::Commands::User::Update::GenericAttr.new(user_id: authenticated_user.id, name: 'email', value: params[:new_email], constantized_site_name: constantized_site_name).call
-              ::Commands::User::Update::Password.new(user_id: authenticated_user.id, password: params[:client_rehashed_password], constantized_site_name: constantized_site_name).call
+              ::Commands::User::Update::GenericAttr.new(
+                user_id: authenticatedUserId,
+                name: 'email',
+                value: newEmail,
+                constantized_site_name: constantized_site_name,
+              ).call
+              ::Commands::User::Update::Password.new(
+                user_id: authenticatedUserId,
+                password: params[:new_client_hashed_password],
+                constantized_site_name: constantized_site_name,
+              ).call
             end
-          rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::EmailAndPassword::PasswordError, ::Commands::User::Verify::CodeMismatchError
-            error!('Invalid email, password or verification code!', 422)
+          rescue StandardError
+            error!('Verification code invalid.', 422)
           end
         end
       end

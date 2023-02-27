@@ -36,7 +36,8 @@ module MapawynajmuPl
     end
 
     def unloggable
-      %w[verification verification_code_iv]
+      # TODO: Check!
+      %w[]
     end
 
     def build_showcase
