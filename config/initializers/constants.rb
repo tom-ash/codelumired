@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# PROD
 SKILLFIND_TECH_NAME = 'skillfind.tech'
 SKILLFIND_TECH_NAME_CONSTANTIZED_NAME = 'SkillfindTech'
 SKILLFIND_TECH_NAME_APEX_DOMAIN = 'skillfind.tech'
@@ -18,8 +19,13 @@ MAPAWYNAJMU_PL_URL = "https://#{MAPAWYNAJMU_PL_DOMAIN}"
 MAPAWYNAJMU_PL_S3 = ENV['AWS_S3_MAPAWYNAJMUPL_BUCKET']
 MAPAWYNAJMU_PL_IMAGE = 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg'
 
+SENTRY_URL = 'https://2940536e6132431996571db68fd3a5b1@o876363.ingest.sentry.io/4504761826476032'
+
 # DEV
 SKILLFIND_TECH_DOMAIN_DEV = 'local.skillfind.tech:8080'
 SKILLFIND_TECH_URL_DEV = "http://#{SKILLFIND_TECH_DOMAIN_DEV}"
+
 MAPAWYNAJMU_PL_DOMAIN_DEV = 'local.mapawynajmu.pl:8080'
 MAPAWYNAJMU_PL_URL_DEV = "http://#{MAPAWYNAJMU_PL_DOMAIN_DEV}"
+
+SENTRY_URL_DEV = 'https://21c5d785943440029a34371f8cdbca32@o876363.ingest.sentry.io/5825780'
