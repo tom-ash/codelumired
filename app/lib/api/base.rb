@@ -62,15 +62,19 @@ module Api
           end
 
           def authenticated_user
-            access_token = headers['Access-Token']
-            return if access_token.blank? || access_token == 'null'
+            begin
+              access_token = headers['Access-Token']
+              return if access_token.blank? || access_token == 'null'
 
-            private_key = RbNaCl::Signatures::Ed25519::SigningKey.new(ENV['JWT_SECRET'])
-            public_key = private_key.verify_key
+              private_key = RbNaCl::Signatures::Ed25519::SigningKey.new(ENV['JWT_SECRET'])
+              public_key = private_key.verify_key
 
-            user_id = (JWT.decode access_token, public_key, true, algorithm: 'ED25519')[0]['id']
+              user_id = (JWT.decode access_token, public_key, true, algorithm: 'ED25519')[0]['id']
 
-            @authenticated_user ||= site::User.find(user_id)
+              @authenticated_user ||= site::User.find(user_id)
+            rescue StandardError
+              nil
+            end
           end
 
           def authorize!
