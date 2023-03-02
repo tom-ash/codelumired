@@ -23,14 +23,17 @@ module MapawynajmuPl
               usable_premises_amount: announcements.where(category: CATEGORY_VALUES[:usable_premises]).count,
               offices_amount: announcements.where(category: CATEGORY_VALUES[:offices]).count,
               virtual_offices_amount: announcements.where(category: CATEGORY_VALUES[:virtual_offices]).count,
-              coworking_amount: announcements.where(category: CATEGORY_VALUES[:coworking]).count
+              coworking_amount: announcements.where(category: CATEGORY_VALUES[:coworking]).count,
             }
           end
 
           private
 
           def announcements
-            @announcements ||= ::MapawynajmuPl::Announcement.where(visible: true, confirmed: true)
+            @announcements ||= ::MapawynajmuPl::Announcement.where(
+              user_verified: true,
+              visible: true,
+            )
           end
         end
       end

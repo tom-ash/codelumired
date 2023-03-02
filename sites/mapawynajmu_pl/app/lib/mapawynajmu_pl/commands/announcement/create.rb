@@ -66,7 +66,7 @@ module MapawynajmuPl
             **gross_rent_amount_object,
             **gross_rent_amount_per_sqm_object,
             **active_until_object,
-            **confirmed_object,
+            **user_verified_object,
           )
         end
 
@@ -98,8 +98,8 @@ module MapawynajmuPl
           { active_until: Date.today + 60.days }
         end
 
-        def confirmed_object
-          { confirmed: attrs[:confirmed] }
+        def user_verified_object
+          { user_verified: attrs[:user_verified] }
         end
 
         def net_rent_amount

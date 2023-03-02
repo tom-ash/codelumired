@@ -10,7 +10,7 @@ module SkillfindTech
         end
 
         def call
-          return if user.confirmed_at.present?
+          return if user.verified?
 
           ::Ciphers::User::HashPassword.new(user: user, password: password).call
 

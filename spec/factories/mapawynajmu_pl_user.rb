@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :mapawynajmu_pl_user, class: MapawynajmuPl::User do
     email { 'test@example.net' }
-    email_confirmed_at { nil }
+    email_verified_at { nil }
     status { 0 }
     points { 0 }
     role { nil }

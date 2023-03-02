@@ -21,6 +21,10 @@ module MapawynajmuPl
     before_save :urlify_business_name
     before_update :log_changes, :build_showcase
 
+    def verified?
+      email_verified_at.present?
+    end
+
     def urlify_business_name
       return unless business_name_changed?
 

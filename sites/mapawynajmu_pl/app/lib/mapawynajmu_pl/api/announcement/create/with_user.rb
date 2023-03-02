@@ -26,7 +26,7 @@ module MapawynajmuPl
 
             announcement_attrs = {
               user_id: user.id,
-              attrs: params[:announcement].merge(confirmed: false),
+              attrs: params[:announcement].merge(user_verified: false),
             }
 
             ::MapawynajmuPl::Commands::Announcement::Create.new(announcement_attrs).call

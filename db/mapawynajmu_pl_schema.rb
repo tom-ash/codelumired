@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_28_150033) do
+ActiveRecord::Schema.define(version: 2023_03_02_053039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2023_02_28_150033) do
     t.integer "gross_rent_amount_per_sqm_int"
     t.integer "longitude_int"
     t.integer "latitude_int"
-    t.boolean "confirmed"
+    t.boolean "user_verified"
     t.string "locality"
     t.string "sublocality"
     t.string "name"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2023_02_28_150033) do
     t.index ["area_int"], name: "index_announcements_on_area_int"
     t.index ["availability_date"], name: "index_announcements_on_availability_date"
     t.index ["category"], name: "index_announcements_on_category"
-    t.index ["confirmed"], name: "index_announcements_on_confirmed"
     t.index ["floor"], name: "index_announcements_on_floor"
     t.index ["gross_rent_amount"], name: "index_announcements_on_gross_rent_amount"
     t.index ["gross_rent_amount_int"], name: "index_announcements_on_gross_rent_amount_int"
@@ -84,6 +83,7 @@ ActiveRecord::Schema.define(version: 2023_02_28_150033) do
     t.index ["status"], name: "index_announcements_on_status"
     t.index ["total_floors"], name: "index_announcements_on_total_floors"
     t.index ["user_id"], name: "index_announcements_on_user_id"
+    t.index ["user_verified"], name: "index_announcements_on_user_verified"
     t.index ["visible"], name: "index_announcements_on_visible"
   end
 
@@ -190,15 +190,13 @@ ActiveRecord::Schema.define(version: 2023_02_28_150033) do
     t.string "first_name"
     t.string "last_name"
     t.string "role"
-    t.boolean "confirmed", default: false, null: false
-    t.datetime "email_confirmed_at"
+    t.datetime "email_verified_at"
     t.string "country_code"
     t.string "phone_number"
     t.string "urlified_business_name"
-    t.index ["confirmed"], name: "index_users_on_confirmed"
     t.index ["country_code"], name: "index_users_on_country_code"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["email_confirmed_at"], name: "index_users_on_email_confirmed_at"
+    t.index ["email_verified_at"], name: "index_users_on_email_verified_at"
     t.index ["phone_number"], name: "index_users_on_phone_number"
     t.index ["status"], name: "index_users_on_status"
   end

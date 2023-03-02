@@ -50,7 +50,10 @@ module MapawynajmuPl
           end
 
           def shared_search_params
-            { visible: true, confirmed: true }
+            {
+              user_verified: true,
+              visible: true,
+            }
           end
 
           def category_search_params

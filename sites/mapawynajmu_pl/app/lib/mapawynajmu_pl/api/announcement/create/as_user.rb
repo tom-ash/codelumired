@@ -13,7 +13,7 @@ module MapawynajmuPl
           post do
             announcement_attrs = {
               user_id: authenticated_user.id,
-              attrs: params[:announcement].merge(confirmed: true),
+              attrs: params[:announcement].merge(user_verified: true),
             }
             ::MapawynajmuPl::Commands::Announcement::Create.new(announcement_attrs).call
             authenticated_user.announcements.last.summary_path(lang)

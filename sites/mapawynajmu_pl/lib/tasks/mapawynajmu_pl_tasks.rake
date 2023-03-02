@@ -26,19 +26,6 @@ namespace :mapawynajmu_pl do
     end
   end
 
-  desc 'Migrates user data for new user architecture.'
-  task migrate_user_data: :environment do
-    ::MapawynajmuPl::User.all.each do |user|
-      phone_data = user.phone
-      user.update(
-        confirmed: true,
-        email_confirmed_at: user.created_at,
-        country_code: phone_data['code'],
-        phone_number: phone_data['body']
-      )
-    end
-  end
-
   desc 'Prepares user verification for new user architecture.'
   task prepare_user_verification: :environment do
     ::MapawynajmuPl::User.all.each do |user|

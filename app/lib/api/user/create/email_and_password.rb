@@ -58,19 +58,12 @@ module Api
 
           user_id = decodedVerificationToken['userId']
           user = ::MapawynajmuPl::User.find(user_id)
-          error!('Invalid verification code!', 422) if user.confirmed?
+          error!('Invalid verification code!', 422) if user.verified?
 
           ActiveRecord::Base.transaction do
             ::Commands::User::Update::GenericAttr.new(
               user_id: user.id,
-              name: 'confirmed',
-              value: true,
-              constantized_site_name: constantized_site_name,
-            ).call
-
-            ::Commands::User::Update::GenericAttr.new(
-              user_id: user.id,
-              name: 'email_confirmed_at',
+              name: 'email_verified_at',
               value: Time.zone.now,
               constantized_site_name: constantized_site_name,
             ).call
