@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_060518) do
+ActiveRecord::Schema.define(version: 2023_03_02_061004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 2023_03_02_060518) do
     t.jsonb "change_log", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "confirmed_at"
+    t.datetime "email_verified_at"
   end
 
   add_foreign_key "coveted_skills", "jobs"
