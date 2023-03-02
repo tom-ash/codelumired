@@ -52,6 +52,7 @@ module SkillfindTech
               visitor: true,
               page: true,
               'page/show': true,
+              renderPostingIndex: true,
             }
           end
 

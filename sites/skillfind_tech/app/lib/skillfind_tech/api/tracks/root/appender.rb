@@ -12,11 +12,21 @@ module SkillfindTech
 
           def data
             {
+              postings: postings,
               tutorials: tutorials,
               articles: articles,
             }.merge(
               ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
             )
+          end
+
+          def postings
+            ::SkillfindTech::Job.includes(:coveted_skills).map do |job|
+              {
+                id: job.id,
+                skills: job.selected_skills,
+              }
+            end
           end
 
           def page

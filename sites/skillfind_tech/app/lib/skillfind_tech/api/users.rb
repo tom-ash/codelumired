@@ -10,7 +10,7 @@ module SkillfindTech
       post do
         user = ::SkillfindTech::Commands::Users::Create.new(params).call
         private_key = RbNaCl::Signatures::Ed25519::SigningKey.new(ENV['JWT_SECRET'])
-        payload = { abc: user.id }
+        payload = { id: user.id }
         JWT.encode payload, private_key, 'ED25519'
       end
 

@@ -29,5 +29,14 @@ module SkillfindTech
     validates :employment_max, numericality: true, allow_nil: true
     validates :b2b_min, numericality: true, allow_nil: true
     validates :b2b_max, numericality: true, allow_nil: true
+
+    def selected_skills
+      coveted_skills.map do |coveted_skill|
+        {
+          name: coveted_skill.skill.name,
+          level: coveted_skill.level,
+        }
+      end
+    end
   end
 end
