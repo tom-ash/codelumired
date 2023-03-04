@@ -18,11 +18,17 @@ module MapawynajmuPl
                     emailInputLabel: 'Adres email',
                     emailInputPlaceholder: 'Podaj adres email',
                     emailInvalidError: 'Nieprawidłowy adres email.',
+                    businessNameInputLabel: 'Nazwa firmy',
+                    businessNameInputPlaceholder: 'Podaj nazwę firmy',
+                    businessNameInvalidError: 'Nieprawidłowa nazwa firmy.',
                   },
                   en: {
                     emailInputLabel: 'Email Address',
                     emailInputPlaceholder: 'Provide email address',
                     emailInvalidError: 'Invalid email address.',
+                    businessNameInputLabel: 'Business Name',
+                    businessNameInputPlaceholder: 'Provide business name',
+                    businessNameInvalidError: 'Invalid business name.',
                   },
                 }[lang]
               end
@@ -41,7 +47,7 @@ module MapawynajmuPl
 
               def errors
                 {
-                  businessName: NO_ERROR,
+                  businessName: false,
                   emailAddress: false,
                   password: NO_ERROR,
                   phoneNumber: NO_ERROR,
