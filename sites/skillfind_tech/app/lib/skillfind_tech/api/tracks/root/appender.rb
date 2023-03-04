@@ -25,6 +25,9 @@ module SkillfindTech
               {
                 id: job.id,
                 skills: job.selected_skills,
+                b2b: job.b2b,
+                b2bMin: job.b2b_min,
+                b2bMax: job.b2b_max,
               }
             end
           end

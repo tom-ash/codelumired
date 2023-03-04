@@ -33,12 +33,12 @@ module SkillfindTech
             remote: false,
             hybrid: false,
             office: false,
+            b2b: attrs[:b2b],
+            b2b_min: attrs[:b2b_min],
+            b2b_max: attrs[:b2b_max],
             employment: false,
             # employment_min: attrs[:employment_min],
             # employment_max: attrs[:employment_max],
-            b2b: false,
-            # b2b_min: attrs[:b2b_min],
-            # b2b_max: attrs[:b2b_max],
             # # civil_contract: attrs[:civil_contract], # TODO
           )
         end
