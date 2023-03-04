@@ -15,20 +15,32 @@ module MapawynajmuPl
               def texts
                 {
                   pl: {
-                    emailInputLabel: 'Adres email',
-                    emailInputPlaceholder: 'Podaj adres email',
-                    emailInvalidError: 'Nieprawidłowy adres email.',
                     businessNameInputLabel: 'Nazwa firmy',
                     businessNameInputPlaceholder: 'Podaj nazwę firmy',
                     businessNameInvalidError: 'Nieprawidłowa nazwa firmy.',
+
+                    emailInputLabel: 'Adres email',
+                    emailInputPlaceholder: 'Podaj adres email',
+                    emailInvalidError: 'Nieprawidłowy adres email.',
+
+                    passwordInputLabel: 'Hasło',
+                    passwordInputPlaceholder: 'Podaj hasło',
+                    passwordInvalidError: 'Hasło powinno się składać z conajmniej 6 znaków.',
+
                   },
                   en: {
-                    emailInputLabel: 'Email Address',
-                    emailInputPlaceholder: 'Provide email address',
-                    emailInvalidError: 'Invalid email address.',
                     businessNameInputLabel: 'Business Name',
                     businessNameInputPlaceholder: 'Provide business name',
                     businessNameInvalidError: 'Invalid business name.',
+
+                    emailInputLabel: 'Email Address',
+                    emailInputPlaceholder: 'Provide email address',
+                    emailInvalidError: 'Invalid email address.',
+
+                    passwordInputLabel: 'Password',
+                    passwordInputPlaceholder: 'Provide password',
+                    passwordInvalidError: 'The password has to consist at least six characters.',
+
                   },
                 }[lang]
               end
@@ -49,7 +61,7 @@ module MapawynajmuPl
                 {
                   businessName: false,
                   emailAddress: false,
-                  password: NO_ERROR,
+                  password: false,
                   phoneNumber: NO_ERROR,
                   termsAndPrivacyConsent: NO_ERROR,
                   verification: NO_ERROR,
