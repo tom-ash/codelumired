@@ -11,10 +11,15 @@ module SkillfindTech
               include ::SkillfindTech::Api::Tracks::Announcement::Create::Form::State
               include ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta
 
+              EMPTY_TEXT_INPUT = ''
+
               def inputs
                 {
                   selectableSkills: selectableSkills,
                   selectedSkills: [],
+                  b2b: false,
+                  b2bMin: EMPTY_TEXT_INPUT,
+                  b2bMax: EMPTY_TEXT_INPUT,
                 }
               end
 
