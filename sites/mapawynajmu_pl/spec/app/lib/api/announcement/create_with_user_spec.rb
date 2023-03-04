@@ -16,7 +16,7 @@ RSpec.describe ::MapawynajmuPl::Api::Announcement::CreateWithUser do
   let(:country_code) { '+48' }
   let(:phone_number) { '123123123' }
   let(:headers) { { 'Lang': 'pl' } }
-  let(:consents) { [{ type: 'terms_and_conditions_and_privacy_policy', granted: true, displayed_text: 'Akceptuję Regulamin i Politykę Prywatności.' }] }
+  let(:consents) { [{ type: 'terms_of_service', granted: true, displayed_text: 'Akceptuję Regulamin i Politykę Prywatności.' }] }
   let(:user) { { email: email, password: password, first_name: first_name, country_code: country_code, phone_number: phone_number, consents: consents } }
 
   describe 'POST' do

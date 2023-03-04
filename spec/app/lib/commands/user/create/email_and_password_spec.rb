@@ -10,7 +10,7 @@ RSpec.describe ::Commands::User::Create::EmailAndPassword do
   let(:first_name) { 'Gandalf' }
   let(:country_code) { '+48'}
   let(:phone_number) { '123123123' }
-  let(:consents) { [{ type: 'terms_and_conditions_and_privacy_policy', granted: true, displayed_text: 'Akceptuję Regulamin i Politykę Prywatności.' }] }
+  let(:consents) { [{ type: 'terms_of_service', granted: true, displayed_text: 'Akceptuję Regulamin i Politykę Prywatności.' }] }
 
   context 'when email and password are valid' do
     it 'creates the user' do
