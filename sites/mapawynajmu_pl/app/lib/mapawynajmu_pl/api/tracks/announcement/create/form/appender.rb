@@ -63,7 +63,7 @@ module MapawynajmuPl
                   password: EMPTY_TEXT_INPUT,
                   countryCode: '+48',
                   phoneNumber: EMPTY_TEXT_INPUT,
-                  termsAndPrivacyConsent: false,
+                  termsOfServiceConsent: false,
                 }
               end
 
@@ -76,7 +76,7 @@ module MapawynajmuPl
                   emailAddress: NO_ERROR,
                   password: NO_ERROR,
                   phoneNumber: NO_ERROR,
-                  termsAndPrivacyConsent: NO_ERROR,
+                  termsOfServiceConsent: NO_ERROR,
                 }
               end
             end
