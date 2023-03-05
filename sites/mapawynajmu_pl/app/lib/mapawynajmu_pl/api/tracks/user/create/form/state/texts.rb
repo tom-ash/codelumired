@@ -19,6 +19,7 @@ module MapawynajmuPl
                       emailInputLabel: 'Adres email',
                       emailInputPlaceholder: 'Podaj adres email',
                       emailInvalidError: 'Nieprawidłowy adres email.',
+                      phoneNumberExplanation: 'Numer telefonu będzie widoczny przy Twoich ogłoszeniach jako dana kontaktowa.',
                       phoneNumberInputLabel: 'Numer telefonu',
                       phoneNumberInputPlaceholder: 'Podaj numer telefonu',
                       phoneNumberInvalidError: 'Nieprawidłowy numer telefonu.',
@@ -29,8 +30,7 @@ module MapawynajmuPl
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'Akceptacja Regulaminu jest wymagana.',
-
-                      phoneNumberExplanation: 'Numer telefonu będzie widoczny przy Twoich ogłoszeniach jako dana kontaktowa.',
+                      signUp: 'Zarejestruj',
                     },
                     en: {
                       businessNameInputLabel: 'Business Name',
@@ -42,6 +42,7 @@ module MapawynajmuPl
                       passwordInputLabel: 'Password',
                       passwordInputPlaceholder: 'Provide password',
                       passwordInvalidError: 'The password has to consist at least six characters.',
+                      phoneNumberExplanation: 'The phone number will appear at your listings as a contact data.',
                       phoneNumberInputLabel: 'Phone number',
                       phoneNumberInputPlaceholder: 'Provide phone number',
                       phoneNumberInvalidError: 'Invalid phone number.',
@@ -49,8 +50,7 @@ module MapawynajmuPl
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'The acceptance of the Terms of Service is required.',
-
-                      phoneNumberExplanation: 'The phone number will appear at your listings as a contact data.',
+                      signUp: 'Sign Up',
                     },
                   }[lang]
                 end
