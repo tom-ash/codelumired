@@ -11,8 +11,8 @@ module MapawynajmuPl
             include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Assets
 
             NO_ERROR = { pl: '', en: '' }.freeze
-            EMPTY_TEXT_INPUT = ''
-            EMPTY_ARRAY_INPUT = [].freeze
+            EMPTY_TEXT = ''
+            EMPTY_ARRAY = [].freeze
 
             private
 
@@ -43,9 +43,9 @@ module MapawynajmuPl
                 longitude: announcement.longitude,
                 locality: announcement.locality,
                 sublocality: announcement.sublocality,
-                blobs: EMPTY_ARRAY_INPUT,
-                picFiles: EMPTY_ARRAY_INPUT,
-                picUploads: EMPTY_ARRAY_INPUT,
+                blobs: EMPTY_ARRAY,
+                picFiles: EMPTY_ARRAY,
+                picUploads: EMPTY_ARRAY,
                 db_pictures: announcement.pictures,
                 area: announcement.area,
                 netRentAmount: announcement.net_rent_amount,

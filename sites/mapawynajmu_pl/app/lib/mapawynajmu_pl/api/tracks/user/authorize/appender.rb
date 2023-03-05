@@ -10,7 +10,7 @@ module MapawynajmuPl
             include ::MapawynajmuPl::Api::Tracks::User::Authorize::Meta
 
             NO_ERROR = { pl: '', en: '' }.freeze
-            EMPTY_TEXT_INPUT = ''
+            EMPTY_TEXT = ''
 
             private
 
