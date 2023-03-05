@@ -15,7 +15,7 @@ module MapawynajmuPl
                     businessName: false,
                     emailAddress: false,
                     password: false,
-                    phoneNumber: {}, # TODO
+                    phoneNumber: false,
                     termsOfServiceConsent: false,
                   }
                 end
