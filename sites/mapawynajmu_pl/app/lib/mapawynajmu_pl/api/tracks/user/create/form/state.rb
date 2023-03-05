@@ -21,6 +21,7 @@ module MapawynajmuPl
               def inputs
                 {
                   account_type: 'private',
+                  accountTypes: accountTypes,
                   businessName: EMPTY_TEXT_INPUT,
                   emailAddress: EMPTY_TEXT_INPUT,
                   password: EMPTY_TEXT_INPUT,
@@ -28,6 +29,27 @@ module MapawynajmuPl
                   phoneNumber: EMPTY_TEXT_INPUT,
                   termsOfServiceConsent: false,
                 }
+              end
+
+              def accountTypes
+                [
+                  {
+                    value: 'private',
+                    label: privateAccount,
+                  },
+                  {
+                    value: 'business',
+                    label: businessAccount,
+                  },
+                ]
+              end
+
+              def privateAccount
+                { pl: 'Konto Osobiste123', en: 'Personal Account' }[lang]
+              end
+
+              def businessAccount
+                { pl: 'Konto Firmowe', en: 'Business Account' }[lang]
               end
 
               def errors
