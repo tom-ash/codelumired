@@ -29,6 +29,8 @@ module MapawynajmuPl
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'Akceptacja Regulaminu jest wymagana.',
+
+                      phoneNumberExplanation: 'Numer telefonu będzie widoczny przy Twoich ogłoszeniach jako dana kontaktowa.',
                     },
                     en: {
                       businessNameInputLabel: 'Business Name',
@@ -47,6 +49,8 @@ module MapawynajmuPl
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'The acceptance of the Terms of Service is required.',
+
+                      phoneNumberExplanation: 'The phone number will appear at your listings as a contact data.',
                     },
                   }[lang]
                 end
