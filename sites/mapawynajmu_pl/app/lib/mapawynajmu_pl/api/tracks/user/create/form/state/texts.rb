@@ -13,6 +13,7 @@ module MapawynajmuPl
                 def user_form_texts
                   {
                     pl: {
+                      headingOne: 'Zarejestruj',
                       businessNameInputLabel: 'Nazwa firmy',
                       businessNameInputPlaceholder: 'Podaj nazwę firmy',
                       businessNameInvalidError: 'Nieprawidłowa nazwa firmy.',
@@ -33,6 +34,7 @@ module MapawynajmuPl
                       signUp: 'Zarejestruj',
                     },
                     en: {
+                      headingOne: 'Sign Up',
                       businessNameInputLabel: 'Business Name',
                       businessNameInputPlaceholder: 'Provide business name',
                       businessNameInvalidError: 'Invalid business name.',
