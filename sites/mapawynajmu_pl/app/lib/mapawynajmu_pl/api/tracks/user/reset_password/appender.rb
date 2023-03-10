@@ -46,9 +46,11 @@ module MapawynajmuPl
                   submitEmail: 'Dalej',
                   verificationCodeInputLabel: 'Kod werifykacyjny',
                   verificationCodeInputInvalidError: 'Nieprawidłowy kod weryfikacyjny.',
+                  submitVerificationCode: 'Dalej',
                   passwordInputLabel: 'Hasło',
                   passwordInputPlaceholder: 'Podaj hasło',
                   passwordInvalidError: 'Hasło powinno się składać z conajmniej 6 znaków.',
+                  submitPassword: 'Zmień hasło',
                 },
                 en: {
                   headingOne: 'Reset password',
@@ -58,9 +60,11 @@ module MapawynajmuPl
                   submitEmail: 'Next',
                   verificationCodeInputLabel: 'Verification Code',
                   verificationCodeInputInvalidError: 'Invalid verification code.',
+                  submitVerificationCode: 'Next',
                   passwordInputLabel: 'Password',
                   passwordInputPlaceholder: 'Provide password',
                   passwordInvalidError: 'The password has to consist at least six characters.',
+                  submitPassword: 'Change password',
                 },
               }[lang]
             end
