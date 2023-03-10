@@ -10,12 +10,12 @@ module MapawynajmuPl
 
             UNLOCALIZED_PATH = {
               pl: 'zresetuj-haslo',
-              en: 'reset-password'
+              en: 'reset-password',
             }.freeze
 
             UNLOCALIZED_TITLE = {
               pl: 'Zresetuj Hasło',
-              en: 'Reset Password'
+              en: 'Reset Password',
             }.freeze
 
             private

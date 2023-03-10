@@ -30,9 +30,17 @@ module Api
         end
 
         def user
-          return {} if authenticated_user.blank?
+          return blank_user if authenticated_user.blank?
 
           ::Serializers::User::Show.new(user: authenticated_user, constantized_site_name: constantized_site_name).call
+        end
+
+        def blank_user
+          {
+            authorized: false,
+            accountType: nil,
+            role: nil,
+          }
         end
 
         def meta_preview

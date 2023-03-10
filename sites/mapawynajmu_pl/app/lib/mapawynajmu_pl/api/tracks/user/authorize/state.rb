@@ -20,7 +20,7 @@ module MapawynajmuPl
                   passwordInputLabel: 'Hasło',
                   passwordInputPlaceholder: 'Podaj hasło',
                   passwordInvalidError: 'Nieprawidłowe hasło.',
-                  emailOrPasswordInvalidError: 'Nieprawidłowy email lub hasło.',
+                  credentialsInvalidError: 'Nieprawidłowy email lub hasło.',
                   signIn: 'Zaloguj',
                   resetPassword: 'Zresetuj hasło',
                 },
@@ -32,7 +32,7 @@ module MapawynajmuPl
                   passwordInputLabel: 'Password',
                   passwordInputPlaceholder: 'Provide password',
                   passwordInvalidError: 'Invalid password.',
-                  emailOrPasswordInvalidError: 'Invalid email or password.',
+                  credentialsInvalidError: 'Invalid email or password.',
                   signIn: 'Sign In',
                   resetPassword: 'Reset password',
                 },
@@ -51,7 +51,7 @@ module MapawynajmuPl
               {
                 emailAddress: false,
                 password: false,
-                emailOrPassword: false,
+                credentials: false,
               }
             end
           end
