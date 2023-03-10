@@ -13,58 +13,43 @@ module MapawynajmuPl
 
             private
 
-            # import React from 'react'
-
-            # export const emailAddress = {
-            #   pl: <span>Podaj adres email przypisany do Twojego konta.</span>,
-            #   en: <span>Provide the email address associated with your account.</span>,
-            # }
-
-            # export const verificationCode = {
-            #   pl: <span>Kod weryfikacyjny został wysłany na podany adres email. Wklej go poniżej i naciśnij 'Dalej'.</span>,
-            #   en: <span>The verification code was sent to the provided email address. Paste it below and press 'Next'.</span>,
-            # }
-
-            # export const password = {
-            #   pl: <span>Podaj nowe hasło.</span>,
-            #   en: <span>Provide new password.</span>,
-            # }
-
-            # export const success = {
-            #   pl: <span>Twoje hasło zostało zmienione.</span>,
-            #   en: <span>Your password was changed.</span>,
-            # }
-
-
             def texts
               {
                 pl: {
                   headingOne: 'Zresetuj hasło',
+                  emailAddressExplanation: 'Podaj adres email przypisany do Twojego konta.',
                   emailInputLabel: 'Adres email',
                   emailInputPlaceholder: 'Podaj adres email',
                   emailInvalidError: 'Nieprawidłowy adres email.',
                   submitEmail: 'Dalej',
+                  verificationExplanation: "Kod weryfikacyjny został wysłany na podany adres email. Wklej go poniżej i naciśnij 'Dalej'.",
                   verificationCodeInputLabel: 'Kod werifykacyjny',
                   verificationCodeInputInvalidError: 'Nieprawidłowy kod weryfikacyjny.',
                   submitVerificationCode: 'Dalej',
+                  passwordExplanation: 'Podaj nowe hasło.',
                   passwordInputLabel: 'Hasło',
                   passwordInputPlaceholder: 'Podaj hasło',
                   passwordInvalidError: 'Hasło powinno się składać z conajmniej 6 znaków.',
                   submitPassword: 'Zmień hasło',
+                  successExplanation: 'Twoje hasło zostało zmienione.',
                 },
                 en: {
                   headingOne: 'Reset password',
+                  emailAddressExplanation: 'Provide the email address associated with your account.',
                   emailInputLabel: 'Email Address',
                   emailInputPlaceholder: 'Provide email address',
                   emailInvalidError: 'Invalid email address.',
                   submitEmail: 'Next',
+                  verificationExplanation: "The verification code was sent to the provided email address. Paste it below and press 'Next'.",
                   verificationCodeInputLabel: 'Verification Code',
                   verificationCodeInputInvalidError: 'Invalid verification code.',
                   submitVerificationCode: 'Next',
+                  passwordExplanation: 'Provide new password.',
                   passwordInputLabel: 'Password',
                   passwordInputPlaceholder: 'Provide password',
                   passwordInvalidError: 'The password has to consist at least six characters.',
                   submitPassword: 'Change password',
+                  successExplanation: 'Your password has been changed.',
                 },
               }[lang]
             end
