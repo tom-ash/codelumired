@@ -23,11 +23,15 @@ module MapawynajmuPl
             def texts
               {
                 pl: {
+                  cellOpen: 'Zmień',
+                  cellClose: 'Anuluj',
                   headingOne: 'Ustawienia konta',
                   userDeletionTitle: 'Usuwanie konta',
                   userDeletionValue: 'Usunięcie konta jest nieodwracalne.',
                 },
                 en: {
+                  cellOpen: 'Change',
+                  cellClose: 'Cancel',
                   headingOne: 'Account Settings',
                   userDeletionTitle: 'Account Deletion',
                   userDeletionValue: 'Account deletion is irreversible.',
@@ -44,6 +48,7 @@ module MapawynajmuPl
 
             def inputs
               {
+                userDeletionCellOpened: false,
                 country_code: authenticated_user.country_code,
               }
             end
