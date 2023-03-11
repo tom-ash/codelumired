@@ -8,14 +8,15 @@ module MapawynajmuPl
           class Appender
             include ::Api::Tracks::Helpers::Appender
             include ::MapawynajmuPl::Api::Tracks::User::Edit::Meta
+            include ::MapawynajmuPl::Api::Tracks::User::Common::CountryCodes
 
             private
 
             def control
               {
                 connecting: false,
+                countryCodeAndPhoneNumberCellOpened: false,
                 userDeleteCellOpened: false,
-                # emailStep: 'currentEmailVerification',
               }
             end
 
@@ -27,11 +28,16 @@ module MapawynajmuPl
                   headingOne: 'Ustawienia konta',
                   verificationCodeInputLabel: 'Kod werifykacyjny',
                   verificationCodeInputInvalidError: 'Nieprawidłowy kod weryfikacyjny.',
+                  countryCodeAndPhoneNumberTitle: 'Numer telefonu',
+                  countryCodeAndPhoneNumberExplanation: 'Podaj nowy numer telefonu i naciśnij przycisk "Zmień".',
+                  countryCodeAndPhoneNumberSubmitButtonLabel: 'Zmień',
+                  phoneNumberInputLabel: 'Numer telefonu',
+                  phoneNumberInputPlaceholder: 'Podaj numer telefonu',
+                  phoneNumberInvalidError: 'Nieprawidłowy numer telefonu.',
                   userDeleteCellOpen: 'Usuń konto',
                   userDeleteTitle: 'Usuwanie konta',
-                  userDeleteValue: 'Usunięcie konta jest nieodwracalne.',
                   userDeleteExplanation: "Kod weryfikacyjny został wysłany na adres email przypisany do konta. Wklej go ponizej i naciśnij przycisk 'Usuń konto', aby nieodwracalnie usunąć konto.",
-                  deleteUser: 'Usuń konto',
+                  userDeleteButtonLabel: 'Usuń konto',
                 },
                 en: {
                   cellOpen: 'Change',
@@ -39,25 +45,39 @@ module MapawynajmuPl
                   headingOne: 'Account Settings',
                   verificationCodeInputLabel: 'Verification Code',
                   verificationCodeInputInvalidError: 'Invalid verification code.',
+                  countryCodeAndPhoneNumberTitle: 'Phone number',
+                  countryCodeAndPhoneNumberExplanation: 'Provide new phone number and click the "Change" button.',
+                  countryCodeAndPhoneNumberSubmitButtonLabel: 'Change',
+                  phoneNumberInputLabel: 'Phone number',
+                  phoneNumberInputPlaceholder: 'Provide phone number',
+                  phoneNumberInvalidError: 'Invalid phone number.',
                   userDeleteCellOpen: 'Delete account',
                   userDeleteTitle: 'Account Deletion',
-                  userDeleteValue: 'Account deletion is irreversible.',
                   userDeleteExplanation: "The verification code has been sent to the account email address. Paste it below and click 'Delete account' to irreversibly delete the account.",
-                  deleteUser: 'Delete Account',
+                  userDeleteButtonLabel: 'Delete Account',
                 },
               }[lang]
             end
 
             def data
-              ::Serializers::User::Edit.new(
-                user: authenticated_user,
-                constantized_site_name: constantized_site_name,
-              ).call
+              {
+                pl: {
+                  userDeleteValue: 'Usunięcie konta jest nieodwracalne.',
+                },
+                en: {
+                  userDeleteValue: 'Account deletion is irreversible.',
+                },
+              }[lang].merge(
+                countryCodeAndPhoneNumberValue: "#{authenticated_user.country_code} #{authenticated_user.phone_number}",
+                email: authenticated_user.email,
+              )
             end
 
             def inputs
               {
                 country_code: authenticated_user.country_code,
+                phoneNumber: authenticated_user.phone_number,
+                countryCodes: countryCodes,
               }
             end
           end
