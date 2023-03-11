@@ -20,6 +20,21 @@ module MapawynajmuPl
               }
             end
 
+            def texts
+              {
+                pl: {
+                  headingOne: 'Ustawienia konta',
+                  userDeletionTitle: 'Usuwanie konta',
+                  userDeletionValue: 'Usunięcie konta jest nieodwracalne.',
+                },
+                en: {
+                  headingOne: 'Account Settings',
+                  userDeletionTitle: 'Account Deletion',
+                  userDeletionValue: 'Account deletion is irreversible.',
+                },
+              }[lang]
+            end
+
             def data
               ::Serializers::User::Edit.new(
                 user: authenticated_user,
