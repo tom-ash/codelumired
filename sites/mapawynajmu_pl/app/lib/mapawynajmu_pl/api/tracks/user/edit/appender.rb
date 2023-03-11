@@ -50,7 +50,7 @@ module MapawynajmuPl
 
             def inputs
               {
-                userDeletionCellOpened: true,
+                userDeletionCellOpened: false,
                 country_code: authenticated_user.country_code,
               }
             end
