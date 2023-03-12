@@ -140,7 +140,7 @@ module Api
             ).call
 
             ActiveRecord::Base.transaction do
-              ::Commands::User::Update::GenericAttr.new(
+              ::Commands::User::Update::Attribute.new(
                 user_id: authenticatedUserId,
                 name: 'email',
                 value: newEmail,

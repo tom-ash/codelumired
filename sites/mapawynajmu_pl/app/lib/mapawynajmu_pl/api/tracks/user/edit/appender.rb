@@ -15,6 +15,7 @@ module MapawynajmuPl
             def control
               {
                 connecting: false,
+                businessNameCellOpened: false,
                 countryCodeAndPhoneNumberCellOpened: false,
                 userDeleteCellOpened: false,
               }
@@ -26,35 +27,47 @@ module MapawynajmuPl
                   cellOpen: 'Zmień',
                   cellClose: 'Anuluj',
                   headingOne: 'Ustawienia konta',
-                  verificationCodeInputLabel: 'Kod werifykacyjny',
-                  verificationCodeInputInvalidError: 'Nieprawidłowy kod weryfikacyjny.',
-                  countryCodeAndPhoneNumberTitle: 'Numer telefonu',
-                  countryCodeAndPhoneNumberExplanation: 'Podaj nowy numer telefonu i naciśnij przycisk "Zmień".',
+                  businessNameCellTitle: 'Nazwa firmy',
+                  businessNameInputExplanation: 'Podaj nową nazwę firmy i naciśnij przycisk "Zmień".',
+                  businessNameInputLabel: 'Nazwa firmy',
+                  businessNameInputPlaceholder: 'Podaj nową nazwę firmy',
+                  businessNameInputInvalidError: 'Nazwa firmy nie może być pusta.',
+                  businessNameSubmitButtonLabel: 'Zmień',
+                  countryCodeAndPhoneNumberCellTitle: 'Numer telefonu',
+                  countryCodeAndPhoneNumberInputsExplanation: 'Podaj nowy numer telefonu i naciśnij przycisk "Zmień".',
                   countryCodeAndPhoneNumberSubmitButtonLabel: 'Zmień',
                   phoneNumberInputLabel: 'Numer telefonu',
                   phoneNumberInputPlaceholder: 'Podaj numer telefonu',
-                  phoneNumberInvalidError: 'Nieprawidłowy numer telefonu.',
+                  phoneNumberInputInvalidError: 'Nieprawidłowy numer telefonu.',
                   userDeleteCellOpen: 'Usuń konto',
-                  userDeleteTitle: 'Usuwanie konta',
-                  userDeleteExplanation: "Kod weryfikacyjny został wysłany na adres email przypisany do konta. Wklej go ponizej i naciśnij przycisk 'Usuń konto', aby nieodwracalnie usunąć konto.",
-                  userDeleteButtonLabel: 'Usuń konto',
+                  userDeleteCellTitle: 'Usuwanie konta',
+                  userDeleteInputExplanation: "Kod weryfikacyjny został wysłany na adres email przypisany do konta. Wklej go ponizej i naciśnij przycisk 'Usuń konto', aby nieodwracalnie usunąć konto.",
+                  userDeleteSubmitButtonLabel: 'Usuń konto',
+                  verificationCodeInputLabel: 'Kod werifykacyjny',
+                  verificationCodeInputInvalidError: 'Nieprawidłowy kod weryfikacyjny.',
                 },
                 en: {
                   cellOpen: 'Change',
                   cellClose: 'Cancel',
                   headingOne: 'Account Settings',
-                  verificationCodeInputLabel: 'Verification Code',
-                  verificationCodeInputInvalidError: 'Invalid verification code.',
-                  countryCodeAndPhoneNumberTitle: 'Phone number',
-                  countryCodeAndPhoneNumberExplanation: 'Provide new phone number and click the "Change" button.',
+                  businessNameCellTitle: 'Business Name',
+                  businessNameInputExplanation: 'Provide new business name and click the "Change" button.',
+                  businessNameInputLabel: 'Business Name',
+                  businessNameInputPlaceholder: 'Provide new business name',
+                  businessNameInputInvalidError: 'The business name cannot be blank.',
+                  businessNameSubmitButtonLabel: 'Change',
+                  countryCodeAndPhoneNumberCellTitle: 'Phone number',
+                  countryCodeAndPhoneNumberInputsExplanation: 'Provide new phone number and click the "Change" button.',
                   countryCodeAndPhoneNumberSubmitButtonLabel: 'Change',
                   phoneNumberInputLabel: 'Phone number',
                   phoneNumberInputPlaceholder: 'Provide phone number',
-                  phoneNumberInvalidError: 'Invalid phone number.',
+                  phoneNumberInputInvalidError: 'Invalid phone number.',
                   userDeleteCellOpen: 'Delete account',
-                  userDeleteTitle: 'Account Deletion',
-                  userDeleteExplanation: "The verification code has been sent to the account email address. Paste it below and click 'Delete account' to irreversibly delete the account.",
-                  userDeleteButtonLabel: 'Delete Account',
+                  userDeleteCellTitle: 'Account Deletion',
+                  userDeleteInputExplanation: "The verification code has been sent to the account email address. Paste it below and click 'Delete account' to irreversibly delete the account.",
+                  userDeleteSubmitButtonLabel: 'Delete Account',
+                  verificationCodeInputLabel: 'Verification Code',
+                  verificationCodeInputInvalidError: 'Invalid verification code.',
                 },
               }[lang]
             end
@@ -62,22 +75,24 @@ module MapawynajmuPl
             def data
               {
                 pl: {
-                  userDeleteValue: 'Usunięcie konta jest nieodwracalne.',
+                  userDeleteCellValue: 'Usunięcie konta jest nieodwracalne.',
                 },
                 en: {
-                  userDeleteValue: 'Account deletion is irreversible.',
+                  userDeleteCellValue: 'Account deletion is irreversible.',
                 },
               }[lang].merge(
-                countryCodeAndPhoneNumberValue: "#{authenticated_user.country_code} #{authenticated_user.phone_number}",
+                businessNameCellValue: authenticated_user.business_name,
+                countryCodeAndPhoneNumberCellValue: "#{authenticated_user.country_code} #{authenticated_user.phone_number}",
                 email: authenticated_user.email,
               )
             end
 
             def inputs
               {
-                country_code: authenticated_user.country_code,
-                phoneNumber: authenticated_user.phone_number,
+                businessName: authenticated_user.business_name,
+                countryCode: authenticated_user.country_code,
                 countryCodes: countryCodes,
+                phoneNumber: authenticated_user.phone_number,
               }
             end
           end

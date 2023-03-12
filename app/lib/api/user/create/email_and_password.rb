@@ -61,7 +61,7 @@ module Api
           error!('Invalid verification code!', 422) if user.verified?
 
           ActiveRecord::Base.transaction do
-            ::Commands::User::Update::GenericAttr.new(
+            ::Commands::User::Update::Attribute.new(
               user_id: user.id,
               name: 'email_verified_at',
               value: Time.zone.now,

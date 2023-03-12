@@ -3,17 +3,20 @@
 module Api
   module User
     module Update
-      class GenericAttr < Grape::API
+      class Attribute < Grape::API
         before { authorize! }
 
         params do
           requires :name, type: String
           requires :value, type: String
         end
-        put do
+        patch do
+
+          # TODO: Add attribute restrictions - no email, password, etc. Use whitelist.
+
           name = params[:name].underscore
           value = params[:value]
-          ::Commands::User::Update::GenericAttr.new(
+          ::Commands::User::Update::Attribute.new(
             user_id: authenticated_user.id,
             name: name,
             value: value,

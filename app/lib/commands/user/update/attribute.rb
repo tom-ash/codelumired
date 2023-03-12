@@ -3,7 +3,7 @@
 module Commands
   module User
     module Update
-      class GenericAttr
+      class Attribute
         include SiteName
 
         def initialize(user_id:, name:, value:, constantized_site_name:)

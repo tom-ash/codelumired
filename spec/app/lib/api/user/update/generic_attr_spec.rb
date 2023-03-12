@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ::Api::User::Update::GenericAttr do
+RSpec.describe ::Api::User::Update::Attribute do
   subject { put '/mapawynajmu_pl/user/update/generic-attr/first_name', params: params, headers: { 'Access-Token': access_token, 'Lang': 'pl' } }
   let!(:user) { create(:mapawynajmu_pl_user, first_name: first_name) }
   let(:first_name) { 'Gandalf the Gray' }
