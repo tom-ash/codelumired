@@ -6,7 +6,7 @@ module MapawynajmuPl
       module User
         module ResetPassword
           module Meta
-            TRACK = 'user/reset-password'
+            TRACK = 'user/password-reset'
 
             UNLOCALIZED_PATH = {
               pl: 'zresetuj-haslo',
@@ -50,7 +50,7 @@ module MapawynajmuPl
               {
                 visitor: true,
                 user: true,
-                'user/reset-password': true
+                'user/password-reset': true
               }
             end
 
