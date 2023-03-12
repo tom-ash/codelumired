@@ -12,6 +12,7 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::UNLOCALIZED_PATH,
+            ::SkillfindTech::Api::Tracks::User::New::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::New::Form::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::UNLOCALIZED_PATH,
             ::Api::Tracks::Page::Index::Meta::TRACK => ::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
@@ -29,6 +30,7 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK then ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK then ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK then ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::User::New::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::New::Form::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK then ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Appender.new(attrs).call
           when ::Api::Tracks::Page::Index::Meta::TRACK then ::Api::Tracks::Page::Index::Appender.new(attrs).call

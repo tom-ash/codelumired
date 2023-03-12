@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module MapawynajmuPl
+module SkillfindTech
   module Api
     module Tracks
       module User
-        module Create
+        module New
           module Form
             module State
               module Texts
@@ -14,16 +14,9 @@ module MapawynajmuPl
                   {
                     pl: {
                       headingOne: 'Zarejestruj',
-                      businessNameInputLabel: 'Nazwa firmy',
-                      businessNameInputPlaceholder: 'Podaj nazwę firmy',
-                      businessNameInputInvalidError: 'Nieprawidłowa nazwa firmy.',
                       emailInputLabel: 'Adres email',
                       emailInputPlaceholder: 'Podaj adres email',
                       emailInputInvalidError: 'Nieprawidłowy adres email.',
-                      phoneNumberExplanation: 'Numer telefonu będzie widoczny przy Twoich ogłoszeniach jako dana kontaktowa.',
-                      phoneNumberInputLabel: 'Numer telefonu',
-                      phoneNumberInputPlaceholder: 'Podaj numer telefonu',
-                      phoneNumberInputInvalidError: 'Nieprawidłowy numer telefonu.',
                       passwordInputLabel: 'Hasło',
                       passwordInputPlaceholder: 'Podaj hasło',
                       passwordInputInvalidError: 'Hasło powinno się składać z conajmniej 6 znaków.',
@@ -35,19 +28,12 @@ module MapawynajmuPl
                     },
                     en: {
                       headingOne: 'Sign Up',
-                      businessNameInputLabel: 'Business Name',
-                      businessNameInputPlaceholder: 'Provide business name',
-                      businessNameInputInvalidError: 'Invalid business name.',
                       emailInputLabel: 'Email Address',
                       emailInputPlaceholder: 'Provide email address',
                       emailInputInvalidError: 'Invalid email address.',
                       passwordInputLabel: 'Password',
                       passwordInputPlaceholder: 'Provide password',
                       passwordInputInvalidError: 'The password has to consist at least six characters.',
-                      phoneNumberExplanation: 'The phone number will appear at your listings as a contact data.',
-                      phoneNumberInputLabel: 'Phone number',
-                      phoneNumberInputPlaceholder: 'Provide phone number',
-                      phoneNumberInputInvalidError: 'Invalid phone number.',
                       termsOfServiceConsentLabel: termsOfServiceConsentLabel,
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,

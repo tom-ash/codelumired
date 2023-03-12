@@ -68,7 +68,7 @@ module MapawynajmuPl
                 {
                   'visitor': true,
                   'user': true,
-                  'user/create': true,
+                  'user/new': true,
                   'user/create/confirmation': true,
                 }
               end

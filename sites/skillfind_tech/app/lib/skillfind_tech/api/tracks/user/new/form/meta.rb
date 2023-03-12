@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module MapawynajmuPl
+module SkillfindTech
   module Api
     module Tracks
       module User
-        module Create
+        module New
           module Form
             module Meta
               TRACK = 'user/new/form'
@@ -58,8 +58,8 @@ module MapawynajmuPl
 
               def links
                 {
-                  'current/pl': ::MapawynajmuPl::Api::Tracks::User::Create::Form::Linker.new(:pl).call,
-                  'current/en': ::MapawynajmuPl::Api::Tracks::User::Create::Form::Linker.new(:en).call,
+                  'current/pl': ::SkillfindTech::Api::Tracks::User::New::Form::Linker.new(:pl).call,
+                  'current/en': ::SkillfindTech::Api::Tracks::User::New::Form::Linker.new(:en).call,
                 }
               end
 
