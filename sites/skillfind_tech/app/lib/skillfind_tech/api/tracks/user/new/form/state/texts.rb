@@ -24,7 +24,7 @@ module SkillfindTech
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'Akceptacja Regulaminu jest wymagana.',
-                      signUp: 'Zarejestruj',
+                      submitFormButtonLabel: 'Zarejestruj',
                     },
                     en: {
                       headingOne: 'Sign Up',
@@ -38,7 +38,7 @@ module SkillfindTech
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'The acceptance of the Terms of Service is required.',
-                      signUp: 'Sign Up',
+                      submitFormButtonLabel: 'Sign Up',
                     },
                   }[lang]
                 end

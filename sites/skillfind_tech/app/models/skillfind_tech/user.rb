@@ -13,6 +13,10 @@ module SkillfindTech
     has_many :pages, foreign_key: :author_id, dependent: :destroy
     # has_many :jobs, dependent: :destroy
 
+    def verified?
+      email_verified_at.present?
+    end
+
     def private_account?
       account_type == 'private'
     end
