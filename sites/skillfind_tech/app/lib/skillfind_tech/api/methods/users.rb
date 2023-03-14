@@ -30,6 +30,23 @@ module SkillfindTech
             constantized_site_name: constantized_site_name,
           ).call
         end
+
+        params do
+          requires :email, type: String, desc: 'User\'s email.'
+          requires :password, type: String, desc: 'User\'s password'
+        end
+        post 'auth' do
+          user = ::Commands::User::Authorize::EmailAndPassword.new(params.merge(constantized_site_name: constantized_site_name)).call
+          accessToken = ::JWT::Encoder.new(id: user.id).call
+          href = ::SkillfindTech::Api::Tracks::Root::Linker.new(lang).call[:href]
+
+          {
+            accessToken: accessToken,
+            href: href,
+          }
+        rescue ActiveRecord::RecordNotFound, ::Commands::User::Authorize::EmailAndPassword::PasswordError
+          error!('Invalid email or password.', 400)
+        end
       end
     end
   end

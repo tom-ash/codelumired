@@ -95,7 +95,7 @@ module Api
         before { snakelize_params }
 
         mount ::Api::User::Create::EmailAndPassword => 'user/create/email-and-password'
-        mount ::Api::User::Authorize::EmailAndPassword => 'user/authorize/email-and-password'
+        mount ::Api::User::Authorize::EmailAndPassword => 'user/auth/email-and-password'
         mount ::Api::User::Update::Attribute => 'user/update/:name'
         mount ::Api::User::Update::Password => 'user/update/password'
         mount ::Api::User::Update::Email => 'user/update/email'

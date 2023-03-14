@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module MapawynajmuPl
+module SkillfindTech
   module Api
     module Tracks
       module User
-        module Authorize
+        module Auth
           module State
             EMPTY_TEXT = ''
 

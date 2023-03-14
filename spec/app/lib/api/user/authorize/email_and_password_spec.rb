@@ -15,7 +15,7 @@ RSpec.describe ::Api::User::Authorize::EmailAndPassword do
     let(:hashed_password) { '$2a$12$xNgbSunb3cSQmHKpSyUT.uFj9Msr8/Fuwngwir/.x65EKvrLzWsVy' }
     let(:password_salt) { '4f5d08e79c0987488a78577dc8e365621539e0e1a6bc333aee20d997809cd694' }
 
-    before { put '/mapawynajmu_pl/user/authorize/email-and-password', params: params }
+    before { put '/mapawynajmu_pl/user/auth/email-and-password', params: params }
 
     context 'when email and password are correct' do
       let(:params) { { email: email, password: password } }
