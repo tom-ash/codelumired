@@ -18,14 +18,14 @@ module MapawynajmuPl
                     verificationCodeExplanation: 'Kod weryfikacyjny został wysłany na podany adres email. Wklej go poniżej i potwierdź, aby zakończyć proces rejestracji.',
                     verificationCodeInputLabel: 'Kod werifykacyjny',
                     verificationCodeInputInvalidError: 'Nieprawidłowy kod weryfikacyjny.',
-                    verify: 'Potwierdź',
+                    verifyButtonLabel: 'Potwierdź',
                   },
                   en: {
                     headingOne: 'Confirm Email Address',
                     verificationCodeExplanation: 'The verification code has been sent to the provided email address. Paste it below and confirm to finalize the registration.',
                     verificationCodeInputLabel: 'Verification Code',
                     verificationCodeInputInvalidError: 'Invalid verification code.',
-                    verify: 'Confirm',
+                    verifyButtonLabel: 'Confirm',
                   },
                 }[lang]
               end
