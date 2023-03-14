@@ -31,7 +31,7 @@ module MapawynajmuPl
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'Akceptacja Regulaminu jest wymagana.',
-                      signUp: 'Zarejestruj',
+                      signUpButtonLabel: 'Zarejestruj',
                     },
                     en: {
                       headingOne: 'Sign Up',
@@ -52,7 +52,7 @@ module MapawynajmuPl
                       termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                       termsOfService: termsOfService,
                       termsOfServiceConsentNotGrantedError: 'The acceptance of the Terms of Service is required.',
-                      signUp: 'Sign Up',
+                      signUpButtonLabel: 'Sign Up',
                     },
                   }[lang]
                 end
