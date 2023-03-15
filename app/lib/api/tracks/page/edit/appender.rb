@@ -51,6 +51,8 @@ module Api
                 langAltsGroupInputLabel: 'UUID grupy alternatywnych języków',
                 titleInputLabel: 'Tytuł',
                 coverImageInputLabel: 'Obraz okładkowy',
+                descriptionTextareaLabel: 'Opis',
+                keywordsTextareaLabel: 'Słowa kluczowe',
               },
               en: {
                 publishedOnInputLabel: 'Published On',
@@ -61,6 +63,8 @@ module Api
                 langAltsGroupInputLabel: 'Language Alternates Group UUID',
                 titleInputLabel: 'Tytuł',
                 coverImageInputLabel: 'Cover Image',
+                descriptionTextareaLabel: 'Description',
+                keywordsTextareaLabel: 'Keywords',
               },
             }[lang]
           end
