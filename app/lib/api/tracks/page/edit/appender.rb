@@ -49,6 +49,8 @@ module Api
                 subcategoryInputLabel: 'Podkategoria',
                 pageLangInputLabel: 'Język',
                 langAltsGroupInputLabel: 'UUID grupy alternatywnych języków',
+                titleInputLabel: 'Tytuł',
+                coverImageInputLabel: 'Obraz okładkowy',
               },
               en: {
                 publishedOnInputLabel: 'Published On',
@@ -57,6 +59,8 @@ module Api
                 subcategoryInputLabel: 'Subcategory',
                 pageLangInputLabel: 'Language',
                 langAltsGroupInputLabel: 'Language Alternates Group UUID',
+                titleInputLabel: 'Tytuł',
+                coverImageInputLabel: 'Cover Image',
               },
             }[lang]
           end
