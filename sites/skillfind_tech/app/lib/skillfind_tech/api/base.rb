@@ -36,7 +36,7 @@ module SkillfindTech
         end
 
         def bucket
-          @bucket ||= ENV['AWS_S3_SkillfindTech_BUCKET']
+          @bucket ||= SKILLFIND_TECH_S3
         end
       end
 

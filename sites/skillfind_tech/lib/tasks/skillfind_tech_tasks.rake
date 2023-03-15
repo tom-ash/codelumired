@@ -27,7 +27,7 @@ namespace :skillfind_tech do
       ::Commands::Page::TransformBody.new(
         page: page,
         constantized_site_name: 'SkillfindTech',
-        bucket: ENV['AWS_S3_SkillfindTech_BUCKET']
+        bucket: SKILLFIND_TECH_S3,
       ).call
     end
   end

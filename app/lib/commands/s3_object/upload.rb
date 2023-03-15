@@ -21,7 +21,7 @@ module Commands
         s3_client.put_object(
           bucket: bucket,
           key: key,
-          body: body
+          body: body,
         )
       end
 

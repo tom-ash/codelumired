@@ -32,6 +32,7 @@ module Serializers
           :subcategory,
           :lang_alts_group,
         ).merge(
+          page_lang: page[:lang],
           lang_ver_urls: lang_ver_urls,
           schema_org: schema_org,
         )

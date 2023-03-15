@@ -40,24 +40,26 @@ module Api
             )
           end
 
-          # name: null,
-          # url: null,
-          # body: null,
-          # style: null,
-          # title: null,
-          # description: null,
-          # keywords: null,
-          # canonical_url: null,
-          # coverImage: null,
-          # meta: null,
-          # lang_ver_urls: null,
-          # online: null,
-          # headerAutonumbering: null,
-          # schemaMode: null,
-          # autoSchema: null,
-          # manualSchema: null,
-          # publishedOn: null,
-          # modifiedOn: null,
+          def texts
+            {
+              pl: {
+                publishedOnInputLabel: 'Opublikowano w',
+                modifiedOnInputLabel: 'Zmodyfikowano w',
+                categoryInputLabel: 'Kategoria',
+                subcategoryInputLabel: 'Podkategoria',
+                pageLangInputLabel: 'Język',
+                langAltsGroupInputLabel: 'UUID grupy alternatywnych języków',
+              },
+              en: {
+                publishedOnInputLabel: 'Published On',
+                modifiedOnInputLabel: 'Modified On',
+                categoryInputLabel: 'Category',
+                subcategoryInputLabel: 'Subcategory',
+                pageLangInputLabel: 'Language',
+                langAltsGroupInputLabel: 'Language Alternates Group UUID',
+              },
+            }[lang]
+          end
 
           def page
             page_url = url.match(%r{^(pages|strony)/(.+)$})[2]

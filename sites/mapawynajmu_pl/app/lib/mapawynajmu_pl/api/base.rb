@@ -50,7 +50,7 @@ module MapawynajmuPl
         end
 
         def bucket
-          @bucket ||= ENV['AWS_S3_MAPAWYNAJMUPL_BUCKET']
+          @bucket ||= MAPAWYNAJMU_PL_S3
         end
       end
 

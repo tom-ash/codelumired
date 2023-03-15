@@ -33,7 +33,7 @@ module Api
           constantized_site_name: constantized_site_name,
           bucket: bucket,
           auto_schema: auto_schema,
-          manual_schema: manual_schema
+          manual_schema: manual_schema,
         )
 
         page = ::Commands::Page::Update.new(attrs).call
@@ -41,7 +41,7 @@ module Api
         ::Builders::Pages::SchemaOrgBuilder.new(
           page: page,
           domain_url: domain_url,
-          bucket: bucket
+          bucket: bucket,
         ).call
 
         page.url
