@@ -44,7 +44,9 @@ module Api
           bucket: bucket,
         ).call
 
-        page.url
+        {
+          href: "#{domain_url}/#{page.url}",
+        }
       end
     end
   end

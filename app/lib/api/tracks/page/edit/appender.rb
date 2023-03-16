@@ -56,7 +56,8 @@ module Api
                 keywordsTextareaLabel: 'Słowa kluczowe',
                 schemaModeSwitchLabel: 'Automatyczna Schema',
                 onlineSwitchLabel: 'Online',
-                updatePageButton: 'Zapisz',
+                updatePageButtonLabel: 'Zapisz',
+                updatePageAndExitButtonLabel: 'Zapisz',
               },
               en: {
                 publishedOnInputLabel: 'Published On',
@@ -71,7 +72,8 @@ module Api
                 keywordsTextareaLabel: 'Keywords',
                 schemaModeSwitchLabel: 'Auto Schema',
                 onlineSwitchLabel: 'Online',
-                updatePageButton: 'Save',
+                updatePageButtonLabel: 'Save',
+                updatePageAndExitButtonLabel: 'Save & Exit',
               },
             }[lang]
           end
