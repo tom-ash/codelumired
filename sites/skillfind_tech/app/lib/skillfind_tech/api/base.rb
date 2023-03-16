@@ -17,7 +17,11 @@ module SkillfindTech
         end
 
         def domain_url
-          @domain_url ||= SKILLFIND_TECH_URL
+          @domain_url ||= Rails.env.production? ? SKILLFIND_TECH_URL : SKILLFIND_TECH_URL_DEV
+        end
+
+        def api_url
+          @api_url ||= Rails.env.production? ? SKILLFIND_TECH_API_URL : SKILLFIND_TECH_API_URL_DEV
         end
 
         def langs

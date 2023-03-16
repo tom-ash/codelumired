@@ -23,6 +23,7 @@ module Api
 
           def data
             {
+              updatePageApiUrl: "#{api_url}/page/update",
               name: nil,
               langVerUrls: nil,
               updated: true,
@@ -53,6 +54,9 @@ module Api
                 coverImageInputLabel: 'Obraz okładkowy',
                 descriptionTextareaLabel: 'Opis',
                 keywordsTextareaLabel: 'Słowa kluczowe',
+                schemaModeSwitchLabel: 'Automatyczna Schema',
+                onlineSwitchLabel: 'Online',
+                updatePageButton: 'Zapisz',
               },
               en: {
                 publishedOnInputLabel: 'Published On',
@@ -65,6 +69,9 @@ module Api
                 coverImageInputLabel: 'Cover Image',
                 descriptionTextareaLabel: 'Description',
                 keywordsTextareaLabel: 'Keywords',
+                schemaModeSwitchLabel: 'Auto Schema',
+                onlineSwitchLabel: 'Online',
+                updatePageButton: 'Save',
               },
             }[lang]
           end

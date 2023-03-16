@@ -13,7 +13,11 @@ module MapawynajmuPl
         end
 
         def domain_url
-          @domain_url ||= MAPAWYNAJMU_PL_URL
+          @domain_url ||= Rails.env.production? ? MAPAWYNAJMU_PL_URL : MAPAWYNAJMU_PL_URL_DEV
+        end
+
+        def api_url
+          @api_url ||= Rails.env.production? ? MAPAWYNAJMU_PL_API_URL : MAPAWYNAJMU_PL_API_URL_DEV
         end
 
         def image

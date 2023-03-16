@@ -43,6 +43,10 @@ module Api
           @domain_url ||= attrs[:domain_url]
         end
 
+        def api_url
+          @api_url ||= attrs[:api_url]
+        end
+
         # TODO: This is just url!
         def full_url
           @full_url ||= domain_url + (url == '/' ? '' : "/#{url}")

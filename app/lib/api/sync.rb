@@ -21,6 +21,7 @@ module Api
               constantized_site_name: constantized_site_name,
               redirect: redirect,
               domain_url: domain_url,
+              api_url: api_url,
               image: image,
               page: page,
               is_ssr: ssr?,
