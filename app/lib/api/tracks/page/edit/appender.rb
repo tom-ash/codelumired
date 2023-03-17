@@ -49,6 +49,8 @@ module Api
           def texts
             {
               pl: {
+                urlInputLabel: 'URL',
+                canonicalUrlInputLabel: 'Canonical URL',
                 publishedOnInputLabel: 'Opublikowano w',
                 modifiedOnInputLabel: 'Zmodyfikowano w',
                 categoryInputLabel: 'Kategoria',
@@ -65,6 +67,8 @@ module Api
                 updatePageAndExitButtonLabel: 'Zapisz',
               },
               en: {
+                urlInputLabel: 'URL',
+                canonicalUrlInputLabel: 'Kanoniczny URL',
                 publishedOnInputLabel: 'Published On',
                 modifiedOnInputLabel: 'Modified On',
                 categoryInputLabel: 'Category',
