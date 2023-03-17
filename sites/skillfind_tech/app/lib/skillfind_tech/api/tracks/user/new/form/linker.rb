@@ -6,8 +6,8 @@ module SkillfindTech
       module User
         module New
           module Form
-            class Linker
-              include ::SkillfindTech::Api::Tracks::Helpers::Linker
+            class Linker < SkillfindTech::Api::Tracks::Common::Linker
+              include ::SkillfindTech::Api::Tracks::Common::Linker
               include ::SkillfindTech::Api::Tracks::User::New::Form::Meta
             end
           end

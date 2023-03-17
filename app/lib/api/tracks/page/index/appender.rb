@@ -4,10 +4,7 @@ module Api
   module Tracks
     module Page
       module Index
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
-          include ::Api::Tracks::Page::Index::Meta
-
+        class Appender < ::Api::Tracks::Common::Appender
           private
 
           def data
@@ -32,18 +29,6 @@ module Api
           def recordKeys
             @recordKeys ||= site::Page.order(url: :asc).pluck(:url)
           end
-
-          # export const control = {
-          #   connecting: false,
-          # }
-
-          # export const inputs = {
-          #   name: null,
-          # }
-
-          # export const data = {
-          #   names: null,
-          # }
         end
       end
     end

@@ -4,10 +4,7 @@ module Api
   module Tracks
     module Image
       module Edit
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
-          include ::Api::Tracks::Image::Edit::Meta
-
+        class Appender < ::Api::Tracks::Common::Appender
           private
 
           def data

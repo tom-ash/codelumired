@@ -6,8 +6,7 @@ module MapawynajmuPl
       module User
         module Create
           module Form
-            class Appender
-              include ::Api::Tracks::Helpers::Appender
+            class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::State
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::Meta
             end

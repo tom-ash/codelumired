@@ -4,9 +4,7 @@ module Api
   module Tracks
     module Image
       module Index
-        class Linker
-          include ::Api::Tracks::Helpers::Linker
-          include ::Api::Tracks::Image::Index::Meta
+        class Linker < ::Api::Tracks::Common::Linker
         end
       end
     end

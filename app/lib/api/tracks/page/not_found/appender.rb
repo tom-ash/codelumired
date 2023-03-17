@@ -4,11 +4,7 @@ module Api
   module Tracks
     module Page
       module NotFound
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
-          include ::Api::Tracks::Page::NotFound::Meta
-
-          # lang -> from request
+        class Appender < ::Api::Tracks::Common::Appender
         end
       end
     end

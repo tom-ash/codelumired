@@ -34,14 +34,14 @@ module Api
           def unlocalized_keywords
             @unlocalized_keywords ||= {
               pl: 'strony',
-              en: 'pages'
+              en: 'pages',
             }.freeze
           end
 
           def unlocalized_description
             @unlocalized_description ||= {
               pl: 'Strony.',
-              en: 'Pages.'
+              en: 'Pages.',
             }.freeze
           end
 
@@ -49,14 +49,14 @@ module Api
             {
               visitor: true,
               page: true,
-              'page/index': true
+              'page/index': true,
             }
           end
 
           def links
             {
               'current/pl': ::Api::Tracks::Page::Index::Linker.new(:pl).call,
-              'current/en': ::Api::Tracks::Page::Index::Linker.new(:en).call
+              'current/en': ::Api::Tracks::Page::Index::Linker.new(:en).call,
             }
           end
         end

@@ -5,8 +5,7 @@ module MapawynajmuPl
     module Tracks
       module User
         module Edit
-          class Linker
-            include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+          class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             include ::MapawynajmuPl::Api::Tracks::User::Edit::Meta
           end
         end

@@ -5,8 +5,7 @@ module SkillfindTech
     module Tracks
       module Visitor
         module PrivacySettings
-          class Linker
-            include ::Api::Tracks::Helpers::Linker
+          class Linker < SkillfindTech::Api::Tracks::Common::Linker
             include ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta
           end
         end

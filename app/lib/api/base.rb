@@ -10,7 +10,6 @@ module Api
 
         helpers do
           def snakelize_params
-            # byebug
             params.transform_keys!(&:underscore)
           end
 

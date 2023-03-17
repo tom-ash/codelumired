@@ -5,8 +5,7 @@ module MapawynajmuPl
     module Tracks
       module Announcement
         module Show
-          class Linker
-            include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+          class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta
 
             def initialize(announcement: nil, lang:, url: nil)

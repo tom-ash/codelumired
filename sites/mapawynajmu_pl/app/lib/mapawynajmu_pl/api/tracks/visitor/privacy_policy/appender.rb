@@ -5,8 +5,7 @@ module MapawynajmuPl
     module Tracks
       module Visitor
         module PrivacyPolicy
-          class Appender
-            include ::Api::Tracks::Helpers::Appender
+          class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
             include ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Meta
           end
         end

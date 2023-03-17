@@ -5,8 +5,7 @@ module MapawynajmuPl
     module Tracks
       module Visitor
         module PrivacyPolicy
-          class Linker
-            include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+          class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             include ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Meta
           end
         end

@@ -49,7 +49,7 @@ module Api
             {
               visitor: true,
               page: true,
-              'page/edit': true
+              'page/edit': true,
             }
           end
 
@@ -57,7 +57,7 @@ module Api
             {
               'page/edit': { path: page.edit_link },
               'current/pl': { path: nil },
-              'current/en': { path: nil }
+              'current/en': { path: nil },
             }.merge(page_lang_alts_links)
           end
 
@@ -67,7 +67,7 @@ module Api
             page_lang_alts.each_with_object({}) do |group_page, link_object|
               link_object["current/#{group_page.lang}".to_sym] = {
                 path: group_page.edit_link,
-                title: group_page.title
+                title: group_page.title,
               }
             end
           end

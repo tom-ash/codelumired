@@ -6,8 +6,7 @@ module MapawynajmuPl
       module Announcement
         module Index
           module User
-            class Appender
-              include ::Api::Tracks::Helpers::Appender
+            class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
               include ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta
 
               private

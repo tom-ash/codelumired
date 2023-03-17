@@ -5,8 +5,7 @@ module SkillfindTech
     module Tracks
       module Visitor
         module Contact
-          class Linker
-            include ::Api::Tracks::Helpers::Linker
+          class Linker < SkillfindTech::Api::Tracks::Common::Linker
             include ::SkillfindTech::Api::Tracks::Visitor::Contact::Meta
           end
         end

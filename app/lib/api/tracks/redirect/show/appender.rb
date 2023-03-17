@@ -4,8 +4,7 @@ module Api
   module Tracks
     module Redirect
       module Show
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
+        class Appender < ::Api::Tracks::Common::Appender
           include ::Api::Tracks::Redirect::Show::Meta
 
           def initialize(attrs)

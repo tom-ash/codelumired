@@ -4,8 +4,7 @@ module MapawynajmuPl
   module Api
     module Tracks
       module Root
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
+        class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
           include ::MapawynajmuPl::Api::Tracks::Root::Assets
           include ::MapawynajmuPl::Api::Tracks::Root::Meta
           include ::MapawynajmuPl::Api::Tracks::Helpers::Announcements

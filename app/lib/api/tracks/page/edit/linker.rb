@@ -4,8 +4,7 @@ module Api
   module Tracks
     module Page
       module Edit
-        class Linker
-          include ::Api::Tracks::Helpers::Linker
+        class Linker < ::Api::Tracks::Common::Linker
           include ::Api::Tracks::Page::Edit::Meta
         end
       end

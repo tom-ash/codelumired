@@ -5,8 +5,7 @@ module MapawynajmuPl
     module Tracks
       module Visitor
         module Contact
-          class Linker
-            include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+          class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             include ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Meta
           end
         end

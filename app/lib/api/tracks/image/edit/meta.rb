@@ -9,12 +9,12 @@ module Api
 
           UNLOCALIZED_PATH = {
             pl: %r{^obrazy/.+$},
-            en: %r{^images/.+$}
+            en: %r{^images/.+$},
           }.freeze
 
           UNLOCALIZED_TITLE = {
             pl: 'Edytuj obraz',
-            en: 'Edit Image'
+            en: 'Edit Image',
           }.freeze
 
           private
@@ -34,14 +34,14 @@ module Api
           def unlocalized_keywords
             @unlocalized_keywords ||= {
               pl: 'TODO',
-              en: 'TODO'
+              en: 'TODO',
             }.freeze
           end
 
           def unlocalized_description
             @unlocalized_description ||= {
               pl: 'TODO',
-              en: 'TODO'
+              en: 'TODO',
             }.freeze
           end
 
@@ -49,14 +49,14 @@ module Api
             {
               visitor: true,
               image: true,
-              'image/edit': true
+              'image/edit': true,
             }
           end
 
           def links
             {
               'current/pl': { path: image.edit_link(:pl) },
-              'current/en': { path: image.edit_link(:en) }
+              'current/en': { path: image.edit_link(:en) },
             }
           end
         end

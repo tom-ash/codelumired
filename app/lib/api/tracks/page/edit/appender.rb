@@ -4,8 +4,7 @@ module Api
   module Tracks
     module Page
       module Edit
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
+        class Appender < ::Api::Tracks::Common::Appender
           include ::Api::Tracks::Page::Edit::Meta
 
           private
@@ -16,7 +15,6 @@ module Api
 
           def control
             {
-              fetching: false,
               nav: 'body',
             }
           end
@@ -33,8 +31,8 @@ module Api
 
           def serialized_page
             @serialized_page ||= camelize(
-              ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name
-            ).call)
+              ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
+            )
           end
 
           def inputs

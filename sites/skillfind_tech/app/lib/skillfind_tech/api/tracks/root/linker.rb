@@ -4,8 +4,7 @@ module SkillfindTech
   module Api
     module Tracks
       module Root
-        class Linker
-          include ::SkillfindTech::Api::Tracks::Helpers::Linker
+        class Linker < SkillfindTech::Api::Tracks::Common::Linker
           include ::SkillfindTech::Api::Tracks::Root::Meta
 
           private

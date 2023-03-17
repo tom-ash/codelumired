@@ -4,8 +4,7 @@ module SkillfindTech
   module Api
     module Tracks
       module Root
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
+        class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
           include ::SkillfindTech::Api::Tracks::Root::Meta
 
           private

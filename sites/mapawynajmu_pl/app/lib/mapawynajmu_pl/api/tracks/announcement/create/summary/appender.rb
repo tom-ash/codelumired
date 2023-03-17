@@ -6,8 +6,7 @@ module MapawynajmuPl
       module Announcement
         module Create
           module Summary
-            class Appender
-              include ::Api::Tracks::Helpers::Appender
+            class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
               include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Summary::Meta
 
               private

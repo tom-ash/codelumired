@@ -6,8 +6,7 @@ module MapawynajmuPl
       module User
         module Create
           module Verification
-            class Linker
-              include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+            class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
               include ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Meta
             end
           end

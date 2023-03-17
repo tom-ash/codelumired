@@ -16,10 +16,10 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::User::Auth::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Auth::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Page::Index::Meta::TRACK => ::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Page::Edit::Meta::TRACK => ::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
-            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH,
+            ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
+            ::SkillfindTech::Api::Tracks::Page::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
+            ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH,
+            ::SkillfindTech::Api::Tracks::Image::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
           }
         end
 
@@ -35,13 +35,13 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::User::Auth::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Auth::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK then ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Appender.new(attrs).call
-          when ::Api::Tracks::Page::Index::Meta::TRACK then ::Api::Tracks::Page::Index::Appender.new(attrs).call
-          when ::Api::Tracks::Page::Show::Meta::TRACK then ::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
-          when ::Api::Tracks::Page::Edit::Meta::TRACK then ::Api::Tracks::Page::Edit::Appender.new(attrs).call
-          when ::Api::Tracks::Page::NotFound::Meta::TRACK then ::Api::Tracks::Page::NotFound::Appender.new(attrs).call
-          when ::Api::Tracks::Redirect::Show::Meta::TRACK then ::Api::Tracks::Redirect::Show::Appender.new(attrs).call
-          when ::Api::Tracks::Image::Edit::Meta::TRACK then ::Api::Tracks::Image::Edit::Appender.new(attrs).call
-          when ::Api::Tracks::Image::Index::Meta::TRACK then ::Api::Tracks::Image::Index::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Index::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::Page::Show::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
+          when ::SkillfindTech::Api::Tracks::Page::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Edit::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::Page::NotFound::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::NotFound::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Image::Index::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::Image::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::Image::Edit::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::Redirect::Show::Meta::TRACK then ::SkillfindTech::Api::Tracks::Redirect::Show::Appender.new(attrs).call
           end
         end
 
@@ -56,9 +56,8 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Linker.new(lang).call,
-            ::Api::Tracks::Page::Index::Meta::TRACK => ::Api::Tracks::Page::Index::Linker.new(lang).call,
-            ::Api::Tracks::Image::Edit::Meta::TRACK => ::Api::Tracks::Image::Edit::Linker.new(lang).call,
-            ::Api::Tracks::Image::Index::Meta::TRACK => ::Api::Tracks::Image::Index::Linker.new(lang).call,
+            ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Index::Linker.new(lang).call,
+            ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Index::Linker.new(lang).call,
           )
         end
       end

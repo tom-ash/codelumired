@@ -5,8 +5,7 @@ module MapawynajmuPl
     module Tracks
       module Announcement
         module Show
-          class Appender
-            include ::Api::Tracks::Helpers::Appender
+          class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
             include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta
             include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Assets
             include ::MapawynajmuPl::Api::Tracks::Helpers::Announcements

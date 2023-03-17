@@ -6,15 +6,8 @@ module SkillfindTech
       module Announcement
         module Create
           module Form
-            class Linker
-              include ::Api::Tracks::Helpers::Linker
+            class Linker < SkillfindTech::Api::Tracks::Common::Linker
               include ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta
-
-              private
-
-              def label
-                'ASDASDASDAS'
-              end
             end
           end
         end

@@ -6,8 +6,7 @@ module SkillfindTech
       module User
         module New
           module Form
-            class Appender
-              include ::Api::Tracks::Helpers::Appender
+            class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
               include ::SkillfindTech::Api::Tracks::User::New::Form::State
               include ::SkillfindTech::Api::Tracks::User::New::Form::Meta
             end

@@ -5,8 +5,7 @@ module SkillfindTech
     module Tracks
       module Visitor
         module TermsOfService
-          class Linker
-            include ::Api::Tracks::Helpers::Linker
+          class Linker < SkillfindTech::Api::Tracks::Common::Linker
             include ::SkillfindTech::Api::Tracks::Visitor::TermsOfService::Meta
           end
         end

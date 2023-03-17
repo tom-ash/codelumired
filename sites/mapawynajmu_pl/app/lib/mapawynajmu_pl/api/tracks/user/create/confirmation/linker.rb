@@ -6,8 +6,7 @@ module MapawynajmuPl
       module User
         module Create
           module Confirmation
-            class Linker
-              include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+            class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta
 
               def call

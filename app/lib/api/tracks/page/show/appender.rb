@@ -4,10 +4,7 @@ module Api
   module Tracks
     module Page
       module Show
-        class Appender
-          include ::Api::Tracks::Helpers::Appender
-          include ::Api::Tracks::Page::Show::Meta
-
+        class Appender < ::Api::Tracks::Common::Appender
           def initialize(attrs)
             @page = attrs[:page]
             super

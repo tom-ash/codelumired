@@ -6,8 +6,7 @@ module MapawynajmuPl
       module User
         module Create
           module Confirmation
-            class Appender
-              include ::Api::Tracks::Helpers::Appender
+            class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Texts
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Assets

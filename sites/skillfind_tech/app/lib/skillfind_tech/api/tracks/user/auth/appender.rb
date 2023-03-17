@@ -5,8 +5,7 @@ module SkillfindTech
     module Tracks
       module User
         module Auth
-          class Appender
-            include ::Api::Tracks::Helpers::Appender
+          class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
             include ::SkillfindTech::Api::Tracks::User::Auth::Meta
             include ::SkillfindTech::Api::Tracks::User::Auth::State
           end

@@ -5,8 +5,7 @@ module MapawynajmuPl
     module Tracks
       module User
         module Show
-          class Appender
-            include ::Api::Tracks::Helpers::Appender
+          class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
             include ::MapawynajmuPl::Api::Tracks::User::Show::Meta
           end
         end

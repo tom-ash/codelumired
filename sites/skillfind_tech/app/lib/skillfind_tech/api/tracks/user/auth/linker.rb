@@ -5,8 +5,7 @@ module SkillfindTech
     module Tracks
       module User
         module Auth
-          class Linker
-            include ::SkillfindTech::Api::Tracks::Helpers::Linker
+          class Linker < SkillfindTech::Api::Tracks::Common::Linker
             include ::SkillfindTech::Api::Tracks::User::Auth::Meta
           end
         end

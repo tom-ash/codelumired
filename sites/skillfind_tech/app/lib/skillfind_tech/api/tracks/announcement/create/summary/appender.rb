@@ -6,8 +6,7 @@ module SkillfindTech
       module Announcement
         module Create
           module Summary
-            class Appender
-              include ::Api::Tracks::Helpers::Appender
+            class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
               include ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta
             end
           end

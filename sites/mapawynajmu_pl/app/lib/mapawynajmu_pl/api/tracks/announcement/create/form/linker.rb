@@ -6,8 +6,7 @@ module MapawynajmuPl
       module Announcement
         module Create
           module Form
-            class Linker
-              include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+            class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
               include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
 
               private

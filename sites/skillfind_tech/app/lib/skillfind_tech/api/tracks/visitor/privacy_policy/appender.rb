@@ -5,8 +5,7 @@ module SkillfindTech
     module Tracks
       module Visitor
         module PrivacyPolicy
-          class Appender
-            include ::Api::Tracks::Helpers::Appender
+          class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
             include ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Meta
           end
         end

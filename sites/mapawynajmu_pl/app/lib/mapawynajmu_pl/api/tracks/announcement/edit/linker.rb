@@ -5,7 +5,7 @@ module MapawynajmuPl
     module Tracks
       module Announcement
         module Edit
-          class Linker
+          class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             def initialize(announcement:, lang:)
               @announcement = announcement
               @lang = lang

@@ -6,8 +6,7 @@ module MapawynajmuPl
       module Announcement
         module Index
           module User
-            class Linker
-              include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+            class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
               include ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta
 
               private

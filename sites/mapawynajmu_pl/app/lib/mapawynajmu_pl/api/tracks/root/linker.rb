@@ -4,8 +4,7 @@ module MapawynajmuPl
   module Api
     module Tracks
       module Root
-        class Linker
-          include ::MapawynajmuPl::Api::Tracks::Helpers::Linker
+        class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
           include ::MapawynajmuPl::Api::Tracks::Root::Meta
 
           ROOT_PL = '/'

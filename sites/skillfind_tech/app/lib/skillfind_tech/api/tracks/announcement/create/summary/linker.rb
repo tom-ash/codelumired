@@ -6,8 +6,7 @@ module SkillfindTech
       module Announcement
         module Create
           module Summary
-            class Linker
-              include ::Api::Tracks::Helpers::Linker
+            class Linker < SkillfindTech::Api::Tracks::Common::Linker
               include ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta
             end
           end
