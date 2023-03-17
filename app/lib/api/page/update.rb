@@ -24,18 +24,11 @@ module Api
         requires :subcategory, type: String
       end
       put do
-        # byebug
-
-        # auto_schema = JSON.parse(params['auto_schema'])
-        # manual_schema = JSON.parse(params['manual_schema'])
-
         attrs = params.merge(
           lang: params[:page_lang],
           user_id: authenticated_user.id,
           constantized_site_name: constantized_site_name,
           bucket: bucket,
-          # auto_schema: auto_schema,
-          # manual_schema: manual_schema,
         )
 
         page = ::Commands::Page::Update.new(attrs).call

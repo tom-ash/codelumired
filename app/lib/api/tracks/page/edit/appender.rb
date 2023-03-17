@@ -23,7 +23,7 @@ module Api
 
           def data
             {
-              body: JSON.pretty_generate(page.body),
+              body: page.body,
               updatePageApiUrl: "#{api_url}/page/update",
               name: nil,
               langVerUrls: nil,
@@ -41,8 +41,8 @@ module Api
             serialized_page.merge(
               body: JSON.pretty_generate(page.body),
               meta: JSON.pretty_generate(serialized_page['meta']),
-              auto_schema: JSON.pretty_generate(serialized_page['autoSchema']),
-              manual_schema: JSON.pretty_generate(serialized_page['manualSchema']),
+              autoSchema: JSON.pretty_generate(serialized_page['autoSchema']),
+              manualSchema: JSON.pretty_generate(serialized_page['manualSchema']),
             )
           end
 

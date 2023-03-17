@@ -14,7 +14,19 @@ module Api
             {
               recordKeys: recordKeys,
               recordKey: '',
+              apiUrl: api_url,
             }
+          end
+
+          def texts
+            {
+              pl: {
+                createRecordButtonLabel: 'Dodaj stronę',
+              },
+              en: {
+                createRecordButtonLabel: 'Add Page',
+              },
+            }[lang]
           end
 
           def recordKeys
