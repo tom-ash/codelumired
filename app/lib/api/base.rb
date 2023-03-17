@@ -10,11 +10,12 @@ module Api
 
         helpers do
           def snakelize_params
-            params.deep_transform_keys!(&:underscore)
+            # byebug
+            params.transform_keys!(&:underscore)
           end
 
           def camelize(response)
-            response.as_json.deep_transform_keys do |key|
+            response.as_json.transform_keys do |key|
               key.exclude?('/') ? key.to_s.camelize(:lower) : key
             end
           end

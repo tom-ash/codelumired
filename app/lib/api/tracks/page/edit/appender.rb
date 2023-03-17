@@ -23,6 +23,7 @@ module Api
 
           def data
             {
+              body: JSON.pretty_generate(page.body),
               updatePageApiUrl: "#{api_url}/page/update",
               name: nil,
               langVerUrls: nil,
@@ -30,11 +31,15 @@ module Api
             }
           end
 
-          def inputs
-            serialized_page = camelize(::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call)
+          def serialized_page
+            @serialized_page ||= camelize(
+              ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name
+            ).call)
+          end
 
+          def inputs
             serialized_page.merge(
-              body: JSON.pretty_generate(serialized_page['body']),
+              body: JSON.pretty_generate(page.body),
               meta: JSON.pretty_generate(serialized_page['meta']),
               auto_schema: JSON.pretty_generate(serialized_page['autoSchema']),
               manual_schema: JSON.pretty_generate(serialized_page['manualSchema']),
@@ -85,7 +90,7 @@ module Api
 
           # TODO: -> Move to service.
           def camelize(response)
-            response.as_json.deep_transform_keys do |key|
+            response.as_json.transform_keys do |key|
               key.exclude?('/') ? key.to_s.camelize(:lower) : key
             end
           end

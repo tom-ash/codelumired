@@ -16,24 +16,26 @@ module Api
         requires :keywords, type: String
         requires :cover_image, type: String
         requires :schema_mode, type: String
-        requires :auto_schema, type: String
-        requires :manual_schema, type: String
+        requires :auto_schema, type: Hash
+        requires :manual_schema, type: Hash
         requires :published_on, type: Date
         requires :modified_on, type: Date
         requires :category, type: String
         requires :subcategory, type: String
       end
       put do
-        auto_schema = JSON.parse(params['auto_schema'])
-        manual_schema = JSON.parse(params['manual_schema'])
+        # byebug
+
+        # auto_schema = JSON.parse(params['auto_schema'])
+        # manual_schema = JSON.parse(params['manual_schema'])
 
         attrs = params.merge(
           lang: params[:page_lang],
           user_id: authenticated_user.id,
           constantized_site_name: constantized_site_name,
           bucket: bucket,
-          auto_schema: auto_schema,
-          manual_schema: manual_schema,
+          # auto_schema: auto_schema,
+          # manual_schema: manual_schema,
         )
 
         page = ::Commands::Page::Update.new(attrs).call

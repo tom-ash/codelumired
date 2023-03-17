@@ -12,13 +12,13 @@ module Api
 
           def data
             {
-              page_keys: page_keys,
-              page_key: '',
+              recordKeys: recordKeys,
+              recordKey: '',
             }
           end
 
-          def page_keys
-            @page_keys ||= site::Page.order(url: :asc).pluck(:url)
+          def recordKeys
+            @recordKeys ||= site::Page.order(url: :asc).pluck(:url)
           end
 
           # export const control = {
