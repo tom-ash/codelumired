@@ -12,7 +12,7 @@ module Serializers
 
       def call
         {
-          account_type: user.account_type,
+          accountType: user.account_type,
           role: user.role,
           authorized: true,
         }

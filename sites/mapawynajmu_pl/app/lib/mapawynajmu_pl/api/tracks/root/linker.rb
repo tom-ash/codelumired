@@ -28,12 +28,17 @@ module MapawynajmuPl
           end
 
           def lang_links
+            pathPl = "#{partner_path_with_slash(:pl)}#{category_path_with_slash(:pl)}"
+            pathEn = "#{partner_path_with_slash(:en)}#{category_path_with_slash(:en)}".presence || ROOT_EN
+
             {
               'current/pl': {
-                path: "#{partner_path_with_slash(:pl)}#{category_path_with_slash(:pl)}",
+                href: "#{protocol_and_domain}/#{pathPl}",
+                path: pathPl,
               },
               'current/en': {
-                path: "#{partner_path_with_slash(:en)}#{category_path_with_slash(:en)}".presence || ROOT_EN,
+                href: "#{protocol_and_domain}/#{pathEn}",
+                path: pathEn,
               },
             }
           end

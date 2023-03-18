@@ -15,8 +15,8 @@ module MapawynajmuPl
 
               def data
                 {
-                  account_type: user.account_type,
-                  business_name: user.business_name,
+                  accountType: user.account_type,
+                  businessName: user.business_name,
                 }
               end
             end

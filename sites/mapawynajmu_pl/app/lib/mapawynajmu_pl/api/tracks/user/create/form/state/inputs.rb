@@ -15,7 +15,7 @@ module MapawynajmuPl
 
                 def user_form_inputs
                   {
-                    account_type: 'private',
+                    accountType: 'private',
                     accountTypes: accountTypes,
                     businessName: EMPTY_TEXT,
                     emailAddress: EMPTY_TEXT,

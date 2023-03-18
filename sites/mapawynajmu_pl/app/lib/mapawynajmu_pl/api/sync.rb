@@ -50,7 +50,6 @@ module MapawynajmuPl
           when ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Announcement::Show::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Index::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Page::Index::Visitor::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Index::Visitor::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
           when ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Edit::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::NotFound::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::NotFound::Appender.new(attrs).call
