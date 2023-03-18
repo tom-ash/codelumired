@@ -96,6 +96,10 @@ module Api
               key.exclude?('/') ? key.to_s.camelize(:lower) : key
             end
           end
+
+          def image
+            page.cover_image
+          end
         end
       end
     end

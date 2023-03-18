@@ -38,6 +38,7 @@ module Commands
         json_body = json_body.gsub('"h1":', '"HeadingOne":')
         json_body = json_body.gsub('"h2":', '"HeadingTwo":')
         json_body = json_body.gsub('"h3":', '"HeadingThree":')
+        json_body = json_body.gsub('"h4":', '"HeadingFour":')
         json_body = json_body.gsub('"heading_one":', '"HeadingOne":')
         json_body = json_body.gsub('"heading_two":', '"HeadingTwo":')
         json_body = json_body.gsub('"heading_three":', '"HeadingThree":')
@@ -58,7 +59,7 @@ module Commands
         ::Commands::S3Object::Upload.new(
           bucket: bucket,
           key: backup_key,
-          body: page.to_json
+          body: page.to_json,
         ).call
       end
 
