@@ -100,6 +100,10 @@ module Api
           def image
             page.cover_image
           end
+
+          def title
+            page.title
+          end
         end
       end
     end

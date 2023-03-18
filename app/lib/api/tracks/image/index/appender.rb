@@ -9,16 +9,33 @@ module Api
 
           def data
             {
-              image_keys: image_keys,
+              recordKeys: recordKeys,
+              recordKey: '',
+              recordPath: recordPath,
+              apiUrl: api_url,
             }
           end
 
-          def inputs
-            # TODO: Add imageKey.
+          def texts
+            {
+              pl: {
+                createRecordButtonLabel: 'Dodaj obraz',
+              },
+              en: {
+                createRecordButtonLabel: 'Add Image',
+              },
+            }[lang]
           end
 
-          def image_keys
-            site::Image.order(storage_key: :asc).pluck(:storage_key)
+          def recordKeys
+            @recordKeys ||= site::Image.order(storage_key: :asc).pluck(:storage_key)
+          end
+
+          def recordPath
+            {
+              pl: 'obrazy',
+              en: 'images',
+            }[lang]
           end
         end
       end

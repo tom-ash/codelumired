@@ -11,6 +11,7 @@ module Api
             {
               recordKeys: recordKeys,
               recordKey: '',
+              recordPath: recordPath,
               apiUrl: api_url,
             }
           end
@@ -28,6 +29,13 @@ module Api
 
           def recordKeys
             @recordKeys ||= site::Page.order(url: :asc).pluck(:url)
+          end
+
+          def recordPath
+            {
+              pl: 'strony',
+              en: 'pages',
+            }[lang]
           end
         end
       end

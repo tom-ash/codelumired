@@ -29,8 +29,12 @@ module Api
             page_lang_alts = site::Page.where(lang_alts_group: page.lang_alts_group)
 
             page_lang_alts.each_with_object({}) do |group_page, link_object|
+              path = group_page.show_link
+              href = "#{protocol_and_domain}/#{path}"
+
               link_object["current/#{group_page.lang}".to_sym] = {
-                path: group_page.show_link,
+                href: href,
+                path: path,
                 title: group_page.title,
               }
             end
