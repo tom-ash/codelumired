@@ -7,6 +7,7 @@ module SkillfindTech
         module Index
           class Appender < ::Api::Tracks::Image::Index::Appender
             include ::SkillfindTech::Api::Tracks::Image::Index::Meta
+            include ::SkillfindTech::ProtocolAndDomain
           end
         end
       end

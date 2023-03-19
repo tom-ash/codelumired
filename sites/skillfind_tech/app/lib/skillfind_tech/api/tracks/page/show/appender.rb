@@ -7,6 +7,7 @@ module SkillfindTech
         module Show
           class Appender < ::Api::Tracks::Page::Show::Appender
             include ::SkillfindTech::Api::Tracks::Page::Show::Meta
+            include ::SkillfindTech::ProtocolAndDomain
           end
         end
       end
