@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module MapawynajmuPl
+module SkillfindTech
   module Api
     module Tracks
       module User
         module ResetPassword
-          class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
-            include ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Meta
+          class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
+            include ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta
 
             NO_ERROR = { pl: '', en: '' }.freeze
 

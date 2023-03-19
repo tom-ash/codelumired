@@ -14,6 +14,7 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::User::New::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::New::Form::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::User::Auth::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Auth::Meta::UNLOCALIZED_PATH,
+            ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
@@ -33,6 +34,7 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK then ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::User::New::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::New::Form::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::User::Auth::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Auth::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::ResetPassword::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK then ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Index::Appender.new(attrs).call
@@ -54,6 +56,7 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Linker.new(lang).call,
+            ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::ResetPassword::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Index::Linker.new(lang).call,
