@@ -25,20 +25,14 @@ module Api
 
         image = site::Image.find(image_id)
 
-        body.map do |body_el|
-          next if body_el.class == String
-
-          body_el.transform_keys do |key|
-            key.to_s.camelize(:lower)
-          end
-        end
+        # byebug
 
         image.update(
           body: body,
           width: width,
           height: height,
           storage_key: storage_key,
-          storage_url: storage_url
+          storage_url: storage_url,
         )
       end
     end

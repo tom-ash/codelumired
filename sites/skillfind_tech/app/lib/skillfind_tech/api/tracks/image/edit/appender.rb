@@ -7,6 +7,7 @@ module SkillfindTech
         module Edit
           class Appender < ::Api::Tracks::Image::Edit::Appender
             include ::SkillfindTech::Api::Tracks::Image::Edit::Meta
+            include ::SkillfindTech::ProtocolAndDomain
           end
         end
       end

@@ -7,6 +7,7 @@ module MapawynajmuPl
         module Edit
           class Appender < ::Api::Tracks::Image::Edit::Appender
             include ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta
+            include ::MapawynajmuPl::ProtocolAndDomain
           end
         end
       end

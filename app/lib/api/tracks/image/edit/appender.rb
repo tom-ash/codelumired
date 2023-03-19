@@ -9,12 +9,10 @@ module Api
 
           def data
             {
+              apiUrl: api_url,
               id: image.id,
-              body: JSON.pretty_generate(image.body),
-              width: image.width,
-              height: image.height,
-              storage_key: image.storage_key,
-              storage_url: image.storage_url,
+              body: image.body,
+              storageUrl: image.storage_url,
             }
           end
 
@@ -24,6 +22,32 @@ module Api
 
           def storage_key
             @storage_key ||= url.match(%r{(images|obrazy)\/(.+)})[2]
+          end
+
+          def texts
+            {
+              pl: {
+                storageKeyInputLabel: 'Klucz magazynu',
+                storageUrlLinkLabel: 'URL magazynu',
+                widthInputLabel: 'Szerokość',
+                heightInputLabel: 'Wysokość',
+              },
+              en: {
+                storageKeyInputLabel: 'Storage Key',
+                storageUrlLinkLabel: 'Storage URL',
+                widthInputLabel: 'Width',
+                heightInputLabel: 'Height',
+              },
+            }[lang]
+          end
+
+          def inputs
+            {
+              storageKey: image.storage_key,
+              width: image.width,
+              height: image.height,
+              body: JSON.pretty_generate(image.body),
+            }
           end
         end
       end

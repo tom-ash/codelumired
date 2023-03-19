@@ -18,6 +18,11 @@ module Api
           storage_key: image_key,
           body: [],
         )
+
+        {
+          # TODO!
+          href: "images/#{image_key}",
+        }
       end
     end
   end

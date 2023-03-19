@@ -54,9 +54,12 @@ module Api
           end
 
           def links
+            pathPl = image.edit_link(:pl)
+            pathEn = image.edit_link(:en)
+
             {
-              'current/pl': { path: image.edit_link(:pl) },
-              'current/en': { path: image.edit_link(:en) },
+              'current/pl': { href: "#{protocol_and_domain}/#{pathPl}", path: pathPl },
+              'current/en': { href: "#{protocol_and_domain}/#{pathEn}", path: pathEn },
             }
           end
         end
