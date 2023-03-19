@@ -55,7 +55,6 @@ module MapawynajmuPl
           when ::MapawynajmuPl::Api::Tracks::Page::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
           when ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Edit::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::NotFound::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::NotFound::Appender.new(attrs).call
-          # TODO!
           # when ::MapawynajmuPl::Api::Tracks::Redirect::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Redirect::Show::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Image::Edit::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Image::Index::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Image::Index::Appender.new(attrs).call

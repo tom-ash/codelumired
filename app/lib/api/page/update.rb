@@ -9,7 +9,7 @@ module Api
         requires :id, type: String
         requires :page_lang, type: String
         requires :url, type: String
-        requires :body, type: Array
+        requires :body, type: String
         requires :canonical_url, type: String
         requires :title, type: String
         requires :description, type: String
@@ -24,6 +24,7 @@ module Api
         requires :subcategory, type: String
       end
       put do
+        body = JSON.parse(params[:body])
         auto_schema = JSON.parse(params[:auto_schema])
         manual_schema = JSON.parse(params[:manual_schema])
 
@@ -32,6 +33,7 @@ module Api
           user_id: authenticated_user.id,
           constantized_site_name: constantized_site_name,
           bucket: bucket,
+          body: body,
           auto_schema: auto_schema,
           manual_schema: manual_schema,
         )

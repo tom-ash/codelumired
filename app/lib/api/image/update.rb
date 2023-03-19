@@ -22,10 +22,7 @@ module Api
         height = params[:height]
         storage_key = params[:storage_key]
         storage_url = params[:storage_url]
-
         image = site::Image.find(image_id)
-
-        # byebug
 
         image.update(
           body: body,

@@ -30,17 +30,15 @@ module Api
           end
 
           def serialized_page
-            @serialized_page ||= camelize(
-              ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
-            )
+            @serialized_page ||= ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call
           end
 
           def inputs
             serialized_page.merge(
               body: JSON.pretty_generate(page.body),
               meta: JSON.pretty_generate(serialized_page['meta']),
-              autoSchema: JSON.pretty_generate(serialized_page['autoSchema']),
-              manualSchema: JSON.pretty_generate(serialized_page['manualSchema']),
+              autoSchema: JSON.pretty_generate(serialized_page['auto_schema']),
+              manualSchema: JSON.pretty_generate(serialized_page['manual_schema']),
             )
           end
 
@@ -88,13 +86,6 @@ module Api
           def page
             page_url = url.match(%r{^(pages|strony)/(.+)$})[2]
             site::Page.find_by(url: page_url)
-          end
-
-          # TODO: -> Move to service.
-          def camelize(response)
-            response.as_json.transform_keys do |key|
-              key.exclude?('/') ? key.to_s.camelize(:lower) : key
-            end
           end
 
           def image
