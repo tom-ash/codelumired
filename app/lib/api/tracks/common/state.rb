@@ -94,10 +94,12 @@ module Api
             pl: {
               signOutButtonLabel: 'Wyloguj',
               showMyAccountMenuButtonLabel: 'Moje konto',
+              allRightsReserved: 'Wszelkie prawa zastrzeżone.',
             },
             en: {
               signOutButtonLabel: 'Sign Out',
               showMyAccountMenuButtonLabel: 'My account',
+              allRightsReserved: 'All rights reserved.',
             },
           }[lang]
         end
