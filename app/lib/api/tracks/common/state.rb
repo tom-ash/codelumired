@@ -11,7 +11,7 @@ module Api
             render: render,
             user: user,
             meta: meta_preview,
-            texts: texts,
+            texts: texts.merge(common_texts),
             assets: { svgs: assets },
             links: links,
             control: control,
@@ -87,6 +87,19 @@ module Api
           @asset_names ||= %w[
             chevron
           ]
+        end
+
+        def common_texts
+          {
+            pl: {
+              signOutButtonLabel: 'Wyloguj',
+              showMyAccountMenuButtonLabel: 'Moje konto',
+            },
+            en: {
+              signOutButtonLabel: 'Sign Out',
+              showMyAccountMenuButtonLabel: 'My account',
+            },
+          }[lang]
         end
       end
     end
