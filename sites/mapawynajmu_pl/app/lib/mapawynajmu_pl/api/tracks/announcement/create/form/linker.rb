@@ -13,8 +13,8 @@ module MapawynajmuPl
 
               def label
                 {
-                  pl: 'Dodaj ogłoszenie',
-                  en: 'Add Listing',
+                  pl: 'Dodaj ogłoszenie za darmo',
+                  en: 'Add Listing for free',
                 }[lang]
               end
             end

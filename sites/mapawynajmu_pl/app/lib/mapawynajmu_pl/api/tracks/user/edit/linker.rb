@@ -7,6 +7,15 @@ module MapawynajmuPl
         module Edit
           class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             include ::MapawynajmuPl::Api::Tracks::User::Edit::Meta
+
+            private
+
+            def label
+              {
+                pl: 'Ustawienia konta',
+                en: 'Account settings'
+              }[lang]
+            end
           end
         end
       end

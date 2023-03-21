@@ -8,6 +8,15 @@ module SkillfindTech
           module Form
             class Linker < ::SkillfindTech::Api::Tracks::Common::Linker
               include ::SkillfindTech::Api::Tracks::User::New::Form::Meta
+
+              private
+
+              def label
+                {
+                  pl: 'Zarejestruj',
+                  en: 'Sign Up',
+                }[lang]
+              end
             end
           end
         end
