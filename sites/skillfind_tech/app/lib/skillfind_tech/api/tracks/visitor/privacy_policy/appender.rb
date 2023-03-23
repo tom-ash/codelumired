@@ -7,6 +7,19 @@ module SkillfindTech
         module PrivacyPolicy
           class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
             include ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Meta
+
+            private
+
+            def texts
+              {
+                pl: {
+                  headingOne: 'Polityka Prywatności',
+                },
+                en: {
+                  headingOne: 'Privacy Policy',
+                },
+              }[lang]
+            end
           end
         end
       end
