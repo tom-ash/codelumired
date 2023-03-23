@@ -10,12 +10,12 @@ module MapawynajmuPl
 
             UNLOCALIZED_PATH = {
               pl: 'kontakt',
-              en: 'contact'
+              en: 'contact',
             }.freeze
 
             UNLOCALIZED_TITLE = {
               pl: 'Kontakt',
-              en: 'Contact'
+              en: 'Contact',
             }.freeze
 
             private

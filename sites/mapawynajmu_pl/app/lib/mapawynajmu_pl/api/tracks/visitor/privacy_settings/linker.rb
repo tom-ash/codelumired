@@ -8,7 +8,6 @@ module MapawynajmuPl
           class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             include ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Meta
 
-
             private
 
             def label
