@@ -20,8 +20,17 @@ module MapawynajmuPl
 
               def texts
                 {
-                  # TODO
-                }.merge(user_form_texts)
+                  pl: {
+                    categoryHeading: 'Kategoria',
+                    categoryInstructions: 'Kliknij w odpowiednią ikonę, aby wybrać kategorię.',
+                    areaInputLabel: 'Powierzchnia',
+                  },
+                  en: {
+                    categoryHeading: 'Category',
+                    categoryInstructions: 'Click the respective icon to select the category.',
+                    areaInputLabel: 'Area',
+                  },
+                }[lang].merge(user_form_texts)
               end
 
               def control
