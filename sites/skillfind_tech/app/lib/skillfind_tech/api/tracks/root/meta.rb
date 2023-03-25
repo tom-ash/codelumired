@@ -50,9 +50,10 @@ module SkillfindTech
           def render
             {
               visitor: true,
-              page: true,
-              'page/show': true,
+              # page: true,
+              # 'page/show': true,
               renderPostingIndex: true,
+              renderVisitorPageIndex: true,
             }
           end
 

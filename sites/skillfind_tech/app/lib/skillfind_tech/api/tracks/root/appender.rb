@@ -9,14 +9,22 @@ module SkillfindTech
 
           private
 
+          def texts
+            {
+              pl: {
+                honeYourSkillsHeadingTwo: 'Szlifuj swoje umiejętności tech',
+              },
+              en: {
+                honeYourSkillsHeadingTwo: 'Hone your tech skills',
+              },
+            }[lang]
+          end
+
           def data
             {
               postings: postings,
-              tutorials: tutorials,
-              articles: articles,
-            }.merge(
-              ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call,
-            )
+              pages: pages,
+            }
           end
 
           def postings
@@ -35,32 +43,12 @@ module SkillfindTech
             ::SkillfindTech::Page.find_by(url: "root/#{lang}")
           end
 
-          def tutorials
-            ::SkillfindTech::Page.where(category: %w[tutorials insights]).map do |page|
+          def pages
+            ::SkillfindTech::Page.where(category: 'skill').map do |page|
               {
                 title: page.title,
-                description: page.description,
-                category: page.category,
-                subcategory: page.subcategory,
+                href: page.url,
                 hrefLang: page.lang,
-                pathname: page.url,
-                modifiedOn: page.modified_on,
-                image: page.cover_image,
-              }
-            end
-          end
-
-          def articles
-            ::SkillfindTech::Page.where(category: 'articles').map do |page|
-              {
-                title: page.title,
-                description: page.description,
-                category: page.category,
-                subcategory: page.subcategory,
-                hrefLang: page.lang,
-                pathname: page.url,
-                modifiedOn: page.modified_on,
-                image: page.cover_image,
               }
             end
           end
