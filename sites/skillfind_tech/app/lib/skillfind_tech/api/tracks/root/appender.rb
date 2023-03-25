@@ -44,7 +44,11 @@ module SkillfindTech
           end
 
           def pages
-            ::SkillfindTech::Page.where(category: 'skill', lang: lang).map do |page|
+            ::SkillfindTech::Page.where(
+              category: 'skill',
+              online: true,
+              lang: lang,
+            ).map do |page|
               {
                 title: page.title,
                 href: page.url,
