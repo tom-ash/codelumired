@@ -22,6 +22,8 @@ module Api
           def data
             {
               body: page.body,
+              title: page.title,
+              cover_image: page.cover_image,
               updatePageApiUrl: "#{api_url}/page/update",
               name: nil,
               langVerUrls: nil,
