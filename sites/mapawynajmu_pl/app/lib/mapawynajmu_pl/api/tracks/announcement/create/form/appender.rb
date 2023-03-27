@@ -24,11 +24,15 @@ module MapawynajmuPl
                     categoryHeading: 'Kategoria',
                     categoryInstructions: 'Kliknij w odpowiednią ikonę, aby wybrać kategorię.',
                     areaInputLabel: 'Powierzchnia',
+                    showPolishDescriptionCheckboxLabel: 'Dodaj Opis w języku polskim',
+                    showEnglishDescriptionCheckboxLabel: 'Dodaj Opis w języku angielskim',
                   },
                   en: {
                     categoryHeading: 'Category',
                     categoryInstructions: 'Click the respective icon to select the category.',
                     areaInputLabel: 'Area',
+                    showPolishDescriptionCheckboxLabel: 'Add Description in Polish Language',
+                    showEnglishDescriptionCheckboxLabel: 'Add Description in English Language',
                   },
                 }[lang].merge(user_form_texts)
               end
