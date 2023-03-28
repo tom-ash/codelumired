@@ -24,15 +24,21 @@ module MapawynajmuPl
                     categoryHeading: 'Kategoria',
                     categoryInstructions: 'Kliknij w odpowiednią ikonę, aby wybrać kategorię.',
                     areaInputLabel: 'Powierzchnia',
+                    linkInputLabel: 'Link',
+                    nameInputLabel: 'Nazwa',
                     showPolishDescriptionCheckboxLabel: 'Dodaj Opis w języku polskim',
                     showEnglishDescriptionCheckboxLabel: 'Dodaj Opis w języku angielskim',
+                    showAvailabilityDateCheckboxLabel: 'Dodaj datę dostępności',
                   },
                   en: {
                     categoryHeading: 'Category',
                     categoryInstructions: 'Click the respective icon to select the category.',
                     areaInputLabel: 'Area',
+                    linkInputLabel: 'Link',
+                    nameInputLabel: 'Name',
                     showPolishDescriptionCheckboxLabel: 'Add Description in Polish Language',
                     showEnglishDescriptionCheckboxLabel: 'Add Description in English Language',
+                    showAvailabilityDateCheckboxLabel: 'Add availability date',
                   },
                 }[lang].merge(user_form_texts)
               end
@@ -76,8 +82,8 @@ module MapawynajmuPl
                   showEnglishDescription: false,
                   englishDescription: EMPTY_TEXT,
                   verificationCode: EMPTY_TEXT,
-                  name: nil,
-                  link: nil,
+                  name: EMPTY_TEXT,
+                  link: EMPTY_TEXT,
                 }.merge(user_form_inputs)
               end
 
