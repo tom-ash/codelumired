@@ -33,7 +33,6 @@ module MapawynajmuPl
                     floorSelectLabel: 'Piętro',
                     totalFloorsSelectLabel: 'Liczba pięter budynku',
                     roomsSelectLabel: 'Liczba pokoi',
-
                     netRentAmountInputLabel: 'Miesięczna cena netto',
                     grossRentAmountInputLabel: 'Miesięczna cena',
                   },
@@ -101,7 +100,7 @@ module MapawynajmuPl
 
                   floorSelectOptions: floorSelectOptions,
                   totalFloorsSelectOptions: totalFloorsSelectOptions,
-                  roomsSelectOptions: numberOptions,
+                  roomsSelectOptions: roomsSelectOptions,
 
                   rentCurrencySelectOptions: rentCurrencyOptions,
 
@@ -138,6 +137,12 @@ module MapawynajmuPl
                   { value: 1, text: '€' },
                   { value: 2, text: '$' },
                 ]
+              end
+
+              def roomsSelectOptions
+                [
+                  { value: '', text: '' },
+                ].concat(numberOptions)
               end
 
               def numberOptions
