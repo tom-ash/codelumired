@@ -49,7 +49,6 @@ module MapawynajmuPl
                     floorSelectLabel: 'Floor',
                     totalFloorsSelectLabel: 'Building Total Floors',
                     roomsSelectLabel: 'Rooms Amount',
-
                     netRentAmountInputLabel: 'Monthly Net Price',
                     grossRentAmountInputLabel: 'Monthly Price',
                   },
@@ -97,13 +96,10 @@ module MapawynajmuPl
                   verificationCode: EMPTY_TEXT,
                   name: EMPTY_TEXT,
                   link: EMPTY_TEXT,
-
                   floorSelectOptions: floorSelectOptions,
                   totalFloorsSelectOptions: totalFloorsSelectOptions,
                   roomsSelectOptions: roomsSelectOptions,
-
                   rentCurrencySelectOptions: rentCurrencyOptions,
-
                 }.merge(user_form_inputs)
               end
 
