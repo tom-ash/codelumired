@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 namespace :mapawynajmu_pl do
+  desc 'Populate PathData & ViewBox'
+  task populate_path_data_and_view_box: :environment do
+    ::MapawynajmuPl::Asset.all.each do |asset|
+      asset.path_data = asset.data['pathData']
+      asset.view_box = asset.data['viewBox']
+      asset.save!
+    end
+  end
+
   desc 'Transform Page Bodies'
   task transform_page_bodies: :environment do
     ::MapawynajmuPl::Page.all.each do |page|

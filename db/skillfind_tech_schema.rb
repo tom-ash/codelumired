@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.string "keywords"
     t.string "description"
     t.string "cover_image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "author_id"
     t.boolean "online"
     t.boolean "header_autonumbering"
@@ -90,15 +90,6 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.string "subcategory"
     t.uuid "lang_alts_group"
     t.string "link_image"
-    t.index ["author_id"], name: "index_pages_on_author_id"
-    t.index ["category"], name: "index_pages_on_category"
-    t.index ["description"], name: "index_pages_on_description"
-    t.index ["keywords"], name: "index_pages_on_keywords"
-    t.index ["lang"], name: "index_pages_on_lang"
-    t.index ["lang_alts_group"], name: "index_pages_on_lang_alts_group"
-    t.index ["subcategory"], name: "index_pages_on_subcategory"
-    t.index ["title"], name: "index_pages_on_title"
-    t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
   create_table "redirects", force: :cascade do |t|

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_053039) do
+ActiveRecord::Schema.define(version: 2023_03_29_160903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_053039) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
     t.jsonb "data"
+    t.string "path_data"
+    t.string "view_box"
     t.index ["name"], name: "index_assets_on_name", unique: true
   end
 
@@ -132,8 +134,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_053039) do
     t.string "keywords"
     t.string "description"
     t.jsonb "body", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "canonical_url"
     t.string "cover_image"
     t.boolean "online"
@@ -147,15 +149,6 @@ ActiveRecord::Schema.define(version: 2023_03_02_053039) do
     t.string "subcategory"
     t.uuid "lang_alts_group"
     t.string "link_image"
-    t.index ["author_id"], name: "index_pages_on_author_id"
-    t.index ["category"], name: "index_pages_on_category"
-    t.index ["description"], name: "index_pages_on_description"
-    t.index ["keywords"], name: "index_pages_on_keywords"
-    t.index ["lang"], name: "index_pages_on_lang"
-    t.index ["lang_alts_group"], name: "index_pages_on_lang_alts_group"
-    t.index ["subcategory"], name: "index_pages_on_subcategory"
-    t.index ["title"], name: "index_pages_on_title"
-    t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
   create_table "redirects", force: :cascade do |t|
