@@ -68,6 +68,7 @@ module MapawynajmuPl
       mount ::MapawynajmuPl::Api::Announcement::Update::Visible => 'announcement/update/visible/:id'
       mount ::MapawynajmuPl::Api::Announcement::Update::Views => 'announcement/update/views/:id'
       mount ::MapawynajmuPl::Api::Announcement::Delete => 'announcement/delete/:id'
+      mount ::MapawynajmuPl::Api::Methods::Redirects => 'redirects'
     end
   end
 end
