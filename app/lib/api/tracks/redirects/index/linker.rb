@@ -2,7 +2,7 @@
 
 module Api
   module Tracks
-    module Page
+    module Redirects
       module Index
         class Linker < ::Api::Tracks::Common::Linker; end
       end

@@ -5,7 +5,7 @@ module SkillfindTech
     module Tracks
       module Redirects
         module Index
-          class Linker < SkillfindTech::Api::Tracks::Common::Linker
+          class Linker < ::Api::Tracks::Redirects::Index::Linker
             include ::SkillfindTech::Api::Tracks::Redirects::Index::Meta
             include ::SkillfindTech::ProtocolAndDomain
           end
