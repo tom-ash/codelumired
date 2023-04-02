@@ -7,6 +7,10 @@ module MapawynajmuPl
         module Assets
           def asset_names
             @asset_names ||= %i[
+              area
+              list
+              wallet
+              vector-square
               arrowRight
               globe
               calendar
