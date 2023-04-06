@@ -12,8 +12,15 @@ module MapawynajmuPl
 
           private
 
+          # def control
+          #   {
+          #     showCategoryTiles: true,
+          #   }
+          # end
+
           def control
             {
+              showCategoryTiles: true,
               isMapInitialized: false,
               shouldInitializeMap: false,
               isPinsDrawn: false,
@@ -46,6 +53,39 @@ module MapawynajmuPl
 
             data_hash
           end
+
+          def texts
+            {
+              pl: {
+                categoryInputPlaceholder: 'Kategoria',
+                apartmentsCategoryLabel: 'Mieszkania',
+                roomsCategoryLabel: 'Pokoje',
+                housesCategoryLabel: 'Domy',
+                parkingSpacesCategoryLabel: 'Miejsca parkingowe',
+                garageCategoryLabel: 'Garaże',
+                usablePremisesCategoryLabel: 'Lokale użytkowe',
+                officesCategoryLabel: 'Biura',
+                virtualOfficesCategoryLabel: 'Biura wirtualne',
+                coworkingCategoryLabel: 'Coworking',
+                advertisingSpacesCategoryLabel: 'Przestrzenie reklamowe',
+              },
+              en: {
+                categoryInputPlaceholder: 'Category',
+                apartmentsCategoryLabel: 'Mieszkania',
+                roomsCategoryLabel: '',
+                housesCategoryLabel: '',
+                parkingSpacesCategoryLabel: '',
+                garageCategoryLabel: '',
+                usablePremisesCategoryLabel: '',
+                officesCategoryLabel: '',
+                virtualOfficesCategoryLabel: '',
+                coworkingCategoryLabel: '',
+                advertisingSpacesCategoryLabel: '',
+              },
+            }[lang]
+          end
+
+
         end
       end
     end
