@@ -14,8 +14,14 @@ module MapawynajmuPl
               }
 
               ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
+
+                path = "#{partner_path_with_slash(lang)}#{category_link(category, lang)}"
+
+                
+
                 category_links_hash["listing/index/#{category[:trackified]}"] = {
-                  path: "#{partner_path_with_slash(lang)}#{category_link(category, lang)}",
+                  href: "#{protocol_and_domain}/#{path}",
+                  path: path,
                 }
               end
 

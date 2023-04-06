@@ -20,7 +20,7 @@ module MapawynajmuPl
 
           def control
             {
-              showCategoryTiles: true,
+              showCategoryTiles: false,
               isMapInitialized: false,
               shouldInitializeMap: false,
               isPinsDrawn: false,
