@@ -40,7 +40,7 @@ module MapawynajmuPl
             pl: 'lokale-uzytkowe',
             en: 'usable-premises',
           },
-          trackified: 'usable_premises',
+          trackified: 'usablePremises',
         },
         2 => {
           name: {
@@ -116,7 +116,7 @@ module MapawynajmuPl
             pl: 'miejsca-parkingowe',
             en: 'parking-spaces',
           },
-          trackified: 'parking_spaces',
+          trackified: 'parkingSpaces',
         },
         6 => {
           name: {
@@ -135,7 +135,7 @@ module MapawynajmuPl
             pl: 'biura-wirtualne',
             en: 'virtual-offices',
           },
-          trackified: 'virtual_offices',
+          trackified: 'virtualOffices',
         },
         7 => {
           name: {
@@ -154,7 +154,7 @@ module MapawynajmuPl
             pl: 'coworking-przestrzenie-coworkingowe',
             en: 'coworking-spaces',
           },
-          trackified: 'coworking_spaces',
+          trackified: 'coworkingSpaces',
         },
         8 => {
           name: {
@@ -173,7 +173,7 @@ module MapawynajmuPl
             pl: 'przestrzenie-reklamowe',
             en: 'advertising-spaces',
           },
-          trackified: 'advertising_spaces',
+          trackified: 'advertisingSpaces',
         },
         9 => {
           name: {

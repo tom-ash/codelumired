@@ -12,15 +12,36 @@ module MapawynajmuPl
 
           private
 
-          # def control
-          #   {
-          #     showCategoryTiles: true,
-          #   }
-          # end
+          def inputs
+            text_categories
+            {
+              category: category,
+            }
+          end
+
+          def category
+            return if current_category.blank?
+
+            categories[current_category][:name_plural][lang]
+          end
+
+          def categories
+            ::MapawynajmuPl::AnnouncementModules::Categories::CATEGORIES
+          end
+
+          def text_categories
+            text_categories_object = {}
+
+            categories.each do |_category_key, category|
+              text_categories_object["#{category[:trackified]}CategoryLabel"] = category[:name_plural][lang]
+            end
+
+            text_categories_object
+          end
 
           def control
             {
-              showCategoryTiles: false,
+              categoryFilterPanel: false,
               isMapInitialized: false,
               shouldInitializeMap: false,
               isPinsDrawn: false,
@@ -36,6 +57,7 @@ module MapawynajmuPl
 
           def data
             data_hash = {
+              categorySvgName: 'list',
               current_category: current_category,
               current_partner_name: current_partner&.business_name,
               title: title,
@@ -58,34 +80,12 @@ module MapawynajmuPl
             {
               pl: {
                 categoryInputPlaceholder: 'Kategoria',
-                apartmentsCategoryLabel: 'Mieszkania',
-                roomsCategoryLabel: 'Pokoje',
-                housesCategoryLabel: 'Domy',
-                parkingSpacesCategoryLabel: 'Miejsca parkingowe',
-                garageCategoryLabel: 'Garaże',
-                usablePremisesCategoryLabel: 'Lokale użytkowe',
-                officesCategoryLabel: 'Biura',
-                virtualOfficesCategoryLabel: 'Biura wirtualne',
-                coworkingCategoryLabel: 'Coworking',
-                advertisingSpacesCategoryLabel: 'Przestrzenie reklamowe',
               },
               en: {
                 categoryInputPlaceholder: 'Category',
-                apartmentsCategoryLabel: 'Mieszkania',
-                roomsCategoryLabel: '',
-                housesCategoryLabel: '',
-                parkingSpacesCategoryLabel: '',
-                garageCategoryLabel: '',
-                usablePremisesCategoryLabel: '',
-                officesCategoryLabel: '',
-                virtualOfficesCategoryLabel: '',
-                coworkingCategoryLabel: '',
-                advertisingSpacesCategoryLabel: '',
               },
-            }[lang]
+            }[lang].merge(text_categories)
           end
-
-
         end
       end
     end

@@ -17,8 +17,6 @@ module MapawynajmuPl
 
                 path = "#{partner_path_with_slash(lang)}#{category_link(category, lang)}"
 
-                
-
                 category_links_hash["listing/index/#{category[:trackified]}"] = {
                   href: "#{protocol_and_domain}/#{path}",
                   path: path,
