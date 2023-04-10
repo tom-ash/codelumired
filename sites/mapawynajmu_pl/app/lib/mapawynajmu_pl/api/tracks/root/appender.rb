@@ -42,6 +42,7 @@ module MapawynajmuPl
           def control
             {
               categoryFilterPanel: false,
+              areaFilterPanel: false,
               isMapInitialized: false,
               shouldInitializeMap: false,
               isPinsDrawn: false,
@@ -58,6 +59,7 @@ module MapawynajmuPl
           def data
             data_hash = {
               categorySvgName: 'list',
+              areaSvgName: 'area',
               current_category: current_category,
               current_partner_name: current_partner&.business_name,
               title: title,
@@ -80,9 +82,11 @@ module MapawynajmuPl
             {
               pl: {
                 categoryInputPlaceholder: 'Kategoria',
+                areaInputPlaceholder: 'Powierzchnia',
               },
               en: {
                 categoryInputPlaceholder: 'Category',
+                areaInputPlaceholder: 'Area',
               },
             }[lang].merge(text_categories)
           end
