@@ -8,24 +8,24 @@ module MapawynajmuPl
           class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
             include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta
             include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Assets
+            include MapawynajmuPl::Api::Tracks::Announcement::Common::Form
 
-            NO_ERROR = { pl: '', en: '' }.freeze
-            EMPTY_TEXT = ''
             EMPTY_ARRAY = [].freeze
 
             private
+
+            def texts
+              listing_form_texts
+            end
 
             def control
               {
                 step: 'form',
                 isMapInitialized: false,
                 shouldInitializeMap: false,
-                addAvailabilityDate: false, # TODO: Move to data.
-                connecting: false,
-                publishing: false,
                 addingPicture: false,
                 savingAnnouncement: false,
-                success: false,
+                savingPicture: false,
               }
             end
 
@@ -50,6 +50,7 @@ module MapawynajmuPl
                 netRentAmount: announcement.net_rent_amount,
                 grossRentAmount: announcement.gross_rent_amount,
                 rentCurrency: announcement.rent_currency,
+                showAvailabilityDate: announcement.availability_date.present?,
                 availabilityDate: announcement.availability_date,
                 rooms: announcement.rooms,
                 floor: announcement.floor,
@@ -64,15 +65,11 @@ module MapawynajmuPl
                 englishDescription: announcement[:english_description],
                 name: announcement.name,
                 link: announcement.link,
-              }
+              }.merge(listing_form_inputs)
             end
 
             def errors
-              {
-                category: NO_ERROR,
-                map: NO_ERROR,
-                pictures: NO_ERROR,
-              }
+              listing_form_errors
             end
 
             def serialized_announcement

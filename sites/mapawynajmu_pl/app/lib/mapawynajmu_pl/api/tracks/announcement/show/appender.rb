@@ -10,8 +10,13 @@ module MapawynajmuPl
             include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Assets
             include ::MapawynajmuPl::Api::Tracks::Helpers::Announcements
             include ::MapawynajmuPl::Api::Tracks::Helpers::Filters
+            include ::MapawynajmuPl::Api::Tracks::Announcement::Common::Filters
 
             private
+
+            def texts
+              listing_filter_texts
+            end
 
             def control
               control_hash = {
@@ -24,7 +29,7 @@ module MapawynajmuPl
                   },
                   zoom: 12.4,
                 },
-              }
+              }.merge(filter_control)
 
               if ssr?
                 control_hash.merge!(
@@ -42,7 +47,7 @@ module MapawynajmuPl
                 tile: serialized_announcement,
                 announcements: serialized_announcements,
                 amount: serialized_announcements.count,
-              }
+              }.merge(filter_data)
 
               # if ssr? || attrs[:listings_obsolete]
               #   data_hash.merge!(
@@ -52,6 +57,10 @@ module MapawynajmuPl
               # end
 
               data_hash
+            end
+
+            def inputs
+              filter_inputs
             end
 
             def serialized_announcement

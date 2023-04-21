@@ -8,12 +8,10 @@ module MapawynajmuPl
           module Assets
             def asset_names
               @asset_names ||= %i[
-                check
-                facebook
-                phone
-                chevron
-                globe
-                link
+                area
+                list
+                wallet
+                vector-square
                 arrowRight
                 globe
                 calendar
