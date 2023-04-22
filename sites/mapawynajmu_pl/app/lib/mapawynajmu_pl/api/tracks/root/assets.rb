@@ -7,28 +7,32 @@ module MapawynajmuPl
         module Assets
           def asset_names
             @asset_names ||= %i[
-              area
+              # filters
               list
-              wallet
-              vector-square
-              arrowRight
-              globe
-              calendar
+              area
+              coins
+
+              # pins
               apartment
-              house
               room
+              house
               parkingSpace
+              garage
               usablePremises
               office
               virtualOffice
               coworkingSpace
               advertisingSpaces
-              garage
+
+              # check
               facebook
               chevron
+              calendar
               close
               phone
               caretDown
+              arrowRight
+              globe
             ]
           end
         end

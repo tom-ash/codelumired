@@ -19,6 +19,7 @@ module MapawynajmuPl
               {
                 categorySvgName: 'list',
                 areaSvgName: 'area',
+                priceSvgName: 'coins',
               }
             end
 
@@ -29,12 +30,18 @@ module MapawynajmuPl
                   areaInputPlaceholder: 'Powierzchnia',
                   areaMinInputLabel: 'Min.',
                   areaMaxInputLabel: 'Maks.',
+                  priceInputPlaceholder: 'Miesięczna cena',
+                  priceMinInputLabel: 'Min.',
+                  priceMaxInputLabel: 'Maks.',
                 },
                 en: {
                   categoryInputPlaceholder: 'Category',
                   areaInputPlaceholder: 'Area',
                   areaMinInputLabel: 'Min.',
                   areaMaxInputLabel: 'Max.',
+                  priceInputPlaceholder: 'Monthly Price',
+                  priceMinInputLabel: 'Min.',
+                  priceMaxInputLabel: 'Max.',
                 },
               }[lang].merge(category_texts)
             end
@@ -56,6 +63,10 @@ module MapawynajmuPl
                 area: area,
                 areaMin: area_min,
                 areaMax: area_max,
+                priceOptions: priceOptions,
+                price: price,
+                priceMin: price_min,
+                priceMax: price_max,
               }
             end
 
@@ -87,6 +98,22 @@ module MapawynajmuPl
 
             def area_unit
               lang == :pl ? 'm2' : 'sqm'
+            end
+
+            def price
+              if price_min.present? && price_max.present?
+                "#{price_min} - #{price_max}"
+              elsif price_min.present?
+                "> #{price_min}"
+              elsif price_max.present?
+                "< #{price_max}"
+              else
+                ''
+              end
+            end
+
+            def priceOptions
+              %w[1000 1500 2000 2500 3000 4000 5000 6000 7000 8000 9000 10000]
             end
           end
         end
