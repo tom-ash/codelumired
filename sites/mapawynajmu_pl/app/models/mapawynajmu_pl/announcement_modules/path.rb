@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  module AnnouncementModules
+  module ListingModule
     module Path
       def url(lang)
         @lang = lang.to_sym
@@ -21,7 +21,7 @@ module MapawynajmuPl
       attr_reader :lang
 
       def urlified_category
-        ::MapawynajmuPl::Announcement::CATEGORIES[category][:urlified][lang]
+        ::MapawynajmuPl::Listing::CATEGORIES[category][:urlified][lang]
       end
 
       def for_lease

@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Api
-    module Announcement
+    module Listing
       module Helpers
         module Attrs
           extend Grape::API::Helpers

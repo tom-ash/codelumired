@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Edit
           module Meta
             TRACK = 'announcement/edit'
@@ -26,8 +26,8 @@ module MapawynajmuPl
 
             def links
               {
-                'current/pl': MapawynajmuPl::Api::Tracks::Announcement::Edit::Linker.new(announcement: announcement, lang: :pl).call,
-                'current/en': MapawynajmuPl::Api::Tracks::Announcement::Edit::Linker.new(announcement: announcement, lang: :en).call,
+                'current/pl': MapawynajmuPl::Api::Tracks::Listing::Edit::Linker.new(announcement: announcement, lang: :pl).call,
+                'current/en': MapawynajmuPl::Api::Tracks::Listing::Edit::Linker.new(announcement: announcement, lang: :en).call,
               }
             end
 

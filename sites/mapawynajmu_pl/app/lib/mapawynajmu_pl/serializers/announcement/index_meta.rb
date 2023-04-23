@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Serializers
-    module Announcement
+    module Listing
       class IndexMeta
         DEFAULT_IMAGE = 'https://warsawlease.s3.eu-central-1.amazonaws.com/assets/mapa-wynajmu-nieruchomosci-w-warszawie.png'
 
@@ -44,7 +44,7 @@ module MapawynajmuPl
           venue = track.include?('map') ? 'Map' : 'Catalogue'
 
           {
-            title: "#{nominative} for Rent in Warsaw - #{venue} - Free Announcements",
+            title: "#{nominative} for Rent in Warsaw - #{venue} - Free Listings",
             keywords: "#{nominative.downcase}, lease, warsaw, #{venue.downcase}, free, announcements",
             description: "#{nominative} for Rent in Warsaw - #{venue} - free announcements. Search and add free announcements of lease of #{nominative} in Warsaw.",
             image: DEFAULT_IMAGE

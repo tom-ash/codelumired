@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Queries
-    module Announcement
+    module Listing
       module Index
         class CategoryAmounts
           CATEGORY_VALUES = {
@@ -30,7 +30,7 @@ module MapawynajmuPl
           private
 
           def announcements
-            @announcements ||= ::MapawynajmuPl::Announcement.where(
+            @announcements ||= ::MapawynajmuPl::Listing.where(
               user_verified: true,
               visible: true,
             )

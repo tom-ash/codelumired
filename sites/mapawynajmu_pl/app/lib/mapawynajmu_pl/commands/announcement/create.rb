@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Commands
-    module Announcement
+    module Listing
       class Create
         DIRECT_ATTR_NAMES = %i[
           category

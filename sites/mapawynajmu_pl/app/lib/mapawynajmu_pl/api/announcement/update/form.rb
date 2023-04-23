@@ -2,10 +2,10 @@
 
 module MapawynajmuPl
   module Api
-    module Announcement
+    module Listing
       module Update
         class Form < Grape::API
-          helpers MapawynajmuPl::Api::Announcement::Helpers::Attrs
+          helpers MapawynajmuPl::Api::Listing::Helpers::Attrs
 
           before { authorize_for_announcement! }
 
@@ -14,7 +14,7 @@ module MapawynajmuPl
             use :announcement_attrs
           end
           put do
-            ::MapawynajmuPl::Commands::Announcement::Update.new(
+            ::MapawynajmuPl::Commands::Listing::Update.new(
               id: current_announcement.id,
               attrs: params[:announcement]
             ).call

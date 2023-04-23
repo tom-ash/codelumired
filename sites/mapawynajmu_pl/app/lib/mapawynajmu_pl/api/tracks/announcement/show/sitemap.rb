@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Show
           class Sitemap
             class << self
@@ -16,7 +16,7 @@ module MapawynajmuPl
               def announcement_links
                 links = []
 
-                ::MapawynajmuPl::Announcement.where(user_verified: true, visible: true).all.each do |announcement|
+                ::MapawynajmuPl::Listing.where(user_verified: true, visible: true).all.each do |announcement|
                   link = []
 
                   %i[pl en].each do |lang|

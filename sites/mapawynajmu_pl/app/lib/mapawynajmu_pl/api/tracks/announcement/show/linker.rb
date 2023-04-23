@@ -3,10 +3,10 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Show
           class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
-            include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta
+            include ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta
 
             def initialize(announcement: nil, lang:, url: nil)
               @announcement = announcement

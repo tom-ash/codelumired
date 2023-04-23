@@ -3,11 +3,11 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Summary
             class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
-              include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Summary::Meta
+              include ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Meta
             end
           end
         end

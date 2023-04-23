@@ -30,7 +30,7 @@ module MapawynajmuPl
 
         def current_announcement
           id = params[:id] || route_url.match(/(\d+)-.*-(na-wynajem|for-(rent|lease)).*$/)[1]
-          @current_announcement ||= ::MapawynajmuPl::Announcement.find(id)
+          @current_announcement ||= ::MapawynajmuPl::Listing.find(id)
         end
 
         def authorize_for_announcement!
@@ -40,8 +40,8 @@ module MapawynajmuPl
         def sitemaps
           [
             ::MapawynajmuPl::Api::Tracks::Root::Sitemap,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Sitemap,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Show::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Listing::Show::Sitemap,
             ::MapawynajmuPl::Api::Tracks::User::Create::Form::Sitemap,
             ::MapawynajmuPl::Api::Tracks::User::Authorize::Sitemap,
             ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Sitemap,
@@ -60,14 +60,14 @@ module MapawynajmuPl
 
       mount ::Api::Sitemap => 'sitemap'
       mount ::MapawynajmuPl::Api::Sync => 'sync'
-      mount ::MapawynajmuPl::Api::Announcement::Create::AsUser => 'announcement/create/as-user'
-      mount ::MapawynajmuPl::Api::Announcement::Create::WithUser => 'announcement/create/with-user'
-      mount ::MapawynajmuPl::Api::Announcement::GetPhoneNumber => 'announcement/get-phone-number/:id'
-      mount ::MapawynajmuPl::Api::Announcement::Update::Form => 'announcement/update/form/:id'
-      mount ::MapawynajmuPl::Api::Announcement::Update::ActiveUntil => 'announcement/update/active-until/:id'
-      mount ::MapawynajmuPl::Api::Announcement::Update::Visible => 'announcement/update/visible/:id'
-      mount ::MapawynajmuPl::Api::Announcement::Update::Views => 'announcement/update/views/:id'
-      mount ::MapawynajmuPl::Api::Announcement::Delete => 'announcement/delete/:id'
+      mount ::MapawynajmuPl::Api::Listing::Create::AsUser => 'announcement/create/as-user'
+      mount ::MapawynajmuPl::Api::Listing::Create::WithUser => 'announcement/create/with-user'
+      mount ::MapawynajmuPl::Api::Listing::GetPhoneNumber => 'announcement/get-phone-number/:id'
+      mount ::MapawynajmuPl::Api::Listing::Update::Form => 'announcement/update/form/:id'
+      mount ::MapawynajmuPl::Api::Listing::Update::ActiveUntil => 'announcement/update/active-until/:id'
+      mount ::MapawynajmuPl::Api::Listing::Update::Visible => 'announcement/update/visible/:id'
+      mount ::MapawynajmuPl::Api::Listing::Update::Views => 'announcement/update/views/:id'
+      mount ::MapawynajmuPl::Api::Listing::Delete => 'announcement/delete/:id'
       mount ::MapawynajmuPl::Api::Methods::Redirects => 'redirects'
     end
   end

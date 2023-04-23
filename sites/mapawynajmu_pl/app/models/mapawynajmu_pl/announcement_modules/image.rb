@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  module AnnouncementModules
+  module ListingModule
     module Image
       def image
         "#{aws_s3_url}/#{announcement_path}/#{key}"

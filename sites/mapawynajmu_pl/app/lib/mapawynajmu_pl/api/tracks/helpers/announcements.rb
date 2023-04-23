@@ -4,11 +4,11 @@ module MapawynajmuPl
   module Api
     module Tracks
       module Helpers
-        module Announcements
+        module Listings
           private
 
           def announcements
-            @announcements ||= ::MapawynajmuPl::Queries::Announcement::Index::Visitor.new(
+            @announcements ||= ::MapawynajmuPl::Queries::Listing::Index::Visitor.new(
               partner: current_partner,
               category: current_category,
               **filters,
@@ -19,7 +19,7 @@ module MapawynajmuPl
             partner_path = current_partner.present? ? "#{current_partner_path(lang)}/" : ''
             category_path = current_category.present? ? "#{current_category_path(lang)}/" : ''
 
-            @serialized_announcements ||= ::MapawynajmuPl::Serializers::Announcement::Index::Visitor.new(
+            @serialized_announcements ||= ::MapawynajmuPl::Serializers::Listing::Index::Visitor.new(
               announcements: announcements,
               lang: lang,
               partner_path: partner_path,

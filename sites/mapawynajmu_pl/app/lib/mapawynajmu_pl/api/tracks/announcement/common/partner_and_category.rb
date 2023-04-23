@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Common
           module PartnerAndCategory
             FOR_LEASE = { pl: 'na wynajem', en: 'for rent' }.freeze
@@ -13,7 +13,7 @@ module MapawynajmuPl
                 'listing/index/all-categories': { path: partner_path_with_slash(lang)&.chomp('/') },
               }
 
-              ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
+              ::MapawynajmuPl::Listing::CATEGORIES.each_value do |category|
 
                 path = "#{partner_path_with_slash(lang)}#{category_link(category, lang)}"
 
@@ -46,7 +46,7 @@ module MapawynajmuPl
                 current_category_name = match_data && match_data[:current_category_name]
                 return if current_category_name.blank?
 
-                ::MapawynajmuPl::Announcement::CATEGORIES.each do |key, value|
+                ::MapawynajmuPl::Listing::CATEGORIES.each do |key, value|
                   return key if value[:urlified_plural][lang] == current_category_name
                 end
               end
@@ -60,7 +60,7 @@ module MapawynajmuPl
             end
 
             def current_category_path(lang)
-              category_link(::MapawynajmuPl::Announcement::CATEGORIES[current_category], lang)
+              category_link(::MapawynajmuPl::Listing::CATEGORIES[current_category], lang)
             end
 
             def category_link(category, lang)

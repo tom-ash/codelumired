@@ -28,7 +28,7 @@ module MapawynajmuPl
 
               category_link_groups = []
 
-              ::MapawynajmuPl::Announcement::CATEGORIES.each_value do |category|
+              ::MapawynajmuPl::Listing::CATEGORIES.each_value do |category|
                 venues.each do |venue|
                   category_link_group = []
 

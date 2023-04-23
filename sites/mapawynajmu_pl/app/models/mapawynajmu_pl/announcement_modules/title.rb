@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  module AnnouncementModules
+  module ListingModule
     module Title
       def title(lang)
         @lang = lang
@@ -19,7 +19,7 @@ module MapawynajmuPl
       attr_reader :lang
 
       def titleized_category
-        ::MapawynajmuPl::Announcement::CATEGORIES[category][:name][lang]
+        ::MapawynajmuPl::Listing::CATEGORIES[category][:name][lang]
       end
 
       def titleized_area

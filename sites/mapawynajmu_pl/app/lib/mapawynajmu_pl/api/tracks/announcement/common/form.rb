@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Common
           module Form
             NO_ERROR = { pl: '', en: '' }.freeze

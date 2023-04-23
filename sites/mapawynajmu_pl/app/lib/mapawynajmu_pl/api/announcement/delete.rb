@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Api
-    module Announcement
+    module Listing
       class Delete < Grape::API
         before { authorize_for_announcement! }
 

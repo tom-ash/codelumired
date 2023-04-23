@@ -19,11 +19,11 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::User::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Edit::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::User::Authorize::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Authorize::Meta::UNLOCALIZED_PATH,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta::UNLOCALIZED_PATH,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Create::Summary::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Create::Summary::Meta::UNLOCALIZED_PATH,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta::UNLOCALIZED_PATH,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta::UNLOCALIZED_PATH,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta::UNLOCALIZED_PATH,
+            ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Meta::UNLOCALIZED_PATH,
+            ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Meta::UNLOCALIZED_PATH,
+            ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta::UNLOCALIZED_PATH,
+            ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta::UNLOCALIZED_PATH,
+            ::MapawynajmuPl::Api::Tracks::Listing::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Edit::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
@@ -47,11 +47,11 @@ module MapawynajmuPl
           when ::MapawynajmuPl::Api::Tracks::User::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::User::Edit::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::User::Authorize::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::User::Authorize::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Announcement::Create::Summary::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Announcement::Create::Summary::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Announcement::Show::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Appender.new(attrs).call
+          when ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Appender.new(attrs).call
+          when ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Appender.new(attrs).call
+          when ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Appender.new(attrs).call
+          when ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Show::Appender.new(attrs).call
+          when ::MapawynajmuPl::Api::Tracks::Listing::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Edit::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Index::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
           when ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Edit::Appender.new(attrs).call
@@ -79,8 +79,8 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::User::Authorize::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Authorize::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::User::Show::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Show::Linker.new(lang).call,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Linker.new(lang).call,
-            ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Linker.new(lang).call,
+            ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Linker.new(lang).call,
+            ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Page::Index::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Image::Edit::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::Image::Index::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Image::Index::Linker.new(lang).call,

@@ -3,11 +3,11 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Index
           module User
             class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
-              include ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta
+              include ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta
 
               private
 
@@ -19,11 +19,11 @@ module MapawynajmuPl
               end
 
               def announcements
-                ::MapawynajmuPl::Queries::Announcement::Index::User.new(user_id: authenticated_user.id).call
+                ::MapawynajmuPl::Queries::Listing::Index::User.new(user_id: authenticated_user.id).call
               end
 
               def serialized_announcements
-                ::MapawynajmuPl::Serializers::Announcement::Index::User.new(announcements, lang).call
+                ::MapawynajmuPl::Serializers::Listing::Index::User.new(announcements, lang).call
               end
             end
           end

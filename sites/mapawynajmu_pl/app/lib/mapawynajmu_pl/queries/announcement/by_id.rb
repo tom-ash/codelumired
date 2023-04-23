@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Queries
-    module Announcement
+    module Listing
       class ById
         def initialize(id:, only_visible: false)
           @id = id
@@ -10,7 +10,7 @@ module MapawynajmuPl
         end
 
         def call
-          ::MapawynajmuPl::Announcement.find(id)
+          ::MapawynajmuPl::Listing.find(id)
         end
 
         private
@@ -18,9 +18,9 @@ module MapawynajmuPl
         attr_reader :id, :only_visible
 
         def announcements
-          return ::MapawynajmuPl::Announcement.where(visible: true) if only_visible
+          return ::MapawynajmuPl::Listing.where(visible: true) if only_visible
 
-          ::MapawynajmuPl::Announcement.all
+          ::MapawynajmuPl::Listing.all
         end
       end
     end

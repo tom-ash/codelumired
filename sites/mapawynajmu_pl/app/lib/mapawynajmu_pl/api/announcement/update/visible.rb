@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Api
-    module Announcement
+    module Listing
       module Update
         class Visible < Grape::API
           before { authorize_for_announcement! }
@@ -11,7 +11,7 @@ module MapawynajmuPl
 
           put do
             current_announcement.update_attribute(:visible, !current_announcement.visible)
-            camelize(::MapawynajmuPl::Serializers::Announcement::Edit.new(current_announcement).call)
+            camelize(::MapawynajmuPl::Serializers::Listing::Edit.new(current_announcement).call)
           end
         end
       end

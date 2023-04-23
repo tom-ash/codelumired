@@ -3,7 +3,7 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Form
             module State

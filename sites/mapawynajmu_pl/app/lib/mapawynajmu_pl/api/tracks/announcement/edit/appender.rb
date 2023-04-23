@@ -3,12 +3,12 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Edit
           class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
-            include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Meta
-            include ::MapawynajmuPl::Api::Tracks::Announcement::Edit::Assets
-            include MapawynajmuPl::Api::Tracks::Announcement::Common::Form
+            include ::MapawynajmuPl::Api::Tracks::Listing::Edit::Meta
+            include ::MapawynajmuPl::Api::Tracks::Listing::Edit::Assets
+            include MapawynajmuPl::Api::Tracks::Listing::Common::Form
 
             EMPTY_ARRAY = [].freeze
 
@@ -24,7 +24,7 @@ module MapawynajmuPl
                 isMapInitialized: false,
                 shouldInitializeMap: false,
                 addingPicture: false,
-                savingAnnouncement: false,
+                savingListing: false,
                 savingPicture: false,
               }
             end
@@ -73,11 +73,11 @@ module MapawynajmuPl
             end
 
             def serialized_announcement
-              ::MapawynajmuPl::Serializers::Announcement::Edit.new(announcement).call
+              ::MapawynajmuPl::Serializers::Listing::Edit.new(announcement).call
             end
 
             def announcement
-              @announcement ||= ::MapawynajmuPl::Queries::Announcement::ById.new(id: announcement_id).call
+              @announcement ||= ::MapawynajmuPl::Queries::Listing::ById.new(id: announcement_id).call
             end
 
             def announcement_id

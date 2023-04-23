@@ -2,16 +2,16 @@
 
 module MapawynajmuPl
   module Api
-    module Announcement
+    module Listing
       module Create
         class AsUser < Grape::API
-          helpers MapawynajmuPl::Api::Announcement::Helpers::Attrs
+          helpers MapawynajmuPl::Api::Listing::Helpers::Attrs
 
           before { authorize! }
 
           params { use :announcement_attrs }
           post do
-            ::MapawynajmuPl::Commands::Announcement::Create.new(
+            ::MapawynajmuPl::Commands::Listing::Create.new(
               user_id: authenticated_user.id,
               attrs: params[:announcement].merge(user_verified: true),
             ).call

@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Edit
           module Assets
             def asset_names

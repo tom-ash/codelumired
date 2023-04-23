@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Queries
-    module Announcement
+    module Listing
       module Index
         class Visitor
           def initialize(
@@ -30,7 +30,7 @@ module MapawynajmuPl
           attr_reader :partner, :category, :area_min, :area_max, :price_min, :price_max
 
           def announcements
-            @announcement ||= ::MapawynajmuPl::Announcement.where(search_params)
+            @announcement ||= ::MapawynajmuPl::Listing.where(search_params)
                                                            .order('points DESC')
                                                            .order('active_until DESC')
 

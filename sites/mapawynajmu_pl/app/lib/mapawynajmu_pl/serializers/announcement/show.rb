@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Serializers
-    module Announcement
+    module Listing
       class Show
         ATTRS = %w[
           id

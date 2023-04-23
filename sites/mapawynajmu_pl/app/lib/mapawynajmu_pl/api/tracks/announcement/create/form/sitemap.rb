@@ -3,12 +3,12 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Form
             class Sitemap
               class << self
-                include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
+                include ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Meta
 
                 def get
                   [links]

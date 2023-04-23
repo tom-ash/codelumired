@@ -3,7 +3,7 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Summary
             module Meta
@@ -24,7 +24,7 @@ module SkillfindTech
               end
 
               def announcement
-                @announcement ||= ::SkillfindTech::Announcement.find(id)
+                @announcement ||= ::SkillfindTech::Listing.find(id)
               end
 
               def track

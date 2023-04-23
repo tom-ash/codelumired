@@ -3,11 +3,11 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Form
             class Linker < SkillfindTech::Api::Tracks::Common::Linker
-              include ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta
+              include ::SkillfindTech::Api::Tracks::Listing::Create::Form::Meta
             end
           end
         end

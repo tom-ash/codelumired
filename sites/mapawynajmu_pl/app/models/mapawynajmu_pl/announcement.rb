@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  class Announcement < ApplicationRecord
-    include ::MapawynajmuPl::AnnouncementModules::Categories
-    include ::MapawynajmuPl::AnnouncementModules::Path
-    include ::MapawynajmuPl::AnnouncementModules::Title
-    include ::MapawynajmuPl::AnnouncementModules::Keywords
-    include ::MapawynajmuPl::AnnouncementModules::Description
-    include ::MapawynajmuPl::AnnouncementModules::Image
-    include ::MapawynajmuPl::AnnouncementModules::EditPath
-    include ::MapawynajmuPl::AnnouncementModules::EditTitle
-    include ::MapawynajmuPl::AnnouncementModules::SummaryPath
+  class Listing < ApplicationRecord
+    include ::MapawynajmuPl::ListingModule::Categories
+    include ::MapawynajmuPl::ListingModule::Path
+    include ::MapawynajmuPl::ListingModule::Title
+    include ::MapawynajmuPl::ListingModule::Keywords
+    include ::MapawynajmuPl::ListingModule::Description
+    include ::MapawynajmuPl::ListingModule::Image
+    include ::MapawynajmuPl::ListingModule::EditPath
+    include ::MapawynajmuPl::ListingModule::EditTitle
+    include ::MapawynajmuPl::ListingModule::SummaryPath
 
     establish_connection :mapawynajmu_pl
 

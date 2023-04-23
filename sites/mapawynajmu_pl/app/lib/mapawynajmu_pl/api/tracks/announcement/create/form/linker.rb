@@ -3,11 +3,11 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Form
             class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
-              include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
+              include ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Meta
 
               private
 

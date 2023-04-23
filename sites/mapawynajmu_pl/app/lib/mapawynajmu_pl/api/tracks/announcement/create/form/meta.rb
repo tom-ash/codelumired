@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Form
             module Meta
@@ -58,8 +58,8 @@ module MapawynajmuPl
 
               def links
                 {
-                  'current/pl': ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Linker.new(:pl).call,
-                  'current/en': ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Linker.new(:en).call,
+                  'current/pl': ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Linker.new(:pl).call,
+                  'current/en': ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Linker.new(:en).call,
                 }
               end
 

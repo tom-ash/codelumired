@@ -3,11 +3,11 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Summary
             class Linker < SkillfindTech::Api::Tracks::Common::Linker
-              include ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta
+              include ::SkillfindTech::Api::Tracks::Listing::Create::Summary::Meta
             end
           end
         end

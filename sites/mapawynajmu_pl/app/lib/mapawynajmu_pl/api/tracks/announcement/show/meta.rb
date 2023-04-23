@@ -3,18 +3,18 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Show
           module Meta
-            include ::MapawynajmuPl::Api::Tracks::Announcement::Common::PartnerAndCategory
+            include ::MapawynajmuPl::Api::Tracks::Listing::Common::PartnerAndCategory
 
             TRACK = 'announcement/show'
 
             PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]+)"
             PARTNER_EN = "partners\/(?<current_partner_name>[^\/]+)"
 
-            CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
-            CATEGORY_EN = "rent/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+            CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Listing::URL_CATEGORIES})"
+            CATEGORY_EN = "rent/(?<current_category_name>#{::MapawynajmuPl::Listing::URL_CATEGORIES})"
 
             LISTING_PL = '\d+-.*-na-wynajem.*'
             LISTING_EN = '\d+-.*-for-(rent|lease).*'
@@ -37,9 +37,9 @@ module MapawynajmuPl
 
             def links
               {}.merge(
-                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: lang, url: url).category_links,
-                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: lang, url: url).lang_links,
-                ::MapawynajmuPl::Api::Tracks::Announcement::Show::Linker.new(announcement: announcement, lang: lang, url: url).go_back_link,
+                ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang, url: url).category_links,
+                ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang, url: url).lang_links,
+                ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang, url: url).go_back_link,
               )
             end
 

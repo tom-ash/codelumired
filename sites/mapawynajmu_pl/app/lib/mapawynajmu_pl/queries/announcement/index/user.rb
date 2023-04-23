@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Queries
-    module Announcement
+    module Listing
       module Index
         class User
           def initialize(user_id:, search_params: {})

@@ -3,15 +3,15 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Form
             class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
-              include ::MapawynajmuPl::Api::Tracks::Announcement::Create::Form::Meta
+              include ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Meta
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::State::Texts
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::State::Inputs
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::State::Errors
-              include MapawynajmuPl::Api::Tracks::Announcement::Common::Form
+              include MapawynajmuPl::Api::Tracks::Listing::Common::Form
 
               EMPTY_TEXT = ''
               EMPTY_ARRAY = [].freeze
@@ -28,7 +28,7 @@ module MapawynajmuPl
                   isMapInitialized: false,
                   shouldInitializeMap: false,
                   addingPicture: false,
-                  savingAnnouncement: false,
+                  savingListing: false,
                   savingPicture: false,
                 }
               end

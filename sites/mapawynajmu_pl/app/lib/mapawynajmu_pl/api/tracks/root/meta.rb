@@ -5,16 +5,16 @@ module MapawynajmuPl
     module Tracks
       module Root
         module Meta
-          include ::MapawynajmuPl::Api::Tracks::Announcement::Common::PartnerAndCategory
+          include ::MapawynajmuPl::Api::Tracks::Listing::Common::PartnerAndCategory
 
           TRACK = 'root'
 
           ROOT_PL = '/'
-          CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+          CATEGORY_PL = "wynajem/(?<current_category_name>#{::MapawynajmuPl::Listing::URL_CATEGORIES})"
           PARTNER_PL = "partnerzy\/(?<current_partner_name>[^\/]+)"
 
           ROOT_EN = 'en'
-          CATEGORY_EN = "rent/(?<current_category_name>#{::MapawynajmuPl::Announcement::URL_CATEGORIES})"
+          CATEGORY_EN = "rent/(?<current_category_name>#{::MapawynajmuPl::Listing::URL_CATEGORIES})"
           PARTNER_EN = "partners\/(?<current_partner_name>[^\/]+)"
 
           UNLOCALIZED_PATH = {
@@ -84,7 +84,7 @@ module MapawynajmuPl
           end
 
           def current_category_title
-            "#{::MapawynajmuPl::Announcement::CATEGORIES[current_category][:name_plural][lang]} #{FOR_LEASE[lang]}"
+            "#{::MapawynajmuPl::Listing::CATEGORIES[current_category][:name_plural][lang]} #{FOR_LEASE[lang]}"
           end
         end
       end

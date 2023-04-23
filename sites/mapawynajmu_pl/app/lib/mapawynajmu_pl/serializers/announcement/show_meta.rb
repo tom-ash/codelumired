@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Serializers
-    module Announcement
+    module Listing
       class ShowMeta
         def initialize(announcement:, lang:)
           @announcement = announcement

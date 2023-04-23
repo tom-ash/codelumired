@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ::MapawynajmuPl::Api::Announcement::CreateWithUser do
+RSpec.describe ::MapawynajmuPl::Api::Listing::CreateWithUser do
   let(:category) { 2 }
   let(:area) { 42.42 }
   let(:pictures) { [{ database: 'test_key', description: 'test_descriptiom' }] }

@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Summary
             module Meta
@@ -16,7 +16,7 @@ module MapawynajmuPl
 
               UNLOCALIZED_TITLE = {
                 pl: 'Podsumowanie dodanego ogłoszenia',
-                en: 'Added Announcement Summary',
+                en: 'Added Listing Summary',
               }.freeze
 
               private
@@ -26,7 +26,7 @@ module MapawynajmuPl
               end
 
               def announcement
-                @announcement ||= ::MapawynajmuPl::Announcement.find(id)
+                @announcement ||= ::MapawynajmuPl::Listing.find(id)
               end
 
               def track

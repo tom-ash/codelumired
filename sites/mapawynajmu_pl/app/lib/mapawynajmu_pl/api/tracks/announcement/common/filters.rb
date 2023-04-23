@@ -3,7 +3,7 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Common
           module Filters
             private
@@ -77,7 +77,7 @@ module MapawynajmuPl
             end
 
             def categories
-              ::MapawynajmuPl::AnnouncementModules::Categories::CATEGORIES
+              ::MapawynajmuPl::ListingModule::Categories::CATEGORIES
             end
 
             def areaOptions

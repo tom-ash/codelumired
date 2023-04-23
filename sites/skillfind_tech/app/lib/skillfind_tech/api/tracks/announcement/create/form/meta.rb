@@ -3,7 +3,7 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Create
           module Form
             module Meta
@@ -60,8 +60,8 @@ module SkillfindTech
 
               def links
                 {
-                  'current/en': ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Linker.new(:en).call,
-                  'current/pl': ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Linker.new(:pl).call,
+                  'current/en': ::SkillfindTech::Api::Tracks::Listing::Create::Form::Linker.new(:en).call,
+                  'current/pl': ::SkillfindTech::Api::Tracks::Listing::Create::Form::Linker.new(:pl).call,
                 }
               end
             end

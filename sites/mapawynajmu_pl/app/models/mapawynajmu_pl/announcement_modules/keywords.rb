@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  module AnnouncementModules
+  module ListingModule
     module Keywords
       def keywords(lang)
         @lang = lang

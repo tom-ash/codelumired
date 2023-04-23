@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  module AnnouncementModules
+  module ListingModule
     module EditPath
       def edit_path(lang)
         @lang = lang.to_sym

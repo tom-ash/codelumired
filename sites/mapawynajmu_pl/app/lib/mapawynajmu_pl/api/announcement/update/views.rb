@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Api
-    module Announcement
+    module Listing
       module Update
         class Views < Grape::API
           params { requires :id, type: Integer }

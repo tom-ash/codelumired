@@ -2,10 +2,10 @@
 
 module MapawynajmuPl
   module Api
-    module Announcement
+    module Listing
       module Create
         class WithUser < Grape::API
-          helpers MapawynajmuPl::Api::Announcement::Helpers::Attrs
+          helpers MapawynajmuPl::Api::Listing::Helpers::Attrs
           helpers MapawynajmuPl::Api::User::Helpers::Attrs
 
           params do
@@ -24,7 +24,7 @@ module MapawynajmuPl
 
             user = MapawynajmuPl::User.find_by!(email: email)
 
-            ::MapawynajmuPl::Commands::Announcement::Create.new(
+            ::MapawynajmuPl::Commands::Listing::Create.new(
               user_id: user.id,
               attrs: params[:announcement].merge(user_verified: false),
             ).call

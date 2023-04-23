@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  module AnnouncementModules
+  module ListingModule
     module SummaryPath
       def summary_path(lang)
         @lang = lang.to_sym

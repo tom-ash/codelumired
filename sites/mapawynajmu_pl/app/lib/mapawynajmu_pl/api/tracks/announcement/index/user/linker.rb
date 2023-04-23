@@ -3,11 +3,11 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Index
           module User
             class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
-              include ::MapawynajmuPl::Api::Tracks::Announcement::Index::User::Meta
+              include ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta
 
               private
 

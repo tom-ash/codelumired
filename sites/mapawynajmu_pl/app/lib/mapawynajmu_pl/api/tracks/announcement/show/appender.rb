@@ -3,14 +3,14 @@
 module MapawynajmuPl
   module Api
     module Tracks
-      module Announcement
+      module Listing
         module Show
           class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
-            include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Meta
-            include ::MapawynajmuPl::Api::Tracks::Announcement::Show::Assets
-            include ::MapawynajmuPl::Api::Tracks::Helpers::Announcements
+            include ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta
+            include ::MapawynajmuPl::Api::Tracks::Listing::Show::Assets
+            include ::MapawynajmuPl::Api::Tracks::Helpers::Listings
             include ::MapawynajmuPl::Api::Tracks::Helpers::Filters
-            include ::MapawynajmuPl::Api::Tracks::Announcement::Common::Filters
+            include ::MapawynajmuPl::Api::Tracks::Listing::Common::Filters
 
             private
 
@@ -64,11 +64,11 @@ module MapawynajmuPl
             end
 
             def serialized_announcement
-              @serialized_announcement ||= ::MapawynajmuPl::Serializers::Announcement::Show.new(announcement).call.merge(title: title)
+              @serialized_announcement ||= ::MapawynajmuPl::Serializers::Listing::Show.new(announcement).call.merge(title: title)
             end
 
             def announcement
-              @announcement ||= ::MapawynajmuPl::Queries::Announcement::ById.new(id: announcement_id).call
+              @announcement ||= ::MapawynajmuPl::Queries::Listing::ById.new(id: announcement_id).call
             end
 
             def announcement_id

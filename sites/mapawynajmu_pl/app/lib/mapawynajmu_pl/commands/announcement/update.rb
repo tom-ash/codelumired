@@ -2,7 +2,7 @@
 
 module MapawynajmuPl
   module Commands
-    module Announcement
+    module Listing
       class Update
         DIRECT_ATTR_NAMES = %i[
           category
@@ -39,7 +39,7 @@ module MapawynajmuPl
         attr_reader :id, :attrs
 
         def announcement
-          @announcement ||= MapawynajmuPl::Announcement.find(id)
+          @announcement ||= MapawynajmuPl::Listing.find(id)
         end
 
         def parsed_attrs
