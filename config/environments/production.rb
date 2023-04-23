@@ -80,4 +80,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins 'https://skillfind.tech', "https://#{MAPAWYNAJMU_PL_DOMAIN}", %r{^https:\/\/.*\.googleusercontent\.com$}
+      resource '*', headers: :any, methods: %i[get post put patch delete options head]
+    end
+  end
 end
