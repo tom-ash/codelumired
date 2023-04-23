@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_061004) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_03_02_061004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -20,8 +19,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.bigint "job_id", null: false
     t.bigint "skill_id", null: false
     t.integer "level", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_coveted_skills_on_job_id"
     t.index ["level"], name: "index_coveted_skills_on_level"
     t.index ["skill_id"], name: "index_coveted_skills_on_skill_id"
@@ -31,8 +30,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.bigint "added_by_id", null: false
     t.bigint "page_id"
     t.jsonb "body", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "name"
     t.integer "width"
     t.integer "height"
@@ -62,8 +61,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.integer "b2b_min"
     t.integer "b2b_max"
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -76,8 +75,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.string "keywords"
     t.string "description"
     t.string "cover_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.bigint "author_id"
     t.boolean "online"
     t.boolean "header_autonumbering"
@@ -98,8 +97,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.string "redirected_url", null: false
     t.integer "status", null: false
     t.text "reason"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["added_by_id"], name: "index_redirects_on_added_by_id"
     t.index ["original_url"], name: "index_redirects_on_original_url", unique: true
   end
@@ -109,8 +108,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.string "name", null: false
     t.string "type", null: false
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_skills_on_name", unique: true
     t.index ["principal_skill_id"], name: "index_skills_on_principal_skill_id"
   end
@@ -124,9 +123,9 @@ ActiveRecord::Schema.define(version: 2023_03_02_061004) do
     t.string "hashed_password", null: false
     t.string "password_salt", null: false
     t.jsonb "change_log", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "email_verified_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "email_verified_at", precision: nil
   end
 
   add_foreign_key "coveted_skills", "jobs"

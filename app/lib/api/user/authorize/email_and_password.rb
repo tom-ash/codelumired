@@ -14,7 +14,7 @@ module Api
             params.merge(constantized_site_name: constantized_site_name),
           ).call
 
-          accessToken = ::JWT::Encoder.new(id: user.id).call
+          accessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
           href = ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang.to_sym).call[:href]
 
           {

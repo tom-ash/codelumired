@@ -11,7 +11,7 @@ module Api
             verificationCode: verificationCode,
             userId: authenticated_user.id,
           }
-          encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+          encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
 
           ::Mailers::Verification.new(
             email: email,
@@ -31,7 +31,7 @@ module Api
           requires :verification_code, type: String
         end
         delete do
-          decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+          decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(params['verification_token']).call
           error!('Verification code invalid.', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
           error!('Verification code user mismatch.', 422) if decodedVerificationToken['userId'] != authenticated_user.id
 

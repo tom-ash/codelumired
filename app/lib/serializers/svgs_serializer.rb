@@ -16,6 +16,6 @@ class SvgsSerializer
   attr_reader :site
 
   def svgs
-    Object.const_get(site)::SVG.all
+    Object.const_get(site)::Svg.all
   end
 end

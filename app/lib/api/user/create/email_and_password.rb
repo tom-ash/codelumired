@@ -39,7 +39,7 @@ module Api
             verificationCode: verificationCode,
             userId: user.id,
           }
-          encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+          encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
 
           {
             verificationToken: encodedVerificationToken,
@@ -53,7 +53,7 @@ module Api
           requires :verification_code, type: String
         end
         put do
-          decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+          decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(params['verification_token']).call
           error!('Invalid verification code!', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
 
           user_id = decodedVerificationToken['userId']
@@ -71,7 +71,7 @@ module Api
             site::Commands::User::Confirm.new(user_id: user.id).call
           end
 
-          encodedAccessToken = ::JWT::Encoder.new(id: user.id).call
+          encodedAccessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
 
           listing_confirmation_href = begin
             listing_confirmation_path = user.announcements.last&.summary_path(lang.to_sym)

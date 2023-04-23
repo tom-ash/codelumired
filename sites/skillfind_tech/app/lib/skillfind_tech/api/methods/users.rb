@@ -37,7 +37,7 @@ module SkillfindTech
         end
         post 'auth' do
           user = ::Commands::User::Authorize::EmailAndPassword.new(params.merge(constantized_site_name: constantized_site_name)).call
-          accessToken = ::JWT::Encoder.new(id: user.id).call
+          accessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
           href = ::SkillfindTech::Api::Tracks::Root::Linker.new(lang).call[:href]
 
           {

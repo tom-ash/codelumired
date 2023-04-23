@@ -24,12 +24,10 @@ module MapawynajmuPl
 
             user = MapawynajmuPl::User.find_by!(email: email)
 
-            announcement_attrs = {
+            ::MapawynajmuPl::Commands::Announcement::Create.new(
               user_id: user.id,
               attrs: params[:announcement].merge(user_verified: false),
-            }
-
-            ::MapawynajmuPl::Commands::Announcement::Create.new(announcement_attrs).call
+            ).call
 
             verificationCode = rand(1000..9999).to_s
 
@@ -44,7 +42,7 @@ module MapawynajmuPl
               verificationCode: verificationCode,
               userId: user.id,
             }
-            encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+            encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
 
             {
               verificationToken: encodedVerificationToken,

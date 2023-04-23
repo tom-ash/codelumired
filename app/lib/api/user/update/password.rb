@@ -15,7 +15,7 @@ module Api
               verificationCode: verificationCode,
               userId: userId,
             }
-            encodedVerificationToken = ::JWT::Encoder.new(verificationToken).call
+            encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
 
             ::Mailers::Verification.new(
               email: email,
@@ -33,7 +33,7 @@ module Api
             requires :verification_token, type: String
           end
           put do
-            decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(params['verification_token']).call
             error!('Verification code invalid.', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
           rescue StandardError
             error!('Invalid email or verification code!', 422)
@@ -47,7 +47,7 @@ module Api
             requires :password, type: String
           end
           put do
-            decodedVerificationToken = ::JWT::Decoder.new(params['verification_token']).call
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(params['verification_token']).call
             error!('Verification code invalid.', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
 
             ::Commands::User::Update::Password.new(

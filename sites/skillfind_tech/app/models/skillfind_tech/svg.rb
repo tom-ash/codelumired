@@ -1,4 +1,4 @@
 module SkillfindTech
-  class SVG < MapawynajmuPl::Asset
+  class Svg < MapawynajmuPl::Asset
   end
 end

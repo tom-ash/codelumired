@@ -23,7 +23,7 @@ module Api
               userId: authenticated_user.id,
             }
 
-            ::JWT::Encoder.new(verificationToken).call
+            ::Ciphers::Jwt::Encoder.new(verificationToken).call
           end
         end
 
@@ -35,7 +35,7 @@ module Api
           put do
             verificationCodeFromParams = params['verification_code']
             verificationToken = params['verification_token']
-            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(verificationToken).call
             currentEmailVerificationCodeFromToken = decodedVerificationToken.currentEmailVerificationCode
 
             error! unless verificationCodeFromParams == currentEmailVerificationCodeFromToken
@@ -53,7 +53,7 @@ module Api
           put do
             verificationCodeFromParams = params['verification_code']
             verificationToken = params['verification_token']
-            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(verificationToken).call
             currentEmailVerificationCodeFromToken = decodedVerificationToken.currentEmailVerificationCode
             error! unless verificationCodeFromParams == currentEmailVerificationCodeFromToken
 
@@ -78,7 +78,7 @@ module Api
               userId: authenticatedUserId,
             }
 
-            ::JWT::Encoder.new(newVerificationToken).call
+            ::Ciphers::Jwt::Encoder.new(newVerificationToken).call
           end
         end
 
@@ -90,7 +90,7 @@ module Api
           put do
             verificationCodeFromParams = params['verification_code']
             verificationToken = params['verification_token']
-            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(verificationToken).call
             newEmailVerificationCodeFromToken = decodedVerificationToken.newEmailVerificationCode
 
             error! unless verificationCodeFromParams == newEmailVerificationCodeFromToken
@@ -109,7 +109,7 @@ module Api
           end
           put do
             verificationToken = params['verification_token']
-            decodedVerificationToken = ::JWT::Decoder.new(verificationToken).call
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(verificationToken).call
 
             currentEmailVerificationCodeFromParams = params['current_email_verification_code']
             currentEmailVerificationCodeFromToken = decodedVerificationToken.currentEmailVerificationCode

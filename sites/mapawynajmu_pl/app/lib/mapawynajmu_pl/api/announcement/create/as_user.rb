@@ -11,11 +11,10 @@ module MapawynajmuPl
 
           params { use :announcement_attrs }
           post do
-            announcement_attrs = {
+            ::MapawynajmuPl::Commands::Announcement::Create.new(
               user_id: authenticated_user.id,
               attrs: params[:announcement].merge(user_verified: true),
-            }
-            ::MapawynajmuPl::Commands::Announcement::Create.new(announcement_attrs).call
+            ).call
             authenticated_user.announcements.last.summary_path(lang)
           end
         end

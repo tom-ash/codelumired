@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_29_160903) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_03_29_160903) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -23,7 +22,7 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
     t.integer "views", null: false
     t.jsonb "reports", null: false
     t.boolean "visible", null: false
-    t.datetime "active_until", null: false
+    t.datetime "active_until", precision: nil, null: false
     t.integer "category", limit: 2, null: false
     t.float "area"
     t.integer "rent_currency", limit: 2
@@ -43,8 +42,8 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
     t.float "longitude", null: false
     t.float "latitude", null: false
     t.jsonb "change_log", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "area_int"
     t.integer "net_rent_amount_int"
     t.integer "net_rent_amount_per_sqm_int"
@@ -89,8 +88,8 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
 
   create_table "assets", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "type"
     t.jsonb "data"
     t.string "path_data"
@@ -100,14 +99,14 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
 
   create_table "deleted_announcements", force: :cascade do |t|
     t.jsonb "original_announcement", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "deleted_users", force: :cascade do |t|
     t.jsonb "original_user", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -119,8 +118,8 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
     t.integer "height"
     t.string "storage_key", null: false
     t.string "storage_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["added_by_id"], name: "index_images_on_added_by_id"
     t.index ["page_id"], name: "index_images_on_page_id"
     t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
@@ -134,8 +133,8 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
     t.string "keywords"
     t.string "description"
     t.jsonb "body", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "canonical_url"
     t.string "cover_image"
     t.boolean "online"
@@ -151,14 +150,24 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
     t.string "link_image"
   end
 
+  create_table "prospective_users", force: :cascade do |t|
+    t.string "encrypted_access_token", null: false
+    t.jsonb "verification", null: false
+    t.string "verification_code_iv", null: false
+    t.jsonb "user", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["encrypted_access_token"], name: "index_prospective_users_on_encrypted_access_token", unique: true
+  end
+
   create_table "redirects", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.string "original_url", null: false
     t.string "redirected_url", null: false
     t.integer "status", null: false
     t.text "reason"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["added_by_id"], name: "index_redirects_on_added_by_id"
     t.index ["original_url"], name: "index_redirects_on_original_url", unique: true
   end
@@ -177,13 +186,13 @@ ActiveRecord::Schema.define(version: 2023_03_29_160903) do
     t.string "tax_number"
     t.text "address"
     t.jsonb "change_log", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "account_type"
     t.string "first_name"
     t.string "last_name"
     t.string "role"
-    t.datetime "email_verified_at"
+    t.datetime "email_verified_at", precision: nil
     t.string "country_code"
     t.string "phone_number"
     t.string "urlified_business_name"
