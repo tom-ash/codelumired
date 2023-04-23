@@ -41,10 +41,10 @@ module MapawynajmuPl
     end
 
     def create_deleted_announcement
-      @deleted_announcement = DeletedAnnouncement.find_by(id: id)
+      @deleted_announcement = DeletedListing.find_by(id: id)
       return @deleted_announcement.update_attribute(original_announcement, self) if @deleted_announcement
 
-      DeletedAnnouncement.create(id: id, original_announcement: self)
+      DeletedListing.create(id: id, original_announcement: self)
     end
 
     def unloggable

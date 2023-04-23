@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
-  class DeletedAnnouncement < ApplicationRecord
+  class DeletedListing < ApplicationRecord
     establish_connection :mapawynajmu_pl
     self.table_name = 'deleted_announcements'
 
