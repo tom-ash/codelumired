@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '~> 2.6.3'
+ruby '~> 3.2.2'
 
 gem 'jwt', '~> 2.7.0'
 gem 'rbnacl', '~> 7.1.1'
@@ -15,10 +15,10 @@ gem 'aws-sdk-ses', '~> 1.6'
 gem 'bcrypt'
 gem 'grape'
 gem 'mailgun-ruby', '~>1.1.6'
-gem 'pg', '~> 1.1.4'
+gem 'pg', '~> 1.4.6'
 gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.0.4.3'
 gem 'rest-client'
 
 gem 'sentry-ruby'

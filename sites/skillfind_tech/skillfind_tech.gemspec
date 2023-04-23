@@ -10,5 +10,5 @@ Gem::Specification.new do |spec|
 
   spec.metadata['allowed_push_host'] = ''
 
-  spec.add_dependency 'rails', '~> 6.1.3'
+  spec.add_dependency 'rails', '~> 7.0.4.3'
 end
