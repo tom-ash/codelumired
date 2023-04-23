@@ -1,3 +1,0 @@
-module Loggers
-  # TODO
-end
