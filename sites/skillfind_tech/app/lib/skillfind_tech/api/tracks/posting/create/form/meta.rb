@@ -3,28 +3,26 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Posting
         module Create
-          module Summary
+          module Form
             module Meta
-              TRACK = 'announcement/create/summary'
+              TRACK = 'announcement/create/form'
 
               UNLOCALIZED_PATH = {
-                en: %r{^posted-job/(\d+)$}
+                en: 'add-posting',
+                pl: 'dodaj-ogloszenie',
               }.freeze
 
               UNLOCALIZED_TITLE = {
-                en: 'TODO'
+                en: 'TODO',
+                pl: 'TODO',
               }.freeze
 
               private
 
-              def id
-                @id ||= unlocalized_path[lang].match(url)[1]
-              end
-
-              def announcement
-                @announcement ||= ::SkillfindTech::Announcement.find(id)
+              def label
+                'ASDASDASDAS'
               end
 
               def track
@@ -41,13 +39,13 @@ module SkillfindTech
 
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
-                  en: 'TODO'
+                  en: 'TODO',
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
-                  en: 'TODO'
+                  en: 'TODO',
                 }.freeze
               end
 
@@ -56,14 +54,14 @@ module SkillfindTech
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'announcement/create/summary': true
+                  'announcement/create/form': true,
                 }
               end
 
               def links
                 {
-                  # 'current/en': { path: announcement.summary_path(:en) },
-                  # 'announcement/show': { path: announcement.url(lang) }
+                  'current/en': ::SkillfindTech::Api::Tracks::Posting::Create::Form::Linker.new(:en).call,
+                  'current/pl': ::SkillfindTech::Api::Tracks::Posting::Create::Form::Linker.new(:pl).call,
                 }
               end
             end

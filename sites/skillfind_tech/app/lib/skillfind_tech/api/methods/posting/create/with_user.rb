@@ -3,7 +3,7 @@
 module SkillfindTech
     module Api
       module Methods
-        module Job
+        module Posting
           module Create
             class WithUser < Grape::API
               # TODO

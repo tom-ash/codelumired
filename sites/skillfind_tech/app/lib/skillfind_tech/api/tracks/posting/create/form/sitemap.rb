@@ -3,12 +3,12 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Posting
         module Create
           module Form
             class Sitemap
               class << self
-                include ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta
+                include ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta
 
                 def get
                   [links]

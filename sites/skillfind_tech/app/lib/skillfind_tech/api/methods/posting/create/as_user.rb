@@ -3,7 +3,7 @@
 module SkillfindTech
   module Api
     module Methods
-      module Job
+      module Posting
         module Create
           class AsUser < Grape::API
             before { authorize! }
@@ -22,7 +22,7 @@ module SkillfindTech
               # requires :civil_contract, type: Boolean
             end
             post do
-              ::SkillfindTech::Commands::Job::Create.new(
+              ::SkillfindTech::Commands::Posting::Create.new(
                 user_id: authenticated_user.id,
                 attrs: {
                   selected_skills: params[:selected_skills],

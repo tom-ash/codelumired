@@ -28,7 +28,7 @@ module SkillfindTech
           end
 
           def postings
-            ::SkillfindTech::Job.includes(:coveted_skills).map do |job|
+            ::SkillfindTech::Posting.includes(:coveted_skills).map do |job|
               {
                 id: job.id,
                 skills: job.selected_skills,

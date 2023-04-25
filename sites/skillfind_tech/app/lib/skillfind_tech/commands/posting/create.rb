@@ -2,7 +2,7 @@
 
 module SkillfindTech
   module Commands
-    module Job
+    module Posting
       class Create
         def initialize(user_id:, attrs:)
           @user_id = user_id
@@ -23,7 +23,7 @@ module SkillfindTech
         attr_reader :user_id, :attrs
 
         def job
-          @job ||= ::SkillfindTech::Job.new(
+          @job ||= ::SkillfindTech::Posting.new(
             user: user,
             views: 0,
             company_name: 'Not implemented!',

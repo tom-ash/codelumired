@@ -3,26 +3,28 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Posting
         module Create
-          module Form
+          module Summary
             module Meta
-              TRACK = 'announcement/create/form'
+              TRACK = 'announcement/create/summary'
 
               UNLOCALIZED_PATH = {
-                en: 'add-posting',
-                pl: 'dodaj-ogloszenie',
+                en: %r{^posted-job/(\d+)$}
               }.freeze
 
               UNLOCALIZED_TITLE = {
-                en: 'TODO',
-                pl: 'TODO',
+                en: 'TODO'
               }.freeze
 
               private
 
-              def label
-                'ASDASDASDAS'
+              def id
+                @id ||= unlocalized_path[lang].match(url)[1]
+              end
+
+              def announcement
+                @announcement ||= ::SkillfindTech::Posting.find(id)
               end
 
               def track
@@ -39,13 +41,13 @@ module SkillfindTech
 
               def unlocalized_keywords
                 @unlocalized_keywords ||= {
-                  en: 'TODO',
+                  en: 'TODO'
                 }.freeze
               end
 
               def unlocalized_description
                 @unlocalized_description ||= {
-                  en: 'TODO',
+                  en: 'TODO'
                 }.freeze
               end
 
@@ -54,14 +56,14 @@ module SkillfindTech
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'announcement/create/form': true,
+                  'announcement/create/summary': true
                 }
               end
 
               def links
                 {
-                  'current/en': ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Linker.new(:en).call,
-                  'current/pl': ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Linker.new(:pl).call,
+                  # 'current/en': { path: announcement.summary_path(:en) },
+                  # 'announcement/show': { path: announcement.url(lang) }
                 }
               end
             end

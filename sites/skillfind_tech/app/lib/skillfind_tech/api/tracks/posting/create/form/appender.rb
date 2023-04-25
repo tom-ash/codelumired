@@ -3,12 +3,12 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Posting
         module Create
           module Form
             class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
-              include ::SkillfindTech::Api::Tracks::Announcement::Create::Form::State
-              include ::SkillfindTech::Api::Tracks::Announcement::Create::Form::Meta
+              include ::SkillfindTech::Api::Tracks::Posting::Create::Form::State
+              include ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta
 
               EMPTY_TEXT = ''
 

@@ -3,11 +3,11 @@
 module SkillfindTech
   module Api
     module Tracks
-      module Announcement
+      module Posting
         module Create
           module Summary
-            class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
-              include ::SkillfindTech::Api::Tracks::Announcement::Create::Summary::Meta
+            class Linker < SkillfindTech::Api::Tracks::Common::Linker
+              include ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Meta
             end
           end
         end

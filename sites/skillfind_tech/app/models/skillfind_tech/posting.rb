@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SkillfindTech
-  class Job < ApplicationRecord
+  class Posting < ApplicationRecord
     establish_connection :skillfind_tech
 
     self.table_name = 'jobs'

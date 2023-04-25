@@ -13,7 +13,7 @@ module SkillfindTech
           }.freeze
 
           UNLOCALIZED_TITLE = {
-            en: 'skillfind.tech | IT Skill Driven Job Board & Knowledge Repository',
+            en: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
             pl: 'skillfind.tech | Tablica ogłoszeń IT z umiejętnościami i repozytorium wiedzy',
           }.freeze
 
