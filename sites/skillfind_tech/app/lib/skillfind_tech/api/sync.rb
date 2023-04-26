@@ -61,10 +61,8 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::ResetPassword::Linker.new(lang).call,
-
             ::SkillfindTech::Api::Tracks::User::New::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::New::Form::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::User::Auth::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Auth::Linker.new(lang).call,
-
             ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Posting::Create::Form::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Index::Linker.new(lang).call,
