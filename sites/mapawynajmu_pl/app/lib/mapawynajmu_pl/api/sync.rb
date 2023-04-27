@@ -86,6 +86,8 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Page::Index::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Image::Edit::Linker.new(lang).call,
             ::MapawynajmuPl::Api::Tracks::Image::Index::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Image::Index::Linker.new(lang).call,
+            ::MapawynajmuPl::Api::Tracks::SocialPages::Facebook::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::SocialPages::Facebook::Linker.new(lang).call,
+            ::MapawynajmuPl::Api::Tracks::SocialPages::Linkedin::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::SocialPages::Linkedin::Linker.new(lang).call,
           )
         end
       end
