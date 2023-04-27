@@ -24,6 +24,9 @@ module MapawynajmuPl
                 coworkingSpace
                 advertisingSpaces
                 garage
+                facebook_square
+                linkedin_square
+                twitter_square
               ]
             end
           end

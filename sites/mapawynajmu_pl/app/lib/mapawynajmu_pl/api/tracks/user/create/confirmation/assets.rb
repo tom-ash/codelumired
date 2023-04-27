@@ -11,6 +11,9 @@ module MapawynajmuPl
                 @asset_names ||= %i[
                   chevron
                   check
+                  facebook_square
+                  linkedin_square
+                  twitter_square
                 ]
               end
             end

@@ -43,6 +43,9 @@ module Api
           def asset_names
             @asset_names ||= %i[
               chevron
+              facebook_square
+              linkedin_square
+              twitter_square
             ]
           end
 

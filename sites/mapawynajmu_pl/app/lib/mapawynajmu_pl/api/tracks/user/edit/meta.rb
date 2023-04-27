@@ -62,7 +62,13 @@ module MapawynajmuPl
             end
 
             def asset_names
-              @asset_names ||= %i[chevron eyeSlash]
+              @asset_names ||= %i[
+                chevron
+                eyeSlash
+                facebook_square
+                linkedin_square
+                twitter_square
+              ]
             end
           end
         end

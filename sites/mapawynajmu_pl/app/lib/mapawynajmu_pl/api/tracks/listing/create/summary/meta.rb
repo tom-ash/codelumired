@@ -73,7 +73,12 @@ module MapawynajmuPl
               end
 
               def asset_names
-                @asset_names ||= %i[facebook]
+                @asset_names ||= %i[
+                  facebook
+                  facebook_square
+                  linkedin_square
+                  twitter_square
+                ]
               end
             end
           end

@@ -34,6 +34,10 @@ module MapawynajmuPl
                 caretDown
                 arrowRight
                 globe
+
+                facebook_square
+                linkedin_square
+                twitter_square
               ]
             end
           end
