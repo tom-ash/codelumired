@@ -15,7 +15,9 @@ module Api
 
         uri = URI("https://www.bing.com/indexnow?url=#{domain_url}/#{page.url}.html&key=#{index_now_key}")
 
-        Net::HTTP.get_response(uri)
+        puts uri
+
+        puts Net::HTTP.get_response(uri)
       end
     end
   end
