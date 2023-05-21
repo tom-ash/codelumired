@@ -25,6 +25,7 @@ module Api
               title: page.title,
               cover_image: page.cover_image,
               updatePageApiUrl: "#{api_url}/page/update",
+              indexNowApiUrl: "#{api_url}/page/index-now",
               name: nil,
               langVerUrls: nil,
               updated: true,
@@ -63,6 +64,7 @@ module Api
                 onlineSwitchLabel: 'Online',
                 updatePageButtonLabel: 'Zapisz',
                 updatePageAndExitButtonLabel: 'Zapisz',
+                indexNowButtonLabel: 'IndexNow',
               },
               en: {
                 urlInputLabel: 'URL',
@@ -81,6 +83,7 @@ module Api
                 onlineSwitchLabel: 'Online',
                 updatePageButtonLabel: 'Save',
                 updatePageAndExitButtonLabel: 'Save & Exit',
+                indexNowButtonLabel: 'IndexNow',
               },
             }[lang]
           end

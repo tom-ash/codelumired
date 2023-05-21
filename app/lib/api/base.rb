@@ -108,6 +108,7 @@ module Api
         mount ::Api::RemoteAsset::PresignedPost => 'remote-asset/presigned-post'
         mount ::Api::Page::Create => 'page/create'
         mount ::Api::Page::Update => 'page/update'
+        mount ::Api::Page::IndexNow => 'page/index-now'
         mount ::Api::Image::Update => 'image/update'
         mount ::Api::Image::Create => 'image/create'
         mount ::Api::Storage::S3PresignedPost => 'storage/s3-presigned-post'

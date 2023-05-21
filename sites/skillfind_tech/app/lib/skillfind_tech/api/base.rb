@@ -20,6 +20,10 @@ module SkillfindTech
           @domain_url ||= Rails.env.production? ? SKILLFIND_TECH_URL : SKILLFIND_TECH_URL_DEV
         end
 
+        def index_now_key
+          ENV['SKILLFIND_TECH_INDEX_NOW_KEY']
+        end
+
         def api_url
           @api_url ||= Rails.env.production? ? SKILLFIND_TECH_API_URL : SKILLFIND_TECH_API_URL_DEV
         end

@@ -16,6 +16,10 @@ module MapawynajmuPl
           @domain_url ||= Rails.env.production? ? MAPAWYNAJMU_PL_URL : MAPAWYNAJMU_PL_URL_DEV
         end
 
+        def index_now_key
+          ENV['MAPAWYNAJMU_PL_INDEX_NOW_KEY']
+        end
+
         def api_url
           @api_url ||= Rails.env.production? ? MAPAWYNAJMU_PL_API_URL : MAPAWYNAJMU_PL_API_URL_DEV
         end
