@@ -16,6 +16,8 @@ module Api
         uri = URI("https://www.bing.com/indexnow?url=#{domain_url}/#{page.url}&key=#{index_now_key}")
 
         Net::HTTP.get_response(uri)
+
+        page.update(index_now_pinged_at: Time.now)
       end
     end
   end

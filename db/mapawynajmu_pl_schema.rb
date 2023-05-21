@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_29_160903) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_21_142333) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -148,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_160903) do
     t.string "subcategory"
     t.uuid "lang_alts_group"
     t.string "link_image"
+    t.datetime "index_now_pinged_at"
   end
 
   create_table "prospective_users", force: :cascade do |t|
