@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_21_142333) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_11_155553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -125,6 +125,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_142333) do
     t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
   end
 
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "announcement_id", null: false
+    t.string "payu_order_id", null: false
+    t.string "payu_merchant_pos_id", null: false
+    t.string "status", null: false
+    t.datetime "paid_at"
+    t.string "product", null: false
+    t.string "price", null: false
+    t.integer "quantity", null: false
+    t.string "currency", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["announcement_id"], name: "index_orders_on_announcement_id"
+    t.index ["payu_order_id"], name: "index_orders_on_payu_order_id", unique: true
+  end
+
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "author_id", null: false
     t.string "lang", null: false
@@ -207,6 +223,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_142333) do
   add_foreign_key "announcements", "users"
   add_foreign_key "announcements", "users", column: "admin_id"
   add_foreign_key "images", "users", column: "added_by_id"
+  add_foreign_key "orders", "announcements"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "redirects", "users", column: "added_by_id"
 end
