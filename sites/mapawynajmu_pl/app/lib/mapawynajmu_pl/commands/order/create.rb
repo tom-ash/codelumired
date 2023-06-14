@@ -24,6 +24,7 @@ module MapawynajmuPl
 
         def create_order_at_payu
           uri = URI('https://secure.snd.payu.com/api/v2_1/orders')
+          payu_bearer_token = ::MapawynajmuPl::Queries::PayuBearerToken.new.call['access_token']
 
           req_body = {
             notifyUrl: 'https://warsaw-digital-server.herokuapp.com/payu/notify',
@@ -47,7 +48,7 @@ module MapawynajmuPl
 
           res = Net::HTTP.post uri,
                 req_body.to_json,
-                'Authorization' => 'Bearer 8454a27c-c982-4370-836e-030c13e98a23',
+                'Authorization' => "Bearer #{payu_bearer_token}",
                 'Content-Type' => 'application/json'
 
           JSON.parse(res.body)

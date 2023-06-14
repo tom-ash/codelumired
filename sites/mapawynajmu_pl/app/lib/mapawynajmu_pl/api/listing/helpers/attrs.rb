@@ -28,6 +28,7 @@ module MapawynajmuPl
               optional :locality, type: String
               optional :sublocality, type: String
               optional :route, type: String
+              optional :add_promotion, type: Boolean
             end
           end
         end

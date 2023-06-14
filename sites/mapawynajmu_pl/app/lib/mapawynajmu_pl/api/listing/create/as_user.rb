@@ -15,7 +15,14 @@ module MapawynajmuPl
               user_id: authenticated_user.id,
               attrs: params[:announcement].merge(user_verified: true),
             ).call
-            authenticated_user.announcements.last.summary_path(lang)
+
+            created_announcement = authenticated_user.announcements.last
+
+            if (params[:announcement][:add_promotion])
+              return MapawynajmuPl::Commands::Order::Create.new(listing_id: created_announcement.id, name: 'listing_promotion', price: 2900, currency: 'PLN').call
+            end
+
+            created_announcement.summary_path(lang)
           end
         end
       end
