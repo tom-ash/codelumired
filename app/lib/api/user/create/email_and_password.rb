@@ -73,8 +73,10 @@ module Api
 
           encodedAccessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
 
+          current_announcement = user.announcements.last
+
           listing_confirmation_href = begin
-            listing_confirmation_path = user.announcements.last&.summary_path(lang.to_sym)
+            listing_confirmation_path = current_announcement&.summary_path(lang.to_sym)
             "#{protocol_and_domain}/#{listing_confirmation_path}" if listing_confirmation_path.present?
           end
 
@@ -84,6 +86,10 @@ module Api
           ).call[:href]
 
           href = listing_confirmation_href || user_confirmation_href
+
+          if (current_announcement.is_promoted?)
+            href = MapawynajmuPl::Commands::Order::Create.new(listing_id: current_announcement.id, name: 'listing_promotion', price: 2900, currency: 'PLN').call
+          end
 
           {
             accessToken: encodedAccessToken,

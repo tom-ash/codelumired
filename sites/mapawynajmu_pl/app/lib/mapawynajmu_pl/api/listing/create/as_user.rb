@@ -18,7 +18,7 @@ module MapawynajmuPl
 
             created_announcement = authenticated_user.announcements.last
 
-            if (params[:announcement][:add_promotion])
+            if (created_announcement.is_promoted?)
               return MapawynajmuPl::Commands::Order::Create.new(listing_id: created_announcement.id, name: 'listing_promotion', price: 2900, currency: 'PLN').call
             end
 

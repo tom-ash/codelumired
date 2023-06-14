@@ -67,6 +67,7 @@ module MapawynajmuPl
             **gross_rent_amount_per_sqm_object,
             **active_until_object,
             **user_verified_object,
+            is_promoted: attrs[:add_promotion],
           )
         end
 
