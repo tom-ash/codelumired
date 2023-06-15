@@ -19,7 +19,14 @@ module MapawynajmuPl
             created_announcement = authenticated_user.announcements.last
 
             if (created_announcement.is_promoted?)
-              return MapawynajmuPl::Commands::Order::Create.new(listing_id: created_announcement.id, name: 'listing_promotion', price: 2900, currency: 'PLN').call
+              return MapawynajmuPl::Commands::Order::Create.new(
+                listing_id: created_announcement.id,
+                name: 'listing_promotion',
+                price: 2900,
+                currency: 'PLN',
+                lang: lang,
+                customer_ip: request.ip,
+              ).call
             end
 
             created_announcement.summary_path(lang)

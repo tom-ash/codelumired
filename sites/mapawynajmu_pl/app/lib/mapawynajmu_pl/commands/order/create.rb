@@ -4,11 +4,15 @@ module MapawynajmuPl
   module Commands
     module Order
       class Create
+        include ::MapawynajmuPl::ProtocolAndDomain
+
         def initialize(attrs)
           @listing_id = attrs[:listing_id]
           @name = attrs[:name]
           @price = attrs[:price]
           @currency = attrs[:currency]
+          @lang = attrs[:lang]
+          @customer_ip = attrs[:customer_ip]
         end
 
         def call
@@ -18,31 +22,32 @@ module MapawynajmuPl
           res['redirectUri']
         end
 
-        attr_reader :listing_id, :name, :payu_merchant_pos_id, :price, :currency
+        attr_reader :listing_id, :name, :payu_merchant_pos_id, :price, :currency, :lang, :customer_ip
 
         private
 
         def create_order_at_payu
-          uri = URI('https://secure.snd.payu.com/api/v2_1/orders')
+          byebug
+          uri = URI(ENV['PAYU_ORDERS_URL'])
           payu_bearer_token = ::MapawynajmuPl::Queries::PayuBearerToken.new.call['access_token']
 
           req_body = {
-            notifyUrl: 'https://warsaw-digital-server.herokuapp.com/payu/notify',
-            continueUrl: "http://local.mapawynajmu.pl:8080/podsumowanie-dodanego-ogloszenia/#{listing_id}",
-            customerIp: '127.0.0.1',
-            merchantPosId: 466926,
+            notifyUrl: "#{api_protocol_and_domain}/orders/notify",
+            continueUrl: "#{protocol_and_domain}/#{listing.summary_path(lang)}",
+            customerIp: customer_ip,
+            merchantPosId: ENV['PAYU_MERCHANT_POST_ID'],
             description: name,
             currencyCode: currency,
             totalAmount: price,
             buyer: {
-              'language': 'pl'
+              language: lang,
             },
             products: [
-                {
-                    'name': name,
-                    'unitPrice': price,
-                    'quantity': 1
-                }
+              {
+                'name': name,
+                'unitPrice': price,
+                'quantity': 1,
+              },
             ]
           }
 
@@ -59,12 +64,16 @@ module MapawynajmuPl
             announcement_id: listing_id,
             payu_order_id: @orderId,
             status: 'pending',
-            payu_merchant_pos_id: 466926,
+            payu_merchant_pos_id: ENV['PAYU_MERCHANT_POST_ID'],
             product: name,
             price: price,
             quantity: 1,
             currency: currency,
           )
+        end
+
+        def listing
+          @listing ||= ::MapawynajmuPl::Listing.find(listing_id)
         end
       end
     end

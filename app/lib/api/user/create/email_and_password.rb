@@ -88,7 +88,14 @@ module Api
           href = listing_confirmation_href || user_confirmation_href
 
           if (current_announcement.is_promoted?)
-            href = MapawynajmuPl::Commands::Order::Create.new(listing_id: current_announcement.id, name: 'listing_promotion', price: 2900, currency: 'PLN').call
+            href = MapawynajmuPl::Commands::Order::Create.new(
+              listing_id: current_announcement.id,
+              name: 'listing_promotion',
+              price: 2900,
+              currency: 'PLN',
+              lang: lang,
+              customer_ip: request.ip,
+            ).call
           end
 
           {
