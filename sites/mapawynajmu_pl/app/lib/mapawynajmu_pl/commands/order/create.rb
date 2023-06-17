@@ -31,7 +31,7 @@ module MapawynajmuPl
           payu_bearer_token = ::MapawynajmuPl::Queries::PayuBearerToken.new.call['access_token']
 
           req_body = {
-            notifyUrl: 'https://764f-2a02-a311-4043-2300-753c-1bb1-903b-6ca8.eu.ngrok.io/mapawynajmu-pl/orders/notify',
+            notifyUrl: "#{api_protocol_and_domain}/orders/notify",
             continueUrl: "#{protocol_and_domain}/#{listing.summary_path(lang)}",
             customerIp: customer_ip,
             merchantPosId: ENV['PAYU_MERCHANT_POST_ID'],
