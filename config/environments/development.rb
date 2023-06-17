@@ -3,6 +3,9 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # TODO: For ngrok: https://stackoverflow.com/questions/53878453/upgraded-rails-to-6-getting-blocked-host-error.
+  config.hosts << /[a-z0-9-.]+\.ngrok\.io/
+
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -49,7 +52,7 @@ Rails.application.configure do
 
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'http://local.skillfind.tech:8080', "http://local.#{MAPAWYNAJMU_PL_APEX_DOMAIN}:8080"
+      origins 'http://local.skillfind.tech:8080', "http://local.#{MAPAWYNAJMU_PL_APEX_DOMAIN}:8080", 'https://764f-2a02-a311-4043-2300-753c-1bb1-903b-6ca8.eu.ngrok.io'
       resource '*', headers: :any, methods: %i[get post put patch delete options head]
     end
   end

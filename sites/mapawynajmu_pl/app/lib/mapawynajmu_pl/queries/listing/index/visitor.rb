@@ -31,6 +31,7 @@ module MapawynajmuPl
 
           def announcements
             @announcement ||= ::MapawynajmuPl::Listing.where(search_params)
+                                                           .order('is_promoted DESC')
                                                            .order('points DESC')
                                                            .order('active_until DESC')
 

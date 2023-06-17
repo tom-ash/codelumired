@@ -27,12 +27,11 @@ module MapawynajmuPl
         private
 
         def create_order_at_payu
-          byebug
           uri = URI(ENV['PAYU_ORDERS_URL'])
           payu_bearer_token = ::MapawynajmuPl::Queries::PayuBearerToken.new.call['access_token']
 
           req_body = {
-            notifyUrl: "#{api_protocol_and_domain}/orders/notify",
+            notifyUrl: 'https://764f-2a02-a311-4043-2300-753c-1bb1-903b-6ca8.eu.ngrok.io/mapawynajmu-pl/orders/notify',
             continueUrl: "#{protocol_and_domain}/#{listing.summary_path(lang)}",
             customerIp: customer_ip,
             merchantPosId: ENV['PAYU_MERCHANT_POST_ID'],
@@ -63,7 +62,7 @@ module MapawynajmuPl
           ::MapawynajmuPl::Order.create!(
             announcement_id: listing_id,
             payu_order_id: @orderId,
-            status: 'pending',
+            status: 'PENDING',
             payu_merchant_pos_id: ENV['PAYU_MERCHANT_POST_ID'],
             product: name,
             price: price,
