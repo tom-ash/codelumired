@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_052409) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_17_082143) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_052409) do
     t.string "name"
     t.string "link"
     t.bigint "admin_id"
-    t.boolean "is_promoted"
+    t.boolean "is_promoted", default: false, null: false
     t.index ["active_until"], name: "index_announcements_on_active_until"
     t.index ["admin_id"], name: "index_announcements_on_admin_id"
     t.index ["area"], name: "index_announcements_on_area"
