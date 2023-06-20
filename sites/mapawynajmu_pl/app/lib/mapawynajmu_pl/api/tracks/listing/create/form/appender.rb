@@ -63,6 +63,7 @@ module MapawynajmuPl
                   verificationCode: EMPTY_TEXT,
                   name: EMPTY_TEXT,
                   link: EMPTY_TEXT,
+                  add_promotion: false,
                 }.merge(listing_form_inputs, user_form_inputs)
               end
 
