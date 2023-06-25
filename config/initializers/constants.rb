@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# ENV APPROACH
+AWS_S3_MAPAWYNAJMUPL_URL = ENV['AWS_S3_MAPAWYNAJMUPL_URL']
+
 # PROD
 SKILLFIND_TECH_NAME = 'skillfind.tech'
 SKILLFIND_TECH_NAME_CONSTANTIZED_NAME = 'SkillfindTech'

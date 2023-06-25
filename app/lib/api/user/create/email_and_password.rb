@@ -87,6 +87,14 @@ module Api
 
           href = listing_confirmation_href || user_confirmation_href
 
+          if current_announcement
+            TransactionalMailer.listing_confirmation_email(
+              to: user.email,
+              listing_id: current_announcement.id,
+              lang: lang,
+            ).deliver_now
+          end
+
           if (current_announcement.is_promoted?)
             href = MapawynajmuPl::Commands::Order::Create.new(
               listing_id: current_announcement.id,

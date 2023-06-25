@@ -29,6 +29,12 @@ module MapawynajmuPl
               ).call
             end
 
+            TransactionalMailer.listing_confirmation_email(
+              to: created_announcement.user.email,
+              listing_id: created_announcement.id,
+              lang: lang,
+            ).deliver_now
+
             created_announcement.summary_path(lang)
           end
         end
