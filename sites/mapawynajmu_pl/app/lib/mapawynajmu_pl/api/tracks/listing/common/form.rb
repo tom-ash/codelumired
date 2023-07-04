@@ -27,7 +27,7 @@ module MapawynajmuPl
                   roomsSelectLabel: 'Liczba pokoi',
                   netRentAmountInputLabel: 'Miesięczna cena netto',
                   grossRentAmountInputLabel: 'Miesięczna cena',
-                  addPromotionCheckboxLabel: 'Wyróżnij ogłoszenie za 29 PLN.'
+                  addPromotionCheckboxLabel: 'Wyróżnij ogłoszenie za 29 PLN'
                 },
                 en: {
                   categoryHeading: 'Category',
@@ -44,7 +44,7 @@ module MapawynajmuPl
                   roomsSelectLabel: 'Rooms Amount',
                   netRentAmountInputLabel: 'Monthly Net Price',
                   grossRentAmountInputLabel: 'Monthly Price',
-                  addPromotionCheckboxLabel: 'Promote the listing for 29 PLN.'
+                  addPromotionCheckboxLabel: 'Promote the listing for 29 PLN'
                 },
               }[lang]
             end
