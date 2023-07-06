@@ -99,7 +99,7 @@ module Api
             href = MapawynajmuPl::Commands::Order::Create.new(
               listing_id: current_announcement.id,
               name: 'listing_promotion',
-              price: 2900,
+              price: 1900,
               currency: 'PLN',
               lang: lang,
               customer_ip: request.ip,

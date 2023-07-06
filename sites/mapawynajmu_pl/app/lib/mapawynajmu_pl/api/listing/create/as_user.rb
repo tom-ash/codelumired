@@ -22,7 +22,7 @@ module MapawynajmuPl
               return MapawynajmuPl::Commands::Order::Create.new(
                 listing_id: created_announcement.id,
                 name: 'listing_promotion',
-                price: 2900,
+                price: 1900,
                 currency: 'PLN',
                 lang: lang,
                 customer_ip: request.ip,
