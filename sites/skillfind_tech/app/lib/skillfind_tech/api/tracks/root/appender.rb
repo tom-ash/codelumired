@@ -24,6 +24,7 @@ module SkillfindTech
             {
               postings: postings,
               pages: pages,
+              articles: articles,
             }
           end
 
@@ -44,6 +45,7 @@ module SkillfindTech
           end
 
           def pages
+            # TODO: Change map to select.
             ::SkillfindTech::Page.where(
               category: 'skill',
               online: true,
@@ -53,6 +55,22 @@ module SkillfindTech
                 title: page.title,
                 href: page.url,
                 hrefLang: page.lang,
+              }
+            end
+          end
+
+          def articles
+            # TODO: Change map to select.
+            ::SkillfindTech::Page.where(
+              category: 'article',
+              online: true,
+              lang: lang,
+            ).map do |article|
+              {
+                title: article.title,
+                href: article.url,
+                hrefLang: article.lang,
+                image: article.cover_image,
               }
             end
           end
