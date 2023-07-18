@@ -12,7 +12,7 @@ module Commands
         end
 
         def call
-          return if user.verified?
+          return user if user.verified?
 
           assign_basic_attrs
           ::Parsers::User::Consents.new(user: user, consents: attrs[:consents]).call
