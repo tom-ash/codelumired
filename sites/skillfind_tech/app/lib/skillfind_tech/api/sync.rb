@@ -27,6 +27,8 @@ module SkillfindTech
         end
 
         def append_track_data
+          raise ::Api::TrackNotFoundError if track == 'page/not-found'
+
           case track
           when ::SkillfindTech::Api::Tracks::Root::Meta::TRACK then ::SkillfindTech::Api::Tracks::Root::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Visitor::Contact::Meta::TRACK then ::SkillfindTech::Api::Tracks::Visitor::Contact::Appender.new(attrs).call
@@ -42,7 +44,6 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Index::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Page::Show::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
           when ::SkillfindTech::Api::Tracks::Page::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Edit::Appender.new(attrs).call
-          when ::SkillfindTech::Api::Tracks::Page::NotFound::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::NotFound::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Image::Index::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Image::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::Image::Edit::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Assets::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Assets::Index::Appender.new(attrs).call
@@ -69,11 +70,10 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Index::Linker.new(lang).call,
           )
         end
-      end
 
-      before do
-        append_track_data
-        append_links
+        def append_track_not_found_data
+          ::SkillfindTech::Api::Tracks::Page::NotFound::Appender.new(attrs).call
+        end
       end
     end
   end

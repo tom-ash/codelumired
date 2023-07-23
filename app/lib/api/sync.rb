@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Api
+  class TrackNotFoundError < StandardError; end
+  class ResourceNotFoundError < StandardError; end
+
   class Sync < Grape::API
     def self.inherited(subclass)
       super
@@ -42,11 +45,17 @@ module Api
           end
 
           def state
-            @state ||= { 'app': { lang: lang } }
+            @state ||= {
+              app: {
+                lang: lang
+              }
+            }
           end
 
           def meta
-            @meta ||= { lang: lang }
+            @meta ||= {
+              lang: lang
+            }
           end
 
           def listings_obsolete?
@@ -54,9 +63,17 @@ module Api
           end
         end
 
-        before {}
-
         get do
+          begin
+            append_track_data
+          rescue ::Api::TrackNotFoundError, ::Api::ResourceNotFoundError
+            status 404
+
+            append_track_not_found_data
+          end
+
+          append_links
+
           status redirect.status if redirect.present?
 
           camelize(state: state, meta: meta)

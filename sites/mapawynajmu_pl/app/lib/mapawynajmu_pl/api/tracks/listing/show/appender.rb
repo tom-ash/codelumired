@@ -68,7 +68,11 @@ module MapawynajmuPl
             end
 
             def announcement
-              @announcement ||= ::MapawynajmuPl::Queries::Listing::ById.new(id: announcement_id).call
+              begin
+                @announcement ||= ::MapawynajmuPl::Queries::Listing::ById.new(id: announcement_id).call
+              rescue
+                raise ::Api::ResourceNotFoundError
+              end
             end
 
             def announcement_id
