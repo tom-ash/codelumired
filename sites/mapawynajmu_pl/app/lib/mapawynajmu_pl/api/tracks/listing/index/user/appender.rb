@@ -11,6 +11,10 @@ module MapawynajmuPl
 
               private
 
+              def authorize!
+                raise ::Api::UnauthorizedError unless authenticated_user.present?
+              end
+
               def data
                 {
                   announcements: serialized_announcements,

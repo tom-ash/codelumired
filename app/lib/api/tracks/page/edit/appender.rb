@@ -10,7 +10,7 @@ module Api
           private
 
           def authorize!
-            raise UnauthorizedError unless authenticated_user&.role == 'admin'
+            raise ::Api::UnauthorizedError unless authenticated_user&.role == 'admin'
           end
 
           def control

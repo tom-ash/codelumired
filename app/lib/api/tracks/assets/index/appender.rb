@@ -7,6 +7,10 @@ module Api
         class Appender < ::Api::Tracks::Common::Appender
           private
 
+          def authorize!
+            raise ::Api::UnauthorizedError unless authenticated_user&.role == 'admin'
+          end
+
           def data
             {
               assets: ::MapawynajmuPl::Asset.all.sort_by(&:name), # Use site when possible.

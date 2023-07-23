@@ -3,6 +3,7 @@
 module Api
   class TrackNotFoundError < StandardError; end
   class ResourceNotFoundError < StandardError; end
+  class UnauthorizedError < StandardError; end
 
   class Sync < Grape::API
     def self.inherited(subclass)
@@ -66,7 +67,7 @@ module Api
         get do
           begin
             append_track_data
-          rescue ::Api::TrackNotFoundError, ::Api::ResourceNotFoundError
+          rescue ::Api::TrackNotFoundError, ::Api::ResourceNotFoundError, ::Api::UnauthorizedError
             status 404
 
             append_track_not_found_data

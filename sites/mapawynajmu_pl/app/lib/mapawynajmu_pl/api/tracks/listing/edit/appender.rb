@@ -14,6 +14,10 @@ module MapawynajmuPl
 
             private
 
+            def authorize!
+              raise ::Api::UnauthorizedError unless authenticated_user.present?
+            end
+
             def texts
               listing_form_texts
             end
@@ -77,7 +81,11 @@ module MapawynajmuPl
             end
 
             def announcement
-              @announcement ||= ::MapawynajmuPl::Queries::Listing::ById.new(id: announcement_id).call
+              begin
+                ::MapawynajmuPl::Listing.find_by!(id: announcement_id, user_id: authenticated_user.id)
+              rescue
+                raise ::Api::UnauthorizedError
+              end
             end
 
             def announcement_id

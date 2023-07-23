@@ -7,6 +7,10 @@ module Api
         class Appender < ::Api::Tracks::Common::Appender
           private
 
+          def authorize!
+            raise ::Api::UnauthorizedError unless authenticated_user&.role == 'admin'
+          end
+
           def data
             {
               recordKeys: recordKeys,
