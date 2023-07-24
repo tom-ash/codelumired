@@ -9,9 +9,7 @@ module MapawynajmuPl
             FOR_LEASE = { pl: 'na wynajem', en: 'for rent' }.freeze
 
             def category_links
-              category_links_hash = {
-                'listing/index/all-categories': { path: partner_path_with_slash(lang)&.chomp('/') },
-              }
+              category_links_hash = {}
 
               ::MapawynajmuPl::Listing::CATEGORIES.each_value do |category|
 
