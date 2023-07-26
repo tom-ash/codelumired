@@ -1,93 +1,13 @@
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style type="text/css" media="screen">
-      body {
-        background: #F8F9F9;
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 15px;
-        padding: 50px 0;
-        color: #154360;
-      }
-      .container {
-        background: white;
-        max-width: 400px;
-        margin: 0 auto;
-        border-radius: 4px;
-        padding: 24px 24px 6px;
-        border: 1px solid #E5E7E9;
-      }
-      .container > div {
-        margin-bottom: 18px;
-      }
-      #logo-and-title img {
-        display: block;
-        width: 100px;
-        margin: 0 auto;
-        margin-bottom: 24px;
-      }
-      .listing img {
-        display: block;
-        width: 280px;
-        margin: 0 auto;
-      }
-      .regards {
-        margin-bottom: 6px;
-      }
-      .signature {
-        font-style: italic;
-        font-size: 14px;
-      }
-      .company {
-        margin-top: 24px;
-        font-size: 8px;
-        text-align: justify;
-        line-height: 1.5;
-        color: #909497;
-      }
-      .listing {
-        margin: 36px 0;
-        margin-bottom: 36px!important;
-      }
-      .listing-picture {
-        margin-bottom: 12px;
-      }
-      .listing-url {
-        font-size: 12px;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class='container'>
-      <div id='logo-and-title'>
-        <img src='https://mapawynajmupl-dev.s3.eu-central-1.amazonaws.com/qwewqe.jpeg' />
-      </div>
-      <div>
-        <%= @hello %>
-      </div>
-      <div>
-        <%= @your_announcement_has_been_added %>
-      </div>
-      <div class='listing'>
-        <div class='listing-picture'>
-          <img src=<%= @listing_picture %> />
-        </div>
-        <div class='listing-url'>
-          <a href=<%= @listing_url %>>
-            <%= @listing_url %>
-          </a>
-        </div>
-      </div>
-      <div class='regards'>
-        <%= @salutations %>
-      </div>
-      <div class='signature'>
-        <%= @signature %>
-      </div>
-      <div class='company'>
-        <%= @company %>
-      </div>
-    </div>
-  </body>
-</html>
+<div>
+  <%= @your_announcement_has_been_added %>
+</div>
+<div style='margin: 36px 0; margin-bottom: 36px!important;'>
+  <div style='margin-bottom: 12px;'>
+    <img src=<%= @listing_picture %> style='display: block; width: 280px; margin: 0 auto;'/>
+  </div>
+  <div style='font-size: 12px; text-align: center;'>
+    <a href=<%= @listing_url %>>
+      <%= @listing_url %>
+    </a>
+  </div>
+</div>
