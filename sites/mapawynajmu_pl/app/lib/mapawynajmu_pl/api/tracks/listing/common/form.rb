@@ -27,7 +27,21 @@ module MapawynajmuPl
                   roomsSelectLabel: 'Liczba pokoi',
                   netRentAmountInputLabel: 'Miesięczna cena netto',
                   grossRentAmountInputLabel: 'Miesięczna cena',
-                  addPromotionCheckboxLabel: 'Wyróżnij ogłoszenie za 19 PLN'
+                  addPromotionCheckboxLabel: 'Wyróżnij ogłoszenie za 19 PLN',
+                  promotionBenefits: [
+                    {
+                      item: 'Pierwszeństwo na liście',
+                      explanation: 'wyróżnione ogłoszenia prezentowane są na liście przed ogłoszeniami zwykłymi'
+                    },
+                    {
+                      item: 'Zwiększona widoczność na mapie',
+                      explanation: 'pinezki wyróżnionych ogłoszeń prezentowane są na mapie ponad pinezkami ogłoszeń zwykłych'
+                    },
+                    {
+                      item: 'Lepsza Prezentacja',
+                      explanation: 'wyróżnione ogłoszenia podświetlone są na złoto na liście i na mapie'
+                    },
+                  ]
                 },
                 en: {
                   categoryHeading: 'Category',
@@ -44,7 +58,21 @@ module MapawynajmuPl
                   roomsSelectLabel: 'Rooms Amount',
                   netRentAmountInputLabel: 'Monthly Net Price',
                   grossRentAmountInputLabel: 'Monthly Price',
-                  addPromotionCheckboxLabel: 'Promote the listing for 19 PLN'
+                  addPromotionCheckboxLabel: 'Promote the listing for 19 PLN',
+                  promotionBenefits: [
+                    {
+                      item: 'Priority on the list',
+                      explanation: 'promoted listings are presented on the list before regular ones'
+                    },
+                    {
+                      item: 'Increased visibility on the map',
+                      explanation: 'pins of promoted listings are displayed on the map above pins of regular ones'
+                    },
+                    {
+                      item: 'Better Presentation',
+                      explanation: 'promoted listings are highlighted in gold on the list and on the map'
+                    },
+                  ],
                 },
               }[lang]
             end

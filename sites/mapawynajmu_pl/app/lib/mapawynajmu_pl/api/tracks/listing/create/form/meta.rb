@@ -84,6 +84,7 @@ module MapawynajmuPl
                   facebook_square
                   linkedin_square
                   twitter_square
+                  star
                 ]
               end
             end
