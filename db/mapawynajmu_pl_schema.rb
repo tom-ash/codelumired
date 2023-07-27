@@ -10,12 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_17_082143) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_050658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "announcements", force: :cascade do |t|
+  create_table "assets", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type"
+    t.jsonb "data"
+    t.string "path_data"
+    t.string "view_box"
+    t.index ["name"], name: "index_assets_on_name", unique: true
+  end
+
+  create_table "deleted_announcements", force: :cascade do |t|
+    t.jsonb "original_announcement", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "deleted_users", force: :cascade do |t|
+    t.jsonb "original_user", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "added_by_id", null: false
+    t.bigint "page_id"
+    t.jsonb "body", null: false
+    t.string "name"
+    t.integer "width"
+    t.integer "height"
+    t.string "storage_key", null: false
+    t.string "storage_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["added_by_id"], name: "index_images_on_added_by_id"
+    t.index ["page_id"], name: "index_images_on_page_id"
+    t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
+  end
+
+  create_table "listings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "status", limit: 2, null: false
     t.integer "points", null: false
@@ -58,72 +97,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_082143) do
     t.string "link"
     t.bigint "admin_id"
     t.boolean "is_promoted", default: false, null: false
-    t.index ["active_until"], name: "index_announcements_on_active_until"
-    t.index ["admin_id"], name: "index_announcements_on_admin_id"
-    t.index ["area"], name: "index_announcements_on_area"
-    t.index ["area_int"], name: "index_announcements_on_area_int"
-    t.index ["availability_date"], name: "index_announcements_on_availability_date"
-    t.index ["category"], name: "index_announcements_on_category"
-    t.index ["floor"], name: "index_announcements_on_floor"
-    t.index ["gross_rent_amount"], name: "index_announcements_on_gross_rent_amount"
-    t.index ["gross_rent_amount_int"], name: "index_announcements_on_gross_rent_amount_int"
-    t.index ["gross_rent_amount_per_sqm"], name: "index_announcements_on_gross_rent_amount_per_sqm"
-    t.index ["gross_rent_amount_per_sqm_int"], name: "index_announcements_on_gross_rent_amount_per_sqm_int"
-    t.index ["latitude"], name: "index_announcements_on_latitude"
-    t.index ["latitude_int"], name: "index_announcements_on_latitude_int"
-    t.index ["longitude"], name: "index_announcements_on_longitude"
-    t.index ["longitude_int"], name: "index_announcements_on_longitude_int"
-    t.index ["net_rent_amount"], name: "index_announcements_on_net_rent_amount"
-    t.index ["net_rent_amount_int"], name: "index_announcements_on_net_rent_amount_int"
-    t.index ["net_rent_amount_per_sqm"], name: "index_announcements_on_net_rent_amount_per_sqm"
-    t.index ["net_rent_amount_per_sqm_int"], name: "index_announcements_on_net_rent_amount_per_sqm_int"
-    t.index ["points"], name: "index_announcements_on_points"
-    t.index ["rent_currency"], name: "index_announcements_on_rent_currency"
-    t.index ["rooms"], name: "index_announcements_on_rooms"
-    t.index ["status"], name: "index_announcements_on_status"
-    t.index ["total_floors"], name: "index_announcements_on_total_floors"
-    t.index ["user_id"], name: "index_announcements_on_user_id"
-    t.index ["user_verified"], name: "index_announcements_on_user_verified"
-    t.index ["visible"], name: "index_announcements_on_visible"
-  end
-
-  create_table "assets", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "type"
-    t.jsonb "data"
-    t.string "path_data"
-    t.string "view_box"
-    t.index ["name"], name: "index_assets_on_name", unique: true
-  end
-
-  create_table "deleted_announcements", force: :cascade do |t|
-    t.jsonb "original_announcement", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "deleted_users", force: :cascade do |t|
-    t.jsonb "original_user", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.bigint "added_by_id", null: false
-    t.bigint "page_id"
-    t.jsonb "body", null: false
-    t.string "name"
-    t.integer "width"
-    t.integer "height"
-    t.string "storage_key", null: false
-    t.string "storage_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["added_by_id"], name: "index_images_on_added_by_id"
-    t.index ["page_id"], name: "index_images_on_page_id"
-    t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
+    t.index ["active_until"], name: "index_listings_on_active_until"
+    t.index ["admin_id"], name: "index_listings_on_admin_id"
+    t.index ["area"], name: "index_listings_on_area"
+    t.index ["area_int"], name: "index_listings_on_area_int"
+    t.index ["availability_date"], name: "index_listings_on_availability_date"
+    t.index ["category"], name: "index_listings_on_category"
+    t.index ["floor"], name: "index_listings_on_floor"
+    t.index ["gross_rent_amount"], name: "index_listings_on_gross_rent_amount"
+    t.index ["gross_rent_amount_int"], name: "index_listings_on_gross_rent_amount_int"
+    t.index ["gross_rent_amount_per_sqm"], name: "index_listings_on_gross_rent_amount_per_sqm"
+    t.index ["gross_rent_amount_per_sqm_int"], name: "index_listings_on_gross_rent_amount_per_sqm_int"
+    t.index ["latitude"], name: "index_listings_on_latitude"
+    t.index ["latitude_int"], name: "index_listings_on_latitude_int"
+    t.index ["longitude"], name: "index_listings_on_longitude"
+    t.index ["longitude_int"], name: "index_listings_on_longitude_int"
+    t.index ["net_rent_amount"], name: "index_listings_on_net_rent_amount"
+    t.index ["net_rent_amount_int"], name: "index_listings_on_net_rent_amount_int"
+    t.index ["net_rent_amount_per_sqm"], name: "index_listings_on_net_rent_amount_per_sqm"
+    t.index ["net_rent_amount_per_sqm_int"], name: "index_listings_on_net_rent_amount_per_sqm_int"
+    t.index ["points"], name: "index_listings_on_points"
+    t.index ["rent_currency"], name: "index_listings_on_rent_currency"
+    t.index ["rooms"], name: "index_listings_on_rooms"
+    t.index ["status"], name: "index_listings_on_status"
+    t.index ["total_floors"], name: "index_listings_on_total_floors"
+    t.index ["user_id"], name: "index_listings_on_user_id"
+    t.index ["user_verified"], name: "index_listings_on_user_verified"
+    t.index ["visible"], name: "index_listings_on_visible"
   end
 
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -221,10 +221,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_082143) do
     t.index ["status"], name: "index_users_on_status"
   end
 
-  add_foreign_key "announcements", "users"
-  add_foreign_key "announcements", "users", column: "admin_id"
   add_foreign_key "images", "users", column: "added_by_id"
-  add_foreign_key "orders", "announcements"
+  add_foreign_key "listings", "users"
+  add_foreign_key "listings", "users", column: "admin_id"
+  add_foreign_key "orders", "listings", column: "announcement_id"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "redirects", "users", column: "added_by_id"
 end

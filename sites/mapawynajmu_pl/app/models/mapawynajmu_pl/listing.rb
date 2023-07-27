@@ -14,7 +14,7 @@ module MapawynajmuPl
 
     establish_connection :mapawynajmu_pl
 
-    self.table_name = 'announcements'
+    self.table_name = 'listings'
 
     belongs_to :user, class_name: '::MapawynajmuPl::User'
 
