@@ -9,7 +9,7 @@ module MapawynajmuPl
         params { requires :id, type: Integer }
 
         delete do
-          current_announcement.destroy!
+          current_announcement.soft_delete!
         end
       end
     end

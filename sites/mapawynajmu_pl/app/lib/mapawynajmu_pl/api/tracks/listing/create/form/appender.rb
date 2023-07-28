@@ -11,7 +11,7 @@ module MapawynajmuPl
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::State::Texts
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::State::Inputs
               include ::MapawynajmuPl::Api::Tracks::User::Create::Form::State::Errors
-              include MapawynajmuPl::Api::Tracks::Listing::Common::Form
+              include ::MapawynajmuPl::Api::Tracks::Listing::Common::Form
 
               EMPTY_TEXT = ''
               EMPTY_ARRAY = [].freeze

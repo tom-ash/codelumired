@@ -10,7 +10,9 @@ module MapawynajmuPl
         end
 
         def call
-          ::MapawynajmuPl::Listing.find(id)
+          ::MapawynajmuPl::Listing
+            .where(deleted_at: nil)
+            .find(id)
         end
 
         private

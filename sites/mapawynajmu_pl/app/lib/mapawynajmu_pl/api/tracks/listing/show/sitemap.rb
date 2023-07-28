@@ -16,7 +16,7 @@ module MapawynajmuPl
               def announcement_links
                 links = []
 
-                ::MapawynajmuPl::Listing.where(user_verified: true, visible: true).all.each do |announcement|
+                ::MapawynajmuPl::Listing.where(user_verified: true, visible: true, deleted_at: nil).all.each do |announcement|
                   link = []
 
                   %i[pl en].each do |lang|

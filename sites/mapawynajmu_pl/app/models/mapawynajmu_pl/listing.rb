@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module MapawynajmuPl
+  class ListingDestroyAttemptError < StandardError; end
+
   class Listing < ApplicationRecord
     include ::MapawynajmuPl::ListingModule::Categories
     include ::MapawynajmuPl::ListingModule::Path
@@ -19,7 +21,6 @@ module MapawynajmuPl
     belongs_to :user, class_name: '::MapawynajmuPl::User'
 
     before_update :log_changes
-    before_destroy :create_deleted_announcement
 
     validates :status, presence: true
     validates :points, presence: true
@@ -31,6 +32,20 @@ module MapawynajmuPl
     validates :latitude, presence: true, numericality: { only_float: true }
     validates :longitude, presence: true, numericality: { only_float: true }
 
+    # TODO: Remove public access from pictures of deleted listings.
+
+    def soft_delete!
+      update!(deleted_at: Time.now)
+    end
+
+    def destroy
+      raise ListingDestroyAttemptError
+    end
+
+    def destroy!
+      raise ListingDestroyAttemptError
+    end
+
     private
 
     def pictures_structure
@@ -38,13 +53,6 @@ module MapawynajmuPl
       pictures.each do |picture|
         errors.add(:pictures, 'invalid picture database key length') if picture['database'].length < 8
       end
-    end
-
-    def create_deleted_announcement
-      @deleted_announcement = DeletedListing.find_by(id: id)
-      return @deleted_announcement.update_attribute(original_announcement, self) if @deleted_announcement
-
-      DeletedListing.create(id: id, original_announcement: self)
     end
 
     def unloggable

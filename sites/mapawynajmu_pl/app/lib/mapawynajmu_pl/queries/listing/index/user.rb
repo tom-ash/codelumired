@@ -11,7 +11,9 @@ module MapawynajmuPl
           end
 
           def call
-            user.announcements
+            user.announcements.where(
+              deleted_at: nil,
+            )
           end
 
           private

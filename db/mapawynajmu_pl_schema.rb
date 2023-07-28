@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_050658) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_060737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -97,6 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_050658) do
     t.string "link"
     t.bigint "admin_id"
     t.boolean "is_promoted", default: false, null: false
+    t.datetime "deleted_at"
     t.index ["active_until"], name: "index_listings_on_active_until"
     t.index ["admin_id"], name: "index_listings_on_admin_id"
     t.index ["area"], name: "index_listings_on_area"

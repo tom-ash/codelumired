@@ -54,6 +54,7 @@ module MapawynajmuPl
             {
               user_verified: true,
               visible: true,
+              deleted_at: nil,
             }
           end
 

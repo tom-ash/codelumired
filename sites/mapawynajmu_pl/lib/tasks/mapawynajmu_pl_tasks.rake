@@ -21,9 +21,11 @@ namespace :mapawynajmu_pl do
     end
   end
 
-  desc 'Deletes inactive announcements.'
+  desc 'Soft delete inactive listings.'
   task delete_inactive_announcements: :environment do
-    ::MapawynajmuPl::Listing.where('active_until < ?', 1.day.ago).destroy_all
+    ::MapawynajmuPl::Listing.where('active_until < ?', 1.day.ago).each do |listing|
+      listing.soft_delete!
+    end
   end
 
   desc 'MapawynajmuPl Grape Routes'
