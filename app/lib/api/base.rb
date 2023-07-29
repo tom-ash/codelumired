@@ -74,7 +74,7 @@ module Api
 
               user_id = (JWT.decode access_token, public_key, true, algorithm: 'ED25519')[0]['id']
 
-              @authenticated_user ||= site::User.find(user_id)
+              @authenticated_user ||= site::User.find_by!(id: user_id, deleted_at: nil)
             rescue StandardError
               nil
             end
