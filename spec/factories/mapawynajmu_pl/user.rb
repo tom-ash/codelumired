@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :mapawynajmu_pl_user, class: MapawynajmuPl::User do
+  factory :mapawynajmu_pl_user, class: ::MapawynajmuPl::User do
     email { 'test@example.net' }
     email_verified_at { nil }
     status { 0 }

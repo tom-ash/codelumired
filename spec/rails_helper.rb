@@ -30,7 +30,7 @@ RSpec.configure do |config|
     end
   end
 
-  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: %r{/spec/app/lib/api}
+  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: %r{/api/}
 
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
