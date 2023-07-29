@@ -16,7 +16,7 @@ module MapawynajmuPl
               attrs: params[:announcement].merge(user_verified: true),
             ).call
 
-            created_announcement = authenticated_user.announcements.last
+            created_announcement = authenticated_user.listings.last
 
             if (created_announcement.is_promoted?)
               return MapawynajmuPl::Commands::Order::Create.new(

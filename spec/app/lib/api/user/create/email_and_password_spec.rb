@@ -3,23 +3,44 @@
 require 'rails_helper'
 
 RSpec.describe ::Api::User::Create::EmailAndPassword do
-  let(:email) { 'test@example.net' }
+  # optional :business_name, type: String
+  let(:email_address) { 'test@example.net' }
   let(:password) { 'test_password' }
-  let(:first_name) { 'Gandalf' }
   let(:country_code) { '+48' }
   let(:phone_number) { '123123123' }
   let(:headers) { { 'Lang': 'pl' } }
-  let(:consents) { [{ type: 'terms_of_service', granted: true, displayed_text: 'Akceptuję Regulamin i Politykę Prywatności.' }] }
+  let(:consents) do
+    [{
+      type: 'terms_of_service',
+      granted: true,
+      displayed_text: 'Akceptuję Regulamin i Politykę Prywatności.'
+    }]
+  end
 
   describe 'POST' do
-    subject { post '/mapawynajmu_pl/user/create/email-and-password', params: params, headers: headers }
+    subject do
+      post '/mapawynajmu-pl/user/create/email-and-password', params: params, headers: headers
+    end
 
-    context 'when all params are complete & valid' do
-      let(:params) { { email: email, password: password, first_name: first_name, country_code: country_code, phone_number: phone_number, consents: consents } }
+    context 'when params are valid' do
+      let(:params) do
+        {
+          email_address: email_address,
+          password: password,
+          country_code: country_code,
+          phone_number: phone_number,
+          consents: consents
+        }
+      end
 
       it 'returns :created (201) response' do
         subject
         expect(response.status).to eq(201)
+      end
+
+      it 'creates a User record' do
+        subject
+        expect(::MapawynajmuPl::User.find_by!(email: email_address).reload).to be_truthy
       end
     end
 
@@ -35,21 +56,45 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
 
   describe 'PUT' do
     context 'when email and verification code are valid' do
-      subject { put '/mapawynajmu_pl/user/create/email-and-password', params: params }
-
-      let!(:user) { create(:mapawynajmu_pl_user, email: email, verification: verification) }
-      let(:params) { { email: email, verification_code: verification_code } }
-      let(:verification_code) { '3067' }
-      let(:verification) { [{ namespace: namespace, generated_at: '2021-03-23T08:07:13.189+01:00', encrypted_code: "a1R4FeRxjAJCddgqVV96Nrw73z2w6dGMkMRaaHZrxuaDOC+MC3TeQ09gj5tJ\nzQ4Q\n", encrypted_code_iv: "PRBFoeHuixemdQmc5X6C2Q==\n" }] }
-      let(:namespace) { 'user/create/email-and-password' }
-
-      it 'returns :ok (200) response' do
-        subject
-        expect(response.status).to eq(200)
+      subject do
+        put '/mapawynajmu-pl/user/create/email-and-password', params: params, headers: headers
       end
 
-      it 'updates :email_confirmed_at from nil to current time' do
-        expect { subject }.to change { user.reload.email_confirmed_at }.from(nil).to(be_within(5.second).of(Time.zone.now))
+      let!(:user) { create(:mapawynajmu_pl_user, email: email_address) }
+      let(:params) do
+        {
+          verification_token: verificationToken,
+          verification_code: verificationCode,
+        }
+      end
+      let(:verificationToken) do
+        ::Ciphers::Jwt::Encoder.new(
+          verificationCode: '4242',
+          userId: user.id,
+        ).call
+      end
+      let(:namespace) { 'user/create/email-and-password' }
+
+      context 'when verification code is valid' do
+        let(:verificationCode) { '4242' }
+
+        it 'returns :ok (200) response' do
+          subject
+          expect(response.status).to eq(200)
+        end
+  
+        it 'updates :email_verified_at from nil to current time' do
+          expect { subject }.to change { user.reload.email_verified_at }.from(nil).to(be_within(5.second).of(Time.zone.now))
+        end
+      end
+
+      context 'when verification code is invalid' do
+        let(:verificationCode) { '2323' }
+
+        it 'returns :unprocessable_entity (422) response' do
+          subject
+          expect(response.status).to eq(422)
+        end
       end
     end
   end

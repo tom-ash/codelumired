@@ -15,11 +15,26 @@ module MapawynajmuPl
     validates :showcase, presence: true
     validates :business_name, presence: true, if: -> { account_type == 'business' }
 
-    has_many :announcements, class_name: '::MapawynajmuPl::Listing', foreign_key: :user_id, dependent: :destroy
-    has_many :pages, foreign_key: :author_id, dependent: :destroy
+    has_many :listings, class_name: '::MapawynajmuPl::Listing', foreign_key: :user_id
+    has_many :pages, foreign_key: :author_id
 
     before_save :urlify_business_name
     before_update :log_changes, :build_showcase
+
+    def soft_delete!
+      time_now = Time.now
+
+      listings.update_all(deleted_at: time_now)
+      update!(deleted_at: Time.now)
+    end
+
+    def destroy
+      raise ListingDestroyAttemptError
+    end
+
+    def destroy!
+      raise ListingDestroyAttemptError
+    end
 
     def verified?
       email_verified_at.present?

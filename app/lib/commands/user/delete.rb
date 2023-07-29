@@ -11,10 +11,7 @@ module Commands
       end
 
       def call
-        ActiveRecord::Base.transaction do
-          deleted_user.update!(original_user: @user)
-          user.destroy!
-        end
+        user.soft_delete!
       end
 
       private
@@ -23,10 +20,6 @@ module Commands
 
       def user
         @user ||= site::User.find(user_id)
-      end
-
-      def deleted_user
-        @deleted_user ||= site::DeletedUser.find_by(id: user.id) || site::DeletedUser.new(id: user.id, original_user: {})
       end
     end
   end

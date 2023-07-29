@@ -11,7 +11,7 @@ module MapawynajmuPl
           end
 
           def call
-            user.announcements.where(
+            user.listings.where(
               deleted_at: nil,
             )
           end

@@ -4,6 +4,9 @@ module Api
   module User
     module Create
       class EmailAndPassword < Grape::API
+
+        class VerificationCodeMismatch < StandardError; end
+
         helpers ::MapawynajmuPl::ProtocolAndDomain
 
         params do
@@ -54,11 +57,11 @@ module Api
         end
         put do
           decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(params['verification_token']).call
-          error!('Invalid verification code!', 422) if decodedVerificationToken['verificationCode'] != params['verification_code']
+          raise VerificationCodeMismatch if decodedVerificationToken['verificationCode'] != params['verification_code']
 
           user_id = decodedVerificationToken['userId']
           user = ::MapawynajmuPl::User.find(user_id)
-          error!('Invalid verification code!', 422) if user.verified?
+          raise VerificationCodeMismatch if user.verified?
 
           ActiveRecord::Base.transaction do
             ::Commands::User::Update::Attribute.new(
@@ -73,7 +76,7 @@ module Api
 
           encodedAccessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
 
-          current_announcement = user.announcements.last
+          current_announcement = user.listings.last
 
           listing_confirmation_href = begin
             listing_confirmation_path = current_announcement&.summary_path(lang.to_sym)
@@ -95,7 +98,7 @@ module Api
             ).deliver_now
           end
 
-          if (current_announcement.is_promoted?)
+          if (current_announcement&.is_promoted?)
             href = MapawynajmuPl::Commands::Order::Create.new(
               listing_id: current_announcement.id,
               name: 'listing_promotion',
@@ -110,7 +113,7 @@ module Api
             accessToken: encodedAccessToken,
             href: href,
           }
-        rescue StandardError
+        rescue VerificationCodeMismatch
           error!('Invalid confirmation token or verification code!', 422)
         end
       end

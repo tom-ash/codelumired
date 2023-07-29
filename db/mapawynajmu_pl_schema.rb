@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_060737) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_064759) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -151,8 +151,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_060737) do
     t.string "keywords"
     t.string "description"
     t.jsonb "body", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "canonical_url"
     t.string "cover_image"
     t.boolean "online"
@@ -167,16 +167,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_060737) do
     t.uuid "lang_alts_group"
     t.string "link_image"
     t.datetime "index_now_pinged_at"
-  end
-
-  create_table "prospective_users", force: :cascade do |t|
-    t.string "encrypted_access_token", null: false
-    t.jsonb "verification", null: false
-    t.string "verification_code_iv", null: false
-    t.jsonb "user", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["encrypted_access_token"], name: "index_prospective_users_on_encrypted_access_token", unique: true
+    t.index ["author_id"], name: "index_pages_on_author_id"
+    t.index ["category"], name: "index_pages_on_category"
+    t.index ["description"], name: "index_pages_on_description"
+    t.index ["keywords"], name: "index_pages_on_keywords"
+    t.index ["lang"], name: "index_pages_on_lang"
+    t.index ["lang_alts_group"], name: "index_pages_on_lang_alts_group"
+    t.index ["subcategory"], name: "index_pages_on_subcategory"
+    t.index ["title"], name: "index_pages_on_title"
+    t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
   create_table "redirects", force: :cascade do |t|
@@ -215,6 +214,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_060737) do
     t.string "country_code"
     t.string "phone_number"
     t.string "urlified_business_name"
+    t.datetime "deleted_at"
     t.index ["country_code"], name: "index_users_on_country_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["email_verified_at"], name: "index_users_on_email_verified_at"

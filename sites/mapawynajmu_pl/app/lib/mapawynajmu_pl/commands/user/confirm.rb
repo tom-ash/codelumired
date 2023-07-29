@@ -9,7 +9,7 @@ module MapawynajmuPl
         end
 
         def call
-          user.announcements.last&.update!(user_verified: true)
+          user.listings.last&.update!(user_verified: true)
         end
 
         private

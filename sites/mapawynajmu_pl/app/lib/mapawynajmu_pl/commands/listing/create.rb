@@ -43,7 +43,7 @@ module MapawynajmuPl
         end
 
         def announcement
-          @announcement ||= user.announcements.new(parsed_attrs)
+          @announcement ||= user.listings.new(parsed_attrs)
         end
 
         def move_pictures
