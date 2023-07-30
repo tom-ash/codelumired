@@ -14,7 +14,7 @@ module Api
           encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
 
           ::Mailers::Verification.new(
-            email: email,
+            email: authenticated_user.email,
             namespace: 'user/delete',
             lang: lang,
             verification_code: verificationCode,
