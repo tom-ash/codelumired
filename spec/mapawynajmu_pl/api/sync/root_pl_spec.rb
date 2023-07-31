@@ -150,6 +150,13 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         role: nil,
       }
     end
+    let(:admin_user) do
+      {
+        accountType: nil, # TODO: Fix nil!
+        authorized: true, # TODO: Change to authenticated.
+        role: 'admin',
+      }
+    end
     let(:visitor_status) { 200 }
   end
 end

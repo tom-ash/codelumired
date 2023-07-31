@@ -4,6 +4,7 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
   subject { get '/mapawynajmu-pl/sync', headers: headers }
 
   let!(:user) { create(:mapawynajmu_pl_user) }
+  let!(:admin) { create(:mapawynajmu_pl_user, email: 'admin@mapawynajmu.pl', role: 'admin') }
   let(:headers) do
     {
       'Route-Url': route,
@@ -12,6 +13,7 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
   end
   let(:body) { JSON.parse(response.body, symbolize_names: true) }
   let(:user_status) { visitor_status }
+  let(:admin_status) { user_status }
   let(:visitor_state) do
     {
       app: visitor_app_data,
@@ -51,6 +53,30 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
   let(:user_texts) { visitor_texts }
   let(:user_data) { visitor_data }
   let(:user_inputs) { visitor_inputs }
+  let(:admin_state) do
+    {
+      app: admin_app_data,
+      render: admin_render,
+      user: admin_user,
+      control: admin_control,
+      assets: admin_assets,
+      links: admin_links,
+      texts: admin_texts,
+      data: admin_data,
+      inputs: admin_inputs,
+      errors: {},
+      meta: {}, # meta preview
+    }
+  end
+  let(:admin_app_data) { visitor_app_data }
+  let(:admin_render) { visitor_render }
+  let(:admin_user) { visitor_user }
+  let(:admin_control) { visitor_control }
+  let(:admin_assets) { visitor_assets }
+  let(:admin_links) { visitor_links }
+  let(:admin_texts) { visitor_texts }
+  let(:admin_data) { visitor_data }
+  let(:admin_inputs) { visitor_inputs }
   let(:visitor_links) do
     {
       'listing/index/offices': {
@@ -245,20 +271,11 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
     let(:accessToken) { accessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call }
 
     include_examples 'state', 'user'
-    # let(:password) { 'test_password' }
+  end
 
-    # it 'returns :ok (200) response' do
-    #   subject
-    #   expect(response.status).to eq(200)
-    # end
+  describe 'admin' do
+    let(:accessToken) { accessToken = ::Ciphers::Jwt::Encoder.new(id: admin.id).call }
 
-    # it 'includes specific render property in state' do
-    #   subject
-    #   expect(body[:state][:user]).to eq(
-    #     accountType: nil, # TODO: Fix nil!
-    #     authorized: true, # TODO: Change to authenticated.
-    #     role: nil,
-    #   )
-    # end
+    include_examples 'state', 'admin'
   end
 end
