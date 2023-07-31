@@ -1,4 +1,6 @@
 RSpec.shared_context 'sync', :shared_context => :metadata do
+  require_relative '../shared_examples/state.rb'
+
   subject { get '/mapawynajmu-pl/sync', headers: headers }
 
   let!(:user) { create(:mapawynajmu_pl_user) }
@@ -9,6 +11,7 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
     }
   end
   let(:body) { JSON.parse(response.body, symbolize_names: true) }
+  let(:user_status) { visitor_status }
   let(:visitor_state) do
     {
       app: visitor_app_data,
@@ -24,6 +27,30 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
       meta: {}, # meta preview
     }
   end
+  let(:user_state) do
+    {
+      app: user_app_data,
+      render: user_render,
+      user: user_user,
+      control: user_control,
+      assets: user_assets,
+      links: user_links,
+      texts: user_texts,
+      data: user_data,
+      inputs: user_inputs,
+      errors: {},
+      meta: {}, # meta preview
+    }
+  end
+  let(:user_app_data) { visitor_app_data }
+  let(:user_render) { visitor_render }
+  let(:user_user) { visitor_user }
+  let(:user_control) { visitor_control }
+  let(:user_assets) { visitor_assets }
+  let(:user_links) { visitor_links }
+  let(:user_texts) { visitor_texts }
+  let(:user_data) { visitor_data }
+  let(:user_inputs) { visitor_inputs }
   let(:visitor_links) do
     {
       'listing/index/offices': {
@@ -207,113 +234,31 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
     }
   end
 
+
   describe 'visitor' do
     let(:accessToken) { nil }
-
-    it 'returns :ok (200) response' do
-      subject
-      expect(response.status).to eq(200)
-    end
   
-    it 'includes specific state & specific meta properties in body' do
-      subject
-      expect(body).to eq({
-        state: visitor_state,
-        meta: meta,
-      })
-    end
-  
-    describe 'state' do
-      it 'includes specific state property in body' do
-        subject
-        expect(body[:state]).to eq(visitor_state)
-      end
-  
-      it 'includes specific app property in state' do
-        subject
-        expect(body[:state][:app]).to eq(visitor_app_data)
-      end
-  
-      it 'includes specific render property in state' do
-        subject
-        expect(body[:state][:render]).to eq(visitor_render)
-      end
-  
-      it 'includes specific user property in state' do
-        subject
-        expect(body[:state][:user]).to eq(visitor_user)
-      end
-  
-      it 'includes specific control property in state' do
-        subject
-        expect(body[:state][:control]).to eq(visitor_control)
-      end
-  
-      it 'includes specific assets property in state' do
-        subject
-        expect(body[:state][:assets]).to eq(visitor_assets)
-      end
-  
-      it 'includes specific links property in state' do
-        subject
-        expect(body[:state][:links]).to eq(visitor_links)
-      end
-  
-      it 'includes specific texts property in state' do
-        subject
-        expect(body[:state][:texts]).to eq(visitor_texts)
-      end
-  
-      it 'includes specific data property in state' do
-        subject
-        expect(body[:state][:data]).to eq(visitor_data)
-      end
-  
-      it 'includes specific inputs property in state' do
-        subject
-        expect(body[:state][:inputs]).to eq(visitor_inputs)
-      end
-  
-      it 'includes specific errors property in state' do
-        subject
-        expect(body[:state][:errors]).to eq({})
-      end
-    end
-  
-    describe 'meta' do
-      it 'includes specific meta property in body' do
-        subject
-        expect(body[:meta]).to eq(meta)
-      end
-  
-      it 'includes specific schemaOrg property in meta' do
-        subject
-        expect(body[:meta][:schemaOrg]).to eq(schemaOrg)
-      end
-  
-      it 'includes specific openGraph property in meta' do
-        subject
-        expect(body[:meta][:openGraph]).to eq(openGraph)
-      end
-    end
+    include_examples 'state', 'visitor'
   end
 
   describe 'user' do
     let(:accessToken) { accessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call }
-    let(:password) { 'test_password' }
 
-    it 'returns :ok (200) response' do
-      subject
-      expect(response.status).to eq(200)
-    end
+    include_examples 'state', 'user'
+    # let(:password) { 'test_password' }
 
-    it 'includes specific render property in state' do
-      subject
-      expect(body[:state][:user]).to eq(
-        accountType: nil, # TODO: Fix nil!
-        authorized: true, # TODO: Change to authenticated.
-        role: nil,
-      )
-    end
+    # it 'returns :ok (200) response' do
+    #   subject
+    #   expect(response.status).to eq(200)
+    # end
+
+    # it 'includes specific render property in state' do
+    #   subject
+    #   expect(body[:state][:user]).to eq(
+    #     accountType: nil, # TODO: Fix nil!
+    #     authorized: true, # TODO: Change to authenticated.
+    #     role: nil,
+    #   )
+    # end
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require_relative './shared_context/sync_shared_context.rb'
+require_relative './shared_contexts/sync.rb'
 
 RSpec.describe ::MapawynajmuPl::Api::Sync do
   describe 'root' do
@@ -143,6 +143,13 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         openGraph: openGraph,
       }
     end
-
+    let(:user_user) do
+      {
+        accountType: nil, # TODO: Fix nil!
+        authorized: true, # TODO: Change to authenticated.
+        role: nil,
+      }
+    end
+    let(:visitor_status) { 200 }
   end
 end
