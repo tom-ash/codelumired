@@ -78,6 +78,7 @@ module MapawynajmuPl
                   facebook_square
                   linkedin_square
                   twitter_square
+                  rocket
                 ]
               end
             end

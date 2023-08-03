@@ -73,6 +73,7 @@ module MapawynajmuPl
       mount ::MapawynajmuPl::Api::Listing::Update::Views => 'announcement/update/views/:id'
       mount ::MapawynajmuPl::Api::Listing::Delete => 'announcement/delete/:id'
       mount ::MapawynajmuPl::Api::Orders::Notify => 'orders/notify'
+      mount ::MapawynajmuPl::Api::Methods::Listings => 'listings'
       mount ::MapawynajmuPl::Api::Methods::Assets => 'assets'
       mount ::MapawynajmuPl::Api::Methods::Redirects => 'redirects'
     end

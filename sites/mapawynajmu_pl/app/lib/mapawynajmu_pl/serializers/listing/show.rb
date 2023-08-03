@@ -27,6 +27,7 @@ module MapawynajmuPl
           locality sublocality
           name
           link
+          is_promoted
         ].freeze
 
         def initialize(announcement)

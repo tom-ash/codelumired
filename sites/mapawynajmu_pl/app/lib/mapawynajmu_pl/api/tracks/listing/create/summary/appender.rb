@@ -11,6 +11,18 @@ module MapawynajmuPl
 
               private
 
+              def texts
+                {
+                  pl: {
+                    promoteButtonLabel: 'Wyróżnij ogłoszenie za 19 PLN',
+
+                  },
+                  en: {
+                    promoteButtonLabel: 'Promote listing for 19 PLN',
+                  },
+                }[lang]
+              end
+
               def data
                 {
                   announcement: ::MapawynajmuPl::Serializers::Listing::Show.new(announcement).call.merge(
