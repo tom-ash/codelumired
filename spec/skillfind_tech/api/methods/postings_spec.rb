@@ -13,7 +13,16 @@ RSpec.describe ::SkillfindTech::Api::Methods::Postings do
   end
   let(:params) do
     {
-      selected_skills: [],
+      selected_skills: [
+        {
+          name: 'JavaScript',
+          level: 5,
+        },
+        {
+          name: 'Ruby',
+          level: 5,
+        }
+      ],
       b2b: false,
       # requires :remote, type: Boolean
       # requires :hybrid, type: Boolean
@@ -30,8 +39,12 @@ RSpec.describe ::SkillfindTech::Api::Methods::Postings do
   end
 
   describe '/promote' do
+    before(:each) do
+      create(:javascript_skill)
+      create(:ruby_skill)
+    end
+
     describe 'POST /promote' do
-      # let(:listing) { create(:mapawynajmu_pl_listing, user: user) }
       let(:user) { create(:skillfind_tech_user) }
 
       context 'when sending verification email is successful' do
@@ -40,20 +53,13 @@ RSpec.describe ::SkillfindTech::Api::Methods::Postings do
           expect(response.status).to eq(201)
         end
 
-        it 'TODO' do
-          post '/skillfind-tech/postings', headers: headers, params: params
-
-          body = JSON.parse(response.body)
-
-          # byebug
-
-          # expect(JSON.parse(response.body)).to match(/^https:\/\/merch-prod.snd.payu.com\/pay\/\?orderId=/)
+        it 'creates a new Posting record' do
+          expect { post '/skillfind-tech/postings', headers: headers, params: params }.to change(::SkillfindTech::Posting, :count).by(1)
         end
 
-        # it 'sets listing :is_promoted to true' do
-        #   post '/mapawynajmu-pl/listings/promote', headers: headers, params: params
-        #   expect(listing.reload.is_promoted).to be(true)
-        # end
+        it 'creates a new SelectedSkill records' do
+          expect { post '/skillfind-tech/postings', headers: headers, params: params }.to change(::SkillfindTech::SelectedSkill, :count).by(2)
+        end
       end
     end
   end

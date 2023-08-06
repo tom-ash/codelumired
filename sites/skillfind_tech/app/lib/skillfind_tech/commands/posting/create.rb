@@ -12,7 +12,7 @@ module SkillfindTech
         def call
           ActiveRecord::Base.transaction do
             posting.save!
-            # add_skills_to_job
+            add_skills_to_job
           end
 
           posting
@@ -43,18 +43,19 @@ module SkillfindTech
           )
         end
 
-        # def add_skills_to_job
-        #   selected_skills.each do |selected_skill|
-        #     @job.coveted_skills.create!(
-        #       skill: ::SkillfindTech::Skill.find_by(name: selected_skill[:name]),
-        #       level: selected_skill[:level],
-        #     )
-        #   end
-        # end
+        def add_skills_to_job
+          selected_skills.each do |selected_skill|
+            # byebug
+            @posting.selected_skills.create!(
+              skill: ::SkillfindTech::Skill.find_by(name: selected_skill[:name]),
+              level: selected_skill[:level],
+            )
+          end
+        end
 
-        # def selected_skills
-        #   @selected_skills ||= attrs[:selected_skills]
-        # end
+        def selected_skills
+          @selected_skills ||= attrs[:selected_skills]
+        end
 
         def user
           ::SkillfindTech::User.find(user_id)
