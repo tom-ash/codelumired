@@ -6,8 +6,8 @@ module SkillfindTech
 
     self.table_name = 'skills'
 
-    has_many :coveted_skills
-    has_many :jobs, through: :coveted_skills
+    has_many :selected_skills
+    has_many :jobs, through: :selected_skills
 
     validates :name, presence: true, uniqueness: true # TODO: Add unique index to :name.
     validates :type, presence: true

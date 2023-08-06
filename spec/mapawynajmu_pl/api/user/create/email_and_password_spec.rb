@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require 'mapawynajmu_pl/rails_helper.rb'
 
 RSpec.describe ::Api::User::Create::EmailAndPassword do
   # optional :business_name, type: String

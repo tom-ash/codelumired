@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_21_142639) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_06_140055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
-
-  create_table "coveted_skills", force: :cascade do |t|
-    t.bigint "job_id", null: false
-    t.bigint "skill_id", null: false
-    t.integer "level", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["job_id"], name: "index_coveted_skills_on_job_id"
-    t.index ["level"], name: "index_coveted_skills_on_level"
-    t.index ["skill_id"], name: "index_coveted_skills_on_skill_id"
-  end
 
   create_table "images", force: :cascade do |t|
     t.bigint "added_by_id", null: false
@@ -40,30 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_142639) do
     t.index ["added_by_id"], name: "index_images_on_added_by_id"
     t.index ["page_id"], name: "index_images_on_page_id"
     t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
-  end
-
-  create_table "jobs", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "views", null: false
-    t.string "company_name", null: false
-    t.integer "company_size", null: false
-    t.boolean "remote", null: false
-    t.boolean "hybrid", null: false
-    t.boolean "office", null: false
-    t.string "country", null: false
-    t.string "locality", null: false
-    t.string "sublocality"
-    t.string "street"
-    t.boolean "employment", null: false
-    t.boolean "b2b", null: false
-    t.integer "employment_min"
-    t.integer "employment_max"
-    t.integer "b2b_min"
-    t.integer "b2b_max"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -101,6 +66,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_142639) do
     t.index ["url"], name: "index_pages_on_url", unique: true
   end
 
+  create_table "postings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "views", null: false
+    t.string "company_name", null: false
+    t.integer "company_size", null: false
+    t.boolean "remote", null: false
+    t.boolean "hybrid", null: false
+    t.boolean "office", null: false
+    t.string "country", null: false
+    t.string "locality", null: false
+    t.string "sublocality"
+    t.string "street"
+    t.boolean "employment", null: false
+    t.boolean "b2b", null: false
+    t.integer "employment_min"
+    t.integer "employment_max"
+    t.integer "b2b_min"
+    t.integer "b2b_max"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_postings_on_user_id"
+  end
+
   create_table "redirects", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.string "original_url", null: false
@@ -111,6 +100,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_142639) do
     t.datetime "updated_at", null: false
     t.index ["added_by_id"], name: "index_redirects_on_added_by_id"
     t.index ["original_url"], name: "index_redirects_on_original_url", unique: true
+  end
+
+  create_table "selected_skills", force: :cascade do |t|
+    t.bigint "posting_id", null: false
+    t.bigint "skill_id", null: false
+    t.integer "level", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level"], name: "index_selected_skills_on_level"
+    t.index ["posting_id"], name: "index_selected_skills_on_posting_id"
+    t.index ["skill_id"], name: "index_selected_skills_on_skill_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -136,13 +136,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_142639) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "email_verified_at", precision: nil
+    t.datetime "deleted_at"
   end
 
-  add_foreign_key "coveted_skills", "jobs"
-  add_foreign_key "coveted_skills", "skills"
   add_foreign_key "images", "users", column: "added_by_id"
-  add_foreign_key "jobs", "users"
   add_foreign_key "pages", "users", column: "author_id"
+  add_foreign_key "postings", "users"
   add_foreign_key "redirects", "users", column: "added_by_id"
+  add_foreign_key "selected_skills", "postings"
+  add_foreign_key "selected_skills", "skills"
   add_foreign_key "skills", "skills", column: "principal_skill_id"
 end

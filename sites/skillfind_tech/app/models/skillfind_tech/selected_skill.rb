@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 module SkillfindTech
-  class CovetedSkill < ApplicationRecord
+  class SelectedSkill < ApplicationRecord
     establish_connection :skillfind_tech
 
-    self.table_name = 'coveted_skills'
-    # TODO: Add unique index on :job_id & :skill_id.
+    self.table_name = 'selected_skills'
 
-    belongs_to :job
+    belongs_to :posting
     belongs_to :skill
 
+    validates :posting, presence: true
     validates :skill, presence: true
     validates :level, presence: true, numericality: true
   end

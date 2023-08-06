@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require 'mapawynajmu_pl/rails_helper.rb'
 
 RSpec.describe ::Api::User::Delete do
   let(:accessToken) { accessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call }

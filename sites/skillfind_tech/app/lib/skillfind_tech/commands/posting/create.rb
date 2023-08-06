@@ -11,19 +11,19 @@ module SkillfindTech
 
         def call
           ActiveRecord::Base.transaction do
-            job.save!
-            add_skills_to_job
+            posting.save!
+            # add_skills_to_job
           end
 
-          job
+          posting
         end
 
         private
 
         attr_reader :user_id, :attrs
 
-        def job
-          @job ||= ::SkillfindTech::Posting.new(
+        def posting
+          @posting ||= ::SkillfindTech::Posting.new(
             user: user,
             views: 0,
             company_name: 'Not implemented!',
@@ -43,18 +43,18 @@ module SkillfindTech
           )
         end
 
-        def add_skills_to_job
-          selected_skills.each do |selected_skill|
-            @job.coveted_skills.create!(
-              skill: ::SkillfindTech::Skill.find_by(name: selected_skill[:name]),
-              level: selected_skill[:level],
-            )
-          end
-        end
+        # def add_skills_to_job
+        #   selected_skills.each do |selected_skill|
+        #     @job.coveted_skills.create!(
+        #       skill: ::SkillfindTech::Skill.find_by(name: selected_skill[:name]),
+        #       level: selected_skill[:level],
+        #     )
+        #   end
+        # end
 
-        def selected_skills
-          @selected_skills ||= attrs[:selected_skills]
-        end
+        # def selected_skills
+        #   @selected_skills ||= attrs[:selected_skills]
+        # end
 
         def user
           ::SkillfindTech::User.find(user_id)

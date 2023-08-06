@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require 'mapawynajmu_pl/rails_helper.rb'
 
 RSpec.describe ::Api::User::Authorize::EmailAndPassword do
   let(:email) { 'test@example.net' }

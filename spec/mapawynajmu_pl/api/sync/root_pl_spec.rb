@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require 'mapawynajmu_pl/rails_helper.rb'
 require_relative './shared_contexts/sync.rb'
 
 RSpec.describe ::MapawynajmuPl::Api::Sync do

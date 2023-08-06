@@ -12,7 +12,7 @@ SKILLFIND_TECH_NAME_LANGS = %i[en pl].freeze
 SKILLFIND_TECH_URL = "https://#{SKILLFIND_TECH_DOMAIN}"
 SKILLFIND_TECH_S3 = ENV['AWS_S3_SOUNDOFIT_BUCKET']
 SKILLFIND_TECH_IMAGE = 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg'
-SKILLFIND_TECH_API_URL = 'https://warsaw-digital-server.herokuapp.com/skillfind_tech'
+SKILLFIND_TECH_API_URL = 'https://warsaw-digital-server.herokuapp.com/skillfind-tech'
 
 MAPAWYNAJMU_PL_NAME = 'mapawynajmu.pl'
 MAPAWYNAJMU_PL_CONSTANTIZED_NAME = 'MapawynajmuPl'
@@ -29,7 +29,7 @@ SENTRY_URL = 'https://2940536e6132431996571db68fd3a5b1@o876363.ingest.sentry.io/
 # DEV
 SKILLFIND_TECH_DOMAIN_DEV = 'local.skillfind.tech:8080'
 SKILLFIND_TECH_URL_DEV = "http://#{SKILLFIND_TECH_DOMAIN_DEV}"
-SKILLFIND_TECH_API_URL_DEV = 'http://localhost:3001/skillfind_tech'
+SKILLFIND_TECH_API_URL_DEV = 'http://localhost:3001/skillfind-tech'
 
 MAPAWYNAJMU_PL_DOMAIN_DEV = 'local.mapawynajmu.pl:8080'
 MAPAWYNAJMU_PL_URL_DEV = "http://#{MAPAWYNAJMU_PL_DOMAIN_DEV}"
