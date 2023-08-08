@@ -29,13 +29,13 @@ module SkillfindTech
           end
 
           def postings
-            ::SkillfindTech::Posting.includes(:coveted_skills).map do |job|
+            ::SkillfindTech::Posting.includes(:selected_skills).map do |posting|
               {
-                id: job.id,
-                skills: job.selected_skills,
-                b2b: job.b2b,
-                b2bMin: job.b2b_min,
-                b2bMax: job.b2b_max,
+                id: posting.id,
+                skills: posting.skills.join,
+                b2b: posting.b2b,
+                b2bMin: posting.b2b_min,
+                b2bMax: posting.b2b_max,
               }
             end
           end

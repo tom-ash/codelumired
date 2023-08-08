@@ -5,7 +5,7 @@ require_relative './shared_contexts/sync.rb'
 
 RSpec.describe ::MapawynajmuPl::Api::Sync do
   describe 'root' do
-    include_context 'sync'
+    include_context 'mapawynajmu_pl_sync'
 
     let(:route) { '/' }
 

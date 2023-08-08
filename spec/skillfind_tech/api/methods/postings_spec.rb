@@ -2,7 +2,6 @@
 
 require 'skillfind_tech/rails_helper'
 
-
 RSpec.describe ::SkillfindTech::Api::Methods::Postings do
   let(:accessToken) { accessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call }
   let(:headers) do
