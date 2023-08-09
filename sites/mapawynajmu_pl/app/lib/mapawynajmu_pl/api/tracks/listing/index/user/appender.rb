@@ -15,6 +15,18 @@ module MapawynajmuPl
                 raise ::Api::UnauthorizedError unless authenticated_user.present?
               end
 
+              def texts
+                {
+                  pl: {
+                    promoteButtonLabel: 'Wyróżnij ogłoszenie za 19 PLN',
+
+                  },
+                  en: {
+                    promoteButtonLabel: 'Promote listing for 19 PLN',
+                  },
+                }[lang]
+              end
+
               def data
                 {
                   announcements: serialized_announcements,

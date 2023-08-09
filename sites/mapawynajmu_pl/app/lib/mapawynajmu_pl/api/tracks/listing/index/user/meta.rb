@@ -62,6 +62,13 @@ module MapawynajmuPl
                   'current/en': ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Linker.new(:en).call,
                 }
               end
+
+              def asset_names
+                @asset_names ||= %i[
+                  rocket
+                  facebook
+                ]
+              end
             end
           end
         end
