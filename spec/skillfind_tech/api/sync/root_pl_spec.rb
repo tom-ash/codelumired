@@ -3,7 +3,7 @@
 require 'skillfind_tech/rails_helper'
 require_relative './shared_contexts/sync.rb'
 
-RSpec.describe ::MapawynajmuPl::Api::Sync do
+RSpec.describe ::SkillfindTech::Api::Sync do
   describe 'root' do
     include_context 'skillfind_tech_sync'
 
@@ -115,5 +115,39 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       }
     end
     let(:visitor_status) { 200 }
+
+    describe 'postings' do
+      context 'when no postings exist' do
+        it 'includes empty array in :postings' do
+          subject
+          expect(body[:state][:data][:postings]).to eq([])
+        end
+      end
+
+      context 'when postings exist' do
+        let(:posting) { create(:skillfind_tech_posting, user: user) }
+        let(:javascript_skill) { create(:javascript_skill) }
+        let!(:javascript_selected_skill) { create(:javascript_selected_skill, posting: posting, skill: javascript_skill) }
+
+        it 'includes postings in data in state' do
+          subject
+          expect(body[:state][:data][:postings]).to eq([
+            {
+              :b2b=>true,
+              :b2bMax=>0,
+              :b2bMin=>0,
+              :id=>posting.id,
+              :skills=> [
+                {
+                  id: nil,
+                  name: 'JavaScript',
+                  level: 5,
+                }
+              ]
+            }
+          ])
+        end
+      end
+    end
   end
 end

@@ -73,10 +73,9 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
   let(:admin_texts) { visitor_texts }
   let(:admin_data) { visitor_data }
   let(:admin_inputs) { visitor_inputs }
+  let(:accessToken) { nil }
 
   describe 'visitor' do
-    let(:accessToken) { nil }
-  
     include_examples 'state', 'visitor'
   end
 

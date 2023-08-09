@@ -32,7 +32,7 @@ module SkillfindTech
             ::SkillfindTech::Posting.includes(:selected_skills).map do |posting|
               {
                 id: posting.id,
-                skills: posting.skills.join,
+                skills: ::SkillfindTech::SelectedSkill.joins(:skill).where(posting_id: posting.id).select(:level, :name), # TODO!!!
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,
                 b2bMax: posting.b2b_max,

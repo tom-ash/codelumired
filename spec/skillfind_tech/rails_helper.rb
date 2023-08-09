@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'mapawynajmu_pl/spec_helper'
+require 'skillfind_tech/spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __dir__)
