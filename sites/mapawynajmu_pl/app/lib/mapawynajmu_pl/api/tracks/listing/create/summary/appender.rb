@@ -15,10 +15,15 @@ module MapawynajmuPl
                 {
                   pl: {
                     promoteButtonLabel: 'Wyróżnij ogłoszenie za 19 PLN',
-
+                    facebookSharerButtonLabel: 'Udostępnij na Facebook\'u',
+                    congratulations: 'Gratulacje! Twoje ogłoszenie zostało dodane!',
+                    bumpingUpAndFacebookSharingBenefits: 'Wyróżniając ogłoszenie i udostępniając na Facebook\'u zwiększasz szansę na skuteczny wynajem.',
                   },
                   en: {
                     promoteButtonLabel: 'Promote listing for 19 PLN',
+                    facebookSharerButtonLabel: 'Share on Facebook',
+                    congratulations: 'Congratulations! Your Announcement has been added!',
+                    bumpingUpAndFacebookSharingBenefits: 'To reach more recipients and increase the chances of the effective lease share the Announcement on Facebook.',
                   },
                 }[lang]
               end

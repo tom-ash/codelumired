@@ -67,6 +67,7 @@ module MapawynajmuPl
                 @asset_names ||= %i[
                   rocket
                   facebook
+                  chevron
                 ]
               end
             end

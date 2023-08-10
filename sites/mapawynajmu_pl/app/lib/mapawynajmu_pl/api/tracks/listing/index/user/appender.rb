@@ -19,10 +19,11 @@ module MapawynajmuPl
                 {
                   pl: {
                     promoteButtonLabel: 'Wyróżnij ogłoszenie za 19 PLN',
-
+                    facebookSharerButtonLabel: 'Udostępnij na Facebook\'u',
                   },
                   en: {
                     promoteButtonLabel: 'Promote listing for 19 PLN',
+                    facebookSharerButtonLabel: 'Share on Facebook',
                   },
                 }[lang]
               end
