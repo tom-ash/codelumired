@@ -18,6 +18,11 @@ class TransactionalMailer < ApplicationMailer
     'en' => 'Best regards!',
   }
 
+  SHARE_ON_FACEBOOK = {
+    'pl' => 'Udostępnij na Facebook\'u',
+    'en' => 'Share on Facebook',
+  }
+
   # http://localhost:3001/rails/mailers/transactional_mailer/verification_email
   def verification_email(to:, subject:, verification_code:, lang:)
     @verification_code = verification_code
@@ -52,6 +57,8 @@ class TransactionalMailer < ApplicationMailer
     @signature = 'mapawynajmu.pl'
     @salutations = SALUTATIONS[@lang]
     @company = company
+    @facebook_sharer_url = "https://www.facebook.com/sharer/sharer.php?u=#{MAPAWYNAJMU_PL_URL}/#{@listing.url(@lang)}"
+    @share_on_facebook = SHARE_ON_FACEBOOK[@lang]
 
     mail(
       from: "#{MAPAWYNAJMU_PL_NAME} <noreply@#{MAPAWYNAJMU_PL_APEX_DOMAIN}>",

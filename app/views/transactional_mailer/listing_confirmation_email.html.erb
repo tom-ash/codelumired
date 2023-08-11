@@ -5,9 +5,14 @@
   <div style='margin-bottom: 12px;'>
     <img src=<%= @listing_picture %> style='display: block; width: 280px; margin: 0 auto;'/>
   </div>
-  <div style='font-size: 12px; text-align: center;'>
+  <div style='font-size: 12px; text-align: center; margin-bottom: 24px;'>
     <a href=<%= @listing_url %>>
       <%= @listing_url %>
+    </a>
+  </div>
+  <div>
+    <a href=<%= @facebook_sharer_url %> style='display: block; width: 240px; height: 32px; margin: 0 auto; border-radius: 4px; background: #2e86c1; text-align: center; line-height: 32px; font-size: 14px; text-decoration: none; color: white;'>
+      <%= @share_on_facebook %>
     </a>
   </div>
 </div>
