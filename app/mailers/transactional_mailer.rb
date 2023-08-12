@@ -44,6 +44,8 @@ class TransactionalMailer < ApplicationMailer
   # http://localhost:3001/rails/mailers/transactional_mailer/listing_confirmation_email
   def listing_confirmation_email(to:, listing_id:, lang:)
     @lang = lang
+
+    
     @subject = {
       'pl' => 'Potwierdzenie dodania ogłoszenia',
       'en' => 'Listing adding confirmation',

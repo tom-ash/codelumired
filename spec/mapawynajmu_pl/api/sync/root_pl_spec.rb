@@ -58,6 +58,58 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         svgs: {}
       }
     end
+    let(:visitor_links) do
+      common_links.merge(
+        'listing/index/offices': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/biura',
+          path: 'wynajem/biura'
+        },
+        'listing/index/usablePremises': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/lokale-uzytkowe',
+          path: 'wynajem/lokale-uzytkowe'
+        },
+        'listing/index/apartments': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/mieszkania',
+          path: 'wynajem/mieszkania'
+        },
+        'listing/index/houses': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/domy',
+          path: 'wynajem/domy'
+        },
+        'listing/index/rooms': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/pokoje',
+          path: 'wynajem/pokoje'
+        },
+        'listing/index/parkingSpaces': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/miejsca-parkingowe',
+          path: 'wynajem/miejsca-parkingowe'
+        },
+        'listing/index/virtualOffices': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/biura-wirtualne',
+          path: 'wynajem/biura-wirtualne'
+        },
+        'listing/index/coworkingSpaces': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/coworking-przestrzenie-coworkingowe',
+          path: 'wynajem/coworking-przestrzenie-coworkingowe'
+        },
+        'listing/index/advertisingSpaces': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/przestrzenie-reklamowe',
+          path: 'wynajem/przestrzenie-reklamowe'
+        },
+        'listing/index/garages': {
+          href: 'http://local.mapawynajmu.pl:8080/wynajem/garaze',
+          path: 'wynajem/garaze'
+        },
+        'current/pl': {
+          href: 'http://local.mapawynajmu.pl:8080/',
+          path: ''
+        },
+        'current/en': {
+          href: 'http://local.mapawynajmu.pl:8080/en',
+          path: 'en'
+        },
+      )
+    end
     let(:visitor_control) do
       {
         isMapInitialized: false,
