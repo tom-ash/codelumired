@@ -67,6 +67,10 @@ module Api
         def params
           @params ||= attrs[:params]
         end
+
+        def request_ip
+          @request_ip ||= attrs[:request_ip]
+        end
       end
     end
   end

@@ -11,12 +11,33 @@ module MapawynajmuPl
 
             private
 
+            def data
+              {
+                order_href: order_href,
+              }
+            end
+
             def listing
-              @listing ||= ::MapawynajmuPl::Listing.find(listing_id)
+              @listing ||= begin
+                list = ::MapawynajmuPl::Listing.find(listing_id)
+                list.update!(is_promoted: true)
+                list
+              end
             end
 
             def listing_id
-              @listing_id = attrs[:url].match(%r{(podbij-ogloszenie|boost-listing)/(\d+)})[2]
+              @listing_id ||= attrs[:url].match(%r{(podbij-ogloszenie|boost-listing)/(\d+)})[2]
+            end
+
+            def order_href
+              @order_href ||= MapawynajmuPl::Commands::Order::Create.new(
+                listing_id: listing.id,
+                name: 'listing_promotion',
+                price: 1900,
+                currency: 'PLN',
+                lang: lang,
+                customer_ip: request_ip,
+              ).call
             end
           end
         end

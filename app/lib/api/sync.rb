@@ -30,6 +30,7 @@ module Api
               page: page,
               is_ssr: ssr?,
               listings_obsolete: listings_obsolete?,
+              request_ip: request.ip,
             }
           end
 
