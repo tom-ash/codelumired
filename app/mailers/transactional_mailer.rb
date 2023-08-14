@@ -49,8 +49,6 @@ class TransactionalMailer < ApplicationMailer
   # http://localhost:3001/rails/mailers/transactional_mailer/listing_confirmation_email
   def listing_confirmation_email(to:, listing_id:, lang:)
     @lang = lang
-
-    
     @subject = {
       'pl' => 'Potwierdzenie dodania ogłoszenia',
       'en' => 'Listing adding confirmation',
@@ -68,7 +66,7 @@ class TransactionalMailer < ApplicationMailer
     @share_on_facebook = SHARE_ON_FACEBOOK[@lang]
     boost_listing_path = MapawynajmuPl::Api::Tracks::Listing::Boost::Linker.new(listing_id: listing_id, lang: :pl).call[:path]
     @boost_listing_href = "#{MAPAWYNAJMU_PL_URL_FROM_ENV}/#{boost_listing_path}"
-    @boost_listing_text = BOOST_LISTING[lang]
+    @boost_listing_text = BOOST_LISTING[@lang]
 
     mail(
       from: "#{MAPAWYNAJMU_PL_NAME} <noreply@#{MAPAWYNAJMU_PL_APEX_DOMAIN}>",
