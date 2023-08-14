@@ -13,8 +13,8 @@ module MapawynajmuPl
 
             def call
               {
-                path: 'TODO', #::MapawynajmuPl::Listing.find(listing_id).boost_path(lang),
-                title: 'TODO',
+                path: "podbij-ogloszenie/#{listing_id}",
+                title: "boost-listing/#{listing_id}",
               }
             end
 

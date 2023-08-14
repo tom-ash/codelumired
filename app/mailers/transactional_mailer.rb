@@ -23,6 +23,11 @@ class TransactionalMailer < ApplicationMailer
     'en' => 'Share on Facebook',
   }
 
+  BOOST_LISTING = {
+    'pl' => 'Podbij ogłoszenie',
+    'en' => 'Boost listing',
+  }
+
   # http://localhost:3001/rails/mailers/transactional_mailer/verification_email
   def verification_email(to:, subject:, verification_code:, lang:)
     @verification_code = verification_code
@@ -59,8 +64,11 @@ class TransactionalMailer < ApplicationMailer
     @signature = 'mapawynajmu.pl'
     @salutations = SALUTATIONS[@lang]
     @company = company
-    @facebook_sharer_url = "https://www.facebook.com/sharer/sharer.php?u=#{MAPAWYNAJMU_PL_URL}/#{@listing.url(@lang)}"
+    @facebook_sharer_url = "https://www.facebook.com/sharer/sharer.php?u=#{MAPAWYNAJMU_PL_URL_FROM_ENV}/#{@listing.url(@lang)}"
     @share_on_facebook = SHARE_ON_FACEBOOK[@lang]
+    boost_listing_path = MapawynajmuPl::Api::Tracks::Listing::Boost::Linker.new(listing_id: listing_id, lang: :pl).call[:path]
+    @boost_listing_href = "#{MAPAWYNAJMU_PL_URL_FROM_ENV}/#{boost_listing_path}"
+    @boost_listing_text = BOOST_LISTING[lang]
 
     mail(
       from: "#{MAPAWYNAJMU_PL_NAME} <noreply@#{MAPAWYNAJMU_PL_APEX_DOMAIN}>",
