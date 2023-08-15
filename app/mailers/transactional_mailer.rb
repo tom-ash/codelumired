@@ -24,8 +24,8 @@ class TransactionalMailer < ApplicationMailer
   }
 
   BOOST_LISTING = {
-    'pl' => 'Podbij ogłoszenie',
-    'en' => 'Boost listing',
+    'pl' => 'Podbij ogłoszenie za 19 PLN',
+    'en' => 'Boost the listing for 19 PLN',
   }
 
   # http://localhost:3001/rails/mailers/transactional_mailer/verification_email
