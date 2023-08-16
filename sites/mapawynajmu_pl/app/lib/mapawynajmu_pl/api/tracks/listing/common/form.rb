@@ -41,7 +41,8 @@ module MapawynajmuPl
                       item: 'Lepsza Prezentacja',
                       explanation: 'wyróżnione ogłoszenia podświetlone są na złoto na liście i na mapie'
                     },
-                  ]
+                  ],
+                  submitButton: 'Dodaj ogłoszenie',
                 },
                 en: {
                   categoryHeading: 'Category',
@@ -73,6 +74,7 @@ module MapawynajmuPl
                       explanation: 'promoted listings are highlighted in gold on the list and on the map'
                     },
                   ],
+                  submitButton: 'Add Listing',
                 },
               }[lang]
             end
