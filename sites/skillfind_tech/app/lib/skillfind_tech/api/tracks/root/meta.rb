@@ -44,7 +44,12 @@ module SkillfindTech
           end
 
           def asset_names
-            @asset_names ||= %i[chevron calendar]
+            @asset_names ||= %i[
+              chevron
+              calendar
+              coworkingSpace
+              carFront
+            ]
           end
 
           def render

@@ -12,6 +12,28 @@ module SkillfindTech
 
               EMPTY_TEXT = ''
 
+              # Software House
+              # Finance & Banking
+              # E-Commerce
+              # Health
+              # Motorization
+              # Aviation
+              # Cosmonautics
+              # Energetics
+              # Media
+              # Streaming
+              # Video Games
+              # Science
+              # Education
+
+              INDUSTRIES = [
+                {
+                  name: 'motorization',
+                  pl: 'Motoryzacja',
+                  en: 'Motorization',
+                }
+              ]
+
               def inputs
                 {
                   selectableSkills: selectableSkills,
