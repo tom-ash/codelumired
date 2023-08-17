@@ -65,6 +65,8 @@ module MapawynajmuPl
 
               def asset_names
                 @asset_names ||= %i[
+                  plus
+                  rocket
                   info
                   caretDown
                   camera

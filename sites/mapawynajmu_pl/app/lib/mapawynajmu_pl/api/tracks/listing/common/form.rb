@@ -42,7 +42,8 @@ module MapawynajmuPl
                       explanation: 'wyróżnione ogłoszenia podświetlone są na złoto na liście i na mapie'
                     },
                   ],
-                  submitButton: 'Dodaj ogłoszenie',
+                  submitWithoutBoostingButton: 'Dodaj bez podbicia',
+                  submitAndBoostButton: 'Dodaj z podbiciem',
                 },
                 en: {
                   categoryHeading: 'Category',
@@ -74,7 +75,8 @@ module MapawynajmuPl
                       explanation: 'promoted listings are highlighted in gold on the list and on the map'
                     },
                   ],
-                  submitButton: 'Add Listing',
+                  submitWithoutBoostingButton: 'Add Without Boosting',
+                  submitAndBoostButton: 'Add With Boosting',
                 },
               }[lang]
             end
