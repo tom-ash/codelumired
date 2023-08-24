@@ -6,6 +6,16 @@ module MapawynajmuPl
       module Listing
         module Boost
           class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
+            BOOST_LISTING_PATH = {
+              pl: 'podbij-ogloszenie',
+              en: 'boost-listing',
+            }
+
+            BOOST_LISTING_TITLE = {
+              pl: 'Podbij ogłoszenie',
+              en: 'Boost Listing'
+            }
+
             def initialize(listing_id:, lang:)
               @listing_id = listing_id
               @lang = lang
@@ -13,8 +23,8 @@ module MapawynajmuPl
 
             def call
               {
-                path: "podbij-ogloszenie/#{listing_id}",
-                title: "boost-listing/#{listing_id}",
+                path: path,
+                title: title,
               }
             end
 
@@ -22,11 +32,12 @@ module MapawynajmuPl
 
             attr_reader :listing_id, :lang
 
+            def path
+              "#{BOOST_LISTING_PATH[lang]}/#{listing_id}"
+            end
+
             def title
-              {
-                pl: 'Podbij ogłoszenie',
-                en: 'Boost Listing'
-              }
+              BOOST_LISTING_TITLE[lang]
             end
           end
         end

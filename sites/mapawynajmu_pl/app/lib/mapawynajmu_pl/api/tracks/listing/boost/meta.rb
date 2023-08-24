@@ -25,8 +25,8 @@ module MapawynajmuPl
 
             def links
               {
-                'current/pl': MapawynajmuPl::Api::Tracks::Listing::Boost::Linker.new(listing_id: listing_id, lang: :pl).call,
-                'current/en': MapawynajmuPl::Api::Tracks::Listing::Boost::Linker.new(listing_id: listing_id, lang: :en).call,
+                'current/pl': ::MapawynajmuPl::Api::Tracks::Listing::Boost::Linker.new(listing_id: listing_id, lang: :pl).call,
+                'current/en': ::MapawynajmuPl::Api::Tracks::Listing::Boost::Linker.new(listing_id: listing_id, lang: :en).call,
               }
             end
 
