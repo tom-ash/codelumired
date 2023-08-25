@@ -87,6 +87,7 @@ module MapawynajmuPl
                   linkedin_square
                   twitter_square
                   star
+                  people
                 ]
               end
             end

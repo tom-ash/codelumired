@@ -42,8 +42,8 @@ module MapawynajmuPl
                       explanation: 'wyróżnione ogłoszenia podświetlone są na złoto na liście i na mapie'
                     },
                   ],
-                  submitWithoutBoostingButtonLabel: 'Dodaj bez podbicia',
-                  submitWithBoostingButtonLabel: 'Dodaj z podbiciem',
+                  submitWithoutBoostingButtonLabel: 'Dodaj bez wyróżnienia',
+                  submitWithBoostingButtonLabel: 'Dodaj z wyróżnieniem',
                 },
                 en: {
                   categoryHeading: 'Category',
