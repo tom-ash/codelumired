@@ -1,0 +1,36 @@
+{
+  "pl": {
+    "promotionBenefits": [
+      {
+        "item": "Pierwszeństwo na liście",
+        "explanation": "wyróżnione ogłoszenia prezentowane są na liście przed ogłoszeniami zwykłymi"
+      },
+      {
+        "item": "Zwiększona widoczność na mapie",
+        "explanation": "pinezki wyróżnionych ogłoszeń prezentowane są na mapie ponad pinezkami ogłoszeń zwykłych"
+      },
+      {
+        "item": "Lepsza Prezentacja",
+        "explanation": "wyróżnione ogłoszenia podświetlone są na złoto na liście i na mapie"
+      }
+    ],
+    "promotionBenefitsSummary": "Większa widoczność i zasięgi"
+  },
+  "en": {
+    "promotionBenefits": [
+      {
+        "item": "Priority on the list",
+        "explanation": "promoted listings are presented on the list before regular ones"
+      },
+      {
+        "item": "Increased visibility on the map",
+        "explanation": "pins of promoted listings are displayed on the map above pins of regular ones"
+      },
+      {
+        "item": "Better Presentation",
+        "explanation": "promoted listings are highlighted in gold on the list and on the map"
+      }
+    ],
+    "promotionBenefitsSummary": "Greater visibility and reach"
+  }
+}
