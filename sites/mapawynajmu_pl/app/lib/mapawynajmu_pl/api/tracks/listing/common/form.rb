@@ -28,6 +28,8 @@ module MapawynajmuPl
                   netRentAmountInputLabel: 'Miesięczna cena netto',
                   grossRentAmountInputLabel: 'Miesięczna cena',
                   addPromotionCheckboxLabel: 'Wyróżnij ogłoszenie za 19 PLN',
+                  submitWithoutBoostingButtonLabel: 'Dodaj bez wyróżnienia',
+                  submitWithBoostingButtonLabel: 'Dodaj z wyróżnieniem',
                   promotionBenefits: [
                     {
                       item: 'Pierwszeństwo na liście',
@@ -42,8 +44,7 @@ module MapawynajmuPl
                       explanation: 'wyróżnione ogłoszenia podświetlone są na złoto na liście i na mapie'
                     },
                   ],
-                  submitWithoutBoostingButtonLabel: 'Dodaj bez wyróżnienia',
-                  submitWithBoostingButtonLabel: 'Dodaj z wyróżnieniem',
+                  promotionBenefitsSummary: 'Większa widoczność i zasięgi',
                 },
                 en: {
                   categoryHeading: 'Category',
@@ -61,6 +62,8 @@ module MapawynajmuPl
                   netRentAmountInputLabel: 'Monthly Net Price',
                   grossRentAmountInputLabel: 'Monthly Price',
                   addPromotionCheckboxLabel: 'Promote the listing for 19 PLN',
+                  submitWithoutBoostingButtonLabel: 'Add Without Promotion',
+                  submitWithBoostingButtonLabel: 'Add With Promotion',
                   promotionBenefits: [
                     {
                       item: 'Priority on the list',
@@ -75,8 +78,7 @@ module MapawynajmuPl
                       explanation: 'promoted listings are highlighted in gold on the list and on the map'
                     },
                   ],
-                  submitWithoutBoostingButtonLabel: 'Add Without Boosting',
-                  submitWithBoostingButtonLabel: 'Add With Boosting',
+                  promotionBenefitsSummary: 'Greater visibility and reach',
                 },
               }[lang]
             end
