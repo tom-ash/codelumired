@@ -79,6 +79,8 @@ module MapawynajmuPl
                   linkedin_square
                   twitter_square
                   rocket
+                  star
+                  people
                 ]
               end
             end
