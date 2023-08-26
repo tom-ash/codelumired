@@ -1,0 +1,40 @@
+{
+  "pl": {
+    "categoryHeading": "Kategoria",
+    "categoryInstructions": "Kliknij w odpowiednią ikonę, aby wybrać kategorię.",
+    "areaInputLabel": "Powierzchnia",
+    "areaInputPlaceholder": "Podaj powierzchnię",
+    "linkInputLabel": "Link",
+    "nameInputLabel": "Nazwa",
+    "showPolishDescriptionCheckboxLabel": "Dodaj Opis w języku polskim",
+    "showEnglishDescriptionCheckboxLabel": "Dodaj Opis w języku angielskim",
+    "showAvailabilityDateCheckboxLabel": "Dodaj datę dostępności",
+    "floorSelectLabel": "Piętro",
+    "totalFloorsSelectLabel": "Liczba pięter budynku",
+    "roomsSelectLabel": "Liczba pokoi",
+    "netRentAmountInputLabel": "Miesięczna cena netto",
+    "grossRentAmountInputLabel": "Miesięczna cena",
+    "addPromotionCheckboxLabel": "Wyróżnij ogłoszenie za 19 PLN",
+    "submitWithoutBoostingButtonLabel": "Dodaj bez wyróżnienia",
+    "submitWithBoostingButtonLabel": "Dodaj z wyróżnieniem"
+  },
+  "en": {
+    "categoryHeading": "Category",
+    "categoryInstructions": "Click the respective icon to select the category.",
+    "areaInputLabel": "Area",
+    "areaInputPlaceholder": "Provide area",
+    "linkInputLabel": "Link",
+    "nameInputLabel": "Name",
+    "showPolishDescriptionCheckboxLabel": "Add Description in Polish Language",
+    "showEnglishDescriptionCheckboxLabel": "Add Description in English Language",
+    "showAvailabilityDateCheckboxLabel": "Add availability date",
+    "floorSelectLabel": "Floor",
+    "totalFloorsSelectLabel": "Building Total Floors",
+    "roomsSelectLabel": "Rooms Amount",
+    "netRentAmountInputLabel": "Monthly Net Price",
+    "grossRentAmountInputLabel": "Monthly Price",
+    "addPromotionCheckboxLabel": "Promote the listing for 19 PLN",
+    "submitWithoutBoostingButtonLabel": "Add Without Promotion",
+    "submitWithBoostingButtonLabel": "Add With Promotion"
+  }
+}

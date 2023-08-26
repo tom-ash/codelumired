@@ -13,7 +13,7 @@ module MapawynajmuPl
               private
 
               def texts
-                @promotion_texts ||= getTexts('sites/mapawynajmu_pl/app/lib/mapawynajmu_pl/api/tracks/listing/create/summary/texts.json')[lang].merge(promotion_texts)
+                getTexts('sites/mapawynajmu_pl/app/lib/mapawynajmu_pl/api/tracks/listing/create/summary/texts.json')[lang].merge(promotion_texts)
               end
 
               def data
