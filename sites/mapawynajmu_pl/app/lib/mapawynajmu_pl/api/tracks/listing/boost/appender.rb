@@ -26,7 +26,7 @@ module MapawynajmuPl
             end
 
             def listing_id
-              @listing_id ||= attrs[:url].match(%r{(podbij-ogloszenie|boost-listing)/(\d+)})[2]
+              @listing_id ||= attrs[:url].match(%r{(wyroznij-ogloszenie|promote-listing)/(\d+)})[2]
             end
 
             def order_href

@@ -9,8 +9,8 @@ module MapawynajmuPl
             TRACK = 'listingBoost'
 
             UNLOCALIZED_PATH = {
-              pl: %r{^podbij-ogloszenie/\d+$},
-              en: %r{^boost-listing/\d+$},
+              pl: %r{^wyroznij-ogloszenie/\d+$},
+              en: %r{^promote-listing/\d+$},
             }.freeze
 
             private

@@ -7,13 +7,13 @@ module MapawynajmuPl
         module Boost
           class Linker < ::MapawynajmuPl::Api::Tracks::Common::Linker
             BOOST_LISTING_PATH = {
-              pl: 'podbij-ogloszenie',
-              en: 'boost-listing',
+              pl: 'wyroznij-ogloszenie',
+              en: 'promote-listing',
             }
 
             BOOST_LISTING_TITLE = {
-              pl: 'Podbij ogłoszenie',
-              en: 'Boost Listing'
+              pl: 'Wyróżnij ogłoszenie',
+              en: 'Promote the Listing'
             }
 
             def initialize(listing_id:, lang:)

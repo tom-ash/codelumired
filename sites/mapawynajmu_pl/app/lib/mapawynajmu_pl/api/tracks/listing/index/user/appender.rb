@@ -18,11 +18,11 @@ module MapawynajmuPl
               def texts
                 {
                   pl: {
-                    boostButtonLabel: 'Podbij ogłoszenie',
+                    promoteButtonLabel: 'Wyróżnij ogłoszenie',
                     shareOnFacebookButtonLabel: 'Udostępnij na Facebook\'u',
                   },
                   en: {
-                    boostButtonLabel: 'Boost the Listing',
+                    promoteButtonLabel: 'Promote the Listing',
                     shareOnFacebookButtonLabel: 'Share on Facebook',
                   },
                 }[lang]

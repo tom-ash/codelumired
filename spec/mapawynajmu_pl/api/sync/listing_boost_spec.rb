@@ -9,7 +9,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
 
     let(:listing) { create(:mapawynajmu_pl_listing, user: user) }
     let(:listing_id) { listing.id }
-    let(:route) { "podbij-ogloszenie/#{listing_id}" }
+    let(:route) { "wyroznij-ogloszenie/#{listing_id}" }
 
     let(:get_response_body) do
       "{\"access_token\":\"c8e9964f-3727-4e07-91b6-71fd3a1e0e7d\",\"token_type\":\"bearer\",\"expires_in\":43199,\"grant_type\":\"client_credentials\"}"
@@ -61,12 +61,12 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     let(:visitor_links) do
       common_links.merge(
         'current/pl': {
-          path: "podbij-ogloszenie/#{listing_id}",
-          title: "Podbij ogłoszenie",
+          path: "wyroznij-ogloszenie/#{listing_id}",
+          title: "Wyróżnij ogłoszenie",
         },
         'current/en': {
-          path: "boost-listing/#{listing_id}",
-          title: "Boost Listing",
+          path: "promote-listing/#{listing_id}",
+          title: "Promote the Listing",
         },
       )
     end
@@ -82,7 +82,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         inLanguage: 'pl',
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        url: "http://local.mapawynajmu.pl:8080/podbij-ogloszenie/#{listing_id}",
+        url: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
         name: nil,
         description: nil,
         keywords: nil,
@@ -94,7 +94,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       {
         locale: 'pl_PL',
         locales: ['pl_PL', 'en_GB'],
-        url: "http://local.mapawynajmu.pl:8080/podbij-ogloszenie/#{listing_id}",
+        url: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
         siteName: 'mapawynajmu.pl',
         type: 'website',
         title: nil,
@@ -114,8 +114,8 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         description: nil,
         image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
         robots: 'index,follow,all',
-        canonicalUrl: "http://local.mapawynajmu.pl:8080/podbij-ogloszenie/#{listing_id}",
-        alternateLinks: "<link rel=\"alternate\" hreflang=\"pl\" href=\"http://local.mapawynajmu.pl:8080/podbij-ogloszenie/#{listing_id}\" /><link rel=\"alternate\" hreflang=\"en\" href=\"http://local.mapawynajmu.pl:8080/boost-listing/#{listing_id}\" />",
+        canonicalUrl: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
+        alternateLinks: "<link rel=\"alternate\" hreflang=\"pl\" href=\"http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}\" /><link rel=\"alternate\" hreflang=\"en\" href=\"http://local.mapawynajmu.pl:8080/promote-listing/#{listing_id}\" />",
         schemaOrg: schemaOrg,
         openGraph: openGraph,
       }
