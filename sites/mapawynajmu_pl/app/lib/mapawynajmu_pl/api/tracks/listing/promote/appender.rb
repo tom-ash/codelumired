@@ -4,10 +4,10 @@ module MapawynajmuPl
   module Api
     module Tracks
       module Listing
-        module Boost
+        module Promote
           class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
-            include ::MapawynajmuPl::Api::Tracks::Listing::Boost::Meta
-            include ::MapawynajmuPl::Api::Tracks::Listing::Boost::Assets
+            include ::MapawynajmuPl::Api::Tracks::Listing::Promote::Meta
+            include ::MapawynajmuPl::Api::Tracks::Listing::Promote::Assets
 
             private
 

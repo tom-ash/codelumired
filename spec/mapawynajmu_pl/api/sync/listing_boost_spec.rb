@@ -36,7 +36,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       {
         visitor: true,
         announcement: true,
-        listingBoost: true,
+        listingPromotion: true,
       }
     end
     let(:visitor_user) do

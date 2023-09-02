@@ -24,7 +24,7 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Index::User::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Listing::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Edit::Meta::UNLOCALIZED_PATH,
-            ::MapawynajmuPl::Api::Tracks::Listing::Boost::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Boost::Meta::UNLOCALIZED_PATH,
+            ::MapawynajmuPl::Api::Tracks::Listing::Promote::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Listing::Promote::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
@@ -56,7 +56,7 @@ module MapawynajmuPl
           when ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Listing::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Show::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Listing::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Edit::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Listing::Boost::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Boost::Appender.new(attrs).call
+          when ::MapawynajmuPl::Api::Tracks::Listing::Promote::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Listing::Promote::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::Index::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Index::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Page::Show::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
           when ::MapawynajmuPl::Api::Tracks::Page::Edit::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Page::Edit::Appender.new(attrs).call

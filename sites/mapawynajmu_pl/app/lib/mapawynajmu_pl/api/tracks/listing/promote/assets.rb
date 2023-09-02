@@ -4,7 +4,7 @@ module MapawynajmuPl
   module Api
     module Tracks
       module Listing
-        module Boost
+        module Promote
           module Assets
             def asset_names
               @asset_names ||= %i[

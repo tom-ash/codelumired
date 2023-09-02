@@ -15,8 +15,8 @@
     "netRentAmountInputLabel": "Miesięczna cena netto",
     "grossRentAmountInputLabel": "Miesięczna cena",
     "addPromotionCheckboxLabel": "Wyróżnij ogłoszenie za 19 PLN",
-    "submitWithoutBoostingButtonLabel": "Dodaj bez wyróżnienia",
-    "submitWithBoostingButtonLabel": "Dodaj z wyróżnieniem"
+    "submitWithoutPromotionButtonLabel": "Dodaj bez wyróżnienia",
+    "submitWithPromotionButtonLabel": "Dodaj z wyróżnieniem"
   },
   "en": {
     "categoryHeading": "Category",
@@ -34,7 +34,7 @@
     "netRentAmountInputLabel": "Monthly Net Price",
     "grossRentAmountInputLabel": "Monthly Price",
     "addPromotionCheckboxLabel": "Promote the listing for 19 PLN",
-    "submitWithoutBoostingButtonLabel": "Add Without Promotion",
-    "submitWithBoostingButtonLabel": "Add With Promotion"
+    "submitWithoutPromotionButtonLabel": "Add Without Promotion",
+    "submitWithPromotionButtonLabel": "Add With Promotion"
   }
 }
