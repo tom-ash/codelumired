@@ -20,8 +20,6 @@ module SkillfindTech
           # requires :civil_contract, type: Boolean
         end
         post do
-        #   byebug
-
           ::SkillfindTech::Commands::Posting::Create.new(
             user_id: authenticated_user.id,
             attrs: {

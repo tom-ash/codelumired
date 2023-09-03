@@ -18,7 +18,6 @@ module MapawynajmuPl
           end
 
           def control
-            byebug
             {
               isMapInitialized: false,
               shouldInitializeMap: false,

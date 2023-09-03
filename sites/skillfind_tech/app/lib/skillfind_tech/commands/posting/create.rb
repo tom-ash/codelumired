@@ -45,7 +45,6 @@ module SkillfindTech
 
         def add_skills_to_job
           selected_skills.each do |selected_skill|
-            # byebug
             @posting.selected_skills.create!(
               skill: ::SkillfindTech::Skill.find_by(name: selected_skill[:name]),
               level: selected_skill[:level],
