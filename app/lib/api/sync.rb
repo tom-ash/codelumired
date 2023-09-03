@@ -31,7 +31,33 @@ module Api
               is_ssr: ssr?,
               listings_obsolete: listings_obsolete?,
               request_ip: request.ip,
+              device: device,
+              deviceLang: deviceLang,
+              isMobile: isMobile,
             }
+          end
+
+          def headers
+            @headers ||= request.headers
+          end
+
+          def device
+            # TODO: Add spec.
+            @device ||= headers['Device']
+          end
+
+          def deviceLang
+            # TODO: Add spec.
+            @deviceLang ||= headers['Device-Lang']
+          end
+
+          def isMobile
+            # TODO: Add spec.
+            @isMobile ||= device&.match?(mobileDevicesRegex)
+          end
+
+          def mobileDevicesRegex
+            @mobileDevices ||= /Android|BlackBerry|IEMobile|Opera Mini|iPad|iPhone|iPod|webOS/
           end
 
           def route_url
