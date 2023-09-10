@@ -25,6 +25,10 @@ module MapawynajmuPl
                 coworkingSpace
                 advertisingSpaces
 
+                # secondary
+                layers
+                building
+
                 # check
                 facebook
                 chevron
