@@ -25,8 +25,6 @@ module MapawynajmuPl
               def control
                 {
                   step: 'form',
-                  isMapInitialized: false,
-                  shouldInitializeMap: false,
                   addingPicture: false,
                   savingListing: false,
                   savingPicture: false,

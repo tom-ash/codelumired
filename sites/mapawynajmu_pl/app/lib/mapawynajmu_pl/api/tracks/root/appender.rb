@@ -19,9 +19,8 @@ module MapawynajmuPl
 
           def control
             {
-              isMapInitialized: false,
-              shouldInitializeMap: false,
               isPinsDrawn: false,
+              shouldDrawPins: true,
             }.merge(filter_control)
           end
 

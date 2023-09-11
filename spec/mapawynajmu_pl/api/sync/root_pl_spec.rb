@@ -112,8 +112,6 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     end
     let(:visitor_control) do
       {
-        isMapInitialized: false,
-        shouldInitializeMap: false,
         isPinsDrawn: false,
         mapOptions: {
           center: {

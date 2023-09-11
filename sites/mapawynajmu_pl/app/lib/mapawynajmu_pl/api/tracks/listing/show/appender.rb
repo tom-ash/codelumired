@@ -33,7 +33,6 @@ module MapawynajmuPl
 
               if ssr?
                 control_hash.merge!(
-                  isMapInitialized: false,
                   shouldInitializeMap: false,
                 )
               end
