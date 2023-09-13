@@ -20,7 +20,6 @@ module MapawynajmuPl
           def control
             {
               isPinsDrawn: false,
-              shouldDrawPins: true,
             }.merge(filter_control)
           end
 

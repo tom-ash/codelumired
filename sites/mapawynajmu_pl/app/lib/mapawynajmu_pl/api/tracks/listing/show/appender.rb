@@ -29,6 +29,7 @@ module MapawynajmuPl
                   },
                   zoom: 12.4,
                 },
+                isPinsDrawn: false,
               }.merge(filter_control)
 
               if ssr?

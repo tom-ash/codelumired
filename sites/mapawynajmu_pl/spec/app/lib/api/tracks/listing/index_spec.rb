@@ -252,7 +252,6 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       end
       let(:control) do
         {
-          isPinsDrawn: false,
           mapOptions: {
             center: {
               lat: 52,
