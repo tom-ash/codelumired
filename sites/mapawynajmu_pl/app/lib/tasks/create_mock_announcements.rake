@@ -3,10 +3,10 @@
 task create_mock_announcements: :environment do
   10.times do
     floor = [5, 10, 15, 20, 25, 30].sample
-    @announcement = ::MapawynajmuPl::Announcement.all.sample
+    @announcement = ::MapawynajmuPl::Listing.all.sample
     @pictures = @announcement.pictures.shuffle
 
-    @new_announcement = ::MapawynajmuPl::Announcement.create(
+    @new_announcement = ::MapawynajmuPl::Listing.create(
       status: 1,
       points: 0,
       views: 0,

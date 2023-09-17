@@ -10,7 +10,6 @@ module Api
           state.merge!(
             render: render,
             user: user,
-            meta: meta_preview,
             texts: texts.merge(common_texts),
             assets: { svgs: assets },
             links: links,
@@ -41,12 +40,6 @@ module Api
             accountType: nil,
             role: nil,
           }
-        end
-
-        def meta_preview
-          return {} unless Rails.env == 'development'
-
-          meta
         end
 
         def texts
