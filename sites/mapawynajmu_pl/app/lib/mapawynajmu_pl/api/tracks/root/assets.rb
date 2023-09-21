@@ -24,6 +24,8 @@ module MapawynajmuPl
               coworkingSpace
               advertisingSpaces
 
+              marker
+
               # check
               facebook
               chevron
