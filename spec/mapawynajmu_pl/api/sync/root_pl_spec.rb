@@ -112,15 +112,9 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     end
     let(:visitor_control) do
       {
-        mapOptions: {
-          center: {
-            lat: 52,
-            lng: 19,
-          },
-          zoom: 6.7,
-        },
         categoryFilterPanel: false,
-        areaFilterPanel: false
+        areaFilterPanel: false,
+        isPinsDrawn: false,
       }
     end
     let(:visitor_data) do
