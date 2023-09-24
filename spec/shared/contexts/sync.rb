@@ -22,7 +22,6 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
       data: visitor_data,
       inputs: visitor_inputs,
       errors: {},
-      meta: {}, # meta preview
     }
   end
   let(:user_state) do
@@ -37,7 +36,6 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
       data: user_data,
       inputs: user_inputs,
       errors: {},
-      meta: {}, # meta preview
     }
   end
   let(:user_app_data) { visitor_app_data }
@@ -61,7 +59,6 @@ RSpec.shared_context 'sync', :shared_context => :metadata do
       data: admin_data,
       inputs: admin_inputs,
       errors: {},
-      meta: {}, # meta preview
     }
   end
   let(:admin_app_data) { visitor_app_data }

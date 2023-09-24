@@ -302,7 +302,6 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
           data: data,
           inputs: inputs,
           errors: errors,
-          meta: {}, # meta preview
         }
       end
       let(:schemaOrg) do
