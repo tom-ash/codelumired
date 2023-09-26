@@ -10,10 +10,13 @@ module MapawynajmuPl
           params :announcement_attrs do
             requires :announcement, type: Hash do
               requires :category, type: Integer
-              requires :area, type: Float
-              requires :pictures, type: Array
               requires :latitude, type: Float
               requires :longitude, type: Float
+              requires :pictures, type: Array
+              optional :locality, type: String
+              optional :sublocality, type: String
+              optional :route, type: String
+              optional :area, type: Float
               optional :rent_currency, type: Integer
               optional :net_rent_amount, type: Float
               optional :gross_rent_amount, type: Float
@@ -25,9 +28,6 @@ module MapawynajmuPl
               optional :furnishings, type: Array
               optional :polish_description, type: String
               optional :english_description, type: String
-              optional :locality, type: String
-              optional :sublocality, type: String
-              optional :route, type: String
               optional :add_promotion, type: Boolean
             end
           end
