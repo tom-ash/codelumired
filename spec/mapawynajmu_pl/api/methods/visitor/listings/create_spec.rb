@@ -19,6 +19,38 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
       user: user_attributes,
     }
   end
+  let(:listing_attributes) do
+    {
+      category: 0,
+      latitude: 42,
+      longitude: 42,
+      pictures: [
+        {
+          database: '20230925173842604QpWEWHxp-xQG4FoAR0drEA.jpeg',
+          description: ''
+        }
+      ],
+      add_promotion: false,
+    }
+  end
+  let(:user_attributes) do
+    {
+      # account_type # TODO!!!
+      email_address: 'test@example.net',
+      password: 'test-password',
+      country_code: '+48',
+      phone_number: '500100200',
+      terms_of_service_consent: true,
+      consents: [
+        {
+          type: 'terms_of_service',
+          granted: true,
+          displayed_text: 'Oświadczam, że znam i akceptuję postanowienia Regulaminu mapawynajmu.pl.'
+        }
+      ]
+    }
+  end
+  let(:body) { JSON.parse(response.body).deep_symbolize_keys }
 
   before do
     allow_any_instance_of(PersistedObject).to receive(:move_to)
@@ -26,51 +58,26 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
 
   describe '/announcement/create/with-user' do
     describe 'listing attributes' do
-      let(:user_attributes) do
-        {
-          # account_type # TODO!!!
-          email_address: 'test@example.net',
-          password: 'test-password',
-          country_code: '+48',
-          phone_number: '500100200',
-          terms_of_service_consent: true,
-          consents: [
-            {
-              type: 'terms_of_service',
-              granted: true,
-              displayed_text: 'Oświadczam, że znam i akceptuję postanowienia Regulaminu mapawynajmu.pl.'
-            }
-          ]
-        }
-      end
-
       describe 'required attributes' do
         context 'when required attributes are present & valid' do  
-          let(:listing_attributes) do
-            {
-              category: 0,
-              latitude: 42,
-              longitude: 42,
-              pictures: [
-                {
-                  database: '20230925173842604QpWEWHxp-xQG4FoAR0drEA.jpeg',
-                  description: ''
-                }
-              ],
-              add_promotion: false,
-            }
-          end
-  
-          it 'returns :ok (201)' do
+          it 'responds with :created (201) status' do
             create_listing_as_visitor
             expect(response.status).to eq(201)
           end
 
-          it 'creates a new listing' do
+          it 'responds with verificationToken' do
+            create_listing_as_visitor
+            expect(body).to include(
+              verificationToken: kind_of(String),
+              path: 'potwierdz-adres-email'
+            )
+          end
+
+          it 'creates a new unverified listing' do
             expect { create_listing_as_visitor }.to change { ::MapawynajmuPl::Listing.count }.by(1)
           end
 
-          it 'creates a new user' do
+          it 'creates a new unverified user' do
             expect { create_listing_as_visitor }.to change { ::MapawynajmuPl::User.count }.by(1)
           end
         end
@@ -99,8 +106,8 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
               rooms: 2,
               floor: 23,
               total_floors: 42,
-              features: ["document_scanning", "correspondence_service", "conference_hall_access"], # TODO!
-              furnishings: ["fireprotectionsystem", "airconditioning", "alarm system"], # TODO!
+              features: ["document_scanning", "correspondence_service", "conference_hall_access"],
+              furnishings: ["fireprotectionsystem", "airconditioning", "alarm system"],
               availability_date: '2023-09-26',
               polish_description: 'Description in Polish.',
               english_description: 'Description in English.',
@@ -108,16 +115,24 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
             }
           end
   
-          it 'returns :ok (201)' do
+          it 'responds with :created (201) status' do
             create_listing_as_visitor
             expect(response.status).to eq(201)
           end
 
-          it 'creates a new listing' do
+          it 'responds with verificationToken' do
+            create_listing_as_visitor
+            expect(body).to include(
+              verificationToken: kind_of(String),
+              path: 'potwierdz-adres-email'
+            )
+          end
+
+          it 'creates a new unverified listing' do
             expect { create_listing_as_visitor }.to change { ::MapawynajmuPl::Listing.count }.by(1)
           end
 
-          it 'creates a new user' do
+          it 'creates a new unverified user' do
             expect { create_listing_as_visitor }.to change { ::MapawynajmuPl::User.count }.by(1)
           end
         end
