@@ -39,8 +39,8 @@ module MapawynajmuPl
             ).send
 
             verificationToken = {
-              verificationCode: verificationCode,
               userId: user.id,
+              verificationCode: verificationCode,
             }
             encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
 

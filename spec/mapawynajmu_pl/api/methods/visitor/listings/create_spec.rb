@@ -33,10 +33,11 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
       add_promotion: false,
     }
   end
+  let(:email) { 'test@example.net' }
   let(:user_attributes) do
     {
       # account_type # TODO!!!
-      email_address: 'test@example.net',
+      email_address: email,
       password: 'test-password',
       country_code: '+48',
       phone_number: '500100200',
@@ -65,12 +66,25 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
             expect(response.status).to eq(201)
           end
 
-          it 'responds with verificationToken' do
+          it'responds with verificationToken including userId & 4-digit verificationCode' do
             create_listing_as_visitor
-            expect(body).to include(
-              verificationToken: kind_of(String),
-              path: 'potwierdz-adres-email'
+
+            verificationToken = body[:verificationToken]
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(verificationToken).call.to_h
+
+            userId = ::MapawynajmuPl::User.find_by(email: email).id
+            verificationCode = decodedVerificationToken[:verificationCode]
+
+            expect(decodedVerificationToken).to include(
+              userId: userId,
+              verificationCode: verificationCode,
             )
+            expect(verificationCode).to match(/^\d{4}$/)
+          end
+
+          it 'responds with redirection path' do
+            create_listing_as_visitor
+            expect(body[:path]).to eq('potwierdz-adres-email')
           end
 
           it 'creates a new unverified listing' do
@@ -120,12 +134,20 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
             expect(response.status).to eq(201)
           end
 
-          it 'responds with verificationToken' do
+          it'responds with verificationToken including userId & 4-digit verificationCode' do
             create_listing_as_visitor
-            expect(body).to include(
-              verificationToken: kind_of(String),
-              path: 'potwierdz-adres-email'
+
+            verificationToken = body[:verificationToken]
+            decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(verificationToken).call.to_h
+
+            userId = ::MapawynajmuPl::User.find_by(email: email).id
+            verificationCode = decodedVerificationToken[:verificationCode]
+
+            expect(decodedVerificationToken).to include(
+              userId: userId,
+              verificationCode: verificationCode,
             )
+            expect(verificationCode).to match(/^\d{4}$/)
           end
 
           it 'creates a new unverified listing' do
