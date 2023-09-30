@@ -205,7 +205,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
           'user/show': {
             title: 'Moje Konto'
           },
-          'announcement/create/form': {
+          'listings>new>form': {
             href: 'http://local.mapawynajmu.pl:8080/dodaj-ogloszenie-wynajmu-nieruchomosci',
             path: 'dodaj-ogloszenie-wynajmu-nieruchomosci',
             title: 'Dodaj ogłoszenie wynajmu nieruchomości',

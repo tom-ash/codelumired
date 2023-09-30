@@ -87,7 +87,7 @@ RSpec.shared_context 'skillfind_tech_sync', :shared_context => :metadata do
         label: 'Sign In',
         hrefLang: 'en',
       },
-      'announcement/create/form': {
+      'listings>new>form': {
         href: 'http://local.skillfind.tech:8080/add-posting',
         path: 'add-posting',
         title: 'TODO',
