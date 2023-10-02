@@ -11,7 +11,9 @@ module MapawynajmuPl
             area_min: nil,
             area_max: nil,
             price_min: nil,
-            price_max: nil
+            price_max: nil,
+            lat: nil,
+            lng: nil
           )
             @partner = partner
             @category = category
@@ -19,6 +21,8 @@ module MapawynajmuPl
             @area_max = area_max
             @price_min = price_min
             @price_max = price_max
+            @lat = lat
+            @lng = lng
           end
 
           def call
@@ -27,7 +31,7 @@ module MapawynajmuPl
 
           private
 
-          attr_reader :partner, :category, :area_min, :area_max, :price_min, :price_max
+          attr_reader :partner, :category, :area_min, :area_max, :price_min, :price_max, :lat, :lng
 
           def announcements
             @announcement ||= ::MapawynajmuPl::Listing.where(search_params)
@@ -42,6 +46,14 @@ module MapawynajmuPl
 
             @announcement = @announcement.where('gross_rent_amount >= ?', price_min) if price_min.present?
             @announcement = @announcement.where('gross_rent_amount <= ?', price_max) if price_max.present?
+
+            if lat.present?
+              @announcement = @announcement.where('latitude BETWEEN ? AND ?', lat.to_f - 0.5, lat.to_f + 0.5)
+            end
+
+            if lng.present?
+              @announcement = @announcement.where('longitude BETWEEN ? AND ?', lng.to_f - 0.5, lng.to_f + 0.5)
+            end
 
             @announcement
           end

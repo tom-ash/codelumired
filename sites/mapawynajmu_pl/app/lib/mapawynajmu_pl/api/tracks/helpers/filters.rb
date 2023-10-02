@@ -13,6 +13,8 @@ module MapawynajmuPl
               area_max: area_max,
               price_min: price_min,
               price_max: price_max,
+              lat: lat,
+              lng: lng,
             }
           end
 
@@ -34,6 +36,14 @@ module MapawynajmuPl
           def price_max
             @price_max ||= params[:cena_maks] ||
                            params[:price_max]
+          end
+
+          def lat
+            @lat = params[:lat]
+          end
+
+          def lng
+            @lng = params[:lng]
           end
         end
       end

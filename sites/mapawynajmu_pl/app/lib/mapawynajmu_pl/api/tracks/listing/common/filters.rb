@@ -67,6 +67,7 @@ module MapawynajmuPl
                 price: price,
                 priceMin: price_min,
                 priceMax: price_max,
+                location: location,
               }
             end
 
@@ -114,6 +115,10 @@ module MapawynajmuPl
 
             def priceOptions
               %w[1000 1500 2000 2500 3000 4000 5000 6000 7000 8000 9000 10000]
+            end
+
+            def location
+              @location ||= params[:lokalizacja] || params[:location]
             end
           end
         end
