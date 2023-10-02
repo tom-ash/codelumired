@@ -39,11 +39,11 @@ module MapawynajmuPl
           end
 
           def lat
-            @lat = params[:lat]
+            @lat ||= params[:lat]
           end
 
           def lng
-            @lng = params[:lng]
+            @lng ||= params[:lng]
           end
         end
       end

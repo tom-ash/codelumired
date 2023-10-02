@@ -67,6 +67,8 @@ module MapawynajmuPl
                 price: price,
                 priceMin: price_min,
                 priceMax: price_max,
+                lat: lat,
+                lng: lng,
                 location: location,
               }
             end
