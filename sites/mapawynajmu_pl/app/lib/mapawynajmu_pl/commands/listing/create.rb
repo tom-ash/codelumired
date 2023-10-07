@@ -96,7 +96,9 @@ module MapawynajmuPl
         end
 
         def active_until_object
-          { active_until: Date.today + 60.days }
+          active_until = user.role == 'admin' ? nil : Time.now + 60.days
+
+          { active_until: active_until }
         end
 
         def user_verified_object

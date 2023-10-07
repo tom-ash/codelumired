@@ -37,7 +37,7 @@ module MapawynajmuPl
             @announcement ||= ::MapawynajmuPl::Listing.where(search_params)
                                                            .order('is_promoted DESC')
                                                            .order('points DESC')
-                                                           .order('active_until DESC')
+                                                           .order('active_until DESC NULLS LAST')
 
             @announcement = @announcement.where(user_id: partner.id) if partner.present?
 
