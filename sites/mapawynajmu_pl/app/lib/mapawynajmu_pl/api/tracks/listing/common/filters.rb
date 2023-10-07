@@ -27,6 +27,7 @@ module MapawynajmuPl
               {
                 pl: {
                   categoryInputPlaceholder: 'Kategoria',
+                  placesAutocompleteInputPlaceholder: 'Lokalizacja',
                   areaInputPlaceholder: 'Powierzchnia',
                   areaMinInputLabel: 'Min.',
                   areaMaxInputLabel: 'Maks.',
@@ -36,6 +37,7 @@ module MapawynajmuPl
                 },
                 en: {
                   categoryInputPlaceholder: 'Category',
+                  placesAutocompleteInputPlaceholder: 'Location',
                   areaInputPlaceholder: 'Area',
                   areaMinInputLabel: 'Min.',
                   areaMaxInputLabel: 'Max.',
