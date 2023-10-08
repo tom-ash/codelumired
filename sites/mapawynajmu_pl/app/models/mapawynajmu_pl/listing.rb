@@ -46,6 +46,10 @@ module MapawynajmuPl
       raise ListingDestroyAttemptError
     end
 
+    def deleted?
+      deleted_at.present?
+    end
+
     private
 
     def pictures_structure
