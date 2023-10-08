@@ -20,10 +20,16 @@ module MapawynajmuPl
                   pl: {
                     promoteButtonLabel: 'Wyróżnij ogłoszenie',
                     shareOnFacebookButtonLabel: 'Udostępnij na Facebook\'u',
+                    activeUntilLabel: 'Aktywne do',
+                    activeUntilNotApplicableLabel: 'Ogłoszenie jest aktywne bezterminowo.',
+                    activeUntilExtendButtonLabel: 'Przedłuż',
                   },
                   en: {
                     promoteButtonLabel: 'Promote the Listing',
                     shareOnFacebookButtonLabel: 'Share on Facebook',
+                    activeUntilLabel: 'Active until',
+                    activeUntilNotApplicableLabel: 'The listing is active indefinitely.',
+                    activeUntilExtendButtonLabel: 'Extend',
                   },
                 }[lang]
               end
