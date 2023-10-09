@@ -50,7 +50,8 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         garagesCategoryLabel: 'Garaże',
         signOutButtonLabel: 'Wyloguj',
         showMyAccountMenuButtonLabel: 'Moje konto',
-        allRightsReserved: ''
+        allRightsReserved: '',
+        placesAutocompleteInputPlaceholder: 'Lokalizacja'
       }
     end
     let(:visitor_assets) do
@@ -114,7 +115,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       {
         categoryFilterPanel: false,
         areaFilterPanel: false,
-        isPinsDrawn: false,
+        isPinsDrawn: false
       }
     end
     let(:visitor_data) do
@@ -140,7 +141,10 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         priceOptions: ['1000', '1500', '2000', '2500', '3000', '4000', '5000', '6000', '7000', '8000', '9000', '10000'],
         price: '',
         priceMin: nil,
-        priceMax: nil
+        priceMax: nil,
+        lat: nil,
+        lng: nil,
+        location: nil,
       }
     end
     let(:schemaOrg) do
