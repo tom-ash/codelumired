@@ -8,6 +8,8 @@ module MapawynajmuPl
           module Assets
             def asset_names
               @asset_names ||= %i[
+                link
+
                 # filters
                 list
                 area
