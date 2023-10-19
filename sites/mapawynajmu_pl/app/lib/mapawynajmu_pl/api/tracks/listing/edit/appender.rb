@@ -19,7 +19,20 @@ module MapawynajmuPl
             end
 
             def texts
-              listing_form_texts
+              listing_form_texts.merge(edit_texts)
+            end
+
+            def edit_texts
+              {
+                pl: {
+                  submitWithoutPromotionButtonLabel: 'Zapisz',
+                  submitWithPromotionButtonLabel: 'Zapisz i wyróżnij',
+                },
+                en: {
+                  submitWithoutPromotionButtonLabel: 'Save',
+                  submitWithPromotionButtonLabel: 'Save & Promote',
+                },
+              }[lang]
             end
 
             def control

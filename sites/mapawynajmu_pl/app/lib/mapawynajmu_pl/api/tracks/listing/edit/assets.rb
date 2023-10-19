@@ -8,6 +8,8 @@ module MapawynajmuPl
           module Assets
             def asset_names
               @asset_names ||= %i[
+                plus
+                rocket
                 info
                 caretDown
                 camera
@@ -27,6 +29,9 @@ module MapawynajmuPl
                 facebook_square
                 linkedin_square
                 twitter_square
+                star
+                people
+                penClip
               ]
             end
           end
