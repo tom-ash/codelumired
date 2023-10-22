@@ -19,12 +19,12 @@ module MapawynajmuPl
 
             ::MapawynajmuPl::Commands::Listing::Update.new(
               id: listing_id,
-              attrs: params[:announcement].merge(
-                is_promoted: add_promotion
-              )
+              attrs: params[:announcement]
             ).call
 
             if add_promotion
+              current_announcement.update!(is_promoted: true)
+
               return MapawynajmuPl::Commands::Order::Create.new(
                 listing_id: listing_id,
                 name: 'listing_promotion',
@@ -35,7 +35,8 @@ module MapawynajmuPl
               ).call
             end
 
-            current_announcement.url(lang.to_sym)
+            # TODO: Adjust the client's changeUrl to allow for '/'less urls.
+            '/' + current_announcement.url(lang.to_sym)
           end
         end
       end
