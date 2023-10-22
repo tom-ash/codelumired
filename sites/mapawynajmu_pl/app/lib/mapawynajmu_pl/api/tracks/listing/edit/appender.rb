@@ -47,6 +47,7 @@ module MapawynajmuPl
             def data
               {
                 id: announcement.id,
+                isPromoted: announcement.is_promoted,
               }
             end
 
