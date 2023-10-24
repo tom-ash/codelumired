@@ -66,7 +66,20 @@ module Api
           end
 
           def schema_org
-            @schema_org ||= page.schema_mode == 'auto' ? page.auto_schema : page.manual_schema
+            @schema_org ||= primary_schema_org.merge(author_schema)
+          end
+
+          def primary_schema_org
+            @primary_schema_org ||= page.schema_mode == 'auto' ? page.auto_schema : page.manual_schema
+          end
+
+          def author_schema
+            {
+              author: {
+                '@type': 'Person',
+                name: "#{page.user.first_name} #{page.user.last_name}",
+              }
+            }
           end
         end
       end
