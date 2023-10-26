@@ -2,8 +2,6 @@
 
 require 'mapawynajmu_pl/rails_helper.rb'
 
-::MapawynajmuPl::Api::Listing::Create::WithUser
-
 RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
   let(:create_listing_as_visitor) do
     post '/mapawynajmu-pl/announcement/create/with-user', headers: headers, params: params

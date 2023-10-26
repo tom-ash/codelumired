@@ -7,7 +7,6 @@ RSpec.shared_context 'mapawynajmu_pl_sync', :shared_context => :metadata do
 
   let!(:user) { create(:mapawynajmu_pl_user) }
   let!(:admin) { create(:mapawynajmu_pl_user, email: 'admin@mapawynajmu.pl', role: 'admin') }
-
   let(:common_links) do
     {
 
