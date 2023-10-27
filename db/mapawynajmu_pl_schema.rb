@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_07_152231) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_160433) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -138,8 +138,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_152231) do
     t.string "keywords"
     t.string "description"
     t.jsonb "body", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "canonical_url"
     t.string "cover_image"
     t.boolean "online"
@@ -202,6 +202,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_152231) do
     t.string "phone_number"
     t.string "urlified_business_name"
     t.datetime "deleted_at"
+    t.jsonb "author_data"
     t.index ["country_code"], name: "index_users_on_country_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["email_verified_at"], name: "index_users_on_email_verified_at"

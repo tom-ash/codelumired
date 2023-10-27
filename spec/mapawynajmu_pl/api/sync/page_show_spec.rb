@@ -7,6 +7,9 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
   describe 'page/show' do
     include_context 'mapawynajmu_pl_sync'
 
+    let!(:user) { create(:mapawynajmu_pl_user, first_name: 'John', last_name: 'Doe', author_data: {
+      link: 'https://www.example.net',
+    })}
     let(:page) { create(:mapawynajmu_pl_page, user: user) }
     let(:route) { page.url }
     let(:visitor_app_data) do
@@ -89,7 +92,9 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       {
         author: {
           '@type': 'Person',
-          name: ' ',
+          name: 'John Doe',
+          link: 'https://www.example.net',
+          link: 'https://www.example.net',
         }
       }
     end
