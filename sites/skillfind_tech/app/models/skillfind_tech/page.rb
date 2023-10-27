@@ -4,6 +4,8 @@ module SkillfindTech
   class Page < ::Page
     establish_connection :skillfind_tech
 
+    belongs_to :user, foreign_key: :author_id
+
     private
 
     def site
