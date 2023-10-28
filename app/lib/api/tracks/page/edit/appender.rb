@@ -20,17 +20,14 @@ module Api
           end
 
           def data
-            {
-              body: page.body,
-              title: page.title,
-              cover_image: page.cover_image,
+            serialized_page.merge(
               updatePageApiUrl: "#{api_url}/page/update",
               indexNowApiUrl: "#{api_url}/page/index-now",
               name: nil,
               langVerUrls: nil,
               updated: true,
               indexNowPingedAt: page.index_now_pinged_at&.to_date
-            }
+            )
           end
 
           def serialized_page

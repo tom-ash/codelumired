@@ -35,6 +35,8 @@ module Serializers
           page_lang: page[:lang],
           lang_ver_urls: lang_ver_urls,
           schema_org: schema_org,
+        ).merge(
+          author: author_data
         )
       end
 
@@ -48,6 +50,17 @@ module Serializers
 
       def schema_org
         page[:schema_mode] == 'auto' ? page[:auto_schema] : page[:manual_schema]
+      end
+
+      def author_data
+        author = page.user
+
+        {
+          firstName: author.first_name,
+          lastName: author.last_name,
+          url: author.author_data['url'],
+          pictureUrl: author.author_data['pictureUrl'],
+        }
       end
     end
   end
