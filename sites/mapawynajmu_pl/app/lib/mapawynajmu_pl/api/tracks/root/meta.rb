@@ -23,8 +23,8 @@ module MapawynajmuPl
           }.freeze
 
           UNLOCALIZED_TITLE = {
-            pl: 'Nieruchomości na wynajem',
-            en: 'Properties for Rent',
+            pl: 'Mapa wynajmu nieruchomości w Polsce',
+            en: 'Map of real estate for rent in Poland',
           }.freeze
 
           private

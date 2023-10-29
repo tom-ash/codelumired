@@ -8,7 +8,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     include_context 'mapawynajmu_pl_sync'
 
     let!(:user) { create(:mapawynajmu_pl_user, first_name: 'John', last_name: 'Doe', author_data: {
-      link: 'https://www.example.net',
+      url: 'https://www.example.net',
     })}
     let(:page) { create(:mapawynajmu_pl_page, user: user) }
     let(:route) { page.url }
@@ -84,7 +84,13 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         langVerUrls: {
           pl: 'test-page-url'
         },
-        schemaOrg: {}
+        schemaOrg: {},
+        author: {
+          firstName: 'John',
+          lastName: 'Doe',
+          url: 'https://www.example.net',
+          pictureUrl: nil,
+        },
       }
     end
     let(:visitor_inputs) { {} }
@@ -93,8 +99,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         author: {
           '@type': 'Person',
           name: 'John Doe',
-          link: 'https://www.example.net',
-          link: 'https://www.example.net',
+          url: 'https://www.example.net',
         }
       }
     end
@@ -126,6 +131,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         alternateLinks: "<link rel=\"alternate\" hreflang=\"pl\" href=\"http://local.mapawynajmu.pl:8080/test-page-url\" /><link rel=\"alternate\" hreflang=\"en\" href=\"http://local.mapawynajmu.pl:8080/\" />", # TODO!: Fix!
         schemaOrg: schemaOrg,
         openGraph: openGraph,
+        author: "John Doe",
       }
     end
     let(:user_user) do
