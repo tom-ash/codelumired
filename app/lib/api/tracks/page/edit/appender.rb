@@ -40,12 +40,14 @@ module Api
               meta: JSON.pretty_generate(serialized_page['meta']),
               autoSchema: JSON.pretty_generate(serialized_page['auto_schema']),
               manualSchema: JSON.pretty_generate(serialized_page['manual_schema']),
+              parentId: page.parent_id,
             )
           end
 
           def texts
             {
               pl: {
+                parentIdInputLabel: 'Parent ID',
                 urlInputLabel: 'URL',
                 canonicalUrlInputLabel: 'Canonical URL',
                 publishedOnInputLabel: 'Opublikowano w',
@@ -65,6 +67,7 @@ module Api
                 indexNowButtonLabel: 'IndexNow',
               },
               en: {
+                parentIdInputLabel: 'Parent ID',
                 urlInputLabel: 'URL',
                 canonicalUrlInputLabel: 'Kanoniczny URL',
                 publishedOnInputLabel: 'Published On',

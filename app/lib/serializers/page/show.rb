@@ -36,7 +36,8 @@ module Serializers
           lang_ver_urls: lang_ver_urls,
           schema_org: schema_org,
         ).merge(
-          author: author_data
+          author: author_data,
+          pages: child_pages,
         )
       end
 
@@ -61,6 +62,21 @@ module Serializers
           url: author.author_data['url'],
           pictureUrl: author.author_data['pictureUrl'],
         }
+      end
+
+      def child_pages
+        @child_pages ||= begin
+          children = site::Page.where(parent_id: page.id).select(:url, :lang, :title, :cover_image)
+
+          children.map do |child|
+            {
+              href: child.url,
+              hrefLang: child.lang,
+              title: child.title,
+              image: child.cover_image,
+            }
+          end
+        end
       end
     end
   end

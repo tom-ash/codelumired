@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_160433) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_29_130402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -154,6 +154,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_160433) do
     t.uuid "lang_alts_group"
     t.string "link_image"
     t.datetime "index_now_pinged_at"
+    t.uuid "parent_id"
     t.index ["author_id"], name: "index_pages_on_author_id"
     t.index ["category"], name: "index_pages_on_category"
     t.index ["description"], name: "index_pages_on_description"
@@ -163,6 +164,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_160433) do
     t.index ["subcategory"], name: "index_pages_on_subcategory"
     t.index ["title"], name: "index_pages_on_title"
     t.index ["url"], name: "index_pages_on_url", unique: true
+    t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 
   create_table "redirects", force: :cascade do |t|
@@ -214,6 +216,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_160433) do
   add_foreign_key "listings", "users"
   add_foreign_key "listings", "users", column: "admin_id"
   add_foreign_key "orders", "listings", column: "announcement_id"
+  add_foreign_key "pages", "pages", column: "parent_id"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "redirects", "users", column: "added_by_id"
 end

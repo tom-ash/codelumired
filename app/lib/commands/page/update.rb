@@ -24,6 +24,7 @@ module Commands
         category
         subcategory
         lang_alts_group
+        parent_id
       ].freeze
 
       def initialize(attrs)
@@ -33,6 +34,7 @@ module Commands
       end
 
       def call
+        # byebug
         update_page
         backup_page
         page
