@@ -53,6 +53,12 @@ module Api
             @title ||= page.title
           end
 
+          def author
+            @author ||= {
+              author: author_name
+            }
+          end
+
           def description
             @description ||= page.description
           end
@@ -77,9 +83,13 @@ module Api
             {
               author: {
                 '@type': 'Person',
-                name: "#{page.user.first_name} #{page.user.last_name}",
+                name: author_name,
               }.merge(page.user.author_data || {})
             }
+          end
+
+          def author_name
+            @author_name ||= "#{page.user.first_name} #{page.user.last_name}"
           end
         end
       end

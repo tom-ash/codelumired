@@ -23,7 +23,7 @@ module Commands
       def transform_body
         json_body = page.body.to_json
 
-        json_body = json_body.gsub('href: https://soundof.it', 'href: https://skillfind.tech')
+        # json_body = json_body.gsub('href: https://soundof.it', 'href: https://skillfind.tech')
 
         page.body = JSON.parse(json_body)
         page.save!

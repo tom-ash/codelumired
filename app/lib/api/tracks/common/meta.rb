@@ -18,6 +18,7 @@ module Api
             robots: robots,
             canonical_url: canonical_url,
             alternate_links: alternate_links,
+            **author,
           )
         end
 
@@ -40,6 +41,10 @@ module Api
 
         def title
           @title ||= unlocalized_title[lang]
+        end
+
+        def author
+          @author ||= {}
         end
 
         def keywords
