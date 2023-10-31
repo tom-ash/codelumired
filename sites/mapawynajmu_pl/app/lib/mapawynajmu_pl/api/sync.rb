@@ -12,7 +12,6 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Visitor::CookiesPolicy::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Meta::UNLOCALIZED_PATH,
-            ::MapawynajmuPl::Api::Tracks::Visitor::Page::Index::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::Visitor::Page::Index::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::User::Create::Form::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Create::Form::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH,
             ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta::TRACK => ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta::UNLOCALIZED_PATH,
@@ -44,7 +43,6 @@ module MapawynajmuPl
           when ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Visitor::CookiesPolicy::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Appender.new(attrs).call
-          when ::MapawynajmuPl::Api::Tracks::Visitor::Page::Index::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::Visitor::Page::Index::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::User::Create::Form::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::User::Create::Form::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Appender.new(attrs).call
           when ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta::TRACK then ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Appender.new(attrs).call

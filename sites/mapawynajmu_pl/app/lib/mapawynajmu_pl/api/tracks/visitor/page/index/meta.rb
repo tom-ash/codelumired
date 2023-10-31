@@ -33,26 +33,6 @@ module MapawynajmuPl
                 @unlocalized_title ||= UNLOCALIZED_TITLE
               end
 
-              def unlocalized_keywords
-                @unlocalized_keywords ||= {
-                  pl: 'TODO',
-                  en: 'TODO',
-                }.freeze
-              end
-
-              def unlocalized_description
-                @unlocalized_description ||= {
-                  pl: 'TODO',
-                  en: 'TODO',
-                }.freeze
-              end
-
-              def render
-                {
-                  visitorPageIndex: true,
-                }
-              end
-
               def links
                 {
                   'current/pl': ::MapawynajmuPl::Api::Tracks::Visitor::Page::Index::Linker.new(:pl).call,
