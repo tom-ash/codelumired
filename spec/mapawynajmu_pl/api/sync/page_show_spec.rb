@@ -65,6 +65,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         url: 'test-page-url',
         lang: 'pl',
         body: [],
+        pages: [],
         canonicalUrl: nil,
         title: nil,
         description: nil,
@@ -96,11 +97,26 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     let(:visitor_inputs) { {} }
     let(:schemaOrg) do
       {
-        author: {
-          '@type': 'Person',
-          name: 'John Doe',
-          url: 'https://www.example.net',
-        }
+        '@context': "https://schema.org",
+        '@graph': [
+          {
+            '@type': 'Article',
+            inLanguage: 'pl',
+            name: nil,
+            description: nil,
+            keywords: nil,
+            datePublished: nil,
+            dateModified: nil,
+            url: 'http://local.mapawynajmu.pl:8080/test-page-url',
+            isFamilyFriendly: true,
+            image: nil,
+            author: {
+              '@type': 'Person',
+              name: 'John Doe',
+              url: 'https://www.example.net',
+            }
+          }
+        ]
       }
     end
     let(:openGraph) do
@@ -113,7 +129,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         title: nil,
         keywords: nil,
         description: nil,
-        image: nil,
+        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
         'image:width': 1200,
         'image:height': 630,
       }
@@ -125,7 +141,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         title: nil,
         keywords: nil,
         description: nil,
-        image: nil,
+        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.mapawynajmu.pl:8080/test-page-url',
         alternateLinks: "<link rel=\"alternate\" hreflang=\"pl\" href=\"http://local.mapawynajmu.pl:8080/test-page-url\" /><link rel=\"alternate\" hreflang=\"en\" href=\"http://local.mapawynajmu.pl:8080/\" />", # TODO!: Fix!

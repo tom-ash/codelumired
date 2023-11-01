@@ -67,19 +67,31 @@ module Api
             @keywords ||= page.keywords
           end
 
-          def image
-            @image ||= page.cover_image
-          end
-
           def schema_org
-            @schema_org ||= primary_schema_org.merge(author_schema_org)
+            @schema_org ||= {
+              '@context': 'https://schema.org',
+              "@graph": [
+                primary_schema.merge(author_schema),
+              ]
+            }
           end
 
-          def primary_schema_org
-            @primary_schema_org ||= page.schema_mode == 'auto' ? page.auto_schema : page.manual_schema
+          def primary_schema
+            @primary_schema ||= {
+              '@type': 'Article', # TODO: Handle other types.
+              inLanguage: page.lang,
+              name: page.title,
+              description: page.description,
+              keywords: page.keywords,
+              datePublished: page.published_on,
+              dateModified: page.modified_on,
+              url: "#{domain_url}/#{page.url}",
+              isFamilyFriendly: true,
+              image: page.cover_image
+            }
           end
 
-          def author_schema_org
+          def author_schema
             {
               author: {
                 '@type': 'Person',
