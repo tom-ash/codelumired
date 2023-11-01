@@ -72,6 +72,7 @@ module Api
               '@context': 'https://schema.org',
               "@graph": [
                 primary_schema.merge(author_schema),
+                breadcrumbs,
               ]
             }
           end
@@ -115,6 +116,45 @@ module Api
                 jobTitle: author_data['jobTitle'],
                 honorificPrefix: author_data['honorificPrefix'],
               }
+            end
+          end
+
+          def breadcrumbs
+            @breadcrumbs ||= {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Strona główna",
+                  "item": "https://mapawynajmu.pl"
+                },
+              ].concat(breadcrumb_parents)
+            }
+          end
+
+          def breadcrumb_parents
+            @breadcrumb_parents ||= begin
+              parents = []
+
+              obtain_breadcrumb_parents(parents, page)
+
+              parents
+            end
+          end
+
+          def obtain_breadcrumb_parents(parents, page)
+            if (page.parent_id)
+              parent = site::Page.find(page.parent_id)
+
+              parents.push({
+                  "@type": "ListItem",
+                  "position": parents.length + 2,
+                  "name": parent.title,
+                  "item": "#{domain_url}/#{parent.url}"
+              })
+
+              obtain_breadcrumb_parents(parents, parent)
             end
           end
         end
