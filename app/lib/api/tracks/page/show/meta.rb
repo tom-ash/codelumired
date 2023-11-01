@@ -92,16 +92,30 @@ module Api
           end
 
           def author_schema
-            {
+            @author_schema ||= {
               author: {
                 '@type': 'Person',
                 name: author_name,
-              }.merge(page.user.author_data || {})
+              }.merge(author_additional_schema)
             }
           end
 
           def author_name
             @author_name ||= "#{page.user.first_name} #{page.user.last_name}"
+          end
+
+          def author_additional_schema
+            @author_additional_data ||= begin
+              author_data = page.user.author_data
+
+              return {} if author_data.nil?
+
+              {
+                url: author_data['url'],
+                jobTitle: author_data['jobTitle'],
+                honorificPrefix: author_data['honorificPrefix'],
+              }
+            end
           end
         end
       end

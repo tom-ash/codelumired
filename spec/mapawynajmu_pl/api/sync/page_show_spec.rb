@@ -9,6 +9,9 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
 
     let!(:user) { create(:mapawynajmu_pl_user, first_name: 'John', last_name: 'Doe', author_data: {
       url: 'https://www.example.net',
+      jobTitle: 'Copywriter',
+      pictureUrl: 'https://www.example.net/author.jpeg',
+      honorificPrefix: 'Mr',
     })}
     let(:page) { create(:mapawynajmu_pl_page, user: user) }
     let(:route) { page.url }
@@ -90,7 +93,8 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
           firstName: 'John',
           lastName: 'Doe',
           url: 'https://www.example.net',
-          pictureUrl: nil,
+          pictureUrl: 'https://www.example.net/author.jpeg',
+          # honorificPrefix: 'Mr',
         },
       }
     end
@@ -114,6 +118,8 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
               '@type': 'Person',
               name: 'John Doe',
               url: 'https://www.example.net',
+              jobTitle: 'Copywriter',
+              honorificPrefix: 'Mr',
             }
           }
         ]

@@ -76,7 +76,6 @@ shared_examples 'state' do |person|
   
       it 'includes specific schemaOrg property in meta', :schemaOrg do
         subject
-        # byebug
         expect(body[:meta][:schemaOrg]).to eq(schemaOrg)
       end
   
