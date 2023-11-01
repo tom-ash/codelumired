@@ -121,7 +121,18 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
               jobTitle: 'Copywriter',
               honorificPrefix: 'Mr',
             }
-          }
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Strona główna',
+                item: 'https://mapawynajmu.pl'
+              }
+            ]
+          },
         ]
       }
     end
