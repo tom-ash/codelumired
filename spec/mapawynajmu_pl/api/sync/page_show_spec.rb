@@ -13,7 +13,9 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       pictureUrl: 'https://www.example.net/author.jpeg',
       honorificPrefix: 'Mr',
     })}
-    let(:page) { create(:mapawynajmu_pl_page, user: user) }
+    let(:grandparent_page) { create(:mapawynajmu_pl_page, user: user, url: 'articles' ) }
+    let(:parent_page) { create(:mapawynajmu_pl_page, user: user, url: 'articles-about-apartments', parent_id: grandparent_page.id) }
+    let(:page) { create(:mapawynajmu_pl_page, user: user, parent_id: parent_page.id) }
     let(:route) { page.url }
     let(:visitor_app_data) do
       {
@@ -94,8 +96,21 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
           lastName: 'Doe',
           url: 'https://www.example.net',
           pictureUrl: 'https://www.example.net/author.jpeg',
-          # honorificPrefix: 'Mr',
         },
+        breadcrumbs: [
+          {
+            item: 'https://mapawynajmu.pl',
+            name: 'Strona główna',
+          },
+          {
+            item: 'http://local.mapawynajmu.pl:8080/articles-about-apartments',
+            name: nil,
+          },
+          {
+            item: 'http://local.mapawynajmu.pl:8080/articles',
+            name: nil,
+          }
+        ]
       }
     end
     let(:visitor_inputs) { {} }
@@ -130,7 +145,19 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
                 position: 1,
                 name: 'Strona główna',
                 item: 'https://mapawynajmu.pl'
-              }
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: nil,
+                item: 'http://local.mapawynajmu.pl:8080/articles-about-apartments',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: nil,
+                item: 'http://local.mapawynajmu.pl:8080/articles',
+              },
             ]
           },
         ]

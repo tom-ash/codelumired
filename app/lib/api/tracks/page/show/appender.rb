@@ -15,7 +15,9 @@ module Api
           attr_reader :page
 
           def data
-            ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call
+            ::Serializers::Page::Show.new(page: page, constantized_site_name: constantized_site_name).call.merge(
+              breadcrumbs: breadcrumbs,
+            )
           end
         end
       end

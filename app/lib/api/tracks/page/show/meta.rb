@@ -71,14 +71,14 @@ module Api
             @schema_org ||= {
               '@context': 'https://schema.org',
               "@graph": [
-                primary_schema.merge(author_schema),
-                breadcrumbs,
+                primarySchemaOrg.merge(authorSchemaOrg),
+                breadcrumbsSchemaOrg,
               ]
             }
           end
 
-          def primary_schema
-            @primary_schema ||= {
+          def primarySchemaOrg
+            @primarySchemaOrg ||= {
               '@type': 'Article', # TODO: Handle other types.
               inLanguage: page.lang,
               name: page.title,
@@ -92,8 +92,8 @@ module Api
             }
           end
 
-          def author_schema
-            @author_schema ||= {
+          def authorSchemaOrg
+            @authorSchemaOrg ||= {
               author: {
                 '@type': 'Person',
                 name: author_name,
@@ -119,42 +119,47 @@ module Api
             end
           end
 
-          def breadcrumbs
-            @breadcrumbs ||= {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
+          def breadcrumbsSchemaOrg
+            @breadcrumbsSchemaOrg ||= begin
+              itemListElement = breadcrumbs.each_with_index.map do |breadcrumb, index|
                 {
                   "@type": "ListItem",
-                  "position": 1,
-                  "name": "Strona główna",
-                  "item": "https://mapawynajmu.pl"
-                },
-              ].concat(breadcrumb_parents)
-            }
+                  "position": index + 1,
+                  "name": breadcrumb[:name],
+                  "item": breadcrumb[:item]
+                }
+              end
+
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": itemListElement,
+              }
+            end
           end
 
-          def breadcrumb_parents
-            @breadcrumb_parents ||= begin
-              parents = []
+          def breadcrumbs
+            @breadcrumbs ||= begin
+              parents = [{
+                "name": "Strona główna",
+                "item": "https://mapawynajmu.pl" # TODO!
+              }]
 
-              obtain_breadcrumb_parents(parents, page)
+              buildBreadcrumbs(parents, page)
 
               parents
             end
           end
 
-          def obtain_breadcrumb_parents(parents, page)
+          def buildBreadcrumbs(parents, page)
             if (page.parent_id)
               parent = site::Page.find(page.parent_id)
 
               parents.push({
-                  "@type": "ListItem",
-                  "position": parents.length + 2,
-                  "name": parent.title,
-                  "item": "#{domain_url}/#{parent.url}"
+                "name": parent.title,
+                "item": "#{domain_url}/#{parent.url}"
               })
 
-              obtain_breadcrumb_parents(parents, parent)
+              buildBreadcrumbs(parents, parent)
             end
           end
         end
