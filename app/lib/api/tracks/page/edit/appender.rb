@@ -26,7 +26,8 @@ module Api
               name: nil,
               langVerUrls: nil,
               updated: true,
-              indexNowPingedAt: page.index_now_pinged_at&.to_date
+              indexNowPingedAt: page.index_now_pinged_at&.to_date,
+              breadcrumbs: breadcrumbs,
             )
           end
 

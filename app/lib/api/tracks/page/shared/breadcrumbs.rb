@@ -20,6 +20,7 @@ module Api
 
               parents.push(
                 name: HOMEPAGE[lang],
+                lang: lang,
                 item: site::Api::Tracks::Root::Linker.new(lang).call[:href],
               )
 
@@ -33,6 +34,7 @@ module Api
 
               parents.push({
                 name: parent.title,
+                lang: parent.lang,
                 item: "/#{parent.url}"
               })
 

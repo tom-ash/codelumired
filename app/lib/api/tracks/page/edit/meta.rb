@@ -5,6 +5,8 @@ module Api
     module Page
       module Edit
         module Meta
+          include ::Api::Tracks::Page::Shared::Breadcrumbs
+
           TRACK = 'page/edit'
 
           UNLOCALIZED_PATH = {
@@ -18,6 +20,15 @@ module Api
           }.freeze
 
           private
+
+          def asset_names
+            @asset_names ||= %i[
+              chevron
+              facebook_square
+              linkedin_square
+              twitter_square
+            ]
+          end
 
           def track
             @track ||= TRACK
@@ -70,11 +81,6 @@ module Api
                 title: group_page.title,
               }
             end
-          end
-
-          def asset_names
-            # TODO: Fix!
-            @asset_names ||= []
           end
         end
       end
