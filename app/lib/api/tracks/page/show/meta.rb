@@ -6,6 +6,10 @@ module Api
       module Show
         module Meta
           TRACK = 'page/show'
+          HOMEPAGE = {
+            pl: 'Strona główna',
+            en: 'Homepage',
+          }
 
           private
 
@@ -123,10 +127,10 @@ module Api
             @breadcrumbsSchemaOrg ||= begin
               itemListElement = breadcrumbs.each_with_index.map do |breadcrumb, index|
                 {
-                  "@type": "ListItem",
-                  "position": index + 1,
-                  "name": breadcrumb[:name],
-                  "item": breadcrumb[:item]
+                  '@type': 'ListItem',
+                  position: index + 1,
+                  name: breadcrumb[:name],
+                  item: "#{domain_url}/#{breadcrumb[:item]}",
                 }
               end
 
@@ -139,14 +143,16 @@ module Api
 
           def breadcrumbs
             @breadcrumbs ||= begin
-              parents = [{
-                "name": "Strona główna",
-                "item": "https://mapawynajmu.pl" # TODO!
-              }]
+              parents = []
 
               buildBreadcrumbs(parents, page)
 
-              parents
+              parents.push(
+                name: HOMEPAGE[lang],
+                item: domain_url,
+              )
+
+              parents.reverse
             end
           end
 
@@ -155,8 +161,8 @@ module Api
               parent = site::Page.find(page.parent_id)
 
               parents.push({
-                "name": parent.title,
-                "item": "#{domain_url}/#{parent.url}"
+                name: parent.title,
+                item: "/#{parent.url}"
               })
 
               buildBreadcrumbs(parents, parent)

@@ -156,7 +156,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
                 '@type': 'ListItem',
                 position: 3,
                 name: nil,
-                item: 'http://local.mapawynajmu.pl:8080/articles',
+                item: 'http://local.mapawynajmu.pl:8080/articles',m 
               },
             ]
           },
