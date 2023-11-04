@@ -5,11 +5,9 @@ module Api
     module Page
       module Show
         module Meta
+          include ::Api::Tracks::Page::Shared::Breadcrumbs
+
           TRACK = 'page/show'
-          HOMEPAGE = {
-            pl: 'Strona główna',
-            en: 'Homepage',
-          }
 
           private
 
@@ -130,7 +128,7 @@ module Api
                   '@type': 'ListItem',
                   position: index + 1,
                   name: breadcrumb[:name],
-                  item: "#{domain_url}/#{breadcrumb[:item]}",
+                  item: "#{domain_url}#{breadcrumb[:item]}",
                 }
               end
 
@@ -141,33 +139,33 @@ module Api
             end
           end
 
-          def breadcrumbs
-            @breadcrumbs ||= begin
-              parents = []
+          # def breadcrumbs
+          #   @breadcrumbs ||= begin
+          #     parents = []
 
-              buildBreadcrumbs(parents, page)
+          #     buildBreadcrumbs(parents, page)
 
-              parents.push(
-                name: HOMEPAGE[lang],
-                item: domain_url,
-              )
+          #     parents.push(
+          #       name: HOMEPAGE[lang],
+          #       item: site::Api::Tracks::Root::Linker.new(lang).call[:href],
+          #     )
 
-              parents.reverse
-            end
-          end
+          #     parents.reverse
+          #   end
+          # end
 
-          def buildBreadcrumbs(parents, page)
-            if (page.parent_id)
-              parent = site::Page.find(page.parent_id)
+          # def buildBreadcrumbs(parents, page)
+          #   if (page.parent_id)
+          #     parent = site::Page.find(page.parent_id)
 
-              parents.push({
-                name: parent.title,
-                item: "/#{parent.url}"
-              })
+          #     parents.push({
+          #       name: parent.title,
+          #       item: "/#{parent.url}"
+          #     })
 
-              buildBreadcrumbs(parents, parent)
-            end
-          end
+          #     buildBreadcrumbs(parents, parent)
+          #   end
+          # end
         end
       end
     end

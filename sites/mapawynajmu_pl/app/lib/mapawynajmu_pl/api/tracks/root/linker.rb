@@ -46,14 +46,15 @@ module MapawynajmuPl
           private
 
           def href
-            "#{protocol_and_domain}/#{path}"
-          end
-
-          def path
             {
               pl: ROOT_PL,
               en: ROOT_EN,
-            }[lang].chomp('/')
+            }[lang]
+          end
+
+          def path
+            # TODO: Remove path from Common::Linker.
+            @path ||= href
           end
 
           def label

@@ -33,7 +33,7 @@ RSpec.describe ::Api::User::Authorize::EmailAndPassword do
         it 'returns the signed in user data' do
           expect(JSON.parse(response.body).symbolize_keys).to include(
             accessToken: be_an_instance_of(String),
-            href: 'http://local.mapawynajmu.pl:8080/'
+            href: '/'
           )
         end
       end

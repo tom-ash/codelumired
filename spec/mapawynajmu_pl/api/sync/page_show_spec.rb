@@ -99,18 +99,18 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         },
         breadcrumbs: [
           {
-            item: 'https://mapawynajmu.pl',
+            item: '/',
             name: 'Strona główna',
           },
           {
-            item: 'http://local.mapawynajmu.pl:8080/articles-about-apartments',
+            item: '/articles',
             name: nil,
           },
           {
-            item: 'http://local.mapawynajmu.pl:8080/articles',
+            item: '/articles-about-apartments',
             name: nil,
-          }
-        ]
+          },
+        ],
       }
     end
     let(:visitor_inputs) { {} }
@@ -143,21 +143,21 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
               {
                 '@type': 'ListItem',
                 position: 1,
+                item: 'http://local.mapawynajmu.pl:8080/',
                 name: 'Strona główna',
-                item: 'https://mapawynajmu.pl'
               },
               {
                 '@type': 'ListItem',
                 position: 2,
+                item: 'http://local.mapawynajmu.pl:8080/articles',
                 name: nil,
-                item: 'http://local.mapawynajmu.pl:8080/articles-about-apartments',
               },
               {
                 '@type': 'ListItem',
                 position: 3,
+                item: 'http://local.mapawynajmu.pl:8080/articles-about-apartments',
                 name: nil,
-                item: 'http://local.mapawynajmu.pl:8080/articles',m 
-              },
+              }
             ]
           },
         ]

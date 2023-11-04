@@ -11,9 +11,9 @@ RSpec.shared_context 'mapawynajmu_pl_sync', :shared_context => :metadata do
     {
 
       'root': {
-        href: 'http://local.mapawynajmu.pl:8080/',
+        href: '/',
         hrefLang: 'pl',
-        path: '',
+        path: '/',
         label: 'Strona główna',
         title: 'Mapa wynajmu nieruchomości w Polsce'
       },
