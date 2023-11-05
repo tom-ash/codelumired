@@ -185,7 +185,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.mapawynajmu.pl:8080',
-        alternateLinks: '<link rel="alternate" hreflang="pl" href="http://local.mapawynajmu.pl:8080" /><link rel="alternate" hreflang="en" href="http://local.mapawynajmu.pl:8080/en" />',
+        alternateLinks: '<link rel="alternate" hreflang="pl" href="http://local.mapawynajmu.pl:8080/" /><link rel="alternate" hreflang="en" href="http://local.mapawynajmu.pl:8080/en" />',
         schemaOrg: schemaOrg,
         openGraph: openGraph,
       }

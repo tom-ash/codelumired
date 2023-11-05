@@ -11,21 +11,21 @@ RSpec.shared_context 'skillfind_tech_sync', :shared_context => :metadata do
   let(:visitor_links) do
     {
       'current/en': {
-        href: 'http://local.skillfind.tech:8080/',
+        href: '/',
         path: '/',
         title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
         label: nil,
         hrefLang: 'en',
       },
       'current/pl': {
-        href: 'http://local.skillfind.tech:8080/pl',
+        href: 'pl',
         path: 'pl',
         title: 'skillfind.tech | Tablica ogłoszeń IT z umiejętnościami i repozytorium wiedzy',
         label: nil,
         hrefLang: 'pl',
       },
       root: {
-        href: 'http://local.skillfind.tech:8080/',
+        href: '/',
         path: '/',
         title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
         label: nil,

@@ -72,7 +72,7 @@ module Api
 
           langs.map do |lang|
             href = links["current/#{lang}".to_sym][:path]
-            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{lang}\" href=\"#{domain_url}#{href == '' ? '' : '/'}#{href}\" />"
+            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{lang}\" href=\"#{domain_url}#{href == '/' ? '' : '/'}#{href}\" />"
           end
 
           alternate_links_string
