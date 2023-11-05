@@ -13,82 +13,82 @@ RSpec.shared_context 'mapawynajmu_pl_sync', :shared_context => :metadata do
       'root': {
         href: '/',
         hrefLang: 'pl',
-        path: '/',
+        title: 'Mapa wynajmu nieruchomości w Polsce',
         label: 'Strona główna',
-        title: 'Mapa wynajmu nieruchomości w Polsce'
+        path: '/',
       },
       'visitor/contact': {
-        href: 'http://local.mapawynajmu.pl:8080/kontakt',
-        path: 'kontakt',
+        href: '/kontakt',
+        hrefLang: 'pl',
         title: 'Kontakt',
         label: 'Kontakt',
-        hrefLang: 'pl'
+        path: 'kontakt',
       },
       'visitor/terms-of-service': {
-        href: 'http://local.mapawynajmu.pl:8080/regulamin',
-        path: 'regulamin',
+        href: '/regulamin',
+        hrefLang: 'pl',
         title: 'Regulamin',
         label: 'Regulamin',
-        hrefLang: 'pl'
+        path: 'regulamin',
       },
       'visitor/privacy-policy': {
-        href: 'http://local.mapawynajmu.pl:8080/polityka-prywatnosci',
-        path: 'polityka-prywatnosci',
+        href: '/polityka-prywatnosci',
+        hrefLang: 'pl',
         title: 'Polityka Prywatności',
         label: 'Polityka Prywatności',
-        hrefLang: 'pl'
+        path: 'polityka-prywatnosci',
       },
       'visitor/cookies-policy': {
-        href: 'http://local.mapawynajmu.pl:8080/polityka-cookies',
-        path: 'polityka-cookies',
+        href: '/polityka-cookies',
+        hrefLang: 'pl',
         title: 'Polityka Cookies',
         label: 'Polityka Cookies',
-        hrefLang: 'pl'
+        path: 'polityka-cookies',
       },
       'visitor/privacy-settings': {
-        href: 'http://local.mapawynajmu.pl:8080/ustawienia-prywatnosci',
-        path: 'ustawienia-prywatnosci',
+        href: '/ustawienia-prywatnosci',
+        hrefLang: 'pl',
         title: 'Ustawienia Prywatności',
         label: 'Ustawienia prywatności',
-        hrefLang: 'pl'
+        path: 'ustawienia-prywatnosci',
       },
       'visitorPageIndex': {
-        href: 'http://local.mapawynajmu.pl:8080/artykuly-o-wynajmie-nieruchomosci',
-        path: 'artykuly-o-wynajmie-nieruchomosci',
+        href: '/artykuly-o-wynajmie-nieruchomosci',
+        hrefLang: 'pl',
         title: 'Artykuły o wynajmnie nieruchomości',
         label: 'Artykuły',
-        hrefLang: 'pl'
+        path: 'artykuly-o-wynajmie-nieruchomosci',
       },
       'user/new/form': {
-        href: 'http://local.mapawynajmu.pl:8080/zarejestruj',
-        path: 'zarejestruj',
+        href: '/zarejestruj',
+        hrefLang: 'pl',
         title: 'Zarejestruj',
         label: 'Zarejestruj',
-        hrefLang: 'pl'
+        path: 'zarejestruj',
       },
       'user/create/verification': {
-        href: 'http://local.mapawynajmu.pl:8080/potwierdz-adres-email',
-        path: 'potwierdz-adres-email',
+        href: '/potwierdz-adres-email',
+        hrefLang: 'pl',
         title: 'Potwierdź Adres Email',
         label: nil,
-        hrefLang: 'pl'
+        path: 'potwierdz-adres-email',
       },
       'user/edit': {
-        href: 'http://local.mapawynajmu.pl:8080/ustawienia-konta',
-        path: 'ustawienia-konta',
+        href: '/ustawienia-konta',
+        hrefLang: 'pl',
         title: 'Ustawienia Konta',
         label: 'Ustawienia konta',
-        hrefLang: 'pl'
+        path: 'ustawienia-konta',
       },
       'user/password-reset': {
-        href: 'http://local.mapawynajmu.pl:8080/zresetuj-haslo',
+        href: '/zresetuj-haslo',
         path: 'zresetuj-haslo',
         title: 'Zresetuj Hasło',
         label: nil,
         hrefLang: 'pl'
       },
       'user/auth': {
-        href: 'http://local.mapawynajmu.pl:8080/zaloguj',
+        href: '/zaloguj',
         path: 'zaloguj',
         title: 'Zaloguj',
         label: 'Zaloguj',
@@ -98,35 +98,35 @@ RSpec.shared_context 'mapawynajmu_pl_sync', :shared_context => :metadata do
         title: 'Moje Konto'
       },
       'listings>new>form': {
-        href: 'http://local.mapawynajmu.pl:8080/dodaj-ogloszenie-wynajmu-nieruchomosci',
+        href: '/dodaj-ogloszenie-wynajmu-nieruchomosci',
         path: 'dodaj-ogloszenie-wynajmu-nieruchomosci',
         title: 'Dodaj ogłoszenie wynajmu nieruchomości',
         label: 'Dodaj ogłoszenie za darmo',
         hrefLang: 'pl'
       },
       'announcement/index/user': {
-        href: 'http://local.mapawynajmu.pl:8080/moje-ogloszenia',
+        href: '/moje-ogloszenia',
         path: 'moje-ogloszenia',
         title: 'Moje ogłoszenia',
         label: 'Moje ogłoszenia',
         hrefLang: 'pl'
       },
       'page/index': {
-        href: 'http://local.mapawynajmu.pl:8080/strony',
+        href: '/strony',
         path: 'strony',
         title: 'Strony',
         label: nil,
         hrefLang: 'pl'
       },
       'image/edit': {
-        href: 'http://local.mapawynajmu.pl:8080/(?-mix:^obrazy\\/.+$)',
+        href: '/(?-mix:^obrazy\\/.+$)',
         path: '(?-mix:^obrazy\\/.+$)',
         title: 'Edytuj obraz',
         label: nil,
         hrefLang: 'pl'
       },
       'image/index': {
-        href: 'http://local.mapawynajmu.pl:8080/obrazy',
+        href: '/obrazy',
         path: 'obrazy',
         title: 'Obrazy',
         label: nil,

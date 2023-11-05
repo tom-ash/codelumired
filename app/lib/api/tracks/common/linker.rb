@@ -23,6 +23,10 @@ module Api
 
         attr_reader :lang, :decorators
 
+        def href
+          "/#{unlocalized_path[lang]}"
+        end
+
         def path
           unlocalized_path[lang]
         end
@@ -33,10 +37,6 @@ module Api
 
         def label
           nil
-        end
-
-        def href
-          "#{protocol_and_domain}/#{path}"
         end
       end
     end

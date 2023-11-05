@@ -101,14 +101,17 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
           {
             item: '/',
             name: 'Strona główna',
+            lang: 'pl',
           },
           {
             item: '/articles',
             name: nil,
+            lang: 'pl',
           },
           {
             item: '/articles-about-apartments',
             name: nil,
+            lang: 'pl',
           },
         ],
       }
