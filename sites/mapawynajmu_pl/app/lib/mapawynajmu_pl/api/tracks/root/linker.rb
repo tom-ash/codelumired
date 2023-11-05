@@ -21,24 +21,23 @@ module MapawynajmuPl
             {
               href: href,
               href_lang: lang,
-              path: path,
               label: label,
               title: title,
             }
           end
 
           def lang_links
-            pathPl = "#{partner_path_with_slash(:pl)}#{category_path_with_slash(:pl)}"
-            pathEn = "#{partner_path_with_slash(:en)}#{category_path_with_slash(:en)}".presence || ROOT_EN
+            # TODO: Add partners and categories.
+
+            hrefPl = "/"
+            hrefEn = "/en"
 
             {
               'current/pl': {
-                href: "#{protocol_and_domain}/#{pathPl}",
-                path: pathPl,
+                href: hrefPl,
               },
               'current/en': {
-                href: "#{protocol_and_domain}/#{pathEn}",
-                path: pathEn,
+                href: hrefEn,
               },
             }
           end
@@ -50,11 +49,6 @@ module MapawynajmuPl
               pl: ROOT_PL,
               en: ROOT_EN,
             }[lang]
-          end
-
-          def path
-            # TODO: Remove path from Common::Linker.
-            @path ||= href
           end
 
           def label

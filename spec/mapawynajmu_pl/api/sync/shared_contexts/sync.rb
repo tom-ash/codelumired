@@ -15,122 +15,106 @@ RSpec.shared_context 'mapawynajmu_pl_sync', :shared_context => :metadata do
         hrefLang: 'pl',
         title: 'Mapa wynajmu nieruchomości w Polsce',
         label: 'Strona główna',
-        path: '/',
       },
       'visitor/contact': {
         href: '/kontakt',
         hrefLang: 'pl',
         title: 'Kontakt',
         label: 'Kontakt',
-        path: 'kontakt',
       },
       'visitor/terms-of-service': {
         href: '/regulamin',
         hrefLang: 'pl',
         title: 'Regulamin',
         label: 'Regulamin',
-        path: 'regulamin',
       },
       'visitor/privacy-policy': {
         href: '/polityka-prywatnosci',
         hrefLang: 'pl',
         title: 'Polityka Prywatności',
         label: 'Polityka Prywatności',
-        path: 'polityka-prywatnosci',
       },
       'visitor/cookies-policy': {
         href: '/polityka-cookies',
         hrefLang: 'pl',
         title: 'Polityka Cookies',
         label: 'Polityka Cookies',
-        path: 'polityka-cookies',
       },
       'visitor/privacy-settings': {
         href: '/ustawienia-prywatnosci',
         hrefLang: 'pl',
         title: 'Ustawienia Prywatności',
         label: 'Ustawienia prywatności',
-        path: 'ustawienia-prywatnosci',
       },
       'visitorPageIndex': {
         href: '/artykuly-o-wynajmie-nieruchomosci',
         hrefLang: 'pl',
         title: 'Artykuły o wynajmnie nieruchomości',
         label: 'Artykuły',
-        path: 'artykuly-o-wynajmie-nieruchomosci',
       },
       'user/new/form': {
         href: '/zarejestruj',
         hrefLang: 'pl',
         title: 'Zarejestruj',
         label: 'Zarejestruj',
-        path: 'zarejestruj',
       },
       'user/create/verification': {
         href: '/potwierdz-adres-email',
         hrefLang: 'pl',
         title: 'Potwierdź Adres Email',
         label: nil,
-        path: 'potwierdz-adres-email',
       },
       'user/edit': {
         href: '/ustawienia-konta',
         hrefLang: 'pl',
         title: 'Ustawienia Konta',
         label: 'Ustawienia konta',
-        path: 'ustawienia-konta',
       },
       'user/password-reset': {
         href: '/zresetuj-haslo',
-        path: 'zresetuj-haslo',
+        hrefLang: 'pl',
         title: 'Zresetuj Hasło',
         label: nil,
-        hrefLang: 'pl'
       },
       'user/auth': {
         href: '/zaloguj',
-        path: 'zaloguj',
+        hrefLang: 'pl',
         title: 'Zaloguj',
         label: 'Zaloguj',
-        hrefLang: 'pl'
       },
       'user/show': {
-        title: 'Moje Konto'
+        title: 'Moje Konto',
+        # TODO!
       },
       'listings>new>form': {
         href: '/dodaj-ogloszenie-wynajmu-nieruchomosci',
-        path: 'dodaj-ogloszenie-wynajmu-nieruchomosci',
+        hrefLang: 'pl',
         title: 'Dodaj ogłoszenie wynajmu nieruchomości',
         label: 'Dodaj ogłoszenie za darmo',
-        hrefLang: 'pl'
       },
       'announcement/index/user': {
         href: '/moje-ogloszenia',
-        path: 'moje-ogloszenia',
+        hrefLang: 'pl',
         title: 'Moje ogłoszenia',
         label: 'Moje ogłoszenia',
-        hrefLang: 'pl'
       },
       'page/index': {
         href: '/strony',
-        path: 'strony',
+        hrefLang: 'pl',
         title: 'Strony',
         label: nil,
-        hrefLang: 'pl'
       },
       'image/edit': {
         href: '/(?-mix:^obrazy\\/.+$)',
-        path: '(?-mix:^obrazy\\/.+$)',
+        hrefLang: 'pl',
         title: 'Edytuj obraz',
         label: nil,
-        hrefLang: 'pl'
       },
       'image/index': {
         href: '/obrazy',
-        path: 'obrazy',
+        hrefLang: 'pl',
         title: 'Obrazy',
         label: nil,
-        hrefLang: 'pl'
       },
       'facebook': {
         href: 'https://www.facebook.com/mapawynajmupl',

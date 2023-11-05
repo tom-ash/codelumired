@@ -10,28 +10,25 @@ module MapawynajmuPl
               include ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Meta
 
               def call
+                # TODO: Add label & title.
+
                 {
                   href: href,
                   href_lang: lang,
-                  path: path,
-                  # TODO: Add label & title.
+                  
                 }
               end
 
               private
 
               def href
-                "#{protocol_and_domain}/#{path}"
-              end
-
-              def path
-                @path ||= begin
+                @href ||= begin
                   path_prefix = {
                     pl: PATH_PL,
                     en: PATH_EN,
                   }[lang]
 
-                  "#{path_prefix}/#{decorators[:user_id]}"
+                  "/#{path_prefix}/#{decorators[:user_id]}"
                 end
               end
             end

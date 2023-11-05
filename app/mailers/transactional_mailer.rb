@@ -64,8 +64,8 @@ class TransactionalMailer < ApplicationMailer
     @company = company
     @facebook_sharer_url = "https://www.facebook.com/sharer/sharer.php?u=#{MAPAWYNAJMU_PL_URL_FROM_ENV}/#{@listing.url(@lang)}"
     @share_on_facebook = SHARE_ON_FACEBOOK[@lang]
-    promote_listing_path = MapawynajmuPl::Api::Tracks::Listing::Promote::Linker.new(listing_id: listing_id, lang: :pl).call[:path]
-    @promote_listing_href = "#{MAPAWYNAJMU_PL_URL_FROM_ENV}/#{promote_listing_path}"
+    promote_listing_path = ::MapawynajmuPl::Api::Tracks::Listing::Promote::Linker.new(listing_id: listing_id, lang: :pl).call[:href]
+    @promote_listing_href = "#{MAPAWYNAJMU_PL_URL_FROM_ENV}#{promote_listing_path}"
     @promote_listing_text = PROMOTE_LISTING[@lang]
 
     mail(

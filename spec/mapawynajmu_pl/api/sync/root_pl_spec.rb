@@ -62,52 +62,40 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     let(:visitor_links) do
       common_links.merge(
         'listing/index/offices': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/biura',
-          path: 'wynajem/biura'
+          href: '/wynajem/biura',
         },
         'listing/index/usablePremises': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/lokale-uzytkowe',
-          path: 'wynajem/lokale-uzytkowe'
+          href: '/wynajem/lokale-uzytkowe',
         },
         'listing/index/apartments': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/mieszkania',
-          path: 'wynajem/mieszkania'
+          href: '/wynajem/mieszkania',
         },
         'listing/index/houses': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/domy',
-          path: 'wynajem/domy'
+          href: '/wynajem/domy',
         },
         'listing/index/rooms': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/pokoje',
-          path: 'wynajem/pokoje'
+          href: '/wynajem/pokoje',
         },
         'listing/index/parkingSpaces': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/miejsca-parkingowe',
-          path: 'wynajem/miejsca-parkingowe'
+          href: '/wynajem/miejsca-parkingowe',
         },
         'listing/index/virtualOffices': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/biura-wirtualne',
-          path: 'wynajem/biura-wirtualne'
+          href: '/wynajem/biura-wirtualne',
         },
         'listing/index/coworkingSpaces': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/coworking-przestrzenie-coworkingowe',
-          path: 'wynajem/coworking-przestrzenie-coworkingowe'
+          href: '/wynajem/coworking-przestrzenie-coworkingowe',
         },
         'listing/index/advertisingSpaces': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/przestrzenie-reklamowe',
-          path: 'wynajem/przestrzenie-reklamowe'
+          href: '/wynajem/przestrzenie-reklamowe',
         },
         'listing/index/garages': {
-          href: 'http://local.mapawynajmu.pl:8080/wynajem/garaze',
-          path: 'wynajem/garaze'
+          href: '/wynajem/garaze',
         },
         'current/pl': {
-          href: 'http://local.mapawynajmu.pl:8080/',
-          path: ''
+          href: '/',
         },
         'current/en': {
-          href: 'http://local.mapawynajmu.pl:8080/en',
-          path: 'en'
+          href: '/en',
         },
       )
     end
@@ -157,7 +145,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         description: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
         keywords: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
         image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
-        isFamilyFriendly: true
+        isFamilyFriendly: true,
       }
     end
     let(:openGraph) do
@@ -185,7 +173,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.mapawynajmu.pl:8080',
-        alternateLinks: '<link rel="alternate" hreflang="pl" href="http://local.mapawynajmu.pl:8080/" /><link rel="alternate" hreflang="en" href="http://local.mapawynajmu.pl:8080/en" />',
+        alternateLinks: nil,
         schemaOrg: schemaOrg,
         openGraph: openGraph,
       }

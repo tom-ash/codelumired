@@ -51,7 +51,7 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
           it 'responds with listing confirmation href' do
             verify_user
 
-            expect(body[:href]).to eq("http://local.mapawynajmu.pl:8080/potwierdzenie-utworzenia-konta/#{user.id}")
+            expect(body[:href]).to eq("/potwierdzenie-utworzenia-konta/#{user.id}")
           end
         end
 
@@ -78,7 +78,7 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
             it 'responds with listing confirmation href' do
               verify_user
   
-              expect(body[:href]).to eq("http://local.mapawynajmu.pl:8080/podsumowanie-dodanego-ogloszenia/#{listing.id}")
+              expect(body[:href]).to eq("/podsumowanie-dodanego-ogloszenia/#{listing.id}")
             end
           end
 

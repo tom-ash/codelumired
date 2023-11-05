@@ -12,12 +12,10 @@ module MapawynajmuPl
               category_links_hash = {}
 
               ::MapawynajmuPl::Listing::CATEGORIES.each_value do |category|
-
-                path = "#{partner_path_with_slash(lang)}#{category_link(category, lang)}"
-
+                href = "#{partner_path_with_slash(lang)}#{category_link(category, lang)}"
                 category_links_hash["listing/index/#{category[:trackified]}"] = {
-                  href: "#{protocol_and_domain}/#{path}",
-                  path: path,
+                  href: "/#{href}",
+                  # TODO: Add hrefLang, title and label.
                 }
               end
 

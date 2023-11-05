@@ -38,16 +38,17 @@ module Api
             verification_code: verificationCode,
           ).send
 
-          verificationToken = {
+          decodedVerificationToken = {
             verificationCode: verificationCode,
             userId: user.id,
           }
-          encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
+          verificationToken = ::Ciphers::Jwt::Encoder.new(decodedVerificationToken).call
+          href = ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Linker.new(lang.to_sym).call[:href]
 
           {
-            verificationToken: encodedVerificationToken,
+            verificationToken: verificationToken,
             userId: user.id,
-            path: site::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH[lang.to_sym],
+            href: href,
           }
         end
 
@@ -78,17 +79,14 @@ module Api
 
           current_announcement = user.listings.last
 
-          listing_confirmation_href = begin
-            listing_confirmation_path = current_announcement&.summary_path(lang.to_sym)
-            "#{protocol_and_domain}/#{listing_confirmation_path}" if listing_confirmation_path.present?
-          end
+          listing_confirmation_href = "/#{current_announcement&.summary_path(lang.to_sym)}"
 
           user_confirmation_href = ::MapawynajmuPl::Api::Tracks::User::Create::Confirmation::Linker.new(
             lang.to_sym,
             user_id: user.id,
           ).call[:href]
 
-          href = listing_confirmation_href || user_confirmation_href
+          href = listing_confirmation_href != '/' ? listing_confirmation_href : user_confirmation_href
 
           if current_announcement
             TransactionalMailer.listing_confirmation_email(

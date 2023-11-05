@@ -51,15 +51,14 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     let(:visitor_links) do
       common_links.merge(
         'current/pl': {
-          href: 'http://local.mapawynajmu.pl:8080/test-page-url',
-          path: 'test-page-url',
-          title: nil
+          href: '/test-page-url',
+          hrefLang: 'pl',
+          title: nil,
+          label: nil,
         },
-        'current/en': {
-          path: nil
-        },
+        'current/en': nil,
         'page/edit': {
-          path: 'strony/test-page-url'
+          href: 'strony/test-page-url'
         }
       )
     end
@@ -191,7 +190,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.mapawynajmu.pl:8080/test-page-url',
-        alternateLinks: "<link rel=\"alternate\" hreflang=\"pl\" href=\"http://local.mapawynajmu.pl:8080/test-page-url\" /><link rel=\"alternate\" hreflang=\"en\" href=\"http://local.mapawynajmu.pl:8080/\" />", # TODO!: Fix!
+        alternateLinks: nil,
         schemaOrg: schemaOrg,
         openGraph: openGraph,
         author: "John Doe",

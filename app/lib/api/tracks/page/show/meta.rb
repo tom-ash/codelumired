@@ -21,25 +21,39 @@ module Api
 
           def links
             {
-              'page/edit': { path: page.edit_link },
-              'current/pl': { path: nil },
-              'current/en': { path: nil },
-            }.merge(page_lang_alts_links)
+              'page/edit': page_edit_link,
+              'current/pl': get_link_in_lang(:pl),
+              'current/en': get_link_in_lang(:en),
+            }
           end
 
-          def page_lang_alts_links
-            page_lang_alts = site::Page.where(lang_alts_group: page.lang_alts_group)
+          def page_edit_link
+            {
+              href: page.edit_link
+            }
+          end
 
-            page_lang_alts.each_with_object({}) do |group_page, link_object|
-              path = group_page.show_link
-              href = "#{protocol_and_domain}/#{path}"
+          def get_link_in_lang(link_lang)
+            page_in_lang = get_page_in_lang(link_lang)
 
-              link_object["current/#{group_page.lang}".to_sym] = {
-                href: href,
-                path: path,
-                title: group_page.title,
-              }
-            end
+            return if page_in_lang.nil?
+
+            {
+              href: "/#{page_in_lang.url}",
+              hrefLang: link_lang,
+              title: page_in_lang.title,
+              label: page_in_lang.title,
+            }
+          end
+
+          def get_page_in_lang(lang_page)
+            return page if lang_page == lang
+
+            site::Page.find_by(lang: lang_page, lang_alts_group: lang_group_id)
+          end
+
+          def lang_group_id
+            @lang_group_id ||= page.lang_alts_group
           end
 
           def asset_names

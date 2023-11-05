@@ -15,24 +15,26 @@ module MapawynajmuPl
             end
 
             def call
+              # TODO: Add hrefLang, title and label.
+
               {
-                path: announcement.url(lang),
+                href: announcement.url(lang),
                 title: 'TODO',
               }
             end
 
             def lang_links
-              pathPl = "#{partner_path_with_slash(:pl)}#{category_path_with_slash(:pl)}#{announcement.url(:pl)}"
-              pathEn = "#{partner_path_with_slash(:en)}#{category_path_with_slash(:en)}#{announcement.url(:en)}"
+              # TODO: Add hrefLang, title and label.
+
+              hrefPl = "#{partner_path_with_slash(:pl)}#{category_path_with_slash(:pl)}#{announcement.url(:pl)}"
+              hrefEn = "#{partner_path_with_slash(:en)}#{category_path_with_slash(:en)}#{announcement.url(:en)}"
 
               {
                 'current/pl': {
-                  href: "#{protocol_and_domain}/#{pathPl}",
-                  path: pathPl,
+                  href: "/#{hrefPl}",
                 },
                 'current/en': {
-                  href: "#{protocol_and_domain}/#{pathEn}",
-                  path: pathEn,
+                  href: "/#{hrefEn}",
                 },
               }
             end
@@ -40,7 +42,7 @@ module MapawynajmuPl
             def go_back_link
               {
                 'listing/index/go-back': {
-                  path: "#{partner_path_with_slash(lang)}#{category_path_with_slash(lang)}".chomp('/').presence || root_path,
+                  href: "/#{partner_path_with_slash(lang)}#{category_path_with_slash(lang)}".chomp('/').presence || root_path,
                 },
               }
             end

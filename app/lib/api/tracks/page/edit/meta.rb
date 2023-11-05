@@ -15,8 +15,8 @@ module Api
           }.freeze
 
           UNLOCALIZED_TITLE = {
-            pl: 'Edytuj stronę',
-            en: 'Edit Page'
+            pl: '123123 Edytuj stronę',
+            en: 'dsfsdfsdf Edit Page'
           }.freeze
 
           private
@@ -66,21 +66,33 @@ module Api
 
           def links
             {
-              'page/edit': { path: page.edit_link },
-              'current/pl': { path: nil },
-              'current/en': { path: nil },
-            }.merge(page_lang_alts_links)
+              'current/pl': get_link_in_lang(:pl),
+              'current/en': get_link_in_lang(:en),
+            }
           end
 
-          def page_lang_alts_links
-            page_lang_alts = site::Page.where(lang_alts_group: page.lang_alts_group)
+          def get_link_in_lang(link_lang)
+            page_in_lang = get_page_in_lang(link_lang)
 
-            page_lang_alts.each_with_object({}) do |group_page, link_object|
-              link_object["current/#{group_page.lang}".to_sym] = {
-                path: group_page.edit_link,
-                title: group_page.title,
-              }
-            end
+            return if page_in_lang.nil?
+
+            # TODO: Show the same page but only change the edit panel language.
+            {
+              href: "/#{page_in_lang.edit_link}",
+              hrefLang: link_lang,
+              title: page_in_lang.title,
+              label: page_in_lang.title,
+            }
+          end
+
+          def get_page_in_lang(lang_page)
+            return page if lang_page == lang
+
+            site::Page.find_by(lang: lang_page, lang_alts_group: lang_group_id)
+          end
+
+          def lang_group_id
+            @lang_group_id ||= page.lang_alts_group
           end
         end
       end

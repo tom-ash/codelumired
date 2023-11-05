@@ -12,10 +12,9 @@ module Api
         def call
           {
             href: href,
-            path: path,
+            href_lang: lang,
             title: title,
             label: label,
-            href_lang: lang,
           }
         end
 
@@ -25,10 +24,6 @@ module Api
 
         def href
           "/#{unlocalized_path[lang]}"
-        end
-
-        def path
-          unlocalized_path[lang]
         end
 
         def title

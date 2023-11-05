@@ -61,11 +61,11 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     let(:visitor_links) do
       common_links.merge(
         'current/pl': {
-          path: "wyroznij-ogloszenie/#{listing_id}",
+          href: "/wyroznij-ogloszenie/#{listing_id}",
           title: "Wyróżnij ogłoszenie",
         },
         'current/en': {
-          path: "promote-listing/#{listing_id}",
+          href: "/promote-listing/#{listing_id}",
           title: "Promote the Listing",
         },
       )
@@ -115,7 +115,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
         robots: 'index,follow,all',
         canonicalUrl: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
-        alternateLinks: "<link rel=\"alternate\" hreflang=\"pl\" href=\"http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}\" /><link rel=\"alternate\" hreflang=\"en\" href=\"http://local.mapawynajmu.pl:8080/promote-listing/#{listing_id}\" />",
+        alternateLinks: nil,
         schemaOrg: schemaOrg,
         openGraph: openGraph,
       }

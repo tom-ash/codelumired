@@ -38,15 +38,16 @@ module MapawynajmuPl
               verification_code: verificationCode,
             ).send
 
-            verificationToken = {
+            decodedVerificationToken = {
               userId: user.id,
               verificationCode: verificationCode,
             }
-            encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
+            verificationToken = ::Ciphers::Jwt::Encoder.new(decodedVerificationToken).call
+            href = ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Linker.new(lang.to_sym).call[:href]
 
             {
-              verificationToken: encodedVerificationToken,
-              path: ::MapawynajmuPl::Api::Tracks::User::Create::Verification::Meta::UNLOCALIZED_PATH[lang.to_sym],
+              verificationToken: verificationToken,
+              href: href,
             }
           end
         end

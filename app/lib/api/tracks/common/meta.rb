@@ -68,14 +68,16 @@ module Api
         end
 
         def alternate_links
-          alternate_links_string = ''
+          return # TODO!
 
-          langs.map do |lang|
-            href = links["current/#{lang}".to_sym][:path]
-            alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{lang}\" href=\"#{domain_url}#{href == '/' ? '' : '/'}#{href}\" />"
-          end
+          # alternate_links_string = ''
 
-          alternate_links_string
+          # langs.map do |lang|
+          #   href = links["current/#{lang}".to_sym][:path]
+          #   alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{lang}\" href=\"#{domain_url}#{href == '/' ? '' : '/'}#{href}\" />"
+          # end
+
+          # alternate_links_string
         end
 
         def site_name

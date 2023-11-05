@@ -80,9 +80,9 @@ RSpec.describe ::MapawynajmuPl::Api::Listing::Create::WithUser do
             expect(verificationCode).to match(/^\d{4}$/)
           end
 
-          it 'responds with redirection path' do
+          it 'responds with redirection href' do
             create_listing_as_visitor
-            expect(body[:path]).to eq('potwierdz-adres-email')
+            expect(body[:href]).to eq('/potwierdz-adres-email')
           end
 
           it 'creates a new unverified listing' do

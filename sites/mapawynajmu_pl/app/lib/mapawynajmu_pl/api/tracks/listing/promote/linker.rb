@@ -22,8 +22,10 @@ module MapawynajmuPl
             end
 
             def call
+              # TODO: Add hrefLang and label.
+
               {
-                path: path,
+                href: href,
                 title: title,
               }
             end
@@ -32,8 +34,8 @@ module MapawynajmuPl
 
             attr_reader :listing_id, :lang
 
-            def path
-              "#{PROMOTE_LISTING_PATH[lang]}/#{listing_id}"
+            def href
+              "/#{PROMOTE_LISTING_PATH[lang]}/#{listing_id}"
             end
 
             def title

@@ -18,11 +18,6 @@ module SkillfindTech
               pl: ROOT_PL,
             }[lang]
           end
-
-          def path
-            # TODO: Remove path from Common::Linker.
-            @path ||= href
-          end
         end
       end
     end

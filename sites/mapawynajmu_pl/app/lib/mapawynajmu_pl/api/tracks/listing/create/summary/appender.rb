@@ -9,6 +9,7 @@ module MapawynajmuPl
             class Appender < ::MapawynajmuPl::Api::Tracks::Common::Appender
               include ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Meta
               include ::MapawynajmuPl::Api::Tracks::Listing::Common::Promotion
+              include ::MapawynajmuPl::Api::Tracks::Listing::Create::Summary::Assets
 
               private
 
@@ -19,7 +20,7 @@ module MapawynajmuPl
               def data
                 {
                   announcement: ::MapawynajmuPl::Serializers::Listing::Show.new(announcement).call.merge(
-                    path: announcement.url(lang),
+                    href: "/#{announcement.url(lang)}",
                     title: announcement.title(lang),
                   ),
                 }

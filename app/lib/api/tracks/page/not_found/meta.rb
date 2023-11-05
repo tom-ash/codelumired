@@ -39,8 +39,8 @@ module Api
 
           def links
             {
-              'current/pl': { path: url, title: 'Nie znaleziono' },
-              'current/en': { path: url, title: 'Not Found' },
+              'current/pl': { href: url, title: 'Nie znaleziono' },
+              'current/en': { href: url, title: 'Not Found' },
             }
           end
         end

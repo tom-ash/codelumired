@@ -12,8 +12,9 @@ module MapawynajmuPl
             end
 
             def call
+              # TODO: Add hrefLang, title and label.
               {
-                path: announcement.edit_path(lang),
+                href: announcement.edit_path(lang),
                 title: 'TODO',
               }
             end

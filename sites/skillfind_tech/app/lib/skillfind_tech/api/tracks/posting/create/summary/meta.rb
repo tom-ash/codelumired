@@ -59,13 +59,6 @@ module SkillfindTech
                   'announcement/create/summary': true
                 }
               end
-
-              def links
-                {
-                  # 'current/en': { path: announcement.summary_path(:en) },
-                  # 'announcement/show': { path: announcement.url(lang) }
-                }
-              end
             end
           end
         end

@@ -66,22 +66,10 @@ module MapawynajmuPl
 
               def links
                 {
-                  'current/pl': { path: announcement.summary_path(:pl) },
-                  'current/en': { path: announcement.summary_path(:en) },
-                  'announcement/show': { path: announcement.url(lang) },
+                  'current/pl': { href: "/#{announcement.summary_path(:pl)}" },
+                  'current/en': { href: "/#{announcement.summary_path(:en)}" },
+                  'announcement/show': { href: "/#{announcement.url(lang)}" },
                 }
-              end
-
-              def asset_names
-                @asset_names ||= %i[
-                  facebook
-                  facebook_square
-                  linkedin_square
-                  twitter_square
-                  rocket
-                  star
-                  people
-                ]
               end
             end
           end
