@@ -70,7 +70,7 @@ module Serializers
 
           children.map do |child|
             {
-              href: child.url,
+              href: "/#{child.url}", # TODO: Change .url -> .path.
               hrefLang: child.lang,
               title: child.title,
               image: child.cover_image,
