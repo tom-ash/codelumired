@@ -28,7 +28,6 @@ module MapawynajmuPl
 
           def lang_links
             # TODO: Add partners and categories.
-
             hrefPl = "/"
             hrefEn = "/en"
 

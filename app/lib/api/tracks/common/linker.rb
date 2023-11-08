@@ -23,7 +23,9 @@ module Api
         attr_reader :lang, :decorators
 
         def href
-          "/#{unlocalized_path[lang]}"
+          localized_path = unlocalized_path[lang]
+
+          localized_path == '/' ? '/' : "/#{localized_path}"
         end
 
         def title

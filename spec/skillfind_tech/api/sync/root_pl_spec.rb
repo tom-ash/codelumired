@@ -94,10 +94,18 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         langs: ['en', 'pl'],
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.skillfind.tech:8080',
-        alternateLinks: nil,
-        # TODO!: ERROR! (//)
         schemaOrg: schemaOrg,
         openGraph: openGraph,
+        alternateLangLinks: [
+          {
+            href: "http://local.skillfind.tech:8080/",
+            hrefLang: 'en',
+          },
+          {
+            href: "http://local.skillfind.tech:8080/pl",
+            hrefLang: 'pl',
+          },
+        ],
       }
     end
     let(:user_user) do

@@ -17,7 +17,7 @@ RSpec.shared_context 'skillfind_tech_sync', :shared_context => :metadata do
         hrefLang: 'en',
       },
       'current/pl': {
-        href: 'pl',
+        href: '/pl',
         title: 'skillfind.tech | Tablica ogłoszeń IT z umiejętnościami i repozytorium wiedzy',
         label: nil,
         hrefLang: 'pl',

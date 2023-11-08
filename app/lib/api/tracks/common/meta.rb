@@ -17,7 +17,7 @@ module Api
             open_graph: open_graph,
             robots: robots,
             canonical_url: canonical_url,
-            alternate_links: alternate_links,
+            alternateLangLinks: alternateLangLinks,
             **author,
           )
         end
@@ -67,17 +67,21 @@ module Api
           @canonical_url ||= full_url
         end
 
-        def alternate_links
-          return # TODO!
+        def alternateLangLinks
+          langLinks = []
 
-          # alternate_links_string = ''
+          langs.map do |lang|
+            langLink = links["current/#{lang}".to_sym]
 
-          # langs.map do |lang|
-          #   href = links["current/#{lang}".to_sym][:path]
-          #   alternate_links_string += "<link rel=\"alternate\" hreflang=\"#{lang}\" href=\"#{domain_url}#{href == '/' ? '' : '/'}#{href}\" />"
-          # end
+            if langLink.present?
+              langLinks.push(
+                href: "#{domain_url}#{langLink[:href]}",
+                hrefLang: lang,
+              )
+            end
+          end
 
-          # alternate_links_string
+          langLinks if langLinks.length > 1
         end
 
         def site_name

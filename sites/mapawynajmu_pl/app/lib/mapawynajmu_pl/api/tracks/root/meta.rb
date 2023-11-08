@@ -77,7 +77,7 @@ module MapawynajmuPl
           end
 
           def links
-            {}.merge(
+            super.merge(
               ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).category_links,
               ::MapawynajmuPl::Api::Tracks::Root::Linker.new(lang, url).lang_links,
             )
