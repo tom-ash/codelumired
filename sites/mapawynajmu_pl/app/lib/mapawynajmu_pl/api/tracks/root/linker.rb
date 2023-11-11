@@ -27,15 +27,24 @@ module MapawynajmuPl
           end
 
           def lang_links
-            hrefPl = "/#{get_localized_path_prefix(category_from_path, :pl)}"
-            hrefEn = "/#{get_localized_path_prefix(category_from_path, :en)}"
+            pathPl = get_localized_path_prefix(category_from_path, :pl)
+            hrefPl = "/#{pathPl}"
+
+            pathEn = get_localized_path_prefix(category_from_path, :en)
+            hrefEn = "/#{pathEn == '' ? ROOT_EN : pathEn}"
 
             {
               'current/pl': {
                 href: hrefPl,
+                # hrefLang,
+                # title,
+                # label,
               },
               'current/en': {
-                href: hrefEn,
+                href: hrefEn == '/' ? ROOT_EN : hrefEn,
+                # hrefLang,
+                # title,
+                # label,
               },
             }
           end

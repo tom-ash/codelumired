@@ -17,7 +17,7 @@ module Api
             open_graph: open_graph,
             robots: robots,
             canonical_url: canonical_url,
-            # alternateLangLinks: alternateLangLinks,
+            alternateLangLinks: alternateLangLinks,
             **author,
           )
         end
