@@ -12,9 +12,11 @@ module MapawynajmuPl
               category_links_hash = {}
 
               ::MapawynajmuPl::Listing::CATEGORIES.each_value do |category|
-                href = "#{partner_path_with_slash(lang)}#{category_link(category, lang)}"
+                path = get_localized_path_prefix(category, lang)
+                href = "/#{path}"
+
                 category_links_hash["listing/index/#{category[:trackified]}"] = {
-                  href: "/#{href}",
+                  href: href,
                   # TODO: Add hrefLang, title and label.
                 }
               end
@@ -24,12 +26,32 @@ module MapawynajmuPl
 
             private
 
-            def match_data
-              @match_data ||= unlocalized_path[lang].match(url)
+            def get_localized_path_prefix(category, lang)
+              partner_path = get_localized_partner_path(lang)
+              category_path = get_localized_category_path(category, lang)
+              path_elements = []
+              path_elements.push("#{partner_path}/") if partner_path.present?
+              path_elements.push(category_path)
+              path_elements.join
             end
 
-            def current_partner
-              @current_partner ||= begin
+            def get_localized_partner_path(lang)
+              return if partner_from_path.nil?
+
+              {
+                pl: "partnerzy/#{partner_from_path.urlified_business_name}",
+                en: "partners/#{partner_from_path.urlified_business_name}",
+              }[lang]
+            end
+
+            def get_localized_category_path(category, lang)
+              return if category.nil?
+
+              "#{category_prefix(lang)}/#{category[:urlified_plural][lang]}"
+            end
+
+            def partner_from_path
+              @partner_from_path ||= begin
                 urlified_business_name = match_data && match_data[:current_partner_name]
                 return if urlified_business_name.blank?
 
@@ -37,46 +59,29 @@ module MapawynajmuPl
               end
             end
 
-            def current_category
-              @current_category ||= begin
+            def category_from_path
+              @category_from_path ||= begin
                 current_category_name = match_data && match_data[:current_category_name]
                 return if current_category_name.blank?
 
                 ::MapawynajmuPl::Listing::CATEGORIES.each do |key, value|
-                  return key if value[:urlified_plural][lang] == current_category_name
+                  return value.merge(integerSymbol: key) if value[:urlified_plural][lang] == current_category_name
                 end
               end
-            end
-
-            def current_partner_path(lang)
-              {
-                pl: "partnerzy/#{current_partner.urlified_business_name}",
-                en: "partners/#{current_partner.urlified_business_name}",
-              }[lang]
-            end
-
-            def current_category_path(lang)
-              category_link(::MapawynajmuPl::Listing::CATEGORIES[current_category], lang)
-            end
-
-            def category_link(category, lang)
-              "#{category_prefix(lang)}/#{category[:urlified_plural][lang]}"
             end
 
             def category_prefix(lang)
               lang == :pl ? 'wynajem' : 'rent'
             end
 
-            def partner_path_with_slash(lang)
-              return nil if current_partner.nil?
-
-              "#{current_partner_path(lang)}/"
+            def match_data
+              @match_data ||= unlocalized_path[lang].match(url)
             end
 
-            def category_path_with_slash(lang)
-              return nil if current_category.nil?
-
-              "#{current_category_path(lang)}/"
+            def get_root_path(lang)
+              return '' if lang == :pl
+  
+              ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN
             end
           end
         end

@@ -35,7 +35,7 @@ module MapawynajmuPl
               lang: lang,
             ).deliver_now
 
-            created_announcement.summary_path(lang)
+            "/#{created_announcement.summary_path(lang)}"
           end
         end
       end

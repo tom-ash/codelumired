@@ -28,11 +28,10 @@ module MapawynajmuPl
             is_promoted
           ].freeze
 
-          def initialize(announcements:, lang:, partner_path:, category_path:)
+          def initialize(announcements:, lang:, path:)
             @announcements = announcements
             @lang = lang
-            @partner_path = partner_path
-            @category_path = category_path
+            @path = path
           end
 
           def call
@@ -41,13 +40,21 @@ module MapawynajmuPl
 
           private
 
-          attr_reader :announcements, :lang, :partner_path, :category_path
+          attr_reader :announcements, :lang, :path
 
           def serialize_announcement(announcement)
             serialized_announcement = announcement.attributes.slice(*ATTRS)
-            serialized_announcement['href'] = "/#{partner_path}#{category_path}#{announcement.url(lang)}"
+            serialized_announcement['href'] = "#{href_prefix}#{announcement.url(lang)}"
             serialized_announcement['title'] = announcement.title(lang)
             serialized_announcement
+          end
+
+          def href_prefix
+            @href_prefix ||= begin
+              href_elements = ['/']
+              href_elements.push("#{path}/") if path.present?
+              href_elements.join()
+            end
           end
         end
       end

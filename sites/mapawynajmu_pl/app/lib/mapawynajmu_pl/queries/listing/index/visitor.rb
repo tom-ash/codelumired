@@ -73,7 +73,7 @@ module MapawynajmuPl
           def category_search_params
             return {} if category.blank?
 
-            { category: category }
+            { category: category[:integerSymbol] }
           end
         end
       end

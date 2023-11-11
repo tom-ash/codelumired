@@ -34,7 +34,6 @@ module Commands
       end
 
       def call
-        # byebug
         update_page
         backup_page
         page

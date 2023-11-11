@@ -24,9 +24,10 @@ module MapawynajmuPl
           end
 
           def data
+            # byebug
             data_hash = {
-              current_category: current_category,
-              current_partner_name: current_partner&.business_name,
+              current_category: category_from_path,
+              current_partner_name: partner_from_path&.business_name,
               title: title,
               tile: nil,
               announcements: serialized_announcements,

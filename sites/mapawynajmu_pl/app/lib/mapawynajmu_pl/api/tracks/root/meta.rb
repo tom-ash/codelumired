@@ -35,7 +35,7 @@ module MapawynajmuPl
 
           def title
             @title ||= begin
-              return current_category_title if current_category.present?
+              return current_category_title if category_from_path.present?
 
               unlocalized_title[lang]
             end
@@ -84,7 +84,13 @@ module MapawynajmuPl
           end
 
           def current_category_title
-            "#{::MapawynajmuPl::Listing::CATEGORIES[current_category][:name_plural][lang]} #{FOR_LEASE[lang]}"
+            "#{category_from_path[:name_plural][lang]} #{FOR_LEASE[lang]}"
+          end
+
+          def get_root_path(lang)
+            return '' if lang == :pl
+
+            ROOT_EN
           end
         end
       end

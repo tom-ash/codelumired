@@ -66,6 +66,13 @@ module MapawynajmuPl
             def unlocalized_path
               @unlocalized_path ||= UNLOCALIZED_PATH
             end
+
+            def root_path
+              @root_path ||=               {
+                pl: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_PL,
+                en: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN,
+              }[lang]
+            end
           end
         end
       end

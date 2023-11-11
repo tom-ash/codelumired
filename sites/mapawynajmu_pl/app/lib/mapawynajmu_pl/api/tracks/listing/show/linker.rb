@@ -15,26 +15,30 @@ module MapawynajmuPl
             end
 
             def call
-              # TODO: Add hrefLang, title and label.
-
               {
                 href: announcement.url(lang),
-                title: 'TODO',
+                # hrefLang,
+                # title,
+                # label,
               }
             end
 
             def lang_links
-              # TODO: Add hrefLang, title and label.
-
-              hrefPl = "#{partner_path_with_slash(:pl)}#{category_path_with_slash(:pl)}#{announcement.url(:pl)}"
-              hrefEn = "#{partner_path_with_slash(:en)}#{category_path_with_slash(:en)}#{announcement.url(:en)}"
+              hrefPl = "#{get_localized_href_prefix(:pl)}#{announcement.url(:pl)}"
+              hrefEn = "#{get_localized_href_prefix(:en)}#{announcement.url(:en)}"
 
               {
                 'current/pl': {
-                  href: "/#{hrefPl}",
+                  href: hrefPl,
+                  # hrefLang,
+                  # title,
+                  # label,
                 },
                 'current/en': {
-                  href: "/#{hrefEn}",
+                  href: hrefEn,
+                  # hrefLang,
+                  # title,
+                  # label,
                 },
               }
             end
@@ -42,7 +46,7 @@ module MapawynajmuPl
             def go_back_link
               {
                 'listing/index/go-back': {
-                  href: "/#{partner_path_with_slash(lang)}#{category_path_with_slash(lang)}".chomp('/').presence || root_path,
+                  href: get_localized_href_prefix(lang),
                 },
               }
             end
@@ -51,11 +55,11 @@ module MapawynajmuPl
 
             attr_reader :announcement, :lang, :url
 
-            def root_path
-              {
-                pl: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_PL,
-                en: ::MapawynajmuPl::Api::Tracks::Root::Meta::ROOT_EN,
-              }[lang]
+            def get_localized_href_prefix(lang)
+              localized_path = get_localized_path_prefix(category_from_path, lang)
+              href_elements = ['/']
+              href_elements.push("#{localized_path}/") if localized_path.present?
+              href_elements.join()
             end
           end
         end

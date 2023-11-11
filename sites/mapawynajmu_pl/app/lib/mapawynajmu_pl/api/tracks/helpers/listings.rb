@@ -9,21 +9,17 @@ module MapawynajmuPl
 
           def announcements
             @announcements ||= ::MapawynajmuPl::Queries::Listing::Index::Visitor.new(
-              partner: current_partner,
-              category: current_category,
+              partner: partner_from_path,
+              category: category_from_path,
               **filters,
             ).call
           end
 
           def serialized_announcements
-            partner_path = current_partner.present? ? "#{current_partner_path(lang)}/" : ''
-            category_path = current_category.present? ? "#{current_category_path(lang)}/" : ''
-
             @serialized_announcements ||= ::MapawynajmuPl::Serializers::Listing::Index::Visitor.new(
               announcements: announcements,
               lang: lang,
-              partner_path: partner_path,
-              category_path: category_path,
+              path: get_localized_path_prefix(category_from_path, lang),
             ).call
           end
         end

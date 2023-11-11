@@ -43,7 +43,7 @@ module MapawynajmuPl
 
             def data
               data_hash = {
-                current_category: current_category,
+                current_category: category_from_path,
                 tile: serialized_announcement,
                 announcements: serialized_announcements,
                 amount: serialized_announcements.count,

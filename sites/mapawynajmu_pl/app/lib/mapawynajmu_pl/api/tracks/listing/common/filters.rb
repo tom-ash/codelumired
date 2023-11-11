@@ -76,9 +76,9 @@ module MapawynajmuPl
             end
 
             def category
-              return if current_category.blank?
+              return if category_from_path.blank?
 
-              categories[current_category][:name_plural][lang]
+              category_from_path[:name_plural][lang]
             end
 
             def categories

@@ -27,9 +27,8 @@ module MapawynajmuPl
           end
 
           def lang_links
-            # TODO: Add partners and categories.
-            hrefPl = "/"
-            hrefEn = "/en"
+            hrefPl = "/#{get_localized_path_prefix(category_from_path, :pl)}"
+            hrefEn = "/#{get_localized_path_prefix(category_from_path, :en)}"
 
             {
               'current/pl': {
@@ -46,7 +45,7 @@ module MapawynajmuPl
           def href
             {
               pl: ROOT_PL,
-              en: ROOT_EN,
+              en: "/#{ROOT_EN}",
             }[lang]
           end
 
