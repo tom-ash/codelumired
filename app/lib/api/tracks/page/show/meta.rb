@@ -29,7 +29,7 @@ module Api
 
           def page_edit_link
             {
-              href: page.edit_link
+              href: "/#{page.edit_link}"
             }
           end
 

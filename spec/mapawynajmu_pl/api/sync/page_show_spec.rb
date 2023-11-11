@@ -58,7 +58,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         },
         'current/en': nil,
         'page/edit': {
-          href: 'strony/test-page-url'
+          href: '/strony/test-page-url'
         }
       )
     end
