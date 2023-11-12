@@ -52,9 +52,9 @@ module SkillfindTech
               lang: lang,
             ).map do |page|
               {
-                title: page.title,
-                href: page.url,
+                href: "/#{page.url}",
                 hrefLang: page.lang,
+                title: page.title,
               }
             end
           end
@@ -67,9 +67,9 @@ module SkillfindTech
               lang: lang,
             ).map do |article|
               {
-                title: article.title,
-                href: article.url,
+                href: "/#{article.url}",
                 hrefLang: article.lang,
+                title: article.title,
                 image: article.cover_image,
               }
             end
