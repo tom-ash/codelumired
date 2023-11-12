@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_29_130402) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_12_120115) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -155,6 +155,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_29_130402) do
     t.string "link_image"
     t.datetime "index_now_pinged_at"
     t.uuid "parent_id"
+    t.integer "priority", limit: 2
     t.index ["author_id"], name: "index_pages_on_author_id"
     t.index ["category"], name: "index_pages_on_category"
     t.index ["description"], name: "index_pages_on_description"
