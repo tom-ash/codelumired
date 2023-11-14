@@ -25,6 +25,7 @@ module Commands
         subcategory
         lang_alts_group
         parent_id
+        priority
       ].freeze
 
       def initialize(attrs)

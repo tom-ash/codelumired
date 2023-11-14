@@ -42,6 +42,7 @@ module Api
               autoSchema: JSON.pretty_generate(serialized_page['auto_schema']),
               manualSchema: JSON.pretty_generate(serialized_page['manual_schema']),
               parentId: page.parent_id,
+              priority: page.priority,
             )
           end
 
@@ -49,6 +50,7 @@ module Api
             {
               pl: {
                 parentIdInputLabel: 'Parent ID',
+                priorityInputLabel: 'Priorytet',
                 urlInputLabel: 'URL',
                 canonicalUrlInputLabel: 'Canonical URL',
                 publishedOnInputLabel: 'Opublikowano w',
@@ -69,6 +71,7 @@ module Api
               },
               en: {
                 parentIdInputLabel: 'Parent ID',
+                priorityInputLabel: 'Priority',
                 urlInputLabel: 'URL',
                 canonicalUrlInputLabel: 'Kanoniczny URL',
                 publishedOnInputLabel: 'Published On',

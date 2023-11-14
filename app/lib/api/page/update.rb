@@ -22,6 +22,7 @@ module Api
         requires :modified_on, type: Date
         requires :category, type: String
         requires :subcategory, type: String
+        optional :priority, type: Integer
       end
       put do
         body = JSON.parse(params[:body])

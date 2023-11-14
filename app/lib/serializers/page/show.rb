@@ -66,7 +66,7 @@ module Serializers
 
       def child_pages
         @child_pages ||= begin
-          children = site::Page.where(parent_id: page.id).select(:url, :lang, :title, :cover_image)
+          children = site::Page.where(parent_id: page.id).select(:url, :lang, :title, :cover_image).order('priority ASC')
 
           children.map do |child|
             {
