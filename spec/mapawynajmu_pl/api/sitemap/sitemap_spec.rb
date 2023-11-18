@@ -11,6 +11,9 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
       link_group.map(&:deep_symbolize_keys)
     end
   end
+  let(:user) { create(:mapawynajmu_pl_user) }
+  let!(:office_listing) { create(:mapawynajmu_pl_listing, user: user, user_verified: true) }
+  let!(:apartment_listing) { create(:mapawynajmu_pl_listing, category: 2, user: user, user_verified: true) }
 
   describe '/sitemap' do
     it 'responds with :ok (201) status' do
@@ -47,8 +50,36 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
             href: '/add-real-estate-lease-listing',
             hrefLang: 'en',
             priority: '1.0',
-          }
-        ]
+          },
+        ],
+        [
+          {
+            changeFreq: 'weekly',
+            href: "/#{office_listing.id}-biuro-na-wynajem",
+            hrefLang: 'pl',
+            priority: '0.9',
+          },
+          {
+            changeFreq: 'weekly',
+            href: "/#{office_listing.id}-office-for-lease",
+            hrefLang: 'en',
+            priority: '0.9',
+          },
+        ],
+        [
+          {
+            changeFreq: 'weekly',
+            href: "/#{apartment_listing.id}-mieszkanie-na-wynajem",
+            hrefLang: 'pl',
+            priority: '0.9',
+          },
+          {
+            changeFreq: 'weekly',
+            href: "/#{apartment_listing.id}-apartment-for-lease",
+            hrefLang: 'en',
+            priority: '0.9',
+          },
+        ],
       ])
     end
   end

@@ -8,25 +8,30 @@ module MapawynajmuPl
           class Sitemap
             class << self
               def get
-                announcement_links
+                listingLinkGroups
               end
 
               private
 
-              def announcement_links
-                links = []
+              def listingLinkGroups
+                linkGroups = []
 
                 ::MapawynajmuPl::Listing.where(user_verified: true, visible: true, deleted_at: nil).all.each do |announcement|
-                  link = []
+                  linkGroup = []
 
                   %i[pl en].each do |lang|
-                    link << { path: announcement.url(lang), lang: lang, changefreq: 'weekly', priority: '0.8' }
+                    linkGroup << {
+                      href: "/#{announcement.url(lang)}",
+                      hrefLang: lang,
+                      changeFreq: 'weekly',
+                      priority: '0.9'
+                    }
                   end
 
-                  links << link
+                  linkGroups << linkGroup
                 end
 
-                links
+                linkGroups
               end
             end
           end
