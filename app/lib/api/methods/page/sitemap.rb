@@ -20,11 +20,11 @@ module Api
                 next if page.canonical_url.present?
 
                 link << {
-                  path: page.url,
-                  lang: page.lang,
-                  changefreq: 'monthly',
-                  modifiedon: page.modified_on,
-                  priority: '1.0'
+                  href: "/#{page.url}",
+                  hrefLang: page.lang,
+                  changeFreq: 'monthly',
+                  modifiedOn: page.modified_on,
+                  priority: '1.0',
                 }
               end
 
