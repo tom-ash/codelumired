@@ -46,7 +46,7 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::Root::Sitemap,
             ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Sitemap,
             ::MapawynajmuPl::Api::Tracks::Listing::Show::Sitemap,
-            # ::MapawynajmuPl::Api::Tracks::User::Create::Form::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::User::Create::Form::Sitemap,
             # ::MapawynajmuPl::Api::Tracks::User::Authorize::Sitemap,
             # ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Sitemap,
             # ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Sitemap,

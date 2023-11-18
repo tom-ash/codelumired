@@ -17,10 +17,16 @@ module MapawynajmuPl
                 private
 
                 def links
-                  [
-                    { path: unlocalized_path[:pl], lang: :pl, changefreq: 'monthly', priority: '0.7' },
-                    { path: unlocalized_path[:en], lang: :en, changefreq: 'monthly', priority: '0.7' }
-                  ]
+                  MAPAWYNAJMU_PL_NAME_LANGS.map do |lang|
+                    link = ::MapawynajmuPl::Api::Tracks::User::Create::Form::Linker.new(lang).call
+    
+                    {
+                      href: link[:href],
+                      hrefLang: link[:hrefLang],
+                      priority: '0.5',
+                      changeFreq: 'daily',
+                    }
+                  end
                 end
               end
             end

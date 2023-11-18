@@ -80,6 +80,20 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
             priority: '0.9',
           },
         ],
+        [
+          {
+            changeFreq: 'daily',
+            href: '/zarejestruj',
+            hrefLang: 'pl',
+            priority: '0.5',
+          },
+          {
+            changeFreq: 'daily',
+            href: '/sign-up',
+            hrefLang: 'en',
+            priority: '0.5',
+          },
+        ],
       ])
     end
   end
