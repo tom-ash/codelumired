@@ -14,7 +14,7 @@ module MapawynajmuPl
 
                 {
                   href: href,
-                  href_lang: lang,
+                  hrefLang: lang,
                   
                 }
               end

@@ -12,7 +12,7 @@ module Api
         def call
           {
             href: href,
-            href_lang: lang,
+            hrefLang: lang,
             title: title,
             label: label,
           }

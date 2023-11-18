@@ -90,7 +90,7 @@ module MapawynajmuPl
               def user_page
                 {
                   href: "#{protocol_and_domain}/#{partners}/#{user.urlified_business_name}",
-                  href_lang: lang,
+                  hrefLang: lang,
                   label: "#{domain}/#{partners}/#{user.urlified_business_name}",
                 }
               end

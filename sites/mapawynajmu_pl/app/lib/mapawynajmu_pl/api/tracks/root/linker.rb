@@ -10,7 +10,7 @@ module MapawynajmuPl
           ROOT_PL = '/'
           ROOT_EN = 'en'
 
-          def initialize(lang, url = nil)
+          def initialize(lang = nil, url = nil)
             @lang = lang
             @url = url
           end
@@ -20,7 +20,7 @@ module MapawynajmuPl
           def call
             {
               href: href,
-              href_lang: lang,
+              hrefLang: lang,
               label: label,
               title: title,
             }
