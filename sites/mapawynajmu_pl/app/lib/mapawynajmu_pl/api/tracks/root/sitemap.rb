@@ -19,7 +19,7 @@ module MapawynajmuPl
                 {
                   href: link[:href],
                   hrefLang: link[:hrefLang],
-                  priority: 1,
+                  priority: '1.0',
                   changeFreq: 'daily',
                 }
               end
