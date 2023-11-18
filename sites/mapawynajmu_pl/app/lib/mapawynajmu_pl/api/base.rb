@@ -44,7 +44,7 @@ module MapawynajmuPl
         def sitemaps
           [
             ::MapawynajmuPl::Api::Tracks::Root::Sitemap,
-            # ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Listing::Create::Form::Sitemap,
             # ::MapawynajmuPl::Api::Tracks::Listing::Show::Sitemap,
             # ::MapawynajmuPl::Api::Tracks::User::Create::Form::Sitemap,
             # ::MapawynajmuPl::Api::Tracks::User::Authorize::Sitemap,

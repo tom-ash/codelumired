@@ -34,6 +34,20 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
             priority: '1.0',
             changeFreq: 'daily',
           },
+        ],
+        [
+          {
+            changeFreq: 'daily',
+            href: '/dodaj-ogloszenie-wynajmu-nieruchomosci',
+            hrefLang: 'pl',
+            priority: '1.0',
+          },
+          {
+            changeFreq: 'daily',
+            href: '/add-real-estate-lease-listing',
+            hrefLang: 'en',
+            priority: '1.0',
+          }
         ]
       ])
     end
