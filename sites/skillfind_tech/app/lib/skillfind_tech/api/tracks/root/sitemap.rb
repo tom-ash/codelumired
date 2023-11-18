@@ -7,15 +7,22 @@ module SkillfindTech
         class Sitemap
           class << self
             def get
-              [links]
+              [root_links]
             end
 
             private
 
-            def links
-              [
-                { path: '', lang: :en, changefreq: 'weekly', priority: '1.0' }
-              ]
+            def root_links
+              SKILLFIND_TECH_NAME_LANGS.map do |lang|
+                link = ::SkillfindTech::Api::Tracks::Root::Linker.new(lang).call
+
+                {
+                  href: link[:href],
+                  hrefLang: link[:hrefLang],
+                  priority: '1.0',
+                  changeFreq: 'daily',
+                }
+              end
             end
           end
         end

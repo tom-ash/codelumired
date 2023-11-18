@@ -26,7 +26,7 @@ module MapawynajmuPl
             }
           end
 
-          def lang_links
+          def linkMap
             pathPl = get_localized_path_prefix(category_from_path, :pl)
             hrefPl = "/#{pathPl}"
 

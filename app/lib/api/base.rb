@@ -87,12 +87,6 @@ module Api
           def authorize_for_page!
             error!('Unauthorized!.', 401) unless authenticated_user&.role == 'admin'
           end
-
-          def sitemaps
-            [
-              # TODO
-            ]
-          end
         end
 
         before { snakelize_params }

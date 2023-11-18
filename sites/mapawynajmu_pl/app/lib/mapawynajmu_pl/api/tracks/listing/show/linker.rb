@@ -23,7 +23,7 @@ module MapawynajmuPl
               }
             end
 
-            def lang_links
+            def linkMap
               hrefPl = "#{get_localized_href_prefix(:pl)}#{announcement.url(:pl)}"
               hrefEn = "#{get_localized_href_prefix(:en)}#{announcement.url(:en)}"
 

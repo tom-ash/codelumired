@@ -38,7 +38,7 @@ module MapawynajmuPl
             def links
               {}.merge(
                 ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang, url: url).category_links,
-                ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang, url: url).lang_links,
+                ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang, url: url).linkMap,
                 ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang, url: url).go_back_link,
               )
             end

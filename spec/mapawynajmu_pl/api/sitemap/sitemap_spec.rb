@@ -25,13 +25,13 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
           {
             href: '/',
             hrefLang: 'pl',
-            priority: 1,
+            priority: '1.0',
             changeFreq: 'daily',
           },
           {
             href: '/en',
             hrefLang: 'en',
-            priority: 1,
+            priority: '1.0',
             changeFreq: 'daily',
           },
         ]
