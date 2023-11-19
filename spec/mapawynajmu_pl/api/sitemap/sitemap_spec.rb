@@ -40,13 +40,13 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
         ],
         [
           {
-            changeFreq: 'daily',
+            changeFreq: 'monthly',
             href: '/dodaj-ogloszenie-wynajmu-nieruchomosci',
             hrefLang: 'pl',
             priority: '1.0',
           },
           {
-            changeFreq: 'daily',
+            changeFreq: 'monthly',
             href: '/add-real-estate-lease-listing',
             hrefLang: 'en',
             priority: '1.0',

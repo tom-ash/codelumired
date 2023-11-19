@@ -19,6 +19,10 @@ module MapawynajmuPl
                 en: 'Add Real Estate Lease Listing',
               }.freeze
 
+              PRIORITY = '1.0'
+
+              CHANGE_FREQ = 'monthly'
+
               private
 
               def track
