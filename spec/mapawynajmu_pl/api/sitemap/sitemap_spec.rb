@@ -82,16 +82,16 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
         ],
         [
           {
-            changeFreq: 'daily', # TODO: daily???
             href: '/zarejestruj',
             hrefLang: 'pl',
-            priority: '0.5',
+            priority: '0.8',
+            changeFreq: 'monthly',
           },
           {
-            changeFreq: 'daily', # TODO: daily???
             href: '/sign-up',
             hrefLang: 'en',
-            priority: '0.5',
+            priority: '0.8',
+            changeFreq: 'monthly',
           },
         ],
         [

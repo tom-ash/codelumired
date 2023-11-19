@@ -19,6 +19,10 @@ module MapawynajmuPl
                 en: 'Sign Up',
               }.freeze
 
+              PRIORITY = '0.8'
+
+              CHANGE_FREQ = 'monthly'
+
               private
 
               def track
