@@ -18,6 +18,10 @@ module SkillfindTech
               pl: 'Polityka Cookies',
             }.freeze
 
+            PRIORITY = '0.5'
+
+            CHANGE_FREQ = 'monthly'
+
             private
 
             def track

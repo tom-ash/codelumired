@@ -5,7 +5,7 @@ module MapawynajmuPl
     module Tracks
       module Visitor
         module PrivacySettings
-          class Sitemap < ::Api::Tracks::Common::Sitemap; end
+          class Sitemap < ::MapawynajmuPl::Api::Tracks::Common::Sitemap; end
         end
       end
     end

@@ -6,7 +6,7 @@ module MapawynajmuPl
       module User
         module Create
           module Form
-            class Sitemap < ::Api::Tracks::Common::Sitemap; end
+            class Sitemap < ::MapawynajmuPl::Api::Tracks::Common::Sitemap; end
           end
         end
       end

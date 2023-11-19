@@ -9,8 +9,10 @@ module Api
             [links]
           end
 
+          private
+
           def links
-            MAPAWYNAJMU_PL_NAME_LANGS.map do |lang|
+            appLangs.map do |lang|
               link = linker.new(lang).getForSitemap
 
               {

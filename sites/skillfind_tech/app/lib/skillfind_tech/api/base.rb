@@ -35,11 +35,11 @@ module SkillfindTech
         def sitemaps
           [
             ::SkillfindTech::Api::Tracks::Root::Sitemap,
-            # ::SkillfindTech::Api::Tracks::Visitor::Contact::Sitemap,
-            # ::SkillfindTech::Api::Tracks::Visitor::TermsOfService::Sitemap,
-            # ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
-            # ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
-            # ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Sitemap,
+            ::SkillfindTech::Api::Tracks::Visitor::Contact::Sitemap,
+            ::SkillfindTech::Api::Tracks::Visitor::TermsOfService::Sitemap,
+            ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
+            ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
+            ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Sitemap,
           ]
         end
 
