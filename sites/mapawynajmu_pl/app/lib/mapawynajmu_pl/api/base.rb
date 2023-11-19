@@ -49,11 +49,11 @@ module MapawynajmuPl
             ::MapawynajmuPl::Api::Tracks::User::Create::Form::Sitemap,
             ::MapawynajmuPl::Api::Tracks::User::Authorize::Sitemap,
             ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Sitemap,
-            # ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Sitemap,
-            # ::MapawynajmuPl::Api::Tracks::Visitor::TermsOfService::Sitemap,
-            # ::MapawynajmuPl::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
-            # ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
-            # ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Sitemap
+            ::MapawynajmuPl::Api::Tracks::Visitor::Contact::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::TermsOfService::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
+            ::MapawynajmuPl::Api::Tracks::Visitor::PrivacySettings::Sitemap,
           ]
         end
 

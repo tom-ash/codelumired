@@ -18,6 +18,10 @@ module MapawynajmuPl
               en: 'Terms of Service'
             }.freeze
 
+            PRIORITY = '0.5'
+
+            CHANGE_FREQ = 'monthly'
+
             private
 
             def track

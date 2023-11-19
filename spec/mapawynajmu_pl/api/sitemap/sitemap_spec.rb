@@ -122,6 +122,76 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
             changeFreq: 'monthly',
           },
         ],
+        [
+          {
+            href: '/kontakt',
+            hrefLang: 'pl',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+          {
+            href: '/contact',
+            hrefLang: 'en',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+        ],
+        [
+          {
+            href: '/regulamin',
+            hrefLang: 'pl',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+          {
+            href: '/terms-of-service',
+            hrefLang: 'en',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+        ],
+        [
+          {
+            href: '/polityka-cookies',
+            hrefLang: 'pl',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+          {
+            href: '/cookies-policy',
+            hrefLang: 'en',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+        ],
+        [
+          {
+            href: '/polityka-prywatnosci',
+            hrefLang: 'pl',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+          {
+            href: '/privacy-policy',
+            hrefLang: 'en',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+        ],
+        [
+          {
+            href: '/ustawienia-prywatnosci',
+            hrefLang: 'pl',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+          {
+            href: '/privacy-settings',
+            hrefLang: 'en',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+        ],
       ])
     end
   end
