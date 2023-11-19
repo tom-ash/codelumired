@@ -4,7 +4,7 @@ module Api
   module Tracks
     module Common
       class Linker
-        def initialize(lang, decorators = nil)
+        def initialize(lang, decorators = {})
           @lang = lang.to_sym
           @decorators = decorators
         end
@@ -15,6 +15,15 @@ module Api
             hrefLang: lang,
             title: title,
             label: label,
+          }
+        end
+
+        def getForSitemap
+          {
+            href: href,
+            hrefLang: lang,
+            priority: priority,
+            changeFreq: changeFreq,
           }
         end
 
