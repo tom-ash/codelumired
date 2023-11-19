@@ -44,6 +44,18 @@ module Api
         def label
           nil
         end
+
+        def priority
+          @priority ||= metaClass::PRIORITY
+        end
+
+        def changeFreq
+          @changeFreq ||= metaClass::CHANGE_FREQ
+        end
+
+        def metaClass
+          @metaClass ||= self.class.to_s.gsub(/(::Linker$)/, '').constantize::Meta
+        end
       end
     end
   end
