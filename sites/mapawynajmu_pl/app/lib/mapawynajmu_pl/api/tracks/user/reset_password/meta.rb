@@ -18,6 +18,10 @@ module MapawynajmuPl
               en: 'Reset Password',
             }.freeze
 
+            PRIORITY = '0.5'
+
+            CHANGE_FREQ = 'monthly'
+
             private
 
             def track
@@ -59,6 +63,14 @@ module MapawynajmuPl
                 'current/pl': ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Linker.new(:pl).call,
                 'current/en': ::MapawynajmuPl::Api::Tracks::User::ResetPassword::Linker.new(:en).call
               }
+            end
+
+            # def priority
+            #   @priority ||= PRIORITY
+            # end
+            
+            def changeFreq
+              @changeFreq ||= CHANGE_FREQ
             end
           end
         end

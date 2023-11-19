@@ -108,6 +108,20 @@ RSpec.describe ::Api::User::Create::EmailAndPassword do
             changeFreq: 'monthly',
           },
         ],
+        [
+          {
+            href: '/zresetuj-haslo',
+            hrefLang: 'pl',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+          {
+            href: '/reset-password',
+            hrefLang: 'en',
+            priority: '0.5',
+            changeFreq: 'monthly',
+          },
+        ],
       ])
     end
   end
