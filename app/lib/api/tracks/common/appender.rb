@@ -60,6 +60,10 @@ module Api
           @constantized_site_name ||= attrs[:constantized_site_name]
         end
 
+        def organizationName
+          @organizationName ||= attrs[:organizationName]
+        end
+
         def ssr?
           @ssr ||= attrs[:is_ssr]
         end

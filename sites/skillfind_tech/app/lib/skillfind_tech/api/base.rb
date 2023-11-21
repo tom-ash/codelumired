@@ -12,6 +12,10 @@ module SkillfindTech
           @constantized_site_name ||= SKILLFIND_TECH_NAME_CONSTANTIZED_NAME
         end
 
+        def organizationName
+          @organizationName ||= SKILLFIND_TECH_NAME
+        end
+
         def image
           @image ||= SKILLFIND_TECH_IMAGE
         end

@@ -102,4 +102,15 @@ RSpec.shared_context 'skillfind_tech_sync', :shared_context => :metadata do
       }
     }
   end
+  let(:schemaOrgOrganization) do
+    {
+      '@type': 'Organization',
+      url: 'http://local.skillfind.tech:8080',
+      name: 'skillfind.tech',
+      sameAs: [
+        'https://www.facebook.com/profile.php?id=100091302428884',
+        'https://www.linkedin.com/company/skillfind-tech/',
+      ],
+    }
+  end
 end

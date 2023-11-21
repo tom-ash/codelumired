@@ -137,15 +137,21 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     end
     let(:schemaOrg) do
       {
-        inLanguage: 'pl',
         '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        url: 'http://local.mapawynajmu.pl:8080',
-        name: 'Mapa wynajmu nieruchomości w Polsce',
-        description: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
-        keywords: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
-        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
-        isFamilyFriendly: true,
+        '@graph': [
+          schemaOrgOrganization,
+          {
+            inLanguage: 'pl',
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            url: 'http://local.mapawynajmu.pl:8080',
+            name: 'Mapa wynajmu nieruchomości w Polsce',
+            description: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
+            keywords: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
+            image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
+            isFamilyFriendly: true,
+          }
+        ]
       }
     end
     let(:openGraph) do

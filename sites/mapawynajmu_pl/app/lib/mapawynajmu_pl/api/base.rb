@@ -12,6 +12,10 @@ module MapawynajmuPl
           @constantized_site_name ||= MAPAWYNAJMU_PL_CONSTANTIZED_NAME
         end
 
+        def organizationName
+          @organizationName ||= MAPAWYNAJMU_PL_NAME
+        end
+
         def domain_url
           @domain_url ||= Rails.env.production? ? MAPAWYNAJMU_PL_URL : MAPAWYNAJMU_PL_URL_DEV
         end

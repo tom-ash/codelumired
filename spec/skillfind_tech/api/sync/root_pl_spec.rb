@@ -56,14 +56,20 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     let(:schemaOrg) do
       {
         '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        url: 'http://local.skillfind.tech:8080',
-        inLanguage: 'en',
-        name: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
-        description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
-        keywords: 'skillfind.tech, job, board, IT, dev, programming, coding, code, knowledge, repository, cheat sheet',
-        image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
-        isFamilyFriendly: true,
+        '@graph': [
+          schemaOrgOrganization,
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            url: 'http://local.skillfind.tech:8080',
+            inLanguage: 'en',
+            name: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
+            description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
+            keywords: 'skillfind.tech, job, board, IT, dev, programming, coding, code, knowledge, repository, cheat sheet',
+            image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
+            isFamilyFriendly: true,
+          },
+        ],
       }
     end
     let(:openGraph) do

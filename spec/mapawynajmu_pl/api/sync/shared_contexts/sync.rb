@@ -126,4 +126,15 @@ RSpec.shared_context 'mapawynajmu_pl_sync', :shared_context => :metadata do
       }
     }
   end
+  let(:schemaOrgOrganization) do
+    {
+      '@type': 'Organization',
+      url: 'http://local.mapawynajmu.pl:8080',
+      name: 'mapawynajmu.pl',
+      sameAs: [
+        'https://www.facebook.com/mapawynajmupl',
+        'https://www.linkedin.com/company/mapawynajmu-pl/',
+      ],
+    }
+  end
 end

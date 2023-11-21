@@ -34,6 +34,7 @@ module Api
               device: device,
               deviceLang: deviceLang,
               isMobile: isMobile,
+              organizationName: organizationName,
             }
           end
 

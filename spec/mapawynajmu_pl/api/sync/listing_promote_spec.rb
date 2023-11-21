@@ -79,15 +79,21 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
     let(:visitor_inputs) { {} }
     let(:schemaOrg) do
       {
-        inLanguage: 'pl',
         '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        url: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
-        name: nil,
-        description: nil,
-        keywords: nil,
-        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
-        isFamilyFriendly: true
+        '@graph': [
+          schemaOrgOrganization,
+          {
+            inLanguage: 'pl',
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            url: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
+            name: nil,
+            description: nil,
+            keywords: nil,
+            image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
+            isFamilyFriendly: true
+          },
+        ],
       }
     end
     let(:openGraph) do
