@@ -87,6 +87,7 @@ module Api
             @schema_org ||= {
               '@context': 'https://schema.org',
               "@graph": [
+                organization,
                 primarySchemaOrg.merge(authorSchemaOrg),
                 breadcrumbsSchemaOrg,
               ]

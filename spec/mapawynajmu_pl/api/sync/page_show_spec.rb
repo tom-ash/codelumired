@@ -120,6 +120,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       {
         '@context': "https://schema.org",
         '@graph': [
+          schemaOrgOrganization,
           {
             '@type': 'Article',
             inLanguage: 'pl',
