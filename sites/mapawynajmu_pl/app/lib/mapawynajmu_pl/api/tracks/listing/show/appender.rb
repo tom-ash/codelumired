@@ -21,7 +21,6 @@ module MapawynajmuPl
             def control
               control_hash = {
                 current_tile_id: announcement_id,
-                reload_pins: true,
                 map_options: {
                   center: {
                     lat: announcement.latitude,
@@ -77,6 +76,25 @@ module MapawynajmuPl
 
             def announcement_id
               @announcement_id ||= attrs[:url].match(/(\d+)-.*-(na-wynajem|for-(rent|lease)).*$/)[1]
+            end
+
+            def webPage
+              {
+                '@type': 'RealEstateListing',
+                url: ::MapawynajmuPl::Api::Tracks::Listing::Show::Linker.new(announcement: announcement, lang: lang).call[:href],
+                name: serialized_announcement[:title],
+                # https://schema.org/Date
+                # https://stackoverflow.com/questions/33262792/time-iso-8601-in-ruby
+                datePosted: announcement.created_at.iso8601,
+              }.merge(descriptionObject)
+            end
+
+            def descriptionObject
+              return {} if serialized_announcement[:description].nil?
+
+              {
+                description: serialized_announcement[:description],
+              }
             end
           end
         end

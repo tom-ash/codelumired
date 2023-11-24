@@ -18,7 +18,7 @@ module Api
               "@graph": [
                 organization,
                 webSite,
-              ],
+              ].concat(webPageSchema),
             }
           end
 
@@ -33,7 +33,7 @@ module Api
           def webSite
             @webSite ||= {
               '@context': SCHEMA_ORG_CONTEXT,
-              '@type': schema_org_type || SCHEMA_ORG_DEFAULT_TYPE,
+              '@type': SCHEMA_ORG_DEFAULT_TYPE,
               'url': full_url,
               'inLanguage': lang,
               'name': title,
@@ -44,8 +44,10 @@ module Api
             }
           end
 
-          def schema_org_type
-            nil
+          def webPageSchema
+            return [] if webPage.nil?
+
+            [webPage]
           end
 
           def facebookPage
@@ -54,6 +56,10 @@ module Api
 
           def linkedInPage
             @linkedInPage ||= site::Api::Tracks::SocialPages::Linkedin::Linker.new(lang).call[:href]
+          end
+
+          def webPage
+            nil
           end
         end
       end
