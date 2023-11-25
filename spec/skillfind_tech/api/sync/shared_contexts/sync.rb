@@ -8,20 +8,8 @@ RSpec.shared_context 'skillfind_tech_sync', :shared_context => :metadata do
   let!(:user) { create(:skillfind_tech_user) }
   let!(:admin) { create(:skillfind_tech_user, email: 'admin@skillfind.tech', role: 'admin') }
 
-  let(:visitor_links) do
+  let(:common_links) do
     {
-      'current/en': {
-        href: '/',
-        title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
-        label: nil,
-        hrefLang: 'en',
-      },
-      'current/pl': {
-        href: '/pl',
-        title: 'skillfind.tech | Tablica ogłoszeń IT z umiejętnościami i repozytorium wiedzy',
-        label: nil,
-        hrefLang: 'pl',
-      },
       root: {
         href: '/',
         title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',

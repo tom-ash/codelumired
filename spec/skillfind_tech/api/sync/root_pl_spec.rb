@@ -27,6 +27,22 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         role: nil
       }
     end
+    let(:visitor_links) do
+      common_links.merge(
+        'current/en': {
+          href: '/',
+          title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
+          label: nil,
+          hrefLang: 'en',
+        },
+        'current/pl': {
+          href: '/pl',
+          title: 'skillfind.tech | Tablica ogłoszeń IT z umiejętnościami i repozytorium wiedzy',
+          label: nil,
+          hrefLang: 'pl',
+        },
+      )
+    end
     let(:visitor_texts) do
       {
         honeYourSkillsHeadingTwo: 'Hone your tech skills',
