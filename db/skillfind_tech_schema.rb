@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_12_135658) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_25_140559) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -84,6 +84,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_135658) do
     t.index ["user_id"], name: "index_postings_on_user_id"
   end
 
+  create_table "question_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "question_id", null: false
+    t.string "sequence_letter", null: false
+    t.string "body", null: false
+    t.boolean "is_correct", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_answers_on_question_id"
+  end
+
+  create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "lang", null: false
+    t.string "url", null: false
+    t.string "title", null: false
+    t.string "body", null: false
+    t.jsonb "hint", null: false
+    t.string "explanation", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["url"], name: "index_questions_on_url", unique: true
+  end
+
   create_table "redirects", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.string "original_url", null: false
@@ -138,6 +160,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_135658) do
   add_foreign_key "pages", "pages", column: "parent_id"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "postings", "users"
+  add_foreign_key "question_answers", "questions"
   add_foreign_key "redirects", "users", column: "added_by_id"
   add_foreign_key "selected_skills", "postings"
   add_foreign_key "selected_skills", "skills"

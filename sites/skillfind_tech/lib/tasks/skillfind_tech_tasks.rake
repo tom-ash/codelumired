@@ -44,4 +44,32 @@ namespace :skillfind_tech do
       ::SkillfindTech::Skill.upsert(existing_skill.merge(skill), unique_by: :name)
     end
   end
+
+  task upload_questions: :environment do
+    questions = JSON.parse(File.read('../questions.json'))
+
+    questions.map do |question|
+      answers = question['answers']
+
+      ::SkillfindTech::Question.upsert({
+        id: question['id'],
+        lang: 'en',
+        title: question['title'],
+        url: question['title'].parameterize,
+        body: question['body'],
+        hint: question['hint'],
+        explanation: question['explanation'],
+      }, unique_by: :id)
+
+      answers.map do |answer|
+        ::SkillfindTech::QuestionAnswer.upsert({
+          id: answer['id'],
+          question_id: question['id'],
+          sequence_letter: answer['sequenceLetter'],
+          body: answer['body'],
+          is_correct: answer['isCorrect']
+        })
+      end
+    end
+  end
 end

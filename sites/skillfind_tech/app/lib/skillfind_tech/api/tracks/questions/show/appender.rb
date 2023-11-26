@@ -12,8 +12,6 @@ module SkillfindTech
 
             def data
               {
-                # id,
-                # lang,
                 title: 'npm start',
                 body: 'What is the purpose of the "npm start" command in a Node.js project?',
                 hint: 'https://docs.npmjs.com/cli/v7/commands/npm-start',
