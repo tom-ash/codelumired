@@ -14,10 +14,13 @@ module SkillfindTech
               match_data
               {
                 title: question.title,
+                type: type,
                 body: question.body,
-                answers: question.answers,
+                answers: answers,
                 hint: question.hint,
                 explanation: question.explanation,
+                isSubmitted: false,
+                isAnsweredCorrectly: nil,
               }
             end
 
@@ -25,8 +28,27 @@ module SkillfindTech
               @question ||= ::SkillfindTech::Question.find_by(url: question_path)
             end
 
+            def type
+              @type ||= begin
+                correctAnswers = answers.select { |answer| answer[:isCorrect] }
+
+                correctAnswers.count == 1 ? 'singleChoice' : 'multipleChoice'
+              end
+            end
+
             def question_path
               @question_path ||= match_data[:question_path]
+            end
+
+            def answers
+              question.answers.map do |answer|
+                {
+                  sequenceLetter: answer.sequence_letter,
+                  body: answer.body,
+                  isCorrect: answer.is_correct,
+                  isSelected: false,
+                }
+              end
             end
           end
         end
