@@ -21,6 +21,8 @@ module SkillfindTech
                 explanation: question.explanation,
                 isSubmitted: false,
                 isAnsweredCorrectly: nil,
+                isSingleChoice: type == 'singleChoice',
+                isMultipleChoice: type == 'multipleChoice',
               }
             end
 
@@ -49,6 +51,16 @@ module SkillfindTech
                   isSelected: false,
                 }
               end
+            end
+
+            def asset_names
+              @asset_names ||= %i[
+                retry
+                dice
+                send
+                paperPlane
+                check
+              ]
             end
           end
         end
