@@ -23,6 +23,7 @@ module SkillfindTech
                 isAnsweredCorrectly: nil,
                 isSingleChoice: type == 'singleChoice',
                 isMultipleChoice: type == 'multipleChoice',
+                isAnyAnswerSelected: false,
               }
             end
 
