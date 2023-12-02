@@ -3,10 +3,12 @@
 require 'skillfind_tech/rails_helper'
 require_relative './shared_contexts/sync.rb'
 
+# TODO!
 RSpec.describe ::SkillfindTech::Api::Sync do
-  describe 'root' do
+  describe 'questionsShow' do
     include_context 'skillfind_tech_sync'
 
+    let!(:question) {create(:question)}
     let(:route) { 'questions/test' }
     let(:visitor_app_data) do
       {
@@ -29,7 +31,9 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:visitor_texts) do
       {
-        :signOutButtonLabel=>"Sign Out", :showMyAccountMenuButtonLabel=>"My account", :allRightsReserved=>""
+        :signOutButtonLabel=>"Sign Out",
+        :showMyAccountMenuButtonLabel=>"My account",
+        :allRightsReserved=>""
       }
     end
     let(:visitor_assets) do
@@ -41,7 +45,19 @@ RSpec.describe ::SkillfindTech::Api::Sync do
       {}
     end
     let(:visitor_data) do
-      {}
+      {
+        type: 'multipleChoice',
+        isSingleChoice: false,
+        isMultipleChoice: true,
+        title: 'test_title',
+        body: 'test_body',
+        answers: [],
+        hint: 'test_hint',
+        explanation: 'test_explanation',
+        isSubmitted: false,
+        isAnsweredCorrectly: nil,
+        isAnyAnswerSelected: false
+      }
     end
     let(:visitor_inputs) do
       {}
