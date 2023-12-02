@@ -8,27 +8,11 @@ FactoryBot.define do
     body { 'test_body' }
     hint { 'test_hint' }
     explanation { 'test_explanation' }
+    after(:create) do |question|
+      create(:question_answer, question: question, sequence_letter: 'a', body: 'body_a', is_correct: false)
+      create(:question_answer, question: question, sequence_letter: 'b', body: 'body_b', is_correct: true)
+      create(:question_answer, question: question, sequence_letter: 'c', body: 'body_c', is_correct: false)
+      create(:question_answer, question: question, sequence_letter: 'd', body: 'body_d', is_correct: false)
+    end
   end
 end
-
-# create_table "question_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-#   t.uuid "question_id", null: false
-#   t.string "sequence_letter", null: false
-#   t.string "body", null: false
-#   t.boolean "is_correct", default: false, null: false
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-#   t.index ["question_id"], name: "index_question_answers_on_question_id"
-# end
-
-# create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-#   t.string "lang", null: false
-#   t.string "url", null: false
-#   t.string "title", null: false
-#   t.string "body", null: false
-#   t.jsonb "hint", null: false
-#   t.string "explanation", null: false
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-#   t.index ["url"], name: "index_questions_on_url", unique: true
-# end

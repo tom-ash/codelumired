@@ -8,7 +8,10 @@ RSpec.describe ::SkillfindTech::Api::Sync do
   describe 'questionsShow' do
     include_context 'skillfind_tech_sync'
 
-    let!(:question) {create(:question)}
+    let!(:question) {create(:question) }
+
+    # let!(:answer_a) { create(:question_answer, question: question) }
+
     let(:route) { 'questions/test' }
     let(:visitor_app_data) do
       {
@@ -46,12 +49,37 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:visitor_data) do
       {
-        type: 'multipleChoice',
-        isSingleChoice: false,
-        isMultipleChoice: true,
+        type: 'singleChoice',
+        isSingleChoice: true,
+        isMultipleChoice: false,
         title: 'test_title',
         body: 'test_body',
-        answers: [],
+        answers: [
+          {
+            sequenceLetter: 'a',
+            body: 'body_a',
+            isCorrect: false,
+            isSelected: false,
+          },
+          {
+            sequenceLetter: 'b',
+            body: 'body_b',
+            isCorrect: true,
+            isSelected: false,
+          },
+          {
+            sequenceLetter: 'c',
+            body: 'body_c',
+            isCorrect: false,
+            isSelected: false,
+          },
+          {
+            sequenceLetter: 'd',
+            body: 'body_d',
+            isCorrect: false,
+            isSelected: false,
+          },
+        ],
         hint: 'test_hint',
         explanation: 'test_explanation',
         isSubmitted: false,
