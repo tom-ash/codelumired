@@ -32,11 +32,7 @@ module SkillfindTech
             end
 
             def type
-              @type ||= begin
-                correctAnswers = answers.select { |answer| answer[:isCorrect] }
-
-                correctAnswers.count == 1 ? 'singleChoice' : 'multipleChoice'
-              end
+              @type ||= question.question_type
             end
 
             def question_path

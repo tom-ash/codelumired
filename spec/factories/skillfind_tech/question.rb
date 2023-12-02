@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :question, class: ::SkillfindTech::Question do
     lang { 'en' }
+    question_type { 'singleChoice' }
     url { 'test' }
     title { 'test_title' }
     body { 'test_body' }

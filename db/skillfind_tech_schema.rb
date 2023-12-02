@@ -96,10 +96,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_140559) do
 
   create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "lang", null: false
+    t.string "question_type", null: false
     t.string "url", null: false
     t.string "title", null: false
     t.string "body", null: false
-    t.jsonb "hint", null: false
+    t.string "hint", null: false
     t.string "explanation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

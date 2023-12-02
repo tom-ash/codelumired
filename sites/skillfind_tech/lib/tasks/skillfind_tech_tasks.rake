@@ -53,6 +53,7 @@ namespace :skillfind_tech do
 
       ::SkillfindTech::Question.upsert({
         id: question['id'],
+        question_type: question['type'],
         lang: 'en',
         title: question['title'],
         url: question['title'].parameterize,
