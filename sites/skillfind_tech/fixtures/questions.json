@@ -1,0 +1,173 @@
+[
+  {
+    "id": "27e7946a-7d48-4fe4-9cd7-b5db4502728c",
+    "type": "singleChoice",
+    "difficulty": "easy",
+    "title": "Variable Types in JavaScript",
+    "body": "Which of the following are valid variable types in the JavaScript language?",
+    "answers": [
+      {
+        "id": "a7eeb620-d7cc-4e7c-a06e-1d1ac571a545",
+        "sequenceLetter": "a",
+        "body": "int, float, char",
+        "isCorrect": false
+      },
+      {
+        "id": "0d4dbb6f-d60c-4e33-bce4-8b56e17c812d",
+        "sequenceLetter": "b",
+        "body": "number, string, boolean",
+        "isCorrect": true
+      },
+      {
+        "id": "bb390c08-7c14-48fc-9b3e-fd4917b20c34",
+        "sequenceLetter": "c",
+        "body": "real, text, bool",
+        "isCorrect": false
+      },
+      {
+        "id": "d0fe21eb-6e7e-4b9c-994e-871a2f32025a",
+        "sequenceLetter": "d",
+        "body": "numeric, sequence, logic",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Refer to the JavaScript documentation on basic data types.",
+    "explanation": "In JavaScript, valid variable types include number, string, and boolean. Answer (b) is correct.",
+    "reading": [
+      {
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
+        "title": "MDN Web Docs - Data Structures in JavaScript"
+      },
+      {
+        "link": "https://www.w3schools.com/js/js_datatypes.asp",
+        "title": "W3Schools - JavaScript Data Types"
+      },
+      {
+        "link": "https://javascript.info/types",
+        "title": "JavaScript.info - Types"
+      }
+    ]
+  },
+  {
+    "id": "ac354e19-ef0e-4c5b-9a34-8f00b5a20d3f",
+    "type": "multipleChoice",
+    "difficulty": "medium",
+    "title": "Promises in JavaScript",
+    "body": "What are JavaScript promises and how do they work?",
+    "answers": [
+      {
+        "id": "bdaf6d0c-98d9-4d84-b98d-3b85d3433c62",
+        "sequenceLetter": "a",
+        "body": "A way to declare variables in JavaScript",
+        "isCorrect": false
+      },
+      {
+        "id": "7e12dd15-2b96-4344-b3a0-17247b61b432",
+        "sequenceLetter": "b",
+        "body": "A built-in JavaScript object representing the eventual completion or failure of an asynchronous operation",
+        "isCorrect": true
+      },
+      {
+        "id": "dd692f69-b9e2-4d9c-a4cd-30377b47ee6c",
+        "sequenceLetter": "c",
+        "body": "A type of conditional statement in JavaScript",
+        "isCorrect": false
+      },
+      {
+        "id": "f95143ac-d6e3-4ab7-9b1b-17403ed4cfdb",
+        "sequenceLetter": "d",
+        "body": "A JavaScript function for handling arrays",
+        "isCorrect": false
+      },
+      {
+        "id": "1e62ddef-f87f-4eef-8c86-6f9c1b0fb180",
+        "sequenceLetter": "e",
+        "body": "A way to create loops in JavaScript",
+        "isCorrect": false
+      },
+      {
+        "id": "8a6f4185-370e-44d3-bc2f-3d5884dcd6e3",
+        "sequenceLetter": "f",
+        "body": "A JavaScript library for styling web pages",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Understanding JavaScript promises involves grasping the concept of asynchronous programming and handling the result of asynchronous operations. Check the [MDN Web Docs on Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for more information.",
+    "explanation": "JavaScript promises are objects that represent the eventual completion or failure of an asynchronous operation. They are widely used in JavaScript for handling asynchronous tasks and improving the readability of asynchronous code. The correct answer is (b).",
+    "reading": [
+      {
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+        "title": "MDN Web Docs on Promises"
+      },
+      {
+        "link": "https://javascript.info/promise-basics",
+        "title": "JavaScript.info - Promises"
+      },
+      {
+        "link": "https://scotch.io/tutorials/javascript-promises-for-dummies",
+        "title": "JavaScript Promises for Dummies"
+      }
+    ]
+  },
+  {
+    "id": "20fc6e0c-6df1-4b16-b598-f136debe0b69",
+    "type": "multipleChoice",
+    "difficulty": "medium",
+    "title": "JavaScript Object-Oriented Programming (OOP)",
+    "body": "Which of the following concepts are related to Object-Oriented Programming (OOP) in JavaScript?",
+    "answers": [
+      {
+        "id": "297e7e8c-06c2-4c46-8e12-8bbdc9b3c8b3",
+        "sequenceLetter": "a",
+        "body": "Inheritance",
+        "isCorrect": true
+      },
+      {
+        "id": "d5e78a82-2e82-4e5e-b7ac-6a7e6ef36e82",
+        "sequenceLetter": "b",
+        "body": "Polymorphism",
+        "isCorrect": true
+      },
+      {
+        "id": "8c17a878-b3d1-4f8f-b89a-b1d9686b1b57",
+        "sequenceLetter": "c",
+        "body": "Encapsulation",
+        "isCorrect": true
+      },
+      {
+        "id": "b0599d97-0fc6-4a85-84e3-105b15b1089a",
+        "sequenceLetter": "d",
+        "body": "Prototypes",
+        "isCorrect": true
+      },
+      {
+        "id": "3b03f8cc-d4d3-43a4-bd2e-fc8f6ce3ed9b",
+        "sequenceLetter": "e",
+        "body": "Abstraction",
+        "isCorrect": true
+      },
+      {
+        "id": "1cb9c6e2-7ea1-47d0-8d35-e6ce0f8ba71e",
+        "sequenceLetter": "f",
+        "body": "Callback functions",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Explore the principles of Object-Oriented Programming in JavaScript. For an introduction, check out [this link](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects).",
+    "explanation": "Object-Oriented Programming (OOP) is a programming paradigm that uses objects to organize code. In JavaScript, these concepts include:\n\n- **Inheritance**: A mechanism where a new class inherits properties and behaviors from an existing class.\n- **Polymorphism**: The ability of an object to take on multiple forms or types.\n- **Encapsulation**: Bundling the data (properties) and the methods (functions) that work on the data into a single unit (object).\n- **Prototypes**: JavaScript objects have a prototype, and they inherit properties and behaviors from it.\n- **Abstraction**: Simplifying complex systems by modeling classes based on the essential properties and behaviors they share.\n\nUnderstanding these principles is crucial for effective JavaScript development, enabling you to create maintainable, scalable, and modular code.",
+    "reading": [
+      {
+        "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects",
+        "title": "MDN Web Docs - JavaScript Objects"
+      },
+      {
+        "link": "https://javascript.info/object",
+        "title": "JavaScript.info - Objects"
+      },
+      {
+        "link": "https://www.w3schools.com/js/js_objects.asp",
+        "title": "W3Schools - JavaScript Objects"
+      }
+    ]
+  }
+]

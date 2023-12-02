@@ -46,7 +46,7 @@ namespace :skillfind_tech do
   end
 
   task upload_questions: :environment do
-    questions = JSON.parse(File.read('../questions.json'))
+    questions = JSON.parse(File.read('./sites/skillfind_tech/fixtures/questions.json'))
 
     questions.map do |question|
       answers = question['answers']
