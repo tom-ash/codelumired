@@ -57,6 +57,7 @@ module SkillfindTech
       mount ::SkillfindTech::Api::Methods::Users => 'users'
       mount ::SkillfindTech::Api::Methods::Postings => 'postings'
       mount ::SkillfindTech::Api::Methods::Assets => 'assets'
+      mount ::SkillfindTech::Api::Methods::Questions => 'questions'
       mount ::SkillfindTech::Api::Methods::Redirects => 'redirects'
     end
   end
