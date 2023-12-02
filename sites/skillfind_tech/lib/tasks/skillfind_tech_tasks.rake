@@ -45,14 +45,30 @@ namespace :skillfind_tech do
     end
   end
 
+  task upload_categories: :environment do
+    categories = JSON.parse(File.read('./sites/skillfind_tech/fixtures/categories.json'))
+
+    categories.map do |category|
+      ::SkillfindTech::Category.upsert({
+        id: category['id'],
+        name: category['name'],
+        pl: category['pl'],
+        en: category['en'],
+      }, unique_by: :id)
+    end
+  end
+
   task upload_questions: :environment do
     questions = JSON.parse(File.read('./sites/skillfind_tech/fixtures/questions.json'))
 
     questions.map do |question|
       answers = question['answers']
 
+      category_id = ::SkillfindTech::Category.find_by!(name: question['category']).id
+
       ::SkillfindTech::Question.upsert({
         id: question['id'],
+        category_id: category_id,
         question_type: question['type'],
         lang: 'en',
         title: question['title'],

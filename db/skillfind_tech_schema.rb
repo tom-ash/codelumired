@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_25_140559) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_02_145726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "en", null: false
+    t.string "pl", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.bigint "added_by_id", null: false
@@ -104,6 +112,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_140559) do
     t.string "explanation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "category_id", null: false
+    t.index ["category_id"], name: "index_questions_on_category_id"
     t.index ["url"], name: "index_questions_on_url", unique: true
   end
 
@@ -162,6 +172,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_140559) do
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "postings", "users"
   add_foreign_key "question_answers", "questions"
+  add_foreign_key "questions", "categories"
   add_foreign_key "redirects", "users", column: "added_by_id"
   add_foreign_key "selected_skills", "postings"
   add_foreign_key "selected_skills", "skills"

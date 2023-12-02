@@ -1,6 +1,7 @@
 [
   {
     "id": "27e7946a-7d48-4fe4-9cd7-b5db4502728c",
+    "category": "javascript",
     "type": "singleChoice",
     "difficulty": "easy",
     "title": "Variable Types in JavaScript",
@@ -50,6 +51,7 @@
   },
   {
     "id": "ac354e19-ef0e-4c5b-9a34-8f00b5a20d3f",
+    "category": "javascript",
     "type": "multipleChoice",
     "difficulty": "medium",
     "title": "Promises in JavaScript",
@@ -111,6 +113,7 @@
   },
   {
     "id": "20fc6e0c-6df1-4b16-b598-f136debe0b69",
+    "category": "javascript",
     "type": "multipleChoice",
     "difficulty": "medium",
     "title": "JavaScript Object-Oriented Programming (OOP)",
