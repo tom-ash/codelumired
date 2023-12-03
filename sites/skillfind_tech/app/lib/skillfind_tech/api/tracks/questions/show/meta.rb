@@ -9,8 +9,8 @@ module SkillfindTech
             TRACK = 'questionsShow'
 
             UNLOCALIZED_PATH = {
-              pl: /^pytania\/(?<question_path>.+)$/,
-              en: /^questions\/(?<question_path>.+)$/,
+              pl: /^((?<category_path>.+)\/)?pytania\/(?<question_path>.+)$/,
+              en: /^((?<category_path>.+)\/)?questions\/(?<question_path>.+)$/,
             }.freeze
   
             UNLOCALIZED_TITLE = {

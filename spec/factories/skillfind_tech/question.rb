@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :question, class: ::SkillfindTech::Question do
+    category { create(:category) }
     lang { 'en' }
     question_type { 'singleChoice' }
     url { 'test' }

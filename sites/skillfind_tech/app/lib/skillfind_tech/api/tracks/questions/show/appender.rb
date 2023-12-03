@@ -24,6 +24,7 @@ module SkillfindTech
                 isSingleChoice: type == 'singleChoice',
                 isMultipleChoice: type == 'multipleChoice',
                 isAnyAnswerSelected: false,
+                # category_path: category_path,
               }
             end
 
@@ -37,6 +38,10 @@ module SkillfindTech
 
             def question_path
               @question_path ||= match_data[:question_path]
+            end
+
+            def category_path
+              @category_path ||= match_data[:category_path]
             end
 
             def answers
