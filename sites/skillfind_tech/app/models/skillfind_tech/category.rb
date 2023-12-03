@@ -6,6 +6,6 @@ module SkillfindTech
 
     self.table_name = 'categories'
 
-    has_many :questions, class_name: '::SkillfindTech::Question', foreign_key: :question_id
+    has_many :questions#, class_name: '::SkillfindTech::Question'#, foreign_key: :question_id
   end
 end

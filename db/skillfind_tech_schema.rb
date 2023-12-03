@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_02_145726) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_03_152834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -65,6 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_145726) do
     t.datetime "index_now_pinged_at", precision: nil
     t.uuid "parent_id"
     t.integer "priority", limit: 2
+    t.uuid "category_id"
+    t.index ["category_id"], name: "index_pages_on_category_id"
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 
@@ -168,6 +170,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_145726) do
   end
 
   add_foreign_key "images", "users", column: "added_by_id"
+  add_foreign_key "pages", "categories"
   add_foreign_key "pages", "pages", column: "parent_id"
   add_foreign_key "pages", "users", column: "author_id"
   add_foreign_key "postings", "users"
