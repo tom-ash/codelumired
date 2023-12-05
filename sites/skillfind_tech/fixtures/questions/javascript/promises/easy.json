@@ -1,0 +1,64 @@
+[
+  {
+    "id": "ac354e19-ef0e-4c5b-9a34-8f00b5a20d3f",
+    "category": "javascript",
+    "type": "multipleChoice",
+    "difficulty": "medium",
+    "title": "Promises in JavaScript",
+    "body": "What are JavaScript promises and how do they work?",
+    "answers": [
+      {
+        "id": "bdaf6d0c-98d9-4d84-b98d-3b85d3433c62",
+        "sequenceLetter": "a",
+        "body": "A way to declare variables in JavaScript",
+        "isCorrect": false
+      },
+      {
+        "id": "7e12dd15-2b96-4344-b3a0-17247b61b432",
+        "sequenceLetter": "b",
+        "body": "A built-in JavaScript object representing the eventual completion or failure of an asynchronous operation",
+        "isCorrect": true
+      },
+      {
+        "id": "dd692f69-b9e2-4d9c-a4cd-30377b47ee6c",
+        "sequenceLetter": "c",
+        "body": "A type of conditional statement in JavaScript",
+        "isCorrect": false
+      },
+      {
+        "id": "f95143ac-d6e3-4ab7-9b1b-17403ed4cfdb",
+        "sequenceLetter": "d",
+        "body": "A JavaScript function for handling arrays",
+        "isCorrect": false
+      },
+      {
+        "id": "1e62ddef-f87f-4eef-8c86-6f9c1b0fb180",
+        "sequenceLetter": "e",
+        "body": "A way to create loops in JavaScript",
+        "isCorrect": false
+      },
+      {
+        "id": "8a6f4185-370e-44d3-bc2f-3d5884dcd6e3",
+        "sequenceLetter": "f",
+        "body": "A JavaScript library for styling web pages",
+        "isCorrect": false
+      }
+    ],
+    "hint": "Understanding JavaScript promises involves grasping the concept of asynchronous programming and handling the result of asynchronous operations. Check the [MDN Web Docs on Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for more information.",
+    "explanation": "JavaScript promises are objects that represent the eventual completion or failure of an asynchronous operation. They are widely used in JavaScript for handling asynchronous tasks and improving the readability of asynchronous code. The correct answer is (b).",
+    "reading": [
+      {
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+        "title": "MDN Web Docs on Promises"
+      },
+      {
+        "link": "https://javascript.info/promise-basics",
+        "title": "JavaScript.info - Promises"
+      },
+      {
+        "link": "https://scotch.io/tutorials/javascript-promises-for-dummies",
+        "title": "JavaScript Promises for Dummies"
+      }
+    ]
+  }
+]

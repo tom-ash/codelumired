@@ -4,5 +4,11 @@
     "name": "javascript",
     "pl": "JavaScript",
     "en": "JavaScript"
+  },
+  {
+    "id": "7d39f190-ccfb-48e0-9021-37c3c34ff1ae",
+    "name": "python",
+    "pl": "Python",
+    "en": "Python"
   }
 ]

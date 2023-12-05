@@ -59,33 +59,37 @@ namespace :skillfind_tech do
   end
 
   task upload_questions: :environment do
-    questions = JSON.parse(File.read('./sites/skillfind_tech/fixtures/questions.json'))
+    json_files = Dir["./sites/skillfind_tech/fixtures/questions/**/*.json"]
 
-    questions.map do |question|
-      answers = question['answers']
+    json_files.map do |json_file|
+      questions = JSON.parse(File.read(json_file))
 
-      category_id = ::SkillfindTech::Category.find_by!(name: question['category']).id
-
-      ::SkillfindTech::Question.upsert({
-        id: question['id'],
-        category_id: category_id,
-        question_type: question['type'],
-        lang: 'en',
-        title: question['title'],
-        url: question['title'].parameterize,
-        body: question['body'],
-        hint: question['hint'],
-        explanation: question['explanation'],
-      }, unique_by: :id)
-
-      answers.map do |answer|
-        ::SkillfindTech::QuestionAnswer.upsert({
-          id: answer['id'],
-          question_id: question['id'],
-          sequence_letter: answer['sequenceLetter'],
-          body: answer['body'],
-          is_correct: answer['isCorrect']
-        })
+      questions.map do |question|
+        answers = question['answers']
+  
+        category_id = ::SkillfindTech::Category.find_by!(name: question['category']).id
+  
+        ::SkillfindTech::Question.upsert({
+          id: question['id'],
+          category_id: category_id,
+          question_type: question['type'],
+          lang: 'en',
+          title: question['title'],
+          url: question['title'].parameterize,
+          body: question['body'],
+          hint: question['hint'],
+          explanation: question['explanation'],
+        }, unique_by: :id)
+  
+        answers.map do |answer|
+          ::SkillfindTech::QuestionAnswer.upsert({
+            id: answer['id'],
+            question_id: question['id'],
+            sequence_letter: answer['sequenceLetter'],
+            body: answer['body'],
+            is_correct: answer['isCorrect']
+          })
+        end
       end
     end
   end

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "61d61d4c-2fe0-4e7c-a3b2-cbda5f5e2bf9",
+    "type": "singleChoice",
+    "category": "python",
+    "difficulty": "easy",
+    "title": "Python String Manipulation",
+    "body": "What method is used to convert a string to uppercase in Python?",
+    "answers": [
+        {
+        "id": "c8b3a05e-6524-4380-ae76-dcfc33b82766",
+        "sequenceLetter": "a",
+        "body": "`upper()`",
+        "isCorrect": true
+        },
+        {
+        "id": "4e0d8bea-f9bb-4b88-8c9e-2ec97d6b27a7",
+        "sequenceLetter": "b",
+        "body": "`capitalize()`",
+        "isCorrect": false
+        },
+        {
+        "id": "3832cf2e-e1c1-4df2-aafe-01c10f49bc5e",
+        "sequenceLetter": "c",
+        "body": "`uppercase()`",
+        "isCorrect": false
+        },
+        {
+        "id": "84a87f18-9ac9-437b-976c-c1e442edc227",
+        "sequenceLetter": "d",
+        "body": "`toUpper()`",
+        "isCorrect": false
+        }
+    ],
+    "hint": "Look for a method that specifically deals with changing the case of a string.",
+    "explanation": "The `upper()` method is used to convert all characters in a string to uppercase.",
+    "reading": [
+        {
+        "link": "https://www.w3schools.com/python/ref_string_upper.asp",
+        "title": "W3Schools - Python String upper() Method"
+        },
+        {
+        "link": "https://docs.python.org/3/library/stdtypes.html#str.upper",
+        "title": "Python Documentation - str.upper()"
+        },
+        {
+        "link": "https://realpython.com/python-upper-lower-case/",
+        "title": "Real Python - Converting Between Strings in Python"
+        }
+    ]
+  }
+]
