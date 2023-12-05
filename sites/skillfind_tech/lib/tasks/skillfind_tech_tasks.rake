@@ -75,6 +75,7 @@ namespace :skillfind_tech do
           question_type: question['type'],
           lang: 'en',
           title: question['title'],
+          description: question['description'],
           url: question['title'].parameterize,
           body: question['body'],
           hint: question['hint'],

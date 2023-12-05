@@ -60,5 +60,68 @@
         "title": "W3Schools - JavaScript Objects"
       }
     ]
+  },
+  {
+    "id": "c01b2e20-2a34-4dfb-8a1f-5019bd822f8b",
+    "difficulty": "medium",
+    "category": "javascript",
+    "type": "multipleChoice",
+    "description": "Evaluate your understanding of JavaScript promises with this thought-provoking question.",
+    "title": "JavaScript Promises Challenge",
+    "body": "Consider the following JavaScript code snippet:\n\n```javascript\nfunction asyncOperation() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      resolve('Operation completed successfully.');\n    }, 2000);\n  });\n}\n\nasync function executeOperation() {\n  try {\n    const result = await asyncOperation();\n    console.log(result);\n  } catch (error) {\n    console.error('Error during operation:', error);\n  }\n}\n\nexecuteOperation();\n``` \n\nWhat will be logged to the console when `executeOperation` is called?",
+    "answers": [
+      {
+        "id": "0fcb635d-c09d-4bb1-bb41-5ebd7d0842cc",
+        "sequenceLetter": "a",
+        "body": "'Operation completed successfully.'",
+        "isCorrect": true
+      },
+      {
+        "id": "2e0aa074-0b09-4b6f-a818-b6d176aa00b7",
+        "sequenceLetter": "b",
+        "body": "Promise { <pending> }",
+        "isCorrect": false
+      },
+      {
+        "id": "b4689d3b-5c61-414f-bb85-539a3e6f0ecb",
+        "sequenceLetter": "c",
+        "body": "Error during operation: undefined",
+        "isCorrect": false
+      },
+      {
+        "id": "e1c6e122-4572-44f1-a51f-5c02c318e763",
+        "sequenceLetter": "d",
+        "body": "SyntaxError: missing catch or finally clause",
+        "isCorrect": false
+      },
+      {
+        "id": "72e3508a-894d-43ce-a222-c5594879b46a",
+        "sequenceLetter": "e",
+        "body": "undefined",
+        "isCorrect": false
+      },
+      {
+        "id": "6759cfaf-8b29-43e0-b9f1-0c09f1cc38f5",
+        "sequenceLetter": "f",
+        "body": "Error during operation: 'Operation completed successfully.'",
+        "isCorrect": true
+      }
+    ],
+    "hint": "Consider the use of asynchronous functions, promises, and the `await` keyword in JavaScript.",
+    "explanation": "Explanation: The `asyncOperation` function returns a promise that resolves after a 2000 ms timeout. The `executeOperation` function logs the resolved value when the promise is successfully fulfilled. Since the promise resolves with the string 'Operation completed successfully.', this value is logged to the console.",
+    "reading": [
+      {
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function",
+        "title": "MDN Web Docs - async function"
+      },
+      {
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+        "title": "MDN Web Docs - Promise"
+      },
+      {
+        "link": "https://javascript.info/async-await",
+        "title": "JavaScript.info - Async/await"
+      }
+    ]
   }
 ]

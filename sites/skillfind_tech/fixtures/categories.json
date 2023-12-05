@@ -10,5 +10,11 @@
     "name": "python",
     "pl": "Python",
     "en": "Python"
+  },
+  {
+    "id": "8a521580-2615-42f8-8a8a-5eb01b5db8cd",
+    "name": "designPatterns",
+    "pl": "TODO",
+    "en": "Design Patterns"
   }
 ]

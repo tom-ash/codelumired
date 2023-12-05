@@ -31,22 +31,17 @@ module SkillfindTech
             def unlocalized_path
               @unlocalized_path ||= UNLOCALIZED_PATH
             end
-  
-            def unlocalized_title
-              @unlocalized_title ||= UNLOCALIZED_TITLE
+              
+            def title
+              question.title
+            end
+
+            def description
+              @description ||= question.description
             end
   
-            def unlocalized_keywords
-              @unlocalized_keywords ||= {
-                pl: 'TODO',
-                en: 'TODO',
-              }.freeze
-            end
-  
-            def unlocalized_description
-              @unlocalized_description ||= {
-                en: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
-              }.freeze
+            def keywords
+              nil
             end
   
             def render

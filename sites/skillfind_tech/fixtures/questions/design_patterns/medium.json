@@ -1,0 +1,65 @@
+[
+  {
+    "id": "c3c6bde0-33a9-4c27-8501-8a9d4d8a1973",
+    "difficulty": "medium",
+    "category": "designPatterns",
+    "type": "multipleChoice",
+    "description": "Understanding Design Patterns in Software Engineering",
+    "title": "Design Patterns Quiz",
+    "body": "Consider the scenario of designing a system where a group of objects must collaborate to perform a complex task. Which design pattern(s) would be most suitable for solving this problem?",
+    "answers": [
+        {
+        "id": "0411a303-53a1-497a-832a-41be5c91705f",
+        "sequenceLetter": "a",
+        "body": "Singleton Pattern",
+        "isCorrect": false
+        },
+        {
+        "id": "11e8a17f-c003-4e5f-90b0-98874d458c12",
+        "sequenceLetter": "b",
+        "body": "Observer Pattern",
+        "isCorrect": true
+        },
+        {
+        "id": "6a788f37-5802-4b94-a25a-899593b1d424",
+        "sequenceLetter": "c",
+        "body": "Adapter Pattern",
+        "isCorrect": false
+        },
+        {
+        "id": "2c5fbbf5-b0d4-4a11-991f-f5b46d5363d4",
+        "sequenceLetter": "d",
+        "body": "Factory Method Pattern",
+        "isCorrect": true
+        },
+        {
+        "id": "b84e390b-5d1d-43fe-9a16-1e81a067fe5b",
+        "sequenceLetter": "e",
+        "body": "Chain of Responsibility Pattern",
+        "isCorrect": true
+        },
+        {
+        "id": "3b07142b-3da9-46fe-8b10-9d3e99207c16",
+        "sequenceLetter": "f",
+        "body": "Prototype Pattern",
+        "isCorrect": false
+        }
+    ],
+    "hint": "Think about scenarios where multiple objects need to collaborate and how certain patterns facilitate such collaborations.",
+    "explanation": "Explanation: The Observer, Factory Method, and Chain of Responsibility patterns are well-suited for scenarios where a group of objects collaborates. Observer facilitates a one-to-many dependency between objects, Factory Method provides an interface for creating objects, and Chain of Responsibility allows passing a request along a chain of handlers.",
+    "reading": [
+        {
+        "link": "https://refactoring.guru/design-patterns/observer",
+        "title": "Refactoring Guru - Observer Pattern"
+        },
+        {
+        "link": "https://refactoring.guru/design-patterns/factory-method",
+        "title": "Refactoring Guru - Factory Method Pattern"
+        },
+        {
+        "link": "https://refactoring.guru/design-patterns/chain-of-responsibility",
+        "title": "Refactoring Guru - Chain of Responsibility Pattern"
+        }
+    ]
+  }
+]
