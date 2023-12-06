@@ -5,7 +5,7 @@
     "category": "designPatterns",
     "type": "multipleChoice",
     "description": "Understanding Design Patterns in Software Engineering",
-    "title": "Design Patterns Quiz",
+    "title": "Collaborative Object Design Patterns",
     "body": "Consider the scenario of designing a system where a group of objects must collaborate to perform a complex task. Which design pattern(s) would be most suitable for solving this problem?",
     "answers": [
         {

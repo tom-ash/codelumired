@@ -4,7 +4,7 @@
     "category": "javascript",
     "type": "multipleChoice",
     "difficulty": "medium",
-    "title": "Promises in JavaScript",
+    "title": "Let's Promise",
     "body": "What are JavaScript promises and how do they work?",
     "answers": [
       {

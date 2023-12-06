@@ -4,7 +4,7 @@
     "type": "singleChoice",
     "category": "python",
     "difficulty": "easy",
-    "title": "Python String Manipulation",
+    "title": "Upping a String",
     "body": "What method is used to convert a string to uppercase in Python?",
     "answers": [
         {

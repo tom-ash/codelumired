@@ -3,7 +3,9 @@
 FactoryBot.define do
   factory :category, class: ::SkillfindTech::Category do
     name { 'javascript' }
-    pl { 'JavaScript' }
     en { 'JavaScript' }
+    pl { 'JavaScript' }
+    path_en { 'javascript' }
+    path_pl { 'pl/javascript' }
   end
 end

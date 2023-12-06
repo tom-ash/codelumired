@@ -4,7 +4,7 @@
     "category": "javascript",
     "type": "singleChoice",
     "difficulty": "easy",
-    "title": "Variable Types in JavaScript",
+    "title": "Which Variable Types",
     "body": "Which of the following are valid variable types in the JavaScript language?",
     "answers": [
       {

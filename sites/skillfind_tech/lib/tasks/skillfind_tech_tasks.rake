@@ -52,8 +52,10 @@ namespace :skillfind_tech do
       ::SkillfindTech::Category.upsert({
         id: category['id'],
         name: category['name'],
-        pl: category['pl'],
+        path_en: category['pathEn'],
+        path_pl: category['pathPl'],
         en: category['en'],
+        pl: category['pl'],
       }, unique_by: :id)
     end
   end

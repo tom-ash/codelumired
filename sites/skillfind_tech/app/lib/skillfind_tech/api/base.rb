@@ -44,6 +44,7 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Sitemap,
             ::SkillfindTech::Api::Tracks::Visitor::PrivacyPolicy::Sitemap,
             ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Sitemap,
+            ::SkillfindTech::Api::Tracks::Questions::Show::Sitemap
           ]
         end
 

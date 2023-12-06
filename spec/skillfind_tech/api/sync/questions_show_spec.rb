@@ -108,9 +108,9 @@ RSpec.describe ::SkillfindTech::Api::Sync do
             '@type': 'WebSite',
             url: 'http://local.skillfind.tech:8080/questions/test',
             inLanguage: 'en',
-            name: 'TODO',
-            description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
-            keywords: 'TODO',
+            name: 'test_title',
+            description: nil,
+            keywords: nil,
             image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
             isFamilyFriendly: true
           },
@@ -119,9 +119,9 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:openGraph) do
       {
-        title: 'TODO',
-        keywords: 'TODO',
-        description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
+        title: 'test_title',
+        keywords: nil,
+        description: nil,
         image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
         siteName: 'skillfind.tech',
         url: 'http://local.skillfind.tech:8080/questions/test',
@@ -148,9 +148,9 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     let(:meta) do
       {
         lang: 'en',
-        title: 'TODO',
-        keywords: 'TODO',
-        description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
+        title: 'test_title',
+        keywords: nil,
+        description: nil,
         image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
         langs: [
           'en',

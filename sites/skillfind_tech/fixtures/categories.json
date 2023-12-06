@@ -2,19 +2,25 @@
   {
     "id": "20fc6e0c-6df1-4b16-b598-f136debe0b69",
     "name": "javascript",
+    "pathEn": "javascript",
+    "pathPl": "pl/javascript",
     "pl": "JavaScript",
     "en": "JavaScript"
   },
   {
     "id": "7d39f190-ccfb-48e0-9021-37c3c34ff1ae",
     "name": "python",
+    "pathEn": "python",
+    "pathPl": "pl/python",
     "pl": "Python",
     "en": "Python"
   },
   {
     "id": "8a521580-2615-42f8-8a8a-5eb01b5db8cd",
     "name": "designPatterns",
-    "pl": "TODO",
+    "pathEn": "design-patterns",
+    "pathPl": "pl/wzorce-projektowe",
+    "pl": "Wzorce projektowe",
     "en": "Design Patterns"
   }
 ]

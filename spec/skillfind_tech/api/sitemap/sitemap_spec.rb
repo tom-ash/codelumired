@@ -11,6 +11,7 @@ RSpec.describe ::SkillfindTech::Api::Tracks::Root::Sitemap do
       link_group.map(&:deep_symbolize_keys)
     end
   end
+  let!(:question) { create(:question) }
 
   describe '/sitemap' do
     it 'responds with :ok (201) status' do
@@ -104,6 +105,14 @@ RSpec.describe ::SkillfindTech::Api::Tracks::Root::Sitemap do
             priority: '0.5',
             changeFreq: 'monthly',
           },
+        ],
+        [
+          {
+            href: '/javascript/questions/test',
+            hrefLang: 'en',
+            priority: '1.0',
+            changeFreq: 'monthly',
+          }
         ],
       ])
     end
