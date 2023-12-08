@@ -17,8 +17,8 @@ module Api
               '@context': 'https://schema.org',
               "@graph": [
                 organization,
-                webSite,
-              ].concat(webPageSchema),
+                webSiteSchemaOrg,
+              ].concat(webPageSchemaOrg),
             }
           end
 
@@ -30,8 +30,8 @@ module Api
             ).call
           end
 
-          def webSite
-            @webSite ||= {
+          def webSiteSchemaOrg
+            @webSiteSchemaOrg ||= {
               '@context': SCHEMA_ORG_CONTEXT,
               '@type': SCHEMA_ORG_DEFAULT_TYPE,
               'url': full_url,
@@ -44,7 +44,7 @@ module Api
             }
           end
 
-          def webPageSchema
+          def webPageSchemaOrg
             return [] if webPage.nil?
 
             [webPage]

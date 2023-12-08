@@ -9,12 +9,39 @@ FactoryBot.define do
     title { 'test_title' }
     body { 'test_body' }
     hint { 'test_hint' }
-    explanation { 'test_explanation' }
     after(:create) do |question|
-      create(:question_answer, question: question, sequence_letter: 'a', body: 'body_a', is_correct: false)
-      create(:question_answer, question: question, sequence_letter: 'b', body: 'body_b', is_correct: true)
-      create(:question_answer, question: question, sequence_letter: 'c', body: 'body_c', is_correct: false)
-      create(:question_answer, question: question, sequence_letter: 'd', body: 'body_d', is_correct: false)
+      create(
+        :question_answer,
+        question: question,
+        position: 0,
+        body: 'body_a',
+        is_correct: false,
+        explanation: 'explanation_a',
+      )
+      create(
+        :question_answer,
+        question: question,
+        position: 1,
+        body: 'body_b',
+        is_correct: true,
+        explanation: 'explanation_b',
+      )
+      create(
+        :question_answer,
+        question: question,
+        position: 2,
+        body: 'body_c',
+        is_correct: false,
+        explanation: 'explanation_c',
+      )
+      create(
+        :question_answer,
+        question: question,
+        position: 3,
+        body: 'body_d',
+        is_correct: false,
+        explanation: 'explanation_d',
+      )
     end
   end
 end

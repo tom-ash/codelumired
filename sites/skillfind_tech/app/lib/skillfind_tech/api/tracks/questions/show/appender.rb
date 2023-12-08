@@ -18,7 +18,6 @@ module SkillfindTech
                 body: question.body,
                 answers: answers,
                 hint: question.hint,
-                explanation: question.explanation,
                 isSubmitted: false,
                 isAnsweredCorrectly: nil,
                 isSingleChoice: type == 'singleChoice',
@@ -47,7 +46,7 @@ module SkillfindTech
             def answers
               question.answers.map do |answer|
                 {
-                  sequenceLetter: answer.sequence_letter,
+                  position: answer.position,
                   body: answer.body,
                   isCorrect: answer.is_correct,
                   isSelected: false,

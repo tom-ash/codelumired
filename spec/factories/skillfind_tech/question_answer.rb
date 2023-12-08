@@ -3,8 +3,9 @@
 FactoryBot.define do
   factory :question_answer, class: ::SkillfindTech::QuestionAnswer do
     question { create(:question) }
-    sequence_letter { 'a' }
+    position { 0 }
     body { 'test' }
     is_correct { false }
+    explanation { 'test_explanation' }
   end
 end

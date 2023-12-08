@@ -8,6 +8,14 @@
     "en": "JavaScript"
   },
   {
+    "id": "a2a4f6a5-7cd5-4dbb-ba2a-48a30f4f2e23",
+    "name": "typescript",
+    "pathEn": "typescript",
+    "pathPl": "pl/typescript",
+    "pl": "TypeScript",
+    "en": "TypeScript"
+  },
+  {
     "id": "7d39f190-ccfb-48e0-9021-37c3c34ff1ae",
     "name": "python",
     "pathEn": "python",

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_06_092609) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -98,11 +98,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_092609) do
 
   create_table "question_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "question_id", null: false
-    t.string "sequence_letter", null: false
     t.string "body", null: false
     t.boolean "is_correct", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "explanation"
+    t.integer "position", limit: 2
     t.index ["question_id"], name: "index_question_answers_on_question_id"
   end
 
@@ -113,7 +114,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_092609) do
     t.string "title", null: false
     t.string "body", null: false
     t.string "hint", null: false
-    t.string "explanation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.uuid "category_id", null: false

@@ -81,16 +81,16 @@ namespace :skillfind_tech do
           url: question['title'].parameterize,
           body: question['body'],
           hint: question['hint'],
-          explanation: question['explanation'],
         }, unique_by: :id)
   
-        answers.map do |answer|
+        answers.each_with_index.map do |answer, index|
           ::SkillfindTech::QuestionAnswer.upsert({
             id: answer['id'],
+            position: index,
             question_id: question['id'],
-            sequence_letter: answer['sequenceLetter'],
             body: answer['body'],
-            is_correct: answer['isCorrect']
+            is_correct: answer['isCorrect'],
+            explanation: answer['explanation'],
           })
         end
       end

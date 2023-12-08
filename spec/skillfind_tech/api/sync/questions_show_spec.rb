@@ -103,16 +103,28 @@ RSpec.describe ::SkillfindTech::Api::Sync do
               'https://www.linkedin.com/company/skillfind-tech/',
             ]
           },
+          # {
+          #   '@context': 'https://schema.org',
+          #   '@type': 'WebSite',
+          #   url: 'http://local.skillfind.tech:8080/questions/test',
+          #   inLanguage: 'en',
+          #   name: 'test_title',
+          #   description: nil,
+          #   keywords: nil,
+          #   image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
+          #   isFamilyFriendly: true
+          # },
           {
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            url: 'http://local.skillfind.tech:8080/questions/test',
-            inLanguage: 'en',
-            name: 'test_title',
-            description: nil,
-            keywords: nil,
-            image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
-            isFamilyFriendly: true
+            '@type': 'QAPage',
+            mainEntity: {
+              '@type': 'Question',
+              # encodingFormat: 'text/markdown',
+              name: 'test_title',
+              text: 'test_body',
+              learningResourceType: 'Practice problem',
+              suggestedAnswer: [{:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_a"}, :encodingFormat=>"text/markdown", :position=>0, :text=>"body_a"}, {:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_b"}, :encodingFormat=>"text/markdown", :position=>1, :text=>"body_b"}, {:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_c"}, :encodingFormat=>"text/markdown", :position=>2, :text=>"body_c"}, {:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_d"}, :encodingFormat=>"text/markdown", :position=>3, :text=>"body_d"}],
+              :acceptedAnswer=>{:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_b"}, :encodingFormat=>"text/markdown", :position=>1, :text=>"body_b"},
+            },
           },
         ],
       }

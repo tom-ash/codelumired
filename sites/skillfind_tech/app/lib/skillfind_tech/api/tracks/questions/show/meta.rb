@@ -58,6 +58,55 @@ module SkillfindTech
                 'current/pl': { href: '/TODO' },
               }
             end
+
+            def schema_org
+              @schema_org ||= {
+                '@context': 'https://schema.org',
+                "@graph": [
+                  organization,
+                  # webSiteSchemaOrg,
+                  questionSchemaOrg,
+                  # primarySchemaOrg.merge(authorSchemaOrg),
+                  # breadcrumbsSchemaOrg,
+                ]
+              }
+            end
+
+            # https://developers.google.com/search/docs/appearance/structured-data/practice-problems
+            def questionSchemaOrg
+              {
+                '@type': 'QAPage',
+                mainEntity: {
+                  '@type': 'Question',
+                  name: question.title,
+                  text: question.body,
+                  learningResourceType: 'Practice problem',
+                  suggestedAnswer: buildSchemaOrgAnswers(question.answers),
+                  acceptedAnswer: buildSchemaOrgAnswers(question.answers.where(is_correct: true)),
+                }
+              }
+            end
+
+            def buildSchemaOrgAnswers(answers)
+              built_answers = []
+
+              answers.map do |answer|
+                built_answers.push(
+                  "@type": "Answer",
+                  "position": answer.position,
+                  "text": answer.body,
+                  "encodingFormat": "text/markdown",
+                  answerExplanation: {
+                    "@type": "Comment",
+                    "text": answer.explanation,
+                  }
+                )
+              end
+
+              return built_answers[0] if built_answers.count == 1
+
+              built_answers
+            end
           end
         end
       end
