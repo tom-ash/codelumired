@@ -70,6 +70,8 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Index::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Index::Linker.new(lang).call,
+            ::SkillfindTech::Api::Tracks::SocialPages::Facebook::Meta::TRACK => ::SkillfindTech::Api::Tracks::SocialPages::Facebook::Linker.new(lang).call,
+            ::SkillfindTech::Api::Tracks::SocialPages::Linkedin::Meta::TRACK => ::SkillfindTech::Api::Tracks::SocialPages::Linkedin::Linker.new(lang).call,
           )
         end
 

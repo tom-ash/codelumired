@@ -43,15 +43,6 @@ module SkillfindTech
             }.freeze
           end
 
-          def asset_names
-            @asset_names ||= %i[
-              chevron
-              calendar
-              coworkingSpace
-              carFront
-            ]
-          end
-
           def render
             {
               visitor: true,
