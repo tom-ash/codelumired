@@ -72,19 +72,30 @@ module SkillfindTech
               }
             end
 
-            # https://developers.google.com/search/docs/appearance/structured-data/practice-problems
+            # https://developers.google.com/search/docs/appearance/structured-data/practice-problems#one-question-checkbox
             def questionSchemaOrg
               {
-                '@type': 'QAPage',
-                mainEntity: {
+                '@type': 'Quiz',
+                name: question.title,
+                # about
+                # educationalLevel
+                # assesses
+                hasPart: {
                   '@type': 'Question',
-                  name: question.title,
-                  text: question.body,
+                  eduQuestionType: eduQuestionType,
                   learningResourceType: 'Practice problem',
-                  suggestedAnswer: buildSchemaOrgAnswers(question.answers),
-                  acceptedAnswer: buildSchemaOrgAnswers(question.answers.where(is_correct: true)),
+                  name: question.title,
+                  encodingFormat: "text/markdown",
+                  # typicalAgeRange
+                  text: question.body,
+                  suggestedAnswer: buildSchemaOrgAnswers(question.answers.where(is_correct: false).sort_by(&:position)),
+                  acceptedAnswer: buildSchemaOrgAnswers(question.answers.where(is_correct: true).sort_by(&:position)),
                 }
               }
+            end
+
+            def eduQuestionType
+              @eduQuestionType ||= question.question_type == 'singleChoice' ? 'Multiple choice' : 'Checkbox'
             end
 
             def buildSchemaOrgAnswers(answers)
@@ -92,13 +103,13 @@ module SkillfindTech
 
               answers.map do |answer|
                 built_answers.push(
-                  "@type": "Answer",
-                  "position": answer.position,
-                  "text": answer.body,
-                  "encodingFormat": "text/markdown",
+                  '@type': 'Answer',
+                  position: answer.position,
+                  encodingFormat: 'text/markdown',
+                  text: answer.body,
                   answerExplanation: {
-                    "@type": "Comment",
-                    "text": answer.explanation,
+                    '@type': 'Comment',
+                    text: answer.explanation,
                   }
                 )
               end
