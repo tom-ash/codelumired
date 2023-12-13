@@ -1,0 +1,50 @@
+[
+  {
+    "id": "0c3a8442-52d1-4e9b-9fc1-0dbd54c145c1",
+    "difficulty": "medium",
+    "type": "multipleChoice",
+    "category": "typescript",
+    "description": "Test your TypeScript knowledge with this medium-difficulty question about TypeScript features and syntax.",
+    "title": "TypeScript Question: Features and Syntax",
+    "body": "Consider the following TypeScript code snippet:\n\n```typescript\ninterface Person {\n  name: string;\n  age: number;\n}\n\nfunction greet(person: Person): string {\n  return `Hello, ${person.name}! You are ${person.age} years old.`;\n}\n\nconst john: Person = { name: 'John', age: 30 };\nconst greeting = greet(john);\n``` \n\nWhich of the following statements about the given TypeScript code are correct?",
+    "answers": [
+      {
+        "id": "35a368a8-8b14-4dd5-8a9a-4fe8e2c9e9b4",
+        "body": "The `Person` interface defines a structure with `name` and `age` properties.",
+        "isCorrect": true,
+        "explanation": "Correct! The `Person` interface indeed specifies that an object must have `name` and `age` properties."
+      },
+      {
+        "id": "be00584a-5c1c-4a22-97c2-2ec0a9ebd69d",
+        "body": "The `greet` function returns a string with a greeting message.",
+        "isCorrect": true,
+        "explanation": "Correct! The `greet` function takes a `Person` object as a parameter and returns a string greeting based on its properties."
+      },
+      {
+        "id": "e50fc07f-979c-4bf7-9d18-8c094e9c75ac",
+        "body": "The `greet` function can be called with an object that has additional properties.",
+        "isCorrect": false,
+        "explanation": "Incorrect. TypeScript enforces that the `greet` function is called with an object conforming to the `Person` interface, which includes only `name` and `age`."
+      },
+      {
+        "id": "15cf7a5e-647d-4bf0-80e8-6d7a7b3d59d8",
+        "body": "The `john` object is missing the `age` property.",
+        "isCorrect": false,
+        "explanation": "Incorrect. The `john` object has both `name` and `age` properties, as required by the `Person` interface."
+      },
+      {
+        "id": "17f873db-5084-4137-9253-9a0aee65a2c8",
+        "body": "The `greeting` variable has inferred type `string`.",
+        "isCorrect": true,
+        "explanation": "Correct! Whilst assigning the returned value of `greet(john)` to `greeting` TypeScript infers the type of `greeting` as the `string`."
+      },
+      {
+        "id": "7de4ce63-3fb0-40b2-b929-0c9b746ea6c1",
+        "body": "The `greet` function can accept any type of parameter.",
+        "isCorrect": false,
+        "explanation": "Incorrect. The `greet` function is specifically designed to accept only objects that conform to the `Person` interface, ensuring type safety."
+      }
+    ],
+    "hint": "Refer to the TypeScript documentation on interfaces and function parameter types to find information about defining and using interfaces, as well as specifying parameter types in function declarations."
+  }
+]

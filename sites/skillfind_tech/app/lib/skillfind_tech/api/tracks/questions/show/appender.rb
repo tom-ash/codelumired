@@ -44,12 +44,13 @@ module SkillfindTech
             end
 
             def answers
-              question.answers.map do |answer|
+              question.answers.sort_by(&:position).map do |answer|
                 {
                   position: answer.position,
                   body: answer.body,
                   isCorrect: answer.is_correct,
                   isSelected: false,
+                  explanation: answer.explanation,
                 }
               end
             end
