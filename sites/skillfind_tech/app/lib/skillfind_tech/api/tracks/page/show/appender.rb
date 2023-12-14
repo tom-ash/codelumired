@@ -18,7 +18,18 @@ module SkillfindTech
             end
 
             def questions
-              @questions ||= ::SkillfindTech::Question.where(category_id: page.category_id)
+              @questions ||= ::SkillfindTech::Question.where(category_id: page.category_id).map do |question|
+                question.attributes.merge(
+                  href: "/#{question.category["path_#{lang}"]}/#{practiceProblemPath(lang)}/#{question.url}"
+                )
+              end
+            end
+
+            def practiceProblemPath(lang)
+              {
+                en: 'practice-problems',
+                pl: 'cwiczenia',
+              }[lang]
             end
           end
         end
