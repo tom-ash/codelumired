@@ -27,8 +27,15 @@ module SkillfindTech
               }
             end
 
+            def category
+              @category ||= ::SkillfindTech::Category.find_by("path_#{lang}": category_path)
+            end
+
             def question
-              @question ||= ::SkillfindTech::Question.find_by(url: question_path)
+              @question ||= ::SkillfindTech::Question.find_by!(
+                url: question_path,
+                category_id: category,
+              )
             end
 
             def type

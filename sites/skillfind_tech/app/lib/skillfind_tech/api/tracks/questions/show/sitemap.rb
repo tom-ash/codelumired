@@ -41,8 +41,8 @@ module SkillfindTech
 
               def questionPath(lang)
                 {
-                  en: 'questions',
-                  pl: 'pytania',
+                  en: 'practice-problems',
+                  pl: 'cwiczenia',
                 }[lang]
               end
             end

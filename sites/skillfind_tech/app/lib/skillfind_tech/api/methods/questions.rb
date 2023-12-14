@@ -5,7 +5,10 @@ module SkillfindTech
     module Methods
       class Questions < Grape::API
         get do
-          "/questions/#{::SkillfindTech::Question.pluck(:url).sample}"
+          # TODO: Handle other langs.
+          question = ::SkillfindTech::Question.all.sample
+          category = ::SkillfindTech::Category.find_by!(id: question.category_id)
+          "/#{category.path_en}/practice-problems/#{question.url}"
         end
       end
     end

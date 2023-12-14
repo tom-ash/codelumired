@@ -9,13 +9,8 @@ module SkillfindTech
             TRACK = 'questionsShow'
 
             UNLOCALIZED_PATH = {
-              pl: /^((?<category_path>.+)\/)?pytania\/(?<question_path>.+)$/,
-              en: /^((?<category_path>.+)\/)?questions\/(?<question_path>.+)$/,
-            }.freeze
-  
-            UNLOCALIZED_TITLE = {
-              en: 'TODO',
-              pl: 'TODO',
+              en: /^((?<category_path>.+)\/)?practice-problems\/(?<question_path>.+)$/,
+              pl: /^((?<category_path>.+)\/)?cwiczenia\/(?<question_path>.+)$/,
             }.freeze
   
             private
