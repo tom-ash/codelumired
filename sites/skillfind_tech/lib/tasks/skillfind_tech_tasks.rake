@@ -60,39 +60,59 @@ namespace :skillfind_tech do
     end
   end
 
+  task build_questions: :environment do
+    practice_problems = []
+    practice_problem_jsons = Dir["../practice-problems/**/*.json"]
+
+    practice_problem_jsons.map do |json_file|
+      practice_problem = JSON.parse(File.read(json_file))
+
+      practice_problems << practice_problem
+    end
+
+    ::Commands::S3Object::Upload.new(
+      bucket: 'soundofit-dev',
+      key: 'practice-problems.json',
+      body: practice_problems.to_json,
+    ).call
+  end
+
   task upload_questions: :environment do
-    json_files = Dir["./sites/skillfind_tech/fixtures/questions/**/*.json"]
+    s3_client = Aws::S3::Client.new(region: Rails.application.secrets.aws_region)
 
-    json_files.map do |json_file|
-      questions = JSON.parse(File.read(json_file))
+    questionsAsJson = s3_client.get_object(
+      bucket: 'soundofit-dev',
+      key: 'practice-problems.json',
+    ).body.read
 
-      questions.map do |question|
-        answers = question['answers']
-  
-        category_id = ::SkillfindTech::Category.find_by!(name: question['category']).id
-  
-        ::SkillfindTech::Question.upsert({
-          id: question['id'],
-          category_id: category_id,
-          question_type: question['type'],
-          lang: 'en',
-          title: question['title'],
-          description: question['description'],
-          url: question['title'].parameterize,
-          body: question['body'],
-          hint: question['hint'],
-        }, unique_by: :id)
-  
-        answers.each_with_index.map do |answer, index|
-          ::SkillfindTech::QuestionAnswer.upsert({
-            id: answer['id'],
-            position: index,
-            question_id: question['id'],
-            body: answer['body'],
-            is_correct: answer['isCorrect'],
-            explanation: answer['explanation'],
-          })
-        end
+    questions = JSON.parse(questionsAsJson)
+
+    questions.map do |question|
+      answers = question['answers']
+
+      category_id = ::SkillfindTech::Category.find_by!(name: question['category']).id
+
+      ::SkillfindTech::Question.upsert({
+        id: question['id'],
+        category_id: category_id,
+        question_type: question['type'],
+        lang: 'en',
+        title: question['title'],
+        description: question['description'],
+        url: question['title'].parameterize,
+        body: question['body'],
+        hint: question['hint'],
+      }, unique_by: :id)
+
+      answers.each_with_index.map do |answer, index|
+        ::SkillfindTech::QuestionAnswer.upsert({
+          id: answer['id'],
+          position: index,
+          question_id: question['id'],
+          body: answer['body'],
+          is_correct: answer['isCorrect'],
+          explanation: answer['explanation'],
+        })
       end
     end
   end
