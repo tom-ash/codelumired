@@ -8,7 +8,19 @@ module SkillfindTech
           class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
             include ::SkillfindTech::Api::Tracks::Questions::Show::Meta
 
+            HOMEPAGE = {
+              pl: 'Strona główna',
+              en: 'Homepage',
+            }
+
             private
+
+            def practiceProblemPath(lang)
+              {
+                en: 'practice-problems',
+                pl: 'cwiczenia',
+              }[lang]
+            end
 
             def data
               match_data
@@ -24,7 +36,34 @@ module SkillfindTech
                 isMultipleChoice: type == 'multipleChoice',
                 isAnyAnswerSelected: false,
                 # category_path: category_path,
+                breadcrumbs: breadcrumbs,
               }
+            end
+
+            def breadcrumbs
+              @breadcrumbs ||= begin
+                parents = []
+
+                parents.push(
+                  name: practiceProblemPath(lang),
+                  lang: lang,
+                  item: "/#{category["path_#{lang}"]}/#{practiceProblemPath(lang)}",
+                )
+
+                parents.push(
+                  name: category[lang],
+                  lang: lang,
+                  item: "/#{category["path_#{lang}"]}",
+                )
+  
+                parents.push(
+                  name: HOMEPAGE[lang],
+                  lang: lang,
+                  item: site::Api::Tracks::Root::Linker.new(lang).call[:href],
+                )
+  
+                parents.reverse
+              end
             end
 
             def category
@@ -71,6 +110,22 @@ module SkillfindTech
                 check
               ]
             end
+
+            # def breadcrumbs
+            #   @breadcrumbs ||= begin
+            #     parents = []
+  
+            #     buildBreadcrumbs(parents, page)
+  
+            #     parents.push(
+            #       name: HOMEPAGE[lang],
+            #       lang: lang,
+            #       item: site::Api::Tracks::Root::Linker.new(lang).call[:href],
+            #     )
+  
+            #     parents.reverse
+            #   end
+            # end
           end
         end
       end
