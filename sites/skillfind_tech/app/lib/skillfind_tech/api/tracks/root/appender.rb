@@ -50,7 +50,7 @@ module SkillfindTech
               category: 'skill',
               online: true,
               lang: lang,
-            ).map do |page|
+            ).order('priority ASC').map do |page|
               {
                 href: "/#{page.url}",
                 hrefLang: page.lang,
