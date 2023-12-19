@@ -24,11 +24,11 @@
     "en": "Python"
   },
   {
-    "id": "8a521580-2615-42f8-8a8a-5eb01b5db8cd",
-    "name": "designPatterns",
-    "pathEn": "design-patterns",
-    "pathPl": "pl/wzorce-projektowe",
-    "pl": "Wzorce projektowe",
-    "en": "Design Patterns"
+    "id": "3f91f6ac-46a1-478b-b768-083f49be1cf2",
+    "name": "html",
+    "pathEn": "html",
+    "pathPl": "pl/html",
+    "pl": "HTML",
+    "en": "HTML"
   }
 ]

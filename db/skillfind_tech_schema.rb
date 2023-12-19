@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_17_163504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.string "name", null: false
     t.string "en", null: false
     t.string "pl", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "path_en"
     t.string "path_pl"
   end
@@ -29,16 +29,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.bigint "added_by_id", null: false
     t.bigint "page_id"
     t.jsonb "body", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "name"
     t.integer "width"
     t.integer "height"
     t.string "storage_key", null: false
     t.string "storage_url"
-    t.index ["added_by_id"], name: "index_images_on_added_by_id"
-    t.index ["page_id"], name: "index_images_on_page_id"
-    t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
   end
 
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -68,8 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.uuid "parent_id"
     t.integer "priority", limit: 2
     t.uuid "category_id"
-    t.index ["category_id"], name: "index_pages_on_category_id"
-    t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 
   create_table "postings", force: :cascade do |t|
@@ -91,20 +86,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.integer "b2b_min"
     t.integer "b2b_max"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_postings_on_user_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "question_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "question_id", null: false
     t.string "body", null: false
     t.boolean "is_correct", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "explanation"
     t.integer "position", limit: 2
-    t.index ["question_id"], name: "index_question_answers_on_question_id"
+    t.string "hint"
   end
 
   create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -114,12 +108,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.string "title", null: false
     t.string "body", null: false
     t.string "hint", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.uuid "category_id", null: false
     t.string "description"
-    t.index ["category_id"], name: "index_questions_on_category_id"
-    t.index ["url"], name: "index_questions_on_url", unique: true
   end
 
   create_table "redirects", force: :cascade do |t|
@@ -128,21 +120,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.string "redirected_url", null: false
     t.integer "status", null: false
     t.text "reason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["added_by_id"], name: "index_redirects_on_added_by_id"
-    t.index ["original_url"], name: "index_redirects_on_original_url", unique: true
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "selected_skills", force: :cascade do |t|
     t.bigint "posting_id", null: false
     t.bigint "skill_id", null: false
     t.integer "level", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["level"], name: "index_selected_skills_on_level"
-    t.index ["posting_id"], name: "index_selected_skills_on_posting_id"
-    t.index ["skill_id"], name: "index_selected_skills_on_skill_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "skills", force: :cascade do |t|
@@ -150,10 +137,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.string "name", null: false
     t.string "type", null: false
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_skills_on_name", unique: true
-    t.index ["principal_skill_id"], name: "index_skills_on_principal_skill_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -165,22 +150,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_142237) do
     t.string "hashed_password", null: false
     t.string "password_salt", null: false
     t.jsonb "change_log", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.datetime "email_verified_at", precision: nil
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.jsonb "author_data"
   end
 
-  add_foreign_key "images", "users", column: "added_by_id"
-  add_foreign_key "pages", "categories"
-  add_foreign_key "pages", "pages", column: "parent_id"
-  add_foreign_key "pages", "users", column: "author_id"
-  add_foreign_key "postings", "users"
-  add_foreign_key "question_answers", "questions"
-  add_foreign_key "questions", "categories"
-  add_foreign_key "redirects", "users", column: "added_by_id"
-  add_foreign_key "selected_skills", "postings"
-  add_foreign_key "selected_skills", "skills"
-  add_foreign_key "skills", "skills", column: "principal_skill_id"
+  add_foreign_key "images", "users", column: "added_by_id", name: "images_added_by_id_fkey"
+  add_foreign_key "pages", "categories", name: "pages_category_id_fkey"
+  add_foreign_key "pages", "pages", column: "parent_id", name: "pages_parent_id_fkey"
+  add_foreign_key "pages", "users", column: "author_id", name: "pages_author_id_fkey"
+  add_foreign_key "postings", "users", name: "postings_user_id_fkey"
+  add_foreign_key "question_answers", "questions", name: "question_answers_question_id_fkey"
+  add_foreign_key "questions", "categories", name: "questions_category_id_fkey"
+  add_foreign_key "redirects", "users", column: "added_by_id", name: "redirects_added_by_id_fkey"
+  add_foreign_key "selected_skills", "postings", name: "selected_skills_posting_id_fkey"
+  add_foreign_key "selected_skills", "skills", name: "selected_skills_skill_id_fkey"
+  add_foreign_key "skills", "skills", column: "principal_skill_id", name: "skills_principal_skill_id_fkey"
 end

@@ -72,16 +72,37 @@ module SkillfindTech
               {
                 '@type': 'Quiz',
                 name: question.title,
-                # about
-                # educationalLevel
-                # assesses
                 hasPart: {
                   '@type': 'Question',
                   eduQuestionType: eduQuestionType,
+                  educationalAlignment: [
+                    {
+                      '@type': 'AlignmentObject',
+                      alignmentType: 'educationalSubject',
+                      targetName: 'Programming',
+                    },
+                    {
+                      '@type': 'AlignmentObject',
+                      alignmentType: 'educationalSubject',
+                      targetName: 'Software Engineering',
+                    },
+                    {
+                      '@type': 'AlignmentObject',
+                      alignmentType: 'educationalSubject',
+                      targetName: category.en,
+                    },
+                  ],
+                  # REQ typicalAgeRange
+                  # REQ assesses
+                  # REQ educationalLevel
+                  comment: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: question.hint,
+                  },
                   learningResourceType: 'Practice problem',
                   name: question.title,
                   encodingFormat: "text/markdown",
-                  # typicalAgeRange
                   text: question.body,
                   suggestedAnswer: buildSchemaOrgAnswers(question.answers.where(is_correct: false).sort_by(&:position)),
                   acceptedAnswer: buildSchemaOrgAnswers(question.answers.where(is_correct: true).sort_by(&:position)),
@@ -102,8 +123,14 @@ module SkillfindTech
                   position: answer.position,
                   encodingFormat: 'text/markdown',
                   text: answer.body,
+                  comment: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: answer.hint,
+                  },
                   answerExplanation: {
                     '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
                     text: answer.explanation,
                   }
                 )

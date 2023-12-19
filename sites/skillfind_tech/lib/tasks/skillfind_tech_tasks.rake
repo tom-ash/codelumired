@@ -112,6 +112,7 @@ namespace :skillfind_tech do
           body: answer['body'],
           is_correct: answer['isCorrect'],
           explanation: answer['explanation'],
+          hint: answer['hint'],
         })
       end
     end

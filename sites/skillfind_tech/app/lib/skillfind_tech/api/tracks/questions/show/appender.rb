@@ -97,6 +97,7 @@ module SkillfindTech
                   isCorrect: answer.is_correct,
                   isSelected: false,
                   explanation: answer.explanation,
+                  hint: answer.hint,
                 }
               end
             end
@@ -104,6 +105,7 @@ module SkillfindTech
             def asset_names
               @asset_names ||= %i[
                 retry
+                questionMark
                 dice
                 send
                 paperPlane
