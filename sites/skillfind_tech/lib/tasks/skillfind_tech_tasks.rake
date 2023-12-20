@@ -97,6 +97,7 @@ namespace :skillfind_tech do
         category_id: category_id,
         question_type: question['type'],
         difficulty: question['difficulty'],
+        assesses: question['assesses'],
         lang: 'en',
         title: question['title'],
         description: question['description'],

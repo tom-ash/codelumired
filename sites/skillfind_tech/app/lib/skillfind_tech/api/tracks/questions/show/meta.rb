@@ -94,7 +94,7 @@ module SkillfindTech
                   ],
                   typicalAgeRange: '15-99',
                   educationalLevel: educationalLevel,
-                  # REQ assesses
+                  assesses: question.assesses,
                   comment: {
                     '@type': 'Comment',
                     encodingFormat: 'text/markdown',
