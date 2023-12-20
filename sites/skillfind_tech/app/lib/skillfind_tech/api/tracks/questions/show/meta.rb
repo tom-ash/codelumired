@@ -92,9 +92,9 @@ module SkillfindTech
                       targetName: category.en,
                     },
                   ],
-                  # REQ typicalAgeRange
+                  typicalAgeRange: '15-99',
+                  educationalLevel: educationalLevel,
                   # REQ assesses
-                  # REQ educationalLevel
                   comment: {
                     '@type': 'Comment',
                     encodingFormat: 'text/markdown',
@@ -139,6 +139,14 @@ module SkillfindTech
               return built_answers[0] if built_answers.count == 1
 
               built_answers
+            end
+
+            def educationalLevel
+              {
+                easy: 'beginner',
+                medium: 'intermediate',
+                hard: 'advanced',
+              }[question.difficulty.to_sym]
             end
           end
         end
