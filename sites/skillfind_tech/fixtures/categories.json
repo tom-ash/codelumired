@@ -30,5 +30,15 @@
     "pathPl": "pl/html",
     "pl": "HTML",
     "en": "HTML"
+  },
+  {
+    "id": "acf9a1f2-7d34-45a6-87b7-162b66a21e7b",
+    "name": "postgresql",
+    "pathEn": "postgresql",
+    "pathPl": "pl/postgresql",
+    "pl": "PostgreSQL",
+    "en": "PostgreSQL"
   }
+
+  
 ]
