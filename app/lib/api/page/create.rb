@@ -12,7 +12,7 @@ module Api
         ).call
 
         {
-          href: page.edit_link,
+          href: "/#{page.edit_link}",
         }
       end
     end
