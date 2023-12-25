@@ -38,7 +38,13 @@
     "pathPl": "pl/postgresql",
     "pl": "PostgreSQL",
     "en": "PostgreSQL"
+  },
+  {
+    "id": "40a4d810-306c-4874-b74f-f865f2b7c8bd",
+    "name": "docker",
+    "pathEn": "docker",
+    "pathPl": "pl/docker",
+    "pl": "Docker",
+    "en": "Docker"
   }
-
-  
 ]
