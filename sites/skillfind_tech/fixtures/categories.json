@@ -46,5 +46,13 @@
     "pathPl": "pl/docker",
     "pl": "Docker",
     "en": "Docker"
+  },
+  {
+    "id": "477abe8d-b495-4e5c-92e7-7f0f974e1c3e",
+    "name": "designPrinciples",
+    "pathEn": "design-principles",
+    "pathPl": "pl/zasady-projektowe",
+    "pl": "Design Principles",
+    "en": "Zasady Projektowe"
   }
 ]
