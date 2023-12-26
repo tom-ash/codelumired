@@ -54,5 +54,13 @@
     "pathPl": "pl/zasady-projektowe",
     "pl": "Zasady Projektowe",
     "en": "Design Principles"
+  },
+  {
+    "id": "2d4b05b3-6922-4f32-a6d5-1b29b8a5d879",
+    "name": "designPatterns",
+    "pathEn": "design-patterns",
+    "pathPl": "pl/wzorce-projektowe",
+    "pl": "Wzorce Projektowe",
+    "en": "Design Patterns"
   }
 ]
