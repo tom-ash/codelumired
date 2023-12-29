@@ -11,11 +11,13 @@ module SkillfindTech
 
           def texts
             {
-              pl: {
-                honeYourSkillsHeadingTwo: 'Szlifuj swoje umiejętności tech',
-              },
               en: {
-                honeYourSkillsHeadingTwo: 'Hone your tech skills',
+                skillsHeading: 'Hone your tech skills',
+                featuredArticlesHeading: 'Featured Articles',
+              },
+              pl: {
+                skillsHeading: 'Szlifuj swoje umiejętności tech',
+                featuredArticlesHeading: 'Artykuły',
               },
             }[lang]
           end

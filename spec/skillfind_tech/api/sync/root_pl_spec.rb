@@ -45,7 +45,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:visitor_texts) do
       {
-        honeYourSkillsHeadingTwo: 'Hone your tech skills',
+        skillsHeading: 'Hone your tech skills',
         signOutButtonLabel: 'Sign Out',
         showMyAccountMenuButtonLabel: 'My account',
         allRightsReserved: '',
