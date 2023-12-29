@@ -55,6 +55,7 @@ module SkillfindTech
                 href: "/#{page.url}",
                 hrefLang: page.lang,
                 title: page.title,
+                description: page.description,
               }
             end
           end
@@ -71,6 +72,7 @@ module SkillfindTech
                 hrefLang: article.lang,
                 title: article.title,
                 image: article.cover_image,
+                description: article.description,
               }
             end
           end
