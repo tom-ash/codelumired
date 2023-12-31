@@ -63,6 +63,7 @@ module Api
               facebook_square
               linkedin_square
               twitter_square
+              home
             ]
           end
 

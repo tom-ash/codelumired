@@ -110,6 +110,7 @@ module SkillfindTech
                 send
                 paperPlane
                 check
+                home
               ]
             end
 
