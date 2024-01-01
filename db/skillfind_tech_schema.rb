@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_01_092053) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_01_102440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092053) do
     t.uuid "parent_id"
     t.integer "priority", limit: 2
     t.uuid "category_id"
+    t.string "content_type"
   end
 
   create_table "postings", force: :cascade do |t|

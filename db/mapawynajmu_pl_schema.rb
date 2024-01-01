@@ -153,6 +153,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.string "link_image"
     t.datetime "index_now_pinged_at"
     t.uuid "parent_id"
+    t.string "content_type"
     t.integer "priority", limit: 2
     t.index ["author_id"], name: "index_pages_on_author_id"
     t.index ["description"], name: "index_pages_on_description"

@@ -48,11 +48,14 @@ module SkillfindTech
 
           def pages
             # TODO: Change map to select.
-            ::SkillfindTech::Page.where(
-              category: 'skill',
+            ::SkillfindTech::Page
+            .includes(:category)
+            .where(
               online: true,
               lang: lang,
-            ).order('priority ASC').map do |page|
+              content_type: 'page_index',
+            )
+            .order('priority ASC').map do |page|
               {
                 href: "/#{page.url}",
                 hrefLang: page.lang,
@@ -64,11 +67,13 @@ module SkillfindTech
 
           def articles
             # TODO: Change map to select.
-            ::SkillfindTech::Page.where(
-              category: 'article',
+            ::SkillfindTech::Page
+            .where(
               online: true,
               lang: lang,
-            ).map do |article|
+              content_type: 'article',
+            )
+            .map do |article|
               {
                 href: "/#{article.url}",
                 hrefLang: article.lang,
