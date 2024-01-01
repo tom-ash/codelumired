@@ -27,10 +27,9 @@ module Builders
                :modified_on,
                :cover_image,
                :url,
-               :category, to: :page
 
       def auto_schema
-        { '@type': type }.merge(shared_schema)
+        { '@type': 'Article' }.merge(shared_schema)
       end
 
       def manual_schema
@@ -50,19 +49,6 @@ module Builders
           isFamilyFriendly: true,
           image: cover_image
         }
-      end
-
-      def type
-        case category
-        when 'tutorials'
-          'CreativeWork'
-        when 'insights'
-          'CreativeWork'
-        when 'articles'
-          'Article'
-        else
-          'WebSite'
-        end
       end
     end
   end

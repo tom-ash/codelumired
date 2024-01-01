@@ -28,8 +28,6 @@ module Serializers
           :manual_schema,
           :published_on,
           :modified_on,
-          :category,
-          :subcategory,
           :lang_alts_group,
         ).merge(
           page_lang: page[:lang],
