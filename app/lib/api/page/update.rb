@@ -20,8 +20,6 @@ module Api
         requires :manual_schema, type: String
         requires :published_on, type: Date
         requires :modified_on, type: Date
-        requires :category, type: String
-        requires :subcategory, type: String
         optional :priority, type: Integer
       end
       put do

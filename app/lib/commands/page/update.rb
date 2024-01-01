@@ -21,8 +21,6 @@ module Commands
         manual_schema
         published_on
         modified_on
-        category
-        subcategory
         lang_alts_group
         parent_id
         priority

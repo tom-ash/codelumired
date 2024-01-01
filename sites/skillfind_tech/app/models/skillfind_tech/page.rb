@@ -5,7 +5,7 @@ module SkillfindTech
     establish_connection :skillfind_tech
 
     belongs_to :user, foreign_key: :author_id
-    belongs_to :category, foreign_key: :category_id
+    belongs_to :category, foreign_key: :category_id, optional: true
 
     private
 
