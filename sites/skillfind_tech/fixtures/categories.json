@@ -4,6 +4,8 @@
     "name": "javascript",
     "pathEn": "javascript",
     "pathPl": "pl/javascript",
+    "descriptionEn": "The scripting language of the World Wide Web.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "JavaScript",
     "en": "JavaScript"
   },
@@ -12,6 +14,8 @@
     "name": "typescript",
     "pathEn": "typescript",
     "pathPl": "pl/typescript",
+    "descriptionEn": "The typed superset of JavaScript.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "TypeScript",
     "en": "TypeScript"
   },
@@ -20,6 +24,8 @@
     "name": "python",
     "pathEn": "python",
     "pathPl": "pl/python",
+    "descriptionEn": "A popular high-level & versatile programming language known for its readability and simplicity.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "Python",
     "en": "Python"
   },
@@ -28,14 +34,38 @@
     "name": "html",
     "pathEn": "html",
     "pathPl": "pl/html",
+    "descriptionEn": "A markup language providing structure for World Wide Web documents.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "HTML",
     "en": "HTML"
+  },
+  {
+    "id": "9a7c454b-e190-47ce-80c5-657ed5348caa",
+    "name": "css",
+    "pathEn": "css",
+    "pathPl": "pl/css",
+    "descriptionEn": "A style sheet language that provides styling for World Wide Web documents.",
+    "descriptionPl": "DESCRIPTION_PL",
+    "pl": "CSS",
+    "en": "CSS"
+  },
+  {
+    "id": "1ae82185-2419-4293-ac2f-65e7c79dec42",
+    "name": "http",
+    "pathEn": "http",
+    "pathPl": "pl/http",
+    "descriptionEn": "The protocol governing the actions of creating, reading, updating, and deleting World Wide Web hypermedia resources.",
+    "descriptionPl": "DESCRIPTION_PL",
+    "pl": "HTTP",
+    "en": "HTTP"
   },
   {
     "id": "acf9a1f2-7d34-45a6-87b7-162b66a21e7b",
     "name": "postgresql",
     "pathEn": "postgresql",
     "pathPl": "pl/postgresql",
+    "descriptionEn": "The most renown open-source relational database management system.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "PostgreSQL",
     "en": "PostgreSQL"
   },
@@ -44,6 +74,8 @@
     "name": "docker",
     "pathEn": "docker",
     "pathPl": "pl/docker",
+    "descriptionEn": "A platform that uses OS-level virtualization to deliver software in packages called containers.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "Docker",
     "en": "Docker"
   },
@@ -52,15 +84,29 @@
     "name": "designPrinciples",
     "pathEn": "design-principles",
     "pathPl": "pl/zasady-projektowe",
+    "descriptionEn": "Guidelines for developers on creating robust, maintainable & extensible software systems.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "Zasady Projektowe",
     "en": "Design Principles"
   },
   {
-    "id": "2d4b05b3-6922-4f32-a6d5-1b29b8a5d879",
+    "id": "8a521580-2615-42f8-8a8a-5eb01b5db8cd",
     "name": "designPatterns",
     "pathEn": "design-patterns",
     "pathPl": "pl/wzorce-projektowe",
+    "descriptionEn": "General, reusable solutions to commonly occurring problems.",
+    "descriptionPl": "DESCRIPTION_PL",
     "pl": "Wzorce Projektowe",
     "en": "Design Patterns"
+  },
+  {
+    "id": "fcaf087c-b871-47d7-8f7b-ac8acca97811",
+    "name": "oop",
+    "pathEn": "object-oriented-programming-oop",
+    "pathPl": "pl/programowanie-obiektowe",
+    "descriptionEn": "The popular programming concept based on objects that include stored procedures and data.",
+    "descriptionPl": "DESCRIPTION_PL",
+    "pl": "Wzorce Projektowe",
+    "en": "Programowanie-obiektowe"
   }
 ]

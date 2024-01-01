@@ -54,6 +54,8 @@ namespace :skillfind_tech do
         name: category['name'],
         path_en: category['pathEn'],
         path_pl: category['pathPl'],
+        description_en: category['descriptionEn'],
+        description_pl: category['descriptionPl'],
         en: category['en'],
         pl: category['pl'],
       }, unique_by: :id)
