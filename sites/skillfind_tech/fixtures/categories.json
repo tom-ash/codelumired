@@ -108,5 +108,15 @@
     "descriptionPl": "DESCRIPTION_PL",
     "pl": "Wzorce Projektowe",
     "en": "Programowanie-obiektowe"
+  },
+  {
+    "id": "f2e4d606-57f7-45a8-9d3d-f516ad18931c",
+    "name": "programming",
+    "pathEn": "programming",
+    "pathPl": "pl/programowanie",
+    "descriptionEn": "The most sought after skill of the modern world.",
+    "descriptionPl": "DESCRIPTION_PL",
+    "pl": "Programming",
+    "en": "Programowanie"
   }
 ]
