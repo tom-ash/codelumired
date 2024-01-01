@@ -26,7 +26,7 @@ module Builders
                :published_on,
                :modified_on,
                :cover_image,
-               :url,
+               :url, to: :page
 
       def auto_schema
         { '@type': 'Article' }.merge(shared_schema)
