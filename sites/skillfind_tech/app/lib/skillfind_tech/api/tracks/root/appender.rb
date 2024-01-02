@@ -56,11 +56,12 @@ module SkillfindTech
               content_type: 'page_index',
             )
             .order('priority ASC').map do |page|
+              # byebug
               {
                 href: "/#{page.url}",
                 hrefLang: page.lang,
                 title: page.title,
-                description: page.description,
+                description: page.category ? page.category["description_#{lang}"] : nil,
               }
             end
           end
