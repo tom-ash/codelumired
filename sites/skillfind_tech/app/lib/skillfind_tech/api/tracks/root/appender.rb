@@ -42,12 +42,23 @@ module SkillfindTech
             end
           end
 
+          def asset_names
+            @asset_names ||= %i[
+              chevron
+              facebook_square
+              linkedin_square
+              twitter_square
+              home
+              collegeCap
+              flaskVial
+            ]
+          end
+
           def page
             ::SkillfindTech::Page.find_by(url: "root/#{lang}")
           end
 
           def pages
-            # TODO: Change map to select.
             ::SkillfindTech::Page
             .includes(:category)
             .where(
@@ -56,12 +67,17 @@ module SkillfindTech
               content_type: 'page_index',
             )
             .order('priority ASC').map do |page|
-              # byebug
+              # TODO: This is O(n²) complexity. Investigate better solution.
+              page_count = ::SkillfindTech::Page.where(lang: lang, category_id: page.category_id, content_type: 'tutorial').count
+              question_count = ::SkillfindTech::Question.where(lang: lang, category_id: page.category_id).count
+
               {
                 href: "/#{page.url}",
                 hrefLang: page.lang,
                 title: page.title,
                 description: page.category ? page.category["description_#{lang}"] : nil,
+                page_count: page_count,
+                question_count: question_count,
               }
             end
           end
