@@ -118,5 +118,15 @@
     "descriptionPl": "DESCRIPTION_PL",
     "pl": "Programming",
     "en": "Programowanie"
+  },
+  {
+    "id": "2d0d817d-2996-4d5e-a9e2-7bbccc1fe62d",
+    "name": "ruby",
+    "pathEn": "ruby",
+    "pathPl": "pl/ruby",
+    "descriptionEn": "An interpreted, high level, server-side language emphasising productivity & simplicity.",
+    "descriptionPl": "DESCRIPTION_PL",
+    "pl": "Ruby",
+    "en": "Ruby"
   }
 ]
