@@ -124,7 +124,7 @@
     "name": "ruby",
     "pathEn": "ruby",
     "pathPl": "pl/ruby",
-    "descriptionEn": "An interpreted, high level, server-side language emphasising productivity & simplicity.",
+    "descriptionEn": "An interpreted, high-level, server-side language emphasizing productivity & simplicity.",
     "descriptionPl": "DESCRIPTION_PL",
     "pl": "Ruby",
     "en": "Ruby"

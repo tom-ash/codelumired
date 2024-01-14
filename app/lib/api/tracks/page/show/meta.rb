@@ -64,6 +64,8 @@ module Api
               linkedin_square
               twitter_square
               home
+              pen
+              penAlt
             ]
           end
 
