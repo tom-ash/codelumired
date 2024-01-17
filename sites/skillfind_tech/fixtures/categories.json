@@ -5,7 +5,7 @@
     "pathEn": "javascript",
     "pathPl": "pl/javascript",
     "descriptionEn": "The scripting language of the World Wide Web.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Język skryptowy Światowej Sieci.",
     "pl": "JavaScript",
     "en": "JavaScript"
   },
@@ -15,7 +15,7 @@
     "pathEn": "typescript",
     "pathPl": "pl/typescript",
     "descriptionEn": "The typed superset of JavaScript.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Typowany nadzbiór języka JavaScript.",
     "pl": "TypeScript",
     "en": "TypeScript"
   },
@@ -25,7 +25,7 @@
     "pathEn": "python",
     "pathPl": "pl/python",
     "descriptionEn": "A popular high-level & versatile programming language known for its readability and simplicity.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Popularny, wysokopoziomowy i wszechstronny język programowania, znany ze swojej czytelności i prostoty.",
     "pl": "Python",
     "en": "Python"
   },
@@ -35,7 +35,7 @@
     "pathEn": "html",
     "pathPl": "pl/html",
     "descriptionEn": "A markup language providing structure for World Wide Web documents.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Język znaczników zapewniający strukturę dokumentom Światowej Sieci.",
     "pl": "HTML",
     "en": "HTML"
   },
@@ -45,7 +45,7 @@
     "pathEn": "css",
     "pathPl": "pl/css",
     "descriptionEn": "A style sheet language that provides styling for World Wide Web documents.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Język arkuszy stylów, który zapewnia stylizację dokumentów Światowej Sieci.",
     "pl": "CSS",
     "en": "CSS"
   },
@@ -55,7 +55,7 @@
     "pathEn": "http",
     "pathPl": "pl/http",
     "descriptionEn": "The protocol governing the actions of creating, reading, updating, and deleting World Wide Web hypermedia resources.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Protokół zarządzający działaniami tworzenia, czytania, aktualizowania i usuwania hipermedialnych zasobów Światowej Sieci.",
     "pl": "HTTP",
     "en": "HTTP"
   },
@@ -65,7 +65,7 @@
     "pathEn": "postgresql",
     "pathPl": "pl/postgresql",
     "descriptionEn": "The most renown open-source relational database management system.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Najbardziej znany otwartoźródłowy system zarządzania relacyjnymi bazami danych.",
     "pl": "PostgreSQL",
     "en": "PostgreSQL"
   },
@@ -75,7 +75,7 @@
     "pathEn": "docker",
     "pathPl": "pl/docker",
     "descriptionEn": "A platform that uses OS-level virtualization to deliver software in packages called containers.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Platforma wykorzystująca wirtualizację na poziomie systemu operacyjnego do dostarczania oprogramowania w pakietach zwanych kontenerami.",
     "pl": "Docker",
     "en": "Docker"
   },
@@ -85,7 +85,7 @@
     "pathEn": "design-principles",
     "pathPl": "pl/zasady-projektowe",
     "descriptionEn": "Guidelines for developers on creating robust, maintainable & extensible software systems.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Wskazówki dla programistów dotyczące tworzenia silnych, łatwych w utrzymaniu i rozbudowywalnych systemów oprogramowania.",
     "pl": "Zasady Projektowe",
     "en": "Design Principles"
   },
@@ -95,7 +95,7 @@
     "pathEn": "design-patterns",
     "pathPl": "pl/wzorce-projektowe",
     "descriptionEn": "General, reusable solutions to commonly occurring problems.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Ogólne, wielokrotnego użytku rozwiązania powszechnie występujących problemów.",
     "pl": "Wzorce Projektowe",
     "en": "Design Patterns"
   },
@@ -104,8 +104,8 @@
     "name": "oop",
     "pathEn": "object-oriented-programming-oop",
     "pathPl": "pl/programowanie-obiektowe",
-    "descriptionEn": "The popular programming concept based on objects that include stored procedures and data.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionEn": "The popular programming concept based on objects that might include stored procedures and data.",
+    "descriptionPl": "Popularny koncept programowania oparty na obiektach, które mogą zawierać zapisane procedury i dane.",
     "pl": "Wzorce Projektowe",
     "en": "Programowanie-obiektowe"
   },
@@ -115,7 +115,7 @@
     "pathEn": "programming",
     "pathPl": "pl/programowanie",
     "descriptionEn": "The most sought after skill of the modern world.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Najbardziej pożądana umiejętność współczesnego świata.",
     "pl": "Programming",
     "en": "Programowanie"
   },
@@ -125,7 +125,7 @@
     "pathEn": "ruby",
     "pathPl": "pl/ruby",
     "descriptionEn": "An interpreted, high-level, server-side language emphasizing productivity & simplicity.",
-    "descriptionPl": "DESCRIPTION_PL",
+    "descriptionPl": "Interpretowany, wysokopoziomowy język do programowania po stronie serwera, kładący nacisk na produktywność i prostotę.",
     "pl": "Ruby",
     "en": "Ruby"
   }
