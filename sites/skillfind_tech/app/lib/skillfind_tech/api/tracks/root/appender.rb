@@ -78,6 +78,7 @@ module SkillfindTech
                 description: page.category ? page.category["description_#{lang}"] : nil,
                 page_count: page_count,
                 question_count: question_count,
+                image: page.category.image,
               }
             end
           end

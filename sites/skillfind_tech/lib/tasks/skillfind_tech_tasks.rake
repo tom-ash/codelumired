@@ -58,6 +58,7 @@ namespace :skillfind_tech do
         description_pl: category['descriptionPl'],
         en: category['en'],
         pl: category['pl'],
+        image: category['image'],
       }, unique_by: :id)
     end
   end

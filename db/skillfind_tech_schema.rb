@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_01_102440) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_21_115530) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -25,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_102440) do
     t.string "path_pl"
     t.string "description_en"
     t.string "description_pl"
+    t.string "image"
   end
 
   create_table "images", force: :cascade do |t|
