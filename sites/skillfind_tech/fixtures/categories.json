@@ -18,7 +18,8 @@
     "descriptionEn": "The typed superset of JavaScript.",
     "descriptionPl": "Typowany nadzbiór języka JavaScript.",
     "pl": "TypeScript",
-    "en": "TypeScript"
+    "en": "TypeScript",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/typescript.png"
   },
   {
     "id": "7d39f190-ccfb-48e0-9021-37c3c34ff1ae",
@@ -38,7 +39,8 @@
     "descriptionEn": "A markup language providing structure for World Wide Web documents.",
     "descriptionPl": "Język znaczników zapewniający strukturę dokumentom Światowej Sieci.",
     "pl": "HTML",
-    "en": "HTML"
+    "en": "HTML",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/html.png"
   },
   {
     "id": "9a7c454b-e190-47ce-80c5-657ed5348caa",
