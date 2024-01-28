@@ -137,6 +137,7 @@
     "descriptionEn": "An interpreted, high-level, server-side language emphasizing productivity & simplicity.",
     "descriptionPl": "Interpretowany, wysokopoziomowy język do programowania po stronie serwera, kładący nacisk na produktywność i prostotę.",
     "pl": "Ruby",
-    "en": "Ruby"
+    "en": "Ruby",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/ruby.png"
   }
 ]
