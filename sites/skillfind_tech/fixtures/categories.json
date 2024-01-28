@@ -29,7 +29,8 @@
     "descriptionEn": "A popular high-level & versatile programming language known for its readability and simplicity.",
     "descriptionPl": "Popularny, wysokopoziomowy i wszechstronny język programowania, znany ze swojej czytelności i prostoty.",
     "pl": "Python",
-    "en": "Python"
+    "en": "Python",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/python.png"
   },
   {
     "id": "3f91f6ac-46a1-478b-b768-083f49be1cf2",
@@ -50,7 +51,8 @@
     "descriptionEn": "A style sheet language that provides styling for World Wide Web documents.",
     "descriptionPl": "Język arkuszy stylów, który zapewnia stylizację dokumentów Światowej Sieci.",
     "pl": "CSS",
-    "en": "CSS"
+    "en": "CSS",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/css.png"
   },
   {
     "id": "1ae82185-2419-4293-ac2f-65e7c79dec42",
@@ -60,7 +62,8 @@
     "descriptionEn": "The protocol governing the actions of creating, reading, updating, and deleting World Wide Web hypermedia resources.",
     "descriptionPl": "Protokół zarządzający działaniami tworzenia, czytania, aktualizowania i usuwania hipermedialnych zasobów Światowej Sieci.",
     "pl": "HTTP",
-    "en": "HTTP"
+    "en": "HTTP",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/http.png"
   },
   {
     "id": "acf9a1f2-7d34-45a6-87b7-162b66a21e7b",
@@ -70,7 +73,8 @@
     "descriptionEn": "The most renown open-source relational database management system.",
     "descriptionPl": "Najbardziej znany otwartoźródłowy system zarządzania relacyjnymi bazami danych.",
     "pl": "PostgreSQL",
-    "en": "PostgreSQL"
+    "en": "PostgreSQL",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/postgresql.png"
   },
   {
     "id": "40a4d810-306c-4874-b74f-f865f2b7c8bd",
@@ -110,7 +114,8 @@
     "descriptionEn": "The popular programming concept based on objects that might include stored procedures and data.",
     "descriptionPl": "Popularny koncept programowania oparty na obiektach, które mogą zawierać zapisane procedury i dane.",
     "pl": "Wzorce Projektowe",
-    "en": "Programowanie-obiektowe"
+    "en": "Programowanie-obiektowe",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/object_oriented_programming_oop.png"
   },
   {
     "id": "f2e4d606-57f7-45a8-9d3d-f516ad18931c",
