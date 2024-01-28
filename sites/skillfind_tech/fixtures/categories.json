@@ -94,7 +94,8 @@
     "descriptionEn": "Guidelines for developers on creating robust, maintainable & extensible software systems.",
     "descriptionPl": "Wskazówki dla programistów dotyczące tworzenia silnych, łatwych w utrzymaniu i rozbudowywalnych systemów oprogramowania.",
     "pl": "Zasady Projektowe",
-    "en": "Design Principles"
+    "en": "Design Principles",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/design_principles.png"
   },
   {
     "id": "8a521580-2615-42f8-8a8a-5eb01b5db8cd",
@@ -104,7 +105,8 @@
     "descriptionEn": "General, reusable solutions to commonly occurring problems.",
     "descriptionPl": "Ogólne, wielokrotnego użytku rozwiązania powszechnie występujących problemów.",
     "pl": "Wzorce Projektowe",
-    "en": "Design Patterns"
+    "en": "Design Patterns",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/design_patterns.png"
   },
   {
     "id": "fcaf087c-b871-47d7-8f7b-ac8acca97811",
