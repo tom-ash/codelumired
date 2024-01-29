@@ -128,7 +128,8 @@
     "descriptionEn": "The most sought after skill of the modern world.",
     "descriptionPl": "Najbardziej pożądana umiejętność współczesnego świata.",
     "pl": "Programming",
-    "en": "Programowanie"
+    "en": "Programowanie",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/programming.png"
   },
   {
     "id": "2d0d817d-2996-4d5e-a9e2-7bbccc1fe62d",
