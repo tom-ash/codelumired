@@ -84,7 +84,8 @@
     "descriptionEn": "A platform that uses OS-level virtualization to deliver software in packages called containers.",
     "descriptionPl": "Platforma wykorzystująca wirtualizację na poziomie systemu operacyjnego do dostarczania oprogramowania w pakietach zwanych kontenerami.",
     "pl": "Docker",
-    "en": "Docker"
+    "en": "Docker",
+    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/docker.png"
   },
   {
     "id": "477abe8d-b495-4e5c-92e7-7f0f974e1c3e",
