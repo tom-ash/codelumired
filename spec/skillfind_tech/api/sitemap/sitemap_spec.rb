@@ -108,7 +108,7 @@ RSpec.describe ::SkillfindTech::Api::Tracks::Root::Sitemap do
         ],
         [
           {
-            href: '/javascript/questions/test',
+            href: '/javascript/practice-problems/test',
             hrefLang: 'en',
             priority: '1.0',
             changeFreq: 'monthly',

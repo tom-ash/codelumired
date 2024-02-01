@@ -82,8 +82,6 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         manualSchema: {},
         publishedOn: nil,
         modifiedOn: nil,
-        category: nil,
-        subcategory: nil,
         langAltsGroup: nil,
         pageLang: 'pl',
         langVerUrls: {

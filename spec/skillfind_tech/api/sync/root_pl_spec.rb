@@ -41,6 +41,14 @@ RSpec.describe ::SkillfindTech::Api::Sync do
           label: nil,
           hrefLang: 'pl',
         },
+        facebook: {
+          external: true,
+          href: 'https://www.facebook.com/profile.php?id=100091302428884',
+        },
+        linkedin: {
+          external: true,
+          href: 'https://www.linkedin.com/company/skillfind-tech/'
+        },
       )
     end
     let(:visitor_texts) do
@@ -49,6 +57,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         signOutButtonLabel: 'Sign Out',
         showMyAccountMenuButtonLabel: 'My account',
         allRightsReserved: '',
+        featuredArticlesHeading: 'Featured Articles', # TODO: Missing translation.
       }
     end
     let(:visitor_assets) do

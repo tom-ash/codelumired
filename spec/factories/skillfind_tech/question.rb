@@ -9,6 +9,9 @@ FactoryBot.define do
     title { 'test_title' }
     body { 'test_body' }
     hint { 'test_hint' }
+    description { 'test_description' }
+    assesses { 'test_assesses' }
+    difficulty { 'easy' }
     after(:create) do |question|
       create(
         :question_answer,

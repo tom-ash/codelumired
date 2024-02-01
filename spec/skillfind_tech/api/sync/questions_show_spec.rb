@@ -10,9 +10,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
 
     let!(:question) {create(:question) }
 
-    # let!(:answer_a) { create(:question_answer, question: question) }
-
-    let(:route) { 'questions/test' }
+    let(:route) { 'javascript/practice-problems/test' }
     let(:visitor_app_data) do
       {
         lang: 'en'
@@ -34,9 +32,9 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:visitor_texts) do
       {
-        :signOutButtonLabel=>"Sign Out",
-        :showMyAccountMenuButtonLabel=>"My account",
-        :allRightsReserved=>""
+        signOutButtonLabel: 'Sign Out',
+        showMyAccountMenuButtonLabel: 'My account',
+        allRightsReserved: '',
       }
     end
     let(:visitor_assets) do
@@ -49,42 +47,66 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:visitor_data) do
       {
-        type: 'singleChoice',
-        isSingleChoice: true,
-        isMultipleChoice: false,
         title: 'test_title',
+        type: 'singleChoice',
         body: 'test_body',
         answers: [
           {
-            sequenceLetter: 'a',
+            position: 0,
             body: 'body_a',
             isCorrect: false,
             isSelected: false,
+            explanation: 'explanation_a',
+            hint: nil,
           },
           {
-            sequenceLetter: 'b',
+            position: 1,
             body: 'body_b',
             isCorrect: true,
             isSelected: false,
+            explanation: 'explanation_b',
+            hint: nil,
           },
           {
-            sequenceLetter: 'c',
+            position: 2,
             body: 'body_c',
             isCorrect: false,
             isSelected: false,
+            explanation: 'explanation_c',
+            hint: nil,
           },
           {
-            sequenceLetter: 'd',
+            position: 3,
             body: 'body_d',
             isCorrect: false,
             isSelected: false,
+            explanation: 'explanation_d',
+            hint: nil,
           },
         ],
         hint: 'test_hint',
-        explanation: 'test_explanation',
         isSubmitted: false,
         isAnsweredCorrectly: nil,
-        isAnyAnswerSelected: false
+        isSingleChoice: true,
+        isMultipleChoice: false,
+        isAnyAnswerSelected: false,
+        breadcrumbs: [
+          {
+            name: 'Homepage',
+            lang: 'en',
+            item: '/',
+          },
+          {
+            name: 'JavaScript',
+            lang: 'en',
+            item: '/javascript',
+          },
+          {
+            name: 'practice-problems',
+            lang: 'en',
+            item: '/javascript/practice-problems',
+          }
+        ]
       }
     end
     let(:visitor_inputs) do
@@ -92,51 +114,131 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:schemaOrg) do
       {
-        '@context': 'https://schema.org',
-        '@graph': [
+        :@context=>"https://schema.org",
+        :@graph=>[
           {
-            '@type': 'Organization',
-            url: 'http://local.skillfind.tech:8080',
-            name: 'skillfind.tech',
-            sameAs: [
-              'https://www.facebook.com/profile.php?id=100091302428884',
-              'https://www.linkedin.com/company/skillfind-tech/',
+            :@type=>"Organization",
+            :url=>"http://local.skillfind.tech:8080",
+            :name=>"skillfind.tech",
+            :sameAs=>[
+              "https://www.facebook.com/profile.php?id=100091302428884",
+              "https://www.linkedin.com/company/skillfind-tech/"
             ]
           },
-          # {
-          #   '@context': 'https://schema.org',
-          #   '@type': 'WebSite',
-          #   url: 'http://local.skillfind.tech:8080/questions/test',
-          #   inLanguage: 'en',
-          #   name: 'test_title',
-          #   description: nil,
-          #   keywords: nil,
-          #   image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
-          #   isFamilyFriendly: true
-          # },
           {
-            '@type': 'QAPage',
-            mainEntity: {
+            '@type': 'Quiz',
+            name: 'test_title',
+            hasPart: {
               '@type': 'Question',
-              # encodingFormat: 'text/markdown',
-              name: 'test_title',
-              text: 'test_body',
+              eduQuestionType: 'Multiple choice',
+              educationalAlignment: [
+                {
+                  '@type': 'AlignmentObject',
+                  alignmentType: 'educationalSubject',
+                  targetName: 'Programming',
+                },
+                {
+                  '@type': 'AlignmentObject',
+                  alignmentType: 'educationalSubject',
+                  targetName: 'Software Engineering',
+                },
+                {
+                  '@type': 'AlignmentObject',
+                  alignmentType: 'educationalSubject',
+                  targetName: 'JavaScript',
+                }
+              ],
+              typicalAgeRange: '15-99',
+              educationalLevel: 'beginner',
+              assesses: 'test_assesses',
+              comment: {
+                '@type': 'Comment',
+                encodingFormat: 'text/markdown',
+                text: 'test_hint',
+              },
               learningResourceType: 'Practice problem',
-              suggestedAnswer: [{:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_a"}, :encodingFormat=>"text/markdown", :position=>0, :text=>"body_a"}, {:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_b"}, :encodingFormat=>"text/markdown", :position=>1, :text=>"body_b"}, {:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_c"}, :encodingFormat=>"text/markdown", :position=>2, :text=>"body_c"}, {:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_d"}, :encodingFormat=>"text/markdown", :position=>3, :text=>"body_d"}],
-              :acceptedAnswer=>{:@type=>"Answer", :answerExplanation=>{:@type=>"Comment", :text=>"explanation_b"}, :encodingFormat=>"text/markdown", :position=>1, :text=>"body_b"},
-            },
-          },
-        ],
+              name: 'test_title',
+              encodingFormat: 'text/markdown',
+              text: 'test_body',
+              suggestedAnswer: [
+                {
+                  '@type': 'Answer',
+                  position: 0,
+                  encodingFormat: 'text/markdown',
+                  text: 'body_a',
+                  comment: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: nil,
+                  },
+                  answerExplanation: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: 'explanation_a',
+                  }
+                },
+                {
+                  '@type': 'Answer',
+                  position: 2,
+                  encodingFormat: 'text/markdown',
+                  text: 'body_c',
+                  comment: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: nil,
+                  },
+                  answerExplanation: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: 'explanation_c',
+                  }
+                },
+                {
+                  '@type': 'Answer',
+                  position: 3,
+                  encodingFormat: 'text/markdown',
+                  text: 'body_d',
+                  comment: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: nil,
+                  },
+                  answerExplanation: {
+                    '@type': 'Comment',
+                    encodingFormat: 'text/markdown',
+                    text: 'explanation_d',
+                  }
+                },
+              ],
+              acceptedAnswer: {
+                '@type': 'Answer',
+                position: 1,
+                encodingFormat: 'text/markdown',
+                text: 'body_b',
+                comment: {
+                  '@type': 'Comment',
+                  encodingFormat: 'text/markdown',
+                  text: nil,
+                },
+                answerExplanation: {
+                  '@type': 'Comment',
+                  encodingFormat: 'text/markdown',
+                  text: 'explanation_b',
+                }
+              },
+            }
+          }
+        ]
       }
     end
     let(:openGraph) do
       {
         title: 'test_title',
         keywords: nil,
-        description: nil,
+        description: 'test_description',
         image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
         siteName: 'skillfind.tech',
-        url: 'http://local.skillfind.tech:8080/questions/test',
+        url: 'http://local.skillfind.tech:8080/javascript/practice-problems/test',
         type: 'website',
         locale: 'en_GB',
         'image:width': 1200,
@@ -155,6 +257,14 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         'current/pl': {
           href: '/TODO',
         },
+        facebook: {
+          external: true,
+          href: 'https://www.facebook.com/profile.php?id=100091302428884',
+        },
+        linkedin: {
+          external: true,
+          href: 'https://www.linkedin.com/company/skillfind-tech/'
+        },
       )
     end
     let(:meta) do
@@ -162,7 +272,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         lang: 'en',
         title: 'test_title',
         keywords: nil,
-        description: nil,
+        description: 'test_description',
         image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
         langs: [
           'en',
@@ -171,7 +281,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         schemaOrg: schemaOrg,
         openGraph: openGraph,
         robots: 'index,follow,all',
-        canonicalUrl: 'http://local.skillfind.tech:8080/questions/test',
+        canonicalUrl: 'http://local.skillfind.tech:8080/javascript/practice-problems/test',
         alternateLangLinks: [
           {
             href: 'http://local.skillfind.tech:8080/TODO',
