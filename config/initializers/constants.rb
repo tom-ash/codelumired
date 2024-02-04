@@ -33,7 +33,7 @@ MAPAWYNAJMU_PL_DOMAIN = MAPAWYNAJMU_PL_APEX_DOMAIN
 MAPAWYNAJMU_PL_NAME_LANGS = %i[pl en].freeze
 MAPAWYNAJMU_PL_URL = "https://#{MAPAWYNAJMU_PL_DOMAIN}"
 MAPAWYNAJMU_PL_S3 = ENV['AWS_S3_MAPAWYNAJMUPL_BUCKET']
-MAPAWYNAJMU_PL_IMAGE = 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg'
+MAPAWYNAJMU_PL_IMAGE = 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/mapawynajmu-pl-cover.jpeg'
 MAPAWYNAJMU_PL_API_URL = 'https://warsaw-digital-server.herokuapp.com/mapawynajmu-pl'
 SENTRY_URL = 'https://2940536e6132431996571db68fd3a5b1@o876363.ingest.sentry.io/4504761826476032'
 

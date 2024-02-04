@@ -148,7 +148,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
             name: 'Mapa wynajmu nieruchomości w Polsce',
             description: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
             keywords: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
-            image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
+            image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/mapawynajmu-pl-cover.jpeg',
             isFamilyFriendly: true,
           }
         ]
@@ -164,7 +164,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         title: "Mapa wynajmu nieruchomości w Polsce",
         keywords: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
         description: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
-        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
+        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/mapawynajmu-pl-cover.jpeg',
         'image:width': 1200,
         'image:height': 630,
       }
@@ -176,7 +176,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         title: 'Mapa wynajmu nieruchomości w Polsce',
         keywords: 'mapa, wynajem, nieruchomości, mieszkania, bezpłatne, ogłoszenia, wynajmu, wynajęcie, wynajęcia, najmu, najem, darmo, darmowe, domy, pokoje, lokale, użytkowe, biura, wirtualne, miejsca, postojowe, coworking',
         description: 'Bezpłatne ogłoszenia wynajmu nieruchomości na mapie. Mieszkania, pokoje, lokale użytkowe, biura i inne nieruchomości na wynajem.',
-        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
+        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/mapawynajmu-pl-cover.jpeg',
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.mapawynajmu.pl:8080',
         schemaOrg: schemaOrg,

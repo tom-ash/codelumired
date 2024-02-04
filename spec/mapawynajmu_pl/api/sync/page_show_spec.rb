@@ -174,7 +174,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         title: nil,
         keywords: nil,
         description: nil,
-        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
+        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/mapawynajmu-pl-cover.jpeg',
         'image:width': 1200,
         'image:height': 630,
       }
@@ -186,7 +186,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         title: nil,
         keywords: nil,
         description: nil,
-        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/assets/images/mapawynajmupl.jpg',
+        image: 'https://mapawynajmupl.s3.eu-central-1.amazonaws.com/mapawynajmu-pl-cover.jpeg',
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.mapawynajmu.pl:8080/test-page-url',
         schemaOrg: schemaOrg,
