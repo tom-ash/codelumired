@@ -34,6 +34,17 @@ module SkillfindTech
                 }
               ]
 
+              def texts
+                {
+                  en: {
+                    businessNameInputLabel: 'Business Name',
+                  },
+                  pl: {
+                    businessNameInputLabel: 'Nazwa ogłoszeniodawcy',
+                  },
+                }[lang]
+              end
+
               def inputs
                 {
                   selectableSkills: selectableSkills,

@@ -26,7 +26,7 @@ module SkillfindTech
           @posting ||= ::SkillfindTech::Posting.new(
             user: user,
             views: 0,
-            company_name: 'Not implemented!',
+            company_name: attrs[:business_name],
             company_size: 42,
             country: 'Not implemented!',
             locality: 'Not implemented!',

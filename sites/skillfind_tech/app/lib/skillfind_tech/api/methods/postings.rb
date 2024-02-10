@@ -7,6 +7,7 @@ module SkillfindTech
         before { authorize! }
 
         params do
+          requires :business_name, type: String
           requires :selected_skills, type: Array
           # requires :remote, type: Boolean
           # requires :hybrid, type: Boolean
@@ -23,6 +24,7 @@ module SkillfindTech
           ::SkillfindTech::Commands::Posting::Create.new(
             user_id: authenticated_user.id,
             attrs: {
+              business_name: params[:business_name],
               selected_skills: params[:selected_skills],
               # remote: params[:remote],
               # hybrid: params[:hybrid],
