@@ -29,6 +29,7 @@ module MapawynajmuPl
                   zoom: 12.4,
                 },
                 isPinsDrawn: false,
+                isSSR: ssr?,
               }.merge(filter_control)
 
               if ssr?
@@ -44,16 +45,16 @@ module MapawynajmuPl
               data_hash = {
                 current_category: category_from_path,
                 tile: serialized_announcement,
-                announcements: [serialized_announcement],
-                amount: 1,
+                announcements: serialized_announcements,
+                amount: serialized_announcements.count,
               }.merge(filter_data)
 
-              if !ssr?
-                data_hash.merge!(
-                  announcements: serialized_announcements,
-                  amount: serialized_announcements.count,
-                )
-              end
+              # if !ssr?
+              #   data_hash.merge!(
+              #     announcements: serialized_announcements,
+              #     amount: serialized_announcements.count,
+              #   )
+              # end
 
               data_hash
             end
