@@ -32,6 +32,7 @@ module MapawynajmuPl
                 announcement: true,
                 'announcement/index': true,
                 "announcement/index/map": true,
+                'listings/show': true
               }
             end
 

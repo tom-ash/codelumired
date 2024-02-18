@@ -47,11 +47,18 @@ module SkillfindTech
 
               def inputs
                 {
+                  businessName: EMPTY_TEXT,
                   selectableSkills: selectableSkills,
                   selectedSkills: [],
                   b2b: false,
                   b2bMin: EMPTY_TEXT,
                   b2bMax: EMPTY_TEXT,
+                }
+              end
+
+              def errors
+                {
+                  businessNameError: '',
                 }
               end
 
