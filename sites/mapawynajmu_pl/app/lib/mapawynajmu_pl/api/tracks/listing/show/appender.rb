@@ -11,6 +11,7 @@ module MapawynajmuPl
             include ::MapawynajmuPl::Api::Tracks::Helpers::Listings
             include ::MapawynajmuPl::Api::Tracks::Helpers::Filters
             include ::MapawynajmuPl::Api::Tracks::Listing::Common::Filters
+            include ::MapawynajmuPl::Api::Tracks::Helpers::Articles
 
             private
 
@@ -47,6 +48,7 @@ module MapawynajmuPl
                 tile: serialized_announcement,
                 announcements: serialized_announcements,
                 amount: serialized_announcements.count,
+                articles: articles,
               }.merge(filter_data)
 
               # if !ssr?

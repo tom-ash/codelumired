@@ -9,6 +9,7 @@ module MapawynajmuPl
           include ::MapawynajmuPl::Api::Tracks::Root::Meta
           include ::MapawynajmuPl::Api::Tracks::Helpers::Listings
           include ::MapawynajmuPl::Api::Tracks::Helpers::Filters
+          include ::MapawynajmuPl::Api::Tracks::Helpers::Articles
           include ::MapawynajmuPl::Api::Tracks::Listing::Common::Filters
 
           private
@@ -24,7 +25,6 @@ module MapawynajmuPl
           end
 
           def data
-            # byebug
             data_hash = {
               current_category: category_from_path,
               current_partner_name: partner_from_path&.business_name,
@@ -32,6 +32,7 @@ module MapawynajmuPl
               tile: nil,
               announcements: serialized_announcements,
               amount: serialized_announcements.count,
+              articles: articles,
             }.merge(filter_data)
 
             # if ssr? || attrs[:listings_obsolete]
