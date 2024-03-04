@@ -46,6 +46,7 @@ module MapawynajmuPl
               data_hash = {
                 current_category: category_from_path,
                 tile: serialized_announcement,
+                currentListingId: serialized_announcement['id'],
                 announcements: serialized_announcements,
                 amount: serialized_announcements.count,
                 articles: articles,
