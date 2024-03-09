@@ -42,6 +42,19 @@ module SkillfindTech
             end
           end
 
+          def control
+            {
+              isPinsDrawn: false,
+              mapOptions: {
+                center: {
+                  lat: 52,
+                  lng: 19,
+                },
+                zoom: 6.7,
+              },
+            }
+          end
+
           def asset_names
             @asset_names ||= %i[
               chevron

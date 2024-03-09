@@ -21,6 +21,13 @@ module MapawynajmuPl
           def control
             {
               isPinsDrawn: false,
+              mapOptions: {
+                center: {
+                  lat: 52,
+                  lng: 19,
+                },
+                zoom: 6.7,
+              },
             }.merge(filter_control)
           end
 

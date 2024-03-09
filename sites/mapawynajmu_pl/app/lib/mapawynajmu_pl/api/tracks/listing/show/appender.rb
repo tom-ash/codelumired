@@ -22,7 +22,7 @@ module MapawynajmuPl
             def control
               control_hash = {
                 current_tile_id: announcement_id,
-                map_options: {
+                mapOptions: {
                   center: {
                     lat: announcement.latitude,
                     lng: announcement.longitude,
