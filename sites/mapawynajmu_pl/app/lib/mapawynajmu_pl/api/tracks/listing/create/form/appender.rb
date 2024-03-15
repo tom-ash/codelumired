@@ -19,7 +19,16 @@ module MapawynajmuPl
               private
 
               def texts
-                listing_form_texts.merge(user_form_texts)
+                listing_form_texts.merge(user_form_texts).merge(
+                  {
+                    pl: {
+                      placesAutocompleteInputPlaceholder: 'Podaj miasto, ulicę i numer budynku',
+                    },
+                    en: {
+                      placesAutocompleteInputPlaceholder: 'Provide the city, street and number of the building',
+                    },
+                  }[lang]
+                )
               end
 
               def control
@@ -28,6 +37,14 @@ module MapawynajmuPl
                   addingPicture: false,
                   savingListing: false,
                   savingPicture: false,
+                  resetMap: true,
+                  mapOptions: {
+                    center: {
+                      lat: 52.35,
+                      lng: 19,
+                    },
+                    zoom: 6,
+                  },
                 }
               end
 

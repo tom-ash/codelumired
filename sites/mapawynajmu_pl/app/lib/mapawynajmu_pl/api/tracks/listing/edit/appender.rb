@@ -41,6 +41,13 @@ module MapawynajmuPl
                 addingPicture: false,
                 savingListing: false,
                 savingPicture: false,
+                mapOptions: {
+                  center: {
+                    lat: announcement.latitude,
+                    lng: announcement.longitude,
+                  },
+                  zoom: 12.4,
+                },
               }
             end
 
