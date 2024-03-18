@@ -1,0 +1,77 @@
+[
+  {
+    "value": "software_house",
+    "pl": "Software House",
+    "en": "Software House"
+  },
+  {
+    "value": "motorization",
+    "pl": "Motoryzacja",
+    "en": "Motorization"
+  },
+  {
+    "value": "medicine",
+    "pl": "Medycyna",
+    "en": "Medicine"
+  },
+  {
+    "value": "media",
+    "pl": "Media",
+    "en": "Media"
+  },
+  {
+    "value": "gaming",
+    "pl": "Gry",
+    "en": "Gaming"
+  },
+  {
+    "value": "finance_banking",
+    "pl": "Finanse & bankowość",
+    "en": "Finance & Banking"
+  },
+  {
+    "value": "ecommerce",
+    "pl": "E-Commerce",
+    "en": "E-Commerce"
+  },
+  {
+    "value": "aviation",
+    "pl": "Lotnictwo",
+    "en": "Aviation"
+  },
+  {
+    "value": "cosmonautics",
+    "pl": "Kosmonautyka",
+    "en": "Cosmonautics"
+  },
+  {
+    "value": "energetics",
+    "pl": "Energetyka",
+    "en": "Energetics"
+  },
+  {
+    "value": "streaming",
+    "pl": "Streaming",
+    "en": "Streaming"
+  },
+  {
+    "value": "science",
+    "pl": "Nauka",
+    "en": "Science"
+  },
+  {
+    "value": "education",
+    "pl": "Edukacja",
+    "en": "Education"
+  },
+  {
+    "value": "marketing",
+    "pl": "Marketing",
+    "en": "Marketing"
+  },
+  {
+    "value": "inne",
+    "pl": "Inne",
+    "en": "Other"
+  }
+]

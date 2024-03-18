@@ -27,6 +27,7 @@ module SkillfindTech
             user: user,
             views: 0,
             company_name: attrs[:business_name],
+            industry: attrs[:industry],
             company_size: 42,
             country: 'Not implemented!',
             locality: 'Not implemented!',

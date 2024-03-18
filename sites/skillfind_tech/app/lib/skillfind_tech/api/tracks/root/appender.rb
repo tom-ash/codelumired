@@ -30,10 +30,22 @@ module SkillfindTech
             }
           end
 
+          def industries
+            @industries = JSON.parse(File.read('sites/skillfind_tech/fixtures/industries.json'))
+          end
+
+          def getIndustry(value)
+            industries.find do |i|
+              i['value'] == value
+            end
+          end
+
           def postings
             ::SkillfindTech::Posting.includes(:selected_skills).map do |posting|
               {
                 id: posting.id,
+                business_name: posting.company_name,
+                industry: getIndustry(posting.industry)[lang.to_s],
                 skills: ::SkillfindTech::SelectedSkill.joins(:skill).where(posting_id: posting.id).select(:level, :name), # TODO!!!
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,

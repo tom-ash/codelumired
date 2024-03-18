@@ -12,38 +12,30 @@ module SkillfindTech
 
               EMPTY_TEXT = ''
 
-              # Software House
-              # Finance & Banking
-              # E-Commerce
-              # Health
-              # Motorization
-              # Aviation
-              # Cosmonautics
-              # Energetics
-              # Media
-              # Streaming
-              # Video Games
-              # Science
-              # Education
-
-              INDUSTRIES = [
-                {
-                  name: 'motorization',
-                  pl: 'Motoryzacja',
-                  en: 'Motorization',
-                }
-              ]
-
               def texts
                 {
                   en: {
                     businessNameInputLabel: 'Business Name',
+                    industrySelectLabel: 'Industry PL',
                   },
                   pl: {
                     businessNameInputLabel: 'Nazwa ogłoszeniodawcy',
+                    industrySelectLabel: 'Industry',
                   },
                 }[lang]
               end
+
+              # def control
+              #   {
+              #     mapOptions: {
+              #       center: {
+              #         lat: 52,
+              #         lng: 19,
+              #       },
+              #       zoom: 6.7,
+              #     },
+              #   }
+              # end
 
               def inputs
                 {
@@ -53,7 +45,20 @@ module SkillfindTech
                   b2b: false,
                   b2bMin: EMPTY_TEXT,
                   b2bMax: EMPTY_TEXT,
+                  industry: 'moto',
+                  industrySelectOptions: industrySelectOptions,
                 }
+              end
+
+              def industrySelectOptions
+                industries = JSON.parse(File.read('sites/skillfind_tech/fixtures/industries.json'))
+
+                @industrySelectOptions ||= industries.map do |industry|
+                  {
+                    value: industry['value'],
+                    text: industry[lang.to_s]
+                  }
+                end
               end
 
               def errors
