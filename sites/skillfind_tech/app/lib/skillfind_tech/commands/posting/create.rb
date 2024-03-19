@@ -29,8 +29,6 @@ module SkillfindTech
             company_name: attrs[:business_name],
             industry: attrs[:industry],
             company_size: 42,
-            country: 'Not implemented!',
-            locality: 'Not implemented!',
             remote: false,
             hybrid: false,
             office: false,
@@ -41,6 +39,14 @@ module SkillfindTech
             # employment_min: attrs[:employment_min],
             # employment_max: attrs[:employment_max],
             # # civil_contract: attrs[:civil_contract], # TODO
+            lat: attrs[:lat],
+            lng: attrs[:lng],
+            place_id: attrs[:place_id],
+            place_autocomplete: attrs[:place_autocomplete],
+            country: attrs[:country],
+            locality: attrs[:locality],
+            sublocality: attrs[:sublocality],
+
           )
         end
 

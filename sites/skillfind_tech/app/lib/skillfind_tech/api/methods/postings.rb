@@ -20,6 +20,16 @@ module SkillfindTech
           # optional :employment_min, type: Integer
           # optional :employment_min, type: Integer
           # requires :civil_contract, type: Boolean
+
+          requires :lat, type: Float
+          requires :lng, type: Float
+          requires :place_id, type: String
+          requires :place_autocomplete, type: String
+          optional :country, type: String
+          optional :locality, type: String
+          optional :sublocality, type: String
+
+
         end
         post do
           ::SkillfindTech::Commands::Posting::Create.new(
@@ -36,6 +46,13 @@ module SkillfindTech
               b2b_max: params[:b2b_max],
               # employment: params[:employment],
               # civil_contract: params[:civil_contract],
+              lat: params[:lat],
+              lng: params[:lng],
+              place_id: params[:place_id],
+              place_autocomplete: params[:place_autocomplete],
+              country: params[:country],
+              locality: params[:locality],
+              sublocality: params[:sublocality],
             },
           ).call
 

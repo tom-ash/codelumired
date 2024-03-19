@@ -17,25 +17,27 @@ module SkillfindTech
                   en: {
                     businessNameInputLabel: 'Business Name',
                     industrySelectLabel: 'Industry PL',
+                    locationHeading: 'Location',
                   },
                   pl: {
                     businessNameInputLabel: 'Nazwa ogłoszeniodawcy',
                     industrySelectLabel: 'Industry',
+                    locationHeading: 'Lokalizacja',
                   },
                 }[lang]
               end
 
-              # def control
-              #   {
-              #     mapOptions: {
-              #       center: {
-              #         lat: 52,
-              #         lng: 19,
-              #       },
-              #       zoom: 6.7,
-              #     },
-              #   }
-              # end
+              def control
+                {
+                  mapOptions: {
+                    center: {
+                      lat: 52,
+                      lng: 19,
+                    },
+                    zoom: 6.7,
+                  },
+                }
+              end
 
               def inputs
                 {

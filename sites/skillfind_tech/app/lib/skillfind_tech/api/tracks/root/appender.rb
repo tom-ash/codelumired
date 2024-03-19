@@ -50,6 +50,10 @@ module SkillfindTech
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,
                 b2bMax: posting.b2b_max,
+
+                lat: posting.lat,
+                lng: posting.lng,
+                
               }
             end
           end
