@@ -17,9 +17,7 @@ module SkillfindTech
     validates :views, presence: true, numericality: true
     validates :company_name, presence: true
     validates :company_size, presence: true
-    validates :remote, inclusion: { in: [true, false] }
-    validates :hybrid, inclusion: { in: [true, false] }
-    validates :office, inclusion: { in: [true, false] }
+    validates :cooperation_mode, presence: true
     validates :country, presence: true
     validates :locality, presence: true
     validates :employment, inclusion: { in: [true, false] }

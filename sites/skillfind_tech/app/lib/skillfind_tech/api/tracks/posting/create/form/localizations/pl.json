@@ -1,0 +1,21 @@
+{
+  "businessNameInputLabel": "Nazwa ogłoszeniodawcy",
+  "industrySelectLabel": "Industry",
+  "locationHeading": "Lokalizacja",
+  "cooperationModeHeading": "Model współpracy",
+  "cooperationModeLegend": "Wybierz model współpracy:",
+  "cooperationModeOptions": [
+    {
+      "value": "office",
+      "label": "Biuro"
+    },
+    {
+      "value": "hybrid",
+      "label": "Hybryda"
+    },
+    {
+      "value": "remote",
+      "label": "Zdalnie"
+    }
+  ]
+}

@@ -28,17 +28,14 @@ module SkillfindTech
             views: 0,
             company_name: attrs[:business_name],
             industry: attrs[:industry],
+            cooperation_mode: attrs[:cooperation_mode],
             company_size: 42,
-            remote: false,
-            hybrid: false,
-            office: false,
             b2b: attrs[:b2b],
             b2b_min: attrs[:b2b_min],
             b2b_max: attrs[:b2b_max],
             employment: false,
             # employment_min: attrs[:employment_min],
             # employment_max: attrs[:employment_max],
-            # # civil_contract: attrs[:civil_contract], # TODO
             lat: attrs[:lat],
             lng: attrs[:lng],
             place_id: attrs[:place_id],
@@ -46,7 +43,6 @@ module SkillfindTech
             country: attrs[:country],
             locality: attrs[:locality],
             sublocality: attrs[:sublocality],
-
           )
         end
 

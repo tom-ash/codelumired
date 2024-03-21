@@ -1,0 +1,21 @@
+{
+  "businessNameInputLabel": "Business Name",
+  "industrySelectLabel": "Industry PL",
+  "locationHeading": "Location",
+  "cooperationModeHeading": "Cooperation Mode",
+  "cooperationModeLegend": "Select the cooperation mode:",
+  "cooperationModeOptions": [
+    {
+      "value": "office",
+      "label": "Office"
+    },
+    {
+      "value": "hybrid",
+      "label": "Hybdrid"
+    },
+    {
+      "value": "remote",
+      "label": "Remote"
+    }
+  ]
+}

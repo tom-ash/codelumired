@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_19_055307) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_20_161932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,9 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_19_055307) do
     t.integer "views", null: false
     t.string "company_name", null: false
     t.integer "company_size", null: false
-    t.boolean "remote", null: false
-    t.boolean "hybrid", null: false
-    t.boolean "office", null: false
     t.string "country", null: false
     t.string "locality", null: false
     t.string "sublocality"
@@ -94,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_19_055307) do
     t.float "lng", null: false
     t.string "place_autocomplete", null: false
     t.string "place_id", null: false
+    t.string "cooperation_mode", null: false
     t.index ["industry"], name: "index_postings_on_industry"
     t.index ["lat"], name: "index_postings_on_lat"
     t.index ["lng"], name: "index_postings_on_lng"

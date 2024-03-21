@@ -10,17 +10,16 @@ module SkillfindTech
           requires :business_name, type: String
           requires :industry, type: String
           requires :selected_skills, type: Array
-          # requires :remote, type: Boolean
-          # requires :hybrid, type: Boolean
-          # requires :office, type: Boolean
+          requires :cooperation_mode, type: String
           requires :b2b, type: Boolean
           optional :b2b_min, type: Integer
           optional :b2b_max, type: Integer
           # requires :employment, type: Boolean
           # optional :employment_min, type: Integer
-          # optional :employment_min, type: Integer
+          # optional :employment_max, type: Integer
           # requires :civil_contract, type: Boolean
-
+          # optional :civil_contract_min, type: Integer
+          # optional :civil_contract_max, type: Integer
           requires :lat, type: Float
           requires :lng, type: Float
           requires :place_id, type: String
@@ -28,8 +27,6 @@ module SkillfindTech
           optional :country, type: String
           optional :locality, type: String
           optional :sublocality, type: String
-
-
         end
         post do
           ::SkillfindTech::Commands::Posting::Create.new(
@@ -38,9 +35,7 @@ module SkillfindTech
               business_name: params[:business_name],
               industry: params[:industry],
               selected_skills: params[:selected_skills],
-              # remote: params[:remote],
-              # hybrid: params[:hybrid],
-              # office: params[:office],
+              cooperation_mode: params[:cooperation_mode],
               b2b: params[:b2b],
               b2b_min: params[:b2b_min],
               b2b_max: params[:b2b_max],

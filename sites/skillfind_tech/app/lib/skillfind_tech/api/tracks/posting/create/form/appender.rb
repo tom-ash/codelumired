@@ -12,19 +12,12 @@ module SkillfindTech
 
               EMPTY_TEXT = ''
 
+              def localizations
+                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/#{lang}.json")
+              end
+
               def texts
-                {
-                  en: {
-                    businessNameInputLabel: 'Business Name',
-                    industrySelectLabel: 'Industry PL',
-                    locationHeading: 'Location',
-                  },
-                  pl: {
-                    businessNameInputLabel: 'Nazwa ogłoszeniodawcy',
-                    industrySelectLabel: 'Industry',
-                    locationHeading: 'Lokalizacja',
-                  },
-                }[lang]
+                localizations
               end
 
               def control
@@ -49,6 +42,11 @@ module SkillfindTech
                   b2bMax: EMPTY_TEXT,
                   industry: 'moto',
                   industrySelectOptions: industrySelectOptions,
+                  cooperationMode: 'office',
+                  cooperationModeRadio: {
+                    name: 'cooperation_mode',
+                    options: localizations[:cooperationModeOptions]
+                  },
                 }
               end
 
@@ -72,31 +70,6 @@ module SkillfindTech
               def selectableSkills
                 @selectableSkills ||= ::SkillfindTech::Skill.all
               end
-
-              #   const initialState = {
-              #   selectableSkills: [],
-              #   selectedSkills: [],
-              #   companyName: '',
-              #   companyIndustry: '',
-              #   companyDescription: '',
-              #   companyOfficeCity: '',
-              #   b2b: false,
-              #   b2bMin: null,
-              #   b2bMax: null,
-              #   civilContract: false,
-              #   civilContractMin: null,
-              #   civilContractMax: null,
-              #   employment: false,
-              #   employmentMin: null,
-              #   employmentMax: null,
-              #   description: null,
-              #   applicationEmail: null,
-              #   applicationLink: null,
-              #   cooperationMode: null,
-              #   remote: false,
-              #   hybrid: false,
-              #   office: false,
-              # }
             end
           end
         end
