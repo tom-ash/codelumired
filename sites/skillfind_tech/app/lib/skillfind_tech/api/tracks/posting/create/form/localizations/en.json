@@ -17,5 +17,20 @@
       "value": "remote",
       "label": "Remote"
     }
+  ],
+  "minPlaceholder": "Min.",
+  "maxPlaceholder": "Max.",
+  "contracts": [
+    {
+      "name": "b2b",
+      "label": "B2B",
+      "instructions": "Provide monthly net remuneration range within B2B cooperation."
+    },
+    {
+      "name": "employment",
+      "label": "Employment",
+      "instructions": "Provide monthly gross salary range within employment cooperation."
+    }
   ]
+
 }

@@ -14,12 +14,9 @@ module SkillfindTech
           requires :b2b, type: Boolean
           optional :b2b_min, type: Integer
           optional :b2b_max, type: Integer
-          # requires :employment, type: Boolean
-          # optional :employment_min, type: Integer
-          # optional :employment_max, type: Integer
-          # requires :civil_contract, type: Boolean
-          # optional :civil_contract_min, type: Integer
-          # optional :civil_contract_max, type: Integer
+          requires :employment, type: Boolean
+          optional :employment_min, type: Integer
+          optional :employment_max, type: Integer
           requires :lat, type: Float
           requires :lng, type: Float
           requires :place_id, type: String
@@ -29,6 +26,7 @@ module SkillfindTech
           optional :sublocality, type: String
         end
         post do
+          # byebug
           ::SkillfindTech::Commands::Posting::Create.new(
             user_id: authenticated_user.id,
             attrs: {
@@ -39,8 +37,9 @@ module SkillfindTech
               b2b: params[:b2b],
               b2b_min: params[:b2b_min],
               b2b_max: params[:b2b_max],
-              # employment: params[:employment],
-              # civil_contract: params[:civil_contract],
+              employment: params[:employment],
+              employment_min: params[:employment_min],
+              employment_max: params[:employment_max],
               lat: params[:lat],
               lng: params[:lng],
               place_id: params[:place_id],

@@ -17,5 +17,19 @@
       "value": "remote",
       "label": "Zdalnie"
     }
+  ],
+  "minPlaceholder": "Min.",
+  "maxPlaceholder": "Maks.",
+  "contracts": [
+    {
+      "name": "b2b",
+      "label": "B2B",
+      "instructions": "Podaj zakres miesięcznego wynagrodzenia netto w ramach współpracy B2B."
+    },
+    {
+      "name": "employment",
+      "label": "Umowa o pracę",
+      "instructions": "Podaj zakres miesięcznego wynagrodzenia brutto w ramach umowy o pracę."
+    }
   ]
 }

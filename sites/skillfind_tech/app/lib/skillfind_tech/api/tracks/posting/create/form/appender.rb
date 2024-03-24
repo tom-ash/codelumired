@@ -47,6 +47,7 @@ module SkillfindTech
                     name: 'cooperation_mode',
                     options: localizations[:cooperationModeOptions]
                   },
+                  contracts: contracts,
                 }
               end
 
@@ -61,6 +62,10 @@ module SkillfindTech
                 end
               end
 
+              def contracts
+                @contracts ||= localizations[:contracts]
+              end
+
               def errors
                 {
                   businessNameError: '',
@@ -69,6 +74,10 @@ module SkillfindTech
 
               def selectableSkills
                 @selectableSkills ||= ::SkillfindTech::Skill.all
+              end
+
+              def asset_names
+                ['minus']
               end
             end
           end
