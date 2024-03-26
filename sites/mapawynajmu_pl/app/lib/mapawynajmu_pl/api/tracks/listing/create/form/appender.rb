@@ -34,9 +34,6 @@ module MapawynajmuPl
               def control
                 {
                   step: 'form',
-                  addingPicture: false,
-                  savingListing: false,
-                  savingPicture: false,
                   resetMap: true,
                   mapOptions: {
                     center: {
@@ -56,9 +53,6 @@ module MapawynajmuPl
                   longitude: nil,
                   locality: nil,
                   sublocality: nil,
-                  blobs: EMPTY_ARRAY,
-                  picFiles: EMPTY_ARRAY,
-                  picUploads: EMPTY_ARRAY,
                   area: EMPTY_TEXT,
                   netRentAmount: EMPTY_TEXT,
                   grossRentAmount: EMPTY_TEXT,
@@ -79,6 +73,7 @@ module MapawynajmuPl
                   name: EMPTY_TEXT,
                   link: EMPTY_TEXT,
                   add_promotion: false,
+                  pictures: EMPTY_ARRAY,
                 }.merge(listing_form_inputs, user_form_inputs)
               end
 

@@ -12,14 +12,22 @@ module SkillfindTech
             requires :granted, type: Boolean
             requires :displayed_text, type: String
           end
+          requires :logo, type: String
         end
         post do
           user ||= site::User.find_or_initialize_by(email: params[:email_address])
           user.change_log = []
+          logo = params[:logo]
+          user.logo = logo
 
           # TODO: Consents!
           # ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
           ::Ciphers::User::HashPassword.new(user: user, password: params[:password]).call
+
+          # TODO!
+          ::PersistedObject.new("temporary/#{logo}").move_to(
+            "posters/#{params[:logo]}",
+          )
 
           user.save!
 

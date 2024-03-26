@@ -38,9 +38,6 @@ module MapawynajmuPl
             def control
               {
                 step: 'form',
-                addingPicture: false,
-                savingListing: false,
-                savingPicture: false,
                 mapOptions: {
                   center: {
                     lat: announcement.latitude,
@@ -55,7 +52,17 @@ module MapawynajmuPl
               {
                 id: announcement.id,
                 isPromoted: announcement.is_promoted,
+                persistedPictures: persistedPictures,
               }
+            end
+
+            def persistedPictures
+              @persistedPictures ||= announcement.pictures.map do |picture|
+                {
+                  # source, # TODO
+                  database: picture['database']  
+                }
+              end
             end
 
             def inputs
@@ -65,10 +72,8 @@ module MapawynajmuPl
                 longitude: announcement.longitude,
                 locality: announcement.locality,
                 sublocality: announcement.sublocality,
-                blobs: EMPTY_ARRAY,
-                picFiles: EMPTY_ARRAY,
-                picUploads: EMPTY_ARRAY,
-                db_pictures: announcement.pictures,
+                currentPictures: announcement.pictures,
+                pictures: [],
                 area: announcement.area,
                 netRentAmount: announcement.net_rent_amount,
                 grossRentAmount: announcement.gross_rent_amount,
