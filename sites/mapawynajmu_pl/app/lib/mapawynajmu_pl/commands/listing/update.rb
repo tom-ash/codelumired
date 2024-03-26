@@ -31,6 +31,7 @@ module MapawynajmuPl
         end
 
         def call
+          persist_pictures
           announcement.update!(parsed_attrs)
         end
 
@@ -38,8 +39,36 @@ module MapawynajmuPl
 
         attr_reader :id, :attrs
 
+        def persist_pictures
+          pictures_to_persist.each do |picture|
+            ::PersistedObject.new("temporary/#{picture}").move_to(
+              "announcements/#{announcement.id}/#{picture}",
+            )
+          end
+        end
+
         def announcement
           @announcement ||= MapawynajmuPl::Listing.find(id)
+        end
+
+        def pictures_to_persist
+          @pictures_to_persist ||= new_picture_keys - current_picture_keys
+        end
+
+        # def pictures_to_delete
+        #   @pictures_to_delete ||= current_picture_keys - new_picture_keys
+        # end
+
+        def new_picture_keys
+          @new_picture_keys ||= attrs[:pictures].map do |picture|
+            picture['database']
+          end
+        end
+
+        def current_picture_keys
+          @current_picture_keys ||= announcement.pictures.map do |picture|
+            picture['database']
+          end
         end
 
         def parsed_attrs
