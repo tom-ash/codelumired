@@ -2,6 +2,10 @@
   "pl": {
     "categoryHeading": "Kategoria",
     "categoryInstructions": "Kliknij w odpowiednią ikonę, aby wybrać kategorię.",
+    "locationHeading": "Lokalizacja",
+    "locationInstructions": "Wpisz adres lub kliknij na mapie.",
+    "picturesHeading": "Zdjęcia",
+    "picturesUploadInstructions": "Kliknij w ikonę aparatu fotograficznego, aby wybrać zdjęcia.",
     "areaInputLabel": "Powierzchnia",
     "areaInputPlaceholder": "Podaj powierzchnię",
     "linkInputLabel": "Link",
@@ -16,12 +20,15 @@
     "grossRentAmountInputLabel": "Miesięczna cena",
     "addPromotionCheckboxLabel": "Wyróżnij ogłoszenie za 19 PLN",
     "submitWithoutPromotionButtonLabel": "Dodaj bez wyróżnienia",
-    "submitWithPromotionButtonLabel": "Dodaj z wyróżnieniem",
-    "picturesUploadInstructions": "Kliknij w ikonę aparatu fotograficznego, aby wybrać zdjęcia."
+    "submitWithPromotionButtonLabel": "Dodaj z wyróżnieniem"
   },
   "en": {
     "categoryHeading": "Category",
     "categoryInstructions": "Click the respective icon to select the category.",
+    "locationHeading": "Location",
+    "locationInstructions": "Provide the address or click on the map.",
+    "picturesHeading": "Pictures",
+    "picturesUploadInstructions": "Click on the camera icon to select pictures.",
     "areaInputLabel": "Area",
     "areaInputPlaceholder": "Provide area",
     "linkInputLabel": "Link",
@@ -36,7 +43,6 @@
     "grossRentAmountInputLabel": "Monthly Price",
     "addPromotionCheckboxLabel": "Promote the listing for 19 PLN",
     "submitWithoutPromotionButtonLabel": "Add Without Promotion",
-    "submitWithPromotionButtonLabel": "Add With Promotion",
-    "picturesUploadInstructions": "Click on the camera icon to select pictures."
+    "submitWithPromotionButtonLabel": "Add With Promotion"
   }
 }
