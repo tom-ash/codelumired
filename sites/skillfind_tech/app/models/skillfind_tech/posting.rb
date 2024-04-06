@@ -15,7 +15,6 @@ module SkillfindTech
     # Non-validated fields: sublocality, street, description
     validates :user, presence: true
     validates :views, presence: true, numericality: true
-    validates :company_name, presence: true
     validates :company_size, presence: true
     validates :cooperation_mode, presence: true
     validates :country, presence: true

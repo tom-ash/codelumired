@@ -1,5 +1,6 @@
 {
   "texts": {
+    "businessNameInputLabel": "Business Name",
     "headingOne": "Sign Up",
     "emailInputLabel": "Email Address",
     "emailInputPlaceholder": "Provide email address",

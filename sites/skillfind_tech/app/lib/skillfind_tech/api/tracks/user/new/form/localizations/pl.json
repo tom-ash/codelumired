@@ -1,5 +1,6 @@
 {
   "texts": {
+    "businessNameInputLabel": "Nazwa ogłoszeniodawcy",
     "headingOne": "Zarejestruj",
     "emailInputLabel": "Adres email",
     "emailInputPlaceholder": "Podaj adres email",

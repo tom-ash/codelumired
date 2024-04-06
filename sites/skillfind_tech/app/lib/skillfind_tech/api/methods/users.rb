@@ -5,6 +5,8 @@ module SkillfindTech
     module Methods
       class Users < Grape::API
         params do
+          requires :business_name, type: String
+          requires :logo, type: String
           requires :email_address, type: String
           requires :password, type: String
           requires :consents, type: Array do
@@ -12,13 +14,14 @@ module SkillfindTech
             requires :granted, type: Boolean
             requires :displayed_text, type: String
           end
-          requires :logo, type: String
+          
         end
         post do
           user ||= site::User.find_or_initialize_by(email: params[:email_address])
-          user.change_log = []
           logo = params[:logo]
+          user.business_name = params[:business_name]
           user.logo = logo
+          user.change_log = []
 
           # TODO: Consents!
           # ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call

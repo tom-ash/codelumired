@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_27_065624) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_05_162942) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,7 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_27_065624) do
   create_table "postings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "views", null: false
-    t.string "company_name", null: false
     t.integer "company_size", null: false
     t.string "country", null: false
     t.string "locality", null: false
@@ -165,6 +164,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_27_065624) do
     t.datetime "deleted_at", precision: nil
     t.jsonb "author_data"
     t.string "logo"
+    t.string "business_name"
   end
 
   add_foreign_key "images", "users", column: "added_by_id", name: "images_added_by_id_fkey"

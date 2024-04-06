@@ -26,7 +26,6 @@ module SkillfindTech
           @posting ||= ::SkillfindTech::Posting.new(
             user: user,
             views: 0,
-            company_name: attrs[:business_name],
             industry: attrs[:industry],
             cooperation_mode: attrs[:cooperation_mode],
             company_size: 42,
