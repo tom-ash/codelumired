@@ -6,6 +6,7 @@ module SkillfindTech
       class Users < Grape::API
         params do
           requires :business_name, type: String
+          requires :industry, type: String
           requires :logo, type: String
           requires :email_address, type: String
           requires :password, type: String
@@ -20,6 +21,7 @@ module SkillfindTech
           user ||= site::User.find_or_initialize_by(email: params[:email_address])
           logo = params[:logo]
           user.business_name = params[:business_name]
+          user.industry = params[:industry]
           user.logo = logo
           user.change_log = []
 

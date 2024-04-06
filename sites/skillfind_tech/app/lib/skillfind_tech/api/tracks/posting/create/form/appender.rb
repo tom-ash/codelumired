@@ -40,8 +40,6 @@ module SkillfindTech
                   b2b: false,
                   b2bMin: EMPTY_TEXT,
                   b2bMax: EMPTY_TEXT,
-                  industry: 'moto',
-                  industrySelectOptions: industrySelectOptions,
                   cooperationMode: 'office',
                   cooperationModeRadio: {
                     name: 'cooperation_mode',
@@ -49,17 +47,6 @@ module SkillfindTech
                   },
                   contracts: contracts,
                 }
-              end
-
-              def industrySelectOptions
-                industries = JSON.parse(File.read('sites/skillfind_tech/fixtures/industries.json'))
-
-                @industrySelectOptions ||= industries.map do |industry|
-                  {
-                    value: industry['value'],
-                    text: industry[lang.to_s]
-                  }
-                end
               end
 
               def contracts

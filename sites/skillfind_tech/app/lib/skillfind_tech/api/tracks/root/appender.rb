@@ -44,7 +44,7 @@ module SkillfindTech
             ::SkillfindTech::Posting.includes(:selected_skills).map do |posting|
               {
                 id: posting.id,
-                industry: getIndustry(posting.industry)[lang.to_s],
+                # industry: getIndustry(posting.industry)[lang.to_s],
                 skills: ::SkillfindTech::SelectedSkill.joins(:skill).where(posting_id: posting.id).select(:level, :name), # TODO!!!
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,

@@ -17,7 +17,20 @@ module SkillfindTech
                     emailAddress: EMPTY_TEXT,
                     password: EMPTY_TEXT,
                     termsOfServiceConsent: false,
+                    industry: 'moto',
+                    industrySelectOptions: industrySelectOptions,
                   }
+                end
+
+                def industrySelectOptions
+                  industries = JSON.parse(File.read('sites/skillfind_tech/fixtures/industries.json'))
+  
+                  @industrySelectOptions ||= industries.map do |industry|
+                    {
+                      value: industry['value'],
+                      text: industry[lang.to_s]
+                    }
+                  end
                 end
               end
             end

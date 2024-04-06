@@ -7,7 +7,6 @@ module SkillfindTech
         before { authorize! }
 
         params do
-          requires :industry, type: String
           requires :selected_skills, type: Array
           requires :cooperation_mode, type: String
           requires :b2b, type: Boolean
@@ -29,7 +28,6 @@ module SkillfindTech
           ::SkillfindTech::Commands::Posting::Create.new(
             user_id: authenticated_user.id,
             attrs: {
-              industry: params[:industry],
               selected_skills: params[:selected_skills],
               cooperation_mode: params[:cooperation_mode],
               b2b: params[:b2b],

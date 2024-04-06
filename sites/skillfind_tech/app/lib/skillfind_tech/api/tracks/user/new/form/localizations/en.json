@@ -1,6 +1,7 @@
 {
   "texts": {
     "businessNameInputLabel": "Business Name",
+    "industrySelectLabel": "Industry PL",
     "headingOne": "Sign Up",
     "emailInputLabel": "Email Address",
     "emailInputPlaceholder": "Provide email address",
