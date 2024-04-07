@@ -27,6 +27,7 @@ module SkillfindTech
             user: user,
             views: 0,
             cooperation_mode: attrs[:cooperation_mode],
+            description: attrs[:description],
             company_size: 42,
             b2b: attrs[:b2b],
             b2b_min: attrs[:b2b_min],

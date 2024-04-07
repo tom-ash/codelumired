@@ -37,6 +37,7 @@ module SkillfindTech
                   businessName: EMPTY_TEXT,
                   selectableSkills: selectableSkills,
                   selectedSkills: [],
+                  description: EMPTY_TEXT,
                   b2b: false,
                   b2bMin: EMPTY_TEXT,
                   b2bMax: EMPTY_TEXT,
