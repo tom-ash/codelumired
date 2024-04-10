@@ -1,106 +1,127 @@
 [
   {
     "name": "JavaScript",
+    "url": "javascript",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "TypeScript",
+    "url": "typescript",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Ruby",
+    "url": "ruby",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Python",
+    "url": "python",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Java",
+    "url": "java",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "PHP",
+    "url": "php",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "C",
+    "url": "c",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "C++",
+    "url": "cplusplus",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "C#",
+    "url": "csharp",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Swift",
+    "url": "swift",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "SQL",
+    "url": "sql",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "NoSQL",
+    "url": "nosql",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Kotlin",
+    "url": "kotlin",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Scala",
+    "url": "scala",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Perl",
+    "url": "perl",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Rust",
+    "url": "rust",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Objective-C",
+    "url": "objective-c",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "CSS",
+    "url": "css",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "HTML",
+    "url": "html",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Perl",
+    "url": "perl",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   },
   {
     "name": "Go",
+    "url": "go",
     "type": "SkillfindTech::Language",
     "description": "TODO"
   }

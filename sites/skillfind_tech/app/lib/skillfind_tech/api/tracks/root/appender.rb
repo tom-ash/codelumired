@@ -40,19 +40,97 @@ module SkillfindTech
             end
           end
 
+          def inputs
+            {
+              skillOptions: skillOptions,
+              selectedSkills: selectedSkills,
+            }
+          end
+
+          def selectedSkills
+            selectedSkillsArray = []
+
+            params.each do |param|
+              paramName = param[0]
+              level = param[1]
+              
+              selected_skill = skillOptions.find do |skillOption|
+                skillOption[:url] == paramName
+              end
+
+              if selected_skill.present?
+                selectedSkillsArray << selected_skill.merge(level: level)
+              end
+            end
+
+            selectedSkillsArray
+          end
+
+          def skillOptions
+            @skillOptions ||= skills.map do |skill|
+              {
+                value: skill['name'],
+                text: skill['name'],
+                url: skill['url'],
+              }
+            end
+          end
+
+          def skills
+            @skills ||= JSON.parse(File.read('sites/skillfind_tech/fixtures/skills.json'))
+          end
+
+
+          def queriedSkills
+            @queriedSkills ||= begin
+              if (selectedSkills.length > 0)
+                whereArray = []
+                whereDataArray = []
+                whereString = nil
+                arr = nil
+                
+                selectedSkills.map do |selectedSkill|
+                  whereArray << "(name = ? AND level <= ?)"
+                  whereString = whereArray.join(' OR ')
+                  whereDataArray << selectedSkill[:value]
+                  whereDataArray << (selectedSkill[:level] == '0' ? '5' : selectedSkill[:level])
+
+                  arr = [whereString] + whereDataArray
+                end
+
+                return ::SkillfindTech::SelectedSkill.joins(:skill)
+                  .where(*arr)
+                  .group(:posting_id).having("count(posting_id) = #{selectedSkills.length}")
+                  .select(:posting_id)
+              end
+            end
+          end
+
           def postings
-            ::SkillfindTech::Posting.includes(:selected_skills).map do |posting|
+            if queriedSkills
+              postings = ::SkillfindTech::Posting.where(id: queriedSkills.map(&:posting_id)).includes(:skills)
+            else
+              postings = ::SkillfindTech::Posting.includes(:skills)
+            end
+
+            postings.map do |posting|
               {
                 id: posting.id,
-                # industry: getIndustry(posting.industry)[lang.to_s],
-                skills: ::SkillfindTech::SelectedSkill.joins(:skill).where(posting_id: posting.id).select(:level, :name), # TODO!!!
+                skills: postingSelectedSkills(posting),
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,
                 b2bMax: posting.b2b_max,
-
                 lat: posting.lat,
                 lng: posting.lng,
-                
+              }
+            end
+          end
+
+          def postingSelectedSkills(posting)
+            posting.selected_skills.map do |selected_skill|
+              {
+                name: selected_skill.skill.name,
+                level: selected_skill.level,
               }
             end
           end
