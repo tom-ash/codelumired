@@ -62,7 +62,7 @@ module MapawynajmuPl
         end
 
         def bucket
-          @bucket ||= MAPAWYNAJMU_PL_S3
+          @bucket ||= MAPAWYNAJMU_PL_AWS_S3_BUCKET
         end
       end
 

@@ -95,7 +95,7 @@ namespace :mapawynajmu_pl do
       ::Builders::Pages::SchemaOrgBuilder.new(
         page: page,
         domain_url: MAPAWYNAJMU_PL_URL,
-        bucket: MAPAWYNAJMU_PL_S3
+        bucket: MAPAWYNAJMU_PL_AWS_S3_BUCKET
       ).call
     end
   end

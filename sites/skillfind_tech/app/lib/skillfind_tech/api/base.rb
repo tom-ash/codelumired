@@ -49,7 +49,7 @@ module SkillfindTech
         end
 
         def bucket
-          @bucket ||= SKILLFIND_TECH_S3
+          @bucket ||= SKILLFIND_TECH_AWS_S3_BUCKET
         end
       end
 

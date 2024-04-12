@@ -29,12 +29,16 @@ module SkillfindTech
           # ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
           ::Ciphers::User::HashPassword.new(user: user, password: params[:password]).call
 
-          # TODO!
-          ::PersistedObject.new("temporary/#{logo}").move_to(
-            "posters/#{params[:logo]}",
+          temporary_logo ||= Aws::S3::Object.new(
+            credentials: CREDS,
+            region: Rails.application.secrets.aws_region,
+            bucket_name: bucket,
+            key: "temporary/#{logo}",
           )
 
           user.save!
+
+          temporary_logo.move_to("#{bucket}/users/#{user.id}/#{logo}")
 
           ::Commands::User::Update::Attribute.new(
             user_id: user.id,

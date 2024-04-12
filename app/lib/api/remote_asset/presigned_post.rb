@@ -22,7 +22,7 @@ module Api
         post = Aws::S3::PresignedPost.new(
           CREDS,
           'eu-central-1',
-          Rails.application.secrets.aws_bucket,
+          bucket,
           key: key,
           success_action_status: '201',
           content_type: mime_type,

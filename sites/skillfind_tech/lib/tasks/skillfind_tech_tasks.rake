@@ -16,7 +16,7 @@ namespace :skillfind_tech do
       ::Builders::Pages::SchemaOrgBuilder.new(
         page: page,
         domain_url: SKILLFIND_TECH_URL,
-        bucket: SKILLFIND_TECH_S3
+        bucket: SKILLFIND_TECH_AWS_S3_BUCKET
       ).call
     end
   end
@@ -27,7 +27,7 @@ namespace :skillfind_tech do
       ::Commands::Page::TransformBody.new(
         page: page,
         constantized_site_name: 'SkillfindTech',
-        bucket: SKILLFIND_TECH_S3,
+        bucket: SKILLFIND_TECH_AWS_S3_BUCKET,
       ).call
     end
   end
