@@ -19,12 +19,11 @@ module SkillfindTech
     validates :cooperation_mode, presence: true
     validates :country, presence: true
     validates :locality, presence: true
-    validates :employment, inclusion: { in: [true, false] }
     validates :b2b, inclusion: { in: [true, false] }
-    # Add :mandate.
-    validates :employment_min, numericality: true, allow_nil: true
-    validates :employment_max, numericality: true, allow_nil: true
     validates :b2b_min, numericality: true, allow_nil: true
     validates :b2b_max, numericality: true, allow_nil: true
+    validates :employment, inclusion: { in: [true, false] }
+    validates :employment_min, numericality: true, allow_nil: true
+    validates :employment_max, numericality: true, allow_nil: true
   end
 end

@@ -19,10 +19,10 @@ module SkillfindTech
         end
         post do
           user ||= site::User.find_or_initialize_by(email: params[:email_address])
-          logo = params[:logo]
+          
           user.business_name = params[:business_name]
           user.industry = params[:industry]
-          user.logo = logo
+          user.logo = "#{user.business_name.parameterize}.png"
           user.change_log = []
 
           # TODO: Consents!
@@ -33,12 +33,12 @@ module SkillfindTech
             credentials: CREDS,
             region: Rails.application.secrets.aws_region,
             bucket_name: bucket,
-            key: "temporary/#{logo}",
+            key: "temporary/#{params[:logo]}",
           )
 
           user.save!
 
-          temporary_logo.move_to("#{bucket}/users/#{user.id}/#{logo}")
+          temporary_logo.move_to("#{bucket}/logos/#{user.logo}")
 
           ::Commands::User::Update::Attribute.new(
             user_id: user.id,

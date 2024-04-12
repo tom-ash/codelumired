@@ -108,18 +108,28 @@ module SkillfindTech
 
           def postings
             if queriedSkills
-              postings = ::SkillfindTech::Posting.where(id: queriedSkills.map(&:posting_id)).includes(:skills)
+              postings = ::SkillfindTech::Posting.where(id: queriedSkills.map(&:posting_id))
             else
-              postings = ::SkillfindTech::Posting.includes(:skills)
+              postings = ::SkillfindTech::Posting
             end
 
-            postings.map do |posting|
+            postings.includes(:skills).includes(:user).map do |posting|
               {
+                logo: posting.user.logo,
+                businessName: posting.user.business_name,
+                industry: getIndustry(posting.user.industry)[lang.to_s],
                 id: posting.id,
                 skills: postingSelectedSkills(posting),
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,
                 b2bMax: posting.b2b_max,
+                employment: posting.employment,
+                employmentMin: posting.employment_min,
+                employmentMax: posting.employment_max,
+                country: posting.country,
+                locality: posting.locality,
+                sublocality: posting.sublocality,
+                cooperationMode: posting.cooperation_mode,
                 lat: posting.lat,
                 lng: posting.lng,
               }
