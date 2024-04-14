@@ -6,6 +6,9 @@ module SkillfindTech
       module Root
         class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
           include ::SkillfindTech::Api::Tracks::Root::Meta
+          include ::SkillfindTech::Api::Tracks::Posting::Common::Skills
+          include ::SkillfindTech::Api::Tracks::Posting::Common::Postings
+          include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
 
           private
 
@@ -30,119 +33,11 @@ module SkillfindTech
             }
           end
 
-          def industries
-            @industries = JSON.parse(File.read('sites/skillfind_tech/fixtures/industries.json'))
-          end
-
-          def getIndustry(value)
-            industries.find do |i|
-              i['value'] == value
-            end
-          end
-
           def inputs
             {
               skillOptions: skillOptions,
               selectedSkills: selectedSkills,
             }
-          end
-
-          def selectedSkills
-            selectedSkillsArray = []
-
-            params.each do |param|
-              paramName = param[0]
-              level = param[1]
-              
-              selected_skill = skillOptions.find do |skillOption|
-                skillOption[:url] == paramName
-              end
-
-              if selected_skill.present?
-                selectedSkillsArray << selected_skill.merge(level: level)
-              end
-            end
-
-            selectedSkillsArray
-          end
-
-          def skillOptions
-            @skillOptions ||= skills.map do |skill|
-              {
-                value: skill['name'],
-                text: skill['name'],
-                url: skill['url'],
-              }
-            end
-          end
-
-          def skills
-            @skills ||= JSON.parse(File.read('sites/skillfind_tech/fixtures/skills.json'))
-          end
-
-
-          def queriedSkills
-            @queriedSkills ||= begin
-              if (selectedSkills.length > 0)
-                whereArray = []
-                whereDataArray = []
-                whereString = nil
-                arr = nil
-                
-                selectedSkills.map do |selectedSkill|
-                  whereArray << "(name = ? AND level <= ?)"
-                  whereString = whereArray.join(' OR ')
-                  whereDataArray << selectedSkill[:value]
-                  whereDataArray << (selectedSkill[:level] == '0' ? '5' : selectedSkill[:level])
-
-                  arr = [whereString] + whereDataArray
-                end
-
-                return ::SkillfindTech::SelectedSkill.joins(:skill)
-                  .where(*arr)
-                  .group(:posting_id).having("count(posting_id) = #{selectedSkills.length}")
-                  .select(:posting_id)
-              end
-            end
-          end
-
-          def postings
-            if queriedSkills
-              postings = ::SkillfindTech::Posting.where(id: queriedSkills.map(&:posting_id))
-            else
-              postings = ::SkillfindTech::Posting
-            end
-
-            postings.includes(:skills).includes(:user).map do |posting|
-              {
-                logo: posting.user.logo,
-                businessName: posting.user.business_name,
-                industry: getIndustry(posting.user.industry)[lang.to_s],
-                id: posting.id,
-                skills: postingSelectedSkills(posting),
-                b2b: posting.b2b,
-                b2bMin: posting.b2b_min,
-                b2bMax: posting.b2b_max,
-                employment: posting.employment,
-                employmentMin: posting.employment_min,
-                employmentMax: posting.employment_max,
-                country: posting.country,
-                locality: posting.locality,
-                sublocality: posting.sublocality,
-                cooperationMode: posting.cooperation_mode,
-                lat: posting.lat,
-                lng: posting.lng,
-              }
-            end
-          end
-
-          def postingSelectedSkills(posting)
-            posting.selected_skills.map do |selected_skill|
-              {
-                name: selected_skill.skill.name,
-                level: selected_skill.level,
-              }
-            end
           end
 
           def control
@@ -168,10 +63,6 @@ module SkillfindTech
               collegeCap
               flaskVial
             ]
-          end
-
-          def page
-            ::SkillfindTech::Page.find_by(url: "root/#{lang}")
           end
 
           def pages

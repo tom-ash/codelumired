@@ -48,7 +48,8 @@ module SkillfindTech
               visitor: true,
               # page: true,
               # 'page/show': true,
-              renderPostingIndex: true,
+              postings: true,
+              'postings/index': true,
               renderVisitorPageIndex: true,
             }
           end

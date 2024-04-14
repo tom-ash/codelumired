@@ -64,7 +64,7 @@ RSpec.shared_context 'skillfind_tech_sync', :shared_context => :metadata do
         label: 'Sign In',
         hrefLang: 'en',
       },
-      'listings>new>form': {
+      'listings/new/form': {
         href: '/add-posting',
         title: 'TODO',
         label: 'ASDASDASDAS',

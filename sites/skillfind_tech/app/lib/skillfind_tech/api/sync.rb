@@ -17,6 +17,9 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Meta::TRACK => ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Meta::UNLOCALIZED_PATH,
+
+            ::SkillfindTech::Api::Tracks::Posting::Show::Meta::TRACK => ::SkillfindTech::Api::Tracks::Posting::Show::Meta::UNLOCALIZED_PATH,
+
             ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Index::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Page::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::Page::Edit::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Index::Meta::UNLOCALIZED_PATH,
@@ -42,6 +45,9 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::ResetPassword::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::Posting::Create::Form::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Meta::TRACK then ::SkillfindTech::Api::Tracks::Posting::Create::Summary::Appender.new(attrs).call
+
+          when ::SkillfindTech::Api::Tracks::Posting::Show::Meta::TRACK then ::SkillfindTech::Api::Tracks::Posting::Show::Appender.new(attrs).call
+
           when ::SkillfindTech::Api::Tracks::Page::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Index::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Page::Show::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Show::Appender.new(**attrs, page: page).call
           when ::SkillfindTech::Api::Tracks::Page::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::Page::Edit::Appender.new(attrs).call

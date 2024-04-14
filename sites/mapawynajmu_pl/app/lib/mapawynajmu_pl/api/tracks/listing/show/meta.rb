@@ -30,8 +30,6 @@ module MapawynajmuPl
               {
                 visitor: true,
                 announcement: true,
-                'announcement/index': true,
-                "announcement/index/map": true,
                 'listings/show': true
               }
             end

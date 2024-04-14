@@ -86,7 +86,7 @@ RSpec.shared_context 'mapawynajmu_pl_sync', :shared_context => :metadata do
         title: 'Moje Konto',
         # TODO!
       },
-      'listings>new>form': {
+      'listings/new/form': {
         href: '/dodaj-ogloszenie-wynajmu-nieruchomosci',
         hrefLang: 'pl',
         title: 'Dodaj ogłoszenie wynajmu nieruchomości',

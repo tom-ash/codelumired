@@ -7,7 +7,7 @@ module MapawynajmuPl
         module Create
           module Form
             module Meta
-              TRACK = 'listings>new>form'
+              TRACK = 'listings/new/form'
 
               UNLOCALIZED_PATH = {
                 pl: 'dodaj-ogloszenie-wynajmu-nieruchomosci',
@@ -56,7 +56,7 @@ module MapawynajmuPl
                   'visitor': true,
                   'announcement': true,
                   'announcement/create': true,
-                  'listings>new>form': true,
+                  'listings/new/form': true,
                 }
               end
 

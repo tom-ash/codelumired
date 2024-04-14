@@ -7,7 +7,7 @@ module SkillfindTech
         module Create
           module Form
             module Meta
-              TRACK = 'listings>new>form'
+              TRACK = 'listings/new/form'
 
               UNLOCALIZED_PATH = {
                 en: 'add-posting',
@@ -52,9 +52,9 @@ module SkillfindTech
               def render
                 {
                   'visitor': true,
-                  'announcement': true,
-                  'announcement/create': true,
-                  'listings>new>form': true,
+                  'postings': true,
+                  'postings/new': true,
+                  'postings/new/form': true,
                 }
               end
 
