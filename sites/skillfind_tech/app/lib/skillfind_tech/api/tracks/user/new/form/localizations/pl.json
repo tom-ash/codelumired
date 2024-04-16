@@ -1,6 +1,8 @@
 {
   "texts": {
+    "businessNameInputId": "business-name-input",
     "businessNameInputLabel": "Nazwa ogłoszeniodawcy",
+    "businessNameInputInvalidError": "Nieprawidłowa nazwa ogłoszeniodawcy.",
     "industrySelectLabel": "Industry",
     "headingOne": "Zarejestruj",
     "emailInputLabel": "Adres email",

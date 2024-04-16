@@ -1,6 +1,8 @@
 {
   "texts": {
+    "businessNameInputId": "business-name-input",
     "businessNameInputLabel": "Business Name",
+    "businessNameInputInvalidError": "Invalid business name.",
     "industrySelectLabel": "Industry PL",
     "headingOne": "Sign Up",
     "emailInputLabel": "Email Address",

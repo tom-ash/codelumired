@@ -14,11 +14,12 @@ module SkillfindTech
 
                 def user_form_inputs
                   {
+                    businessName: EMPTY_TEXT,
+                    industry: 'software_house',
+                    industrySelectOptions: industrySelectOptions,
                     emailAddress: EMPTY_TEXT,
                     password: EMPTY_TEXT,
                     termsOfServiceConsent: false,
-                    industry: 'moto',
-                    industrySelectOptions: industrySelectOptions,
                   }
                 end
 
