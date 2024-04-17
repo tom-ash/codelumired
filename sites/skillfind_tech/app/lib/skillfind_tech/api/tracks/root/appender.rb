@@ -62,6 +62,7 @@ module SkillfindTech
               home
               collegeCap
               flaskVial
+              marker
             ]
           end
 
