@@ -63,6 +63,10 @@ module SkillfindTech
               collegeCap
               flaskVial
               marker
+              office
+              building
+              earthGlobe
+              treeCity
             ]
           end
 

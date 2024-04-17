@@ -1,0 +1,19 @@
+{
+  "cooperationModes": [
+    {
+      "value": "office",
+      "icon": "building",
+      "label": "Office"
+    },
+    {
+      "value": "hybrid",
+      "icon": "treeCity",
+      "label": "Hybrid"
+    },
+    {
+      "value": "remote",
+      "icon": "earthGlobe",
+      "label": "Remote"
+    }
+  ]
+}

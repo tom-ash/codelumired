@@ -32,7 +32,7 @@ module SkillfindTech
                 end
               end
             end
-  
+
             def postings
               if selectedPostingIds
                 postings = ::SkillfindTech::Posting.where(id: selectedPostingIds.map(&:posting_id))
@@ -57,7 +57,7 @@ module SkillfindTech
                   country: posting.country,
                   locality: posting.locality,
                   sublocality: posting.sublocality,
-                  cooperationMode: posting.cooperation_mode,
+                  cooperationMode: localizedCooperationMode(posting.cooperation_mode),
                   lat: posting.lat,
                   lng: posting.lng,
                 }
@@ -71,6 +71,16 @@ module SkillfindTech
                   level: selected_skill.level,
                 }
               end
+            end
+
+            def localizedCooperationMode(cooperationMode)
+              localizedCooperationModes.find do |mode|
+                mode[:value] == cooperationMode
+              end
+            end
+
+            def localizedCooperationModes
+              @localizedCooperationModes ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/common/localizations/cooperation-modes/#{lang}.json")[:cooperationModes]
             end
           end
         end
