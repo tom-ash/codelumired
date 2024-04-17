@@ -1,5 +1,9 @@
 {
+  "skillSelectorHeading": "Skills",
+  "skillSelectionInstructions": "Select from one to ten skills.",
   "locationHeading": "Location",
+  "locationInstructions": "Provide the office location.",
+  "placesAutocompleteInputPlaceholder": "City, street, building number",
   "cooperationModeHeading": "Cooperation Mode",
   "cooperationModeLegend": "Select the cooperation mode:",
   "cooperationModeOptions": [

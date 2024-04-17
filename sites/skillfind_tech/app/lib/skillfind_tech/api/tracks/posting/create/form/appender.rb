@@ -41,6 +41,9 @@ module SkillfindTech
                   b2b: false,
                   b2bMin: EMPTY_TEXT,
                   b2bMax: EMPTY_TEXT,
+                  employment: false,
+                  employmentMin: EMPTY_TEXT,
+                  employmentMax: EMPTY_TEXT,
                   cooperationMode: 'office',
                   cooperationModeRadio: {
                     name: 'cooperation_mode',

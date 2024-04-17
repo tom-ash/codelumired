@@ -1,5 +1,9 @@
 {
+  "skillSelectorHeading": "Umiejętności",
+  "skillSelectionInstructions": "Wybierz od jednej do dziesięciu umiejętności.",
   "locationHeading": "Lokalizacja",
+  "locationInstructions": "Podaj lokalizację biura.",
+  "placesAutocompleteInputPlaceholder": "Miasto, ulica, numer budynku",
   "cooperationModeHeading": "Model współpracy",
   "cooperationModeLegend": "Wybierz model współpracy:",
   "cooperationModeOptions": [

@@ -7,7 +7,7 @@ module SkillfindTech
         before { authorize! }
 
         params do
-          requires :selected_skills, type: Array
+          requires :selected_skills, type: Array # TODO: Validate min. 1 length. Object: [{"name"=>"TypeScript", "level"=>3}].
           requires :cooperation_mode, type: String
           requires :lat, type: Float
           requires :lng, type: Float
@@ -26,7 +26,6 @@ module SkillfindTech
 
         end
         post do
-          # byebug
           ::SkillfindTech::Commands::Posting::Create.new(
             user_id: authenticated_user.id,
             attrs: {
