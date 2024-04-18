@@ -6,13 +6,11 @@ module SkillfindTech
 
     self.table_name = 'postings'
 
-    # has_and_belongs_to_many :skills
     belongs_to :user
 
     has_many :selected_skills
     has_many :skills, through: :selected_skills
 
-    # Non-validated fields: sublocality, street, description
     validates :user, presence: true
     validates :views, presence: true, numericality: true
     validates :company_size, presence: true

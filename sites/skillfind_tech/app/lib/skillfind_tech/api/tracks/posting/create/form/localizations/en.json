@@ -22,6 +22,11 @@
   ],
   "minPlaceholder": "Min.",
   "maxPlaceholder": "Max.",
+
+  "descriptionHeading": "Description",
+  "addEnDescriptionLabel": "Add English Description",
+  "addPlDescriptionLabel": "Add Polish Description",
+
   "contracts": [
     {
       "name": "b2b",

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_07_073500) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_18_050145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,7 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_073500) do
     t.integer "employment_max"
     t.integer "b2b_min"
     t.integer "b2b_max"
-    t.text "description"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.float "lat", null: false
@@ -90,6 +89,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_073500) do
     t.string "place_autocomplete", null: false
     t.string "place_id", null: false
     t.string "cooperation_mode", null: false
+    t.string "en_description"
+    t.string "pl_description"
     t.index ["lat"], name: "index_postings_on_lat"
     t.index ["lng"], name: "index_postings_on_lng"
   end
@@ -164,7 +165,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_073500) do
     t.string "logo"
     t.string "business_name"
     t.string "industry"
-    t.string "description"
     t.index ["industry"], name: "index_users_on_industry"
   end
 

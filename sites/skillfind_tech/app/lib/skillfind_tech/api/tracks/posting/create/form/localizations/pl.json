@@ -22,6 +22,11 @@
   ],
   "minPlaceholder": "Min.",
   "maxPlaceholder": "Maks.",
+
+  "descriptionHeading": "Opis",
+  "addEnDescriptionLabel": "Dodaj opis w języku angielskim",
+  "addPlDescriptionLabel": "Dodaj opis w języku polskim",
+
   "contracts": [
     {
       "name": "b2b",

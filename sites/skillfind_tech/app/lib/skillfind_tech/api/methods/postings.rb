@@ -16,7 +16,8 @@ module SkillfindTech
           optional :country, type: String
           optional :locality, type: String
           optional :sublocality, type: String
-          requires :description, type: String
+          requires :pl_description, type: String
+          requires :en_description, type: String
           requires :b2b, type: Boolean
           optional :b2b_min, type: Integer
           optional :b2b_max, type: Integer
@@ -38,7 +39,8 @@ module SkillfindTech
               country: params[:country],
               locality: params[:locality],
               sublocality: params[:sublocality],
-              description: params[:description],
+              pl_description: params[:pl_description],
+              en_description: params[:en_description],
               b2b: params[:b2b],
               b2b_min: params[:b2b_min],
               b2b_max: params[:b2b_max],
