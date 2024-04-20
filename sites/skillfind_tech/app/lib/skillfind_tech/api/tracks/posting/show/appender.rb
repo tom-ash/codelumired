@@ -67,10 +67,20 @@ module SkillfindTech
                 country: posting.country,
                 locality: posting.locality,
                 sublocality: posting.sublocality,
-                cooperationMode: posting.cooperation_mode,
+                cooperationMode: localizedCooperationMode(posting.cooperation_mode),
                 lat: posting.lat,
                 lng: posting.lng,
+                description: posting["#{lang}_description"],
               }
+            end
+
+            def asset_names
+              @asset_names ||= %i[
+                marker
+                building
+                earthGlobe
+                treeCity
+              ]
             end
           end
         end

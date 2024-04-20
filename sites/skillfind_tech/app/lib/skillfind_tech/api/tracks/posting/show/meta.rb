@@ -67,8 +67,13 @@ module SkillfindTech
               {
                 'current/en': ::SkillfindTech::Api::Tracks::Posting::Show::Linker.new(:en).call,
                 'current/pl': ::SkillfindTech::Api::Tracks::Posting::Show::Linker.new(:pl).call,
+                # 'root': rootLink,
               }
             end
+
+            # def rootLink
+            #   @rootLink ||= ::SkillfindTech::Api::Tracks::Root::Linker.new(lang).call
+            # end
           end
         end
       end
