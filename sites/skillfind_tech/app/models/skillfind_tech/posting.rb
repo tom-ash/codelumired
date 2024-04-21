@@ -10,6 +10,7 @@ module SkillfindTech
 
     has_many :selected_skills
     has_many :skills, through: :selected_skills
+    has_many :applications
 
     validates :user, presence: true
     validates :views, presence: true, numericality: true

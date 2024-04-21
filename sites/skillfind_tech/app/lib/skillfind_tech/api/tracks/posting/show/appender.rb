@@ -14,6 +14,14 @@ module SkillfindTech
 
             private
 
+            def localizations
+              @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/show/localizations/#{lang}.json")
+            end
+
+            def texts
+              localizations
+            end
+
             def control
               {
                 isPinsDrawn: false,

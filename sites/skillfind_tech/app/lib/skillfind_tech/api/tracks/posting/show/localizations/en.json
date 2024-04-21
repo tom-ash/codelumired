@@ -1,3 +1,10 @@
 {
-  "TODO": "TODO"
+  "applySectionHeading": "Aplikuj",
+  "firstNameInputLabel": "First Name",
+  "lastNameInputLabel": "Last Name",
+  "emailInputLabel": "Email",
+  "phoneNumberInputLabel": "Phone Number",
+  "linkedInProfileInputLabel": "LinkedIn Profile",
+  "gitHubAccountInputLabel": "GitHub Account",
+  "applyButtonLabel": "Apply"
 }

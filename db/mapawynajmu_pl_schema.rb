@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_01_103316) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "assets", force: :cascade do |t|
@@ -34,11 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.integer "height"
     t.string "storage_key", null: false
     t.string "storage_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["added_by_id"], name: "index_images_on_added_by_id"
-    t.index ["page_id"], name: "index_images_on_page_id"
-    t.index ["storage_key"], name: "index_images_on_storage_key", unique: true
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "listings", force: :cascade do |t|
@@ -68,8 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.float "longitude", null: false
     t.float "latitude", null: false
     t.jsonb "change_log", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "area_int"
     t.integer "net_rent_amount_int"
     t.integer "net_rent_amount_per_sqm_int"
@@ -84,34 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.string "link"
     t.bigint "admin_id"
     t.boolean "is_promoted", default: false, null: false
-    t.datetime "deleted_at"
-    t.index ["active_until"], name: "index_listings_on_active_until"
-    t.index ["admin_id"], name: "index_listings_on_admin_id"
-    t.index ["area"], name: "index_listings_on_area"
-    t.index ["area_int"], name: "index_listings_on_area_int"
-    t.index ["availability_date"], name: "index_listings_on_availability_date"
-    t.index ["category"], name: "index_listings_on_category"
-    t.index ["floor"], name: "index_listings_on_floor"
-    t.index ["gross_rent_amount"], name: "index_listings_on_gross_rent_amount"
-    t.index ["gross_rent_amount_int"], name: "index_listings_on_gross_rent_amount_int"
-    t.index ["gross_rent_amount_per_sqm"], name: "index_listings_on_gross_rent_amount_per_sqm"
-    t.index ["gross_rent_amount_per_sqm_int"], name: "index_listings_on_gross_rent_amount_per_sqm_int"
-    t.index ["latitude"], name: "index_listings_on_latitude"
-    t.index ["latitude_int"], name: "index_listings_on_latitude_int"
-    t.index ["longitude"], name: "index_listings_on_longitude"
-    t.index ["longitude_int"], name: "index_listings_on_longitude_int"
-    t.index ["net_rent_amount"], name: "index_listings_on_net_rent_amount"
-    t.index ["net_rent_amount_int"], name: "index_listings_on_net_rent_amount_int"
-    t.index ["net_rent_amount_per_sqm"], name: "index_listings_on_net_rent_amount_per_sqm"
-    t.index ["net_rent_amount_per_sqm_int"], name: "index_listings_on_net_rent_amount_per_sqm_int"
-    t.index ["points"], name: "index_listings_on_points"
-    t.index ["rent_currency"], name: "index_listings_on_rent_currency"
-    t.index ["rooms"], name: "index_listings_on_rooms"
-    t.index ["status"], name: "index_listings_on_status"
-    t.index ["total_floors"], name: "index_listings_on_total_floors"
-    t.index ["user_id"], name: "index_listings_on_user_id"
-    t.index ["user_verified"], name: "index_listings_on_user_verified"
-    t.index ["visible"], name: "index_listings_on_visible"
+    t.datetime "deleted_at", precision: nil
   end
 
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -119,15 +88,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.string "payu_order_id", null: false
     t.string "payu_merchant_pos_id", null: false
     t.string "status", null: false
-    t.datetime "paid_at"
+    t.datetime "paid_at", precision: nil
     t.string "product", null: false
     t.string "price", null: false
     t.integer "quantity", null: false
     t.string "currency", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["announcement_id"], name: "index_orders_on_announcement_id"
-    t.index ["payu_order_id"], name: "index_orders_on_payu_order_id", unique: true
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -151,18 +118,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.date "modified_on"
     t.uuid "lang_alts_group"
     t.string "link_image"
-    t.datetime "index_now_pinged_at"
+    t.datetime "index_now_pinged_at", precision: nil
     t.uuid "parent_id"
-    t.string "content_type"
     t.integer "priority", limit: 2
-    t.index ["author_id"], name: "index_pages_on_author_id"
-    t.index ["description"], name: "index_pages_on_description"
-    t.index ["keywords"], name: "index_pages_on_keywords"
-    t.index ["lang"], name: "index_pages_on_lang"
-    t.index ["lang_alts_group"], name: "index_pages_on_lang_alts_group"
-    t.index ["title"], name: "index_pages_on_title"
-    t.index ["url"], name: "index_pages_on_url", unique: true
-    t.index ["parent_id"], name: "index_pages_on_parent_id"
+    t.string "content_type"
   end
 
   create_table "redirects", force: :cascade do |t|
@@ -171,10 +130,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.string "redirected_url", null: false
     t.integer "status", null: false
     t.text "reason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["added_by_id"], name: "index_redirects_on_added_by_id"
-    t.index ["original_url"], name: "index_redirects_on_original_url", unique: true
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -191,8 +148,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.string "tax_number"
     t.text "address"
     t.jsonb "change_log", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "account_type"
     t.string "first_name"
     t.string "last_name"
@@ -201,20 +158,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_01_092355) do
     t.string "country_code"
     t.string "phone_number"
     t.string "urlified_business_name"
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.jsonb "author_data"
-    t.index ["country_code"], name: "index_users_on_country_code"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["email_verified_at"], name: "index_users_on_email_verified_at"
-    t.index ["phone_number"], name: "index_users_on_phone_number"
-    t.index ["status"], name: "index_users_on_status"
   end
 
-  add_foreign_key "images", "users", column: "added_by_id"
-  add_foreign_key "listings", "users"
-  add_foreign_key "listings", "users", column: "admin_id"
-  add_foreign_key "orders", "listings", column: "announcement_id"
+  add_foreign_key "images", "users", column: "added_by_id", name: "images_added_by_id_fkey"
+  add_foreign_key "listings", "users", column: "admin_id", name: "listings_admin_id_fkey"
+  add_foreign_key "listings", "users", name: "listings_user_id_fkey"
+  add_foreign_key "orders", "listings", column: "announcement_id", name: "orders_announcement_id_fkey"
   add_foreign_key "pages", "pages", column: "parent_id"
   add_foreign_key "pages", "users", column: "author_id"
-  add_foreign_key "redirects", "users", column: "added_by_id"
+  add_foreign_key "redirects", "users", column: "added_by_id", name: "redirects_added_by_id_fkey"
 end

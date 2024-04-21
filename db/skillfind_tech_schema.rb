@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_18_050145) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_21_072616) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_050145) do
     t.integer "priority", limit: 2
     t.uuid "category_id"
     t.string "content_type"
+  end
+
+  create_table "posting_applications", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "posting_id", null: false
+    t.string "first_name", limit: 255, null: false
+    t.string "last_name", limit: 255, null: false
+    t.string "email", limit: 255, null: false
+    t.string "phone_number", limit: 255
+    t.string "linked_in_profile", limit: 255
+    t.string "git_hub_account", limit: 255
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["posting_id"], name: "index_posting_applications_on_posting_id"
   end
 
   create_table "postings", force: :cascade do |t|
@@ -172,6 +185,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_050145) do
   add_foreign_key "pages", "categories", name: "pages_category_id_fkey"
   add_foreign_key "pages", "pages", column: "parent_id", name: "pages_parent_id_fkey"
   add_foreign_key "pages", "users", column: "author_id", name: "pages_author_id_fkey"
+  add_foreign_key "posting_applications", "postings"
   add_foreign_key "postings", "users", name: "postings_user_id_fkey"
   add_foreign_key "question_answers", "questions", name: "question_answers_question_id_fkey"
   add_foreign_key "questions", "categories", name: "questions_category_id_fkey"
