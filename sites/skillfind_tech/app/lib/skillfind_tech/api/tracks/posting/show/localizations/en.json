@@ -6,5 +6,7 @@
   "phoneNumberInputLabel": "Phone Number",
   "linkedInProfileInputLabel": "LinkedIn Profile",
   "gitHubAccountInputLabel": "GitHub Account",
-  "applyButtonLabel": "Apply"
+  "applyButtonLabel": "Apply",
+  "cVFileInputLabel": "CV",
+  "cVFileInputInstructions": "Drag & drop the file or click here."
 }

@@ -88,6 +88,7 @@ module SkillfindTech
                 building
                 earthGlobe
                 treeCity
+                plus
               ]
             end
           end
