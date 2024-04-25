@@ -13,6 +13,9 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK => ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::User::New::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::New::Form::Meta::UNLOCALIZED_PATH,
+
+            ::SkillfindTech::Api::Tracks::User::New::Verify::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::New::Verify::Meta::UNLOCALIZED_PATH,
+
             ::SkillfindTech::Api::Tracks::User::Auth::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Auth::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta::TRACK => ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta::UNLOCALIZED_PATH,
@@ -41,6 +44,9 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Meta::TRACK then ::SkillfindTech::Api::Tracks::Visitor::CookiesPolicy::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Meta::TRACK then ::SkillfindTech::Api::Tracks::Visitor::PrivacySettings::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::User::New::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::New::Form::Appender.new(attrs).call
+
+          when ::SkillfindTech::Api::Tracks::User::New::Verify::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::New::Verify::Appender.new(attrs).call
+
           when ::SkillfindTech::Api::Tracks::User::Auth::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Auth::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::User::ResetPassword::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::ResetPassword::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta::TRACK then ::SkillfindTech::Api::Tracks::Posting::Create::Form::Appender.new(attrs).call

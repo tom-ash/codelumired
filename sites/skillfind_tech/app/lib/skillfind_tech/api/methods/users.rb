@@ -15,10 +15,11 @@ module SkillfindTech
             requires :granted, type: Boolean
             requires :displayed_text, type: String
           end
-          
         end
         post do
           user ||= site::User.find_or_initialize_by(email: params[:email_address])
+
+          error!('users.email_already_registered', 422) if user.verified?
           
           user.business_name = params[:business_name]
           user.industry = params[:industry]
@@ -40,12 +41,50 @@ module SkillfindTech
 
           temporary_logo.move_to("#{bucket}/logos/#{user.logo}")
 
-          ::Commands::User::Update::Attribute.new(
-            user_id: user.id,
-            name: 'email_verified_at',
-            value: Time.zone.now,
-            constantized_site_name: constantized_site_name,
-          ).call
+          verificationCode = rand(1000..9999).to_s
+
+          ::Mailers::Verification.new(
+            email: params[:email_address],
+            namespace: 'user/create/email-and-password',
+            lang: lang,
+            verification_code: verificationCode,
+          ).send
+
+          decodedVerificationToken = {
+            verificationCode: verificationCode,
+            userId: user.id,
+          }
+          verificationToken = ::Ciphers::Jwt::Encoder.new(decodedVerificationToken).call
+          href = ::SkillfindTech::Api::Tracks::User::New::Verify::Linker.new(lang, id: user.id).call[:href]
+
+          {
+            href: href,
+            verificationToken: verificationToken,
+          }
+        end
+
+        params do
+          requires :verification_token, type: String
+          requires :verification_code, type: String
+        end
+        put do
+          decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(params['verification_token']).call
+          raise StandardError if decodedVerificationToken['verificationCode'] != params['verification_code']
+
+          user_id = decodedVerificationToken['userId']
+          user = ::SkillfindTech::User.find(user_id)
+          raise StandardError if user.verified?
+
+          user.update!(email_verified_at: Time.zone.now)
+
+          encodedAccessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
+
+          {
+            accessToken: encodedAccessToken,
+            href: '/',
+          }
+        rescue StandardError
+          error!('Verification code invalid!', 422)
         end
 
         params do
