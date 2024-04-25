@@ -1,18 +1,16 @@
 {
-  "texts": {
-    "businessNameInputId": "business-name-input",
-    "businessNameInputLabel": "Business Name",
-    "businessNameInputInvalidError": "Invalid business name.",
-    "industrySelectLabel": "Industry PL",
-    "headingOne": "Sign Up",
-    "emailInputLabel": "Email Address",
-    "emailInputPlaceholder": "Provide email address",
-    "emailInputInvalidError": "Invalid email address.",
-    "passwordInputLabel": "Password",
-    "passwordInputPlaceholder": "Provide password",
-    "passwordInputInvalidError": "The password has to consist at least six characters.",
-    "termsOfServiceConsentNotGrantedError": "The acceptance of the Terms of Service is required.",
-    "submitFormButtonLabel": "Sign Up",
-    "logoUploadInstructions": "Click on the camera icon to add a logo."
-  }
+  "businessNameInputId": "business-name-input",
+  "businessNameInputLabel": "Business Name",
+  "businessNameInputInvalidError": "Invalid business name.",
+  "industrySelectLabel": "Industry PL",
+  "headingOne": "Sign Up",
+  "emailInputLabel": "Email Address",
+  "emailInputPlaceholder": "Provide email address",
+  "emailInputInvalidError": "Invalid email address.",
+  "passwordInputLabel": "Password",
+  "passwordInputPlaceholder": "Provide password",
+  "passwordInputInvalidError": "The password has to consist at least six characters.",
+  "termsOfServiceConsentNotGrantedError": "The acceptance of the Terms of Service is required.",
+  "submitFormButtonLabel": "Sign Up",
+  "logoUploadInstructions": "Click on the camera icon to add a logo."
 }

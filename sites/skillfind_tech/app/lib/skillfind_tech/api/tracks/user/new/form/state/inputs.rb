@@ -10,15 +10,13 @@ module SkillfindTech
               module Inputs
                 private
 
-                EMPTY_TEXT = ''
-
                 def user_form_inputs
                   {
-                    businessName: EMPTY_TEXT,
+                    businessName: EMPTY_STRING,
                     industry: 'software_house',
                     industrySelectOptions: industrySelectOptions,
-                    emailAddress: EMPTY_TEXT,
-                    password: EMPTY_TEXT,
+                    emailAddress: EMPTY_STRING,
+                    password: EMPTY_STRING,
                     termsOfServiceConsent: false,
                   }
                 end

@@ -7,23 +7,11 @@ module SkillfindTech
         module Create
           module Form
             module State
+              include ::SkillfindTech::Api::Tracks::User::New::Form::State::Texts
+              include ::SkillfindTech::Api::Tracks::User::New::Form::State::Inputs
+              include ::SkillfindTech::Api::Tracks::User::New::Form::State::Errors
 
               private
-
-              def texts
-                {
-                  en: {
-                    title: 'Add Posting',
-                    skills: 'Skills',
-                    submit: 'Submit',
-                  },
-                  pl: {
-                    title: 'Dodaj ogłoszenie',
-                    skills: 'Umiejętności',
-                    submit: 'Wyślij',
-                  },
-                }[lang]
-              end
             end
           end
         end

@@ -39,5 +39,6 @@
       "instructions": "Provide monthly gross salary range within employment cooperation."
     }
   ],
-  "picturesUploadInstructions": "Click on the camera icon to select pictures."
+  "picturesUploadInstructions": "Click on the camera icon to select pictures.",
+  "posterHeading": "Company"
 }

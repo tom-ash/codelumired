@@ -13,11 +13,17 @@ module SkillfindTech
               EMPTY_TEXT = ''
 
               def localizations
-                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/#{lang}.json")
+                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/#{lang}.json").merge(
+                  user_localizations
+                )
+              end
+
+              def user_localizations
+                @user_localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/new/form/localizations/#{lang}.json")
               end
 
               def texts
-                localizations
+                localizations.merge(user_form_texts)
               end
 
               def control
@@ -50,7 +56,7 @@ module SkillfindTech
                     options: localizations[:cooperationModeOptions]
                   },
                   contracts: contracts,
-                }
+                }.merge(user_form_inputs)
               end
 
               def contracts
@@ -60,7 +66,7 @@ module SkillfindTech
               def errors
                 {
                   businessNameError: '',
-                }
+                }.merge(user_form_errors)
               end
 
               def selectableSkills
@@ -68,7 +74,7 @@ module SkillfindTech
               end
 
               def asset_names
-                ['minus']
+                @asset_names ||= %i[minus chevron camera close rotate]
               end
             end
           end

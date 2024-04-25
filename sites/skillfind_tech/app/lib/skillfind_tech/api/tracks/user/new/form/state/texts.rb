@@ -11,7 +11,7 @@ module SkillfindTech
                 private
 
                 def user_form_texts
-                  localizations[:texts].merge(
+                  localizations.merge(
                     termsOfServiceConsentLabel: termsOfServiceConsentLabel,
                     termsOfServiceConsentSyntheticLabel: termsOfServiceConsentSyntheticLabel,
                     termsOfService: termsOfService,
