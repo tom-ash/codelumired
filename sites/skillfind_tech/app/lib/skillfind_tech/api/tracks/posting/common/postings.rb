@@ -41,10 +41,13 @@ module SkillfindTech
               end
   
               postings.includes(:skills).includes(:user).map do |posting|
+                industry = getIndustry(posting.user.industry)
+
                 {
                   logo: posting.user.logo,
                   businessName: posting.user.business_name,
-                  industry: getIndustry(posting.user.industry)[lang.to_s],
+                  industry: industry[lang.to_s],
+                  industryIcon: industry['icon'],
                   id: posting.id,
                   href: "/#{posting.id}-TODO",
                   skills: postingSelectedSkills(posting),

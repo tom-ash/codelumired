@@ -67,7 +67,7 @@ module SkillfindTech
               building
               earthGlobe
               treeCity
-            ]
+            ] + industryIcons
           end
 
           def pages

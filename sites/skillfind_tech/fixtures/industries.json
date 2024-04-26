@@ -2,76 +2,97 @@
   {
     "value": "software_house",
     "pl": "Software House",
-    "en": "Software House"
+    "en": "Software House",
+    "icon": "laptopWithCode"
   },
   {
     "value": "motorization",
     "pl": "Motoryzacja",
-    "en": "Motorization"
+    "en": "Motorization",
+    "icon": "car"
   },
   {
     "value": "medicine",
     "pl": "Medycyna",
-    "en": "Medicine"
+    "en": "Medicine",
+    "icon": "caduceus"
   },
   {
-    "value": "media",
-    "pl": "Media",
-    "en": "Media"
+    "value": "music",
+    "pl": "Muzyka",
+    "en": "Music",
+    "icon": "notes"
+  },
+  {
+    "value": "video",
+    "pl": "Muzyka",
+    "en": "Music",
+    "icon": "video"
   },
   {
     "value": "gaming",
     "pl": "Gry",
-    "en": "Gaming"
+    "en": "Gaming",
+    "icon": "gamepad"
   },
   {
     "value": "finance_banking",
     "pl": "Finanse & bankowość",
-    "en": "Finance & Banking"
+    "en": "Finance & Banking",
+    "icon": "coins"
   },
   {
     "value": "ecommerce",
     "pl": "E-Commerce",
-    "en": "E-Commerce"
+    "en": "E-Commerce",
+    "icon": "basket"
   },
   {
     "value": "aviation",
     "pl": "Lotnictwo",
-    "en": "Aviation"
+    "en": "Aviation",
+    "icon": "plane"
   },
   {
     "value": "cosmonautics",
     "pl": "Kosmonautyka",
-    "en": "Cosmonautics"
+    "en": "Cosmonautics",
+    "icon": "spaceShuttle"
   },
   {
     "value": "energetics",
     "pl": "Energetyka",
-    "en": "Energetics"
-  },
-  {
-    "value": "streaming",
-    "pl": "Streaming",
-    "en": "Streaming"
+    "en": "Energetics",
+    "icon": "bulb"
   },
   {
     "value": "science",
     "pl": "Nauka",
-    "en": "Science"
+    "en": "Science",
+    "icon": "vial"
   },
   {
     "value": "education",
     "pl": "Edukacja",
-    "en": "Education"
+    "en": "Education",
+    "icon": "graduationCap"
   },
   {
-    "value": "marketing",
-    "pl": "Marketing",
-    "en": "Marketing"
+    "value": "marketing_agency",
+    "pl": "Marketing Agency",
+    "en": "Agencja Marketingowa",
+    "icon": "ad"
+  },
+  {
+    "value": "recruitment_agency",
+    "pl": "Recruitment Agency",
+    "en": "Agencja Pośrednictwa",
+    "icon": "handshake"
   },
   {
     "value": "inne",
     "pl": "Inne",
-    "en": "Other"
+    "en": "Other",
+    "icon": "questionMark"
   }
 ]

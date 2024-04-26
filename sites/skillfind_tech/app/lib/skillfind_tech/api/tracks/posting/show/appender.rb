@@ -41,6 +41,7 @@ module SkillfindTech
                 pages: [], # TODO!
                 articles: [], # TODO!
                 posting: serializedPosting,
+                currentListingId: posting.id, # TODO!
               }
             end
 
@@ -64,7 +65,8 @@ module SkillfindTech
                 id: posting.id,
                 logo: posting.user.logo,
                 businessName: posting.user.business_name,
-                industry: getIndustry(posting.user.industry)[lang.to_s],
+                industry: industry[lang.to_s],
+                industryIcon: industry['icon'],
                 skills: postingSelectedSkills(posting),
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,
@@ -82,6 +84,10 @@ module SkillfindTech
               }
             end
 
+            def industry
+              @industry ||= getIndustry(posting.user.industry)
+            end
+
             def asset_names
               @asset_names ||= %i[
                 marker
@@ -89,7 +95,7 @@ module SkillfindTech
                 earthGlobe
                 treeCity
                 plus
-              ]
+              ] + industryIcons
             end
           end
         end

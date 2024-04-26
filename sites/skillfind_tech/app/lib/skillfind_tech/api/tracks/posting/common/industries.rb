@@ -17,6 +17,10 @@ module SkillfindTech
                 i['value'] == value
               end
             end
+
+            def industryIcons
+              @industryIcons ||= industries.map { |industry| industry['icon'] }
+            end
           end
         end
       end
