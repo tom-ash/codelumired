@@ -95,7 +95,7 @@ module SkillfindTech
                 earthGlobe
                 treeCity
                 plus
-              ] + industryIcons
+              ] + industryIcons + header_asset_names
             end
           end
         end

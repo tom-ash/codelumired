@@ -17,6 +17,10 @@ module SkillfindTech
                   en: 'Sign Up',
                 }[lang]
               end
+
+              def icon
+                'userPlus'
+              end
             end
           end
         end

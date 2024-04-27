@@ -8,6 +8,17 @@ module SkillfindTech
           class Appender < ::Api::Tracks::Page::Index::Appender
             include ::SkillfindTech::Api::Tracks::Page::Index::Meta
             include ::SkillfindTech::ProtocolAndDomain
+
+            private
+
+            def asset_names
+              @asset_names ||= %i[
+                userPlus
+                signIn
+                signOut
+                earthGlobe
+              ]
+            end
           end
         end
       end

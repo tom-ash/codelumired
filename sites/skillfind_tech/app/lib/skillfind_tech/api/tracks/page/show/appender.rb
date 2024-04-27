@@ -31,6 +31,15 @@ module SkillfindTech
                 pl: 'cwiczenia',
               }[lang]
             end
+
+            def asset_names
+              @asset_names ||= %i[
+                userPlus
+                signIn
+                signOut
+                earthGlobe
+              ]
+            end
           end
         end
       end

@@ -74,7 +74,7 @@ module SkillfindTech
               end
 
               def asset_names
-                @asset_names ||= %i[minus chevron camera close rotate]
+                @asset_names ||= %i[minus chevron camera close rotate] + header_asset_names
               end
             end
           end

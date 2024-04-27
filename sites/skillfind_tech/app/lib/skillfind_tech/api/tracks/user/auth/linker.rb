@@ -16,6 +16,10 @@ module SkillfindTech
                 en: 'Sign In',
               }[lang]
             end
+
+            def icon
+              'signIn'
+            end
           end
         end
       end

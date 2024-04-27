@@ -7,7 +7,6 @@ module SkillfindTech
         module Index
           class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
             include ::SkillfindTech::Api::Tracks::Assets::Index::Meta
-            include ::SkillfindTech::ProtocolAndDomain
 
             private
 
@@ -26,6 +25,10 @@ module SkillfindTech
                   addAssetButtonLabel: 'Add Asset',
                 },
               }[lang]
+            end
+
+            def asset_names
+              @asset_names ||= header_asset_names
             end
           end
         end

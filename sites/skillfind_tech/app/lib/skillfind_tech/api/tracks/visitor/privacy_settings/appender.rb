@@ -24,6 +24,10 @@ module SkillfindTech
                 },
               }[lang]
             end
+
+            def asset_names
+              @asset_names ||= header_asset_names
+            end
           end
         end
       end

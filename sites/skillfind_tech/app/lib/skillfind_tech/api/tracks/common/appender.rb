@@ -6,6 +6,17 @@ module SkillfindTech
       module Common
         class Appender < ::Api::Tracks::Common::Appender
           include ::SkillfindTech::ProtocolAndDomain
+
+          private
+
+          def header_asset_names
+            @header_asset_names ||= %i[
+              userPlus
+              signIn
+              signOut
+              earthGlobe
+            ]
+          end
         end
       end
     end

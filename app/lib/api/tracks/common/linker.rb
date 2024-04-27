@@ -15,6 +15,7 @@ module Api
             hrefLang: lang,
             title: title,
             label: label,
+            icon: icon,
           }
         end
 
@@ -55,6 +56,10 @@ module Api
 
         def metaClass
           @metaClass ||= self.class.to_s.gsub(/(::Linker$)/, '').constantize::Meta
+        end
+
+        def icon
+          nil
         end
       end
     end

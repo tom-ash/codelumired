@@ -65,9 +65,8 @@ module SkillfindTech
               marker
               office
               building
-              earthGlobe
               treeCity
-            ] + industryIcons
+            ] + header_asset_names + industryIcons
           end
 
           def pages

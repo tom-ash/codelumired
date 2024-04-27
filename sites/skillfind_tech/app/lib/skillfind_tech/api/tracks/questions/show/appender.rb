@@ -111,7 +111,7 @@ module SkillfindTech
                 paperPlane
                 check
                 home
-              ]
+              ] + header_asset_names
             end
 
             # def breadcrumbs
