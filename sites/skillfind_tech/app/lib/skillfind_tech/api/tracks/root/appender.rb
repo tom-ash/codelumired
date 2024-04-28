@@ -17,10 +17,12 @@ module SkillfindTech
               en: {
                 skillsHeading: 'Hone your tech skills',
                 featuredArticlesHeading: 'Featured Articles',
+                skillSelectPlaceholder: 'Search Skills',
               },
               pl: {
                 skillsHeading: 'Szlifuj swoje umiejętności tech',
                 featuredArticlesHeading: 'Artykuły',
+                skillSelectPlaceholder: 'Wyszukaj umiejętności',
               },
             }[lang]
           end
@@ -66,6 +68,7 @@ module SkillfindTech
               office
               building
               treeCity
+              magnifyingGlass
             ] + header_asset_names + industryIcons
           end
 
