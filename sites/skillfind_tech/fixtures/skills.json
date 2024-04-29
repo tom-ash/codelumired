@@ -114,12 +114,6 @@
     "description": "TODO"
   },
   {
-    "name": "Perl",
-    "url": "perl",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
     "name": "Go",
     "url": "go",
     "type": "SkillfindTech::Language",
