@@ -13,7 +13,7 @@ module SkillfindTech
             def texts
               {
                 pl: {
-                  headingOne: 'Zaloguj',
+                  heading: 'Zaloguj',
                   emailInputLabel: 'Adres email',
                   emailInputPlaceholder: 'Podaj adres email',
                   emailInputInvalidError: 'Nieprawidłowy adres email.',
@@ -25,7 +25,7 @@ module SkillfindTech
                   resetPassword: 'Zresetuj hasło',
                 },
                 en: {
-                  headingOne: 'Sign In',
+                  heading: 'Sign In',
                   emailInputLabel: 'Email Address',
                   emailInputPlaceholder: 'Provide email address',
                   emailInputInvalidError: 'Invalid email address.',
