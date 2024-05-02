@@ -1,16 +1,18 @@
 {
-  "businessNameInputId": "business-name-input",
+  "heading": "Sign Up",
+  "businessNameId": "business-name-input",
   "businessNameInputLabel": "Business Name",
+  "businessNameInputPlaceholder": "Provide business name",
   "businessNameInputInvalidError": "Invalid business name.",
   "industrySelectLabel": "Industry PL",
-  "headingOne": "Sign Up",
+  "logoUploadInstructions": "Drag & drop the file or click here.",
+  "logoInputMissingError": "Uploading logo is required.",
   "emailInputLabel": "Email Address",
   "emailInputPlaceholder": "Provide email address",
   "emailInputInvalidError": "Invalid email address.",
   "passwordInputLabel": "Password",
   "passwordInputPlaceholder": "Provide password",
-  "passwordInputInvalidError": "The password has to consist at least six characters.",
+  "passwordInputInvalidError": "The password has to consist of at least six characters.",
   "termsOfServiceConsentNotGrantedError": "The acceptance of the Terms of Service is required.",
-  "submitFormButtonLabel": "Sign Up",
-  "logoUploadInstructions": "Click on the camera icon to add a logo."
+  "submitFormButtonLabel": "Sign Up"
 }

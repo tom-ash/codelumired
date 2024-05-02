@@ -1,9 +1,12 @@
 {
-  "businessNameInputId": "business-name-input",
+  "heading": "Zarejestruj",
+  "businessNameId": "business-name-input",
   "businessNameInputLabel": "Nazwa ogłoszeniodawcy",
+  "businessNameInputPlaceholder": "Podaj nazwę ogłoszeniodawcy",
   "businessNameInputInvalidError": "Nieprawidłowa nazwa ogłoszeniodawcy.",
-  "industrySelectLabel": "Industry",
-  "headingOne": "Zarejestruj",
+  "industrySelectLabel": "Branża",
+  "logoInputMissingError": "Dodanie logo jest wymagane.",
+  "logoUploadInstructions": "Przeciągnij plik lub kliknij tutaj.",
   "emailInputLabel": "Adres email",
   "emailInputPlaceholder": "Podaj adres email",
   "emailInputInvalidError": "Nieprawidłowy adres email.",
@@ -11,6 +14,5 @@
   "passwordInputPlaceholder": "Podaj hasło",
   "passwordInputInvalidError": "Hasło powinno się składać z conajmniej 6 znaków.",
   "termsOfServiceConsentNotGrantedError": "Akceptacja Regulaminu jest wymagana.",
-  "submitFormButtonLabel": "Zarejestruj",
-  "logoUploadInstructions": "Kliknij na aparat fotograficzny, aby dodać logo."
+  "submitFormButtonLabel": "Zarejestruj"
 }

@@ -17,7 +17,7 @@ module SkillfindTech
               end
 
               def asset_names
-                @asset_names ||= header_asset_names
+                @asset_names ||= header_asset_names + ['plus', 'rotate', 'close']
               end
             end
           end
