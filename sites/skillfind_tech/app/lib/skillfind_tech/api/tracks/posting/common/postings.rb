@@ -39,6 +39,10 @@ module SkillfindTech
               else
                 postings = ::SkillfindTech::Posting
               end
+
+              if postings_user_id
+                postings = postings.where(user_id: postings_user_id)
+              end
   
               postings.includes(:skills).includes(:user).map do |posting|
                 industry = getIndustry(posting.user.industry)
@@ -84,6 +88,10 @@ module SkillfindTech
 
             def localizedCooperationModes
               @localizedCooperationModes ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/common/localizations/cooperation-modes/#{lang}.json")[:cooperationModes]
+            end
+
+            def postings_user_id
+              nil
             end
           end
         end

@@ -29,7 +29,11 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Image::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Edit::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Assets::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Assets::Index::Meta::UNLOCALIZED_PATH,
             ::SkillfindTech::Api::Tracks::Redirects::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Redirects::Index::Meta::UNLOCALIZED_PATH,
-            ::SkillfindTech::Api::Tracks::Questions::Show::Meta::TRACK => ::SkillfindTech::Api::Tracks::Questions::Show::Meta::UNLOCALIZED_PATH
+            ::SkillfindTech::Api::Tracks::Questions::Show::Meta::TRACK => ::SkillfindTech::Api::Tracks::Questions::Show::Meta::UNLOCALIZED_PATH,
+
+            ::SkillfindTech::Api::Tracks::User::Postings::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Postings::Index::Meta::UNLOCALIZED_PATH,
+
+            # ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::UNLOCALIZED_PATH,
           }
         end
 
@@ -63,6 +67,10 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::Redirects::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::Redirects::Index::Appender.new(attrs).call
           when ::Api::Tracks::Redirect::Show::Meta::TRACK then ::Api::Tracks::Redirect::Show::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::Questions::Show::Meta::TRACK then ::SkillfindTech::Api::Tracks::Questions::Show::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::User::Postings::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Postings::Index::Appender.new(attrs).call
+
+          # when ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Postings::Edit::Appender.new(attrs).call
+
           end
         end
 
