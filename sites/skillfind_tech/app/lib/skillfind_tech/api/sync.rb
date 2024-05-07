@@ -33,7 +33,7 @@ module SkillfindTech
 
             ::SkillfindTech::Api::Tracks::User::Postings::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Postings::Index::Meta::UNLOCALIZED_PATH,
 
-            # ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::UNLOCALIZED_PATH,
+            ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::UNLOCALIZED_PATH,
           }
         end
 
@@ -69,7 +69,7 @@ module SkillfindTech
           when ::SkillfindTech::Api::Tracks::Questions::Show::Meta::TRACK then ::SkillfindTech::Api::Tracks::Questions::Show::Appender.new(attrs).call
           when ::SkillfindTech::Api::Tracks::User::Postings::Index::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Postings::Index::Appender.new(attrs).call
 
-          # when ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Postings::Edit::Appender.new(attrs).call
+          when ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta::TRACK then ::SkillfindTech::Api::Tracks::User::Postings::Edit::Appender.new(attrs).call
 
           end
         end
