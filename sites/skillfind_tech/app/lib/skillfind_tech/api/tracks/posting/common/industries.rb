@@ -21,6 +21,22 @@ module SkillfindTech
             def industryIcons
               @industryIcons ||= industries.map { |industry| industry['icon'] }
             end
+
+            def localizedIndustry(value)
+              @localizedIndustry ||= localizedIndustries.find do |industry|
+                industry[:value] == value
+              end
+            end
+
+            def localizedIndustries
+              @localizedIndustries ||= industries.map do |industry|
+                {
+                  value: industry['value'],
+                  label: industry[lang.to_s],
+                  icon: industry['icon'],
+                }
+              end
+            end
           end
         end
       end

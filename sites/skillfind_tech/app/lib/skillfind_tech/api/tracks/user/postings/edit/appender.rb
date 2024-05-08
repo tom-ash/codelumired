@@ -9,6 +9,9 @@ module SkillfindTech
             class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
               include ::SkillfindTech::Api::Tracks::User::Postings::Edit::Meta
               include ::SkillfindTech::Api::Tracks::Posting::Common::Postings
+              include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
+              include ::SkillfindTech::Api::Tracks::Posting::Common::CooperationMode
+              include ::SkillfindTech::Api::Tracks::User::New::Form::State::Inputs
 
               EMPTY_TEXT = ''
 
@@ -23,6 +26,8 @@ module SkillfindTech
               def data
                 {
                   postingId: postingId,
+                  industries: localizedIndustries,
+                  cooperationModes: localizedCooperationModes,
                 }
               end
   
@@ -73,7 +78,7 @@ module SkillfindTech
                   employmentMin: posting.employment_min,
                   employmentMax: posting.employment_max,
                   contracts: contracts,
-                }
+                }.merge(user_form_inputs)
               end
 
               def contracts

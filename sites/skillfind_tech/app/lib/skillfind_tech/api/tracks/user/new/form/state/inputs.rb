@@ -12,8 +12,9 @@ module SkillfindTech
 
                 def user_form_inputs
                   {
-                    businessName: EMPTY_STRING,
-                    industry: 'software_house',
+                    logo: authenticated_user&.logo || EMPTY_STRING,
+                    businessName: authenticated_user&.business_name || EMPTY_STRING,
+                    industry: authenticated_user&.industry || 'software_house',
                     industrySelectOptions: industrySelectOptions,
                     emailAddress: EMPTY_STRING,
                     password: EMPTY_STRING,

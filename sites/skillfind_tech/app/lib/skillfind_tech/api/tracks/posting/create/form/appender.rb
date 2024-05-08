@@ -9,6 +9,8 @@ module SkillfindTech
             class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
               include ::SkillfindTech::Api::Tracks::Posting::Create::Form::State
               include ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta
+              include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
+              include ::SkillfindTech::Api::Tracks::Posting::Common::CooperationMode
 
               EMPTY_TEXT = ''
 
@@ -24,6 +26,13 @@ module SkillfindTech
 
               def texts
                 localizations.merge(user_form_texts)
+              end
+              
+              def data
+                {
+                  industries: localizedIndustries,
+                  cooperationModes: localizedCooperationModes,
+                }
               end
 
               def control
@@ -74,7 +83,20 @@ module SkillfindTech
               end
 
               def asset_names
-                @asset_names ||= %i[minus chevron camera close rotate] + header_asset_names
+                @asset_names ||= %i[
+                  minus
+                  chevron
+                  camera
+                  close
+                  rotate
+                  marker
+
+                  coins
+
+                  office
+                  building
+                  treeCity
+                ] + header_asset_names + industryIcons
               end
             end
           end

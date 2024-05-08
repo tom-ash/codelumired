@@ -7,6 +7,8 @@ module SkillfindTech
         module Postings
           module Edit
             module State
+              # include ::SkillfindTech::Api::Tracks::User::New::Form::State::Inputs
+
               private
             end
           end
