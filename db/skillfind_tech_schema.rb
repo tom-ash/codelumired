@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_22_151605) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_09_050638) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -105,6 +105,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_22_151605) do
     t.string "cooperation_mode", null: false
     t.string "en_description"
     t.string "pl_description"
+    t.string "background_color", limit: 7, null: false
+    t.string "text_color", limit: 7, null: false
     t.index ["lat"], name: "index_postings_on_lat"
     t.index ["lng"], name: "index_postings_on_lng"
   end

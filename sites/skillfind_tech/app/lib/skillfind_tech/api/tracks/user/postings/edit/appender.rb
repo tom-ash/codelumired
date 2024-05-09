@@ -78,6 +78,8 @@ module SkillfindTech
                   employmentMin: posting.employment_min,
                   employmentMax: posting.employment_max,
                   contracts: contracts,
+                  background_color: posting.background_color,
+                  text_color: posting.text_color,
                 }.merge(user_form_inputs)
               end
 

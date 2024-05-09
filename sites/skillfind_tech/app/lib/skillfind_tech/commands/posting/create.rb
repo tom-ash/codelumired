@@ -43,6 +43,8 @@ module SkillfindTech
             country: attrs[:country],
             locality: attrs[:locality],
             sublocality: attrs[:sublocality],
+            background_color: attrs[:background_color],
+            text_color: attrs[:text_color],
           )
         end
 

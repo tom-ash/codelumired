@@ -65,6 +65,10 @@ module SkillfindTech
                     options: localizations[:cooperationModeOptions]
                   },
                   contracts: contracts,
+
+                  backgroundColor: '#424949',
+                  textColor: '#FBFCFC',
+
                 }.merge(user_form_inputs)
               end
 

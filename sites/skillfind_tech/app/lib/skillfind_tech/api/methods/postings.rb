@@ -25,6 +25,8 @@ module SkillfindTech
             requires :employment, type: Boolean
             optional :employment_min, type: Integer
             optional :employment_max, type: Integer
+            requires :background_color
+            requires :text_color
           end
           post do
             ::SkillfindTech::Commands::Posting::Create.new(
@@ -54,6 +56,8 @@ module SkillfindTech
             requires :employment, type: Boolean
             optional :employment_min, type: Integer
             optional :employment_max, type: Integer
+            requires :background_color
+            requires :text_color
           end
           put do
             ::SkillfindTech::Commands::Posting::Update.new(
@@ -88,6 +92,8 @@ module SkillfindTech
           requires :terms_of_service_consent, type: Boolean
           requires :consents, type: Array
           requires :logo, type: Hash
+          requires :background_color
+          requires :text_color
         end
         post 'users' do
           user ||= site::User.find_or_initialize_by(email: params[:email_address])
@@ -117,25 +123,7 @@ module SkillfindTech
 
           ::SkillfindTech::Commands::Posting::Create.new(
             user_id: user.id,
-            attrs: {
-              selected_skills: params[:selected_skills],
-              cooperation_mode: params[:cooperation_mode],
-              place_id: params[:place_id],
-              lat: params[:lat],
-              lng: params[:lng],
-              place_autocomplete: params[:place_autocomplete],
-              country: params[:country],
-              locality: params[:locality],
-              sublocality: params[:sublocality],
-              pl_description: params[:pl_description],
-              en_description: params[:en_description],
-              b2b: params[:b2b],
-              b2b_min: params[:b2b_min],
-              b2b_max: params[:b2b_max],
-              employment: params[:employment],
-              employment_min: params[:employment_min],
-              employment_max: params[:employment_max],
-            },
+            attrs: params,
           ).call
 
           verificationCode = rand(1000..9999).to_s

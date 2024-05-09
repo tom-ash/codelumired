@@ -40,5 +40,6 @@
     }
   ],
   "picturesUploadInstructions": "Click on the camera icon to select pictures.",
-  "posterHeading": "Company"
+  "posterHeading": "Company",
+  "socialImageSectionHeading": "Social Image"
 }
