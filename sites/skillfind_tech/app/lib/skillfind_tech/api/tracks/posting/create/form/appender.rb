@@ -100,6 +100,8 @@ module SkillfindTech
                   office
                   building
                   treeCity
+                  magnifyingGlass
+                  arrowRight
                 ] + header_asset_names + industryIcons
               end
             end

@@ -41,5 +41,8 @@
   ],
   "picturesUploadInstructions": "Kliknij na aparat fotograficzny, aby dodać zdjęcia.",
   "posterHeading": "Ogłoszeniodawca",
-  "socialImageSectionHeading": "Obraz społecznościowy"
+  "socialImageSectionHeading": "Obraz społecznościowy",
+  "skillSearchInputPlaceholder": "Wyszukaj umiejętności",
+  "selectableSkillsHeading": "Umiejętności do wybrania",
+  "selectedSkillsHeading": "Wybrane umiejętności"
 }

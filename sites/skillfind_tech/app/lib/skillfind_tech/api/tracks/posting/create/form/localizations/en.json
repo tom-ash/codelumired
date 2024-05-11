@@ -41,5 +41,8 @@
   ],
   "picturesUploadInstructions": "Click on the camera icon to select pictures.",
   "posterHeading": "Company",
-  "socialImageSectionHeading": "Social Image"
+  "socialImageSectionHeading": "Social Image",
+  "skillSearchInputPlaceholder": "Search skills",
+  "selectableSkillsHeading": "Selectable Skills",
+  "selectedSkillsHeading": "Selected Skills"
 }
