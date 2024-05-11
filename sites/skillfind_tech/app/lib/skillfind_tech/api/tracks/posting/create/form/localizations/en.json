@@ -1,4 +1,5 @@
 {
+  "heading": "Add Posting",
   "skillSelectorHeading": "Skills",
   "skillSelectionInstructions": "Select from one to ten skills.",
   "locationHeading": "Location",
@@ -44,5 +45,6 @@
   "socialImageSectionHeading": "Social Image",
   "skillSearchInputPlaceholder": "Search skills",
   "selectableSkillsHeading": "Selectable Skills",
-  "selectedSkillsHeading": "Selected Skills"
+  "selectedSkillsHeading": "Selected Skills",
+  "submitButtonLabel": "Add Posting"
 }

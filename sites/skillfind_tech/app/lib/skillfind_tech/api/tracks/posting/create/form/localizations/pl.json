@@ -1,4 +1,5 @@
 {
+  "heading": "Dodaj ogłoszenie",
   "skillSelectorHeading": "Umiejętności",
   "skillSelectionInstructions": "Wybierz od jednej do dziesięciu umiejętności.",
   "locationHeading": "Lokalizacja",
@@ -44,5 +45,6 @@
   "socialImageSectionHeading": "Obraz społecznościowy",
   "skillSearchInputPlaceholder": "Wyszukaj umiejętności",
   "selectableSkillsHeading": "Umiejętności do wybrania",
-  "selectedSkillsHeading": "Wybrane umiejętności"
+  "selectedSkillsHeading": "Wybrane umiejętności",
+  "submitButtonLabel": "Dodaj ogłoszenie"
 }
