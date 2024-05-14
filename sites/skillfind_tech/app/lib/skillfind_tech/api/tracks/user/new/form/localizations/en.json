@@ -4,7 +4,7 @@
   "businessNameInputLabel": "Business Name",
   "businessNameInputPlaceholder": "Provide business name",
   "businessNameInputInvalidError": "Invalid business name.",
-  "industrySelectLabel": "Industry PL",
+  "industrySelectLabel": "Industry",
   "logoUploadInstructions": "Drag & drop the file or click here.",
   "logoInputMissingError": "Uploading logo is required.",
   "emailInputLabel": "Email Address",
