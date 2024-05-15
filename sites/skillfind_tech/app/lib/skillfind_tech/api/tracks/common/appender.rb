@@ -16,6 +16,8 @@ module SkillfindTech
               signOut
               earthGlobe
               plus
+              circleUser
+              cog
             ]
           end
         end

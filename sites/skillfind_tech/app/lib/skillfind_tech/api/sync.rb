@@ -81,6 +81,7 @@ module SkillfindTech
           end
         end
 
+        # TODO: ADD USERS EDIT
         def append_links
           links = state[:links] || {}
           state[:links] = links.merge(
@@ -99,6 +100,12 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::Image::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::Image::Index::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::SocialPages::Facebook::Meta::TRACK => ::SkillfindTech::Api::Tracks::SocialPages::Facebook::Linker.new(lang).call,
             ::SkillfindTech::Api::Tracks::SocialPages::Linkedin::Meta::TRACK => ::SkillfindTech::Api::Tracks::SocialPages::Linkedin::Linker.new(lang).call,
+
+            ::SkillfindTech::Api::Tracks::SocialPages::Linkedin::Meta::TRACK => ::SkillfindTech::Api::Tracks::SocialPages::Linkedin::Linker.new(lang).call,
+
+            ::SkillfindTech::Api::Tracks::User::Users::Show::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Users::Show::Linker.new(lang).call,
+
+            ::SkillfindTech::Api::Tracks::User::Users::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Users::Edit::Linker.new(lang).call,
           )
         end
 

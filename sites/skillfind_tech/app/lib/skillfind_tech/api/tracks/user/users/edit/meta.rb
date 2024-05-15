@@ -22,7 +22,14 @@ module SkillfindTech
               private
 
               def label
-                'TODO'
+                {
+                  en: 'Settings',
+                  pl: 'Ustawienia',
+                }[lang]
+              end
+
+              def icon
+                'cog'
               end
 
               def track
