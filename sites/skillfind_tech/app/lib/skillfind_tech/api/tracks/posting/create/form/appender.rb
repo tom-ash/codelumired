@@ -92,7 +92,6 @@ module SkillfindTech
                   close
                   rotate
                   marker
-
                   coins
                   plus
                   office

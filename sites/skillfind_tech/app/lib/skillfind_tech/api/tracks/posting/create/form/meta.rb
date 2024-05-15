@@ -22,7 +22,14 @@ module SkillfindTech
               private
 
               def label
-                'ASDASDASDAS'
+                {
+                  en: 'Add Posting',
+                  pl: 'Dodaj ogłoszenie',
+                }[lang]
+              end
+
+              def icon
+                'plus'
               end
 
               def track

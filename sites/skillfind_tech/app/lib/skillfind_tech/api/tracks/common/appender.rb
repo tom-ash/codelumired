@@ -15,6 +15,7 @@ module SkillfindTech
               signIn
               signOut
               earthGlobe
+              plus
             ]
           end
         end
