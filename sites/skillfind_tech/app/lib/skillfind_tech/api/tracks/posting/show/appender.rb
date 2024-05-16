@@ -80,6 +80,8 @@ module SkillfindTech
                 lat: posting.lat,
                 lng: posting.lng,
                 description: posting["#{lang}_description"],
+                background_color: posting.background_color,
+                text_color: posting.text_color,
               }
             end
 
@@ -94,6 +96,10 @@ module SkillfindTech
                 earthGlobe
                 treeCity
                 plus
+                arrowRight
+                magnifyingGlass
+                moneyTransfer
+                quoteLeft
               ] + industryIcons + header_asset_names
             end
           end

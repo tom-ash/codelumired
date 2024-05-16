@@ -8,5 +8,8 @@
   "gitHubAccountInputLabel": "GitHub Account",
   "applyButtonLabel": "Apply",
   "cVFileInputLabel": "CV",
-  "cVFileInputInstructions": "Drag & drop the file or click here."
+  "cVFileInputInstructions": "Drag & drop the file or click here.",
+  "skillsSectionHeading": "Searched Skills",
+  "remunerationSectionHeading": "Remuneration",
+  "descriptionSectionHeading": "Description"
 }
