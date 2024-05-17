@@ -11,5 +11,9 @@
   "cVFileInputInstructions": "Drag & drop the file or click here.",
   "skillsSectionHeading": "Searched Skills",
   "remunerationSectionHeading": "Remuneration",
-  "descriptionSectionHeading": "Description"
+  "descriptionSectionHeading": "Description",
+  "b2bContract": "B2B",
+  "employmentContract": "Employment",
+  "b2bPer": "h",
+  "employmentPer": "m"
 }

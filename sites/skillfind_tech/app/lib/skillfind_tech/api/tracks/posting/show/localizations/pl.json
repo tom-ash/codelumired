@@ -11,5 +11,9 @@
   "cVFileInputInstructions": "Przeciągnij plik lub kliknij tutaj.",
   "skillsSectionHeading": "Poszukiwane umiejętności",
   "remunerationSectionHeading": "Wynagrodzenie",
-  "descriptionSectionHeading": "Opis"
+  "descriptionSectionHeading": "Opis",
+  "b2bContract": "B2B",
+  "employmentContract": "Employment",
+  "b2bPer": "godz.",
+  "employmentPer": "mc"
 }

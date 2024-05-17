@@ -11,7 +11,7 @@ module SkillfindTech
 
               UNLOCALIZED_PATH = {
                 en: 'add-posting',
-                pl: 'dodaj-ogloszenie',
+                pl: 'pl/dodaj-ogloszenie',
               }.freeze
 
               UNLOCALIZED_TITLE = {

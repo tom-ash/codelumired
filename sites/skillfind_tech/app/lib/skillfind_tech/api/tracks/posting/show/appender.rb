@@ -100,6 +100,10 @@ module SkillfindTech
                 magnifyingGlass
                 moneyTransfer
                 quoteLeft
+                hourglass
+
+                
+
               ] + industryIcons + header_asset_names
             end
           end

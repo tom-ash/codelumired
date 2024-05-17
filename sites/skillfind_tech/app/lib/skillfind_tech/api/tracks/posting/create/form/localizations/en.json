@@ -32,12 +32,12 @@
     {
       "name": "b2b",
       "label": "B2B",
-      "instructions": "Provide monthly net remuneration range within B2B cooperation."
+      "instructions": "Provide hourly net remuneration range within the B2B cooperation."
     },
     {
       "name": "employment",
       "label": "Employment",
-      "instructions": "Provide monthly gross salary range within employment cooperation."
+      "instructions": "Provide monthly gross salary range within the employment cooperation."
     }
   ],
   "picturesUploadInstructions": "Click on the camera icon to select pictures.",
@@ -46,5 +46,9 @@
   "skillSearchInputPlaceholder": "Search skills",
   "selectableSkillsHeading": "Selectable Skills",
   "selectedSkillsHeading": "Selected Skills",
-  "submitButtonLabel": "Add Posting"
+  "submitButtonLabel": "Add Posting",
+  "b2bContract": "B2B",
+  "employmentContract": "Employment",
+  "b2bPer": "h",
+  "employmentPer": "m"
 }

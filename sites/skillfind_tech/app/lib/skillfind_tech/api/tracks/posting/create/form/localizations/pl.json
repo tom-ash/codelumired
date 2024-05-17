@@ -32,7 +32,7 @@
     {
       "name": "b2b",
       "label": "B2B",
-      "instructions": "Podaj zakres miesięcznego wynagrodzenia netto w ramach współpracy B2B."
+      "instructions": "Podaj zakres godzinowego wynagrodzenia netto w ramach współpracy B2B."
     },
     {
       "name": "employment",
@@ -46,5 +46,9 @@
   "skillSearchInputPlaceholder": "Wyszukaj umiejętności",
   "selectableSkillsHeading": "Umiejętności do wybrania",
   "selectedSkillsHeading": "Wybrane umiejętności",
-  "submitButtonLabel": "Dodaj ogłoszenie"
+  "submitButtonLabel": "Dodaj ogłoszenie",
+  "b2bContract": "B2B",
+  "employmentContract": "Employment",
+  "b2bPer": "godz.",
+  "employmentPer": "mc"
 }
