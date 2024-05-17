@@ -18,11 +18,19 @@ module SkillfindTech
                 skillsHeading: 'Hone your tech skills',
                 featuredArticlesHeading: 'Featured Articles',
                 skillSelectPlaceholder: 'Search Skills',
+                "b2bContract": "B2B",
+                "employmentContract": "Emp.",
+                "b2bPer": "h",
+                "employmentPer": "m"
               },
               pl: {
                 skillsHeading: 'Szlifuj swoje umiejętności tech',
                 featuredArticlesHeading: 'Artykuły',
                 skillSelectPlaceholder: 'Wyszukaj umiejętności',
+                "b2bContract": "B2B",
+                "employmentContract": "UoP",
+                "b2bPer": "godz.",
+                "employmentPer": "mc"
               },
             }[lang]
           end
