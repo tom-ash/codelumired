@@ -44,6 +44,10 @@ module SkillfindTech
             sublocality: attrs[:sublocality],
             background_color: attrs[:background_color],
             text_color: attrs[:text_color],
+
+            form_application_manner: attrs[:form_application_manner],
+            link_application_manner: attrs[:link_application_manner],
+            application_link: attrs[:application_link],
           )
         end
 

@@ -63,9 +63,12 @@ module SkillfindTech
                     options: localizations[:cooperationModeOptions]
                   },
                   contracts: contracts,
-
                   backgroundColor: '#424949',
                   textColor: '#FBFCFC',
+
+                  formApplicationManner: false,
+                  linkApplicationManner: false,
+                  applicationLink: EMPTY_TEXT,
 
                 }.merge(user_form_inputs)
               end
@@ -76,7 +79,8 @@ module SkillfindTech
 
               def errors
                 {
-                  businessNameError: '',
+                  businessNameError: EMPTY_TEXT,
+                  applicationLink: EMPTY_TEXT,
                 }.merge(user_form_errors)
               end
 

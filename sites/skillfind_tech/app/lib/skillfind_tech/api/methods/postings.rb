@@ -27,6 +27,10 @@ module SkillfindTech
             optional :employment_max, type: Integer
             requires :background_color
             requires :text_color
+
+            requires :form_application_manner, type: Boolean
+            requires :link_application_manner, type: Boolean
+            optional :application_link, type: String
           end
           post do
             ::SkillfindTech::Commands::Posting::Create.new(
@@ -58,6 +62,10 @@ module SkillfindTech
             optional :employment_max, type: Integer
             requires :background_color
             requires :text_color
+
+            requires :form_application_manner, type: Boolean
+            requires :link_application_manner, type: Boolean
+            optional :application_link, type: String
           end
           put do
             ::SkillfindTech::Commands::Posting::Update.new(
@@ -94,6 +102,10 @@ module SkillfindTech
           requires :logo, type: Hash
           requires :background_color
           requires :text_color
+
+          requires :form_application_manner, type: Boolean
+          requires :link_application_manner, type: Boolean
+          optional :application_link, type: String
         end
         post 'users' do
           user ||= site::User.find_or_initialize_by(email: params[:email_address])

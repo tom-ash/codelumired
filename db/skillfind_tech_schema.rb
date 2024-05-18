@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_09_050638) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_18_054935) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,6 +107,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_09_050638) do
     t.string "pl_description"
     t.string "background_color", limit: 7, null: false
     t.string "text_color", limit: 7, null: false
+    t.boolean "form_application_manner", null: false
+    t.boolean "link_application_manner", null: false
+    t.string "application_link", limit: 2000
     t.index ["lat"], name: "index_postings_on_lat"
     t.index ["lng"], name: "index_postings_on_lng"
   end

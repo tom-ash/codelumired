@@ -50,5 +50,13 @@
   "b2bContract": "B2B",
   "employmentContract": "Employment",
   "b2bPer": "godz.",
-  "employmentPer": "mc"
+  "employmentPer": "mc",
+  "applicationSectionHeading": "Aplikowanie",
+  "applicationSectionInstructions": "Wybierz jedną lub obie opcje.",
+  "formApplicationMannerLabel": "Aplikowanie poprzez formularz",
+  "linkApplicationMannerLabel": "Aplikowanie poprzez naciśnięcie linku prowadzącego do strony Ogłoszeniodawcy",
+
+  "applicationLinkInputLabel": "Link do formularza aplikacji",
+  "applicationLinkInputPlaceholder": "Podaj link do formularza aplikacji",
+  "applicationLinkInputInvalidError": "Link do aplikacji nie może być pusty."
 }

@@ -50,5 +50,13 @@
   "b2bContract": "B2B",
   "employmentContract": "Employment",
   "b2bPer": "h",
-  "employmentPer": "m"
+  "employmentPer": "m",
+  "applicationSectionHeading": "Applying",
+  "applicationSectionInstructions": "Select one or both options.",
+  "formApplicationMannerLabel": "Applying through the form",
+  "linkApplicationMannerLabel": "Applying through the link leading to the Post Provider site",
+
+  "applicationLinkInputLabel": "Application Form Link",
+  "applicationLinkInputPlaceholder": "Provide application form link",
+  "applicationLinkInputInvalidError": "Application cannot be blank."
 }
