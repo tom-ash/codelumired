@@ -3,7 +3,13 @@
   "businessNameId": "business-name-input",
   "businessNameInputLabel": "Business Name",
   "businessNameInputPlaceholder": "Provide business name",
+
+
   "businessNameInputInvalidError": "Invalid business name.",
+
+  "linkInputLabel": "Link",
+  "linkInputPlaceholder": "https://example.com",
+
   "industrySelectLabel": "Industry",
   "logoUploadInstructions": "Drag & drop the file or click here.",
   "logoInputMissingError": "Uploading logo is required.",

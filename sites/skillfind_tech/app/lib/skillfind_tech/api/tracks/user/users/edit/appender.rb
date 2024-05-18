@@ -31,6 +31,7 @@ module SkillfindTech
                 {
                   logo: authenticated_user.logo,
                   businessName: authenticated_user.business_name,
+                  link: authenticated_user.link,
                   industry: authenticated_user.industry,
                   industrySelectOptions: industrySelectOptions,
                   emailAddress: authenticated_user.email,

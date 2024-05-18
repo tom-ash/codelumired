@@ -15,6 +15,7 @@ module SkillfindTech
             requires :granted, type: Boolean
             requires :displayed_text, type: String
           end
+          optional :link, type: String
         end
         post do
           user ||= site::User.find_or_initialize_by(email: params[:email_address])
@@ -23,6 +24,7 @@ module SkillfindTech
           
           user.business_name = params[:business_name]
           user.industry = params[:industry]
+          user.link = params[:link]
           user.logo = "#{user.business_name.parameterize}.png"
           user.change_log = []
 

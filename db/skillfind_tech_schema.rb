@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_18_054935) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_18_130239) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -184,6 +184,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_18_054935) do
     t.string "logo"
     t.string "business_name"
     t.string "industry"
+    t.string "link", limit: 2000
     t.index ["industry"], name: "index_users_on_industry"
   end
 
