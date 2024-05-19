@@ -13,7 +13,7 @@ module SkillfindTech
               private
               
               def localizations
-                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/new/Verify/localizations/#{lang}.json")
+                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/new/verify/localizations/#{lang}.json")
               end
             end
           end
