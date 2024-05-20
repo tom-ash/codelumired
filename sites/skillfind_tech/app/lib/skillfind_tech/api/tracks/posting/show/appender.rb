@@ -102,6 +102,7 @@ module SkillfindTech
                 quoteLeft
                 hourglass
 
+                arrowLong
                 
 
               ] + industryIcons + header_asset_names
