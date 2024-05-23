@@ -2,5 +2,6 @@
   "heading": "Account",
   "edit": "Edit",
   "save": "Save",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "logoUploadInstructions": "Drag & drop the file or click here."
 }

@@ -11,6 +11,19 @@ module Api
           requires :value, type: String
         end
         patch do
+          if params[:name] == 'logo'
+            temporary_logo ||= Aws::S3::Object.new(
+              credentials: CREDS,
+              region: Rails.application.secrets.aws_region,
+              bucket_name: bucket,
+              key: "temporary/#{params[:value]}",
+            )
+
+            authenticated_user.logo = "#{authenticated_user.business_name.parameterize}-#{SecureRandom.uuid}.png"
+            authenticated_user.save!
+            temporary_logo.move_to("#{bucket}/logos/#{authenticated_user.logo}")
+            return
+          end
 
           # TODO: Add attribute restrictions - no email, password, etc. Use whitelist.
 

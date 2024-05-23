@@ -48,7 +48,7 @@ module SkillfindTech
                 industry = getIndustry(posting.user.industry)
 
                 {
-                  logo: posting.user.logo,
+                  logo: "https://#{ENV['SKILLFIND_TECH_AWS_S3_BUCKET']}.s3.eu-central-1.amazonaws.com/logos/#{posting.user.logo}",
                   businessName: posting.user.business_name,
                   industry: industry[lang.to_s],
                   industryIcon: industry['icon'],

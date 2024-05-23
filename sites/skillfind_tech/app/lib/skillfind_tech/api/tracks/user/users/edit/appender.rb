@@ -29,17 +29,20 @@ module SkillfindTech
 
               def inputs
                 {
-                  logo: authenticated_user.logo,
                   businessName: authenticated_user.business_name,
                   link: authenticated_user.link,
                   industry: authenticated_user.industry,
                   industrySelectOptions: industrySelectOptions,
                   emailAddress: authenticated_user.email,
+                  persistedLogo: {
+                    source: "https://#{ENV['SKILLFIND_TECH_AWS_S3_BUCKET']}.s3.eu-central-1.amazonaws.com/logos/#{authenticated_user.logo}",
+                    database: authenticated_user.logo,
+                  }
                 }
               end
 
               def asset_names
-                header_asset_names + ['userCog']
+                header_asset_names + ['userCog', 'close']
               end
             end
           end
