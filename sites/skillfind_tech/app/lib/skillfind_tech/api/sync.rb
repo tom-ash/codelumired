@@ -37,6 +37,8 @@ module SkillfindTech
 
             ::SkillfindTech::Api::Tracks::User::Users::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Users::Edit::Meta::UNLOCALIZED_PATH,
 
+
+
             
           }
         end
@@ -106,6 +108,10 @@ module SkillfindTech
             ::SkillfindTech::Api::Tracks::User::Users::Show::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Users::Show::Linker.new(lang).call,
 
             ::SkillfindTech::Api::Tracks::User::Users::Edit::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Users::Edit::Linker.new(lang).call,
+
+            ::SkillfindTech::Api::Tracks::User::Postings::Index::Meta::TRACK => ::SkillfindTech::Api::Tracks::User::Postings::Index::Linker.new(lang).call,
+
+
           )
         end
 

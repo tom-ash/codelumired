@@ -18,6 +18,7 @@ module SkillfindTech
               plus
               circleUser
               cog
+              listOl
             ]
           end
         end
