@@ -8,8 +8,8 @@ module SkillfindTech
           module Skills
             private
 
-            def skillOptions
-              @skillOptions ||= skills.map do |skill|
+            def selectableSkills
+              @selectableSkills ||= skills.map do |skill|
                 {
                   value: skill['name'],
                   text: skill['name'],
@@ -25,7 +25,7 @@ module SkillfindTech
                 paramName = param[0]
                 level = param[1]
                 
-                selected_skill = skillOptions.find do |skillOption|
+                selected_skill = selectableSkills.find do |skillOption|
                   skillOption[:url] == paramName
                 end
 

@@ -45,7 +45,7 @@ module SkillfindTech
 
           def inputs
             {
-              skillOptions: skillOptions,
+              selectableSkills: selectableSkills,
               selectedSkills: selectedSkills,
             }
           end

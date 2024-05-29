@@ -9,8 +9,6 @@ module SkillfindTech
             module Meta
               TRACK = 'user/new/Verify'
 
-              
-  
               UNLOCALIZED_PATH = {
                 en: %r{^posters/verify/(?<id>.+)$},
                 pl: %r{^pl/ogloszeniodawcy/zweryfikuj/(?<id>.+)$},
