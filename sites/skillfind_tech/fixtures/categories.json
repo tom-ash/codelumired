@@ -8,7 +8,7 @@
     "descriptionPl": "Język skryptowy Światowej Sieci.",
     "pl": "JavaScript",
     "en": "JavaScript",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/javascript.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/javascript.png"
   },
   {
     "id": "a2a4f6a5-7cd5-4dbb-ba2a-48a30f4f2e23",
@@ -19,7 +19,7 @@
     "descriptionPl": "Typowany nadzbiór języka JavaScript.",
     "pl": "TypeScript",
     "en": "TypeScript",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/typescript.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/typescript.png"
   },
   {
     "id": "7d39f190-ccfb-48e0-9021-37c3c34ff1ae",
@@ -30,7 +30,7 @@
     "descriptionPl": "Popularny, wysokopoziomowy i wszechstronny język programowania, znany ze swojej czytelności i prostoty.",
     "pl": "Python",
     "en": "Python",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/python.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/python.png"
   },
   {
     "id": "3f91f6ac-46a1-478b-b768-083f49be1cf2",
@@ -41,7 +41,7 @@
     "descriptionPl": "Język znaczników zapewniający strukturę dokumentom Światowej Sieci.",
     "pl": "HTML",
     "en": "HTML",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/html.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/html.png"
   },
   {
     "id": "9a7c454b-e190-47ce-80c5-657ed5348caa",
@@ -52,7 +52,7 @@
     "descriptionPl": "Język arkuszy stylów, który zapewnia stylizację dokumentów Światowej Sieci.",
     "pl": "CSS",
     "en": "CSS",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/css.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/css.png"
   },
   {
     "id": "1ae82185-2419-4293-ac2f-65e7c79dec42",
@@ -63,7 +63,7 @@
     "descriptionPl": "Protokół zarządzający działaniami tworzenia, czytania, aktualizowania i usuwania hipermedialnych zasobów Światowej Sieci.",
     "pl": "HTTP",
     "en": "HTTP",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/http.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/http.png"
   },
   {
     "id": "acf9a1f2-7d34-45a6-87b7-162b66a21e7b",
@@ -74,7 +74,7 @@
     "descriptionPl": "Najbardziej znany otwartoźródłowy system zarządzania relacyjnymi bazami danych.",
     "pl": "PostgreSQL",
     "en": "PostgreSQL",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/postgresql.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/postgresql.png"
   },
   {
     "id": "40a4d810-306c-4874-b74f-f865f2b7c8bd",
@@ -85,7 +85,7 @@
     "descriptionPl": "Platforma wykorzystująca wirtualizację na poziomie systemu operacyjnego do dostarczania oprogramowania w pakietach zwanych kontenerami.",
     "pl": "Docker",
     "en": "Docker",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/docker.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/docker.png"
   },
   {
     "id": "477abe8d-b495-4e5c-92e7-7f0f974e1c3e",
@@ -96,7 +96,7 @@
     "descriptionPl": "Wskazówki dla programistów dotyczące tworzenia silnych, łatwych w utrzymaniu i rozbudowywalnych systemów oprogramowania.",
     "pl": "Zasady Projektowe",
     "en": "Design Principles",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/design_principles.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/design_principles.png"
   },
   {
     "id": "8a521580-2615-42f8-8a8a-5eb01b5db8cd",
@@ -107,7 +107,7 @@
     "descriptionPl": "Ogólne, wielokrotnego użytku rozwiązania powszechnie występujących problemów.",
     "pl": "Wzorce Projektowe",
     "en": "Design Patterns",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/design_patterns.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/design_patterns.png"
   },
   {
     "id": "fcaf087c-b871-47d7-8f7b-ac8acca97811",
@@ -118,7 +118,7 @@
     "descriptionPl": "Popularny koncept programowania oparty na obiektach, które mogą zawierać zapisane procedury i dane.",
     "pl": "Wzorce Projektowe",
     "en": "Programowanie-obiektowe",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/object_oriented_programming_oop.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/object_oriented_programming_oop.png"
   },
   {
     "id": "f2e4d606-57f7-45a8-9d3d-f516ad18931c",
@@ -129,7 +129,7 @@
     "descriptionPl": "Najbardziej pożądana umiejętność współczesnego świata.",
     "pl": "Programming",
     "en": "Programowanie",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/programming.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/programming.png"
   },
   {
     "id": "2d0d817d-2996-4d5e-a9e2-7bbccc1fe62d",
@@ -140,6 +140,6 @@
     "descriptionPl": "Interpretowany, wysokopoziomowy język do programowania po stronie serwera, kładący nacisk na produktywność i prostotę.",
     "pl": "Ruby",
     "en": "Ruby",
-    "image": "https://s3.eu-central-1.amazonaws.com/skillfind.tech/assets/categories/ruby.png"
+    "image": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/categories/ruby.png"
   }
 ]
