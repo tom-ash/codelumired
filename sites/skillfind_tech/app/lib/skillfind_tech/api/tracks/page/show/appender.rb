@@ -38,6 +38,21 @@ module SkillfindTech
                 signIn
                 signOut
                 earthGlobe
+                home
+              ] + header_asset_names
+            end
+
+            # TODO!
+            def header_asset_names
+              @header_asset_names ||= %i[
+                userPlus
+                signIn
+                signOut
+                earthGlobe
+                plus
+                circleUser
+                cog
+                listOl
               ]
             end
           end
