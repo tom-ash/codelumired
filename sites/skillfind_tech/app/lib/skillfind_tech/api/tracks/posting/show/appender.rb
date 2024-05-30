@@ -104,6 +104,8 @@ module SkillfindTech
 
                 arrowLong
                 
+                dot
+                emptyDot
 
               ] + industryIcons + header_asset_names
             end
