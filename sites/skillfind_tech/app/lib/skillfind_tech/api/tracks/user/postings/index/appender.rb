@@ -14,8 +14,16 @@ module SkillfindTech
 
               private
 
+              def localizations
+                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/postings/index/localizations/#{lang}.json")
+              end
+
               def authorize!
                 raise ::Api::UnauthorizedError unless authenticated_user.present?
+              end
+              
+              def texts
+                localizations
               end
 
               def data
@@ -32,8 +40,13 @@ module SkillfindTech
                 postings.map do |posting|
                   posting.merge(
                     link: ::SkillfindTech::Api::Tracks::User::Postings::Edit::Linker.new(posting: posting, lang: lang).call,
+                    applications: applications(posting[:id]),
                   )
                 end
+              end
+
+              def applications(posting_id)
+                ::SkillfindTech::PostingApplication.where(posting_id: posting_id).all
               end
 
               def control
@@ -63,7 +76,11 @@ module SkillfindTech
                   building
                   treeCity
                   magnifyingGlass
-                  # listOl
+                  filePdf
+                  envelope
+                  phone
+                  linkedin_square
+                  github
                 ] + header_asset_names + industryIcons
               end
             end
