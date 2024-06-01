@@ -1,0 +1,30 @@
+<body style='background: #F1EFED; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 50px 0; color: #154360;'>
+  <div style='background: white; max-width: 400px; margin: 0 auto; border-radius: 4px; padding: 30px; border: 1px solid #E5E7E9;'>
+    <div id='logo-and-title'>
+      <img
+        src='https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/skillfind-tech.png'
+        style='display: block; width: 140px; margin: 0 auto; margin-bottom: 30px;'
+      />
+    </div>
+    <div style='height: 1px; background: #E5E7E9;'>
+    </div>
+    <div style='margin-bottom: 18px;  margin-top: 30px;'>
+      <%= @hello %>
+    </div>
+    <div>
+      <%= @verification_code_message  %>
+    </div>
+    <div style="text-align: center; margin: 32px auto; color: #D35400; font-size: 32px; border: 2px solid #D35400; width: 128px; height: 64px; line-height: 64px; border-radius: 4px;">
+      <%= @verification_code %>
+    </div>
+    <div style='margin-bottom: 6px;'>
+      <%= @salutations %>
+    </div>
+    <div style='font-style: italic; font-size: 14px;'>
+      <%= @signature %>
+    </div>
+  </div>
+      <div style='max-width: 448px; margin: 20px auto 0; font-size: 8px; text-align: justify; line-height: 1.5; color: #909497;'>
+      <%= @company %>
+    </div>
+</body>

@@ -9,7 +9,7 @@ module SkillfindTech
         end
 
         def constantized_site_name
-          @constantized_site_name ||= SKILLFIND_TECH_NAME_CONSTANTIZED_NAME
+          @constantized_site_name ||= SKILLFIND_TECH_CONSTANTIZED_NAME
         end
 
         def organizationName

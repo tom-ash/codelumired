@@ -3,27 +3,5 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
-  <body style='background: #F8F9F9; font-family: Helvetica, Arial, sans-serif; font-size: 15px; padding: 50px 0; color: #154360;'>
-    <div style='background: white; max-width: 400px; margin: 0 auto; border-radius: 4px; padding: 24px; border: 1px solid #E5E7E9;'>
-      <div id='logo-and-title'>
-        <img
-          src='https://mapawynajmupl-dev.s3.eu-central-1.amazonaws.com/qwewqe.jpeg'
-          style='display: block; width: 100px; margin: 0 auto; margin-bottom: 24px;'
-        />
-      </div>
-      <div style='margin-bottom: 18px'>
-        <%= @hello %>
-      </div>
-      <%= yield %>
-      <div style='margin-bottom: 6px;'>
-        <%= @salutations %>
-      </div>
-      <div style='font-style: italic; font-size: 14px;'>
-        <%= @signature %>
-      </div>
-      <div style='margin-top: 24px; font-size: 8px; text-align: justify; line-height: 1.5; color: #909497;'>
-        <%= @company %>
-      </div>
-    </div>
-  </body>
+  <%= yield %>
 </html>

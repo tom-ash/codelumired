@@ -45,11 +45,10 @@ module SkillfindTech
 
           verificationCode = rand(1000..9999).to_s
 
-          ::Mailers::Verification.new(
+          ::Mailers::SkillfindTech::Poster::Verification::Account.new(
             email: params[:email_address],
-            namespace: 'user/create/email-and-password',
-            lang: lang,
             verification_code: verificationCode,
+            lang: lang,
           ).send
 
           decodedVerificationToken = {
