@@ -75,6 +75,17 @@ module SkillfindTech
 
             ::SkillfindTech::Api::Tracks::Root::Linker.new(headers['Lang']).call[:href]
           end
+
+          delete ':posting_id' do
+            posting = ::SkillfindTech::Posting.find_by!(
+              id: params[:posting_id],
+              user_id: authenticated_user.id
+            )
+
+            posting.update!(
+              deleted_at: Time.now
+            )
+          end
         end
 
         params do

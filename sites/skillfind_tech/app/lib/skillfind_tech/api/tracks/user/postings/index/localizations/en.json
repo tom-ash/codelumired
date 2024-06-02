@@ -6,5 +6,8 @@
   "email": "Email",
   "phoneNumber": "Phone Number",
   "gitHub": "GitHub",
-  "linkedIn": "LinkedIn"
+  "linkedIn": "LinkedIn",
+  "deletionMonit": "Are you sure?",
+  "cancel": "Cancel",
+  "confirm": "Confirm"
 }

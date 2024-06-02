@@ -44,7 +44,11 @@ module SkillfindTech
                 postings = postings.where(user_id: postings_user_id)
               end
   
-              postings.includes(:skills).includes(:user).map do |posting|
+              postings
+              .includes(:skills)
+              .includes(:user)
+              .where(deleted_at: nil)
+              .map do |posting|
                 industry = getIndustry(posting.user.industry)
 
                 {
