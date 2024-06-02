@@ -25,5 +25,6 @@
   "b2bContract": "B2B",
   "employmentContract": "Employment",
   "b2bPer": "h",
-  "employmentPer": "m"
+  "employmentPer": "m",
+  "applicationSendingConfirmation": "Congratulations! Your application has been sent successfully."
 }

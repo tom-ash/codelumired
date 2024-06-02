@@ -25,5 +25,6 @@
   "b2bContract": "B2B",
   "employmentContract": "Employment",
   "b2bPer": "godz.",
-  "employmentPer": "mc"
+  "employmentPer": "mc",
+  "applicationSendingConfirmation": "Gratulacje! Twoja aplikacja została złożona poprawnie."
 }
