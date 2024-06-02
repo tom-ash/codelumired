@@ -82,6 +82,7 @@ module SkillfindTech
                 description: posting["#{lang}_description"],
                 background_color: posting.background_color,
                 text_color: posting.text_color,
+                application_link: posting.application_link,
               }
             end
 
