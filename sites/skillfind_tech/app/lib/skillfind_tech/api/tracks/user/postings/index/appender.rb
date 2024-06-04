@@ -81,6 +81,7 @@ module SkillfindTech
                   phone
                   linkedin_square
                   github
+                  # close
                 ] + header_asset_names + industryIcons
               end
             end

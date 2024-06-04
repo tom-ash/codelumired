@@ -77,6 +77,7 @@ module SkillfindTech
               building
               treeCity
               magnifyingGlass
+              close
             ] + header_asset_names + industryIcons
           end
 
