@@ -15,7 +15,7 @@ module SkillfindTech
             def texts
               {
                 pl: {
-                  headingOne: 'Zresetuj hasło',
+                  heading: 'Zresetuj hasło',
                   emailAddressExplanation: 'Podaj adres email przypisany do Twojego konta.',
                   emailInputLabel: 'Adres email',
                   emailInputPlaceholder: 'Podaj adres email',
@@ -33,7 +33,7 @@ module SkillfindTech
                   successExplanation: 'Twoje hasło zostało zmienione.',
                 },
                 en: {
-                  headingOne: 'Reset password',
+                  heading: 'Reset password',
                   emailAddressExplanation: 'Provide the email address associated with your account.',
                   emailInputLabel: 'Email Address',
                   emailInputPlaceholder: 'Provide email address',
