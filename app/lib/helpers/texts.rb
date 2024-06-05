@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+module Helpers
+  module Texts
+    private
+
+    def getTexts(path)
+      JSON.parse(File.read(path)).deep_symbolize_keys
+    end
+  end
+end

@@ -75,25 +75,6 @@ class TransactionalMailer < ApplicationMailer
     )
   end
 
-  ###
-
-  def skillfind_tech_verification_email(to:, subject:, verification_code:, lang:)
-    @verification_code = verification_code
-    @lang = lang
-    @subject = subject
-    @hello = hello
-    @verification_code_message = verification_code_message
-    @signature = 'skillfind.tech'
-    @salutations = SALUTATIONS[@lang]
-    @company = company
-
-    mail(
-      from: "#{SKILLFIND_TECH_NAME} <noreply@#{SKILLFIND_TECH_APEX_DOMAIN}>",
-      to: to,
-      subject: @subject
-    )
-  end
-
   private
 
   def hello

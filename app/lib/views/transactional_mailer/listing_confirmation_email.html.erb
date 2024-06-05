@@ -1,0 +1,43 @@
+<body style='background: #F8F9F9; font-family: Helvetica, Arial, sans-serif; font-size: 15px; padding: 50px 0; color: #154360;'>
+  <div style='background: white; max-width: 400px; margin: 0 auto; border-radius: 4px; padding: 24px; border: 1px solid #E5E7E9;'>
+    <div id='logo-and-title'>
+      <img
+        src='https://mapawynajmupl-dev.s3.eu-central-1.amazonaws.com/qwewqe.jpeg'
+        style='display: block; width: 100px; margin: 0 auto; margin-bottom: 24px;'
+      />
+    </div>
+    <div style='margin-bottom: 18px'>
+      <%= @hello %>
+    </div>
+    <div>
+      <%= @your_announcement_has_been_added %>
+    </div>
+    <div style='margin: 36px 0; margin-bottom: 36px!important;'>
+      <div style='margin-bottom: 12px;'>
+        <img src=<%= @listing_picture %> style='display: block; width: 280px; margin: 0 auto;'/>
+      </div>
+      <div style='font-size: 12px; text-align: center; margin-bottom: 24px;'>
+        <a href=<%= @listing_url %>>
+          <%= @listing_url %>
+        </a>
+      </div>
+      <div>
+        <a href=<%= @promote_listing_href %> style='position: relative; display: block; width: 240px; height: 32px; margin: 0 auto 18px; border-radius: 4px; background: #D35400; text-align: center; line-height: 32px; font-size: 14px; text-decoration: none; color: white;'>  
+          <%= @promote_listing_text %>
+        </a>
+        <a href=<%= @facebook_sharer_url %> style='display: block; width: 240px; height: 32px; margin: 0 auto; border-radius: 4px; background: #2e86c1; text-align: center; line-height: 32px; font-size: 14px; text-decoration: none; color: white;'>  
+          <%= @share_on_facebook %>
+        </a>
+      </div>
+    </div>
+    <div style='margin-bottom: 6px;'>
+      <%= @salutations %>
+    </div>
+    <div style='font-style: italic; font-size: 14px;'>
+      <%= @signature %>
+    </div>
+    <div style='margin-top: 24px; font-size: 8px; text-align: justify; line-height: 1.5; color: #909497;'>
+      <%= @company %>
+    </div>
+  </div>
+</body>

@@ -23,32 +23,4 @@ class TransactionalMailerPreview < ActionMailer::Preview
       to: to, listing_id: listing_id, lang: lang,
     )
   end
-
-  ###
-
-  # http://localhost:3001/rails/mailers/transactional_mailer/skillfind_tech_verification_email
-  def skillfind_tech_verification_email
-    # from
-    to = 'example@example.net'
-    subject = 'Verification Code'
-    verification_code = 4242
-    lang = 'en'
-
-    TransactionalMailer.skillfind_tech_verification_email(
-      to: to, subject: subject, verification_code: verification_code, lang: lang,
-    )
-  end
-
-  # http://localhost:3001/rails/mailers/transactional_mailer/skillfind_tech_verification_email_pl
-  def skillfind_tech_verification_email_pl
-    # from
-    to = 'example@example.net'
-    subject = 'Verification Code'
-    verification_code = 4242
-    lang = 'pl'
-
-    TransactionalMailer.skillfind_tech_verification_email(
-      to: to, subject: subject, verification_code: verification_code, lang: lang,
-    )
-  end
 end

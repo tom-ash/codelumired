@@ -17,12 +17,20 @@ module Api
             }
             encodedVerificationToken = ::Ciphers::Jwt::Encoder.new(verificationToken).call
 
-            ::Mailers::Verification.new(
-              email: email,
-              namespace: 'user/update/password',
-              lang: lang,
-              verification_code: verificationCode,
-            ).send
+            if constantized_site_name == 'SkillfindTech'
+              ::SkillfindTech::Mailers::Poster::Verification::Password::Sender.prepare(
+                to: email,
+                verification_code: verificationCode,
+                lang: lang,
+              ).deliver_now
+            else
+              ::Mailers::Verification.new(
+                email: email,
+                namespace: 'user/update/password',
+                lang: lang,
+                verification_code: verificationCode,
+              ).send
+            end
 
             encodedVerificationToken
           end

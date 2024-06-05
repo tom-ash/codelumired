@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="<%= @lang %>">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style='background: #F1EFED; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 50px 0; color: #154360;'>
+    <div style='background: white; max-width: 400px; margin: 0 auto; border-radius: 4px; padding: 30px; border: 1px solid #E5E7E9;'>
+      <div id='logo-and-title'>
+        <img
+          src='https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/skillfind-tech.png'
+          style='display: block; width: 140px; margin: 0 auto;'
+        />
+      </div>
+      <div style='height: 1px; background: #E5E7E9; margin-top: 20px;'>
+      </div>
+      <%= yield %>
+      <div style='height: 1px; background: #E5E7E9; margin-top: 20px;'>
+      </div>
+      <div style='max-width: 448px; margin-top: 20px; font-size: 8px; text-align: justify; line-height: 1.5; color: #909497;'>
+        <%= @company %>
+      </div>
+    </body>
+  </div>
+</html>
