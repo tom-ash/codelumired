@@ -102,13 +102,25 @@ module SkillfindTech
                 moneyTransfer
                 quoteLeft
                 hourglass
-
                 arrowLong
-                
                 dot
                 emptyDot
-
               ] + industryIcons + header_asset_names
+            end
+
+            def links
+              {
+                'current/en': {
+                  href: posting_href(posting, :en),
+                  hrefLang: :en,
+                  # title,
+                },
+                'current/pl': {
+                  href: posting_href(posting, :pl),
+                  hrefLang: :pl,
+                  # title,
+                },
+              }
             end
           end
         end

@@ -57,7 +57,7 @@ module SkillfindTech
                   industry: industry[lang.to_s],
                   industryIcon: industry['icon'],
                   id: posting.id,
-                  href: "/#{posting.id}-TODO",
+                  href: posting_href(posting, lang),
                   skills: postingSelectedSkills(posting),
                   b2b: posting.b2b,
                   b2bMin: posting.b2b_min,
@@ -75,6 +75,34 @@ module SkillfindTech
                   textColor: posting.text_color,
                 }
               end
+            end
+
+            def posting_href(posting, lang)
+              "#{posting_prefix(lang)}/#{posting.id}#{path_suffix(posting, lang)}"
+            end
+
+            def posting_prefix(lang)
+              lang != :en ? "/#{lang}" : ''
+            end
+
+            def path_suffix(posting, lang)
+              path_suffix_string = ''
+
+              postingSelectedSkills(posting).map do |skill|
+                path_suffix_string = path_suffix_string + "-#{skill[:name].parameterize}-#{skill_levels[skill[:level] - 1][lang]}"
+              end
+
+              path_suffix_string.downcase
+            end
+
+            def skill_levels
+              [
+                { en: 'Novice', pl: 'Nowicjusz' },
+                { en: 'Junior', pl: 'Junior' },
+                { en: 'Mid', pl: 'Mid' },
+                { en: 'Senior', pl: 'Senior' },
+                { en: 'Expert', pl: 'Ekspert' },
+              ]
             end
   
             def postingSelectedSkills(posting)
