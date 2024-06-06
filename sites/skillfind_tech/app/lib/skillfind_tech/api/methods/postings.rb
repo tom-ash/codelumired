@@ -27,12 +27,16 @@ module SkillfindTech
             optional :employment_max, type: Integer
             requires :background_color
             requires :text_color
+            requires :image
 
             requires :form_application_manner, type: Boolean
             requires :link_application_manner, type: Boolean
             optional :application_link, type: String
           end
           post do
+
+
+            
             ::SkillfindTech::Commands::Posting::Create.new(
               user_id: authenticated_user.id,
               attrs: params,
@@ -113,6 +117,7 @@ module SkillfindTech
           requires :logo, type: Hash
           requires :background_color
           requires :text_color
+          requires :image
 
           requires :form_application_manner, type: Boolean
           requires :link_application_manner, type: Boolean
@@ -132,17 +137,7 @@ module SkillfindTech
           # ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
           ::Ciphers::User::HashPassword.new(user: user, password: params[:password]).call
 
-          # TODO!
-          # temporary_logo ||= Aws::S3::Object.new(
-          #   credentials: CREDS,
-          #   region: Rails.application.secrets.aws_region,
-          #   bucket_name: bucket,
-          #   key: "temporary/#{params[:logo]}",
-          # )
-
           user.save!
-
-          # temporary_logo.move_to("#{bucket}/logos/#{user.logo}")
 
           ::SkillfindTech::Commands::Posting::Create.new(
             user_id: user.id,

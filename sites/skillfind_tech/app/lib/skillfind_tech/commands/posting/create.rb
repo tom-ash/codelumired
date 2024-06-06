@@ -13,6 +13,7 @@ module SkillfindTech
           ActiveRecord::Base.transaction do
             posting.save!
             add_skills_to_job
+            move_image
           end
 
           posting
@@ -21,6 +22,17 @@ module SkillfindTech
         private
 
         attr_reader :user_id, :attrs
+
+        def move_image
+          temporary_image ||= Aws::S3::Object.new(
+            credentials: CREDS,
+            region: Rails.application.secrets.aws_region,
+            bucket_name: SKILLFIND_TECH_AWS_S3_BUCKET,
+            key: "temporary/#{attrs[:image]}",
+          )
+
+          temporary_image.move_to("#{SKILLFIND_TECH_AWS_S3_BUCKET}/postings/#{posting.id}/image.png")
+        end
 
         def posting
           @posting ||= ::SkillfindTech::Posting.new(
