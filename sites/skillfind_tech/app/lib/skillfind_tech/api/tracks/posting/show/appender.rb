@@ -90,6 +90,10 @@ module SkillfindTech
               @industry ||= getIndustry(posting.user.industry)
             end
 
+            def image
+              "https://#{ENV['SKILLFIND_TECH_AWS_S3_BUCKET']}.s3.eu-central-1.amazonaws.com/postings/#{posting.id}/image.png"
+            end
+
             def asset_names
               @asset_names ||= %i[
                 marker
