@@ -19,6 +19,7 @@ module SkillfindTech
               circleUser
               cog
               listOl
+              copyright
             ]
           end
         end

@@ -65,7 +65,6 @@ module Api
               twitter_square
               home
               pen
-              penAlt
             ]
           end
 

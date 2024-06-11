@@ -34,7 +34,6 @@ module MapawynajmuPl
               phone
               caretDown
               arrowRight
-              globe
 
               facebook_square
               linkedin_square
