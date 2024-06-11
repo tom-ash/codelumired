@@ -12,6 +12,10 @@ module SkillfindTech
         def prepare(to:, lang:)
           @to = to
           @lang = lang
+          @hello = hello
+          @salutations = salutations
+          @company = company
+          @signature = 'skillfind.tech'
         end
 
         private

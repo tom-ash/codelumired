@@ -80,6 +80,13 @@ module SkillfindTech
 
           encodedAccessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
 
+          # TODO: Mark posting as verified.
+          # ::SkillfindTech::Mailers::Postings::Confirmation::Sender.prepare(
+          #   to: authenticated_user.email,
+          #   posting_id: posting.id,
+          #   lang: lang,
+          # ).deliver_now
+
           {
             accessToken: encodedAccessToken,
             href: '/',

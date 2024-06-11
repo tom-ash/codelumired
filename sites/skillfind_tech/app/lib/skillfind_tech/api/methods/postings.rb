@@ -34,13 +34,16 @@ module SkillfindTech
             optional :application_link, type: String
           end
           post do
-
-
-            
-            ::SkillfindTech::Commands::Posting::Create.new(
+            posting = ::SkillfindTech::Commands::Posting::Create.new(
               user_id: authenticated_user.id,
               attrs: params,
             ).call
+
+            ::SkillfindTech::Mailers::Postings::Confirmation::Sender.prepare(
+              to: authenticated_user.email,
+              posting_id: posting.id,
+              lang: lang.to_sym,
+            ).deliver_now
 
             ::SkillfindTech::Api::Tracks::Root::Linker.new(headers['Lang']).call[:href]
           end

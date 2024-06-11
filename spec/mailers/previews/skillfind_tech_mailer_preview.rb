@@ -44,4 +44,30 @@ class SkillfindTechMailerPreview < ActionMailer::Preview
       to: to, verification_code: verification_code, lang: lang,
     )
   end
+
+  # http://localhost:3001/rails/mailers/skillfind_tech_mailer/postings_confirmation
+  def postings_confirmation
+    to = 'example@example.net'
+    lang = :en
+    posting_id = ::SkillfindTech::Posting.last.id
+
+    ::SkillfindTech::Mailers::Postings::Confirmation::Sender.prepare(
+      posting_id: posting_id,
+      to: to,
+      lang: lang,
+    )
+  end
+
+  # http://localhost:3001/rails/mailers/skillfind_tech_mailer/postings_confirmation_pl
+  def postings_confirmation_pl
+    to = 'example@example.net'
+    lang = :pl
+    posting_id = ::SkillfindTech::Posting.last.id
+
+    ::SkillfindTech::Mailers::Postings::Confirmation::Sender.prepare(
+      posting_id: posting_id,
+      to: to,
+      lang: lang,
+    )
+  end
 end
