@@ -83,7 +83,20 @@ module SkillfindTech
                 background_color: posting.background_color,
                 text_color: posting.text_color,
                 application_link: posting.application_link,
+                poster_link: poster_link,
               }
+            end
+
+            def poster_link
+              @poster_link ||= begin
+                return if posting.user.link.blank?
+
+                if posting.user.link.include?('https')
+                  return posting.user.link
+                end
+
+                "https://#{posting.user.link}"
+              end
             end
 
             def industry
