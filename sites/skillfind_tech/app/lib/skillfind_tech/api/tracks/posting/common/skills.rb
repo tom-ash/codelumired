@@ -9,32 +9,47 @@ module SkillfindTech
             private
 
             def selectableSkills
-              @selectableSkills ||= skills.map do |skill|
-                {
-                  value: skill['name'],
-                  text: skill['name'],
-                  url: skill['url'],
-                }
+              skills.map do |skill|
+                if selectedSkillNames.exclude?(skill['name'])
+                  {
+                    value: skill['name'],
+                    text: skill['name'],
+                    url: skill['url'],
+                  }
+                end
+              end.compact
+            end
+
+            def selectedSkillNames
+              @selectedSkillNames ||= selectedSkills.map do |skill|
+                skill['name']
               end
             end
 
             def selectedSkills
-              selectedSkillsArray = []
+              @selectedSkills ||= begin
+                selectedSkillsArray = []
 
-              params.each do |param|
-                paramName = param[0]
-                level = param[1]
-                
-                selected_skill = selectableSkills.find do |skillOption|
-                  skillOption[:url] == paramName
+                params.each do |param|
+                  paramName = param[0]
+                  level = param[1]
+                  
+                  selected_skill = skills.find do |skillOption|
+                    skillOption['url'].downcase == paramName.downcase
+                  end
+
+                  if selected_skill.present?
+                    selectedSkillsArray << selected_skill.merge(
+                      name: selected_skill['name'],
+                      text: selected_skill['name'],
+                      level: level,
+                      value: selected_skill['name'],
+                    )
+                  end
                 end
 
-                if selected_skill.present?
-                  selectedSkillsArray << selected_skill.merge(level: level)
-                end
+                selectedSkillsArray
               end
-
-              selectedSkillsArray
             end
 
             def skills

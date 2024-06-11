@@ -20,7 +20,6 @@ shared_examples 'state' do |person|
 
     it 'includes specific app property in state', :app do
       subject
-      # byebug
       expect(body[:state][:app]).to eq(eval("#{person}_app_data"))
     end
 
@@ -56,7 +55,6 @@ shared_examples 'state' do |person|
 
     it 'includes specific data property in state', :data do
       subject
-      # byebug
       expect(body[:state][:data]).to eq(eval("#{person}_data"))
     end
 
@@ -78,7 +76,6 @@ shared_examples 'state' do |person|
   
       it 'includes specific schemaOrg property in meta', :schemaOrg do
         subject
-        # byebug
         expect(body[:meta][:schemaOrg]).to eq(schemaOrg)
       end
   
