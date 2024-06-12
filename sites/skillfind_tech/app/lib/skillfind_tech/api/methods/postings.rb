@@ -39,13 +39,17 @@ module SkillfindTech
               attrs: params,
             ).call
 
+            posting.verified = true
+            posting.save!
+
             ::SkillfindTech::Mailers::Postings::Confirmation::Sender.prepare(
               to: authenticated_user.email,
               posting_id: posting.id,
               lang: lang.to_sym,
             ).deliver_now
 
-            ::SkillfindTech::Api::Tracks::Root::Linker.new(headers['Lang']).call[:href]
+            # TODO: Redirect to postings/show.
+            ::SkillfindTech::Api::Tracks::Root::Linker.new(lang).call
           end
 
           params do
@@ -117,7 +121,7 @@ module SkillfindTech
           requires :password, type: String
           requires :terms_of_service_consent, type: Boolean
           requires :consents, type: Array
-          requires :logo, type: Hash
+          requires :logo, type: String
           requires :background_color
           requires :text_color
           requires :image
@@ -133,7 +137,7 @@ module SkillfindTech
           
           user.business_name = params[:business_name]
           user.industry = params[:industry]
-          user.logo = "#{user.business_name.parameterize}.png"
+          user.logo = params[:logo]
           user.change_log = []
 
           # TODO: Consents!

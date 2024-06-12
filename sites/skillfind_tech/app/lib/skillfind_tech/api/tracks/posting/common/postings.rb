@@ -48,6 +48,7 @@ module SkillfindTech
               .includes(:skills)
               .includes(:user)
               .where(deleted_at: nil)
+              .where(verified: true)
               .map do |posting|
                 industry = getIndustry(posting.user.industry)
 

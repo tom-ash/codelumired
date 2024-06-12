@@ -25,23 +25,14 @@ module SkillfindTech
           user.business_name = params[:business_name]
           user.industry = params[:industry]
           user.link = params[:link]
-          user.logo = "#{user.business_name.parameterize}.png"
+          user.logo = params[:logo]
           user.change_log = []
 
           # TODO: Consents!
           # ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
           ::Ciphers::User::HashPassword.new(user: user, password: params[:password]).call
 
-          temporary_logo ||= Aws::S3::Object.new(
-            credentials: CREDS,
-            region: Rails.application.secrets.aws_region,
-            bucket_name: bucket,
-            key: "temporary/#{params[:logo]}",
-          )
-
           user.save!
-
-          temporary_logo.move_to("#{bucket}/logos/#{user.logo}")
 
           verificationCode = rand(1000..9999).to_s
 
@@ -80,12 +71,35 @@ module SkillfindTech
 
           encodedAccessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
 
-          # TODO: Mark posting as verified.
-          # ::SkillfindTech::Mailers::Postings::Confirmation::Sender.prepare(
-          #   to: authenticated_user.email,
-          #   posting_id: posting.id,
-          #   lang: lang,
-          # ).deliver_now
+          posting = ::SkillfindTech::Posting.last
+
+          temporary_logo ||= Aws::S3::Object.new(
+            credentials: CREDS,
+            region: Rails.application.secrets.aws_region,
+            bucket_name: bucket,
+            key: "temporary/#{user.logo}",
+          )
+
+          user.logo = "#{user.business_name.parameterize}-#{SecureRandom.uuid}.png"
+          temporary_logo.move_to("#{bucket}/logos/#{user.logo}")
+
+          user.save!
+
+          if posting
+            posting.verified = true
+            posting.save!
+  
+            ::SkillfindTech::Mailers::Postings::Confirmation::Sender.prepare(
+              to: user.email,
+              posting_id: posting.id,
+              lang: lang.to_sym,
+            ).deliver_now
+
+            return {
+              accessToken: encodedAccessToken,
+              href: '/',
+            }
+          end
 
           {
             accessToken: encodedAccessToken,
