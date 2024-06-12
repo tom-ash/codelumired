@@ -49,6 +49,7 @@ module SkillfindTech
               .includes(:user)
               .where(deleted_at: nil)
               .where(verified: true)
+              .order('active_until DESC NULLS LAST')
               .map do |posting|
                 industry = getIndustry(posting.user.industry)
 
@@ -74,6 +75,7 @@ module SkillfindTech
                   lng: posting.lng,
                   backgroundColor: posting.background_color,
                   textColor: posting.text_color,
+                  active_until: posting.active_until,
                 }
               end
             end

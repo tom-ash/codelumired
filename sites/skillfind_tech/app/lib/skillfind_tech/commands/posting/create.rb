@@ -57,11 +57,15 @@ module SkillfindTech
             sublocality: attrs[:sublocality],
             background_color: attrs[:background_color],
             text_color: attrs[:text_color],
-
             form_application_manner: attrs[:form_application_manner],
             link_application_manner: attrs[:link_application_manner],
             application_link: attrs[:application_link],
+            active_until: active_until,
           )
+        end
+
+        def active_until
+          Time.now + 60.days
         end
 
         def add_skills_to_job
