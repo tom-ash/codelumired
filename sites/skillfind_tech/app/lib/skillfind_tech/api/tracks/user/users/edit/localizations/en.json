@@ -3,5 +3,8 @@
   "edit": "Edit",
   "save": "Save",
   "cancel": "Cancel",
-  "logoUploadInstructions": "Drag & drop the file or click here."
+  "logoUploadInstructions": "Drag & drop the file or click here.",
+  "deleteButtonLabel": "Delete Account",
+  "confirm": "Confirm",
+  "areYouSure": "Are you sure that you want to delete the account together with all the added postings?"
 }

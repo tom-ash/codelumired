@@ -109,6 +109,19 @@ module SkillfindTech
           error!('Verification code invalid!', 422)
         end
 
+        # params do
+        #   requires :email, type: String, desc: 'User\'s email.'
+        #   requires :password, type: String, desc: 'User\'s password'
+        # end
+        delete do
+          time_now = Time.now
+
+          # TODO: Use transaction.
+          authenticated_user.update!(deleted_at: time_now)
+          postings = ::SkillfindTech::Posting.where(user_id: authenticated_user.id)
+          postings.update_all(deleted_at: time_now)
+        end
+
         params do
           requires :email, type: String, desc: 'User\'s email.'
           requires :password, type: String, desc: 'User\'s password'

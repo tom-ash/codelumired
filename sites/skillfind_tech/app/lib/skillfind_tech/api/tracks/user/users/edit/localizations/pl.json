@@ -3,5 +3,8 @@
   "edit": "Edytuj",
   "save": "Zapisz",
   "cancel": "Anuluj",
-  "logoUploadInstructions": "Przeciągnij plik lub kliknij tutaj."
+  "logoUploadInstructions": "Przeciągnij plik lub kliknij tutaj.",
+  "deleteButtonLabel": "Usuń konto",
+  "confirm": "Potwierdź",
+  "areYouSure": "Czy jesteś pewień, że chcesz nieodwracalnie usunąć konto wraz ze wszystkimi dodanymi ogłoszeniami?"
 }
