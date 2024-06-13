@@ -5,7 +5,7 @@ module SkillfindTech
     module Users
       class Create
         def initialize(attrs)
-          @email = attrs[:email_address]
+          @email = attrs[:email]
           @password = attrs[:password]
         end
 

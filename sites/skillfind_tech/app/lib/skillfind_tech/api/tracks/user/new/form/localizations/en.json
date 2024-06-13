@@ -20,5 +20,7 @@
   "passwordInputPlaceholder": "Provide password",
   "passwordInputInvalidError": "The password has to consist of at least six characters.",
   "termsOfServiceConsentNotGrantedError": "The acceptance of the Terms of Service is required.",
-  "submitFormButtonLabel": "Sign Up"
+  "submitFormButtonLabel": "Sign Up",
+  "emailId": "email",
+  "passwordId": "password"
 }

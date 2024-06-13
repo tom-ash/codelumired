@@ -103,6 +103,8 @@ module SkillfindTech
                   treeCity
                   magnifyingGlass
                   arrowRight
+                  dot
+                  emptyDot
                 ] + header_asset_names + industryIcons
               end
             end

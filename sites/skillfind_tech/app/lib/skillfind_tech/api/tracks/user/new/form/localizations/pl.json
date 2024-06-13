@@ -16,5 +16,7 @@
   "passwordInputPlaceholder": "Podaj hasło",
   "passwordInputInvalidError": "Hasło powinno się składać z conajmniej 6 znaków.",
   "termsOfServiceConsentNotGrantedError": "Akceptacja Regulaminu jest wymagana.",
-  "submitFormButtonLabel": "Zarejestruj"
+  "submitFormButtonLabel": "Zarejestruj",
+  "emailId": "email",
+  "passwordId": "email"
 }

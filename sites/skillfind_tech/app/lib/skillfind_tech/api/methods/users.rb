@@ -8,7 +8,7 @@ module SkillfindTech
           requires :business_name, type: String
           requires :industry, type: String
           requires :logo, type: String
-          requires :email_address, type: String
+          requires :email, type: String
           requires :password, type: String
           requires :consents, type: Array do
             requires :type, type: String
@@ -18,7 +18,7 @@ module SkillfindTech
           optional :link, type: String
         end
         post do
-          user ||= site::User.find_or_initialize_by(email: params[:email_address])
+          user ||= site::User.find_or_initialize_by(email: params[:email])
 
           error!('users.email_already_registered', 422) if user.verified?
           
@@ -37,7 +37,7 @@ module SkillfindTech
           verificationCode = rand(1000..9999).to_s
 
           ::SkillfindTech::Mailers::Poster::Verification::Account::Sender.prepare(
-            to: params[:email_address],
+            to: params[:email],
             verification_code: verificationCode,
             lang: lang,
           ).deliver_now
