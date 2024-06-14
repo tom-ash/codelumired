@@ -31,8 +31,8 @@ module SkillfindTech
 
                 def termsOfService
                   @termsOfService ||= {
-                    pl: 'Regulaminu mapawynajmu.pl',
-                    en: 'the Terms of Service of mapawynajmu.pl',
+                    pl: 'Regulaminu skillfind.tech',
+                    en: 'the Terms of Service of skillfind.tech',
                   }[lang]
                 end
               end

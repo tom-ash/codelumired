@@ -140,8 +140,7 @@ module SkillfindTech
           user.logo = params[:logo]
           user.change_log = []
 
-          # TODO: Consents!
-          # ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
+          ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
           ::Ciphers::User::HashPassword.new(user: user, password: params[:password]).call
 
           user.save!

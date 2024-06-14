@@ -28,8 +28,7 @@ module SkillfindTech
           user.logo = params[:logo]
           user.change_log = []
 
-          # TODO: Consents!
-          # ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
+          ::Parsers::User::Consents.new(user: user, consents: params[:consents]).call
           ::Ciphers::User::HashPassword.new(user: user, password: params[:password]).call
 
           user.save!
@@ -109,10 +108,6 @@ module SkillfindTech
           error!('Verification code invalid!', 422)
         end
 
-        # params do
-        #   requires :email, type: String, desc: 'User\'s email.'
-        #   requires :password, type: String, desc: 'User\'s password'
-        # end
         delete do
           time_now = Time.now
 
