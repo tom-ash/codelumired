@@ -28,6 +28,12 @@
   "addEnDescriptionLabel": "Dodaj opis w języku angielskim",
   "addPlDescriptionLabel": "Dodaj opis w języku polskim",
 
+  "positionSectionHeading": "Stanowisko",
+  "positionInstructions": "Podaj nazwę stanowiska, na które prowadzisz rekrutację.",
+  "positionInputLabel": "Nazwa stanowiska (maks. 60 znaków)",
+  "positionInputPlaceholder": "Senior JavaScript Engineer, CTO, Project Manager, Copywriter",
+  "positionInputInvalidError": "Nieprawidłowa nazwa stanowiska.",
+
   "contracts": [
     {
       "name": "b2b",

@@ -28,6 +28,13 @@
   "addEnDescriptionLabel": "Add English Description",
   "addPlDescriptionLabel": "Add Polish Description",
 
+  "positionSectionHeading": "Position",
+  "positionInstructions": "Provide the name of the position for which you are recruiting.",
+  "positionInputLabel": "Position Name (max. 60 characters)",
+  "positionInputPlaceholder": "Senior JavaScript Engineer, CTO, Project Manager, Copywriter",
+  "positionInputInvalidError": "Invalid position name.",
+  
+
   "contracts": [
     {
       "name": "b2b",

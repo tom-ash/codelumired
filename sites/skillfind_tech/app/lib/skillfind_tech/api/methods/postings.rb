@@ -9,6 +9,7 @@ module SkillfindTech
 
           params do
             requires :selected_skills, type: Array
+            requires :position, type: String
             requires :cooperation_mode, type: String
             requires :lat, type: Float
             requires :lng, type: Float
@@ -55,6 +56,7 @@ module SkillfindTech
           params do
             requires :posting_id, type: Integer
             requires :selected_skills, type: Array
+            requires :position, type: String
             requires :cooperation_mode, type: String
             requires :lat, type: Float
             requires :lng, type: Float
@@ -84,7 +86,7 @@ module SkillfindTech
               attrs: params,
             ).call
 
-            ::SkillfindTech::Api::Tracks::Root::Linker.new(headers['Lang']).call[:href]
+            ::SkillfindTech::Api::Tracks::Root::Linker.new(headers['Lang']).call
           end
 
           delete ':posting_id' do
@@ -101,6 +103,7 @@ module SkillfindTech
 
         params do
           requires :selected_skills, type: Array
+          requires :position, type: String
           requires :cooperation_mode, type: String
           requires :lat, type: Float
           requires :lng, type: Float

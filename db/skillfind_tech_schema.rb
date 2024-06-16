@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_14_034758) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_16_045919) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -113,6 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_14_034758) do
     t.datetime "deleted_at"
     t.boolean "verified", default: false, null: false
     t.datetime "active_until"
+    t.string "position", limit: 60, null: false
     t.index ["lat"], name: "index_postings_on_lat"
     t.index ["lng"], name: "index_postings_on_lng"
   end

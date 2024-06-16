@@ -84,6 +84,7 @@ module SkillfindTech
                 text_color: posting.text_color,
                 application_link: posting.application_link,
                 poster_link: poster_link,
+                position: posting.position,
               }
             end
 

@@ -20,7 +20,18 @@ module SkillfindTech
               end
 
               def texts
-                localizations
+                localizations.merge(editTexts)
+              end
+
+              def editTexts
+                {
+                  en: {
+                    submitButtonLabel: 'Save',
+                  },
+                  pl: {
+                    submitButtonLabel: 'Zapisz',
+                  }
+                }[lang]
               end
 
               def data
@@ -80,6 +91,12 @@ module SkillfindTech
                   contracts: contracts,
                   background_color: posting.background_color,
                   text_color: posting.text_color,
+
+                  position: posting.position,
+                  form_application_manner: posting.form_application_manner,
+                  link_application_manner: posting.link_application_manner,
+                  application_link: posting.application_link,
+
                 }.merge(user_form_inputs)
               end
 

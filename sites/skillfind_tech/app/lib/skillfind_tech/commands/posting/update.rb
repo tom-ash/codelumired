@@ -26,6 +26,7 @@ module SkillfindTech
         def update_posting
           posting.update(
             cooperation_mode: attrs[:cooperation_mode],
+            position: attrs[:position],
             pl_description: attrs[:pl_description],
             en_description: attrs[:en_description],
             company_size: 42, # TODO: REMOVE

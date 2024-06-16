@@ -39,6 +39,7 @@ module SkillfindTech
             user: user,
             views: 0,
             cooperation_mode: attrs[:cooperation_mode],
+            position: attrs[:position],
             pl_description: attrs[:pl_description],
             en_description: attrs[:en_description],
             company_size: 42,

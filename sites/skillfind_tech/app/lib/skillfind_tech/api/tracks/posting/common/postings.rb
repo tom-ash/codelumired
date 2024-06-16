@@ -76,6 +76,7 @@ module SkillfindTech
                   backgroundColor: posting.background_color,
                   textColor: posting.text_color,
                   active_until: posting.active_until,
+                  position: posting.position,
                 }
               end
             end
