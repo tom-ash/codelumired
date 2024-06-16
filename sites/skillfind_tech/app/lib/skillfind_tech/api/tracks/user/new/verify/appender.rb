@@ -15,6 +15,10 @@ module SkillfindTech
               def localizations
                 @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/new/verify/localizations/#{lang}.json")
               end
+
+              def asset_names
+                @asset_names ||= header_asset_names + ['plus', 'rotate', 'close', 'dot', 'emptyDot', 'envelopeCheck']
+              end
             end
           end
         end

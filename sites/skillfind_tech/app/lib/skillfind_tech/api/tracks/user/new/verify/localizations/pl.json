@@ -1,4 +1,5 @@
 {
   "heading": "Zweryfikuj adres email",
-  "instructions": "Kod weryfikacyjny został wysłany na podany adres email. Wpisz lub skopiuj go tutaj."
+  "instructions": "Kod weryfikacyjny został wysłany na podany adres email. Wpisz lub skopiuj go tutaj.",
+  "verificationCodeInvalidError": "Podany kod weryfikacyjny jest nieprawidłowy albo wygasł."
 }

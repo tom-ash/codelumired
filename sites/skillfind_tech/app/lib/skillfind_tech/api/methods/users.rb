@@ -59,6 +59,8 @@ module SkillfindTech
           requires :verification_code, type: String
         end
         put do
+          sleep(1)
+
           decodedVerificationToken = ::Ciphers::Jwt::Decoder.new(params['verification_token']).call
           raise StandardError if decodedVerificationToken['verificationCode'] != params['verification_code']
 
