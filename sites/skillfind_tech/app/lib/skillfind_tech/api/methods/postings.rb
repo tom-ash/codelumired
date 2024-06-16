@@ -23,9 +23,11 @@ module SkillfindTech
             requires :b2b, type: Boolean
             optional :b2b_min, type: Integer
             optional :b2b_max, type: Integer
+            optional :b2b_currency, type: String
             requires :employment, type: Boolean
             optional :employment_min, type: Integer
             optional :employment_max, type: Integer
+            optional :employment_currency, type: String
             requires :background_color
             requires :text_color
             requires :image
@@ -70,9 +72,11 @@ module SkillfindTech
             requires :b2b, type: Boolean
             optional :b2b_min, type: Integer
             optional :b2b_max, type: Integer
+            optional :b2b_currency, type: String
             requires :employment, type: Boolean
             optional :employment_min, type: Integer
             optional :employment_max, type: Integer
+            optional :employment_currency, type: String
             requires :background_color
             requires :text_color
 
@@ -117,9 +121,11 @@ module SkillfindTech
           requires :b2b, type: Boolean
           optional :b2b_min, type: Integer
           optional :b2b_max, type: Integer
+          optional :b2b_currency, type: String
           requires :employment, type: Boolean
           optional :employment_min, type: Integer
           optional :employment_max, type: Integer
+          optional :employment_currency, type: String
           requires :email, type: String
           requires :password, type: String
           requires :terms_of_service_consent, type: Boolean

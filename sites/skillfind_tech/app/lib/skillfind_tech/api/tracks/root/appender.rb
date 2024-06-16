@@ -9,6 +9,7 @@ module SkillfindTech
           include ::SkillfindTech::Api::Tracks::Posting::Common::Skills
           include ::SkillfindTech::Api::Tracks::Posting::Common::Postings
           include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
+          include ::SkillfindTech::Api::Tracks::Posting::Common::Currencies
 
           private
 

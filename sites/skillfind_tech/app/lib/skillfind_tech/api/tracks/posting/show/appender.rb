@@ -11,6 +11,7 @@ module SkillfindTech
             include ::SkillfindTech::Api::Tracks::Posting::Common::Skills
             include ::SkillfindTech::Api::Tracks::Posting::Common::Postings
             include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
+            include ::SkillfindTech::Api::Tracks::Posting::Common::Currencies
 
             private
 
@@ -70,9 +71,11 @@ module SkillfindTech
                 b2b: posting.b2b,
                 b2bMin: posting.b2b_min,
                 b2bMax: posting.b2b_max,
+                b2bCurrency: posting.b2b_currency ? getCurrency(posting.b2b_currency) : nil,
                 employment: posting.employment,
                 employmentMin: posting.employment_min,
                 employmentMax: posting.employment_max,
+                employmentCurrency: posting.employment_currency ? getCurrency(posting.employment_currency) : nil,
                 country: posting.country,
                 locality: posting.locality,
                 sublocality: posting.sublocality,

@@ -54,9 +54,13 @@ module SkillfindTech
                   b2b: false,
                   b2bMin: EMPTY_TEXT,
                   b2bMax: EMPTY_TEXT,
+                  b2bCurrency: 'pln',
+                  b2bCurrencySelectOptions: ::SkillfindTech::Api::Tracks::Posting::Common::Currencies::CURRENCIES,
                   employment: false,
                   employmentMin: EMPTY_TEXT,
                   employmentMax: EMPTY_TEXT,
+                  employmentCurrency: 'pln',
+                  employmentCurrencySelectOptions: ::SkillfindTech::Api::Tracks::Posting::Common::Currencies::CURRENCIES,
                   cooperationMode: 'office',
                   cooperationModeRadio: {
                     name: 'cooperation_mode',
@@ -65,16 +69,31 @@ module SkillfindTech
                   contracts: contracts,
                   backgroundColor: '#424949',
                   textColor: '#FBFCFC',
-
                   formApplicationManner: false,
                   linkApplicationManner: false,
                   applicationLink: EMPTY_TEXT,
-
                 }.merge(user_form_inputs)
               end
 
               def contracts
                 @contracts ||= localizations[:contracts]
+              end
+
+              def currencies
+                [
+                  {
+                    value: 'pln',
+                    text: 'PLN',
+                  },
+                  {
+                    value: 'eur',
+                    text: 'EUR',
+                  },
+                  {
+                    value: 'usd',
+                    text: 'USD',
+                  },
+                ]
               end
 
               def errors

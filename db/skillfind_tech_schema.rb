@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_16_045919) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_16_112232) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -114,6 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_16_045919) do
     t.boolean "verified", default: false, null: false
     t.datetime "active_until"
     t.string "position", limit: 60, null: false
+    t.string "b2b_currency", limit: 3
+    t.string "employment_currency", limit: 3
     t.index ["lat"], name: "index_postings_on_lat"
     t.index ["lng"], name: "index_postings_on_lng"
   end
