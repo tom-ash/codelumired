@@ -9,6 +9,7 @@ module SkillfindTech
             class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
               include ::SkillfindTech::Api::Tracks::Posting::Create::Form::State
               include ::SkillfindTech::Api::Tracks::Posting::Create::Form::Meta
+              include ::SkillfindTech::Api::Tracks::Posting::Common::Postings
               include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
               include ::SkillfindTech::Api::Tracks::Posting::Common::CooperationMode
 
@@ -113,18 +114,12 @@ module SkillfindTech
                   chevron
                   camera
                   close
-                  rotate
-                  marker
-                  coins
                   plus
-                  office
-                  building
-                  treeCity
                   magnifyingGlass
                   arrowRight
                   dot
                   emptyDot
-                ] + header_asset_names + industryIcons
+                ] + header_asset_names + postingAssets + industryIcons
               end
             end
           end

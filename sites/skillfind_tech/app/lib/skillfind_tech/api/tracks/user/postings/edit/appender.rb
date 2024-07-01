@@ -135,7 +135,12 @@ module SkillfindTech
               end
 
               def asset_names
-                @asset_names ||= %i[minus chevron camera close rotate] + header_asset_names
+                @asset_names ||= %i[
+                  minus
+                  chevron
+                  close
+                  arrowRight
+                ] + header_asset_names + postingAssets + industryIcons
               end
 
               def posting

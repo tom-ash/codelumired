@@ -133,6 +133,15 @@ module SkillfindTech
             def postings_user_id
               nil
             end
+
+            def postingAssets
+              %i[
+                marker
+                office
+                building
+                treeCity
+              ]
+            end
           end
         end
       end
