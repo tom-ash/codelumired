@@ -1,0 +1,43 @@
+{
+  "heading": "O skillfind.tech",
+  "intro": "skillfind.tech to serwis internetowy umożliwiający publikowanie i wyszukiwanie ogłoszeń współpracy IT za pomocą autorskiego i nowatorskiego systemu wyszukiwania stanowisk po umiejętnościach i ich poziomach. Ogłoszenia na skillfind.tech prezentowane są na dynamicznej mapie, automatycznie w wielu wersjach językowych (obecnie dostępne wersje to angielska i polska). skillfind.tech umożliwia dodawanie darmowych ogłoszeń w wersji Starter obejmujących do trzech umiejętności. Ponadto skillfind.tech to artykuły ze świata IT, artykuły techniczne, tutoriale, zagadki i zadania programistyczne.",
+
+  "features": [
+    {
+      "heading": "Autorski system wyszukiwania stanowisk IT po wymaganych umiejętnościach",
+      "imgSrc": "https://cdn.pixabay.com/photo/2023/05/21/07/49/blockchain-8008051_640.jpg",
+      "imgAlt": "Wybieranie umiejętności IT.",
+      "text": "skillfind.tech zawiera autorski i nowatorski system wyszukiawania stanowisk IT po umiejętnościach oraz ich poziomach."
+    },
+    {
+      "heading": "Prezentowanie ogłoszeń ze stanowiskami IT na dynamicznej mapie",
+      "imgSrc": "https://images.pexels.com/photos/3754686/pexels-photo-3754686.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "imgAlt": "Dynamiczna mapa.",
+      "text": "Na skillfind.tech ogłoszenia współpracy IT prezentowane są na liście i dynamicznie połączonej z nią mapie."
+    },
+    {
+      "heading": "Wiele wersji językowych",
+      "imgSrc": "https://mapawynajmupl.s3.eu-central-1.amazonaws.com/pages/dlaczego-warto-zostac-partnerem-mapawynajmu-pl/polish-and-english.jpeg?a=0.3505697206291949",
+      "imgAlt": "Union Jack",
+      "text": "Na skillfind.tech ogłoszenia współpracy IT dodawane są automatycznie w wielu wersjach językowych, które obecnie obejmują wersje angielską i polską."
+    },
+    {
+      "heading": "Darmowe ogłoszenia współpracy IT w wersji Starter",
+      "imgSrc": "https://cdn.pixabay.com/photo/2016/11/19/17/20/athlete-1840437_640.jpg",
+      "imgAlt": "Biegacz sztafetowy w bloku startowym.",
+      "text": "skillfind.tech umożliwia dodawanie ogłoszeń współpracy IT w wersji Starter bezpłatnie."
+    },
+    {
+      "heading": "Artykuły ze świata IT, tutoriale i artykuły techniczne",
+      "imgSrc": "https://images.pexels.com/photos/13081133/pexels-photo-13081133.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "imgAlt": "Gazety.",
+      "text": "skillfind.tech zawiera multum artykułów ze świata IT, tutoriali oraz artykułów technicznych."
+    },
+    {
+      "heading": "Zagadki i zadania programistyczne",
+      "imgSrc": "https://cdn.pixabay.com/photo/2016/11/30/12/16/question-mark-1872665_640.jpg",
+      "imgAlt": "Znaki zapytania.",
+      "text": "skillfind.tech zawiera również szereg zagadek i zadań programistycznych."
+    }
+  ]
+}
