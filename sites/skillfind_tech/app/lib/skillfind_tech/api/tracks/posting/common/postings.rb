@@ -75,10 +75,11 @@ module SkillfindTech
                   cooperationMode: localizedCooperationMode(posting.cooperation_mode),
                   lat: posting.lat,
                   lng: posting.lng,
-                  backgroundColor: posting.background_color,
-                  textColor: posting.text_color,
                   active_until: posting.active_until,
                   position: posting.position,
+                  created_at: posting.created_at,
+                  # active_until: posting.active_until
+                  # formattedCreatedAt: posting.created_at.to_formatted_s(:db),
                 }
               end
             end
@@ -103,7 +104,6 @@ module SkillfindTech
 
             def skill_levels
               [
-                { en: 'Novice', pl: 'Nowicjusz' },
                 { en: 'Junior', pl: 'Junior' },
                 { en: 'Mid', pl: 'Mid' },
                 { en: 'Senior', pl: 'Senior' },

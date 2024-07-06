@@ -1,5 +1,6 @@
 {
-  "TODO": "TODO",
+  "socialImage": "Obraz społecznościowy",
+  "download": "Pobierz",
   "name": "Imię i nazwisko",
   "cv": "CV",
   "coverLetter": "Cover Letter",
@@ -10,5 +11,9 @@
   "deletionMonit": "Czy jesteś pewien?",
   "cancel": "Anuluj",
   "confirm": "Potwierdź",
-  "activeUntil": "Aktywne do"
+  "activeUntil": "Aktywne do",
+  "createdAt": "Uwtorzono o",
+  "expiresAt": "Wygasa o",
+  "edit": "Edytuj",
+  "delete": "Usuń"
 }

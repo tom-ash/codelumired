@@ -19,12 +19,16 @@ module SkillfindTech
                 @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/postings/index/localizations/#{lang}.json")
               end
 
+              def remunerationLocalizations
+                @remunerationLocalizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/common/localizations/remuneration/#{lang}.json")
+              end
+
               def authorize!
                 raise ::Api::UnauthorizedError unless authenticated_user.present?
               end
               
               def texts
-                localizations
+                localizations.merge(remunerationLocalizations)
               end
 
               def data
@@ -42,6 +46,9 @@ module SkillfindTech
                   posting.merge(
                     link: ::SkillfindTech::Api::Tracks::User::Postings::Edit::Linker.new(posting: posting, lang: lang).call,
                     applications: applications(posting[:id]),
+                    image: "https://#{ENV['SKILLFIND_TECH_AWS_S3_BUCKET']}.s3.eu-central-1.amazonaws.com/postings/#{posting[:id]}/image.png",
+                    createdAt: posting[:created_at].to_formatted_s(:db)[0, 16],
+                    expiresAt: posting[:active_until].to_formatted_s(:db)[0, 16],
                   )
                 end
               end
@@ -65,6 +72,8 @@ module SkillfindTech
 
               def asset_names
                 @asset_names ||= %i[
+                  minus
+                  download
                   chevron
                   facebook_square
                   linkedin_square

@@ -41,7 +41,15 @@ namespace :skillfind_tech do
         created_at: time_now,
         updated_at: time_now,
       }
-      ::SkillfindTech::Skill.upsert(existing_skill.merge(skill), unique_by: :name)
+
+      ::SkillfindTech::Skill.upsert(
+        existing_skill.merge(
+          name: skill['name'],
+          type: SkillfindTech::Language,
+          description: skill['description'],
+        ),
+        unique_by: :name
+      )
     end
   end
 

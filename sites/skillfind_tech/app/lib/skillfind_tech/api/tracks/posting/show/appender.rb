@@ -15,12 +15,16 @@ module SkillfindTech
 
             private
 
+            def rootLocalizations
+              @rootLocalizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/root/localizations/#{lang}.json")
+            end
+
             def localizations
               @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/show/localizations/#{lang}.json")
             end
 
             def texts
-              localizations
+              rootLocalizations.merge(localizations)
             end
 
             def control
@@ -83,8 +87,6 @@ module SkillfindTech
                 lat: posting.lat,
                 lng: posting.lng,
                 description: posting["#{lang}_description"],
-                background_color: posting.background_color,
-                text_color: posting.text_color,
                 application_link: posting.application_link,
                 poster_link: poster_link,
                 position: posting.position,
@@ -113,6 +115,7 @@ module SkillfindTech
 
             def asset_names
               @asset_names ||= %i[
+                minus
                 marker
                 building
                 earthGlobe
@@ -126,6 +129,7 @@ module SkillfindTech
                 arrowLong
                 dot
                 emptyDot
+                close
               ] + industryIcons + header_asset_names
             end
 

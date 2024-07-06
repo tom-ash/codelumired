@@ -1,0 +1,42 @@
+{
+  "heading": "About skillfind.tech",
+  "intro": "skillfind.tech is a website that allows publishing and searching for IT job postings using a proprietary and innovative skill-based and proficiency-level search system. The postings on skillfind.tech are displayed on a dynamic map and are automatically available in multiple languages (currently available in English and Polish). skillfind.tech allows for adding free postings in the Starter version, which includes up to three skills. Additionally, skillfind.tech features articles from the IT world, technical articles, tutorials, and programming tasks.",
+  "features": [
+    {
+      "heading": "Proprietary IT Job Search System Based on Required Skills",
+      "imgSrc": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/about/search-it-skills.jpg",
+      "imgAlt": "Selecting IT skill.",
+      "text": "skillfind.tech features a proprietary and innovative IT job search system based on skills and their proficiency levels."
+    },
+    {
+      "heading": "Displaying IT Job Postings on a Dynamic Map",
+      "imgSrc": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/about/dynamic-map.jpg",
+      "imgAlt": "Dynamic map.",
+      "text": "On skillfind.tech, IT job postings are displayed on a list and an interactive map dynamically linked to it."
+    },
+    {
+      "heading": "Free IT Job Postings in the Starter Version",
+      "imgSrc": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/about/relay-runner-in-the-starting-blocks.jpg",
+      "imgAlt": "Relay runner in the starting blocks.",
+      "text": "skillfind.tech allows adding IT job postings in the Starter version for free."
+    },
+    {
+      "heading": "Articles from the IT world, Tutorials, and Technical Articles",
+      "imgSrc": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/about/newspapers.jpg",
+      "imgAlt": "Newspapers.",
+      "text": "skillfind.tech features a plethora of articles from the world of IT, tutorials, and technical articles."
+    },
+    {
+      "heading": "Riddles and Programming Tasks",
+      "imgSrc": "https://skillfind-tech.s3.eu-central-1.amazonaws.com/assets/about/questions.jpg",
+      "imgAlt": "Questions.",
+      "text": "skillfind.tech also includes a variety of riddles and programming tasks."
+    },
+    {
+      "heading": "Multiple Language Versions",
+      "imgSrc": "https://mapawynajmupl.s3.eu-central-1.amazonaws.com/pages/dlaczego-warto-zostac-partnerem-mapawynajmu-pl/polish-and-english.jpeg?a=0.3505697206291949",
+      "imgAlt": "Union Jack",
+      "text": "On skillfind.tech, IT job postings are automatically added in multiple language versions, which currently include English and Polish."
+    }
+  ]
+}

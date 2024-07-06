@@ -189,6 +189,7 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     pg (1.4.6)
+    pg (1.4.6-x64-mingw-ucrt)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -264,6 +265,8 @@ GEM
     timeout (0.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2024.1)
+      tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -274,6 +277,8 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   aws-sdk-s3 (~> 1)
@@ -303,4 +308,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.12
+   2.5.16

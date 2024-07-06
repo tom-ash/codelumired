@@ -49,7 +49,7 @@ module SkillfindTech
                       lat: 52,
                       lng: 19,
                     },
-                    zoom: 6.7,
+                    zoom: 1.5,
                   },
                 }
               end
@@ -93,9 +93,6 @@ module SkillfindTech
                   employment_currency: posting.employment_currency,
                   employmentCurrencySelectOptions: ::SkillfindTech::Api::Tracks::Posting::Common::Currencies::CURRENCIES,
                   contracts: contracts,
-                  background_color: posting.background_color,
-                  text_color: posting.text_color,
-
                   position: posting.position,
                   form_application_manner: posting.form_application_manner,
                   link_application_manner: posting.link_application_manner,
@@ -119,12 +116,12 @@ module SkillfindTech
               end
 
               def selectableSkills
-                ::SkillfindTech::Skill.all.map do |skill|
-                  if selectedSkillNames.exclude?(skill.name)
-                    {
-                      name: skill.name,
-                    }
-                  end
+                ::SkillfindTech::Skill.all
+                .map do |skill|
+                  {
+                    name: skill.name,
+                    isSelected: selectedSkillNames.include?(skill.name),
+                  }
                 end.compact
               end
 
@@ -138,8 +135,13 @@ module SkillfindTech
                 @asset_names ||= %i[
                   minus
                   chevron
+                  camera
                   close
+                  plus
+                  magnifyingGlass
                   arrowRight
+                  dot
+                  emptyDot
                 ] + header_asset_names + postingAssets + industryIcons
               end
 

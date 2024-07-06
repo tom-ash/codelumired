@@ -28,10 +28,7 @@ module SkillfindTech
             optional :employment_min, type: Integer
             optional :employment_max, type: Integer
             optional :employment_currency, type: String
-            requires :background_color
-            requires :text_color
             requires :image
-
             requires :form_application_manner, type: Boolean
             requires :link_application_manner, type: Boolean
             optional :application_link, type: String
@@ -77,12 +74,10 @@ module SkillfindTech
             optional :employment_min, type: Integer
             optional :employment_max, type: Integer
             optional :employment_currency, type: String
-            requires :background_color
-            requires :text_color
-
             requires :form_application_manner, type: Boolean
             requires :link_application_manner, type: Boolean
             optional :application_link, type: String
+            requires :image
           end
           put do
             ::SkillfindTech::Commands::Posting::Update.new(
@@ -131,10 +126,7 @@ module SkillfindTech
           requires :terms_of_service_consent, type: Boolean
           requires :consents, type: Array
           requires :logo, type: String
-          requires :background_color
-          requires :text_color
           requires :image
-
           requires :form_application_manner, type: Boolean
           requires :link_application_manner, type: Boolean
           optional :application_link, type: String

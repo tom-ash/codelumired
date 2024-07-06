@@ -1,5 +1,6 @@
 {
-  "TODO": "TODO",
+  "socialImage": "Social Image",
+  "download": "Download",
   "name": "First & Last Name",
   "cv": "CV",
   "coverLetter": "Cover Letter",
@@ -10,5 +11,9 @@
   "deletionMonit": "Are you sure?",
   "cancel": "Cancel",
   "confirm": "Confirm",
-  "activeUntil": "Active until"
+  "activeUntil": "Active until",
+  "createdAt": "Created At",
+  "expiresAt": "Expires At",
+  "edit": "Edit",
+  "delete": "Delete"
 }

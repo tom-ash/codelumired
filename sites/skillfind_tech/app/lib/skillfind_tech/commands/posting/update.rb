@@ -14,6 +14,7 @@ module SkillfindTech
             update_posting
             remove_current_skills
             add_new_skills
+            move_image
           end
 
           posting
@@ -45,9 +46,6 @@ module SkillfindTech
             country: attrs[:country],
             locality: attrs[:locality],
             sublocality: attrs[:sublocality],
-            background_color: attrs[:background_color],
-            text_color: attrs[:text_color],
-
             form_application_manner: attrs[:form_application_manner],
             link_application_manner: attrs[:link_application_manner],
             application_link: attrs[:application_link],
@@ -65,6 +63,17 @@ module SkillfindTech
               level: selected_skill[:level],
             )
           end
+        end
+
+        def move_image
+          temporary_image ||= Aws::S3::Object.new(
+            credentials: CREDS,
+            region: Rails.application.secrets.aws_region,
+            bucket_name: SKILLFIND_TECH_AWS_S3_BUCKET,
+            key: "temporary/#{attrs[:image]}",
+          )
+
+          temporary_image.move_to("#{SKILLFIND_TECH_AWS_S3_BUCKET}/postings/#{posting.id}/image.png")
         end
 
         def posting

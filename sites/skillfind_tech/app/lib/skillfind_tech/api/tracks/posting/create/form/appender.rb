@@ -41,7 +41,7 @@ module SkillfindTech
                       lat: 52,
                       lng: 19,
                     },
-                    zoom: 6.7,
+                    zoom: 1.5,
                   },
                 }
               end
@@ -68,8 +68,6 @@ module SkillfindTech
                     options: localizations[:cooperationModeOptions]
                   },
                   contracts: contracts,
-                  backgroundColor: '#424949',
-                  textColor: '#FBFCFC',
                   formApplicationManner: false,
                   linkApplicationManner: false,
                   applicationLink: EMPTY_TEXT,
