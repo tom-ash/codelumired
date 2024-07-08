@@ -103,7 +103,6 @@ module SkillfindTech
 
             def skill_levels
               [
-                { en: 'Novice', pl: 'Nowicjusz' },
                 { en: 'Junior', pl: 'Junior' },
                 { en: 'Mid', pl: 'Mid' },
                 { en: 'Senior', pl: 'Senior' },
