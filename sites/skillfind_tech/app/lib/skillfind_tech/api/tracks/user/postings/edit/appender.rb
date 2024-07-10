@@ -49,7 +49,7 @@ module SkillfindTech
                       lat: 52,
                       lng: 19,
                     },
-                    zoom: 6.7,
+                    zoom: 1.5,
                   },
                 }
               end

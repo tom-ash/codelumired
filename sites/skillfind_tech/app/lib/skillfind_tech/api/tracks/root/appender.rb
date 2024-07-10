@@ -56,10 +56,10 @@ module SkillfindTech
               isPinsDrawn: false,
               mapOptions: {
                 center: {
-                  lat: 52,
-                  lng: 19,
+                  lat: 38,
+                  lng: 12,
                 },
-                zoom: 6.7,
+                zoom: 2,
               },
             }
           end
