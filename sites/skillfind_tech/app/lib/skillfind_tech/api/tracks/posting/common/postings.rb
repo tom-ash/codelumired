@@ -75,8 +75,6 @@ module SkillfindTech
                   cooperationMode: localizedCooperationMode(posting.cooperation_mode),
                   lat: posting.lat,
                   lng: posting.lng,
-                  backgroundColor: posting.background_color,
-                  textColor: posting.text_color,
                   active_until: posting.active_until,
                   position: posting.position,
                 }

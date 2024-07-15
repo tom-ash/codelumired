@@ -68,8 +68,6 @@ module SkillfindTech
                     options: localizations[:cooperationModeOptions]
                   },
                   contracts: contracts,
-                  backgroundColor: '#424949',
-                  textColor: '#FBFCFC',
                   formApplicationManner: false,
                   linkApplicationManner: false,
                   applicationLink: EMPTY_TEXT,

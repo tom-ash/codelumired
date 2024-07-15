@@ -93,9 +93,6 @@ module SkillfindTech
                   employment_currency: posting.employment_currency,
                   employmentCurrencySelectOptions: ::SkillfindTech::Api::Tracks::Posting::Common::Currencies::CURRENCIES,
                   contracts: contracts,
-                  background_color: posting.background_color,
-                  text_color: posting.text_color,
-
                   position: posting.position,
                   form_application_manner: posting.form_application_manner,
                   link_application_manner: posting.link_application_manner,

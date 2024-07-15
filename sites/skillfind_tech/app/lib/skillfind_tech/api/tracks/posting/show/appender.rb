@@ -83,8 +83,6 @@ module SkillfindTech
                 lat: posting.lat,
                 lng: posting.lng,
                 description: posting["#{lang}_description"],
-                background_color: posting.background_color,
-                text_color: posting.text_color,
                 application_link: posting.application_link,
                 poster_link: poster_link,
                 position: posting.position,
@@ -126,6 +124,7 @@ module SkillfindTech
                 arrowLong
                 dot
                 emptyDot
+                close
               ] + industryIcons + header_asset_names
             end
 
