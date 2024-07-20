@@ -13,27 +13,12 @@ module SkillfindTech
 
           private
 
+          def localizations
+            @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/root/localizations/#{lang}.json")
+          end
+
           def texts
-            {
-              en: {
-                skillsHeading: 'Hone your tech skills',
-                featuredArticlesHeading: 'Featured Articles',
-                skillSelectPlaceholder: 'Search Skills',
-                "b2bContract": "B2B",
-                "employmentContract": "Emp.",
-                "b2bPer": "h",
-                "employmentPer": "m"
-              },
-              pl: {
-                skillsHeading: 'Szlifuj swoje umiejętności tech',
-                featuredArticlesHeading: 'Artykuły',
-                skillSelectPlaceholder: 'Wyszukaj umiejętności',
-                "b2bContract": "B2B",
-                "employmentContract": "UoP",
-                "b2bPer": "godz.",
-                "employmentPer": "mc"
-              },
-            }[lang]
+            localizations
           end
 
           def data
@@ -66,7 +51,9 @@ module SkillfindTech
 
           def asset_names
             @asset_names ||= %i[
+              dot
               chevron
+              minus
               facebook_square
               linkedin_square
               twitter_square
