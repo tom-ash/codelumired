@@ -29,7 +29,6 @@ module SkillfindTech
             optional :employment_max, type: Integer
             optional :employment_currency, type: String
             requires :image
-
             requires :form_application_manner, type: Boolean
             requires :link_application_manner, type: Boolean
             optional :application_link, type: String
@@ -78,6 +77,7 @@ module SkillfindTech
             requires :form_application_manner, type: Boolean
             requires :link_application_manner, type: Boolean
             optional :application_link, type: String
+            requires :image
           end
           put do
             ::SkillfindTech::Commands::Posting::Update.new(
