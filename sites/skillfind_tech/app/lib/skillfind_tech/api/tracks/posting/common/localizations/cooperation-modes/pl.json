@@ -3,17 +3,20 @@
     {
       "value": "office",
       "icon": "building",
-      "label": "W biurze"
+      "label": "W biurze",
+      "symbol": "at"
     },
     {
       "value": "hybrid",
       "icon": "treeCity",
-      "label": "Hybryda"
+      "label": "Hybryda",
+      "symbol": "at"
     },
     {
       "value": "remote",
       "icon": "earthGlobe",
-      "label": "Zdalnie"
+      "label": "Zdalnie",
+      "symbol": "earthGlobe"
     }
   ]
 }

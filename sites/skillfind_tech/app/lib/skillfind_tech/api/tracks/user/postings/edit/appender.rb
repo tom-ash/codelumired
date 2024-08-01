@@ -133,6 +133,7 @@ module SkillfindTech
 
               def asset_names
                 @asset_names ||= %i[
+                  at
                   minus
                   chevron
                   camera

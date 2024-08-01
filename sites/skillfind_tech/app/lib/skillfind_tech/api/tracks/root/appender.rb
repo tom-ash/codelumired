@@ -55,6 +55,7 @@ module SkillfindTech
 
           def asset_names
             @asset_names ||= %i[
+              at
               dot
               chevron
               minus
