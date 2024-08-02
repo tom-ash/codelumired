@@ -30,7 +30,7 @@ module SkillfindTech
               def inputs
                 {
                   businessName: authenticated_user.business_name,
-                  link: authenticated_user.link,
+                  link: authenticated_user.link || HTTPS_PROTOCOL_PREFIX,
                   industry: authenticated_user.industry,
                   industrySelectOptions: industrySelectOptions,
                   emailAddress: authenticated_user.email,

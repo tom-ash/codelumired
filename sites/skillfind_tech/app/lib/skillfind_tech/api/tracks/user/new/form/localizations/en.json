@@ -9,6 +9,7 @@
 
   "linkInputLabel": "Link",
   "linkInputPlaceholder": "https://example.com",
+  "linkInputInvalidError": "Link invalid.",
 
   "industrySelectLabel": "Industry",
   "logoUploadInstructions": "Drag & drop the file or click here.",

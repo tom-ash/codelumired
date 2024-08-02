@@ -65,5 +65,5 @@
 
   "applicationLinkInputLabel": "Application Form Link",
   "applicationLinkInputPlaceholder": "Provide application form link",
-  "applicationLinkInputInvalidError": "Application cannot be blank."
+  "applicationLinkInputInvalidError": "Application form link invalid."
 }
