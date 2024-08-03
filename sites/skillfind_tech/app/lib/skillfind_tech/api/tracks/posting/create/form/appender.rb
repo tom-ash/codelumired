@@ -70,7 +70,7 @@ module SkillfindTech
                   contracts: contracts,
                   formApplicationManner: false,
                   linkApplicationManner: false,
-                  applicationLink: EMPTY_TEXT,
+                  applicationLink: HTTPS_PROTOCOL_PREFIX,
                 }.merge(user_form_inputs)
               end
 

@@ -6,6 +6,7 @@
   "businessNameInputInvalidError": "Nieprawidłowa nazwa ogłoszeniodawcy.",
   "linkInputLabel": "Link",
   "linkInputPlaceholder": "https://example.com",
+  "linkInputInvalidError": "Nieprawidłowy link.",
   "industrySelectLabel": "Branża",
   "logoInputMissingError": "Dodanie logo jest wymagane.",
   "logoUploadInstructions": "Przeciągnij plik lub kliknij tutaj.",

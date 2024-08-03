@@ -64,5 +64,5 @@
 
   "applicationLinkInputLabel": "Link do formularza aplikacji",
   "applicationLinkInputPlaceholder": "Podaj link do formularza aplikacji",
-  "applicationLinkInputInvalidError": "Link do aplikacji nie może być pusty."
+  "applicationLinkInputInvalidError": "Nieprawidłowy link do formularza aplikacji."
 }
