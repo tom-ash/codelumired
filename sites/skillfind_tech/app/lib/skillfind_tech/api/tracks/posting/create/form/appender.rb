@@ -38,10 +38,10 @@ module SkillfindTech
                 {
                   mapOptions: {
                     center: {
-                      lat: 52,
-                      lng: 19,
+                      lat: 42,
+                      lng: 12,
                     },
-                    zoom: 1.5,
+                    zoom: 1.6,
                   },
                 }
               end

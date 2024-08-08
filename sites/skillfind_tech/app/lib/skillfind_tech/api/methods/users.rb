@@ -24,7 +24,7 @@ module SkillfindTech
           
           user.business_name = params[:business_name]
           user.industry = params[:industry]
-          user.link = params[:link]
+          user.link = params[:link] == 'https://' ? nil : params[:link] # TODO
           user.logo = params[:logo]
           user.change_log = []
 

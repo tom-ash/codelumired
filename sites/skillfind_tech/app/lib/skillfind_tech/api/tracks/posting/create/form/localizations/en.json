@@ -1,11 +1,11 @@
 {
   "heading": "Add Posting",
-  "skillSelectorHeading": "Skills",
+  "skillsSectionHeading": "Skills",
   "skillSelectionInstructions": "Select from one to ten skills.",
-  "locationHeading": "Location",
+  "locationSectionHeading": "Location",
   "locationInstructions": "Provide the office location.",
   "placesAutocompleteInputPlaceholder": "City, street, building number",
-  "cooperationModeHeading": "Cooperation Mode",
+  "cooperationModeSectionHeading": "Cooperation Mode",
   "cooperationModeLegend": "Select the cooperation mode:",
   "cooperationModeOptions": [
     {
@@ -24,7 +24,7 @@
   "minPlaceholder": "Min.",
   "maxPlaceholder": "Max.",
 
-  "descriptionHeading": "Description",
+  "descriptionSectionHeading": "Description",
   "addEnDescriptionLabel": "Add English Description",
   "addPlDescriptionLabel": "Add Polish Description",
 
@@ -34,6 +34,7 @@
   "positionInputPlaceholder": "Senior JavaScript Engineer, CTO, Project Manager, Copywriter",
   "positionInputInvalidError": "Invalid position name.",
   
+  "remunerationSectionHeading": "Remuneration",
 
   "contracts": [
     {
@@ -48,7 +49,7 @@
     }
   ],
   "picturesUploadInstructions": "Click on the camera icon to select pictures.",
-  "posterHeading": "Company",
+  "posterSectionHeading": "Company",
   "socialImageSectionHeading": "Social Image",
   "skillSearchInputPlaceholder": "Search skills",
   "selectableSkillsHeading": "Selectable Skills",
@@ -65,5 +66,9 @@
 
   "applicationLinkInputLabel": "Application Form Link",
   "applicationLinkInputPlaceholder": "Provide application form link",
-  "applicationLinkInputInvalidError": "Application form link invalid."
+  "applicationLinkInputInvalidError": "Application form link invalid.",
+
+
+  "required": "Required",
+  "optional": "Optional"
 }

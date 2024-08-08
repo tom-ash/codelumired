@@ -130,6 +130,9 @@ module SkillfindTech
           requires :form_application_manner, type: Boolean
           requires :link_application_manner, type: Boolean
           optional :application_link, type: String
+
+
+
         end
         post 'users' do
           user ||= site::User.find_or_initialize_by(email: params[:email])
@@ -137,6 +140,7 @@ module SkillfindTech
           error!('users.email_already_registered', 422) if user.verified?
           
           user.business_name = params[:business_name]
+          user.link = params[:link] == 'https://' ? nil : params[:link]
           user.industry = params[:industry]
           user.logo = params[:logo]
           user.change_log = []

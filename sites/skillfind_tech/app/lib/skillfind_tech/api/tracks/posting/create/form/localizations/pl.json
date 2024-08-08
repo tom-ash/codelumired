@@ -1,11 +1,11 @@
 {
   "heading": "Dodaj ogłoszenie",
-  "skillSelectorHeading": "Umiejętności",
+  "skillsSectionHeading": "Umiejętności",
   "skillSelectionInstructions": "Wybierz od jednej do dziesięciu umiejętności.",
-  "locationHeading": "Lokalizacja",
+  "locationSectionHeading": "Lokalizacja",
   "locationInstructions": "Podaj lokalizację biura.",
   "placesAutocompleteInputPlaceholder": "Miasto, ulica, numer budynku",
-  "cooperationModeHeading": "Model współpracy",
+  "cooperationModeSectionHeading": "Model współpracy",
   "cooperationModeLegend": "Wybierz model współpracy:",
   "cooperationModeOptions": [
     {
@@ -24,7 +24,7 @@
   "minPlaceholder": "Min.",
   "maxPlaceholder": "Maks.",
 
-  "descriptionHeading": "Opis",
+  "descriptionSectionHeading": "Opis",
   "addEnDescriptionLabel": "Dodaj opis w języku angielskim",
   "addPlDescriptionLabel": "Dodaj opis w języku polskim",
 
@@ -33,6 +33,8 @@
   "positionInputLabel": "Nazwa stanowiska (maks. 60 znaków)",
   "positionInputPlaceholder": "Senior JavaScript Engineer, CTO, Project Manager, Copywriter",
   "positionInputInvalidError": "Nieprawidłowa nazwa stanowiska.",
+
+  "remunerationSectionHeading": "Wynagrodzenie",
 
   "contracts": [
     {
@@ -47,7 +49,7 @@
     }
   ],
   "picturesUploadInstructions": "Kliknij na aparat fotograficzny, aby dodać zdjęcia.",
-  "posterHeading": "Ogłoszeniodawca",
+  "posterSectionHeading": "Ogłoszeniodawca",
   "socialImageSectionHeading": "Obraz społecznościowy",
   "skillSearchInputPlaceholder": "Wyszukaj umiejętności",
   "selectableSkillsHeading": "Umiejętności do wybrania",
@@ -64,5 +66,8 @@
 
   "applicationLinkInputLabel": "Link do formularza aplikacji",
   "applicationLinkInputPlaceholder": "Podaj link do formularza aplikacji",
-  "applicationLinkInputInvalidError": "Nieprawidłowy link do formularza aplikacji."
+  "applicationLinkInputInvalidError": "Nieprawidłowy link do formularza aplikacji.",
+
+  "required": "Wymagane",
+  "optional": "Opcjonalne"
 }
