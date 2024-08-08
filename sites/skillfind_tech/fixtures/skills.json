@@ -1,122 +1,622 @@
 [
-  {
-    "name": "JavaScript",
-    "url": "javascript",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "TypeScript",
-    "url": "typescript",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Ruby",
-    "url": "ruby",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Python",
-    "url": "python",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Java",
-    "url": "java",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "PHP",
-    "url": "php",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "C",
-    "url": "c",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "C++",
-    "url": "cplusplus",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "C#",
-    "url": "csharp",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Swift",
-    "url": "swift",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "SQL",
-    "url": "sql",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "NoSQL",
-    "url": "nosql",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Kotlin",
-    "url": "kotlin",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Scala",
-    "url": "scala",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Perl",
-    "url": "perl",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Rust",
-    "url": "rust",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Objective-C",
-    "url": "objective-c",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "CSS",
-    "url": "css",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "HTML",
-    "url": "html",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  },
-  {
-    "name": "Go",
-    "url": "go",
-    "type": "SkillfindTech::Language",
-    "description": "TODO"
-  }
+	{
+		"name": ".NET",
+		"url": "net"
+	},
+	{
+		"name": "AI",
+		"url": "ai"
+	},
+	{
+		"name": "AWS",
+		"url": "aws"
+	},
+	{
+		"name": "Agile",
+		"url": "agile"
+	},
+	{
+		"name": "Algorithms",
+		"url": "algorithms"
+	},
+	{
+		"name": "Analytics",
+		"url": "analytics"
+	},
+	{
+		"name": "Android",
+		"url": "android"
+	},
+	{
+		"name": "Angular",
+		"url": "angular"
+	},
+	{
+		"name": "Ansible",
+		"url": "ansible"
+	},
+	{
+		"name": "Apache Cassandra",
+		"url": "apache-cassandra"
+	},
+	{
+		"name": "Apache Maven",
+		"url": "apache-maven"
+	},
+	{
+		"name": "Apache Spark",
+		"url": "apache-spark"
+	},
+	{
+		"name": "Asana",
+		"url": "asana"
+	},
+	{
+		"name": "Automatic Testing",
+		"url": "testing"
+	},
+	{
+		"name": "Azure",
+		"url": "azure"
+	},
+	{
+		"name": "Backend Development",
+		"url": "backend-development"
+	},
+	{
+		"name": "Bash",
+		"url": "bash"
+	},
+	{
+		"name": "Bitbucket",
+		"url": "bitbucket"
+	},
+	{
+		"name": "Blockchain",
+		"url": "blockchain"
+	},
+	{
+		"name": "Bootstrap",
+		"url": "bootstrap"
+	},
+	{
+		"name": "C",
+		"url": "c"
+	},
+	{
+		"name": "C#",
+		"url": "c-sharp"
+	},
+	{
+		"name": "C++",
+		"url": "c-plus-plus"
+	},
+	{
+		"name": "CI/CD",
+		"url": "ci-cd"
+	},
+	{
+		"name": "CSS3",
+		"url": "css3"
+	},
+	{
+		"name": "Chai",
+		"url": "chai"
+	},
+	{
+		"name": "CircleCI",
+		"url": "circleci"
+	},
+	{
+		"name": "Cloud",
+		"url": "cloud"
+	},
+	{
+		"name": "Copywriting",
+		"url": "copywriting"
+	},
+	{
+		"name": "Cypress",
+		"url": "cypress"
+	},
+	{
+		"name": "DNS",
+		"url": "dns"
+	},
+	{
+		"name": "Data Collection",
+		"url": "data-collection"
+	},
+	{
+		"name": "Data Visualization",
+		"url": "data-visualization"
+	},
+	{
+		"name": "Databases",
+		"url": "databases"
+	},
+	{
+		"name": "Design Patterns",
+		"url": "design-patterns"
+	},
+	{
+		"name": "Design Principles",
+		"url": "design-principles"
+	},
+	{
+		"name": "DevOps",
+		"url": "dev-ops"
+	},
+	{
+		"name": "Django",
+		"url": "django"
+	},
+	{
+		"name": "Docker",
+		"url": "docker"
+	},
+	{
+		"name": "Elasticsearch",
+		"url": "elasticsearch"
+	},
+	{
+		"name": "Ethereum",
+		"url": "ethereum"
+	},
+	{
+		"name": "Express.js",
+		"url": "expressjs"
+	},
+	{
+		"name": "Fastify",
+		"url": "fastify"
+	},
+	{
+		"name": "Firebase",
+		"url": "firebase"
+	},
+	{
+		"name": "Flask",
+		"url": "flask"
+	},
+	{
+		"name": "Flow",
+		"url": "flow"
+	},
+	{
+		"name": "Flutter",
+		"url": "flutter"
+	},
+	{
+		"name": "Frontend Development",
+		"url": "frontend-development"
+	},
+	{
+		"name": "GCP (Google Cloud Platform)",
+		"url": "gcp-google-cloud-platform"
+	},
+	{
+		"name": "Game Development",
+		"url": "game-development"
+	},
+	{
+		"name": "Git",
+		"url": "git"
+	},
+	{
+		"name": "GitHub",
+		"url": "github"
+	},
+	{
+		"name": "GitLab",
+		"url": "gitlab"
+	},
+	{
+		"name": "Go",
+		"url": "go"
+	},
+	{
+		"name": "GraphQL",
+		"url": "graphql"
+	},
+	{
+		"name": "HTML5",
+		"url": "html5"
+	},
+	{
+		"name": "HTTP/HTTPS",
+		"url": "http-https"
+	},
+	{
+		"name": "Hibernate",
+		"url": "hibernate"
+	},
+	{
+		"name": "IAM",
+		"url": "iam"
+	},
+	{
+		"name": "JSON",
+		"url": "json"
+	},
+	{
+		"name": "JUnit",
+		"url": "junit"
+	},
+	{
+		"name": "Jasmine",
+		"url": "jasmine"
+	},
+	{
+		"name": "Java",
+		"url": "java"
+	},
+	{
+		"name": "JavaScript",
+		"url": "javascript"
+	},
+	{
+		"name": "Jenkins",
+		"url": "jenkins"
+	},
+	{
+		"name": "Jest",
+		"url": "jest"
+	},
+	{
+		"name": "Jira",
+		"url": "jira"
+	},
+	{
+		"name": "Kotlin",
+		"url": "kotlin"
+	},
+	{
+		"name": "Kubernetes",
+		"url": "kubernetes"
+	},
+	{
+		"name": "Laravel",
+		"url": "laravel"
+	},
+	{
+		"name": "Leadership",
+		"url": "leadership"
+	},
+	{
+		"name": "Less",
+		"url": "less"
+	},
+	{
+		"name": "Linux",
+		"url": "linux"
+	},
+	{
+		"name": "MQTT",
+		"url": "mqtt"
+	},
+	{
+		"name": "Machine Learning",
+		"url": "machine-learning"
+	},
+	{
+		"name": "Management",
+		"url": "management"
+	},
+	{
+		"name": "Manual Testing",
+		"url": "testing"
+	},
+	{
+		"name": "Matplotlib",
+		"url": "matplotlib"
+	},
+	{
+		"name": "Microsoft SQL Server",
+		"url": "microsoft-sql-server"
+	},
+	{
+		"name": "Mobile Development",
+		"url": "mobile-development"
+	},
+	{
+		"name": "Mocha",
+		"url": "mocha"
+	},
+	{
+		"name": "MongoDB",
+		"url": "mongodb"
+	},
+	{
+		"name": "MySQL",
+		"url": "mysql"
+	},
+	{
+		"name": "NLP",
+		"url": "nlp"
+	},
+	{
+		"name": "NestJs",
+		"url": "nestjs"
+	},
+	{
+		"name": "Networking",
+		"url": "networking"
+	},
+	{
+		"name": "Next.js",
+		"url": "nextjs"
+	},
+	{
+		"name": "NoSQL",
+		"url": "nosql"
+	},
+	{
+		"name": "Node.js",
+		"url": "nodejs"
+	},
+	{
+		"name": "NumPy",
+		"url": "numpy"
+	},
+	{
+		"name": "OAuth",
+		"url": "oauth"
+	},
+	{
+		"name": "ORM",
+		"url": "orm"
+	},
+	{
+		"name": "Objective C",
+		"url": "objective-c"
+	},
+	{
+		"name": "OpenID Connect",
+		"url": "openid-connect"
+	},
+	{
+		"name": "PHP",
+		"url": "php"
+	},
+	{
+		"name": "Pandas",
+		"url": "pandas"
+	},
+	{
+		"name": "Penetration Testing",
+		"url": "penetration-testing"
+	},
+	{
+		"name": "PostgreSQL",
+		"url": "postgresql"
+	},
+	{
+		"name": "Power BI",
+		"url": "power-bi"
+	},
+	{
+		"name": "PowerShell",
+		"url": "powershell"
+	},
+	{
+		"name": "Prisma",
+		"url": "prisma"
+	},
+	{
+		"name": "Problem Solving",
+		"url": "problem-solving"
+	},
+	{
+		"name": "Programming",
+		"url": "programming"
+	},
+	{
+		"name": "Project Management",
+		"url": "project-management"
+	},
+	{
+		"name": "Project Ownership",
+		"url": "project-ownership"
+	},
+	{
+		"name": "PyTest",
+		"url": "pytest"
+	},
+	{
+		"name": "PyTorch",
+		"url": "pytorch"
+	},
+	{
+		"name": "Python",
+		"url": "python"
+	},
+	{
+		"name": "R",
+		"url": "r"
+	},
+	{
+		"name": "REST",
+		"url": "rest"
+	},
+	{
+		"name": "React",
+		"url": "react"
+	},
+	{
+		"name": "React Native",
+		"url": "react-native"
+	},
+	{
+		"name": "Redis",
+		"url": "redis"
+	},
+	{
+		"name": "Ruby",
+		"url": "ruby"
+	},
+	{
+		"name": "Ruby on Rails",
+		"url": "ruby-on-rails"
+	},
+	{
+		"name": "Rust",
+		"url": "rust"
+	},
+	{
+		"name": "SOLID",
+		"url": "solid"
+	},
+	{
+		"name": "SPA",
+		"url": "spa"
+	},
+	{
+		"name": "SQL",
+		"url": "sql"
+	},
+	{
+		"name": "SQLite",
+		"url": "sqllite"
+	},
+	{
+		"name": "SSL/TLS",
+		"url": "ssl-tls"
+	},
+	{
+		"name": "SSR",
+		"url": "ssr"
+	},
+	{
+		"name": "SWR",
+		"url": "swr"
+	},
+	{
+		"name": "Sass",
+		"url": "sass"
+	},
+	{
+		"name": "Scala",
+		"url": "scala"
+	},
+	{
+		"name": "Security",
+		"url": "security"
+	},
+	{
+		"name": "Selenium",
+		"url": "selenium"
+	},
+	{
+		"name": "Shell",
+		"url": "shell"
+	},
+	{
+		"name": "Solidity",
+		"url": "solidity"
+	},
+	{
+		"name": "Spring Boot",
+		"url": "spring-boot"
+	},
+	{
+		"name": "Svelte",
+		"url": "svelte"
+	},
+	{
+		"name": "Swift",
+		"url": "swift"
+	},
+	{
+		"name": "TCP/IP",
+		"url": "tcp-ip"
+	},
+	{
+		"name": "TensorFlow",
+		"url": "tensorflow"
+	},
+	{
+		"name": "Terraform",
+		"url": "terraform"
+	},
+	{
+		"name": "Testing",
+		"url": "testing"
+	},
+	{
+		"name": "Travis CI",
+		"url": "travis-ci"
+	},
+	{
+		"name": "TypeORM",
+		"url": "typeorm"
+	},
+	{
+		"name": "TypeScript",
+		"url": "typescript"
+	},
+	{
+		"name": "UI",
+		"url": "ui"
+	},
+	{
+		"name": "UX",
+		"url": "ux"
+	},
+	{
+		"name": "Unity",
+		"url": "unity"
+	},
+	{
+		"name": "VPN",
+		"url": "vpn"
+	},
+	{
+		"name": "Version Control",
+		"url": "version-control"
+	},
+	{
+		"name": "Vite",
+		"url": "vite"
+	},
+	{
+		"name": "Vue.js",
+		"url": "vuejs"
+	},
+	{
+		"name": "Web Development",
+		"url": "web-development"
+	},
+	{
+		"name": "WebSockets",
+		"url": "websockets"
+	},
+	{
+		"name": "Webpack",
+		"url": "webpack"
+	},
+	{
+		"name": "Windows",
+		"url": "windows"
+	},
+	{
+		"name": "XML",
+		"url": "xml"
+	},
+	{
+		"name": "YAML",
+		"url": "yaml"
+	},
+	{
+		"name": "containerization ",
+		"url": "containerization "
+	},
+	{
+		"name": "iOS",
+		"url": "ios"
+	},
+	{
+		"name": "jQuery",
+		"url": "jquery"
+	}
 ]

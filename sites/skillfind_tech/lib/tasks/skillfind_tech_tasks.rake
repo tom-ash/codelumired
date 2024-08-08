@@ -46,7 +46,7 @@ namespace :skillfind_tech do
         existing_skill.merge(
           name: skill['name'],
           type: SkillfindTech::Language,
-          description: skill['description'],
+          description: 'TODO',
         ),
         unique_by: :name
       )
