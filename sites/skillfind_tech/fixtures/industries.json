@@ -1,98 +1,446 @@
-              [
-  {
-    "value": "software_house",
-    "pl": "Software House",
-    "en": "Software House",
-    "icon": "laptopWithCode"
-  },
-  {
-    "value": "motorization",
-    "pl": "Motoryzacja",
-    "en": "Motorization",
-    "icon": "car"
-  },
-  {
-    "value": "medicine",
-    "pl": "Medycyna",
-    "en": "Medicine",
-    "icon": "caduceus"
-  },
-  {
-    "value": "music",
-    "pl": "Muzyka",
-    "en": "Music",
-    "icon": "notes"
-  },
-  {
-    "value": "video",
-    "pl": "Wideo",
-    "en": "Video",
-    "icon": "video"
-  },
-  {
-    "value": "gaming",
-    "pl": "Gry",
-    "en": "Gaming",
-    "icon": "gamepad"
-  },
-  {
-    "value": "finance_banking",
-    "pl": "Finanse & bankowość",
-    "en": "Finance & Banking",
-    "icon": "coins"
-  },
-  {
-    "value": "ecommerce",
-    "pl": "E-Commerce",
-    "en": "E-Commerce",
-    "icon": "basket"
-  },
-  {
-    "value": "aviation",
-    "pl": "Lotnictwo",
-    "en": "Aviation",
-    "icon": "plane"
-  },
-  {
-    "value": "cosmonautics",
-    "pl": "Kosmonautyka",
-    "en": "Cosmonautics",
-    "icon": "spaceShuttle"
-  },
-  {
-    "value": "energetics",
-    "pl": "Energetyka",
-    "en": "Energetics",
-    "icon": "bulb"
-  },
-  {
-    "value": "science",
-    "pl": "Nauka",
-    "en": "Science",
-    "icon": "vial"
-  },
-  {
-    "value": "education",
-    "pl": "Edukacja",
-    "en": "Education",
-    "icon": "graduationCap"
-  },
-  {
-    "value": "marketing_agency",
-    "pl": "Marketing Agency",
-    "en": "Agencja Marketingowa",
-    "icon": "ad"
-  },
-  {
-    "value": "recruitment_agency",
-    "pl": "Recruitment Agency",
-    "en": "Agencja Pośrednictwa",
-    "icon": "handshake"
-  },
-  {
-    "value": "inne",
-    "pl": "Inne",
-    "en": "Other",
-    "icon": "questionMark"
-  }
+[
+	{
+		"value": "agriculture",
+		"en": "Agriculture",
+		"pl": "Rolnictwo",
+		"icon": "wheat"
+	},
+	{
+		"value": "agriculture_technology_agtech",
+		"en": "Agriculture Technology (AgTech)",
+		"pl": "Technologia Rolnicza (AgTech)",
+		"icon": "wheat"
+	},
+	{
+		"value": "artificial_intelligence",
+		"en": "Artificial Intelligence",
+		"pl": "Sztuczna Inteligencja",
+		"icon": "brain"
+	},
+	{
+		"value": "augmented_reality_ar_and_virtual_reality_vr",
+		"en": "Augmented Reality (AR) and Virtual Reality (VR)",
+		"pl": "Rzeczywistość Rozszerzona (AR) i Wirtualna (VR)",
+		"icon": "cardboardGlasses"
+	},
+	{
+		"value": "aviation",
+		"pl": "Lotnictwo",
+		"en": "Aviation",
+		"icon": "plane"
+	},
+	{
+		"value": "big_data",
+		"en": "Big Data",
+		"pl": "Big Data",
+		"icon": "data"
+	},
+	{
+		"value": "biotechnology",
+		"en": "Biotechnology",
+		"pl": "Biotechnologia",
+		"icon": "vial"
+	},
+	{
+		"value": "blockchain",
+		"en": "Blockchain",
+		"pl": "Blockchain",
+		"icon": "coins"
+	},
+	{
+		"value": "broadcasting",
+		"en": "Broadcasting",
+		"pl": "Broadcasting",
+		"icon": "broadcastingTower"
+	},
+	{
+		"value": "business_process_outsourcing_bpo",
+		"en": "Business Process Outsourcing (BPO)",
+		"pl": "Outsourcing Procesów Biznesowych (BPO)",
+		"icon": "headset"
+	},
+	{
+		"value": "cloud_computing",
+		"en": "Cloud Computing",
+		"pl": "Chmura Obliczeniowa",
+		"icon": "cloud"
+	},
+	{
+		"value": "construction",
+		"en": "Construction",
+		"pl": "Budownictwo",
+		"icon": "hardhat"
+	},
+	{
+		"value": "consulting",
+		"en": "Consulting",
+		"pl": "Consulting",
+		"icon": "briefcase"
+	},
+	{
+		"value": "consumer_electronics",
+		"en": "Consumer Electronics",
+		"pl": "Elektronika Konsumencka",
+		"icon": "tv"
+	},
+	{
+		"value": "cosmonautics",
+		"pl": "Kosmonautyka",
+		"en": "Cosmonautics",
+		"icon": "spaceShuttle"
+	},
+	{
+		"value": "crowdsourcing",
+		"en": "Crowdsourcing",
+		"pl": "Crowdsourcing",
+		"icon": "userCog"
+	},
+	{
+		"value": "cryptocurrency",
+		"en": "Cryptocurrency",
+		"pl": "Kryptowaluty",
+		"icon": "coins"
+	},
+	{
+		"value": "cybersecurity",
+		"en": "Cybersecurity",
+		"pl": "Cyberbezpieczeństwo",
+		"icon": "shield"
+	},
+	{
+		"value": "data_analytics",
+		"en": "Data Analytics",
+		"pl": "Analiza Danych",
+		"icon": "chartLine"
+	},
+	{
+		"value": "deliveries",
+		"en": "Deliveries",
+		"pl": "Dostawy",
+		"icon": "truck"
+	},
+	{
+		"value": "digital_transformation",
+		"en": "Digital Transformation",
+		"pl": "Cyfrowa Transformacja",
+		"icon": "sync"
+	},
+	{
+		"value": "ecommerce",
+		"pl": "E-Commerce",
+		"en": "E-Commerce",
+		"icon": "basket"
+	},
+	{
+		"value": "education",
+		"pl": "Edukacja",
+		"en": "Education",
+		"icon": "graduationCap"
+	},
+	{
+		"value": "electronics",
+		"en": "Electronics",
+		"pl": "Elektronika",
+		"icon": "tools"
+	},
+	{
+		"value": "electronics_manufacturing",
+		"en": "Electronics Manufacturing",
+		"pl": "Produkcja Elektroniki",
+		"icon": "tools"
+	},
+	{
+		"value": "energetics",
+		"pl": "Energetyka",
+		"en": "Energetics",
+		"icon": "bulb"
+	},
+	{
+		"value": "engineering",
+		"en": "Engineering",
+		"pl": "Inżynieria",
+		"icon": "hardhat"
+	},
+	{
+		"value": "environmental_technology_greentech",
+		"en": "Environmental Technology (GreenTech)",
+		"pl": "Technologia Środowiskowa (GreenTech)",
+		"icon": "leaf"
+	},
+	{
+		"value": "fashion_and_apparel",
+		"en": "Fashion and Apparel",
+		"pl": "Moda i Odzież",
+		"icon": "tshirt"
+	},
+	{
+		"value": "finance_banking",
+		"pl": "Finanse & bankowość",
+		"en": "Finance & Banking",
+		"icon": "coins"
+	},
+	{
+		"value": "finance_technology_FinTech",
+		"pl": "Finance Technology (FinTech)",
+		"en": "Technologia Finansowa (FinTech)",
+		"icon": "coins"
+	},
+	{
+		"value": "food_and_beverage_technology",
+		"en": "Food and Beverage Technology",
+		"pl": "Technologia Żywności i Napojów",
+		"icon": "utensils"
+	},
+	{
+		"value": "food_and_beverages",
+		"en": "Food and Beverages",
+		"pl": "Żywność i Napoje",
+		"icon": "utensils"
+	},
+	{
+		"value": "gaming",
+		"en": "Gaming",
+		"pl": "Gry",
+		"icon": "gamepad"
+	},
+	{
+		"value": "government_and_public_sector",
+		"en": "Government and Public Sector",
+		"pl": "Rząd i Sektor Publiczny",
+		"icon": "landmark"
+	},
+	{
+		"value": "hardware_development",
+		"en": "Hardware Development",
+		"pl": "Rozwój Sprzętu",
+		"icon": "microchip"
+	},
+	{
+		"value": "healthcare",
+		"en": "Healthcare",
+		"pl": "Opieka Zdrowotna",
+		"icon": "heartbeat"
+	},
+	{
+		"value": "human_resources",
+		"en": "Human Resources",
+		"pl": "Zasoby Ludzkie (HR)",
+		"icon": "users"
+	},
+	{
+		"value": "human_resources_technology_hrtech",
+		"en": "Human Resources Technology (HRTech)",
+		"pl": "Technologia Zasobów Ludzkich (HRTech)",
+		"icon": "users"
+	},
+	{
+		"value": "inne",
+		"pl": "Inne",
+		"en": "Other",
+		"icon": "questionMark"
+	},
+	{
+		"value": "insurance",
+		"en": "Insurance",
+		"pl": "Ubezpieczenia",
+		"icon": "umbrella"
+	},
+	{
+		"value": "insurance_insurtech",
+		"en": "Insurance (InsurTech)",
+		"pl": "Ubezpieczenia (InsurTech)",
+		"icon": "umbrella"
+	},
+	{
+		"value": "internet_of_things_iot",
+		"en": "Internet of Things (IoT)",
+		"pl": "Internet Rzeczy (IoT)",
+		"icon": "network"
+	},
+	{
+		"value": "it_outsourcing",
+		"pl": "IT Outsourcing",
+		"en": "Outsourcing IT",
+		"icon": "handshake"
+	},
+	{
+		"value": "it_services",
+		"en": "IT Services",
+		"pl": "Usługi IT",
+		"icon": "briefcase"
+	},
+	{
+		"value": "law",
+		"en": "Law",
+		"pl": "Prawo",
+		"icon": "gavel"
+	},
+	{
+		"value": "legal_technology_legaltech",
+		"en": "Legal Technology (LegalTech)",
+		"pl": "Technologia Prawna (LegalTech)",
+		"icon": "gavel"
+	},
+	{
+		"value": "logistics_and_supply_chain",
+		"en": "Logistics and Supply Chain",
+		"pl": "Logistyka i Łańcuch Dostaw",
+		"icon": "truck"
+	},
+	{
+		"value": "manufacturing",
+		"en": "Manufacturing",
+		"pl": "Produkcja",
+		"icon": "industry"
+	},
+	{
+		"value": "marketing",
+		"pl": "Marketing",
+		"en": "Marketing",
+		"icon": "chartLine"
+	},
+	{
+		"value": "media_and_publishing",
+		"en": "Media and Publishing",
+		"pl": "Media i Wydawnictwo",
+		"icon": "newspaper"
+	},
+	{
+		"value": "medicine",
+		"pl": "Medycyna",
+		"en": "Medicine",
+		"icon": "caduceus"
+	},
+	{
+		"value": "motorization",
+		"pl": "Motoryzacja",
+		"en": "Motorization",
+		"icon": "car"
+	},
+	{
+		"value": "music",
+		"pl": "Muzyka",
+		"en": "Music",
+		"icon": "notes"
+	},
+	{
+		"value": "network_infrastructure",
+		"en": "Network Infrastructure",
+		"pl": "Infrastruktura Sieciowa",
+		"icon": "server"
+	},
+	{
+		"value": "non_profit_organizations",
+		"en": "Non-Profit Organizations",
+		"pl": "Organizacje Non-Profit",
+		"icon": "palmHeart"
+	},
+	{
+		"value": "pharmaceuticals",
+		"en": "Pharmaceuticals",
+		"pl": "Farmaceutyka",
+		"icon": "vial"
+	},
+	{
+		"value": "public_utilities",
+		"en": "Public Utilities",
+		"pl": "Usługi Publiczne",
+		"icon": "lightening"
+	},
+	{
+		"value": "real_estate",
+		"en": "Real Estate",
+		"pl": "Nieruchomości",
+		"icon": "home"
+	},
+	{
+		"value": "real_estate_and_property_technology_proptech",
+		"en": "Real Estate and Property Technology (PropTech)",
+		"pl": "Nieruchomości i Technologia Własności (PropTech)",
+		"icon": "home"
+	},
+	{
+		"value": "recruitment_agency",
+		"pl": "Recruitment Agency",
+		"en": "Agencja Pośrednictwa",
+		"icon": "handshake"
+	},
+	{
+		"value": "retail",
+		"en": "Retail",
+		"pl": "Handel",
+		"icon": "store"
+	},
+	{
+		"value": "robotics_and_automation",
+		"en": "Robotics and Automation",
+		"pl": "Robotyka i Automatyzacja",
+		"icon": "gears"
+	},
+	{
+		"value": "science",
+		"pl": "Nauka",
+		"en": "Science",
+		"icon": "vial"
+	},
+	{
+		"value": "security_software",
+		"en": "Security Software",
+		"pl": "Oprogramowanie Bezpieczeństwa",
+		"icon": "lock"
+	},
+	{
+		"value": "social_media",
+		"en": "Social Media",
+		"pl": "Media Społecznościowe",
+		"icon": "hash"
+	},
+	{
+		"value": "software_house",
+		"en": "Software House",
+		"pl": "Software House",
+		"icon": "laptopWithCode"
+	},
+	{
+		"value": "startup",
+		"en": "Startup",
+		"pl": "Startup",
+		"icon": "rocket"
+	},
+	{
+		"value": "streaming_services",
+		"en": "Streaming Services",
+		"pl": "Usługi Streamingowe",
+		"icon": "video"
+	},
+	{
+		"value": "supply_chain_management",
+		"en": "Supply Chain Management",
+		"pl": "Zarządzanie Łańcuchem Dostaw",
+		"icon": "warehouse"
+	},
+	{
+		"value": "telecommunications",
+		"en": "Telecommunications",
+		"pl": "Telekomunikacja",
+		"icon": "broadcastingTower"
+	},
+	{
+		"value": "transportation_and_mobility",
+		"en": "Transportation and Mobility",
+		"pl": "Transport i Mobilność",
+		"icon": "bus"
+	},
+	{
+		"value": "travel_and_hospitality",
+		"en": "Travel and Hospitality",
+		"pl": "Podróże i Turystyka",
+		"icon": "plane"
+	},
+	{
+		"value": "video",
+		"pl": "Wideo",
+		"en": "Video",
+		"icon": "video"
+	}
 ]
