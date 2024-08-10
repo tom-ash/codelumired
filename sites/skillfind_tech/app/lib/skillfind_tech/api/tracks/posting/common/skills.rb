@@ -10,19 +10,21 @@ module SkillfindTech
 
             def selectableSkills
               skills.map do |skill|
-                if selectedSkillNames.exclude?(skill['name'])
+                # selectedSkillValues
+                # byebug
+                if selectedSkillValues.exclude?(skill['value'])
                   {
-                    value: skill['name'],
-                    text: skill['name'],
-                    url: skill['url'],
+                    value: skill['value'],
+                    display: skill[lang],
+                    queryParam: skill["route_#{lang}"],
                   }
                 end
               end.compact
             end
 
-            def selectedSkillNames
-              @selectedSkillNames ||= selectedSkills.map do |skill|
-                skill['name']
+            def selectedSkillValues
+              @selectedSkillValues ||= selectedSkills.map do |skill|
+                skill[:value]
               end
             end
 
@@ -31,20 +33,20 @@ module SkillfindTech
                 selectedSkillsArray = []
 
                 params.each do |param|
-                  paramName = param[0]
+                  queryParam = param[0]
                   level = param[1]
                   
                   selected_skill = skills.find do |skillOption|
-                    skillOption['url'].downcase == paramName.downcase
+                    skillOption["route_#{lang}"] == queryParam.gsub('_', '-')
                   end
 
                   if selected_skill.present?
-                    selectedSkillsArray << selected_skill.merge(
-                      name: selected_skill['name'],
-                      text: selected_skill['name'],
+                    selectedSkillsArray << {
+                      value: selected_skill['value'],
+                      display: selected_skill[lang],
+                      queryParam: selected_skill["route_#{lang}"],
                       level: level,
-                      value: selected_skill['name'],
-                    )
+                    }
                   end
                 end
 
@@ -53,7 +55,7 @@ module SkillfindTech
             end
 
             def skills
-              @skills ||= JSON.parse(File.read('sites/skillfind_tech/fixtures/skills.json'))
+              @skills ||= ::SkillfindTech::Skill.all
             end
           end
         end

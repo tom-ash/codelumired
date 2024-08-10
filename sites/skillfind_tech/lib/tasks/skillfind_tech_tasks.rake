@@ -37,18 +37,22 @@ namespace :skillfind_tech do
 
     skills.each do |skill|
       time_now = Time.now
-      existing_skill = ::SkillfindTech::Skill.find_by(name: skill['name'])&.attributes || {
+      existing_skill = ::SkillfindTech::Skill.find_by(value: skill['value'])&.attributes || {
         created_at: time_now,
         updated_at: time_now,
       }
 
       ::SkillfindTech::Skill.upsert(
         existing_skill.merge(
-          name: skill['name'],
-          type: SkillfindTech::Language,
-          description: 'TODO',
+          value: skill['value'],
+          en: skill['en'],
+          pl: skill['pl'],
+          route_en: skill['route_en'],
+          route_pl: skill['route_pl'],
+          description_en: skill['description_en'],
+          description_pl: skill['description_pl'],
         ),
-        unique_by: :name
+        unique_by: :value
       )
     end
   end
