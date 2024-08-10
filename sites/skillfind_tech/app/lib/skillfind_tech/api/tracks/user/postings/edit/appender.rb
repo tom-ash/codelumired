@@ -119,15 +119,17 @@ module SkillfindTech
                 ::SkillfindTech::Skill.all
                 .map do |skill|
                   {
-                    name: skill.name,
-                    isSelected: selectedSkillNames.include?(skill.name),
+                    value: skill.value,
+                    display: skill[lang],
+                    queryParam: skill["route_#{lang}"],
+                    isSelected: selectedSkillValues.include?(skill.value),
                   }
                 end.compact
               end
 
-              def selectedSkillNames
+              def selectedSkillValues
                 selectedSkills.map do |skill|
-                  skill[:name]
+                  skill[:value]
                 end
               end
 

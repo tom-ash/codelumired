@@ -1,622 +1,1074 @@
 [
 	{
-		"name": ".NET",
-		"url": "net"
+	  "value": ".net",
+	  "en": ".NET",
+	  "pl": ".NET",
+	  "route_en": "net",
+	  "route_pl": "net"
 	},
 	{
-		"name": "AI",
-		"url": "ai"
+	  "value": "artificial_intelligence_ai",
+	  "en": "Artificial Intelligence (AI)",
+	  "pl": "Sztuczna inteligencja (SI)",
+	  "route_en": "artificial-intelligence-ai",
+	  "route_pl": "sztuczna-inteligencja-si"
 	},
 	{
-		"name": "AWS",
-		"url": "aws"
+	  "value": "aws",
+	  "en": "AWS",
+	  "pl": "AWS",
+	  "route_en": "aws",
+	  "route_pl": "aws"
 	},
 	{
-		"name": "Agile",
-		"url": "agile"
+	  "value": "agile",
+	  "en": "Agile",
+	  "pl": "Agile",
+	  "route_en": "agile",
+	  "route_pl": "agile"
 	},
 	{
-		"name": "Algorithms",
-		"url": "algorithms"
+	  "value": "algorithms",
+	  "en": "Algorithms",
+	  "pl": "Algorytmy",
+	  "route_en": "algorithms",
+	  "route_pl": "algorytmy"
 	},
 	{
-		"name": "Analytics",
-		"url": "analytics"
+	  "value": "analytics",
+	  "en": "Analytics",
+	  "pl": "Analityka",
+	  "route_en": "analytics",
+	  "route_pl": "analityka"
 	},
 	{
-		"name": "Android",
-		"url": "android"
+	  "value": "android",
+	  "en": "Android",
+	  "pl": "Android",
+	  "route_en": "android",
+	  "route_pl": "android"
 	},
 	{
-		"name": "Angular",
-		"url": "angular"
+	  "value": "angular",
+	  "en": "Angular",
+	  "pl": "Angular",
+	  "route_en": "angular",
+	  "route_pl": "angular"
 	},
 	{
-		"name": "Ansible",
-		"url": "ansible"
+	  "value": "ansible",
+	  "en": "Ansible",
+	  "pl": "Ansible",
+	  "route_en": "ansible",
+	  "route_pl": "ansible"
 	},
 	{
-		"name": "Apache Cassandra",
-		"url": "apache-cassandra"
+	  "value": "asana",
+	  "en": "Asana",
+	  "pl": "Asana",
+	  "route_en": "asana",
+	  "route_pl": "asana"
 	},
 	{
-		"name": "Apache Maven",
-		"url": "apache-maven"
+	  "value": "automatic_testing",
+	  "en": "Automatic Testing",
+	  "pl": "Testowanie Automatyczne",
+	  "route_en": "automatic-testing",
+	  "route_pl": "testowanie-automatyczne"
 	},
 	{
-		"name": "Apache Spark",
-		"url": "apache-spark"
+	  "value": "azure",
+	  "en": "Azure",
+	  "pl": "Azure",
+	  "route_en": "azure",
+	  "route_pl": "azure"
 	},
 	{
-		"name": "Asana",
-		"url": "asana"
+	  "value": "backend",
+	  "en": "Backend",
+	  "pl": "Backend",
+	  "route_en": "backend",
+	  "route_pl": "backend"
 	},
 	{
-		"name": "Automatic Testing",
-		"url": "testing"
+	  "value": "bash",
+	  "en": "Bash",
+	  "pl": "Bash",
+	  "route_en": "bash",
+	  "route_pl": "bash"
 	},
 	{
-		"name": "Azure",
-		"url": "azure"
+	  "value": "bitbucket",
+	  "en": "Bitbucket",
+	  "pl": "Bitbucket",
+	  "route_en": "bitbucket",
+	  "route_pl": "bitbucket"
 	},
 	{
-		"name": "Backend Development",
-		"url": "backend-development"
+	  "value": "blockchain",
+	  "en": "Blockchain",
+	  "pl": "Blockchain",
+	  "route_en": "blockchain",
+	  "route_pl": "blockchain"
 	},
 	{
-		"name": "Bash",
-		"url": "bash"
+	  "value": "bootstrap",
+	  "en": "Bootstrap",
+	  "pl": "Bootstrap",
+	  "route_en": "bootstrap",
+	  "route_pl": "bootstrap"
 	},
 	{
-		"name": "Bitbucket",
-		"url": "bitbucket"
+	  "value": "c",
+	  "en": "C",
+	  "pl": "C",
+	  "route_en": "c",
+	  "route_pl": "c"
 	},
 	{
-		"name": "Blockchain",
-		"url": "blockchain"
+	  "value": "c_sharp",
+	  "en": "C#",
+	  "pl": "C#",
+	  "route_en": "c-sharp",
+	  "route_pl": "c-sharp"
 	},
 	{
-		"name": "Bootstrap",
-		"url": "bootstrap"
+	  "value": "c_plus_plus",
+	  "en": "C++",
+	  "pl": "C++",
+	  "route_en": "c-plus-plus",
+	  "route_pl": "c-plus-plus"
 	},
 	{
-		"name": "C",
-		"url": "c"
+	  "value": "ci_cd",
+	  "en": "CI/CD",
+	  "pl": "CI/CD",
+	  "route_en": "ci-cd",
+	  "route_pl": "ci-cd"
 	},
 	{
-		"name": "C#",
-		"url": "c-sharp"
+	  "value": "css3",
+	  "en": "CSS3",
+	  "pl": "CSS3",
+	  "route_en": "css3",
+	  "route_pl": "css3"
 	},
 	{
-		"name": "C++",
-		"url": "c-plus-plus"
+	  "value": "cassandra",
+	  "en": "Cassandra",
+	  "pl": "Cassandra",
+	  "route_en": "cassandra",
+	  "route_pl": "cassandra"
 	},
 	{
-		"name": "CI/CD",
-		"url": "ci-cd"
+	  "value": "chai",
+	  "en": "Chai",
+	  "pl": "Chai",
+	  "route_en": "chai",
+	  "route_pl": "chai"
 	},
 	{
-		"name": "CSS3",
-		"url": "css3"
+	  "value": "circleci",
+	  "en": "CircleCI",
+	  "pl": "CircleCI",
+	  "route_en": "circleci",
+	  "route_pl": "circleci"
 	},
 	{
-		"name": "Chai",
-		"url": "chai"
+	  "value": "cloud",
+	  "en": "Cloud",
+	  "pl": "Chmura (Cloud)",
+	  "route_en": "cloud",
+	  "route_pl": "chmura-cloud"
 	},
 	{
-		"name": "CircleCI",
-		"url": "circleci"
+	  "value": "containerization",
+	  "en": "Containerization",
+	  "pl": "Konteneryzacja",
+	  "route_en": "containerization",
+	  "route_pl": "konteneryzacja"
 	},
 	{
-		"name": "Cloud",
-		"url": "cloud"
+	  "value": "copywriting",
+	  "en": "Copywriting",
+	  "pl": "Copywriting",
+	  "route_en": "copywriting",
+	  "route_pl": "copywriting"
 	},
 	{
-		"name": "Copywriting",
-		"url": "copywriting"
+	  "value": "cypress",
+	  "en": "Cypress",
+	  "pl": "Cypress",
+	  "route_en": "cypress",
+	  "route_pl": "cypress"
 	},
 	{
-		"name": "Cypress",
-		"url": "cypress"
+	  "value": "dns",
+	  "en": "DNS",
+	  "pl": "DNS",
+	  "route_en": "dns",
+	  "route_pl": "dns"
 	},
 	{
-		"name": "DNS",
-		"url": "dns"
+	  "value": "data_collection",
+	  "en": "Data Collection",
+	  "pl": "Zbieranie Danych",
+	  "route_en": "data-collection",
+	  "route_pl": "zbieranie-danych"
 	},
 	{
-		"name": "Data Collection",
-		"url": "data-collection"
+	  "value": "data_visualization",
+	  "en": "Data Visualization",
+	  "pl": "Wizualizacja Danych",
+	  "route_en": "data-visualization",
+	  "route_pl": "wizualizacja-danych"
 	},
 	{
-		"name": "Data Visualization",
-		"url": "data-visualization"
+	  "value": "databases",
+	  "en": "Databases",
+	  "pl": "Bazy Danych",
+	  "route_en": "databases",
+	  "route_pl": "bazy-danych"
 	},
 	{
-		"name": "Databases",
-		"url": "databases"
+	  "value": "design_patterns",
+	  "en": "Design Patterns",
+	  "pl": "Wzorce Projektowe",
+	  "route_en": "design-patterns",
+	  "route_pl": "wzorce-projektowe"
 	},
 	{
-		"name": "Design Patterns",
-		"url": "design-patterns"
+	  "value": "design_principles",
+	  "en": "Design Principles",
+	  "pl": "Zasady Projektowania",
+	  "route_en": "design-principles",
+	  "route_pl": "zasady-projektowania"
 	},
 	{
-		"name": "Design Principles",
-		"url": "design-principles"
+	  "value": "dev_ops",
+	  "en": "DevOps",
+	  "pl": "DevOps",
+	  "route_en": "dev-ops",
+	  "route_pl": "dev-ops"
 	},
 	{
-		"name": "DevOps",
-		"url": "dev-ops"
+	  "value": "django",
+	  "en": "Django",
+	  "pl": "Django",
+	  "route_en": "django",
+	  "route_pl": "django"
 	},
 	{
-		"name": "Django",
-		"url": "django"
+	  "value": "docker",
+	  "en": "Docker",
+	  "pl": "Docker",
+	  "route_en": "docker",
+	  "route_pl": "docker"
 	},
 	{
-		"name": "Docker",
-		"url": "docker"
+	  "value": "elasticsearch",
+	  "en": "Elasticsearch",
+	  "pl": "Elasticsearch",
+	  "route_en": "elasticsearch",
+	  "route_pl": "elasticsearch"
 	},
 	{
-		"name": "Elasticsearch",
-		"url": "elasticsearch"
+	  "value": "ethereum",
+	  "en": "Ethereum",
+	  "pl": "Ethereum",
+	  "route_en": "ethereum",
+	  "route_pl": "ethereum"
 	},
 	{
-		"name": "Ethereum",
-		"url": "ethereum"
+	  "value": "express_js",
+	  "en": "Express.js",
+	  "pl": "Express.js",
+	  "route_en": "express-js",
+	  "route_pl": "express-js"
 	},
 	{
-		"name": "Express.js",
-		"url": "expressjs"
+	  "value": "fastify",
+	  "en": "Fastify",
+	  "pl": "Fastify",
+	  "route_en": "fastify",
+	  "route_pl": "fastify"
 	},
 	{
-		"name": "Fastify",
-		"url": "fastify"
+	  "value": "firebase",
+	  "en": "Firebase",
+	  "pl": "Firebase",
+	  "route_en": "firebase",
+	  "route_pl": "firebase"
 	},
 	{
-		"name": "Firebase",
-		"url": "firebase"
+	  "value": "flask",
+	  "en": "Flask",
+	  "pl": "Flask",
+	  "route_en": "flask",
+	  "route_pl": "flask"
 	},
 	{
-		"name": "Flask",
-		"url": "flask"
+	  "value": "flow",
+	  "en": "Flow",
+	  "pl": "Flow",
+	  "route_en": "flow",
+	  "route_pl": "flow"
 	},
 	{
-		"name": "Flow",
-		"url": "flow"
+	  "value": "flutter",
+	  "en": "Flutter",
+	  "pl": "Flutter",
+	  "route_en": "flutter",
+	  "route_pl": "flutter"
 	},
 	{
-		"name": "Flutter",
-		"url": "flutter"
+	  "value": "frontend",
+	  "en": "Frontend",
+	  "pl": "Frontend",
+	  "route_en": "frontend",
+	  "route_pl": "frontend"
 	},
 	{
-		"name": "Frontend Development",
-		"url": "frontend-development"
+	  "value": "gcp_google_cloud_platform",
+	  "en": "GCP (Google Cloud Platform)",
+	  "pl": "GCP (Google Cloud Platform)",
+	  "route_en": "gcp-google-cloud-platform",
+	  "route_pl": "gcp-google-cloud-platform"
 	},
 	{
-		"name": "GCP (Google Cloud Platform)",
-		"url": "gcp-google-cloud-platform"
+	  "value": "gaming",
+	  "en": "Gaming",
+	  "pl": "Gry",
+	  "route_en": "gaming",
+	  "route_pl": "gry"
 	},
 	{
-		"name": "Game Development",
-		"url": "game-development"
-	},
-	{
-		"name": "Git",
-		"url": "git"
-	},
+		"value": "gamedev",
+		"en": "GameDev",
+		"pl": "GameDev",
+		"route_en": "gamedev",
+		"route_pl": "gamedev"
+	  },
 	{
-		"name": "GitHub",
-		"url": "github"
+	  "value": "git",
+	  "en": "Git",
+	  "pl": "Git",
+	  "route_en": "git",
+	  "route_pl": "git"
 	},
 	{
-		"name": "GitLab",
-		"url": "gitlab"
+	  "value": "github",
+	  "en": "GitHub",
+	  "pl": "GitHub",
+	  "route_en": "github",
+	  "route_pl": "github"
 	},
 	{
-		"name": "Go",
-		"url": "go"
+	  "value": "gitlab",
+	  "en": "GitLab",
+	  "pl": "GitLab",
+	  "route_en": "gitlab",
+	  "route_pl": "gitlab"
 	},
 	{
-		"name": "GraphQL",
-		"url": "graphql"
+	  "value": "go",
+	  "en": "Go",
+	  "pl": "Go",
+	  "route_en": "go",
+	  "route_pl": "go"
 	},
 	{
-		"name": "HTML5",
-		"url": "html5"
+	  "value": "graphql",
+	  "en": "GraphQL",
+	  "pl": "GraphQL",
+	  "route_en": "graphql",
+	  "route_pl": "graphql"
 	},
 	{
-		"name": "HTTP/HTTPS",
-		"url": "http-https"
+	  "value": "html5",
+	  "en": "HTML5",
+	  "pl": "HTML5",
+	  "route_en": "html5",
+	  "route_pl": "html5"
 	},
 	{
-		"name": "Hibernate",
-		"url": "hibernate"
+	  "value": "http_https",
+	  "en": "HTTP/HTTPS",
+	  "pl": "HTTP/HTTPS",
+	  "route_en": "http-https",
+	  "route_pl": "http-https"
 	},
 	{
-		"name": "IAM",
-		"url": "iam"
+	  "value": "hibernate",
+	  "en": "Hibernate",
+	  "pl": "Hibernate",
+	  "route_en": "hibernate",
+	  "route_pl": "hibernate"
 	},
 	{
-		"name": "JSON",
-		"url": "json"
+	  "value": "iam",
+	  "en": "IAM",
+	  "pl": "IAM",
+	  "route_en": "iam",
+	  "route_pl": "iam"
 	},
 	{
-		"name": "JUnit",
-		"url": "junit"
+	  "value": "json",
+	  "en": "JSON",
+	  "pl": "JSON",
+	  "route_en": "json",
+	  "route_pl": "json"
 	},
 	{
-		"name": "Jasmine",
-		"url": "jasmine"
+	  "value": "junit",
+	  "en": "JUnit",
+	  "pl": "JUnit",
+	  "route_en": "junit",
+	  "route_pl": "junit"
 	},
 	{
-		"name": "Java",
-		"url": "java"
+	  "value": "jasmine",
+	  "en": "Jasmine",
+	  "pl": "Jasmine",
+	  "route_en": "jasmine",
+	  "route_pl": "jasmine"
 	},
 	{
-		"name": "JavaScript",
-		"url": "javascript"
+	  "value": "java",
+	  "en": "Java",
+	  "pl": "Java",
+	  "route_en": "java",
+	  "route_pl": "java"
 	},
 	{
-		"name": "Jenkins",
-		"url": "jenkins"
+	  "value": "javascript",
+	  "en": "JavaScript",
+	  "pl": "JavaScript",
+	  "route_en": "javascript",
+	  "route_pl": "javascript"
 	},
 	{
-		"name": "Jest",
-		"url": "jest"
+	  "value": "jenkins",
+	  "en": "Jenkins",
+	  "pl": "Jenkins",
+	  "route_en": "jenkins",
+	  "route_pl": "jenkins"
 	},
 	{
-		"name": "Jira",
-		"url": "jira"
+	  "value": "jest",
+	  "en": "Jest",
+	  "pl": "Jest",
+	  "route_en": "jest",
+	  "route_pl": "jest"
 	},
 	{
-		"name": "Kotlin",
-		"url": "kotlin"
+	  "value": "jira",
+	  "en": "Jira",
+	  "pl": "Jira",
+	  "route_en": "jira",
+	  "route_pl": "jira"
 	},
 	{
-		"name": "Kubernetes",
-		"url": "kubernetes"
+	  "value": "kotlin",
+	  "en": "Kotlin",
+	  "pl": "Kotlin",
+	  "route_en": "kotlin",
+	  "route_pl": "kotlin"
 	},
 	{
-		"name": "Laravel",
-		"url": "laravel"
+	  "value": "kubernetes",
+	  "en": "Kubernetes",
+	  "pl": "Kubernetes",
+	  "route_en": "kubernetes",
+	  "route_pl": "kubernetes"
 	},
 	{
-		"name": "Leadership",
-		"url": "leadership"
+	  "value": "laravel",
+	  "en": "Laravel",
+	  "pl": "Laravel",
+	  "route_en": "laravel",
+	  "route_pl": "laravel"
 	},
 	{
-		"name": "Less",
-		"url": "less"
+	  "value": "leadership",
+	  "en": "Leadership",
+	  "pl": "Przywództwo",
+	  "route_en": "leadership",
+	  "route_pl": "przywodztwo"
 	},
 	{
-		"name": "Linux",
-		"url": "linux"
+	  "value": "less",
+	  "en": "Less",
+	  "pl": "Less",
+	  "route_en": "less",
+	  "route_pl": "less"
 	},
 	{
-		"name": "MQTT",
-		"url": "mqtt"
+	  "value": "linux",
+	  "en": "Linux",
+	  "pl": "Linux",
+	  "route_en": "linux",
+	  "route_pl": "linux"
 	},
 	{
-		"name": "Machine Learning",
-		"url": "machine-learning"
+	  "value": "mqtt",
+	  "en": "MQTT",
+	  "pl": "MQTT",
+	  "route_en": "mqtt",
+	  "route_pl": "mqtt"
 	},
 	{
-		"name": "Management",
-		"url": "management"
+	  "value": "machine_learning_ml",
+	  "en": "Machine Learning (ML)",
+	  "pl": "Uczenie Maszynowe (ML)",
+	  "route_en": "machine-learning-ml",
+	  "route_pl": "uczenie-maszynowe-ml"
 	},
 	{
-		"name": "Manual Testing",
-		"url": "testing"
+	  "value": "management",
+	  "en": "Management",
+	  "pl": "Zarządzanie",
+	  "route_en": "management",
+	  "route_pl": "zarzadzanie"
 	},
 	{
-		"name": "Matplotlib",
-		"url": "matplotlib"
+	  "value": "manual_testing",
+	  "en": "Manual Testing",
+	  "pl": "Testowanie Ręczne",
+	  "route_en": "manual-testing",
+	  "route_pl": "testowanie-reczne"
 	},
 	{
-		"name": "Microsoft SQL Server",
-		"url": "microsoft-sql-server"
+	  "value": "matplotlib",
+	  "en": "Matplotlib",
+	  "pl": "Matplotlib",
+	  "route_en": "matplotlib",
+	  "route_pl": "matplotlib"
 	},
 	{
-		"name": "Mobile Development",
-		"url": "mobile-development"
+	  "value": "maven",
+	  "en": "Maven",
+	  "pl": "Maven",
+	  "route_en": "maven",
+	  "route_pl": "maven"
 	},
 	{
-		"name": "Mocha",
-		"url": "mocha"
+	  "value": "microsoft_sql_server",
+	  "en": "Microsoft SQL Server",
+	  "pl": "Microsoft SQL Server",
+	  "route_en": "microsoft-sql-server",
+	  "route_pl": "microsoft-sql-server"
 	},
 	{
-		"name": "MongoDB",
-		"url": "mongodb"
+	  "value": "mobile_development",
+	  "en": "Mobile Development",
+	  "pl": "Mobile Development",
+	  "route_en": "mobile-development",
+	  "route_pl": "mobile-development"
 	},
 	{
-		"name": "MySQL",
-		"url": "mysql"
-	},
-	{
-		"name": "NLP",
-		"url": "nlp"
-	},
+		"value": "native",
+		"en": "Native",
+		"pl": "Native",
+		"route_en": "native",
+		"route_pl": "native"
+	  },
 	{
-		"name": "NestJs",
-		"url": "nestjs"
+	  "value": "mocha",
+	  "en": "Mocha",
+	  "pl": "Mocha",
+	  "route_en": "mocha",
+	  "route_pl": "mocha"
 	},
 	{
-		"name": "Networking",
-		"url": "networking"
+	  "value": "mongodb",
+	  "en": "MongoDB",
+	  "pl": "MongoDB",
+	  "route_en": "mongodb",
+	  "route_pl": "mongodb"
 	},
 	{
-		"name": "Next.js",
-		"url": "nextjs"
+	  "value": "mysql",
+	  "en": "MySQL",
+	  "pl": "MySQL",
+	  "route_en": "mysql",
+	  "route_pl": "mysql"
 	},
 	{
-		"name": "NoSQL",
-		"url": "nosql"
+	  "value": "neuro_linguistic_programming_nlp",
+	  "en": "Neuro Linguistic Programming (NLP)",
+	  "pl": "Programowanie neurolingwistyczne (NLP)",
+	  "route_en": "neuro-linguistic-programming-nlp",
+	  "route_pl": "programowanie-neurolingwistyczne-nlp"
 	},
 	{
-		"name": "Node.js",
-		"url": "nodejs"
+	  "value": "nestjs",
+	  "en": "NestJs",
+	  "pl": "NestJs",
+	  "route_en": "nestjs",
+	  "route_pl": "nestjs"
 	},
 	{
-		"name": "NumPy",
-		"url": "numpy"
+	  "value": "networking",
+	  "en": "Networking",
+	  "pl": "Sieci (Networking)",
+	  "route_en": "networking",
+	  "route_pl": "sieci-networking"
 	},
 	{
-		"name": "OAuth",
-		"url": "oauth"
+	  "value": "next_js",
+	  "en": "Next.js",
+	  "pl": "Next.js",
+	  "route_en": "next-js",
+	  "route_pl": "next-js"
 	},
 	{
-		"name": "ORM",
-		"url": "orm"
+	  "value": "nosql",
+	  "en": "NoSQL",
+	  "pl": "NoSQL",
+	  "route_en": "nosql",
+	  "route_pl": "nosql"
 	},
 	{
-		"name": "Objective C",
-		"url": "objective-c"
+	  "value": "node_js",
+	  "en": "Node.js",
+	  "pl": "Node.js",
+	  "route_en": "node-js",
+	  "route_pl": "node-js"
 	},
 	{
-		"name": "OpenID Connect",
-		"url": "openid-connect"
+	  "value": "numpy",
+	  "en": "NumPy",
+	  "pl": "NumPy",
+	  "route_en": "numpy",
+	  "route_pl": "numpy"
 	},
 	{
-		"name": "PHP",
-		"url": "php"
+	  "value": "oauth",
+	  "en": "OAuth",
+	  "pl": "OAuth",
+	  "route_en": "oauth",
+	  "route_pl": "oauth"
 	},
 	{
-		"name": "Pandas",
-		"url": "pandas"
+	  "value": "orm",
+	  "en": "ORM",
+	  "pl": "ORM",
+	  "route_en": "orm",
+	  "route_pl": "orm"
 	},
 	{
-		"name": "Penetration Testing",
-		"url": "penetration-testing"
+	  "value": "objective_c",
+	  "en": "Objective C",
+	  "pl": "Objective C",
+	  "route_en": "objective-c",
+	  "route_pl": "objective-c"
 	},
 	{
-		"name": "PostgreSQL",
-		"url": "postgresql"
+	  "value": "openid_connect",
+	  "en": "OpenID Connect",
+	  "pl": "OpenID Connect",
+	  "route_en": "openid-connect",
+	  "route_pl": "openid-connect"
 	},
 	{
-		"name": "Power BI",
-		"url": "power-bi"
+	  "value": "php",
+	  "en": "PHP",
+	  "pl": "PHP",
+	  "route_en": "php",
+	  "route_pl": "php"
 	},
 	{
-		"name": "PowerShell",
-		"url": "powershell"
+	  "value": "pandas",
+	  "en": "Pandas",
+	  "pl": "Pandas",
+	  "route_en": "pandas",
+	  "route_pl": "pandas"
 	},
 	{
-		"name": "Prisma",
-		"url": "prisma"
+	  "value": "penetration_testing",
+	  "en": "Penetration Testing",
+	  "pl": "Testowanie Penetracyjne",
+	  "route_en": "penetration-testing",
+	  "route_pl": "testowanie-penetracyjne"
 	},
 	{
-		"name": "Problem Solving",
-		"url": "problem-solving"
+	  "value": "postgresql",
+	  "en": "PostgreSQL",
+	  "pl": "PostgreSQL",
+	  "route_en": "postgresql",
+	  "route_pl": "postgresql"
 	},
 	{
-		"name": "Programming",
-		"url": "programming"
+	  "value": "powerbi",
+	  "en": "Power BI",
+	  "pl": "Power BI",
+	  "route_en": "powerbi",
+	  "route_pl": "powerbi"
 	},
 	{
-		"name": "Project Management",
-		"url": "project-management"
+	  "value": "powershell",
+	  "en": "PowerShell",
+	  "pl": "PowerShell",
+	  "route_en": "powershell",
+	  "route_pl": "powershell"
 	},
 	{
-		"name": "Project Ownership",
-		"url": "project-ownership"
+	  "value": "prisma",
+	  "en": "Prisma",
+	  "pl": "Prisma",
+	  "route_en": "prisma",
+	  "route_pl": "prisma"
 	},
 	{
-		"name": "PyTest",
-		"url": "pytest"
+	  "value": "problem_solving",
+	  "en": "Problem Solving",
+	  "pl": "Rozwiązywanie problemów",
+	  "route_en": "problem-solving",
+	  "route_pl": "rozwiazywanie-problemow"
 	},
 	{
-		"name": "PyTorch",
-		"url": "pytorch"
+	  "value": "programming",
+	  "en": "Programming",
+	  "pl": "Programowanie",
+	  "route_en": "programming",
+	  "route_pl": "programowanie"
 	},
 	{
-		"name": "Python",
-		"url": "python"
+	  "value": "project_management",
+	  "en": "Project Management",
+	  "pl": "Zarządzanie projektami",
+	  "route_en": "project-management",
+	  "route_pl": "zarzadzanie-projektami"
 	},
 	{
-		"name": "R",
-		"url": "r"
+	  "value": "project_ownership",
+	  "en": "Project Ownership",
+	  "pl": "Własność Projektu",
+	  "route_en": "project-ownership",
+	  "route_pl": "wlasnosc-projektu"
 	},
 	{
-		"name": "REST",
-		"url": "rest"
+	  "value": "pytest",
+	  "en": "PyTest",
+	  "pl": "PyTest",
+	  "route_en": "pytest",
+	  "route_pl": "pytest"
 	},
 	{
-		"name": "React",
-		"url": "react"
+	  "value": "pytorch",
+	  "en": "PyTorch",
+	  "pl": "PyTorch",
+	  "route_en": "pytorch",
+	  "route_pl": "pytorch"
 	},
 	{
-		"name": "React Native",
-		"url": "react-native"
+	  "value": "python",
+	  "en": "Python",
+	  "pl": "Python",
+	  "route_en": "python",
+	  "route_pl": "python"
 	},
 	{
-		"name": "Redis",
-		"url": "redis"
+	  "value": "r",
+	  "en": "R",
+	  "pl": "R",
+	  "route_en": "r",
+	  "route_pl": "r"
 	},
 	{
-		"name": "Ruby",
-		"url": "ruby"
+	  "value": "rest",
+	  "en": "REST",
+	  "pl": "REST",
+	  "route_en": "rest",
+	  "route_pl": "rest"
 	},
 	{
-		"name": "Ruby on Rails",
-		"url": "ruby-on-rails"
+	  "value": "react",
+	  "en": "React",
+	  "pl": "React",
+	  "route_en": "react",
+	  "route_pl": "react"
 	},
 	{
-		"name": "Rust",
-		"url": "rust"
+	  "value": "react_native",
+	  "en": "React Native",
+	  "pl": "React Native",
+	  "route_en": "react-native",
+	  "route_pl": "react-native"
 	},
 	{
-		"name": "SOLID",
-		"url": "solid"
+	  "value": "redis",
+	  "en": "Redis",
+	  "pl": "Redis",
+	  "route_en": "redis",
+	  "route_pl": "redis"
 	},
 	{
-		"name": "SPA",
-		"url": "spa"
+	  "value": "ruby",
+	  "en": "Ruby",
+	  "pl": "Ruby",
+	  "route_en": "ruby",
+	  "route_pl": "ruby"
 	},
 	{
-		"name": "SQL",
-		"url": "sql"
+	  "value": "ruby_on_rails",
+	  "en": "Ruby on Rails",
+	  "pl": "Ruby on Rails",
+	  "route_en": "ruby-on-rails",
+	  "route_pl": "ruby-on-rails"
 	},
 	{
-		"name": "SQLite",
-		"url": "sqllite"
+	  "value": "rust",
+	  "en": "Rust",
+	  "pl": "Rust",
+	  "route_en": "rust",
+	  "route_pl": "rust"
 	},
 	{
-		"name": "SSL/TLS",
-		"url": "ssl-tls"
+	  "value": "solid",
+	  "en": "SOLID",
+	  "pl": "SOLID",
+	  "route_en": "solid",
+	  "route_pl": "solid"
 	},
 	{
-		"name": "SSR",
-		"url": "ssr"
+	  "value": "spa",
+	  "en": "SPA",
+	  "pl": "SPA",
+	  "route_en": "spa",
+	  "route_pl": "spa"
 	},
 	{
-		"name": "SWR",
-		"url": "swr"
+	  "value": "sql",
+	  "en": "SQL",
+	  "pl": "SQL",
+	  "route_en": "sql",
+	  "route_pl": "sql"
 	},
 	{
-		"name": "Sass",
-		"url": "sass"
+	  "value": "sqlite",
+	  "en": "SQLite",
+	  "pl": "SQLite",
+	  "route_en": "sqlite",
+	  "route_pl": "sqlite"
 	},
 	{
-		"name": "Scala",
-		"url": "scala"
+	  "value": "ssl_tls",
+	  "en": "SSL/TLS",
+	  "pl": "SSL/TLS",
+	  "route_en": "ssl-tls",
+	  "route_pl": "ssl-tls"
 	},
 	{
-		"name": "Security",
-		"url": "security"
+	  "value": "ssr",
+	  "en": "SSR",
+	  "pl": "SSR",
+	  "route_en": "ssr",
+	  "route_pl": "ssr"
 	},
 	{
-		"name": "Selenium",
-		"url": "selenium"
+	  "value": "swr",
+	  "en": "SWR",
+	  "pl": "SWR",
+	  "route_en": "swr",
+	  "route_pl": "swr"
 	},
 	{
-		"name": "Shell",
-		"url": "shell"
+	  "value": "sass",
+	  "en": "Sass",
+	  "pl": "Sass",
+	  "route_en": "sass",
+	  "route_pl": "sass"
 	},
 	{
-		"name": "Solidity",
-		"url": "solidity"
+	  "value": "scala",
+	  "en": "Scala",
+	  "pl": "Scala",
+	  "route_en": "scala",
+	  "route_pl": "scala"
 	},
 	{
-		"name": "Spring Boot",
-		"url": "spring-boot"
+	  "value": "security",
+	  "en": "Security",
+	  "pl": "Bezpieczeństwo",
+	  "route_en": "security",
+	  "route_pl": "bezpieczenstwo"
 	},
 	{
-		"name": "Svelte",
-		"url": "svelte"
+	  "value": "selenium",
+	  "en": "Selenium",
+	  "pl": "Selenium",
+	  "route_en": "selenium",
+	  "route_pl": "selenium"
 	},
 	{
-		"name": "Swift",
-		"url": "swift"
+	  "value": "shell",
+	  "en": "Shell",
+	  "pl": "Powłoka (Shell)",
+	  "route_en": "shell",
+	  "route_pl": "powloka-shell"
 	},
 	{
-		"name": "TCP/IP",
-		"url": "tcp-ip"
+	  "value": "solidity",
+	  "en": "Solidity",
+	  "pl": "Solidity",
+	  "route_en": "solidity",
+	  "route_pl": "solidity"
 	},
 	{
-		"name": "TensorFlow",
-		"url": "tensorflow"
+	  "value": "spark",
+	  "en": "Spark",
+	  "pl": "Spark",
+	  "route_en": "spark",
+	  "route_pl": "spark"
 	},
 	{
-		"name": "Terraform",
-		"url": "terraform"
+	  "value": "spring_boot",
+	  "en": "Spring Boot",
+	  "pl": "Spring Boot",
+	  "route_en": "spring-boot",
+	  "route_pl": "spring-boot"
 	},
 	{
-		"name": "Testing",
-		"url": "testing"
+	  "value": "svelte",
+	  "en": "Svelte",
+	  "pl": "Svelte",
+	  "route_en": "svelte",
+	  "route_pl": "svelte"
 	},
 	{
-		"name": "Travis CI",
-		"url": "travis-ci"
+	  "value": "swift",
+	  "en": "Swift",
+	  "pl": "Swift",
+	  "route_en": "swift",
+	  "route_pl": "swift"
 	},
 	{
-		"name": "TypeORM",
-		"url": "typeorm"
+	  "value": "tcp_ip",
+	  "en": "TCP/IP",
+	  "pl": "TCP/IP",
+	  "route_en": "tcp-ip",
+	  "route_pl": "tcp-ip"
 	},
 	{
-		"name": "TypeScript",
-		"url": "typescript"
+	  "value": "tdd_test_driven_development",
+	  "en": "Test Driven Development (TDD)",
+	  "pl": "Test Driven Development (TDD)",
+	  "route_en": "tdd-test-driven-development",
+	  "route_pl": "tdd-test-driven-development"
 	},
 	{
-		"name": "UI",
-		"url": "ui"
+	  "value": "tensorflow",
+	  "en": "TensorFlow",
+	  "pl": "TensorFlow",
+	  "route_en": "tensorflow",
+	  "route_pl": "tensorflow"
 	},
 	{
-		"name": "UX",
-		"url": "ux"
+	  "value": "testing",
+	  "en": "Testing",
+	  "pl": "Testowanie",
+	  "route_en": "testing",
+	  "route_pl": "testowanie"
 	},
 	{
-		"name": "Unity",
-		"url": "unity"
+	  "value": "testng",
+	  "en": "TestNG",
+	  "pl": "TestNG",
+	  "route_en": "testng",
+	  "route_pl": "testng"
 	},
 	{
-		"name": "VPN",
-		"url": "vpn"
+	  "value": "typescript",
+	  "en": "TypeScript",
+	  "pl": "TypeScript",
+	  "route_en": "typescript",
+	  "route_pl": "typescript"
 	},
 	{
-		"name": "Version Control",
-		"url": "version-control"
+	  "value": "uikit",
+	  "en": "UIKit",
+	  "pl": "UIKit",
+	  "route_en": "uikit",
+	  "route_pl": "uikit"
 	},
 	{
-		"name": "Vite",
-		"url": "vite"
+	  "value": "user_experience_ui",
+	  "en": "User Experience (UI)",
+	  "pl": "User Experience (UI)",
+	  "route_en": "user-experience-ui",
+	  "route_pl": "user-experience-ui"
 	},
 	{
-		"name": "Vue.js",
-		"url": "vuejs"
+	  "value": "user_interface_ui",
+	  "en": "User Interface (UI)",
+	  "pl": "Interfejs Użytkownika (UI)",
+	  "route_en": "user-interface-ui",
+	  "route_pl": "interfejs-użytkownika-ui"
 	},
 	{
-		"name": "Web Development",
-		"url": "web-development"
+	  "value": "unity",
+	  "en": "Unity",
+	  "pl": "Unity",
+	  "route_en": "unity",
+	  "route_pl": "unity"
 	},
 	{
-		"name": "WebSockets",
-		"url": "websockets"
+	  "value": "unix",
+	  "en": "Unix",
+	  "pl": "Unix",
+	  "route_en": "unix",
+	  "route_pl": "unix"
 	},
 	{
-		"name": "Webpack",
-		"url": "webpack"
+	  "value": "version_control",
+	  "en": "Version Control",
+	  "pl": "Kontrola Wersji",
+	  "route_en": "version-control",
+	  "route_pl": "kontrola-wersji"
 	},
 	{
-		"name": "Windows",
-		"url": "windows"
+	  "value": "vuejs",
+	  "en": "Vue.js",
+	  "pl": "Vue.js",
+	  "route_en": "vuejs",
+	  "route_pl": "vuejs"
 	},
 	{
-		"name": "XML",
-		"url": "xml"
+	  "value": "webdriverio",
+	  "en": "WebdriverIO",
+	  "pl": "WebdriverIO",
+	  "route_en": "webdriverio",
+	  "route_pl": "webdriverio"
 	},
 	{
-		"name": "YAML",
-		"url": "yaml"
+	  "value": "web_development",
+	  "en": "Web Development",
+	  "pl": "Web Development",
+	  "route_en": "web-development",
+	  "route_pl": "web-development"
 	},
 	{
-		"name": "containerization ",
-		"url": "containerization "
+	  "value": "webpack",
+	  "en": "Webpack",
+	  "pl": "Webpack",
+	  "route_en": "webpack",
+	  "route_pl": "webpack"
 	},
 	{
-		"name": "iOS",
-		"url": "ios"
+	  "value": "xml",
+	  "en": "XML",
+	  "pl": "XML",
+	  "route_en": "xml",
+	  "route_pl": "xml"
 	},
 	{
-		"name": "jQuery",
-		"url": "jquery"
+	  "value": "yaml",
+	  "en": "YAML",
+	  "pl": "YAML",
+	  "route_en": "yaml",
+	  "route_pl": "yaml"
 	}
-]
+  ]
+  

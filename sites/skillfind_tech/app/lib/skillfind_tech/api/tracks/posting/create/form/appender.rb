@@ -103,7 +103,13 @@ module SkillfindTech
               end
 
               def selectableSkills
-                @selectableSkills ||= ::SkillfindTech::Skill.all
+                @selectableSkills ||= ::SkillfindTech::Skill.all.map do |skill|
+                  {
+                    value: skill['value'],
+                    display: skill[lang],
+                    queryParam: skill["route_#{lang}"],
+                  }
+                end
               end
 
               def asset_names

@@ -17,9 +17,9 @@ module SkillfindTech
                   arr = nil
                   
                   selectedSkills.map do |selectedSkill|
-                    whereArray << "(name = ? AND level <= ?)"
+                    whereArray << "(route_#{lang} = ? AND level <= ?)"
                     whereString = whereArray.join(' OR ')
-                    whereDataArray << selectedSkill[:value]
+                    whereDataArray << selectedSkill[:queryParam]
                     whereDataArray << (selectedSkill[:level] == '0' ? '5' : selectedSkill[:level])
   
                     arr = [whereString] + whereDataArray
@@ -96,7 +96,7 @@ module SkillfindTech
               path_suffix_string = ''
 
               postingSelectedSkills(posting).map do |skill|
-                path_suffix_string = path_suffix_string + "-#{skill[:name].parameterize}-#{skill_levels[skill[:level] - 1][lang]}"
+                path_suffix_string = path_suffix_string + "-#{skill["route_#{lang}"]}-#{skill_levels[skill[:level] - 1][lang]}"
               end
 
               path_suffix_string.downcase
@@ -114,7 +114,8 @@ module SkillfindTech
             def postingSelectedSkills(posting)
               posting.selected_skills.map do |selected_skill|
                 {
-                  name: selected_skill.skill.name,
+                  value: selected_skill.skill.value,
+                  display: selected_skill.skill[lang],
                   level: selected_skill.level,
                 }
               end

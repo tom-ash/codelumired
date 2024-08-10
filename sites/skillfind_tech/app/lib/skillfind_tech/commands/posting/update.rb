@@ -59,7 +59,7 @@ module SkillfindTech
         def add_new_skills
           selected_skills.each do |selected_skill|
             @posting.selected_skills.create!(
-              skill: ::SkillfindTech::Skill.find_by(name: selected_skill[:name]),
+              skill: ::SkillfindTech::Skill.find_by(value: selected_skill[:value]),
               level: selected_skill[:level],
             )
           end
