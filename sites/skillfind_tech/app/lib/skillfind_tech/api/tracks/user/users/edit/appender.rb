@@ -9,7 +9,6 @@ module SkillfindTech
             class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
               include ::SkillfindTech::Api::Tracks::User::Users::Edit::Meta
               include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
-              include ::SkillfindTech::Api::Tracks::User::New::Form::State::Inputs
 
               def authorize!
                 raise ::Api::UnauthorizedError unless authenticated_user.present?
@@ -42,7 +41,7 @@ module SkillfindTech
               end
 
               def asset_names
-                header_asset_names + ['userCog', 'close']
+                header_asset_names + industryIcons + ['userCog', 'close']
               end
             end
           end

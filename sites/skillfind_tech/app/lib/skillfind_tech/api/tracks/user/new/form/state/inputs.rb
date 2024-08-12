@@ -20,19 +20,7 @@ module SkillfindTech
                     emailAddress: EMPTY_STRING,
                     password: EMPTY_STRING,
                     termsOfServiceConsent: false,
-                    # HTTPS_PROTOCOL_PREFIX
                   }
-                end
-
-                def industrySelectOptions
-                  industries = JSON.parse(File.read('sites/skillfind_tech/fixtures/industries.json'))
-  
-                  @industrySelectOptions ||= industries.map do |industry|
-                    {
-                      value: industry['value'],
-                      text: industry[lang.to_s]
-                    }
-                  end
                 end
               end
             end

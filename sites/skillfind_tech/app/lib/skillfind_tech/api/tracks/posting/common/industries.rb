@@ -37,6 +37,16 @@ module SkillfindTech
                 }
               end
             end
+
+            def industrySelectOptions
+              @industrySelectOptions ||= industries.sort_by { |industry| industry[lang.to_s] }.map do |industry|
+                {
+                  value: industry['value'],
+                  text: industry[lang.to_s],
+                  icon: industry['icon'],
+                }
+              end
+            end
           end
         end
       end

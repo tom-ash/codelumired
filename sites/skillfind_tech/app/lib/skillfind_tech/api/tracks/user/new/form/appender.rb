@@ -9,6 +9,7 @@ module SkillfindTech
             class Appender < ::SkillfindTech::Api::Tracks::Common::Appender
               include ::SkillfindTech::Api::Tracks::User::New::Form::State
               include ::SkillfindTech::Api::Tracks::User::New::Form::Meta
+              include ::SkillfindTech::Api::Tracks::Posting::Common::Industries
 
               private
               
@@ -17,7 +18,7 @@ module SkillfindTech
               end
 
               def asset_names
-                @asset_names ||= header_asset_names + ['plus', 'rotate', 'close', 'dot', 'emptyDot']
+                @asset_names ||= header_asset_names + industryIcons + ['plus', 'rotate', 'close', 'dot', 'emptyDot']
               end
             end
           end
