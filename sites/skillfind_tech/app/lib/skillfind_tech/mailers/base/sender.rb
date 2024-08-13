@@ -35,7 +35,7 @@ module SkillfindTech
         end
 
         def localizations
-          @base_localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/mailers/base/localizations/#{lang}.json")
+          @base_localizations ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/mailers/base/localizations/#{lang}.json")
         end
       end
     end

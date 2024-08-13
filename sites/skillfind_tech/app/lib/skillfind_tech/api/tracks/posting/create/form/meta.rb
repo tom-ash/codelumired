@@ -7,6 +7,8 @@ module SkillfindTech
         module Create
           module Form
             module Meta
+              include ::Helpers::MetaLocalizations
+
               TRACK = 'listings/new/form'
 
               UNLOCALIZED_PATH = {
@@ -21,6 +23,10 @@ module SkillfindTech
 
               private
 
+              def track
+                @track ||= TRACK
+              end
+
               def label
                 {
                   en: 'Add Posting',
@@ -32,28 +38,12 @@ module SkillfindTech
                 'plus'
               end
 
-              def track
-                @track ||= TRACK
-              end
-
               def unlocalized_path
                 @unlocalized_path ||= UNLOCALIZED_PATH
               end
 
-              def unlocalized_title
-                @unlocalized_title ||= UNLOCALIZED_TITLE
-              end
-
-              def unlocalized_keywords
-                @unlocalized_keywords ||= {
-                  en: 'TODO',
-                }.freeze
-              end
-
-              def unlocalized_description
-                @unlocalized_description ||= {
-                  en: 'TODO',
-                }.freeze
+              def metaLozalizationPath
+                @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/meta/#{lang}.json"
               end
 
               def render

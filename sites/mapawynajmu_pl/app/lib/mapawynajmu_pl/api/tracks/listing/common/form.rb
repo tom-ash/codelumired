@@ -13,7 +13,7 @@ module MapawynajmuPl
             private
 
             def listing_form_texts
-              getTexts('sites/mapawynajmu_pl/app/lib/mapawynajmu_pl/api/tracks/listing/common/form_texts.json')[lang].merge(promotion_texts)
+              getLocalizations('sites/mapawynajmu_pl/app/lib/mapawynajmu_pl/api/tracks/listing/common/form_texts.json')[lang].merge(promotion_texts)
             end
 
             def listing_form_inputs

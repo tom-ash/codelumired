@@ -16,11 +16,11 @@ module SkillfindTech
               private
 
               def localizations
-                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/postings/index/localizations/#{lang}.json")
+                @localizations ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/postings/index/localizations/#{lang}.json")
               end
 
               def remunerationLocalizations
-                @remunerationLocalizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/common/localizations/remuneration/#{lang}.json")
+                @remunerationLocalizations ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/common/localizations/remuneration/#{lang}.json")
               end
 
               def authorize!

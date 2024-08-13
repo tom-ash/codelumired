@@ -6,16 +6,13 @@ module SkillfindTech
       module Visitor
         module Contact
           module Meta
+            include ::Helpers::MetaLocalizations
+
             TRACK = 'visitor/contact'
 
             UNLOCALIZED_PATH = {
               en: 'contact',
               pl: 'kontakt',
-            }.freeze
-
-            UNLOCALIZED_TITLE = {
-              en: 'Contact',
-              pl: 'Kontakt',
             }.freeze
 
             PRIORITY = '0.8'
@@ -32,22 +29,8 @@ module SkillfindTech
               @unlocalized_path ||= UNLOCALIZED_PATH
             end
 
-            def unlocalized_title
-              @unlocalized_title ||= UNLOCALIZED_TITLE
-            end
-
-            def unlocalized_keywords
-              @unlocalized_keywords ||= {
-                en: 'contact, skillfind.tech, IT, dev, programming, board, job, knowledge, repository',
-                # TODO: Add :pl!
-              }.freeze
-            end
-
-            def unlocalized_description
-              @unlocalized_description ||= {
-                en: 'Contact to skillfind.tech, an IT skill driven job board & knowledge repository.',
-                # TODO: Add :pl!
-              }.freeze
+            def metaLozalizationPath
+              @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/visitor/contact/localizations/meta/#{lang}.json"
             end
 
             def render

@@ -16,7 +16,7 @@ module SkillfindTech
               EMPTY_TEXT = ''
 
               def localizations
-                @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/#{lang}.json")
+                @localizations ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/#{lang}.json")
               end
 
               def texts

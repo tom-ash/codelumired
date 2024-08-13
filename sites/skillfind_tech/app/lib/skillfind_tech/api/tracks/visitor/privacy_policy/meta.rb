@@ -6,6 +6,8 @@ module SkillfindTech
       module Visitor
         module PrivacyPolicy
           module Meta
+            include ::Helpers::MetaLocalizations
+
             TRACK = 'visitor/privacy-policy'
 
             UNLOCALIZED_PATH = {
@@ -32,22 +34,8 @@ module SkillfindTech
               @unlocalized_path ||= UNLOCALIZED_PATH
             end
 
-            def unlocalized_title
-              @unlocalized_title ||= UNLOCALIZED_TITLE
-            end
-
-            def unlocalized_keywords
-              @unlocalized_keywords ||= {
-                en: 'privacy policy, skillfind.tech, IT, dev, programming, board, job, knowledge, repository',
-                # TODO: Add :pl.
-              }.freeze
-            end
-
-            def unlocalized_description
-              @unlocalized_description ||= {
-                en: 'Privacy Policy of skillfind.tech, an IT skill driven job board & knowledge repository.',
-                # TODO: Add :pl.
-              }.freeze
+            def metaLozalizationPath
+              @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/visitor/privacy_policy/localizations/meta/#{lang}.json"
             end
 
             def render

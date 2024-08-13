@@ -76,7 +76,7 @@ module Api
           @request_ip ||= attrs[:request_ip]
         end
 
-        def getTexts(path)
+        def getLocalizations(path)
           JSON.parse(File.read(path)).deep_symbolize_keys
         end
       end

@@ -6,6 +6,8 @@ module SkillfindTech
       module User
         module ResetPassword
           module Meta
+            include ::Helpers::MetaLocalizations
+
             TRACK = 'user/password-reset'
 
             UNLOCALIZED_PATH = {
@@ -28,22 +30,8 @@ module SkillfindTech
               @unlocalized_path ||= UNLOCALIZED_PATH
             end
 
-            def unlocalized_title
-              @unlocalized_title ||= UNLOCALIZED_TITLE
-            end
-
-            def unlocalized_keywords
-              @unlocalized_keywords ||= {
-                pl: "hasło, reset, resetowanie, konto, użytkownik, #{MAPAWYNAJMU_PL_NAME}, ogłoszenia, wynajem, nieruchomości, warszawa",
-                en: "password, reset, account, user, #{MAPAWYNAJMU_PL_NAME}, announcement, lease, real estate, warsaw",
-              }.freeze
-            end
-
-            def unlocalized_description
-              @unlocalized_description ||= {
-                pl: "Resetowanie hasła do konta na #{MAPAWYNAJMU_PL_NAME} - serwisu z ogłoszeniami wynajmu nieruchomości w Warszawie.",
-                en: "Account password reset on #{MAPAWYNAJMU_PL_NAME} - a service featuring real estate lease announcements in Warsaw.",
-              }.freeze
+            def metaLozalizationPath
+              @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/reset_password/localizations/meta/#{lang}.json"
             end
 
             def render
