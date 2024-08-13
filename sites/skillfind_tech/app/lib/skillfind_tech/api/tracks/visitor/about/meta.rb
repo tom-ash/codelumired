@@ -6,16 +6,13 @@ module SkillfindTech
       module Visitor
         module About
           module Meta
+            include ::Helpers::MetaLocalizations
+
             TRACK = 'visitor/about-skillfind-tech'
 
             UNLOCALIZED_PATH = {
               en: 'about-skillfind-tech',
               pl: 'pl/o-skillfind-tech',
-            }.freeze
-
-            UNLOCALIZED_TITLE = {
-              en: 'About skillfind.tech',
-              pl: 'O skillfind.tech',
             }.freeze
 
             private
@@ -28,22 +25,8 @@ module SkillfindTech
               @unlocalized_path ||= UNLOCALIZED_PATH
             end
 
-            def unlocalized_title
-              @unlocalized_title ||= UNLOCALIZED_TITLE
-            end
-
-            def unlocalized_keywords
-              @unlocalized_keywords ||= {
-                en: 'contact, skillfind.tech, IT, dev, programming, board, job, knowledge, repository',
-                # TODO: Add :pl!
-              }.freeze
-            end
-
-            def unlocalized_description
-              @unlocalized_description ||= {
-                en: 'Contact to skillfind.tech, an IT skill driven job board & knowledge repository.',
-                # TODO: Add :pl!
-              }.freeze
+            def metaLozalizationPath
+              @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/visitor/about/localizations/meta/#{lang}.json"
             end
 
             def render

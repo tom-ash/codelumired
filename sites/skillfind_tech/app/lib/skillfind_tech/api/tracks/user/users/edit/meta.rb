@@ -7,16 +7,13 @@ module SkillfindTech
         module Users
           module Edit
             module Meta
+              include ::Helpers::MetaLocalizations
+
               TRACK = 'user/users/edit'
 
               UNLOCALIZED_PATH = {
                 en: 'account',
                 pl: 'pl/konto',
-              }.freeze
-
-              UNLOCALIZED_TITLE = {
-                en: 'Account',
-                pl: 'Konto',
               }.freeze
 
               private
@@ -40,20 +37,8 @@ module SkillfindTech
                 @unlocalized_path ||= UNLOCALIZED_PATH
               end
 
-              def unlocalized_title
-                @unlocalized_title ||= UNLOCALIZED_TITLE
-              end
-
-              def unlocalized_keywords
-                @unlocalized_keywords ||= {
-                  en: 'TODO',
-                }.freeze
-              end
-
-              def unlocalized_description
-                @unlocalized_description ||= {
-                  en: 'TODO',
-                }.freeze
+              def metaLozalizationPath
+                @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/users/edit/localizations/meta/#{lang}.json"
               end
 
               def render

@@ -7,6 +7,8 @@ module SkillfindTech
         module Postings
           module Edit
             module Meta
+              include ::Helpers::MetaLocalizations
+
               TRACK = 'user/postings/edit'
 
               EN_PATH = '^edit-posting/(?<posting_id>\d+)$'
@@ -17,16 +19,7 @@ module SkillfindTech
                 pl: %r{#{PL_PATH}},
               }.freeze
 
-              UNLOCALIZED_TITLE = {
-                en: 'Edit Posting',
-                pl: 'Edytuj ogłoszenie',
-              }.freeze
-
               private
-
-              def label
-                'ASDASDASDAS'
-              end
 
               def track
                 @track ||= TRACK
@@ -36,20 +29,8 @@ module SkillfindTech
                 @unlocalized_path ||= UNLOCALIZED_PATH
               end
 
-              def unlocalized_title
-                @unlocalized_title ||= UNLOCALIZED_TITLE
-              end
-
-              def unlocalized_keywords
-                @unlocalized_keywords ||= {
-                  en: 'TODO',
-                }.freeze
-              end
-
-              def unlocalized_description
-                @unlocalized_description ||= {
-                  en: 'TODO',
-                }.freeze
+              def metaLozalizationPath
+                @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/postings/edit/localizations/meta/#{lang}.json"
               end
 
               def render
@@ -60,8 +41,8 @@ module SkillfindTech
 
               def links
                 {
-                  'current/en': ::SkillfindTech::Api::Tracks::Posting::Create::Form::Linker.new(:en).call,
-                  'current/pl': ::SkillfindTech::Api::Tracks::Posting::Create::Form::Linker.new(:pl).call,
+                  'current/en': ::SkillfindTech::Api::Tracks::User::Postings::Edit::Linker.new(posting: posting, lang: :en).call,
+                  'current/pl': ::SkillfindTech::Api::Tracks::User::Postings::Edit::Linker.new(posting: posting, lang: :pl).call,
                 }
               end
             end

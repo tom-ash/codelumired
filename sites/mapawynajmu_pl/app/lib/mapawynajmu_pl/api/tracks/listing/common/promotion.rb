@@ -9,7 +9,7 @@ module MapawynajmuPl
             private
 
             def promotion_texts
-              @promotion_texts ||= getTexts('sites/mapawynajmu_pl/app/lib/mapawynajmu_pl/api/tracks/listing/common/promotion_texts.json')[lang]
+              @promotion_texts ||= getLocalizations('sites/mapawynajmu_pl/app/lib/mapawynajmu_pl/api/tracks/listing/common/promotion_texts.json')[lang]
             end
           end
         end

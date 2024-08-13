@@ -16,11 +16,11 @@ module SkillfindTech
               EMPTY_TEXT = ''
 
               def localizations
-                @localizations ||= user_localizations.merge(getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/#{lang}.json"))
+                @localizations ||= user_localizations.merge(getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/create/form/localizations/#{lang}.json"))
               end
 
               def user_localizations
-                @user_localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/new/form/localizations/#{lang}.json")
+                @user_localizations ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/new/form/localizations/#{lang}.json")
               end
 
               def texts

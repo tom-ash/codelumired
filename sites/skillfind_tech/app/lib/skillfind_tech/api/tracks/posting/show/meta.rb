@@ -16,19 +16,10 @@ module SkillfindTech
               pl: %r{^pl\/#{POSTINGS_SHOW_PL}$},
             }.freeze
 
-            UNLOCALIZED_TITLE = {
-              en: 'TODO',
-              pl: 'TODO',
-            }.freeze
-
             private
 
             def match_data
               @match_data ||= unlocalized_path[lang].match(url)
-            end
-
-            def label
-              'TODO'
             end
 
             def track
@@ -37,10 +28,6 @@ module SkillfindTech
 
             def unlocalized_path
               @unlocalized_path ||= UNLOCALIZED_PATH
-            end
-
-            def unlocalized_title
-              @unlocalized_title ||= UNLOCALIZED_TITLE
             end
 
             def unlocalized_keywords
@@ -55,6 +42,10 @@ module SkillfindTech
               }.freeze
             end
 
+            def title
+              @title ||=  "#{posting.position} | skillfind.tech"
+            end
+
             def render
               {
                 'visitor': true,
@@ -67,13 +58,8 @@ module SkillfindTech
               {
                 'current/en': ::SkillfindTech::Api::Tracks::Posting::Show::Linker.new(:en).call,
                 'current/pl': ::SkillfindTech::Api::Tracks::Posting::Show::Linker.new(:pl).call,
-                # 'root': rootLink,
               }
             end
-
-            # def rootLink
-            #   @rootLink ||= ::SkillfindTech::Api::Tracks::Root::Linker.new(lang).call
-            # end
           end
         end
       end

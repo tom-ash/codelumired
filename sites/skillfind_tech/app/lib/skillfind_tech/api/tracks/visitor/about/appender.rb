@@ -11,7 +11,7 @@ module SkillfindTech
             private
 
             def texts
-              getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/visitor/about/localizations/#{lang}.json")
+              getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/visitor/about/localizations/#{lang}.json")
             end
 
             def asset_names

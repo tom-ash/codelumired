@@ -128,7 +128,7 @@ module SkillfindTech
             end
 
             def localizedCooperationModes
-              @localizedCooperationModes ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/common/localizations/cooperation-modes/#{lang}.json")[:cooperationModes]
+              @localizedCooperationModes ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/common/localizations/cooperation-modes/#{lang}.json")[:cooperationModes]
             end
 
             def postings_user_id

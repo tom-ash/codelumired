@@ -3,7 +3,7 @@ module Helpers
   module Texts
     private
 
-    def getTexts(path)
+    def getLocalizations(path)
       JSON.parse(File.read(path)).deep_symbolize_keys
     end
   end

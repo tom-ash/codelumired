@@ -31,7 +31,7 @@ module SkillfindTech
             end
 
             def localizations
-              @localizations ||= super.merge(getTexts("sites/skillfind_tech/app/lib/skillfind_tech/mailers/poster/verification/account/localizations/#{lang}.json"))
+              @localizations ||= super.merge(getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/mailers/poster/verification/account/localizations/#{lang}.json"))
             end
           end
         end

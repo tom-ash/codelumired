@@ -16,11 +16,11 @@ module SkillfindTech
             private
 
             def rootLocalizations
-              @rootLocalizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/root/localizations/#{lang}.json")
+              @rootLocalizations ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/root/localizations/#{lang}.json")
             end
 
             def localizations
-              @localizations ||= getTexts("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/show/localizations/#{lang}.json")
+              @localizations ||= getLocalizations("sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/posting/show/localizations/#{lang}.json")
             end
 
             def texts

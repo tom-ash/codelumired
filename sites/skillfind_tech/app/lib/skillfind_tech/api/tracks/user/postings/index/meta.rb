@@ -7,16 +7,13 @@ module SkillfindTech
         module Postings
           module Index
             module Meta
+              include ::Helpers::MetaLocalizations
+
               TRACK = 'user/postings/index'
 
               UNLOCALIZED_PATH = {
                 en: 'added-postings',
                 pl: 'pl/dodane-ogloszenia',
-              }.freeze
-
-              UNLOCALIZED_TITLE = {
-                en: 'Added Postings',
-                pl: 'Dodane ogłoszenia',
               }.freeze
 
               private
@@ -29,20 +26,8 @@ module SkillfindTech
                 @unlocalized_path ||= UNLOCALIZED_PATH
               end
 
-              def unlocalized_title
-                @unlocalized_title ||= UNLOCALIZED_TITLE
-              end
-
-              def unlocalized_keywords
-                @unlocalized_keywords ||= {
-                  en: 'TOOD',
-                }.freeze
-              end
-
-              def unlocalized_description
-                @unlocalized_description ||= {
-                  en: 'TODO',
-                }.freeze
+              def metaLozalizationPath
+                @metaLozalizationPath ||= "sites/skillfind_tech/app/lib/skillfind_tech/api/tracks/user/postings/index/localizations/meta/#{lang}.json"
               end
 
               def render
