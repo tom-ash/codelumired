@@ -72,8 +72,6 @@ module SkillfindTech
 
           encodedAccessToken = ::Ciphers::Jwt::Encoder.new(id: user.id).call
 
-          posting = ::SkillfindTech::Posting.last
-
           temporary_logo ||= Aws::S3::Object.new(
             credentials: CREDS,
             region: Rails.application.secrets.aws_region,
@@ -85,6 +83,10 @@ module SkillfindTech
           temporary_logo.move_to("#{bucket}/logos/#{user.logo}")
 
           user.save!
+
+          posting = ::SkillfindTech::Posting.find_by(
+            user_id: user_id,
+          )
 
           if posting
             posting.verified = true
