@@ -29,8 +29,8 @@ module SkillfindTech
 
               def label
                 {
-                  en: 'Add Posting',
-                  pl: 'Dodaj ogłoszenie',
+                  en: 'Add Posting For Free',
+                  pl: 'Dodaj ogłoszenie za darmo',
                 }[lang]
               end
 
