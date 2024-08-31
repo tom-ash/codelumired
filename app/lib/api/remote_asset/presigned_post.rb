@@ -27,7 +27,6 @@ module Api
           success_action_status: '201',
           content_type: mime_type,
         )
-
         {
           fields: post.fields,
           url: post.url,

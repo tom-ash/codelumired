@@ -17,7 +17,7 @@ module Api
           bucket,
           key: key,
           success_action_status: '201',
-          acl: 'public-read',
+          # acl: 'public-read',
           content_type: content_type
         )
 
