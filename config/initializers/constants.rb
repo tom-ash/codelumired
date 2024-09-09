@@ -29,7 +29,7 @@ SKILLFIND_TECH_APEX_DOMAIN = 'skillfind.tech'
 SKILLFIND_TECH_DOMAIN = SKILLFIND_TECH_APEX_DOMAIN
 SKILLFIND_TECH_NAME_LANGS = %i[en pl].freeze
 SKILLFIND_TECH_URL = "https://#{SKILLFIND_TECH_DOMAIN}"
-SKILLFIND_TECH_IMAGE = 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg'
+SKILLFIND_TECH_IMAGE = 'https://skillfind-tech.s3.eu-central-1.amazonaws.com/images/skillfind-tech.jpeg'
 SKILLFIND_TECH_API_URL = 'https://warsaw-digital-server.herokuapp.com/skillfind-tech'
 
 # mapawynajmu.pl
