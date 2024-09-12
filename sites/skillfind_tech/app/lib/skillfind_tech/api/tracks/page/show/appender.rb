@@ -39,6 +39,7 @@ module SkillfindTech
                 signOut
                 earthGlobe
                 home
+                magnifyingGlass
               ] + header_asset_names
             end
 
