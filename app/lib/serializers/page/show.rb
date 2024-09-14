@@ -29,6 +29,7 @@ module Serializers
           :published_on,
           :modified_on,
           :lang_alts_group,
+          :content_type,
         ).merge(
           page_lang: page[:lang],
           lang_ver_urls: lang_ver_urls,
