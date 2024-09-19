@@ -111,6 +111,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
             lang: 'pl',
           },
         ],
+        contentType: nil,
       }
     end
     let(:visitor_inputs) { {} }

@@ -12,35 +12,38 @@ RSpec.describe ::SkillfindTech::Api::Methods::Postings do
   end
   let(:params) do
     {
+      position: 'Fullstack JavaScript Developer',
+      cooperation_mode: 'remote',
+      lat: 52,
+      lng: 12,
+      place_id: 'test',
+      place_autocomplete: 'test',
+      employment: false,
+      image: 'test',
+      form_application_manner: true,
+      link_application_manner: false,
+      country: 'test',
+      locality: 'test',
       selected_skills: [
         {
-          name: 'JavaScript',
-          level: 5,
+          value: 'JavaScript',
+          level: 4,
         },
         {
-          name: 'Ruby',
-          level: 5,
+          value: 'Ruby',
+          level: 4,
         }
       ],
       b2b: false,
-      # requires :remote, type: Boolean
-      # requires :hybrid, type: Boolean
-      # requires :office, type: Boolean
-      # requires :b2b, type: Boolean
-      # requires :selected_skills, type: Array
-      # # requires :remote, type: Boolean
-      # # requires :hybrid, type: Boolean
-      # # requires :office, type: Boolean
-      # requires :b2b, type: Boolean
-      # optional :b2b_min, type: Integer
-      # optional :b2b_max, type: Integer
     }
   end
 
-  describe '/promote' do
+  describe 'create' do
     before(:each) do
       create(:javascript_skill)
       create(:ruby_skill)
+
+      allow(Aws::S3::Object).to receive(:new).and_return(double(move_to: nil))
     end
 
     describe 'POST /promote' do

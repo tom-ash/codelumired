@@ -236,7 +236,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         title: 'test_title',
         keywords: nil,
         description: 'test_description',
-        image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
+        image: 'https://skillfind-tech.s3.eu-central-1.amazonaws.com/images/skillfind-tech.jpeg',
         siteName: 'skillfind.tech',
         url: 'http://local.skillfind.tech:8080/javascript/practice-problems/test',
         type: 'website',
@@ -273,7 +273,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         title: 'test_title',
         keywords: nil,
         description: 'test_description',
-        image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
+        image: 'https://skillfind-tech.s3.eu-central-1.amazonaws.com/images/skillfind-tech.jpeg',
         langs: [
           'en',
           'pl'

@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :ruby_skill, class: ::SkillfindTech::Skill do
-    name { 'Ruby' }
-    type { ::SkillfindTech::Language }
-    description { 'TODO' }
+    value { 'Ruby' }
+    route_en { 'ruby' }
+    route_pl { 'ruby' }
   end
 end

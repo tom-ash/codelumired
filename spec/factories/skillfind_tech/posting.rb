@@ -4,11 +4,7 @@ FactoryBot.define do
   factory :skillfind_tech_posting, class: ::SkillfindTech::Posting do
     user { create(:skillfind_tech_user) }
     views { 0 }
-    company_name { 'TEST' }
     company_size { 1 }
-    remote { true }
-    hybrid { true }
-    office { true }
     country { 'Poland' }
     locality { 'Warsaw' }
     employment { true }
@@ -17,6 +13,14 @@ FactoryBot.define do
     employment_max { 0 }
     b2b_min { 0 }
     b2b_max { 0 }
-    description { 'foobar' }
+    cooperation_mode { 'remote' }
+    place_autocomplete { 'test' }
+    place_id { 'test' }
+    link_application_manner { true }
+    form_application_manner { false }
+    verified { true }
+    position { 'test' }
+    lat { 52 }
+    lng { 12 }
   end
 end
