@@ -103,7 +103,14 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       {
         categoryFilterPanel: false,
         areaFilterPanel: false,
-        isPinsDrawn: false
+        isPinsDrawn: false,
+        mapOptions: {
+          center: {
+            lat: 52,
+            lng: 19
+          },
+          zoom: 6.7
+        },
       }
     end
     let(:visitor_data) do
@@ -111,12 +118,13 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         currentCategory: nil,
         currentPartnerName: nil,
         title: 'Mapa wynajmu nieruchomości w Polsce',
-        tile: nil,
         announcements: [],
         amount: 0,
+        tile: nil,
         categorySvgName: 'list',
         areaSvgName: 'area',
-        priceSvgName: 'coins'
+        priceSvgName: 'coins',
+        articles: [],
       }
     end
     let(:visitor_inputs) do

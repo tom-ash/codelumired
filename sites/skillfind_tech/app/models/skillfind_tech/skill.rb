@@ -9,7 +9,7 @@ module SkillfindTech
     has_many :selected_skills
     has_many :jobs, through: :selected_skills
 
-    validates :name, presence: true, uniqueness: true # TODO: Add unique index to :name.
-    validates :type, presence: true
+    # validates :name, presence: true, uniqueness: true # TODO: Add unique index to :name.
+    # validates :type, presence: true
   end
 end

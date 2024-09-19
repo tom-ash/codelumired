@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :javascript_selected_skill, class: ::SkillfindTech::SelectedSkill do
-    level { 5 }
+    level { 4 }
   end
 end

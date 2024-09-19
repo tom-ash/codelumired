@@ -20,8 +20,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
       {
         visitor: true,
         announcement: true,
-        'announcement/index': true,
-        'announcement/index/map': true,
+        'listings/show': true,
       }
     end
     let(:visitor_user) do
@@ -118,6 +117,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
           },
           zoom: 12.4,
         },
+        isSSR: false,
       }
     end
     let(:visitor_data) do
@@ -160,6 +160,8 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         :categorySvgName=>"list",
         :areaSvgName=>"area",
         :priceSvgName=>"coins",
+        articles: [],
+        currentListingId: listing.id,
       }
     end
     let(:visitor_inputs) do

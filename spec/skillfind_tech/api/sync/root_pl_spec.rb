@@ -16,7 +16,8 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     let(:visitor_render) do
       {
         visitor: true,
-        renderPostingIndex: true,
+        postings: true,
+        'postings/index': true,
         renderVisitorPageIndex: true,
       }
     end
@@ -31,15 +32,17 @@ RSpec.describe ::SkillfindTech::Api::Sync do
       common_links.merge(
         'current/en': {
           href: '/',
-          title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
+          title: 'IT Skill Board | skillfind.tech',
           label: nil,
           hrefLang: 'en',
+          icon: nil,
         },
         'current/pl': {
           href: '/pl',
-          title: 'skillfind.tech | Tablica ogłoszeń IT z umiejętnościami i repozytorium wiedzy',
+          title: 'Tablica umiejętności IT | skillfind.tech',
           label: nil,
           hrefLang: 'pl',
+          icon: nil,
         },
         facebook: {
           external: true,
@@ -53,11 +56,14 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:visitor_texts) do
       {
-        skillsHeading: 'Hone your tech skills',
+        skillSelectPlaceholder: 'Search skills',
+        b2bContract: 'B2B',
+        b2bPer: 'h',
+        employmentContract: 'Emp.',
+        employmentPer: 'm',
         signOutButtonLabel: 'Sign Out',
         showMyAccountMenuButtonLabel: 'My account',
         allRightsReserved: '',
-        featuredArticlesHeading: 'Featured Articles', # TODO: Missing translation.
       }
     end
     let(:visitor_assets) do
@@ -66,7 +72,16 @@ RSpec.describe ::SkillfindTech::Api::Sync do
       }
     end
     let(:visitor_control) do
-      {}
+      {
+        isPinsDrawn: false,
+        mapOptions: {
+          center: {
+            lat: 38,
+            lng: 12
+          },
+          zoom: 2
+        },
+      }
     end
     let(:visitor_data) do
       {
@@ -76,7 +91,10 @@ RSpec.describe ::SkillfindTech::Api::Sync do
       }
     end
     let(:visitor_inputs) do
-      {}
+      {
+        selectableSkills: [],
+        selectedSkills: [],
+      }
     end
     let(:schemaOrg) do
       {
@@ -88,10 +106,10 @@ RSpec.describe ::SkillfindTech::Api::Sync do
             '@type': 'WebSite',
             url: 'http://local.skillfind.tech:8080',
             inLanguage: 'en',
-            name: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
-            description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
-            keywords: 'skillfind.tech, job, board, IT, dev, programming, coding, code, knowledge, repository, cheat sheet',
-            image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
+            name: 'IT Skill Board | skillfind.tech',
+            description: 'skillfind.tech is an IT skill board. Add & search skill driven job postings. Start for free.',
+            keywords: 'skillfind.tech, skill, find, tech, it, skills, board, job, jobs, talent, talents, dev, development, technology, programming, coding',
+            image: 'https://skillfind-tech.s3.eu-central-1.amazonaws.com/images/skillfind-tech.jpeg',
             isFamilyFriendly: true,
           },
         ],
@@ -99,10 +117,10 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     end
     let(:openGraph) do
       {
-        title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
-        keywords: 'skillfind.tech, job, board, IT, dev, programming, coding, code, knowledge, repository, cheat sheet',
-        description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
-        image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
+        title: 'IT Skill Board | skillfind.tech',
+        keywords: 'skillfind.tech, skill, find, tech, it, skills, board, job, jobs, talent, talents, dev, development, technology, programming, coding',
+        description: 'skillfind.tech is an IT skill board. Add & search skill driven job postings. Start for free.',
+        image: 'https://skillfind-tech.s3.eu-central-1.amazonaws.com/images/skillfind-tech.jpeg',
         siteName: 'skillfind.tech',
         url: 'http://local.skillfind.tech:8080',
         type: 'website',
@@ -118,10 +136,10 @@ RSpec.describe ::SkillfindTech::Api::Sync do
     let(:meta) do
       {
         lang: 'en',
-        title: 'skillfind.tech | IT Skill Driven Posting Board & Knowledge Repository',
-        keywords: 'skillfind.tech, job, board, IT, dev, programming, coding, code, knowledge, repository, cheat sheet',
-        description: 'skillfind.tech is an IT skill driven job board and a knowledge repository. Add and search jobs and learn with us.',
-        image: 'https://soundofit.s3.eu-central-1.amazonaws.com/soundof.it.jpeg',
+        title: 'IT Skill Board | skillfind.tech',
+        keywords: 'skillfind.tech, skill, find, tech, it, skills, board, job, jobs, talent, talents, dev, development, technology, programming, coding',
+        description: 'skillfind.tech is an IT skill board. Add & search skill driven job postings. Start for free.',
+        image: 'https://skillfind-tech.s3.eu-central-1.amazonaws.com/images/skillfind-tech.jpeg',
         langs: ['en', 'pl'],
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.skillfind.tech:8080',
@@ -129,11 +147,11 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         openGraph: openGraph,
         alternateLangLinks: [
           {
-            href: "http://local.skillfind.tech:8080/",
+            href: 'http://local.skillfind.tech:8080/',
             hrefLang: 'en',
           },
           {
-            href: "http://local.skillfind.tech:8080/pl",
+            href: 'http://local.skillfind.tech:8080/pl',
             hrefLang: 'pl',
           },
         ],
@@ -166,23 +184,53 @@ RSpec.describe ::SkillfindTech::Api::Sync do
       context 'when postings exist' do
         let(:posting) { create(:skillfind_tech_posting, user: user) }
         let(:javascript_skill) { create(:javascript_skill) }
-        let!(:javascript_selected_skill) { create(:javascript_selected_skill, posting: posting, skill: javascript_skill) }
+        let!(:javascript_selected_skill) {
+          create(
+            :javascript_selected_skill,
+            posting: posting,
+            skill: javascript_skill,
+          )
+        }
 
         it 'includes postings in data in state' do
           subject
-          expect(body[:state][:data][:postings]).to eq([
+          expect(body[:state][:data][:postings]).to match([
             {
-              :b2b=>true,
-              :b2bMax=>0,
-              :b2bMin=>0,
-              :id=>posting.id,
-              :skills=> [
+              id: posting.id,
+              createdAt: an_instance_of(String),
+              href: "/#{posting.id}--expert",
+              activeUntil: nil,
+              logo: 'https://skillfind-tech-dev.s3.eu-central-1.amazonaws.com/logos/',
+              businessName: nil,
+              position: 'test',
+              industry: 'Software House',
+              industryIcon: 'laptopWithCode',
+              b2b: true,
+              b2bCurrency: nil,
+              b2bMax: 0,
+              b2bMin: 0,
+              employment: true,
+              employmentCurrency: nil,
+              employmentMax: 0,
+              employmentMin: 0,
+              cooperationMode: {
+                icon: 'earthGlobe',
+                label: 'Remote',
+                symbol: 'earthGlobe',
+                value: 'remote'
+              },
+              country: 'Poland',
+              lat: 52.0,
+              lng: 12.0,
+              locality: 'Warsaw',
+              sublocality: nil,
+              skills: [
                 {
-                  id: nil,
-                  name: 'JavaScript',
-                  level: 5,
-                }
-              ]
+                  display: nil,
+                  level: 4,
+                  value: 'JavaScript'
+                },
+              ],
             }
           ])
         end
