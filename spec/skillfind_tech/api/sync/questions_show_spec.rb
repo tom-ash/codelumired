@@ -282,7 +282,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         openGraph: openGraph,
         robots: 'index,follow,all',
         canonicalUrl: 'http://local.skillfind.tech:8080/javascript/practice-problems/test',
-        alternateLangLinks: [
+        alternateLinks: [
           {
             href: 'http://local.skillfind.tech:8080/TODO',
             hrefLang: 'en',

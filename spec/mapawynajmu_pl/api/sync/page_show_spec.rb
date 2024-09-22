@@ -193,7 +193,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         schemaOrg: schemaOrg,
         openGraph: openGraph,
         author: "John Doe",
-        alternateLangLinks: nil,
+        alternateLinks: nil,
       }
     end
     let(:user_user) do

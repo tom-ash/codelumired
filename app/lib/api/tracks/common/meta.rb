@@ -17,7 +17,7 @@ module Api
             open_graph: open_graph,
             robots: robots,
             canonical_url: canonical_url,
-            alternateLangLinks: alternateLangLinks,
+            alternateLinks: alternateLinks,
             **author,
           )
         end
@@ -67,7 +67,7 @@ module Api
           @canonical_url ||= full_url
         end
 
-        def alternateLangLinks
+        def alternateLinks
           langLinks = []
 
           langs.map do |lang|

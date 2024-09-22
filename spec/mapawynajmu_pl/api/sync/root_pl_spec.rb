@@ -189,7 +189,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         canonicalUrl: 'http://local.mapawynajmu.pl:8080',
         schemaOrg: schemaOrg,
         openGraph: openGraph,
-        alternateLangLinks: [
+        alternateLinks: [
           {
             href: 'http://local.mapawynajmu.pl:8080/',
             hrefLang: 'pl',

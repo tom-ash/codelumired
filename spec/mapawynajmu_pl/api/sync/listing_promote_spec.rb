@@ -123,7 +123,7 @@ RSpec.describe ::MapawynajmuPl::Api::Sync do
         canonicalUrl: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
         schemaOrg: schemaOrg,
         openGraph: openGraph,
-        alternateLangLinks: [
+        alternateLinks: [
           {
             href: "http://local.mapawynajmu.pl:8080/wyroznij-ogloszenie/#{listing_id}",
             hrefLang: 'pl',

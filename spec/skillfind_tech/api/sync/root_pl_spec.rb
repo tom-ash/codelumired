@@ -145,7 +145,7 @@ RSpec.describe ::SkillfindTech::Api::Sync do
         canonicalUrl: 'http://local.skillfind.tech:8080',
         schemaOrg: schemaOrg,
         openGraph: openGraph,
-        alternateLangLinks: [
+        alternateLinks: [
           {
             href: 'http://local.skillfind.tech:8080/',
             hrefLang: 'en',
