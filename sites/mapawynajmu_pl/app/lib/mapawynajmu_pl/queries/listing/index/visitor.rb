@@ -34,7 +34,7 @@ module MapawynajmuPl
           attr_reader :partner, :category, :area_min, :area_max, :price_min, :price_max, :lat, :lng
 
           def announcements
-            @announcement ||= ::MapawynajmuPl::Listing.limit(30).where(search_params)
+            @announcement ||= ::MapawynajmuPl::Listing.where(search_params)
                                                            .order('is_promoted DESC')
                                                            .order('points DESC')
                                                            .order('active_until DESC NULLS LAST')
