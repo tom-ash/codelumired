@@ -23,6 +23,7 @@ module MapawynajmuPl
           sublocality
           name
           link
+          social_image
         ].freeze
 
         def initialize(id:, attrs:)
@@ -32,7 +33,8 @@ module MapawynajmuPl
 
         def call
           persist_pictures
-          announcement.update!(parsed_attrs)
+          persist_social_image
+          listing.update!(parsed_attrs)
         end
 
         private
@@ -42,13 +44,21 @@ module MapawynajmuPl
         def persist_pictures
           pictures_to_persist.each do |picture|
             ::PersistedObject.new("temporary/#{picture}").move_to(
-              "announcements/#{announcement.id}/#{picture}",
+              "announcements/#{listing.id}/#{picture}",
             )
           end
         end
 
-        def announcement
-          @announcement ||= MapawynajmuPl::Listing.find(id)
+        def persist_social_image
+          social_image = direct_attrs[:social_image]
+
+          ::PersistedObject.new("temporary/#{social_image}").move_to(
+            "listings/#{listing.id}/social_image/#{social_image}",
+          )
+        end
+
+        def listing
+          @listing ||= MapawynajmuPl::Listing.find(id)
         end
 
         def pictures_to_persist
@@ -66,7 +76,7 @@ module MapawynajmuPl
         end
 
         def current_picture_keys
-          @current_picture_keys ||= announcement.pictures.map do |picture|
+          @current_picture_keys ||= listing.pictures.map do |picture|
             picture['database']
           end
         end
@@ -82,7 +92,7 @@ module MapawynajmuPl
         end
 
         def direct_attrs
-          attrs.slice(*DIRECT_ATTR_NAMES)
+          @direct_attrs ||= attrs.slice(*DIRECT_ATTR_NAMES)
         end
 
         def net_rent_amount_object

@@ -28,6 +28,7 @@ module MapawynajmuPl
           name
           link
           is_promoted
+          # social_image
         ].freeze
 
         def initialize(announcement)

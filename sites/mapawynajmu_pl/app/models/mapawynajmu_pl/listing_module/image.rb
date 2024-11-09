@@ -4,6 +4,10 @@ module MapawynajmuPl
   module ListingModule
     module Image
       def image
+        if social_image
+          return "#{aws_s3_url}/listings/#{id}/social_image/#{social_image}"
+        end
+
         "#{aws_s3_url}/#{announcement_path}/#{key}"
       end
 

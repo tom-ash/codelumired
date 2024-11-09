@@ -22,6 +22,7 @@ module MapawynajmuPl
                   announcement: ::MapawynajmuPl::Serializers::Listing::Show.new(announcement).call.merge(
                     href: "/#{announcement.url(lang)}",
                     title: announcement.title(lang),
+                    image: announcement.image,
                   ),
                 }
               end

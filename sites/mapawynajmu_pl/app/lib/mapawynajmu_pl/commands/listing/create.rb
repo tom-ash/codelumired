@@ -21,6 +21,7 @@ module MapawynajmuPl
           english_description
           locality
           sublocality
+          social_image
         ].freeze
         STATIC_ATTRS = { status: 1, points: 0, views: 0, reports: [], visible: true, change_log: [] }.freeze
 
@@ -32,24 +33,33 @@ module MapawynajmuPl
         def call
           create_announcement
           move_pictures
+          persist_social_image
         end
 
         private
 
         attr_reader :user_id, :attrs
 
-        def create_announcement
-          announcement.save!
+        def persist_social_image
+          social_image = direct_attrs[:social_image]
+
+          ::PersistedObject.new("temporary/#{social_image}").move_to(
+            "listings/#{listing.id}/social_image/#{social_image}",
+          )
         end
 
-        def announcement
-          @announcement ||= user.listings.new(parsed_attrs)
+        def create_announcement
+          listing.save!
+        end
+
+        def listing
+          @listing ||= user.listings.new(parsed_attrs)
         end
 
         def move_pictures
           attrs[:pictures].each do |picture|
             ::PersistedObject.new("temporary/#{picture[:database]}").move_to(
-              "announcements/#{announcement.id}/#{picture[:database]}",
+              "announcements/#{listing.id}/#{picture[:database]}",
             )
           end
         end

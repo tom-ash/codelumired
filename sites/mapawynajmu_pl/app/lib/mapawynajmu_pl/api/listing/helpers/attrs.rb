@@ -13,6 +13,7 @@ module MapawynajmuPl
               requires :latitude, type: Float
               requires :longitude, type: Float
               requires :pictures, type: Array
+              requires :social_image, type: String
               optional :locality, type: String
               optional :sublocality, type: String
               optional :route, type: String

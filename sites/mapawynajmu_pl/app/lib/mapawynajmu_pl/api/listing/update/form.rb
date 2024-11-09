@@ -19,7 +19,7 @@ module MapawynajmuPl
 
             ::MapawynajmuPl::Commands::Listing::Update.new(
               id: listing_id,
-              attrs: params[:announcement]
+              attrs: params[:announcement],
             ).call
 
             if add_promotion
