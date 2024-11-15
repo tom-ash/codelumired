@@ -2,11 +2,13 @@
   "pl": {
     "promoteButtonLabel": "Wyróżnij ogłoszenie",
     "shareOnFacebookButtonLabel": "Udostępnij na Facebook'u",
-    "congratulations": "Gratulacje! Twoje ogłoszenie zostało dodane!"
+    "congratulations": "Gratulacje! Twoje ogłoszenie zostało dodane!",
+    "socialImageExplanation": "Tak będzie wyglądało Twoje ogłoszenie, gdy udostępnisz je na Facebook'u lub w innych mediach społecznościowych."
   },
   "en": {
     "promoteButtonLabel": "Promote the Listing",
     "shareOnFacebookButtonLabel": "Share on Facebook",
-    "congratulations": "Congratulations! Your Announcement has been added!"
+    "congratulations": "Congratulations! Your Announcement has been added!",
+    "socialImageExplanation": "Here's how your announcement will look when you share it on Facebook or other social media platforms."
   }
 }
